@@ -8,6 +8,19 @@
     <div class="school-logo school-logo-placeholder" aria-hidden="true"></div>
     {%- endif -%}
     <p class="school-name">{{ label }}</p>
+    {%- if school.pool and school.pool.size > 0 -%}
+      {%- for pool in school.pool -%}
+    <a class="school-pool" href="{{ pool.google-maps }}" target="_blank" rel="noopener" title="{{ pool.name }}">
+      <span class="fa-solid fa-location-dot" aria-hidden="true"></span>
+      Pool Location
+    </a>
+      {%- endfor -%}
+    {%- else -%}
+    <span class="school-pool school-pool-placeholder" aria-hidden="true">
+      <span class="fa-solid fa-location-dot" aria-hidden="true"></span>
+      Pool Location
+    </span>
+    {%- endif -%}
     {%- if school.instagram -%}
     <a class="school-instagram" href="{{ school.instagram }}" target="_blank" rel="noopener me" title="{{ label }} on Instagram">
       <span class="fa-brands fa-instagram" aria-hidden="true"></span>

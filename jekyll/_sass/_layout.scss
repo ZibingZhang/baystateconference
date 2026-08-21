@@ -439,6 +439,24 @@
   font-weight: 600;
 }
 
+.school-pool {
+  @include relative-font-size(0.9375);
+  display: block;
+  color: $brand-color-dimmed;
+
+  &:hover {
+    color: $link-base-color;
+  }
+
+  .fa-solid {
+    margin-right: 4px;
+  }
+}
+
+.school-pool-placeholder {
+  visibility: hidden;
+}
+
 .school-instagram {
   @include relative-font-size(0.9375);
   color: $brand-color-dimmed;
