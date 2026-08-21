@@ -4,7 +4,7 @@ title: Dual Meets
 permalink: /results/dual-meets/
 ---
 
-{%- assign meets = site.data["dual-meet-schedule"] | sort: "Date" -%}
+{%- assign meets = site.data["dual-meet-schedule"] -%}
 
 <table>
   <thead>
