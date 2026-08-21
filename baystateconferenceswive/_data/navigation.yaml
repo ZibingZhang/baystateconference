@@ -1,0 +1,49 @@
+# Site navigation. Each top-level item can have an optional `children` list;
+# items with children show a hover-out submenu (tap-to-expand on mobile).
+- title: Home
+  url: /
+
+- title: About
+  url: /about/
+  children:
+    - title: Bay State Conference
+      url: /about/bay-state-conference/
+    - title: MIAA
+      url: /about/miaa/
+    - title: NFHS
+      url: /about/nfhs/
+    - title: EMISCA
+      url: /about/emisca/
+
+- title: Events
+  url: /events/
+  children:
+    - title: Dual Meets
+      url: /events/dual-meets/
+    - title: Bay State Conference Meet
+      url: /events/bay-state-conference-meet/
+    - title: Championship Meets
+      url: /events/championship-meets/
+
+- title: Results
+  url: /results/
+  children:
+    - title: Dual Meets
+      url: /results/dual-meets/
+    - title: Bay State Conference Meet
+      url: /results/bay-state-conference-meet/
+    - title: Championship Meets
+      url: /results/championship-meets/
+    - title: Previous Seasons
+      url: /results/previous-seasons/
+
+- title: Records
+  url: /records/
+
+- title: Archive
+  url: /archive/
+  children:
+    - title: Previous Season Results
+      url: /archive/previous-season-results/
+    - title: Previous Season Documents
+      url: /archive/previous-season-documents/

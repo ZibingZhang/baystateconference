@@ -1,0 +1,24 @@
+<div class="school-grid">
+  {%- for school in site.data.schools -%}
+  {%- assign label = school.name | append: ' ' | append: school.team-name -%}
+  <div class="school-card">
+    {%- if school.logo -%}
+    <img class="school-logo" src="{{ school.logo }}" alt="{{ label }} logo" loading="lazy">
+    {%- else -%}
+    <div class="school-logo school-logo-placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+    <p class="school-name">{{ label }}</p>
+    {%- if school.instagram -%}
+    <a class="school-instagram" href="{{ school.instagram }}" target="_blank" rel="noopener me" title="{{ label }} on Instagram">
+      <span class="fa-brands fa-instagram" aria-hidden="true"></span>
+      Instagram
+    </a>
+    {%- else -%}
+    <span class="school-instagram school-instagram-placeholder" aria-hidden="true">
+      <span class="fa-brands fa-instagram" aria-hidden="true"></span>
+      Instagram
+    </span>
+    {%- endif -%}
+  </div>
+  {%- endfor -%}
+</div>

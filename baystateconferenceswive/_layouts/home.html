@@ -1,0 +1,14 @@
+---
+layout: base
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  <h2 class="school-grid-heading">Bay State Conference Teams</h2>
+  {%- include school-grid.html -%}
+</div>

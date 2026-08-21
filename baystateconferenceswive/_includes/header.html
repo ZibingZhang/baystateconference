@@ -1,0 +1,17 @@
+<header class="site-header">
+
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+    {%- unless site.data.navigation == empty %}
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon"></span>
+        </label>
+
+        {% include nav-items.html %}
+      </nav>
+    {%- endunless %}
+  </div>
+</header>

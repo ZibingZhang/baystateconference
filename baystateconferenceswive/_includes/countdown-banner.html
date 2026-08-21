@@ -1,0 +1,12 @@
+{%- if page.countdowns and page.countdowns.size > 0 -%}
+<div class="countdown-banner">
+  {%- for item in page.countdowns -%}
+  <div class="countdown-item">
+    <span class="countdown-label">{{ item.label | escape }}</span>
+    <span class="countdown-timer" data-target="{{ item.date | date_to_xmlschema }}">&nbsp;</span>
+  </div>
+  {%- endfor -%}
+</div>
+
+<script src="{{ '/assets/js/countdown.js' | relative_url }}" defer></script>
+{%- endif -%}
