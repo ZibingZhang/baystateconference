@@ -402,7 +402,7 @@
   gap: $spacing-unit;
   margin-bottom: $spacing-unit;
 
-  @include media-query($on-medium) {
+  @include media-query($on-laptop) {
     grid-template-columns: repeat(2, 1fr);
   }
 
