@@ -1,0 +1,27 @@
+{%- comment -%}
+  Renders a human-readable label for a single lowercase, hyphenated URL path
+  segment, e.g. "bay-state-conference" -> "Bay State Conference". A whole-
+  segment or per-word entry in _data/acronyms.yaml overrides the default
+  title-casing. Also leaves `matched_acronym` set in the caller's scope
+  (true/false) so callers can tell whether an acronym applied.
+
+  Usage: {% capture label %}{% include url-label.html segment=segment %}{% endcapture %}
+{%- endcomment -%}
+{%- assign matched_acronym = false -%}
+{%- assign full_override = site.data.acronyms[include.segment] -%}
+{%- if full_override -%}
+  {%- assign matched_acronym = true -%}
+{{- full_override -}}
+{%- else -%}
+  {%- assign words = include.segment | replace: '-', ' ' | split: ' ' -%}
+  {%- for word in words -%}
+    {%- assign acronym = site.data.acronyms[word] -%}
+    {%- if acronym -%}
+      {%- assign matched_acronym = true -%}
+{{- acronym -}}
+    {%- else -%}
+{{- word | capitalize -}}
+    {%- endif -%}
+    {%- unless forloop.last %} {% endunless -%}
+  {%- endfor -%}
+{%- endif -%}

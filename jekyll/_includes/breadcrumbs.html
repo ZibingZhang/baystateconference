@@ -15,24 +15,7 @@
         {%- assign crumb_path = crumb_path | append: '/' | append: crumb -%}
         {%- assign position = position | plus: 1 -%}
 
-        {%- assign matched_acronym = false -%}
-        {%- assign full_override = site.data.acronyms[crumb] -%}
-        {%- if full_override -%}
-          {%- assign label = full_override -%}
-          {%- assign matched_acronym = true -%}
-        {%- else -%}
-          {%- assign words = crumb | replace: '-', ' ' | split: ' ' -%}
-          {%- assign label = '' -%}
-          {%- for word in words -%}
-            {%- assign acronym = site.data.acronyms[word] -%}
-            {%- if acronym -%}
-              {%- assign label = label | append: acronym | append: ' ' -%}
-              {%- assign matched_acronym = true -%}
-            {%- else -%}
-              {%- assign label = label | append: word | capitalize | append: ' ' -%}
-            {%- endif -%}
-          {%- endfor -%}
-        {%- endif -%}
+        {%- capture label %}{% include url-label.html segment=crumb %}{% endcapture -%}
         {%- assign label = label | strip -%}
 
         {%- if forloop.last -%}
