@@ -4,4 +4,4 @@ title: Archive
 permalink: /swimming-diving/archive/
 ---
 
-{%- include file-browser.html items=site.data.swimming-diving.file-browser.archive.index.files -%}
+{%- include file-browser.html data="archive" -%}

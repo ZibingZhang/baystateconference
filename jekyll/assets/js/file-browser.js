@@ -64,18 +64,20 @@ function isPlainClick(event) {
 }
 
 function initFileBrowser(browser) {
-  const dataScript = browser.querySelector(".file-browser-data");
+  const src = browser.dataset.src;
   const list = browser.querySelector(".file-browser-list");
   const empty = browser.querySelector(".file-browser-empty");
+  const error = browser.querySelector(".file-browser-error");
+  const loading = browser.querySelector(".file-browser-loading");
   const input = browser.querySelector(".file-browser-search-input");
 
-  if (!dataScript || !list) return;
+  if (!src || !list) return;
 
-  const rootFiles = JSON.parse(dataScript.textContent);
   const pageUrl = browser.dataset.pageUrl || "/";
   const baseurl = browser.dataset.baseurl || "";
   const s3BucketRoot = browser.dataset.s3BucketRoot || "";
 
+  let rootFiles = [];
   let currentPath = [];
 
   function pageHrefForPath(pathNames) {
@@ -227,20 +229,33 @@ function initFileBrowser(browser) {
 
   if (input) input.addEventListener("input", applyFilter);
 
-  window.addEventListener("popstate", () => {
-    const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
-    currentPath = resolved.path;
-    renderList(resolved.files);
-    updateBreadcrumbs(resolved.path);
-    applyFilter();
-  });
+  fetch(src)
+    .then((response) => {
+      if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
+      return response.json();
+    })
+    .then((data) => {
+      rootFiles = data.files;
+      if (loading) loading.hidden = true;
+      list.hidden = false;
 
-  {
-    const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
-    currentPath = resolved.path;
-    renderList(resolved.files);
-    updateBreadcrumbs(resolved.path);
-  }
+      const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
+      currentPath = resolved.path;
+      renderList(resolved.files);
+      updateBreadcrumbs(resolved.path);
+
+      window.addEventListener("popstate", () => {
+        const popResolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
+        currentPath = popResolved.path;
+        renderList(popResolved.files);
+        updateBreadcrumbs(popResolved.path);
+        applyFilter();
+      });
+    })
+    .catch(() => {
+      if (loading) loading.hidden = true;
+      if (error) error.hidden = false;
+    });
 }
 
 function initFileBrowsers() {

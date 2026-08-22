@@ -659,6 +659,27 @@
   }
 }
 
+.file-browser-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: $spacing-unit;
+  color: $brand-color-dimmed;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+// Font Awesome disables .fa-spin under prefers-reduced-motion (equal specificity,
+// but its stylesheet loads after ours, so it wins ties); this loading indicator
+// is brief and purely decorative, so we opt it back in with a more specific
+// selector that outranks Font Awesome's regardless of load order.
+.file-browser-loading .file-browser-spinner {
+  animation: fa-spin 2s infinite linear !important;
+}
+
 .file-browser-list {
   margin: 0;
   padding: 0;
@@ -689,7 +710,8 @@
   }
 }
 
-.file-browser-empty {
+.file-browser-empty,
+.file-browser-error {
   margin: 0;
   padding: $spacing-unit * 0.5;
   color: $brand-color-dimmed;
