@@ -39,6 +39,14 @@ defaults:
       path: "swimming-diving"
     values:
       nav: swimming-diving
+  - scope:
+      path: "swimming-diving/miaa/qualifying-standards"
+    values:
+      directory: false
+  - scope:
+      path: "swimming-diving/miaa/qualifying-standards/index.md"
+    values:
+      directory: true
 
 # Build settings
 # theme: minima

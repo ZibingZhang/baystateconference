@@ -1,0 +1,34 @@
+<h2>Resources</h2>
+{%- comment -%}
+  Renders a page's `resources` front matter (a list of {title, url} pairs) as
+  a bordered row list, styled like the file-browser/directory tree but with
+  no search bar — resource lists are always short, so search would just be
+  clutter. External links get an external-link icon and open in a new tab;
+  internal links get the page icon used elsewhere for pages, so it's obvious
+  at a glance whether a click leaves the site.
+
+  Usage: {% include resources.html items=page.resources %}
+{%- endcomment -%}
+{%- if include.items and include.items.size > 0 -%}
+<div class="directory-browser resource-list">
+  <ul class="directory-tree">
+    {%- for item in include.items -%}
+      {%- assign url_prefix = item.url | slice: 0, 4 | downcase -%}
+      {%- assign is_external = false -%}
+      {%- if url_prefix == "http" -%}
+        {%- assign is_external = true -%}
+      {%- endif -%}
+      <li class="directory-file">
+        <a href="{% if is_external %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>
+          {%- if is_external -%}
+          <span class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></span>
+          {%- else -%}
+          <span class="fa-solid fa-window-maximize" aria-hidden="true"></span>
+          {%- endif -%}
+          <span>{{ item.title }}</span>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+{%- endif -%}

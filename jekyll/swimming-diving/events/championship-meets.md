@@ -7,6 +7,11 @@ countdowns:
     date: "2026-11-08"
   - label: "States"
     date: "2026-11-15T16:45"
+resources:
+  - title: MIAA Website
+    url: https://www.miaa.net/swimming-diving
+  - title: Qualifying Standards
+    url: /swimming-diving/miaa/qualifying-standards/
 ---
 
 ## Sectionals
@@ -22,3 +27,5 @@ Schedule:
 - 3:00 PM: doors open for teams
 - 3:30 PM: doors open for spectators
 - 4:15 PM: meet starts
+
+{% include resources.html items=page.resources %}

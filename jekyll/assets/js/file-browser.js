@@ -165,7 +165,7 @@ function initFileBrowser(browser) {
         a.target = "_blank";
         a.rel = "noopener";
       } else if (item.url) {
-        icon.className = "fa-solid fa-file-lines";
+        icon.className = "fa-solid fa-window-maximize";
         if (item.url.startsWith("/")) {
           // Site-absolute path — points outside this file browser's own page subtree.
           a.href = `/${joinPath(baseurl, item.url)}/`.replace(/\/+/g, "/");

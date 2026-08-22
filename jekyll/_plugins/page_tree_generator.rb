@@ -10,6 +10,10 @@
 # when that path segment is itself a real page (e.g. "emisca" is both a page
 # and a folder containing "awards"); segments that are pure path components
 # with no page of their own (rare on this site) are folders with a nil url.
+#
+# A page can set `directory: false` in its front matter to be left out
+# entirely — e.g. individual qualifying-standards seasons shouldn't each get
+# listed, just the index page that links to all of them.
 module Directory
   class PageTreeGenerator < Jekyll::Generator
     safe true
@@ -23,6 +27,7 @@ module Directory
       site.pages.each do |page|
         next unless page.output_ext == ".html"
         next if page.data["redirect_to"]
+        next if page.data["directory"] == false
         next if EXCLUDED_URLS.include?(page.url)
 
         segments = page.url.split("/").reject(&:empty?)
