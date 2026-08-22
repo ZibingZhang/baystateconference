@@ -4,4 +4,4 @@ title: Events
 permalink: /events/
 ---
 
-Content coming soon.
+{%- include file-browser.html items=site.data.file-browser.events.index.files -%}

@@ -4,4 +4,4 @@ title: Results
 permalink: /results/
 ---
 
-Content coming soon.
+{%- include file-browser.html items=site.data.file-browser.results.index.files -%}

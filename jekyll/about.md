@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-TODO
+This website is meant to serve as a resource for athletes, parents, coaches and officials.
