@@ -100,6 +100,6 @@ show_excerpts: false
 social_links:
   - title: Source Code Repository at GitHub
     icon: github
-    url: "https://github.com/ZibingZhang/baystateconferenceswive"
+    url: "https://github.com/ZibingZhang/baystateconference"
 
 hide_site_feed_link: true
