@@ -21,7 +21,12 @@
           {%- assign words = crumb | replace: '-', ' ' | split: ' ' -%}
           {%- assign label = '' -%}
           {%- for word in words -%}
-            {%- assign label = label | append: word | capitalize | append: ' ' -%}
+            {%- assign acronym = site.data.acronyms[word] -%}
+            {%- if acronym -%}
+              {%- assign label = label | append: acronym | append: ' ' -%}
+            {%- else -%}
+              {%- assign label = label | append: word | capitalize | append: ' ' -%}
+            {%- endif -%}
           {%- endfor -%}
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
           <a href="{{ crumb_path | append: '/' | relative_url }}" itemprop="item"><span itemprop="name">{{ label | strip }}</span></a>

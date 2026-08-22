@@ -1,0 +1,52 @@
+---
+layout: base
+---
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {%- assign path_parts = page.url | split: '/' -%}
+  {%- assign recipients = site.data -%}
+  {%- for part in path_parts -%}
+    {%- unless part == '' -%}
+      {%- if forloop.last -%}
+        {%- assign data_key = part | append: '-recipients' -%}
+      {%- else -%}
+        {%- assign data_key = part -%}
+      {%- endif -%}
+      {%- assign recipients = recipients[data_key] -%}
+    {%- endunless -%}
+  {%- endfor -%}
+
+  {%- if recipients and recipients.size > 0 -%}
+  <section class="award-recipients">
+    <h2>Recipients</h2>
+    <table>
+      <thead>
+        <tr>
+          {%- assign first_recipient = recipients.first -%}
+          {%- for column in first_recipient -%}
+          <th>{{ column[0] }}</th>
+          {%- endfor -%}
+        </tr>
+      </thead>
+      <tbody>
+        {%- for recipient in recipients -%}
+        <tr>
+          {%- for column in recipient -%}
+          <td>{{ column[1] }}</td>
+          {%- endfor -%}
+        </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </section>
+  {%- endif -%}
+
+</article>

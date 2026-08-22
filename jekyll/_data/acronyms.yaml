@@ -1,0 +1,5 @@
+# Maps a lowercase URL-slug word to how it should display in breadcrumbs,
+# for words that shouldn't just get title-cased (e.g. acronyms).
+emisca: EMISCA
+miaa: MIAA
+nfhs: NFHS

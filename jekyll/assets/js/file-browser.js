@@ -13,18 +13,22 @@ function encodePathSegments(path) {
     .join("/");
 }
 
-function encodePathNames(names) {
-  return names.map(encodeURIComponent).join("/");
+function slugify(name) {
+  return name.trim().toLowerCase().replace(/\s+/g, "-");
 }
 
-function decodePathNames(value) {
+function encodePathNames(names) {
+  return names.map((name) => encodeURIComponent(slugify(name))).join("/");
+}
+
+function decodePathSlugs(value) {
   if (!value) return [];
   return value.split("/").filter((segment) => segment.length > 0).map(decodeURIComponent);
 }
 
-function parsePathFromLocation() {
+function parseSlugsFromLocation() {
   const params = new URLSearchParams(window.location.search);
-  return decodePathNames(params.get("path"));
+  return decodePathSlugs(params.get("path"));
 }
 
 function findFilesAtPath(rootFiles, pathNames) {
@@ -37,6 +41,22 @@ function findFilesAtPath(rootFiles, pathNames) {
   }
 
   return current;
+}
+
+// Resolves URL path slugs (lowercase, dash-separated) back to the tree's
+// actual display names, so breadcrumbs and rendering always use real names.
+function resolvePathSlugs(rootFiles, slugSegments) {
+  let current = rootFiles;
+  const resolvedNames = [];
+
+  for (const slug of slugSegments) {
+    const match = current.find((item) => Array.isArray(item.files) && slugify(item.name) === slug);
+    if (!match) break;
+    resolvedNames.push(match.name);
+    current = match.files;
+  }
+
+  return { files: current, path: resolvedNames };
 }
 
 function isPlainClick(event) {
@@ -111,7 +131,12 @@ function initFileBrowser(browser) {
         a.rel = "noopener";
       } else if (item.url) {
         icon.className = "fa-solid fa-folder";
-        a.href = `/${joinPath(baseurl, pageUrl, item.url)}/`.replace(/\/+/g, "/");
+        if (item.url.startsWith("/")) {
+          // Site-absolute path — points outside this file browser's own page subtree.
+          a.href = `/${joinPath(baseurl, item.url)}/`.replace(/\/+/g, "/");
+        } else {
+          a.href = `/${joinPath(baseurl, pageUrl, item.url)}/`.replace(/\/+/g, "/");
+        }
       }
 
       const name = document.createElement("span");
@@ -203,15 +228,19 @@ function initFileBrowser(browser) {
   if (input) input.addEventListener("input", applyFilter);
 
   window.addEventListener("popstate", () => {
-    currentPath = parsePathFromLocation();
-    renderList(findFilesAtPath(rootFiles, currentPath));
-    updateBreadcrumbs(currentPath);
+    const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
+    currentPath = resolved.path;
+    renderList(resolved.files);
+    updateBreadcrumbs(resolved.path);
     applyFilter();
   });
 
-  currentPath = parsePathFromLocation();
-  renderList(findFilesAtPath(rootFiles, currentPath));
-  updateBreadcrumbs(currentPath);
+  {
+    const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
+    currentPath = resolved.path;
+    renderList(resolved.files);
+    updateBreadcrumbs(resolved.path);
+  }
 }
 
 function initFileBrowsers() {

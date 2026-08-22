@@ -608,6 +608,15 @@
   }
 }
 
+.award-recipients {
+  margin-top: $spacing-unit;
+
+  h2 {
+    @include relative-font-size(1.75);
+    margin-bottom: $spacing-unit * 0.5;
+  }
+}
+
 .calendar-embed {
   max-width: 100%;
 
