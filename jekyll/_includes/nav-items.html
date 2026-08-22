@@ -1,14 +1,18 @@
 <div class="nav-items">
   {%- for item in include.nav -%}
   <div class="nav-item-wrapper{% if item.children %} has-children{% endif %}">
+    <div class="nav-item-row">
+      {%- if item.children -%}
+      <input type="checkbox" id="nav-sub-trigger-{{ forloop.index }}" class="nav-sub-trigger" />
+      {%- endif -%}
+      <a class="nav-item" href="{% if item.url contains '://' or item.url == '#' %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">{{ item.title | escape }}</a>
+      {%- if item.children -%}
+      <label class="nav-sub-toggle" for="nav-sub-trigger-{{ forloop.index }}" aria-label="Toggle {{ item.title | escape }} submenu">
+        <span class="nav-sub-caret"></span>
+      </label>
+      {%- endif -%}
+    </div>
     {%- if item.children -%}
-    <input type="checkbox" id="nav-sub-trigger-{{ forloop.index }}" class="nav-sub-trigger" />
-    {%- endif -%}
-    <a class="nav-item" href="{% if item.url contains '://' or item.url == '#' %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">{{ item.title | escape }}</a>
-    {%- if item.children -%}
-    <label class="nav-sub-toggle" for="nav-sub-trigger-{{ forloop.index }}" aria-label="Toggle {{ item.title | escape }} submenu">
-      <span class="nav-sub-caret"></span>
-    </label>
     <ul class="nav-subitems">
       {%- for child in item.children -%}
       <li><a class="nav-subitem" href="{% if child.url contains '://' or child.url == '#' %}{{ child.url }}{% else %}{{ child.url | relative_url }}{% endif %}">{{ child.title | escape }}</a></li>

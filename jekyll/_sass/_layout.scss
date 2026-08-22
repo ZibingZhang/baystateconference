@@ -52,12 +52,21 @@
       margin-right: $spacing-unit * 0.9;
     }
 
-    &.has-children:hover,
-    &.has-children:focus-within {
-      .nav-subitems {
-        display: block;
+    // Desktop-only: on mobile the tapped checkbox/label can retain focus after
+    // being unchecked, and an unscoped :focus-within here would keep forcing
+    // the submenu open even though :checked is cleared.
+    @media screen and (min-width: $on-medium) {
+      &.has-children:hover,
+      &.has-children:focus-within {
+        .nav-subitems {
+          display: block;
+        }
       }
     }
+  }
+
+  .nav-item-row {
+    display: contents;
   }
 
   .nav-item {
@@ -169,10 +178,6 @@
           padding-bottom: 5px;
 
           .nav-item-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
             box-sizing: border-box;
             width: 100%;
             margin-right: 0;
@@ -197,16 +202,30 @@
       padding: 5px 0;
       color: $text-color;
       line-height: $base-line-height;
+      position: relative;
+      z-index: 1;
+    }
+
+    // The label spans the full row (not just the caret) so tapping anywhere
+    // in a top-level item's row toggles its submenu — a small 30x30 target
+    // is easy to miss on touch. It sits behind .nav-item-row's own link
+    // (lower z-index) so the link text itself still navigates normally.
+    .nav-item-row {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
     }
 
     // No hover on touch devices — a tap-to-expand caret reveals subsections.
     .nav-sub-toggle {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
       display: flex;
-      flex: 0 0 auto;
       align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 30px;
+      justify-content: flex-end;
       cursor: pointer;
     }
 
@@ -225,12 +244,10 @@
 
     .nav-subitems {
       display: none;
-      flex: 0 1 calc(100% - 32px);
-      box-sizing: border-box;
       position: static;
-      width: calc(100% - 32px);
-      margin-left: 32px;
-      margin-top: 4px;
+      box-sizing: border-box;
+      width: 100%;
+      margin: 4px 0 0;
       padding: 0;
       border: none;
       box-shadow: none;
@@ -252,7 +269,10 @@
       }
     }
 
-    .nav-sub-trigger:checked ~ .nav-subitems {
+    // .nav-subitems is a sibling of .nav-item-row (which contains the
+    // checkbox), not of the checkbox itself, so a plain ~ sibling selector
+    // can't reach it — :has() bridges the extra nesting level.
+    .nav-item-wrapper:has(.nav-sub-trigger:checked) .nav-subitems {
       display: block;
     }
   }
