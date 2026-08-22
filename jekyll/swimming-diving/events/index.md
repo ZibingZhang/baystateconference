@@ -4,4 +4,4 @@ title: Events
 permalink: /swimming-diving/events/
 ---
 
-{%- include file-browser.html data="events" -%}
+{% include file-browser.html data="events" %}

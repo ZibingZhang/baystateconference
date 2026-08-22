@@ -1,0 +1,2 @@
+{%- assign parts = include.email | split: "@" -%}
+<a class="obfuscated-email" data-user="{{ parts[0] }}" data-domain="{{ parts[1] }}" rel="nofollow">Loading email…</a>
