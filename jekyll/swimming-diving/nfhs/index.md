@@ -14,6 +14,6 @@ internal_links:
 
 The __National Federation of State High School Associations (NFHS)__ is the national governing body that writes the playing rules for high school sports and activities across the United States. Its membership is made up of the individual state athletic associations, such as the MIAA.[^1]
 
-{% include link-list.html items=page.external_links heading="Resources" %}
+{% include link-list.html heading="Resources" items=page.external_links %}
 
-{% include link-list.html items=page.internal_links heading="Directory" %}
+{% include link-list.html heading="Directory" items=page.internal_links %}

@@ -29,6 +29,6 @@ Schedule:
 - 3:30 PM: doors open for spectators
 - 4:15 PM: meet starts
 
-{% include link-list.html items=page.external_links heading="Resources" %}
+{% include link-list.html heading="Resources" items=page.external_links %}
 
-{% include link-list.html items=page.internal_links heading="See Also" %}
+{% include link-list.html heading="See Also" items=page.internal_links %}

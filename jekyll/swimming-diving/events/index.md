@@ -11,4 +11,4 @@ internal_links:
     url: /swimming-diving/events/championship-meets/
 ---
 
-{% include link-list.html items=page.internal_links heading="Directory" %}
+{% include link-list.html heading="Directory" items=page.internal_links %}

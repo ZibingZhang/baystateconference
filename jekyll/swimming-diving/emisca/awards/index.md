@@ -2,6 +2,7 @@
 layout: page
 title: EMISCA Awards
 permalink: /swimming-diving/emisca/awards/
+breadcrumb: Awards
 links:
   - title: Jack McDonald Memorial Award
     url: /swimming-diving/emisca/awards/jack-mcdonald-memorial-award/
@@ -13,4 +14,4 @@ links:
     url: /swimming-diving/emisca/awards/richard-a-whit-whitworth-courage-award/
 ---
 
-{% include link-list.html items=page.links heading="Awards" %}
+{% include link-list.html heading="Directory" items=page.links %}
