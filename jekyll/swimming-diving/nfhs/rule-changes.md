@@ -86,7 +86,7 @@ __2-3-1, 2-4-4__: Moves all language from referencing end wall height Rule 2-3-1
 __Rationale__: The new specifications provide consistency for high school swimming and adheres to national trends.
 
 __2-4 Table__: Establishes new nationally recognized standards for newly constructed or renovated facilities after January 1, 2023. \
-__Rationale__: The new specifications provide consistency for high school swimming and adheres to national trends.[^20222023]
+__Rationale__: The new specifications provide consistency for high school swimming and adheres to national trends.
 
 ## 2021 &ndash; 2022 [^20212022]
 
