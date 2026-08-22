@@ -659,6 +659,22 @@
   }
 }
 
+.file-browser-sort-toggle {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: $brand-color-dimmed;
+
+  &:hover,
+  &:focus-visible {
+    color: $text-color;
+  }
+}
+
 .file-browser-loading {
   display: flex;
   align-items: center;

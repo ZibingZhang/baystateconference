@@ -70,6 +70,7 @@ function initFileBrowser(browser) {
   const error = browser.querySelector(".file-browser-error");
   const loading = browser.querySelector(".file-browser-loading");
   const input = browser.querySelector(".file-browser-search-input");
+  const sortToggle = browser.querySelector(".file-browser-sort-toggle");
 
   if (!src || !list) return;
 
@@ -79,6 +80,23 @@ function initFileBrowser(browser) {
 
   let rootFiles = [];
   let currentPath = [];
+  let sortDescending = false;
+
+  function sortFiles(files) {
+    const sorted = [...files].sort((a, b) => a.name.localeCompare(b.name));
+    if (sortDescending) sorted.reverse();
+    return sorted;
+  }
+
+  function updateSortToggle() {
+    if (!sortToggle) return;
+    const icon = sortToggle.querySelector(".fa-solid");
+    const label = sortDescending ? "Sort A to Z" : "Sort Z to A";
+    icon.className = sortDescending ? "fa-solid fa-arrow-down-z-a" : "fa-solid fa-arrow-down-a-z";
+    sortToggle.setAttribute("aria-label", label);
+    sortToggle.title = label;
+    sortToggle.setAttribute("aria-pressed", String(sortDescending));
+  }
 
   function pageHrefForPath(pathNames) {
     const pageHref = joinPath(baseurl, pageUrl);
@@ -215,7 +233,7 @@ function initFileBrowser(browser) {
 
   function navigateTo(pathNames, replace) {
     currentPath = pathNames;
-    renderList(findFilesAtPath(rootFiles, pathNames));
+    renderList(sortFiles(findFilesAtPath(rootFiles, pathNames)));
     updateBreadcrumbs(pathNames);
     applyFilter();
 
@@ -229,6 +247,15 @@ function initFileBrowser(browser) {
 
   if (input) input.addEventListener("input", applyFilter);
 
+  if (sortToggle) {
+    sortToggle.addEventListener("click", () => {
+      sortDescending = !sortDescending;
+      updateSortToggle();
+      renderList(sortFiles(findFilesAtPath(rootFiles, currentPath)));
+      applyFilter();
+    });
+  }
+
   fetch(src)
     .then((response) => {
       if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
@@ -241,13 +268,13 @@ function initFileBrowser(browser) {
 
       const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
       currentPath = resolved.path;
-      renderList(resolved.files);
+      renderList(sortFiles(resolved.files));
       updateBreadcrumbs(resolved.path);
 
       window.addEventListener("popstate", () => {
         const popResolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
         currentPath = popResolved.path;
-        renderList(popResolved.files);
+        renderList(sortFiles(popResolved.files));
         updateBreadcrumbs(popResolved.path);
         applyFilter();
       });
