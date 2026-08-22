@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Bay State Conference Swimming&nbsp;&&nbsp;Diving
+title: Bay State Conference
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   The unofficial official website for the Bay State Conference Swimming & Diving.
@@ -31,6 +31,14 @@ github_username:  jekyll
 # (e.g. meet result PDFs). File-browser externalUrl paths are resolved against
 # this root, so it doesn't need to be repeated in every data file.
 s3_bucket_root: "https://d1iwlxzn02he47.cloudfront.net"
+
+# Which named nav bar (a key under _data/navigation/) each page's header uses.
+# Pages can override this directly in their own front matter with `nav:`.
+defaults:
+  - scope:
+      path: "swimming-diving"
+    values:
+      nav: swimming-diving
 
 # Build settings
 # theme: minima

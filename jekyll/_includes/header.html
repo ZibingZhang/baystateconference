@@ -3,14 +3,17 @@
   <div class="wrapper">
     <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
-    {%- unless site.data.navigation == empty %}
+    {%- assign nav_name = page.nav | default: "sports" -%}
+    {%- assign nav = site.data.navigation[nav_name] -%}
+
+    {%- unless nav == empty %}
       <nav class="site-nav">
         <input type="checkbox" id="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon"></span>
         </label>
 
-        {% include nav-items.html %}
+        {% include nav-items.html nav=nav %}
       </nav>
     {%- endunless %}
   </div>

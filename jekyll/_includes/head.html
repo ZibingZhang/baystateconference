@@ -2,6 +2,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- if page.redirect_to -%}
+  {%- assign redirect_url = page.redirect_to | relative_url -%}
+  <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
+  <script>window.location.replace("{{ redirect_url }}");</script>
+  {%- endif -%}
   {%- seo -%}
   <link id="main-stylesheet" rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   {%- feed_meta -%}

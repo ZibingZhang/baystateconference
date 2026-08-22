@@ -11,17 +11,15 @@ layout: base
     {{ content }}
   </div>
 
-  {%- assign path_parts = page.url | split: '/' -%}
+  {%- assign path_parts = page.path | split: '/' -%}
   {%- assign recipients = site.data -%}
   {%- for part in path_parts -%}
-    {%- unless part == '' -%}
-      {%- if forloop.last -%}
-        {%- assign data_key = part | append: '-recipients' -%}
-      {%- else -%}
-        {%- assign data_key = part -%}
-      {%- endif -%}
-      {%- assign recipients = recipients[data_key] -%}
-    {%- endunless -%}
+    {%- if forloop.last -%}
+      {%- assign data_key = part | remove: '.md' | append: '-recipients' -%}
+    {%- else -%}
+      {%- assign data_key = part -%}
+    {%- endif -%}
+    {%- assign recipients = recipients[data_key] -%}
   {%- endfor -%}
 
   {%- if recipients and recipients.size > 0 -%}

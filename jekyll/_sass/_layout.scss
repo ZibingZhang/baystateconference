@@ -396,10 +396,6 @@
   @include relative-font-size(1.75);
 }
 
-.school-grid-heading {
-  @include relative-font-size(1.75);
-}
-
 .school-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

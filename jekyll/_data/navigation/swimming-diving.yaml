@@ -1,0 +1,42 @@
+# Site navigation. Each top-level item can have an optional `children` list;
+# items with children show a hover-out submenu (tap-to-expand on mobile).
+- title: Home
+  url: /
+
+- title: About
+  url: /swimming-diving/about/
+  children:
+    - title: Bay State Conference
+      url: /swimming-diving/about/bay-state-conference/
+    - title: MIAA
+      url: /swimming-diving/about/miaa/
+    - title: NFHS
+      url: /swimming-diving/about/nfhs/
+    - title: EMISCA
+      url: /swimming-diving/about/emisca/
+
+- title: Events
+  url: /swimming-diving/events/
+  children:
+    - title: Dual Meets
+      url: /swimming-diving/events/dual-meets/
+    - title: Bay State Conference Meet
+      url: /swimming-diving/events/bay-state-conference-meet/
+    - title: Championship Meets
+      url: /swimming-diving/events/championship-meets/
+
+- title: Results
+  url: /swimming-diving/results/
+  children:
+    - title: Dual Meets
+      url: /swimming-diving/results/dual-meets/
+    - title: Bay State Conference Meet
+      url: /swimming-diving/results/bay-state-conference-meet/
+    - title: Championship Meets
+      url: /swimming-diving/results/championship-meets/
+
+- title: Records
+  url: /swimming-diving/records/
+
+- title: Archive
+  url: /swimming-diving/archive/

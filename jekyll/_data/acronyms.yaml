@@ -1,5 +1,8 @@
 # Maps a lowercase URL-slug word to how it should display in breadcrumbs,
-# for words that shouldn't just get title-cased (e.g. acronyms).
+# for words that shouldn't just get title-cased (e.g. acronyms). A key
+# matching the whole (still-hyphenated) crumb overrides the entire label,
+# for phrases that need more than per-word capitalization (e.g. "&").
 emisca: EMISCA
 miaa: MIAA
 nfhs: NFHS
+swimming-diving: Swimming & Diving

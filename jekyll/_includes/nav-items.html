@@ -1,5 +1,5 @@
 <div class="nav-items">
-  {%- for item in site.data.navigation -%}
+  {%- for item in include.nav -%}
   <div class="nav-item-wrapper{% if item.children %} has-children{% endif %}">
     {%- if item.children -%}
     <input type="checkbox" id="nav-sub-trigger-{{ forloop.index }}" class="nav-sub-trigger" />

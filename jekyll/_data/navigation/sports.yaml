@@ -1,0 +1,10 @@
+# Top-level, sport-agnostic navigation shown outside the swimming-diving
+# section. As more sports are added, give each its own child here.
+- title: Home
+  url: /
+
+- title: Sports
+  url: /swimming-diving/
+  children:
+    - title: Swimming & Diving
+      url: /swimming-diving/
