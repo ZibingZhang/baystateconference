@@ -613,14 +613,40 @@
   }
 }
 
+// Font Awesome disables .fa-spin under prefers-reduced-motion, and its
+// stylesheet loads after ours so it wins ties at equal specificity. Loading
+// indicators are brief and purely decorative, so any icon marked
+// .force-spin inside a .loading-indicator opts back in, via a selector
+// specific enough to outrank Font Awesome's regardless of load order.
+.loading-indicator .force-spin {
+  animation: fa-spin 2s infinite linear !important;
+}
+
 .calendar-embed {
   max-width: 100%;
+  position: relative;
 
   iframe {
     display: block;
     width: 100%;
     max-width: 800px;
     height: 600px;
+  }
+}
+
+.calendar-loading {
+  position: absolute;
+  inset: 0;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: $background-color;
+  color: $brand-color-dimmed;
+
+  &[hidden] {
+    display: none;
   }
 }
 
@@ -686,14 +712,6 @@
   &[hidden] {
     display: none;
   }
-}
-
-// Font Awesome disables .fa-spin under prefers-reduced-motion (equal specificity,
-// but its stylesheet loads after ours, so it wins ties); this loading indicator
-// is brief and purely decorative, so we opt it back in with a more specific
-// selector that outranks Font Awesome's regardless of load order.
-.file-browser-loading .file-browser-spinner {
-  animation: fa-spin 2s infinite linear !important;
 }
 
 .file-browser-list {
