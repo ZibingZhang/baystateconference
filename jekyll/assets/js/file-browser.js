@@ -1,0 +1,221 @@
+function joinPath(...segments) {
+  return segments
+    .map((segment) => segment.replace(/^\/+|\/+$/g, ""))
+    .filter((segment) => segment.length > 0)
+    .join("/");
+}
+
+function encodePathSegments(path) {
+  return path
+    .split("/")
+    .filter((segment) => segment.length > 0)
+    .map(encodeURIComponent)
+    .join("/");
+}
+
+function encodePathNames(names) {
+  return names.map(encodeURIComponent).join("/");
+}
+
+function decodePathNames(value) {
+  if (!value) return [];
+  return value.split("/").filter((segment) => segment.length > 0).map(decodeURIComponent);
+}
+
+function parsePathFromLocation() {
+  const params = new URLSearchParams(window.location.search);
+  return decodePathNames(params.get("path"));
+}
+
+function findFilesAtPath(rootFiles, pathNames) {
+  let current = rootFiles;
+
+  for (const name of pathNames) {
+    const match = current.find((item) => item.name === name && Array.isArray(item.files));
+    if (!match) return rootFiles;
+    current = match.files;
+  }
+
+  return current;
+}
+
+function isPlainClick(event) {
+  return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
+}
+
+function initFileBrowser(browser) {
+  const dataScript = browser.querySelector(".file-browser-data");
+  const list = browser.querySelector(".file-browser-list");
+  const empty = browser.querySelector(".file-browser-empty");
+  const input = browser.querySelector(".file-browser-search-input");
+
+  if (!dataScript || !list) return;
+
+  const rootFiles = JSON.parse(dataScript.textContent);
+  const pageUrl = browser.dataset.pageUrl || "/";
+  const baseurl = browser.dataset.baseurl || "";
+  const s3BucketRoot = browser.dataset.s3BucketRoot || "";
+
+  let currentPath = [];
+
+  function pageHrefForPath(pathNames) {
+    const pageHref = joinPath(baseurl, pageUrl);
+    const href = `/${pageHref}/`.replace(/\/+/g, "/");
+    if (pathNames.length === 0) return href;
+    return `${href}?path=${encodePathNames(pathNames)}`;
+  }
+
+  function applyFilter() {
+    const items = [...list.querySelectorAll(".file-browser-item")];
+    if (items.length === 0) return; // genuinely empty folder; renderList already set the message
+
+    const query = input ? input.value.trim().toLowerCase() : "";
+    let visibleCount = 0;
+
+    items.forEach((item) => {
+      const name = item.querySelector(".file-browser-name").textContent.toLowerCase();
+      const matches = name.includes(query);
+      item.hidden = !matches;
+      if (matches) visibleCount += 1;
+    });
+
+    if (empty) {
+      empty.textContent = "No files match your search.";
+      empty.hidden = visibleCount > 0;
+    }
+  }
+
+  function renderList(files) {
+    list.innerHTML = "";
+
+    files.forEach((item) => {
+      const li = document.createElement("li");
+      li.className = "file-browser-item";
+
+      const a = document.createElement("a");
+      const icon = document.createElement("span");
+      icon.setAttribute("aria-hidden", "true");
+
+      if (Array.isArray(item.files)) {
+        icon.className = "fa-solid fa-folder";
+        a.href = pageHrefForPath([...currentPath, item.name]);
+        a.addEventListener("click", (event) => {
+          if (!isPlainClick(event)) return;
+          event.preventDefault();
+          navigateTo([...currentPath, item.name]);
+        });
+      } else if (item.externalUrl) {
+        icon.className = "fa-solid fa-file-pdf";
+        a.href = `${s3BucketRoot.replace(/\/+$/, "")}/${encodePathSegments(item.externalUrl)}`;
+        a.target = "_blank";
+        a.rel = "noopener";
+      } else if (item.url) {
+        icon.className = "fa-solid fa-folder";
+        a.href = `/${joinPath(baseurl, pageUrl, item.url)}/`.replace(/\/+/g, "/");
+      }
+
+      const name = document.createElement("span");
+      name.className = "file-browser-name";
+      name.textContent = item.name;
+
+      a.append(icon, name);
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+
+    if (empty) {
+      empty.textContent = "This folder is empty.";
+      empty.hidden = files.length > 0;
+    }
+    if (input) input.value = "";
+  }
+
+  function updateBreadcrumbs(pathNames) {
+    const breadcrumbList = document.getElementById("breadcrumb-list");
+    const currentCrumb = document.getElementById("breadcrumb-current");
+    if (!breadcrumbList || !currentCrumb) return;
+
+    breadcrumbList.querySelectorAll(".breadcrumb-dynamic").forEach((el) => el.remove());
+
+    if (pathNames.length === 0) {
+      currentCrumb.hidden = false;
+      return;
+    }
+
+    const pageTitle = currentCrumb.textContent;
+    const pageHref = currentCrumb.dataset.href || pageHrefForPath([]);
+
+    const rootLink = document.createElement("a");
+    rootLink.href = pageHref;
+    rootLink.textContent = pageTitle;
+    rootLink.addEventListener("click", (event) => {
+      if (!isPlainClick(event)) return;
+      event.preventDefault();
+      navigateTo([]);
+    });
+
+    const rootLi = document.createElement("li");
+    rootLi.className = "breadcrumb-dynamic";
+    rootLi.appendChild(rootLink);
+    currentCrumb.before(rootLi);
+
+    pathNames.forEach((name, index) => {
+      const isLast = index === pathNames.length - 1;
+      const li = document.createElement("li");
+      li.className = "breadcrumb-dynamic";
+
+      if (isLast) {
+        li.textContent = name;
+        li.setAttribute("aria-current", "page");
+      } else {
+        const segmentPath = pathNames.slice(0, index + 1);
+        const link = document.createElement("a");
+        link.href = pageHrefForPath(segmentPath);
+        link.textContent = name;
+        link.addEventListener("click", (event) => {
+          if (!isPlainClick(event)) return;
+          event.preventDefault();
+          navigateTo(segmentPath);
+        });
+        li.appendChild(link);
+      }
+
+      currentCrumb.before(li);
+    });
+
+    currentCrumb.hidden = true;
+  }
+
+  function navigateTo(pathNames, replace) {
+    currentPath = pathNames;
+    renderList(findFilesAtPath(rootFiles, pathNames));
+    updateBreadcrumbs(pathNames);
+    applyFilter();
+
+    const href = pageHrefForPath(pathNames);
+    if (replace) {
+      window.history.replaceState(null, "", href);
+    } else {
+      window.history.pushState(null, "", href);
+    }
+  }
+
+  if (input) input.addEventListener("input", applyFilter);
+
+  window.addEventListener("popstate", () => {
+    currentPath = parsePathFromLocation();
+    renderList(findFilesAtPath(rootFiles, currentPath));
+    updateBreadcrumbs(currentPath);
+    applyFilter();
+  });
+
+  currentPath = parsePathFromLocation();
+  renderList(findFilesAtPath(rootFiles, currentPath));
+  updateBreadcrumbs(currentPath);
+}
+
+function initFileBrowsers() {
+  document.querySelectorAll(".file-browser").forEach(initFileBrowser);
+}
+
+initFileBrowsers();

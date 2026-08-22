@@ -1,0 +1,40 @@
+{
+  "files": [
+    {
+      "name": "By School Year",
+      "files": [
+        {
+          "name": "2025-2026",
+          "files": [
+            {
+              "name": "Fall Bay State Conference Meet Results.pdf",
+              "externalUrl": "organization=miaa/league=bay-state-conference/year=2025/season=fall/conference-meet-results.pdf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "By Meet",
+      "files": [
+        {
+          "name": "Bay State Conference Meet",
+          "files": [
+            {
+              "name": "2025 Fall Bay State Conference Meet Results.pdf",
+              "externalUrl": "organization=miaa/league=bay-state-conference/year=2025/season=fall/conference-meet-results.pdf"
+            }
+          ]
+        },
+        {
+          "name": "Sectional Meet",
+          "files": []
+        },
+        {
+          "name": "State Meet",
+          "files": []
+        }
+      ]
+    }
+  ]
+}

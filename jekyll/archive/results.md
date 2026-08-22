@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Previous Season Results
-permalink: /archive/previous-season-results/
+permalink: /archive/results/
 ---
 
 Content coming soon.

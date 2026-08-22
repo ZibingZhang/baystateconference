@@ -1,6 +1,6 @@
 {%- unless page.url == '/' -%}
 <nav class="breadcrumbs" aria-label="Breadcrumb">
-  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+  <ol id="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       <a href="{{ '/' | relative_url }}" itemprop="item"><span itemprop="name">Home</span></a>
       <meta itemprop="position" content="1" />
@@ -16,7 +16,7 @@
         {%- assign position = position | plus: 1 -%}
 
         {%- if forloop.last -%}
-        <li class="current" aria-current="page">{{ page.title | escape }}</li>
+        <li id="breadcrumb-current" data-href="{{ page.url | relative_url }}" class="current" aria-current="page">{{ page.title | escape }}</li>
         {%- else -%}
           {%- assign words = crumb | replace: '-', ' ' | split: ' ' -%}
           {%- assign label = '' -%}

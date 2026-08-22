@@ -1,0 +1,7 @@
+{
+  "files": [
+    { "name": "Awards", "url": "awards/" },
+    { "name": "Documents", "url": "documents/" },
+    { "name": "Meet Results", "url": "meet-results/" }
+  ]
+}

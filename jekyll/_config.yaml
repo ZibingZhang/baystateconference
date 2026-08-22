@@ -27,6 +27,11 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
+# Root URL of the S3/CloudFront bucket that hosts externally-linked documents
+# (e.g. meet result PDFs). File-browser externalUrl paths are resolved against
+# this root, so it doesn't need to be repeated in every data file.
+s3_bucket_root: "https://d1iwlxzn02he47.cloudfront.net"
+
 # Build settings
 # theme: minima
 plugins:

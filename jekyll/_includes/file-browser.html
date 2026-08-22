@@ -1,0 +1,11 @@
+<div class="file-browser" data-page-url="{{ page.url }}" data-baseurl="{{ site.baseurl }}" data-s3-bucket-root="{{ site.s3_bucket_root }}">
+  <div class="file-browser-search">
+    <span class="fa-solid fa-magnifying-glass" aria-hidden="true"></span>
+    <input type="text" class="file-browser-search-input" placeholder="Search files…" aria-label="Search files">
+  </div>
+  <ul class="file-browser-list"></ul>
+  <p class="file-browser-empty" hidden>No files match your search.</p>
+  <script type="application/json" class="file-browser-data">{{ include.items | jsonify }}</script>
+</div>
+
+<script src="{{ '/assets/js/file-browser.js' | relative_url }}" defer></script>
