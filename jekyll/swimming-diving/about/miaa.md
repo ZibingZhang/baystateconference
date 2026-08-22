@@ -1,6 +1,6 @@
 ---
 layout: page
-title: MIAA
+title: Massachusetts Interscholastic Athletic Association
 permalink: /swimming-diving/about/miaa/
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: EMISCA
+title: Eastern Massachusetts Interscholastic Swim Coaches Association
 permalink: /swimming-diving/about/emisca/
 ---
 

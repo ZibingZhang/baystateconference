@@ -1,6 +1,6 @@
 ---
 layout: page
-title: NFHS
+title: National Federation of State High School Associations
 permalink: /swimming-diving/about/nfhs/
 ---
 

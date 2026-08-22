@@ -8,12 +8,12 @@
   children:
     - title: Bay State Conference
       url: /swimming-diving/about/bay-state-conference/
+    - title: EMISCA
+      url: /swimming-diving/about/emisca/
     - title: MIAA
       url: /swimming-diving/about/miaa/
     - title: NFHS
       url: /swimming-diving/about/nfhs/
-    - title: EMISCA
-      url: /swimming-diving/about/emisca/
 
 - title: Events
   url: /swimming-diving/events/
