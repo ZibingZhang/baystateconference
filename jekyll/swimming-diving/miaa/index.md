@@ -11,3 +11,4 @@ The __Massachusetts Interscholastic Athletic Association (MIAA)__ is the governi
 Resources:
 
 - [MIAA Website](https://www.miaa.net/swimming-diving)
+- [Qualifying Standards](/swimming-diving/miaa/qualifying-standards/)

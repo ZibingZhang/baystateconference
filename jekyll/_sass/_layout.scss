@@ -875,6 +875,12 @@ details[open] > summary .directory-caret {
   color: $brand-color-dimmed;
 }
 
+.nowrap-td {
+  td {
+    white-space: nowrap;
+  }
+}
+
 .social-media-list {
   display: table;
   margin: 0 auto;

@@ -11,17 +11,20 @@
 {%- assign full_override = site.data.acronyms[include.segment] -%}
 {%- if full_override -%}
   {%- assign matched_acronym = true -%}
-{{- full_override -}}
+  {%- assign label = full_override -%}
 {%- else -%}
   {%- assign words = include.segment | replace: '-', ' ' | split: ' ' -%}
+  {%- assign label = '' -%}
   {%- for word in words -%}
     {%- assign acronym = site.data.acronyms[word] -%}
     {%- if acronym -%}
       {%- assign matched_acronym = true -%}
-{{- acronym -}}
+      {%- assign label = label | append: acronym | append: ' ' -%}
     {%- else -%}
-{{- word | capitalize -}}
+      {%- assign capitalized_word = word | capitalize -%}
+      {%- assign label = label | append: capitalized_word | append: ' ' -%}
     {%- endif -%}
-    {%- unless forloop.last %} {% endunless -%}
   {%- endfor -%}
+  {%- assign label = label | strip -%}
 {%- endif -%}
+{{- label -}}
