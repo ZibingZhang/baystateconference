@@ -7,7 +7,9 @@
           "name": "EMISCA",
           "files": [
             { "name": "Jack McDonald Memorial Award", "url": "/awards/emisca/jack-mcdonald-memorial-award/" },
-            { "name": "Peter J. Foley Student-Athlete Award", "url": "/awards/emisca/peter-j-foley-student-athlete-award/" }
+            { "name": "Peter J. Foley Student-Athlete Award", "url": "/awards/emisca/peter-j-foley-student-athlete-award/" },
+            { "name": "Priscilla Davis Silver Service Award", "url": "/awards/emisca/priscilla-davis-silver-service-award/" },
+            { "name": "Richard A. \"Whit\" Whitworth Courage Award", "url": "/awards/emisca/richard-a-whit-whitworth-courage-award/" }
           ]
         }
       ]
