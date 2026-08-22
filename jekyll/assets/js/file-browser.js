@@ -59,6 +59,56 @@ function resolvePathSlugs(rootFiles, slugSegments) {
   return { files: current, path: resolvedNames };
 }
 
+// Subsequence match with a relevance score, roughly fzf-style: null means no
+// match, otherwise higher is a better match. Consecutive characters and
+// matches at the start of a word score higher; gaps between matched
+// characters are penalized so tighter, earlier matches rank first.
+//
+// This has to consider every place each query character could match, not
+// just the first one greedily found left-to-right — e.g. for query "award"
+// against "jack mcdonald memorial award", greedily latching onto the stray
+// "a" in "jack" leaves a huge gap to the real "award" at the end, scoring
+// far worse than it should. Small dynamic program over (text index, query
+// index) finds the best-scoring alignment instead of the first one.
+function fuzzyScore(query, text) {
+  if (query.length === 0) return 0;
+
+  const n = text.length;
+  let prevRow = null; // best score of matching query[0..j-1] ending exactly at each text index
+  let bestForRow = null;
+
+  for (let j = 0; j < query.length; j++) {
+    const currRow = new Array(n).fill(null);
+
+    for (let i = 0; i < n; i++) {
+      if (text[i] !== query[j]) continue;
+
+      let best = null;
+      if (j === 0) {
+        best = -i; // fewer skipped characters before the first match is better
+      } else if (prevRow) {
+        for (let k = 0; k < i; k++) {
+          if (prevRow[k] === null) continue;
+          let candidate = prevRow[k] - (i - k - 1);
+          if (k === i - 1) candidate += 15; // consecutive-match bonus
+          if (best === null || candidate > best) best = candidate;
+        }
+      }
+      if (best === null) continue;
+
+      if (i === 0 || /[\s\-_]/.test(text[i - 1])) best += 10; // word-boundary bonus
+      currRow[i] = best;
+    }
+
+    bestForRow = currRow.some((v) => v !== null) ? currRow : null;
+    if (!bestForRow) return null; // query[0..j] can't be matched at all
+
+    prevRow = bestForRow;
+  }
+
+  return Math.max(...bestForRow.filter((v) => v !== null));
+}
+
 function isPlainClick(event) {
   return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
 }
@@ -105,23 +155,38 @@ function initFileBrowser(browser) {
     return `${href}?path=${encodePathNames(pathNames)}`;
   }
 
-  function applyFilter() {
-    const items = [...list.querySelectorAll(".file-browser-item")];
-    if (items.length === 0) return; // genuinely empty folder; renderList already set the message
+  function currentSortedFiles() {
+    return sortFiles(findFilesAtPath(rootFiles, currentPath));
+  }
 
+  // Re-derives what should be on screen from (rootFiles, currentPath, sort
+  // direction, search query) and re-renders it — the single place that
+  // decides display order, so fuzzy-match ranking and the A-Z/Z-A toggle
+  // compose instead of fighting over the list.
+  function refreshList() {
     const query = input ? input.value.trim().toLowerCase() : "";
-    let visibleCount = 0;
+    const files = currentSortedFiles();
 
-    items.forEach((item) => {
-      const name = item.querySelector(".file-browser-name").textContent.toLowerCase();
-      const matches = name.includes(query);
-      item.hidden = !matches;
-      if (matches) visibleCount += 1;
-    });
+    let displayed;
+    let emptyMessage;
+
+    if (query.length === 0) {
+      displayed = files;
+      emptyMessage = "This folder is empty.";
+    } else {
+      displayed = files
+        .map((file) => ({ file, score: fuzzyScore(query, file.name.toLowerCase()) }))
+        .filter(({ score }) => score !== null)
+        .sort((a, b) => b.score - a.score)
+        .map(({ file }) => file);
+      emptyMessage = "No files match your search.";
+    }
+
+    renderList(displayed);
 
     if (empty) {
-      empty.textContent = "No files match your search.";
-      empty.hidden = visibleCount > 0;
+      empty.textContent = emptyMessage;
+      empty.hidden = displayed.length > 0;
     }
   }
 
@@ -167,12 +232,6 @@ function initFileBrowser(browser) {
       li.appendChild(a);
       list.appendChild(li);
     });
-
-    if (empty) {
-      empty.textContent = "This folder is empty.";
-      empty.hidden = files.length > 0;
-    }
-    if (input) input.value = "";
   }
 
   function updateBreadcrumbs(pathNames) {
@@ -233,9 +292,9 @@ function initFileBrowser(browser) {
 
   function navigateTo(pathNames, replace) {
     currentPath = pathNames;
-    renderList(sortFiles(findFilesAtPath(rootFiles, pathNames)));
+    if (input) input.value = "";
+    refreshList();
     updateBreadcrumbs(pathNames);
-    applyFilter();
 
     const href = pageHrefForPath(pathNames);
     if (replace) {
@@ -245,14 +304,13 @@ function initFileBrowser(browser) {
     }
   }
 
-  if (input) input.addEventListener("input", applyFilter);
+  if (input) input.addEventListener("input", refreshList);
 
   if (sortToggle) {
     sortToggle.addEventListener("click", () => {
       sortDescending = !sortDescending;
       updateSortToggle();
-      renderList(sortFiles(findFilesAtPath(rootFiles, currentPath)));
-      applyFilter();
+      refreshList();
     });
   }
 
@@ -268,15 +326,15 @@ function initFileBrowser(browser) {
 
       const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
       currentPath = resolved.path;
-      renderList(sortFiles(resolved.files));
+      refreshList();
       updateBreadcrumbs(resolved.path);
 
       window.addEventListener("popstate", () => {
         const popResolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
         currentPath = popResolved.path;
-        renderList(sortFiles(popResolved.files));
+        if (input) input.value = "";
+        refreshList();
         updateBreadcrumbs(popResolved.path);
-        applyFilter();
       });
     })
     .catch(() => {
