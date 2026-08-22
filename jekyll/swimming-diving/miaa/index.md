@@ -2,9 +2,10 @@
 layout: page
 title: Massachusetts Interscholastic Athletic Association
 permalink: /swimming-diving/miaa/
-resources:
+external_links:
   - title: MIAA Website
     url: https://www.miaa.net/swimming-diving
+internal_links:
   - title: Qualifying Standards
     url: /swimming-diving/miaa/qualifying-standards/
 ---
@@ -13,4 +14,6 @@ resources:
 
 The __Massachusetts Interscholastic Athletic Association (MIAA)__ is the governing body for interscholastic sports among public and most private secondary schools in Massachusetts. Member schools are grouped into leagues and conferences, like the Bay State Conference, which handle regular-season scheduling, while the MIAA oversees postseason tournament play statewide.[^1]
 
-{% include resources.html items=page.resources %}
+{% include link-list.html items=page.external_links heading="Resources" %}
+
+{% include link-list.html items=page.internal_links heading="Directory" %}

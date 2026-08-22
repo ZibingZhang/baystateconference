@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Directory
+title: Site Map
 permalink: /swimming-diving/directory/
 ---
 

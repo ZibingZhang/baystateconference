@@ -42,11 +42,11 @@ defaults:
   - scope:
       path: "swimming-diving/miaa/qualifying-standards"
     values:
-      directory: false
+      sitemap: false
   - scope:
       path: "swimming-diving/miaa/qualifying-standards/index.md"
     values:
-      directory: true
+      sitemap: true
 
 # Build settings
 # theme: minima

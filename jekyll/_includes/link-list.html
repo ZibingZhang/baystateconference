@@ -1,16 +1,20 @@
-<h2>Resources</h2>
 {%- comment -%}
-  Renders a page's `resources` front matter (a list of {title, url} pairs) as
-  a bordered row list, styled like the file-browser/directory tree but with
-  no search bar — resource lists are always short, so search would just be
-  clutter. External links get an external-link icon and open in a new tab;
-  internal links get the page icon used elsewhere for pages, so it's obvious
-  at a glance whether a click leaves the site.
+  Renders a list of {title, url} pairs as a bordered row list, styled like
+  the file-browser/directory tree but with no search bar — these lists are
+  always short, so search would just be clutter. External links get an
+  external-link icon and open in a new tab; internal links get the page icon
+  used elsewhere for pages, so it's obvious at a glance whether a click
+  leaves the site.
 
-  Usage: {% include resources.html items=page.resources %}
+  No default heading — callers say what their own list actually is
+  ("Resources", "Awards", ...) rather than everything being lumped under one
+  word that doesn't always fit.
+
+  Usage: {% include link-list.html items=page.links heading="Resources" %}
 {%- endcomment -%}
 {%- if include.items and include.items.size > 0 -%}
-<div class="directory-browser resource-list">
+{%- if include.heading -%}<h2>{{ include.heading }}</h2>{%- endif -%}
+<div class="directory-browser link-list">
   <ul class="directory-tree">
     {%- for item in include.items -%}
       {%- assign url_prefix = item.url | slice: 0, 4 | downcase -%}

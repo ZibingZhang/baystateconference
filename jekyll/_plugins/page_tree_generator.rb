@@ -1,5 +1,5 @@
 # Builds a nested tree of every generated HTML page from their URLs, for the
-# directory page (swimming-diving/directory.md) to render as an actual
+# site map page (swimming-diving/directory.md) to render as an actual
 # expandable folder structure. Doing this as a flat-to-nested walk in Liquid
 # would mean hand-rolling a stack machine with no real recursion or mutable
 # state to lean on; a Jekyll generator gets a straightforward tree in a dozen
@@ -11,10 +11,10 @@
 # and a folder containing "awards"); segments that are pure path components
 # with no page of their own (rare on this site) are folders with a nil url.
 #
-# A page can set `directory: false` in its front matter to be left out
+# A page can set `sitemap: false` in its front matter to be left out
 # entirely — e.g. individual qualifying-standards seasons shouldn't each get
 # listed, just the index page that links to all of them.
-module Directory
+module SiteMap
   class PageTreeGenerator < Jekyll::Generator
     safe true
     priority :low
@@ -27,7 +27,7 @@ module Directory
       site.pages.each do |page|
         next unless page.output_ext == ".html"
         next if page.data["redirect_to"]
-        next if page.data["directory"] == false
+        next if page.data["sitemap"] == false
         next if EXCLUDED_URLS.include?(page.url)
 
         segments = page.url.split("/").reject(&:empty?)

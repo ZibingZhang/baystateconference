@@ -2,9 +2,10 @@
 layout: page
 title: National Federation of State High School Associations
 permalink: /swimming-diving/nfhs/
-resources:
+external_links:
   - title: NFHS Website
     url: https://www.nfhs.org/sports/swimming-diving
+internal_links:
   - title: Rule Changes
     url: /swimming-diving/nfhs/rule-changes/
 ---
@@ -13,4 +14,6 @@ resources:
 
 The __National Federation of State High School Associations (NFHS)__ is the national governing body that writes the playing rules for high school sports and activities across the United States. Its membership is made up of the individual state athletic associations, such as the MIAA.[^1]
 
-{% include resources.html items=page.resources %}
+{% include link-list.html items=page.external_links heading="Resources" %}
+
+{% include link-list.html items=page.internal_links heading="Directory" %}
