@@ -70,37 +70,36 @@ sass:
   quiet_deps: true
   silence_deprecations: [import]
 
-minima:
-  # Minima skin selection. Available skins are:
-  #   Available skins:
-  #     * classic            Default, light color scheme.
-  #     * dark               Dark variant of the classic skin.
-  #     * auto               Adaptive skin based on the default classic and dark skins.
-  #     * solarized-light    Light variant of solarized color scheme.
-  #     * solarized-dark     Dark variant of solarized color scheme.
-  #     * solarized          Adaptive skin for solarized color scheme skins.
-  skin: classic
+# Minima skin selection. Available skins are:
+#   Available skins:
+#     * classic            Default, light color scheme.
+#     * dark               Dark variant of the classic skin.
+#     * auto               Adaptive skin based on the default classic and dark skins.
+#     * solarized-light    Light variant of solarized color scheme.
+#     * solarized-dark     Dark variant of solarized color scheme.
+#     * solarized          Adaptive skin for solarized color scheme skins.
+skin: classic
 
-  # Site navigation is now defined in _data/navigation.yml (supports hover
-  # subsections via a `children` list per item) instead of nav_pages here.
+# Site navigation is now defined in _data/navigation.yml (supports hover
+# subsections via a `children` list per item) instead of nav_pages here.
 
-  # Set to `true` to show excerpts on the homepage.
-  show_excerpts: false
+# Set to `true` to show excerpts on the homepage.
+show_excerpts: false
 
-  # Minima date format.
-  #   The default value is "%b %d, %Y" (e.g. Nov 14, 2023).
-  #   Refer to https://shopify.github.io/liquid/filters/date/ for valid values.
-  # date_format: "%b-%d-%Y"
+# Minima date format.
+#   The default value is "%b %d, %Y" (e.g. Nov 14, 2023).
+#   Refer to https://shopify.github.io/liquid/filters/date/ for valid values.
+# date_format: "%b-%d-%Y"
 
-  # Social Media Links
-  #   Renders icons via Font Awesome Free webfonts CDN, based on ordered list of entries.
-  #   Entry keys:
-  #     * title    Tooltip rendered on hovering over icon.
-  #     * icon     Font Awesome icon id. `github` corresponds to `fa-github`.
-  #     * url      Full URL of social profile.
-  social_links:
-    - title: Source Code Repository at GitHub
-      icon: github
-      url: "https://github.com/ZibingZhang/baystateconferenceswive"
+# Social Media Links
+#   Renders icons via Font Awesome Free webfonts CDN, based on ordered list of entries.
+#   Entry keys:
+#     * title    Tooltip rendered on hovering over icon.
+#     * icon     Font Awesome icon id. `github` corresponds to `fa-github`.
+#     * url      Full URL of social profile.
+social_links:
+  - title: Source Code Repository at GitHub
+    icon: github
+    url: "https://github.com/ZibingZhang/baystateconferenceswive"
 
-  hide_site_feed_link: true
+hide_site_feed_link: true
