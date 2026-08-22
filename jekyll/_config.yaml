@@ -30,7 +30,7 @@ github_username:  jekyll
 # Root URL of the S3/CloudFront bucket that hosts externally-linked documents
 # (e.g. meet result PDFs). File-browser externalUrl paths are resolved against
 # this root, so it doesn't need to be repeated in every data file.
-s3_bucket_root: "https://d1iwlxzn02he47.cloudfront.net"
+s3_bucket_root: "https://dly214yt7lp83.cloudfront.net"
 
 # Which named nav bar (a key under _data/navigation/) each page's header uses.
 # Pages can override this directly in their own front matter with `nav:`.
