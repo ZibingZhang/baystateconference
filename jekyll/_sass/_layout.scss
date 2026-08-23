@@ -442,6 +442,10 @@
   padding: $spacing-unit * 0.5;
   text-align: center;
 
+  a {
+    color: inherit;
+  }
+
   a:visited {
     color: inherit;
   }
