@@ -2,6 +2,7 @@
 layout: page
 title: Contributing to the Archive
 permalink: /swimming-diving/archive/contributing/
+breadcrumb: Contributing
 ---
 
 Have older meet results, programs, or other documents that belong in the archive? We'd love to add them.
