@@ -24,8 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   An unofficial website for the Bay State Conference.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://baystateconference.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  zibingzhang
 
 # Root URL of the S3/CloudFront bucket that hosts externally-linked documents
 # (e.g. meet result PDFs). File-browser externalUrl paths are resolved against
@@ -48,14 +47,6 @@ defaults:
     values:
       sitemap: true
   - scope:
-      path: "swimming-diving/emisca/awards/"
-    values:
-      sitemap: false
-  - scope:
-      path: "swimming-diving/emisca/awards/index.md"
-    values:
-      sitemap: true
-  - scope:
       path: "swimming-diving/miaa/qualifying-standards"
     values:
       sitemap: false
@@ -69,6 +60,7 @@ defaults:
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.
