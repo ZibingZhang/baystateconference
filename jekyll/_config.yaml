@@ -48,6 +48,14 @@ defaults:
     values:
       sitemap: true
   - scope:
+      path: "swimming-diving/emisca/awards/"
+    values:
+      sitemap: false
+  - scope:
+      path: "swimming-diving/emisca/awards/index.md"
+    values:
+      sitemap: true
+  - scope:
       path: "swimming-diving/miaa/qualifying-standards"
     values:
       sitemap: false
