@@ -490,6 +490,14 @@
   div + div {
     margin-top: 4px;
   }
+
+  .school-info-section th {
+    @include relative-font-size(1.125);
+    font-weight: 600;
+    text-align: center;
+    white-space: normal;
+    width: auto;
+  }
 }
 
 .school-logo {
