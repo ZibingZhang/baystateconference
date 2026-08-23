@@ -1,0 +1,526 @@
+Year,Season,Sex,School,Name
+2024-2025,Fall,F,Brookline,Mirta Ceraj
+2024-2025,Fall,F,Framingham,Sasha Tsizer
+2024-2025,Fall,F,Milton,Allison Boynton
+2024-2025,Fall,F,Natick,Katie Sandock
+2024-2025,Fall,F,Needham,Andrea Qie
+2024-2025,Fall,F,Needham,Becky Hwang
+2024-2025,Fall,F,Needham,Chloe Afzali
+2024-2025,Fall,F,Needham,Mila Piatkov
+2024-2025,Fall,F,Needham,Natalie Guarerra
+2024-2025,Fall,F,Needham,Paige Ingrando
+2024-2025,Fall,F,Newton North,Barbaro Liao
+2024-2025,Fall,F,Newton North,Jillian Schneider
+2024-2025,Fall,F,Newton North,Kate Urdaneta
+2024-2025,Fall,F,Newton North,Meg Urdaneta
+2024-2025,Fall,F,Wellesley,Alexandra Loo
+2024-2025,Fall,F,Wellesley,Audrey Sau
+2024-2025,Fall,F,Wellesley,Claire Zhao
+2024-2025,Fall,F,Wellesley,Sarah Ginsberg
+2024-2025,Fall,F,Wellesley,Serena Loo
+2024-2025,Fall,F,Wellesley,Sonja Tellander
+2024-2025,Fall,F,Wellesley,Tracey Peng
+2024-2025,Fall,F,Weymouth,Sam Noble
+2024-2025,Fall,M,Braintree,Aiden Huang
+2024-2025,Fall,M,Braintree,Jarvis Liu
+2024-2025,Fall,M,Braintree,Peter Sentas
+2024-2025,Fall,M,Milton,Colby Moskos
+2024-2025,Fall,M,Milton,Cullen Morrissey
+2024-2025,Fall,M,Milton,Jackson Wagner
+2024-2025,Fall,M,Milton,John Griffin
+2024-2025,Fall,M,Milton,Malachi Buchanan
+2024-2025,Fall,M,Milton,Ryan Kelly
+2024-2025,Fall,M,Milton,Xavier Brown
+2024-2025,Fall,M,Walpole,Avneesh Shenoy
+2024-2025,Fall,M,Walpole,Cashian Diamond
+2024-2025,Fall,M,Walpole,Daniel Le
+2024-2025,Fall,M,Walpole,Mayank Shah
+2024-2025,Fall,M,Walpole,Spencer Byerly
+2024-2025,Fall,M,Weymouth,Corey Mei
+2024-2025,Fall,M,Weymouth,Hayden Mei
+2024-2025,Fall,M,Weymouth,Ryan Thin
+2023-2024,Fall,F,Braintree,Reagan Bulman
+2023-2024,Fall,F,Brookline,Jacqueline St. Clair
+2023-2024,Fall,F,Framingham,Emily Richardson
+2023-2024,Fall,F,Milton,Allison Boynton
+2023-2024,Fall,F,Natick,Katie Dorey
+2023-2024,Fall,F,Natick,Katie Sandock
+2023-2024,Fall,F,Needham,Chloe Wukitch
+2023-2024,Fall,F,Needham,Isabela Bobocea
+2023-2024,Fall,F,Needham,Julia Shulman
+2023-2024,Fall,F,Needham,Kylie O'Hearn
+2023-2024,Fall,F,Needham,Lucy Mackey
+2023-2024,Fall,F,Needham,Rebecca Hwang
+2023-2024,Fall,F,Newton North,Alessandra Woo
+2023-2024,Fall,F,Newton North,Kate Urdaneta
+2023-2024,Fall,F,Wellesley,Alexandra Loo
+2023-2024,Fall,F,Wellesley,Anna McGrew
+2023-2024,Fall,F,Wellesley,Audrey Sau
+2023-2024,Fall,F,Wellesley,Elaine Cheng
+2023-2024,Fall,F,Wellesley,Elena Dudkina
+2023-2024,Fall,F,Wellesley,Lucy Savarese
+2023-2024,Fall,F,Wellesley,Sonja Tellander
+2023-2024,Fall,F,Wellesley,Tracey Peng
+2023-2024,Fall,M,Milton,Aidan Crummey
+2023-2024,Fall,M,Milton,Andrew Scapicchio
+2023-2024,Fall,M,Milton,Colby Moskos
+2023-2024,Fall,M,Milton,Jackson Wagner
+2023-2024,Fall,M,Milton,Malachi Buchanan
+2023-2024,Fall,M,Milton,Ryan Kelly
+2023-2024,Fall,M,Milton,Tiaga Berberich
+2023-2024,Fall,M,Milton,Tucker Korman
+2023-2024,Fall,M,Walpole,Avneesh Shenoy
+2023-2024,Fall,M,Walpole,Ben Bahm
+2023-2024,Fall,M,Walpole,Tanay Singh
+2023-2024,Fall,M,Weymouth,Ryan Thin
+2022-2023,Fall,F,Brookline,Bonnie Zhao
+2022-2023,Fall,F,Brookline,Ellie Eisenhauer
+2022-2023,Fall,F,Brookline,Hannah lee
+2022-2023,Fall,F,Brookline,Jacqueline St. Clair
+2022-2023,Fall,F,Brookline,Katherine Henry
+2022-2023,Fall,F,Framingham,Emily Richardson
+2022-2023,Fall,F,Natick,Ava Wong
+2022-2023,Fall,F,Natick,Katie Dorey
+2022-2023,Fall,F,Natick,Michelle Li
+2022-2023,Fall,F,Needham,Chloe Wukitch
+2022-2023,Fall,F,Needham,Lucy Mackey
+2022-2023,Fall,F,Needham,Olive Haller
+2022-2023,Fall,F,Wellesley,Alexandra Loo
+2022-2023,Fall,F,Wellesley,Anna McGrew
+2022-2023,Fall,F,Wellesley,Elaine Cheng
+2022-2023,Fall,F,Wellesley,Elena Dudkina
+2022-2023,Fall,F,Wellesley,Katie Passanisi
+2022-2023,Fall,F,Wellesley,Lucy Savarese
+2022-2023,Fall,F,Wellesley,Naomi Boegholm
+2022-2023,Fall,F,Wellesley,Sofia Cozza
+2022-2023,Fall,F,Wellesley,Tracey Peng
+2022-2023,Fall,F,Wellesley,Vaani Kapoor
+2022-2023,Fall,M,Milton,Aidan Crummey
+2022-2023,Fall,M,Milton,Andrew Scapicchio
+2022-2023,Fall,M,Milton,Colby Moskos
+2022-2023,Fall,M,Milton,Jackson Wagner
+2022-2023,Fall,M,Milton,Malachi Buchanan
+2022-2023,Fall,M,Milton,Ryan Kelly
+2022-2023,Fall,M,Milton,Tucker Korman
+2022-2023,Fall,M,Milton,Tyler Lum
+2022-2023,Fall,M,Walpole,Avneesh Shenoy
+2022-2023,Fall,M,Walpole,Ben Bahm
+2022-2023,Fall,M,Weymouth,Ryan Thin
+2022-2023,Winter,M,Needham,Vann Hotchkiss
+2021-2022,Fall,F,Braintree,Regan Bulman
+2021-2022,Fall,F,Brookline,Alexa Kalish
+2021-2022,Fall,F,Brookline,Bonnie Zhao
+2021-2022,Fall,F,Brookline,Ellie Eisenhauer
+2021-2022,Fall,F,Brookline,Hannah Lee
+2021-2022,Fall,F,Brookline,Katherine Henry
+2021-2022,Fall,F,Framingham,Laura Dube
+2021-2022,Fall,F,Framingham,Meg DiPasquale
+2021-2022,Fall,F,Framingham,Trinity Trainor
+2021-2022,Fall,F,Milton,Elle Anthony
+2021-2022,Fall,F,Milton,Liv DiSandro
+2021-2022,Fall,F,Milton,Madison Crummey
+2021-2022,Fall,F,Milton,Rose Gillooly
+2021-2022,Fall,F,Natick,Katherine Dorey
+2021-2022,Fall,F,Natick,Michelle Li
+2021-2022,Fall,F,Needham,Chloe Wukitch
+2021-2022,Fall,F,Needham,James Mahoney
+2021-2022,Fall,F,Needham,Lucy Mackey
+2021-2022,Fall,F,Newton North,Honour Dufresne
+2021-2022,Fall,F,Wellesley,Amelia Cookson
+2021-2022,Fall,F,Wellesley,Anna McGrew
+2021-2022,Fall,F,Wellesley,Elena Dudkina
+2021-2022,Fall,F,Wellesley,Iris Xia
+2021-2022,Fall,F,Wellesley,Naomi Boegholm
+2021-2022,Fall,F,Wellesley,Sofia Cozza
+2021-2022,Fall,F,Wellesley,Tracey Peng
+2021-2022,Fall,F,Wellesley,Vaani Kapoor
+2021-2022,Fall,M,Braintree,Chris Chen
+2021-2022,Fall,M,Braintree,Kaden Lee
+2021-2022,Fall,M,Braintree,Kalvin Lee
+2021-2022,Fall,M,Braintree,Logan Quinn
+2021-2022,Fall,M,Milton,Andrew Scapicchio
+2021-2022,Fall,M,Milton,Jackson Wagner
+2021-2022,Fall,M,Milton,Kevin Carberry
+2021-2022,Fall,M,Milton,Malachi Buchanan
+2021-2022,Fall,M,Milton,Tucker Korman
+2021-2022,Fall,M,Walpole,Avneesh Sheenoy
+2021-2022,Fall,M,Walpole,Ben Bahm
+2021-2022,Fall,M,Walpole,Casey Laliberte
+2021-2022,Fall,M,Walpole,Liam McCarthy
+2021-2022,Winter,M,Brookline,Aaron Fowler
+2021-2022,Winter,M,Needham,Pietro Rozzo
+2020-2021,Winter,M,Brookline,Hugo Besin
+2020-2021,Winter,M,Brookline,Luka Marinkovic
+2020-2021,Winter,M,Brookline,Mati Levi
+2020-2021,Winter,M,Brookline,Timmy Lee
+2020-2021,Winter,M,Natick,Allen Cheung
+2020-2021,Winter,M,Natick,Brian Cheung
+2020-2021,Winter,M,Natick,Noah Hamer
+2020-2021,Winter,M,Needham,Andrew Dementiev
+2020-2021,Winter,M,Needham,Cole Conway
+2020-2021,Winter,M,Needham,Jason Chiappinelli
+2020-2021,Winter,M,Needham,Lucas Pirner
+2020-2021,Winter,M,Needham,Pietro Rozzo
+2020-2021,Winter,M,Needham,Sam Chutkow
+2020-2021,Winter,M,Newton North,Alec Wong
+2020-2021,Winter,M,Newton North,Elliot Alberts
+2020-2021,Winter,M,Newton North,Ryo Vanderpool
+2020-2021,Winter,M,Wellesley,Andrew Song
+2020-2021,Winter,M,Wellesley,Chris Brooks
+2020-2021,Winter,M,Wellesley,Howard Xu
+2020-2021,Winter,M,Wellesley,Joey Hemmerle
+2020-2021,Winter,M,Wellesley,Tanay Venkata
+2020-2021,Winter,M,Wellesley,Thomas Nielsen
+2020-2021,Winter,M,Wellesley,Tyler Okun
+2019-2020,Fall,F,Brookline,Hannah Lee
+2019-2020,Fall,F,Milton,Emily Dobrindt
+2019-2020,Fall,F,Needham,Claire Tzouros
+2019-2020,Fall,F,Needham,Elinor Wilson
+2019-2020,Fall,F,Needham,Emilia Higgins
+2019-2020,Fall,F,Needham,Katherine Dunbar
+2019-2020,Fall,F,Needham,Zoei Howard
+2019-2020,Fall,F,Walpole,Amanda Melish
+2019-2020,Fall,F,Wellesley,Gracie Meisner
+2019-2020,Fall,F,Wellesley,Iris Xia
+2019-2020,Fall,F,Wellesley,Isabelle Boegholm
+2019-2020,Fall,F,Wellesley,Keleyia Rochelle
+2019-2020,Fall,F,Wellesley,Lil Gross
+2019-2020,Fall,F,Wellesley,Naomi Boegholm
+2019-2020,Fall,F,Wellesley,Nellie Thompson
+2019-2020,Fall,F,Wellesley,Valeria Passanisi
+2019-2020,Winter,M,Brookline,Elan Katz
+2019-2020,Winter,M,Brookline,Julian Atkins
+2019-2020,Winter,M,Brookline,Luka Marinkovic
+2019-2020,Winter,M,Brookline,Soeren Euvrard
+2019-2020,Winter,M,Brookline,Tian-Hao Zhang
+2019-2020,Winter,M,Framingham,Chance Yan
+2019-2020,Winter,M,Framingham,Edward Gao
+2019-2020,Winter,M,Framingham,Jonathan Dupcak
+2019-2020,Winter,M,Framingham,Leone Kisler
+2019-2020,Winter,M,Framingham,Shawn Lafountain
+2019-2020,Winter,M,Framingham,Tristan Wilcox
+2019-2020,Winter,M,Natick,Ben Schmelmer
+2019-2020,Winter,M,Natick,Brian Cheung
+2019-2020,Winter,M,Natick,Joe Holihan
+2019-2020,Winter,M,Natick,Matt Kwan
+2019-2020,Winter,M,Natick,Max Weisman
+2019-2020,Winter,M,Natick,Zach Bubonovich
+2019-2020,Winter,M,Needham,Andrew Dementiev
+2019-2020,Winter,M,Needham,Jason Chiappinelli
+2019-2020,Winter,M,Needham,Martin Barbera
+2019-2020,Winter,M,Needham,Pietro Rozzo
+2019-2020,Winter,M,Newton North,John Byers
+2019-2020,Winter,M,Newton North,Ryo Vanderpool
+2019-2020,Winter,M,Newton North,William Ayinon
+2019-2020,Winter,M,Wellesley,Daniel Scherrer
+2019-2020,Winter,M,Wellesley,David Cole
+2019-2020,Winter,M,Wellesley,Tanay Venkata
+2018-2019,Fall,F,Brookline,Cherry Xiang
+2018-2019,Fall,F,Brookline,Sara Song
+2018-2019,Fall,F,Brookline,Skye Kim
+2018-2019,Fall,F,Framingham,Caroline Mazariegos
+2018-2019,Fall,F,Framingham,Jessica Tosi
+2018-2019,Fall,F,Framingham,Laura Dube
+2018-2019,Fall,F,Framingham,Sara Anastasi
+2018-2019,Fall,F,Framingham,Tatum O'Leary
+2018-2019,Fall,F,Natick,Helen Zhao
+2018-2019,Fall,F,Natick,Sarah Doherty
+2018-2019,Fall,F,Needham,Abigail Thress
+2018-2019,Fall,F,Needham,Allison Jiang
+2018-2019,Fall,F,Needham,Elinor Wilson
+2018-2019,Fall,F,Needham,Emilia Higgins
+2018-2019,Fall,F,Needham,Hannah Garrand
+2018-2019,Fall,F,Needham,Nina Yee
+2018-2019,Fall,F,Needham,Zoei Howard
+2018-2019,Fall,F,Newton North,Honour Dufresne
+2018-2019,Fall,F,Newton North,Karen Tong
+2018-2019,Fall,F,Walpole,Amanda Melish
+2018-2019,Fall,F,Walpole,Lily Nguyen
+2018-2019,Fall,F,Wellesley,Emma Petrovich
+2018-2019,Fall,F,Wellesley,Grace Meisner
+2018-2019,Fall,F,Wellesley,Iris Xia
+2018-2019,Fall,F,Wellesley,Isabelle Boegholm
+2018-2019,Fall,F,Wellesley,Keleyia Rochelle
+2018-2019,Fall,F,Wellesley,Lil Gross
+2018-2019,Fall,F,Wellesley,Molly Jordan
+2018-2019,Fall,F,Wellesley,Nellie Thompson
+2018-2019,Fall,F,Wellesley,Valerie Passanisi
+2018-2019,Fall,M,Braintree,Aaron Keung
+2018-2019,Fall,M,Braintree,Dan Pham
+2018-2019,Fall,M,Braintree,John Harrington
+2018-2019,Fall,M,Milton,Andrew Tran
+2018-2019,Fall,M,Milton,Joe Pezzini
+2018-2019,Fall,M,Milton,Madison Crummey
+2018-2019,Fall,M,Walpole,Andrew Hendricks
+2018-2019,Fall,M,Walpole,Casey Laliberte
+2018-2019,Fall,M,Walpole,Matthew Ferraro
+2018-2019,Fall,M,Walpole,Matthew Samargedlis
+2018-2019,Fall,M,Walpole,Michael Rose
+2018-2019,Fall,M,Walpole,Niall Kelley
+2018-2019,Fall,M,Weymouth,Aiden Reichardt
+2018-2019,Fall,M,Weymouth,Liam McDonald
+2018-2019,Fall,M,Weymouth,Randy Nguy
+2018-2019,Fall,M,Weymouth,Saul Garcia
+2018-2019,Winter,M,Brookline,Elan Katz
+2018-2019,Winter,M,Framingham,Chance Yan
+2018-2019,Winter,M,Framingham,Jonathan Dupcak
+2018-2019,Winter,M,Framingham,Justin Lu
+2018-2019,Winter,M,Framingham,Mason Matzker
+2018-2019,Winter,M,Framingham,Tristan Wilcox
+2018-2019,Winter,M,Natick,Allen Cheun
+2018-2019,Winter,M,Natick,Antonio Arena
+2018-2019,Winter,M,Natick,Ben Schmelmer
+2018-2019,Winter,M,Natick,Jiro Batt
+2018-2019,Winter,M,Natick,Joe Holihan
+2018-2019,Winter,M,Natick,Kyle Burati
+2018-2019,Winter,M,Natick,Matthew Kwan
+2018-2019,Winter,M,Natick,Max Weisman
+2018-2019,Winter,M,Needham,Alex Ektov
+2018-2019,Winter,M,Needham,Andrei Treil
+2018-2019,Winter,M,Needham,Ben Shapiro
+2018-2019,Winter,M,Needham,Daniel Cote
+2018-2019,Winter,M,Needham,Henry Keegan
+2018-2019,Winter,M,Needham,Pietro Rozzo
+2018-2019,Winter,M,Newton North,Jason Wang
+2018-2019,Winter,M,Newton North,John Byers
+2018-2019,Winter,M,Newton North,Jonathan Qian
+2018-2019,Winter,M,Wellesley,Daniel Scherrer
+2018-2019,Winter,M,Wellesley,Edward Choi
+2018-2019,Winter,M,Wellesley,Will Henshon
+2017-2018,Fall,F,Brookline,Laura Cisneros
+2017-2018,Fall,F,Brookline,Sara Song
+2017-2018,Fall,F,Framingham,Halia Bower
+2017-2018,Fall,F,Natick,Bridgette Grothman
+2017-2018,Fall,F,Natick,Hana Batt
+2017-2018,Fall,F,Natick,Rose Arena
+2017-2018,Fall,F,Natick,Sarah Doherty
+2017-2018,Fall,F,Needham,Claire Tzouros
+2017-2018,Fall,F,Needham,Emilia Higgins
+2017-2018,Fall,F,Newton North,Ciara McCormack
+2017-2018,Fall,F,Newton North,Emily Pan
+2017-2018,Fall,F,Newton North,Karen Tong
+2017-2018,Fall,F,Newton North,Katerina Filipova
+2017-2018,Fall,F,Newton North,Kristin Luce
+2017-2018,Fall,F,Newton North,Lillie Pomper
+2017-2018,Fall,F,Newton North,Serena Ly
+2017-2018,Fall,F,Wellesley,Enya Gamble
+2017-2018,Fall,F,Wellesley,Gracie Meisner
+2017-2018,Fall,F,Wellesley,Kate Mullin
+2017-2018,Fall,F,Wellesley,Keleyia Rochelle
+2017-2018,Fall,F,Wellesley,Nellie Thompson
+2017-2018,Fall,F,Wellesley,Sophie Chen
+2017-2018,Fall,F,Wellesley,Stella Hu
+2017-2018,Fall,M,Braintree,Aaron Keung
+2017-2018,Fall,M,Braintree,John Harrington
+2017-2018,Fall,M,Braintree,Sean McGurn
+2017-2018,Fall,M,Braintree,Tim Connolly
+2017-2018,Fall,M,Norwood,Aidan Mulligan
+2017-2018,Fall,M,Norwood,Matthew Murphy
+2017-2018,Fall,M,Walpole,Andrew Gubanov
+2017-2018,Fall,M,Walpole,Connor McMahon
+2017-2018,Fall,M,Walpole,Matthew Samargedlis
+2017-2018,Fall,M,Walpole,Niall Kelley
+2017-2018,Fall,M,Weymouth,Brendan Pike
+2017-2018,Fall,M,Weymouth,Liam McDonald
+2017-2018,Fall,M,Weymouth,Randy Nguy
+2017-2018,Fall,M,Weymouth,Saul Garcia
+2017-2018,Winter,M,Brookline,Charlie Brown
+2017-2018,Winter,M,Brookline,Hugh McKenzie
+2017-2018,Winter,M,Brookline,Reo Shambori
+2017-2018,Winter,M,Brookline,Soeren Euvard
+2017-2018,Winter,M,Framingham,Chance Yan
+2017-2018,Winter,M,Framingham,Cole Bassett
+2017-2018,Winter,M,Framingham,Leone Kisler
+2017-2018,Winter,M,Framingham,Sean Andrews
+2017-2018,Winter,M,Natick,Ben Schmelmer
+2017-2018,Winter,M,Natick,Evan Walker
+2017-2018,Winter,M,Natick,Ian Arnold
+2017-2018,Winter,M,Natick,Jiro Batt
+2017-2018,Winter,M,Natick,Jordan Arnold
+2017-2018,Winter,M,Natick,Kevin Zheng
+2017-2018,Winter,M,Needham,Andrei Treil
+2017-2018,Winter,M,Needham,Ben Shapiro
+2017-2018,Winter,M,Needham,Eric Zhu
+2017-2018,Winter,M,Needham,Henry Keegan
+2017-2018,Winter,M,Needham,Sergey Sonkin
+2017-2018,Winter,M,Needham,Zibing Zhang
+2017-2018,Winter,M,Newton North,John Ryan Byers
+2017-2018,Winter,M,Newton North,Will Riley
+2017-2018,Winter,M,Wellesley,Andrew Scherrer
+2017-2018,Winter,M,Wellesley,Calvin Isley
+2017-2018,Winter,M,Wellesley,Daniel Scherrer
+2017-2018,Winter,M,Wellesley,Edward Choi
+2017-2018,Winter,M,Wellesley,Richie Thompson
+2016-2017,Fall,F,Brookline,Courtney Carroll
+2016-2017,Fall,F,Brookline,Sara Song
+2016-2017,Fall,F,Brookline,Sasha Bourdine
+2016-2017,Fall,F,Brookline,Yasmeen Moukaddem
+2016-2017,Fall,F,Dedham,Asia Vo
+2016-2017,Fall,F,Framingham,Halia Bower
+2016-2017,Fall,F,Framingham,Kara McCurdy
+2016-2017,Fall,F,Natick,Bridgette Grothman
+2016-2017,Fall,F,Natick,Hana Batt
+2016-2017,Fall,F,Natick,Olivia Walz
+2016-2017,Fall,F,Natick,Sarah Doherty
+2016-2017,Fall,F,Needham,Elizabeth Bonvouloir
+2016-2017,Fall,F,Newton North,Ciara McCormack
+2016-2017,Fall,F,Newton North,Claire Campbell
+2016-2017,Fall,F,Newton North,Claire Wang
+2016-2017,Fall,F,Newton North,Erin Claflin
+2016-2017,Fall,F,Newton North,Katerina Flipova
+2016-2017,Fall,F,Newton North,Kristin Luce
+2016-2017,Fall,F,Newton North,Logan Gallagher
+2016-2017,Fall,F,Newton North,Serena Ly
+2016-2017,Fall,F,Wellesley,Enya Gamble
+2016-2017,Fall,F,Wellesley,Kate Mullin
+2016-2017,Fall,F,Wellesley,Sophie Chen
+2016-2017,Fall,M,Braintree,Aaron Keung
+2016-2017,Fall,M,Braintree,Aidan Doherty
+2016-2017,Fall,M,Braintree,Ethan Huang
+2016-2017,Fall,M,Braintree,John Harrington
+2016-2017,Fall,M,Braintree,Sean McGurn
+2016-2017,Fall,M,Braintree,Tim Connolly
+2016-2017,Fall,M,Dedham,Jeff Moran
+2016-2017,Fall,M,Dedham,Jim Duncan
+2016-2017,Fall,M,Dedham,Nicholas Wilcox
+2016-2017,Fall,M,Dedham,Patrick Tocci
+2016-2017,Fall,M,Norwood,Aidan Mulligan
+2016-2017,Fall,M,Norwood,Brendan Hurley
+2016-2017,Fall,M,Norwood,Matthew Murphy
+2016-2017,Fall,M,Weymouth,Brendan Pike
+2016-2017,Winter,M,Brookline,Andrey Nosatov
+2016-2017,Winter,M,Brookline,Dan Katz
+2016-2017,Winter,M,Framingham,Cole Bassett
+2016-2017,Winter,M,Framingham,Leone Kisler
+2016-2017,Winter,M,Framingham,Sean Andrews
+2016-2017,Winter,M,Natick,Kevin Zheng
+2016-2017,Winter,M,Needham,Andrei Treil
+2016-2017,Winter,M,Needham,Eric Zhu
+2016-2017,Winter,M,Needham,Henry Keegan
+2016-2017,Winter,M,Needham,John Higgins
+2016-2017,Winter,M,Needham,Nicholas Lombardo
+2016-2017,Winter,M,Needham,Sergey Sonkin
+2016-2017,Winter,M,Needham,Zibing Zhang
+2016-2017,Winter,M,Newton North,Will Riley
+2016-2017,Winter,M,Wellesley,Andrew Scherrer
+2016-2017,Winter,M,Wellesley,Calvin Isley
+2016-2017,Winter,M,Wellesley,Graham Harris
+2016-2017,Winter,M,Wellesley,Hayden Gribbel
+2016-2017,Winter,M,Wellesley,Richie Thompson
+2015-2016,Fall,F,Braintree,Sarah Murphy
+2015-2016,Fall,F,Brookline,Jessica Leipman
+2015-2016,Fall,F,Brookline,Petra Huang
+2015-2016,Fall,F,Brookline,Sara Song
+2015-2016,Fall,F,Brookline,Sasha Bourdine
+2015-2016,Fall,F,Brookline,Yasmeen Moukaddem
+2015-2016,Fall,F,Framingham,Emily Osborne
+2015-2016,Fall,F,Framingham,Halia Bower
+2015-2016,Fall,F,Framingham,Kara McCurdy
+2015-2016,Fall,F,Natick,Hanako Batt
+2015-2016,Fall,F,Needham,Ellen Ingwerson
+2015-2016,Fall,F,Needham,Monika Hedman
+2015-2016,Fall,F,Newton North,Ciara McCormack
+2015-2016,Fall,F,Newton North,Emily Edgar
+2015-2016,Fall,F,Newton North,Erin Claflin
+2015-2016,Fall,F,Newton North,Erin Supko
+2015-2016,Fall,F,Newton North,Lillie Pomper
+2015-2016,Fall,F,Newton North,Logan Gallagher
+2015-2016,Fall,F,Newton North,Serena Ly
+2015-2016,Fall,F,Wellesley,Enya Gamble
+2015-2016,Fall,F,Wellesley,Kate Mullin
+2015-2016,Fall,F,Wellesley,Lily Gribbel
+2015-2016,Fall,F,Wellesley,Sophie Chen
+2015-2016,Fall,F,Wellesley,Stella Hu
+2015-2016,Fall,M,Braintree,Aaron Keung
+2015-2016,Fall,M,Braintree,Aidan Doherty
+2015-2016,Fall,M,Braintree,John Harrington
+2015-2016,Fall,M,Braintree,John Magnuson
+2015-2016,Fall,M,Braintree,Sean McGurn
+2015-2016,Fall,M,Braintree,Tim Connolly
+2015-2016,Fall,M,Dedham,Michael Sulinski
+2015-2016,Fall,M,Norwood,Aidan Mulligan
+2015-2016,Fall,M,Norwood,Austin Reardon
+2015-2016,Fall,M,Norwood,Ben Wong
+2015-2016,Fall,M,Norwood,Brendan Hurley
+2015-2016,Fall,M,Walpole,Andrew Gubanov
+2015-2016,Fall,M,Walpole,Padraic Curran
+2015-2016,Fall,M,Weymouth,Brendan Pike
+2015-2016,Winter,M,Needham,Zibing Zhang
+2014-2015,Winter,M,Brooline,Franklin Yeo
+2014-2015,Winter,M,Brooline,Michael Levin
+2014-2015,Winter,M,Brooline,Nathan Katz
+2014-2015,Winter,M,Brooline,Oliver Costolloe
+2014-2015,Winter,M,Framingham,Benjamin Cohen
+2014-2015,Winter,M,Framingham,Cole Bassett
+2014-2015,Winter,M,Framingham,Eli Gazda
+2014-2015,Winter,M,Framingham,Guilian Santos
+2014-2015,Winter,M,Framingham,Hunter Olson
+2014-2015,Winter,M,Framingham,Kevin Silva
+2014-2015,Winter,M,Framingham,Matthew Peck
+2014-2015,Winter,M,Natick,Kevin Zheng
+2014-2015,Winter,M,Needham,Nathan Lai
+2014-2015,Winter,M,Newton North,Bowen He
+2014-2015,Winter,M,Wellesley,Ben Matejka
+2014-2015,Winter,M,Wellesley,Brendan Connors
+2014-2015,Winter,M,Wellesley,Harrison Shockley
+2014-2015,Winter,M,Wellesley,Matthew Scherrer
+2013-2014,Fall,F,Framingham,Ali Lie
+2013-2014,Fall,F,Framingham,Allysa Grant
+2013-2014,Fall,F,Framingham,Alyssa Seales
+2013-2014,Fall,F,Framingham,Amy Sheinhait
+2013-2014,Fall,F,Framingham,Erika Sheinhait
+2013-2014,Fall,F,Framingham,Jessica Tjong
+2013-2014,Fall,F,Framingham,Maddie Biron
+2013-2014,Fall,F,Framingham,Maura Sticco-Ivins
+2013-2014,Fall,F,Needham,Claire Hadelman
+2013-2014,Fall,F,Needham,Kathryn Santaniello
+2013-2014,Fall,F,Needham,Monika Hedman
+2013-2014,Fall,F,Newton North,Amanda Graf
+2013-2014,Fall,F,Newton North,Annmarie Conboy-Despasque
+2013-2014,Fall,F,Newton North,Erin Supko
+2013-2014,Fall,F,Newton North,Irina Rojas
+2013-2014,Fall,F,Newton North,Monica Kieff
+2013-2014,Fall,F,Walpole,Hannah Phelan
+2013-2014,Fall,F,Walpole,Kathryn Smith
+2013-2014,Fall,F,Wellesley,Betsy Gonder
+2013-2014,Fall,F,Wellesley,Catie Ward
+2013-2014,Fall,F,Wellesley,Kendra Ganley
+2013-2014,Fall,F,Wellesley,Lily Gribbel
+2012-2013,Winter,M,Brookline,Franklin Yeo
+2012-2013,Winter,M,Brookline,J.D. Nurme
+2012-2013,Winter,M,Framingham,Hunter Olson
+2012-2013,Winter,M,Framingham,Josh Jacobson
+2012-2013,Winter,M,Framingham,Kevin Silva
+2012-2013,Winter,M,Framingham,Matt Peck
+2012-2013,Winter,M,Framingham,Nate Courville
+2012-2013,Winter,M,Framingham,Tim Long
+2012-2013,Winter,M,Needham,Austen Young
+2012-2013,Winter,M,Needham,Bowen He
+2012-2013,Winter,M,Needham,Brendan Timmerman
+2012-2013,Winter,M,Needham,Cassidy Bastianelli
+2012-2013,Winter,M,Needham,llie Tomac
+2012-2013,Winter,M,Needham,Lucas Radouch
+2012-2013,Winter,M,Needham,Thomas Lively
+2012-2013,Winter,M,Wellesley,Andrew Gartley
+2012-2013,Winter,M,Wellesley,Brendan Connors
+2012-2013,Winter,M,Wellesley,Jonathan Chow
+2011-2012,Winter,M,Brookline,J.D. Nurme
+2011-2012,Winter,M,Brookline,Kyle Swardstrom
+2011-2012,Winter,M,Brookline,Zack Albert
+2011-2012,Winter,M,Framingham,Hunter Olson
+2011-2012,Winter,M,Framingham,Josh Herzberg
+2011-2012,Winter,M,Framingham,Nate Courville
+2011-2012,Winter,M,Framingham,Ryan Weeks
+2011-2012,Winter,M,Framingham,Tim Long
+2011-2012,Winter,M,Natick,Doug Dube
+2011-2012,Winter,M,Natick,Ethan Ziegler
+2011-2012,Winter,M,Natick,Mariano Restivo-Lage
+2011-2012,Winter,M,Needham,Alex Treil
+2011-2012,Winter,M,Needham,James Yi
+2011-2012,Winter,M,Needham,Jason Shiuan
+2011-2012,Winter,M,Needham,Nathaniel Smith
+2011-2012,Winter,M,Needham,Ryan Schott
+2011-2012,Winter,M,Needham,Stephen Keeler
+2011-2012,Winter,M,Needham,Teddy Tsavdariedes
+2011-2012,Winter,M,Newton North,Ryan Chan
+2011-2012,Winter,M,Wellesley,Andrew Gartley

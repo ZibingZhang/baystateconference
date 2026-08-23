@@ -40,6 +40,14 @@ defaults:
     values:
       nav: swimming-diving
   - scope:
+      path: "swimming-diving/bay-state-conference/awards/all-stars"
+    values:
+      sitemap: false
+  - scope:
+      path: "swimming-diving/bay-state-conference/awards/all-stars/index.md"
+    values:
+      sitemap: true
+  - scope:
       path: "swimming-diving/miaa/qualifying-standards"
     values:
       sitemap: false

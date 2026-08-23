@@ -1,0 +1,34 @@
+---
+layout: base
+---
+{%- comment -%}
+  Renders a single school year's Bay State Conference All-Stars, split into
+  Girls Fall / Boys Fall / Boys Winter tables (Boys Winter exists because a
+  few schools' boys teams swim in winter rather than fall — see
+  swimming-diving/bay-state-conference/index.md; there's no Girls Winter
+  since girls swimming is always a fall sport in this conference). A page
+  using this layout just needs `year: "2011-2012"` in its front matter to
+  match against the Year column in the all-stars data; tables for seasons
+  with no entries that year are simply omitted.
+{%- endcomment -%}
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+
+    {%- assign all_stars = site.data['swimming-diving']['bay-state-conference']['awards']['all-stars'] -%}
+    {%- assign year_entries = all_stars | where: 'Year', page.year -%}
+    {%- assign girls_fall = year_entries | where: 'Season', 'Fall' | where: 'Sex', 'F' -%}
+    {%- assign boys_fall = year_entries | where: 'Season', 'Fall' | where: 'Sex', 'M' -%}
+    {%- assign boys_winter = year_entries | where: 'Season', 'Winter' | where: 'Sex', 'M' -%}
+
+    {%- include all-stars-table.html heading="Girls Fall" entries=girls_fall -%}
+    {%- include all-stars-table.html heading="Boys Fall" entries=boys_fall -%}
+    {%- include all-stars-table.html heading="Boys Winter" entries=boys_winter -%}
+  </div>
+
+</article>

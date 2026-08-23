@@ -2,6 +2,7 @@
 # for words that shouldn't just get title-cased (e.g. acronyms). A key
 # matching the whole (still-hyphenated) crumb overrides the entire label,
 # for phrases that need more than per-word capitalization (e.g. "&").
+all-stars: All-Stars
 emisca: EMISCA
 miaa: MIAA
 nfhs: NFHS

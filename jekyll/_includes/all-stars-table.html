@@ -1,0 +1,26 @@
+{%- comment -%}
+  Renders one Bay State Conference All-Stars table (School/Name columns), or
+  nothing at all if there are no entries — a school year with no winter boys
+  program, for instance, has no "Boys Winter" table.
+
+  Usage: {% include all-stars-table.html heading="Girls Fall" entries=girls_fall %}
+{%- endcomment -%}
+{%- if include.entries and include.entries.size > 0 -%}
+<h2>{{ include.heading }}</h2>
+<table>
+  <thead>
+    <tr>
+      <th>School</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for entry in include.entries -%}
+    <tr>
+      <td>{{ entry.School }}</td>
+      <td>{{ entry.Name }}</td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+{%- endif -%}
