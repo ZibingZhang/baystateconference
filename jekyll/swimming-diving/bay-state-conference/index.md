@@ -5,6 +5,8 @@ permalink: /swimming-diving/bay-state-conference/
 internal_links:
   - title: Awards
     url: /swimming-diving/bay-state-conference/awards/
+  - title: Schools
+    url: /swimming-diving/bay-state-conference/schools/
 ---
 
 [^1]: <https://en.wikipedia.org/wiki/Bay_State_Conference>

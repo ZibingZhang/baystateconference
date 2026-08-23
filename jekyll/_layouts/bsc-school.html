@@ -1,0 +1,128 @@
+---
+layout: base
+---
+{%- comment -%}
+  Renders a single Bay State Conference school's page: a card with its logo
+  and a 2-column info table, built from its entry in
+  _data/swimming-diving/schools.yaml plus win years pulled from the MIAA
+  sectionals/states results data. Every row is optional and simply omitted
+  when the underlying data doesn't exist for that school. A page using this
+  layout just needs `school: "Braintree"` in its front matter to match
+  against the `town` field in schools.yaml.
+{%- endcomment -%}
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+
+    {%- assign school = site.data.swimming-diving.schools | where: 'town', page.school | first -%}
+    {%- if school -%}
+      {%- comment -%}
+        Matches sectionals/states results against the school's town, its
+        formal name, and any further aliases (most schools have none, since
+        `school-name` alone already covers "<town> High School").
+      {%- endcomment -%}
+      {%- assign school_names = "" | split: "" -%}
+      {%- assign school_names = school_names | push: school.town -%}
+      {%- assign school_names = school_names | push: school.school-name -%}
+      {%- if school.aliases -%}
+        {%- for alias in school.aliases -%}
+          {%- assign school_names = school_names | push: alias -%}
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- assign sectionals = site.data.swimming-diving.miaa.rankings.sectionals -%}
+      {%- assign sectional_wins = sectionals | where_exp: 'row', 'row.Place == "1" and school_names contains row.School' -%}
+      {%- assign sectional_years = sectional_wins | map: 'Year' | uniq | sort | reverse -%}
+
+      {%- assign states = site.data.swimming-diving.miaa.rankings.states -%}
+      {%- assign state_wins = states | where_exp: 'row', 'row.Place == "1" and school_names contains row.School' -%}
+      {%- assign state_years = state_wins | map: 'Year' | uniq | sort | reverse -%}
+
+    <div class="school-info-card">
+      {%- if school.logo -%}
+      <img class="school-logo" src="{{ school.logo }}" alt="{{ page.title | escape }} logo" loading="lazy">
+      {%- endif -%}
+
+      <table class="school-info-table">
+        <tbody>
+          {%- if school.team-name -%}
+          <tr>
+            <th>Mascot</th>
+            <td>{{ school.team-name }}</td>
+          </tr>
+          {%- endif -%}
+
+          {%- if school.pool -%}
+          <tr>
+            <th>Pool</th>
+            <td>
+              <a href="{{ school.pool.google-maps }}" target="_blank" rel="noopener">{{ school.pool.name }}</a>
+            </td>
+          </tr>
+          {%- endif -%}
+
+          {%- if school.instagram.athletic-dept -%}
+          {%- assign athletic_dept_username = school.instagram.athletic-dept | split: '/' | slice: 3 | first -%}
+          <tr>
+            <th>Athletic Dept. Instagram</th>
+            <td><a href="{{ school.instagram.athletic-dept }}" target="_blank" rel="noopener me">@{{ athletic_dept_username }}</a></td>
+          </tr>
+          {%- endif -%}
+
+          {%- if school.instagram.girls-team -%}
+          {%- assign girls_team_username = school.instagram.girls-team | split: '/' | slice: 3 | first -%}
+          <tr>
+            <th>Girls Team Instagram</th>
+            <td><a href="{{ school.instagram.girls-team }}" target="_blank" rel="noopener me">@{{ girls_team_username }}</a></td>
+          </tr>
+          {%- endif -%}
+
+          {%- if school.instagram.boys-team -%}
+          {%- assign boys_team_username = school.instagram.boys-team | split: '/' | slice: 3 | first -%}
+          <tr>
+            <th>Boys Team Instagram</th>
+            <td><a href="{{ school.instagram.boys-team }}" target="_blank" rel="noopener me">@{{ boys_team_username }}</a></td>
+          </tr>
+          {%- endif -%}
+
+          {%- if school.instagram.team -%}
+          {%- assign team_username = school.instagram.team | split: '/' | slice: 3 | first -%}
+          <tr>
+            <th>Team Instagram</th>
+            <td><a href="{{ school.instagram.team }}" target="_blank" rel="noopener me">@{{ team_username }}</a></td>
+          </tr>
+          {%- endif -%}
+
+          {%- if school.wikipedia -%}
+          {%- assign wiki_title = school.wikipedia | split: '/' | last | replace: '_', ' ' -%}
+          <tr>
+            <th>Wiki Page</th>
+            <td><a href="{{ school.wikipedia }}" target="_blank" rel="noopener">{{ wiki_title }}</a></td>
+          </tr>
+          {%- endif -%}
+
+          {%- if sectional_years.size > 0 -%}
+          <tr>
+            <th>Sectional Wins</th>
+            <td>{{ sectional_years | join: ', ' }}</td>
+          </tr>
+          {%- endif -%}
+
+          {%- if state_years.size > 0 -%}
+          <tr>
+            <th>State Wins</th>
+            <td>{{ state_years | join: ', ' }}</td>
+          </tr>
+          {%- endif -%}
+        </tbody>
+      </table>
+    </div>
+    {%- endif -%}
+  </div>
+
+</article>

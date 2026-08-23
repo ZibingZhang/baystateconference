@@ -438,8 +438,58 @@
   padding: $spacing-unit * 0.5;
   text-align: center;
   background-color: $code-background-color;
+  color: inherit;
   border: 1px solid $border-color-01;
   border-radius: 6px;
+
+  a:visited {
+    color: inherit;
+  }
+}
+
+.school-card-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+
+  &:hover .school-name {
+    text-decoration: underline;
+  }
+}
+
+.school-info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto $spacing-unit;
+  padding: $spacing-unit;
+  background-color: $code-background-color;
+  border: 1px solid $border-color-01;
+  border-radius: 6px;
+
+  .school-logo {
+    width: 160px;
+    height: 160px;
+    margin-bottom: $spacing-unit * 0.5;
+  }
+}
+
+.school-info-table {
+  width: 100%;
+
+  th {
+    text-align: left;
+    white-space: nowrap;
+    width: 1%;
+    padding-right: $spacing-unit * 0.5;
+  }
+
+  div + div {
+    margin-top: 4px;
+  }
 }
 
 .school-logo {
@@ -474,23 +524,6 @@
 }
 
 .school-pool-placeholder {
-  visibility: hidden;
-}
-
-.school-instagram {
-  @include relative-font-size(0.9375);
-  color: $brand-color-dimmed;
-
-  &:hover {
-    color: $link-base-color;
-  }
-
-  .fa-brands {
-    margin-right: 4px;
-  }
-}
-
-.school-instagram-placeholder {
   visibility: hidden;
 }
 

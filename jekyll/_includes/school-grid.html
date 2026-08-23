@@ -1,35 +1,26 @@
 <div class="school-grid">
   {%- for school in site.data.swimming-diving.schools -%}
-  {%- assign label = school.name | append: ' ' | append: school.team-name -%}
+  {%- assign label = school.town | append: ' ' | append: school.team-name -%}
+  {%- assign school-slug = school.town | slugify -%}
+  {%- assign school-url = '/swimming-diving/bay-state-conference/schools/' | append: school-slug | append: '/' -%}
   <div class="school-card">
-    {%- if school.logo -%}
-    <img class="school-logo" src="{{ school.logo }}" alt="{{ label }} logo" loading="lazy">
-    {%- else -%}
-    <div class="school-logo school-logo-placeholder" aria-hidden="true"></div>
-    {%- endif -%}
-    <p class="school-name">{{ label }}</p>
-    {%- if school.pool and school.pool.size > 0 -%}
-      {%- for pool in school.pool -%}
-    <a class="school-pool" href="{{ pool.google-maps }}" target="_blank" rel="noopener" title="{{ pool.name }}">
+    <a class="school-card-link" href="{{ school-url | relative_url }}">
+      {%- if school.logo -%}
+      <img class="school-logo" src="{{ school.logo }}" alt="{{ label }} logo" loading="lazy">
+      {%- else -%}
+      <div class="school-logo school-logo-placeholder" aria-hidden="true"></div>
+      {%- endif -%}
+      <p class="school-name">{{ label }}</p>
+    </a>
+    {%- if school.pool -%}
+    <a class="school-pool" href="{{ school.pool.google-maps }}" target="_blank" rel="noopener" title="{{ school.pool.name }}">
       <span class="fa-solid fa-location-dot" aria-hidden="true"></span>
       Pool Location
     </a>
-      {%- endfor -%}
     {%- else -%}
     <span class="school-pool school-pool-placeholder" aria-hidden="true">
       <span class="fa-solid fa-location-dot" aria-hidden="true"></span>
       Pool Location
-    </span>
-    {%- endif -%}
-    {%- if school.instagram -%}
-    <a class="school-instagram" href="{{ school.instagram }}" target="_blank" rel="noopener me" title="{{ label }} on Instagram">
-      <span class="fa-brands fa-instagram" aria-hidden="true"></span>
-      Instagram
-    </a>
-    {%- else -%}
-    <span class="school-instagram school-instagram-placeholder" aria-hidden="true">
-      <span class="fa-brands fa-instagram" aria-hidden="true"></span>
-      Instagram
     </span>
     {%- endif -%}
   </div>
