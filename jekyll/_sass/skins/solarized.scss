@@ -96,40 +96,40 @@ $sol-mark-line-bgcolor: #ffffcc;
 
 @if $sol-is-auto {
   :root {
-    --solarized-mono3:  #{$sol-base3};
-    --solarized-mono2:  #{$sol-base2};
-    --solarized-mono1:  #{$sol-base1};
-    --solarized-mono00: #{$sol-base00};
-    --solarized-mono01: #{$sol-base01};
-    --solarized-mix1:   #{$sol-light-mix1};
-    --solarized-mix2:   #{$sol-light-mix2};
-    --solarized-mix3:   #{$sol-light-mix3};
-    --solarized-mix4:   #{$sol-light-mix4};
-
-    --solarized-mono1-dimmed: #{darken($sol-base1, 20%)};
     --solarized-link-color:   #{$sol-dark-blue};
     --solarized-link-visited: #{$sol-dark-blue2};
 
     --solarized-mark-line-bg-color: #ffffcc;
+    --solarized-mix1:   #{$sol-light-mix1};
+    --solarized-mix2:   #{$sol-light-mix2};
+    --solarized-mix3:   #{$sol-light-mix3};
+    --solarized-mix4:   #{$sol-light-mix4};
+    --solarized-mono00: #{$sol-base00};
+    --solarized-mono01: #{$sol-base01};
+    --solarized-mono1:  #{$sol-base1};
+
+    --solarized-mono1-dimmed: #{darken($sol-base1, 20%)};
+    --solarized-mono2:  #{$sol-base2};
+    --solarized-mono3:  #{$sol-base3};
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --solarized-mono3:  #{$sol-base03};
-      --solarized-mono2:  #{$sol-base02};
-      --solarized-mono1:  #{$sol-base01};
-      --solarized-mono00: #{$sol-base0};
-      --solarized-mono01: #{$sol-base1};
-      --solarized-mix1:   #{$sol-dark-mix1};
-      --solarized-mix2:   #{$sol-dark-mix2};
-      --solarized-mix3:   #{$sol-dark-mix3};
-      --solarized-mix4:   #{$sol-dark-mix4};
-
-      --solarized-mono1-dimmed: #{lighten($sol-base01, 16%)};
       --solarized-link-color:   #{$sol-light-blue};
       --solarized-link-visited: #{$sol-light-blue2};
 
       --solarized-mark-line-bg-color: #164145;
+      --solarized-mix1:   #{$sol-dark-mix1};
+      --solarized-mix2:   #{$sol-dark-mix2};
+      --solarized-mix3:   #{$sol-dark-mix3};
+      --solarized-mix4:   #{$sol-dark-mix4};
+      --solarized-mono00: #{$sol-base0};
+      --solarized-mono01: #{$sol-base1};
+      --solarized-mono1:  #{$sol-base01};
+
+      --solarized-mono1-dimmed: #{lighten($sol-base01, 16%)};
+      --solarized-mono2:  #{$sol-base02};
+      --solarized-mono3:  #{$sol-base03};
     }
   }
 
@@ -185,7 +185,7 @@ $table-border-color:    $sol-mix1 !default;
 // --------------------------
 
 .highlight {
-  .err   { color: #fefeec; background-color: $sol-red } // Error
+  .err   { background-color: $sol-red; color: #fefeec; } // Error
 
   .c     { color: $sol-mono1 } // Comment
   .c1    { color: $sol-mono1 } // Comment.Single

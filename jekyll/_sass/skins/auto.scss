@@ -42,7 +42,7 @@ $lm-table-border-color:    $lm-border-color-01 !default;
 
 @mixin lm-highlight {
   .highlight {
-    .err   { color: #e3d2d2; background-color: #a61717 } // Error
+    .err   { background-color: #a61717; color: #e3d2d2; } // Error
 
     .c     { color: #9c9996 } // Comment
     .cm    { color: #9c9996 } // Comment.Multiline
@@ -156,7 +156,7 @@ $dm-table-border-color:    $dm-border-color-01 !default;
 
 @mixin dm-highlight {
   .highlight {
-    .err   { color: #e3d2d2; background-color: #8c2121 } // Error
+    .err   { background-color: #8c2121; color: #e3d2d2; } // Error
 
     .c     { color: #8a8a8a } // Comment
     .c1    { color: #8a8a8a } // Comment.Single
@@ -270,62 +270,62 @@ $table-border-color: $lm-table-border-color;
   // Auto mode
 
   :root {
-    --minima-brand-color: #{$lm-brand-color};
-    --minima-brand-color-light: #{$lm-brand-color-light};
-    --minima-brand-color-dimmed: #{$lm-brand-color-dimmed};
-    --minima-brand-color-dark: #{$lm-brand-color-dark};
-
-    --minima-site-title-color: #{$lm-site-title-color};
-
-    --minima-heading-color: #{$lm-heading-color};
-    --minima-text-color: #{$lm-text-color};
     --minima-background-color: #{$lm-background-color};
-    --minima-code-background-color: #{$lm-code-background-color};
-
-    --minima-link-base-color: #{$lm-link-base-color};
-    --minima-link-visited-color: #{$lm-link-visited-color};
-    --minima-link-hover-color: #{$lm-link-hover-color};
 
     --minima-border-color-01: #{$lm-border-color-01};
     --minima-border-color-02: #{$lm-border-color-02};
     --minima-border-color-03: #{$lm-border-color-03};
+    --minima-brand-color: #{$lm-brand-color};
+    --minima-brand-color-dark: #{$lm-brand-color-dark};
+    --minima-brand-color-dimmed: #{$lm-brand-color-dimmed};
+    --minima-brand-color-light: #{$lm-brand-color-light};
+    --minima-code-background-color: #{$lm-code-background-color};
+
+    --minima-heading-color: #{$lm-heading-color};
+
+    --minima-link-base-color: #{$lm-link-base-color};
+    --minima-link-hover-color: #{$lm-link-hover-color};
+    --minima-link-visited-color: #{$lm-link-visited-color};
+
+    --minima-site-title-color: #{$lm-site-title-color};
+    --minima-table-border-color: #{$lm-table-border-color};
+    --minima-table-header-bg-color: #{$lm-table-header-bg-color};
+    --minima-table-header-border: #{$lm-table-header-border};
 
     --minima-table-text-color: #{$lm-table-text-color};
     --minima-table-zebra-color: #{$lm-table-zebra-color};
-    --minima-table-header-bg-color: #{$lm-table-header-bg-color};
-    --minima-table-header-border: #{$lm-table-header-border};
-    --minima-table-border-color: #{$lm-table-border-color};
+    --minima-text-color: #{$lm-text-color};
   }
 
   @include lm-highlight;
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --minima-brand-color: #{$dm-brand-color};
-      --minima-brand-color-light: #{$dm-brand-color-light};
-      --minima-brand-color-dimmed: #{$dm-brand-color-dimmed};
-      --minima-brand-color-dark: #{$dm-brand-color-dark};
-
-      --minima-site-title-color: #{$dm-site-title-color};
-
-      --minima-heading-color: #{$dm-heading-color};
-      --minima-text-color: #{$dm-text-color};
       --minima-background-color: #{$dm-background-color};
-      --minima-code-background-color: #{$dm-code-background-color};
-
-      --minima-link-base-color: #{$dm-link-base-color};
-      --minima-link-visited-color: #{$dm-link-visited-color};
-      --minima-link-hover-color: #{$dm-link-hover-color};
 
       --minima-border-color-01: #{$dm-border-color-01};
       --minima-border-color-02: #{$dm-border-color-02};
       --minima-border-color-03: #{$dm-border-color-03};
+      --minima-brand-color: #{$dm-brand-color};
+      --minima-brand-color-dark: #{$dm-brand-color-dark};
+      --minima-brand-color-dimmed: #{$dm-brand-color-dimmed};
+      --minima-brand-color-light: #{$dm-brand-color-light};
+      --minima-code-background-color: #{$dm-code-background-color};
+
+      --minima-heading-color: #{$dm-heading-color};
+
+      --minima-link-base-color: #{$dm-link-base-color};
+      --minima-link-hover-color: #{$dm-link-hover-color};
+      --minima-link-visited-color: #{$dm-link-visited-color};
+
+      --minima-site-title-color: #{$dm-site-title-color};
+      --minima-table-border-color: #{$dm-table-border-color};
+      --minima-table-header-bg-color: #{$dm-table-header-bg-color};
+      --minima-table-header-border: #{$dm-table-header-border};
 
       --minima-table-text-color: #{$dm-table-text-color};
       --minima-table-zebra-color: #{$dm-table-zebra-color};
-      --minima-table-header-bg-color: #{$dm-table-header-bg-color};
-      --minima-table-header-border: #{$dm-table-header-border};
-      --minima-table-border-color: #{$dm-table-border-color};
+      --minima-text-color: #{$dm-text-color};
     }
 
     @include dm-highlight;

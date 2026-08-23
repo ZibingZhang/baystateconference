@@ -2,18 +2,18 @@
  * Site header
  */
 .site-header {
+  background-color: $background-color;
+  border-bottom: 1px solid $border-color-01;
+  border-top: 5px solid $border-color-03;
   position: relative;
   width: 100%;
-  background-color: $background-color;
-  border-top: 5px solid $border-color-03;
-  border-bottom: 1px solid $border-color-01;
 
   .wrapper {
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding-top: $spacing-unit * 0.5;
     padding-bottom: $spacing-unit * 0.4;
+    padding-top: $spacing-unit * 0.5;
   }
 }
 
@@ -30,17 +30,17 @@
 }
 
 .site-nav {
-  width: 100%;
-  border: none;
   background-color: inherit;
+  border: none;
+  width: 100%;
 
   label[for="nav-trigger"], #nav-trigger {
     display: none;
   }
 
   .nav-items {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
     text-align: left;
   }
@@ -82,29 +82,29 @@
   }
 
   .nav-subitems {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1;
-    min-width: 160px;
-    margin: 0;
-    padding: 5px 0;
-    list-style: none;
     background-color: $background-color;
     border: 1px solid $border-color-01;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    display: none;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    min-width: 160px;
+    padding: 5px 0;
+    position: absolute;
+    top: 100%;
+    z-index: 1;
 
     li {
       margin: 0;
     }
 
     .nav-subitem {
-      display: block;
-      padding: 6px 14px;
       color: $text-color;
+      display: block;
       font-size: $small-font-size;
+      padding: 6px 14px;
       white-space: nowrap;
 
       &:hover {
@@ -114,32 +114,32 @@
   }
 
   @include media-query($on-medium) {
-    width: auto;
-    margin-top: $spacing-unit * 0.3;
     background-color: $background-color;
     border: 1px solid $border-color-01;
     border-radius: 5px;
+    margin-top: $spacing-unit * 0.3;
     text-align: left;
+    width: auto;
 
     &:has(#nav-trigger:checked) {
       width: 100%;
     }
 
     label[for="nav-trigger"] {
+      cursor: pointer;
       display: block;
       float: left;
-      width: 36px;
       height: 36px;
-      cursor: pointer;
+      width: 36px;
     }
 
     .menu-icon {
       float: left;
-      width: 36px;
       height: 26px;
       line-height: 0;
       padding-top: 18px;
       text-align: center;
+      width: 36px;
 
       &::before {
         font-family: "Font Awesome 7 Free";
@@ -170,19 +170,19 @@
         }
       }
         ~ .nav-items {
+          align-items: flex-start;
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
           justify-content: flex-start;
-          width: 100%;
           padding-bottom: 5px;
+          width: 100%;
 
           .nav-item-wrapper {
+            border-bottom: 1px solid $border-color-01;
             box-sizing: border-box;
-            width: 100%;
             margin-right: 0;
             padding: 8px 10px;
-            border-bottom: 1px solid $border-color-01;
+            width: 100%;
 
             &:last-child {
               border-bottom: none;
@@ -198,10 +198,10 @@
     }
 
     .nav-item {
-      display: block;
-      padding: 5px 0;
       color: $text-color;
+      display: block;
       line-height: $base-line-height;
+      padding: 5px 0;
       position: relative;
       z-index: 1;
     }
@@ -211,31 +211,31 @@
     // is easy to miss on touch. It sits behind .nav-item-row's own link
     // (lower z-index) so the link text itself still navigates normally.
     .nav-item-row {
-      display: flex;
-      position: relative;
       align-items: center;
+      display: flex;
       justify-content: space-between;
+      position: relative;
       width: 100%;
     }
 
     // No hover on touch devices — a tap-to-expand caret reveals subsections.
     .nav-sub-toggle {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      display: flex;
       align-items: center;
-      justify-content: flex-end;
       cursor: pointer;
+      display: flex;
+      inset: 0;
+      justify-content: flex-end;
+      position: absolute;
+      z-index: 0;
     }
 
     .nav-sub-caret {
-      width: 0;
-      height: 0;
       border-left: 5px solid transparent;
       border-right: 5px solid transparent;
       border-top: 6px solid $text-color;
+      height: 0;
       transition: transform 0.2s ease;
+      width: 0;
     }
 
     .nav-sub-trigger:checked ~ .nav-sub-toggle .nav-sub-caret {
@@ -243,15 +243,15 @@
     }
 
     .nav-subitems {
-      display: none;
-      position: static;
-      box-sizing: border-box;
-      width: 100%;
-      margin: 4px 0 0;
-      padding: 0;
+      background: none;
       border: none;
       box-shadow: none;
-      background: none;
+      box-sizing: border-box;
+      display: none;
+      margin: 4px 0 0;
+      padding: 0;
+      position: static;
+      width: 100%;
 
       li {
         margin: 0;
@@ -262,8 +262,8 @@
       }
 
       .nav-subitem {
-        box-sizing: border-box;
         border-bottom: 1px solid $border-color-01;
+        box-sizing: border-box;
         padding: 6px 10px;
         white-space: normal;
       }
@@ -342,17 +342,17 @@
   }
 
   .footer-col {
-    width: calc(100% - (#{$spacing-unit} / 2));
     padding: 0 ($spacing-unit * .5);
+    width: calc(100% - (#{$spacing-unit} / 2));
 
     &:first-child {
-      padding-right: $spacing-unit * .5;
       padding-left: 0;
+      padding-right: $spacing-unit * .5;
     }
 
     &:last-child {
-      padding-right: 0;
       padding-left: $spacing-unit * .5;
+      padding-right: 0;
     }
   }
 }
@@ -363,31 +363,31 @@
  * Page content
  */
 .page-content {
-  padding: $spacing-unit 0;
   flex: 1 0 auto;
+  padding: $spacing-unit 0;
 }
 
 .breadcrumbs {
   margin-bottom: $spacing-unit * 0.5;
 
   ol {
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    list-style: none;
     margin: 0;
     padding: 0;
-    list-style: none;
     @include relative-font-size(0.9375);
   }
 
   li {
-    display: flex;
     align-items: center;
+    display: flex;
 
     &:not(:first-child)::before {
+      color: $brand-color-dimmed;
       content: ">";
       margin: 0 8px;
-      color: $brand-color-dimmed;
     }
 
     &[hidden] {
@@ -418,8 +418,8 @@
 
 .school-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: $spacing-unit;
+  grid-template-columns: repeat(3, 1fr);
   margin-bottom: $spacing-unit;
 
   @include media-query($on-laptop) {
@@ -432,15 +432,15 @@
 }
 
 .school-card {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: $spacing-unit * 0.5;
-  text-align: center;
   background-color: $code-background-color;
-  color: inherit;
   border: 1px solid $border-color-01;
   border-radius: 6px;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-unit * 0.5;
+  text-align: center;
 
   a:visited {
     color: inherit;
@@ -448,11 +448,11 @@
 }
 
 .school-card-link {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
   text-decoration: none;
+  width: 100%;
 
   &:hover .school-name {
     text-decoration: underline;
@@ -460,20 +460,20 @@
 }
 
 .school-info-card {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  max-width: 500px;
-  margin: 0 auto $spacing-unit;
-  padding: $spacing-unit;
   background-color: $code-background-color;
   border: 1px solid $border-color-01;
   border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto $spacing-unit;
+  max-width: 500px;
+  padding: $spacing-unit;
 
   .school-logo {
-    width: 160px;
     height: 160px;
     margin-bottom: $spacing-unit * 0.5;
+    width: 160px;
   }
 }
 
@@ -481,10 +481,10 @@
   width: 100%;
 
   th {
+    padding-right: $spacing-unit * 0.5;
     text-align: left;
     white-space: nowrap;
     width: 1%;
-    padding-right: $spacing-unit * 0.5;
   }
 
   div + div {
@@ -493,10 +493,10 @@
 }
 
 .school-logo {
-  width: 96px;
   height: 96px;
   margin-bottom: $spacing-unit * 0.3;
   object-fit: contain;
+  width: 96px;
 }
 
 .school-logo-placeholder {
@@ -505,14 +505,14 @@
 }
 
 .school-name {
-  margin-bottom: $spacing-unit * 0.3;
   font-weight: 600;
+  margin-bottom: $spacing-unit * 0.3;
 }
 
 .school-pool {
   @include relative-font-size(0.9375);
-  display: block;
   color: $brand-color-dimmed;
+  display: block;
 
   &:hover {
     color: $link-base-color;
@@ -528,8 +528,8 @@
 }
 
 .post-list {
-  margin-left: 0;
   list-style: none;
+  margin-left: 0;
 
   > li {
     margin-bottom: $spacing-unit;
@@ -537,8 +537,8 @@
 }
 
 .post-meta {
-  font-size: $small-font-size;
   color: $brand-color-dimmed;
+  font-size: $small-font-size;
 }
 
 .post-link {
@@ -552,43 +552,43 @@
  * Posts
  */
 .post-header {
+  border-bottom: 1px solid $border-color-01;
   margin-bottom: $spacing-unit;
   padding-bottom: 18px;
   text-align: center;
-  border-bottom: 1px solid $border-color-01;
 }
 
 .countdown-banner {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: $spacing-unit * 0.5;
+  justify-content: center;
   margin-bottom: $spacing-unit;
 }
 
 .countdown-item {
-  flex: 0 1 200px;
-  padding: $spacing-unit * 0.5;
-  text-align: center;
   background-color: $code-background-color;
   border: 1px solid $border-color-01;
   border-radius: 6px;
+  flex: 0 1 200px;
+  padding: $spacing-unit * 0.5;
+  text-align: center;
 }
 
 .countdown-label {
-  display: block;
-  @include relative-font-size(0.9375);
   color: $brand-color-dimmed;
+  @include relative-font-size(0.9375);
+  display: block;
+  letter-spacing: 0.5px;
   margin-bottom: 4px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .countdown-timer {
-  display: block;
-  @include relative-font-size(1.5);
-  font-weight: 700;
   color: $link-base-color;
+  @include relative-font-size(1.5);
+  display: block;
+  font-weight: 700;
 }
 
 .post-meta {
@@ -607,11 +607,11 @@
 
 .post-title,
 .post-content h1 {
-  margin-bottom: 10px;
-  @include relative-font-size(1.75);
   font-weight: $base-font-weight;
+  @include relative-font-size(1.75);
   letter-spacing: -1px;
   line-height: 1.15;
+  margin-bottom: 10px;
   overflow-wrap: break-word;
 
   @media screen and (min-width: $on-large) {
@@ -652,9 +652,9 @@
   }
 
   .footnotes {
+    border-top: 1px solid $border-color-01;
     margin-top: $spacing-unit;
     padding-top: $spacing-unit * 0.5;
-    border-top: 1px solid $border-color-01;
   }
 }
 
@@ -682,22 +682,22 @@
 
   iframe {
     display: block;
-    width: 100%;
-    max-width: 800px;
     height: 600px;
+    max-width: 800px;
+    width: 100%;
   }
 }
 
 .calendar-loading {
-  position: absolute;
-  inset: 0;
-  max-width: 800px;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
   background-color: $background-color;
   color: $brand-color-dimmed;
+  display: flex;
+  gap: 10px;
+  inset: 0;
+  justify-content: center;
+  max-width: 800px;
+  position: absolute;
 
   &[hidden] {
     display: none;
@@ -705,19 +705,19 @@
 }
 
 .file-browser {
-  margin-bottom: $spacing-unit;
   border: 1px solid $border-color-01;
   border-radius: 6px;
+  margin-bottom: $spacing-unit;
   overflow: hidden;
 }
 
 .file-browser-search {
-  display: flex;
   align-items: center;
-  gap: 10px;
-  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
   background-color: $code-background-color;
   border-bottom: 1px solid $border-color-01;
+  display: flex;
+  gap: 10px;
+  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
 
   .fa-solid {
     color: $brand-color-dimmed;
@@ -725,13 +725,13 @@
 }
 
 .file-browser-search-input {
+  background: none;
+  border: none;
+  color: $text-color;
   flex: 1 1 auto;
+  font-family: inherit;
   min-width: 0;
   padding: 0;
-  border: none;
-  background: none;
-  font-family: inherit;
-  color: $text-color;
   @include relative-font-size(1);
 
   &:focus {
@@ -740,14 +740,14 @@
 }
 
 .file-browser-sort-toggle {
-  flex: 0 0 auto;
-  display: flex;
   align-items: center;
-  padding: 0;
-  border: none;
   background: none;
-  cursor: pointer;
+  border: none;
   color: $brand-color-dimmed;
+  cursor: pointer;
+  display: flex;
+  flex: 0 0 auto;
+  padding: 0;
 
   &:hover,
   &:focus-visible {
@@ -756,12 +756,12 @@
 }
 
 .file-browser-loading {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: $spacing-unit;
   color: $brand-color-dimmed;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: $spacing-unit;
 
   &[hidden] {
     display: none;
@@ -769,9 +769,9 @@
 }
 
 .file-browser-list {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 .file-browser-item {
@@ -782,11 +782,11 @@
   }
 
   a {
-    display: flex;
     align-items: center;
+    color: $text-color;
+    display: flex;
     gap: 10px;
     padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
-    color: $text-color;
 
     &:hover {
       background-color: $code-background-color;
@@ -800,28 +800,28 @@
 
 .file-browser-empty,
 .file-browser-error {
+  color: $brand-color-dimmed;
   margin: 0;
   padding: $spacing-unit * 0.5;
-  color: $brand-color-dimmed;
   text-align: center;
 }
 
 .comments-disabled-message {
-  text-align: center;
   font-weight: 300;
+  text-align: center;
 }
 
 .directory-browser {
-  margin-bottom: $spacing-unit;
   border: 1px solid $border-color-01;
   border-radius: 6px;
+  margin-bottom: $spacing-unit;
   overflow: hidden;
 }
 
 .directory-tree {
+  list-style: none;
   margin: 0;
   padding-left: 0;
-  list-style: none;
 
   .directory-tree {
     padding-left: 22px;
@@ -836,11 +836,11 @@
   }
 
   a {
-    display: flex;
     align-items: center;
+    color: $text-color;
+    display: flex;
     gap: 10px;
     padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
-    color: $text-color;
 
     &:hover {
       background-color: $code-background-color;
@@ -854,14 +854,14 @@
 
 .directory-folder {
   > details > summary {
-    display: flex;
     align-items: center;
-    gap: 10px;
-    padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
-    cursor: pointer;
-    list-style: none;
-    color: $text-color;
     border-bottom: 1px solid $border-color-01;
+    color: $text-color;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
 
     &::-webkit-details-marker {
       display: none;
@@ -890,13 +890,13 @@
 }
 
 .directory-caret {
-  flex: 0 0 auto;
-  width: 0;
-  height: 0;
-  border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   border-left: 6px solid $text-color;
+  border-top: 5px solid transparent;
+  flex: 0 0 auto;
+  height: 0;
   transition: transform 0.2s ease;
+  width: 0;
 }
 
 details[open] > summary .directory-caret {
@@ -919,15 +919,15 @@ details[open] > summary .directory-caret {
   margin: 0 auto;
   li {
     float: left;
-    min-width: 45px;
-    min-height: 45px;
-    text-align: center;
     margin: 5px 10px 5px 0;
+    min-height: 45px;
+    min-width: 45px;
+    text-align: center;
     &:last-of-type { margin-right: 0 }
     a {
+      border: 1px solid $border-color-01;
       display: block;
       padding: 10px 12px;
-      border: 1px solid $border-color-01;
       &:hover { border-color: $border-color-02 }
     }
   }
@@ -940,31 +940,31 @@ details[open] > summary .directory-caret {
  */
 .pagination {
   display: table;
-  margin: 0 auto;
   list-style-type: none;
+  margin: 0 auto;
   li {
     float: left;
     margin: 0 3px;
-    min-width: 45px;
     min-height: 45px;
+    min-width: 45px;
     text-align: center;
     a {
+      border: 1px solid $border-color-01;
       display: block;
       text-decoration: none;
-      border: 1px solid $border-color-01;
       &:hover { border-color: $border-color-02 }
     }
     a, div {
+      box-sizing: border-box;
       min-width: 41px;
       padding: 10px 12px;
       text-align: center;
-      box-sizing: border-box;
     }
     div {
       border: 1px solid transparent;
       &.pager-edge {
-        color: $border-color-01;
         border: 1px dashed;
+        color: $border-color-01;
       }
       &.current-page {
         font-weight: bold;
@@ -987,23 +987,23 @@ details[open] > summary .directory-caret {
 .task-list-item {
   list-style-type: none;
   &-checkbox {
-    position: relative;
-    margin-right: $spacing-unit * 0.3;
-    margin-left: -$spacing-unit * 0.5;
     appearance: none;
     border: 8px solid $border-color-01;
+    margin-left: -$spacing-unit * 0.5;
+    margin-right: $spacing-unit * 0.3;
+    position: relative;
     vertical-align: text-top;
     z-index: -1;
     &::after {
-      position: absolute;
-      top: -8px;
-      left: -3px;
-      width: 4px;
-      height: 10px;
-      content: "";
       border: solid transparent;
       border-width: 0 2px 2px 0;
+      content: "";
+      height: 10px;
+      left: -3px;
+      position: absolute;
+      top: -8px;
       transform: rotate(45deg);
+      width: 4px;
     }
     &:checked::after { border-color: $border-color-03 }
   }

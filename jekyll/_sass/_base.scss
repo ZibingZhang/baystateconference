@@ -19,18 +19,18 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-  color: $text-color;
-  background-color: $background-color;
-  -webkit-text-size-adjust: 100%;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
   -webkit-font-feature-settings: "kern" 1;
-     -moz-font-feature-settings: "kern" 1;
-       -o-font-feature-settings: "kern" 1;
-          font-feature-settings: "kern" 1;
-  font-kerning: normal;
+  -webkit-text-size-adjust: 100%;
+  background-color: $background-color;
+  color: $text-color;
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  min-height: 100vh;
   overflow-wrap: break-word;
 }
 
@@ -47,8 +47,8 @@ ul, ol, dl, figure,
 }
 
 hr {
-  margin-top: $spacing-unit;
   margin-bottom: $spacing-unit;
+  margin-top: $spacing-unit;
 }
 
 /**
@@ -140,11 +140,11 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: $brand-color;
   border-left: 4px solid $border-color-01;
-  padding-left: $spacing-unit * .5;
-  @include relative-font-size(1.05);
+  color: $brand-color;
   font-style: italic;
+  @include relative-font-size(1.05);
+  padding-left: $spacing-unit * .5;
 
   > :last-child {
     margin-bottom: 0;
@@ -162,8 +162,8 @@ blockquote {
  */
 pre,
 code {
-  font-family: $code-font-family;
   background-color: $code-background-color;
+  font-family: $code-font-family;
 
   @include media-query($on-palm) {
     font-family: monospace;
@@ -171,11 +171,11 @@ code {
 }
 
 pre {
-  padding: 8px 12px;
+  color: $heading-color;
   font-size: 15px;
   line-height: 1.4;
-  color: $heading-color;
   overflow-x: auto;
+  padding: 8px 12px;
 
   > code {
     display: inline-block;
@@ -189,9 +189,9 @@ div.highlight, figure.highlight {
   border-radius: 3px;
   pre { margin: 0 }
   table, tbody, th, tr, td {
+    border: 0;
     margin: 0;
     padding: 0;
-    border: 0
   }
   .lineno, .gl { text-align: right }
 }
@@ -203,10 +203,10 @@ figure.highlight {
 }
 
 code.highlighter-rouge {
-  padding: 1px 5px;
-  font-size: 14px;
   border: 1px solid $border-color-01;
   border-radius: 3px;
+  font-size: 14px;
+  padding: 1px 5px;
 }
 
 
@@ -215,14 +215,14 @@ code.highlighter-rouge {
  * Wrapper
  */
 .wrapper {
-  max-width: $content-width;
   margin: 0 auto;
+  max-width: $content-width;
   padding: 0 $spacing-unit;
   @extend %clearfix;
 
   @media screen and (max-width: $on-medium) {
-    padding-right: $spacing-unit * 0.6;
     padding-left: $spacing-unit * 0.6;
+    padding-right: $spacing-unit * 0.6;
   }
 }
 
@@ -232,9 +232,9 @@ code.highlighter-rouge {
  * Clearfix
  */
 %clearfix:after {
+  clear: both;
   content: "";
   display: table;
-  clear: both;
 }
 
 
@@ -252,12 +252,12 @@ code.highlighter-rouge {
 }
 
 .svg-icon {
-  width: 1.25em;
-  height: 1.25em;
   display: inline-block;
   fill: currentColor;
-  vertical-align: text-bottom;
+  height: 1.25em;
   overflow: visible;
+  vertical-align: text-bottom;
+  width: 1.25em;
 }
 
 
@@ -265,12 +265,12 @@ code.highlighter-rouge {
  * Tables
  */
 table {
-  margin-bottom: $spacing-unit;
-  width: 100%;
-  text-align: $table-text-align;
-  color: $table-text-color;
-  border-collapse: collapse;
   border: 1px solid $table-border-color;
+  border-collapse: collapse;
+  color: $table-text-color;
+  margin-bottom: $spacing-unit;
+  text-align: $table-text-align;
+  width: 100%;
   tr {
     &:nth-child(even) {
       background-color: $table-zebra-color;
@@ -288,9 +288,9 @@ table {
   }
 
   @include media-query($on-laptop) {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
     display: block;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-            -ms-overflow-style: -ms-autohiding-scrollbar;
   }
 }
