@@ -167,11 +167,17 @@ function initFileBrowser(browser) {
           event.preventDefault();
           navigateTo([...currentPath, item.name]);
         });
-      } else if (item.externalUrl) {
+      } else if (item.s3Path) {
         icon.className = "fa-solid fa-file-pdf";
-        a.href = `${s3BucketRoot.replace(/\/+$/, "")}/${encodePathSegments(item.externalUrl)}`;
+        a.href = `${s3BucketRoot.replace(/\/+$/, "")}/${encodePathSegments(item.s3Path)}`;
         a.target = "_blank";
         a.rel = "noopener";
+      } else if (item.externalUrl) {
+        icon.className = "fa-solid fa-arrow-up-right-from-square";
+        a.href = item.externalUrl;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.title = "Opens an external website in a new tab";
       } else if (item.url) {
         icon.className = "fa-solid fa-window-maximize";
         if (item.url.startsWith("/")) {
@@ -314,8 +320,9 @@ function initFileBrowser(browser) {
 
       const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
       applyPath(resolved.path);
-      navHistory = [resolved.path];
-      navIndex = 0;
+      navHistory = resolved.path.map((_, index) => resolved.path.slice(0, index));
+      navHistory.push(resolved.path);
+      navIndex = navHistory.length - 1;
       updateNavButtons();
 
       window.addEventListener("popstate", () => {
