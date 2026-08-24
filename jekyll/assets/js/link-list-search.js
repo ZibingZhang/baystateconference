@@ -1,12 +1,17 @@
 function initLinkListSearch(container) {
   const input = container.querySelector(".file-browser-search-input");
   const sortToggle = container.querySelector(".file-browser-sort-toggle");
+  const tagsList = container.querySelector(".file-browser-tags");
   const list = container.querySelector(":scope > .directory-tree");
   const empty = container.querySelector(":scope > .file-browser-empty");
 
   if (!input || !list) return;
 
-  let sortDescending = false;
+  const tagFilter = createTagFilter({ input, tagsList, onChange: applyFilter });
+  const sortState = createSortToggle(sortToggle, () => {
+    sortItems();
+    applyFilter();
+  });
 
   function itemName(item) {
     return item.querySelector("a span:last-child").textContent;
@@ -15,27 +20,18 @@ function initLinkListSearch(container) {
   function sortItems() {
     const items = [...list.querySelectorAll(":scope > .directory-file")];
     items.sort((a, b) => itemName(a).localeCompare(itemName(b)));
-    if (sortDescending) items.reverse();
+    if (sortState.descending) items.reverse();
     items.forEach((item) => list.appendChild(item));
   }
 
-  function updateSortToggle() {
-    if (!sortToggle) return;
-    const icon = sortToggle.querySelector(".fa-solid");
-    const label = sortDescending ? "Sort A to Z" : "Sort Z to A";
-    icon.className = sortDescending ? "fa-solid fa-arrow-down-z-a" : "fa-solid fa-arrow-down-a-z";
-    sortToggle.setAttribute("aria-label", label);
-    sortToggle.title = label;
-    sortToggle.setAttribute("aria-pressed", String(sortDescending));
-  }
-
   function applyFilter() {
-    const query = input.value.trim().toLowerCase();
+    const queries = activeQueries(tagFilter, input);
     const items = [...list.querySelectorAll(":scope > .directory-file")];
     let visibleCount = 0;
 
     items.forEach((item) => {
-      const matches = fuzzyScore(query, itemName(item).toLowerCase()) !== null;
+      const name = itemName(item).toLowerCase();
+      const matches = queries.every((query) => fuzzyScore(query, name) !== null);
       item.hidden = !matches;
       if (matches) visibleCount += 1;
     });
@@ -44,15 +40,6 @@ function initLinkListSearch(container) {
   }
 
   input.addEventListener("input", applyFilter);
-
-  if (sortToggle) {
-    sortToggle.addEventListener("click", () => {
-      sortDescending = !sortDescending;
-      updateSortToggle();
-      sortItems();
-      applyFilter();
-    });
-  }
 
   sortItems();
 }

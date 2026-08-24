@@ -27,6 +27,7 @@
       <span class="fa-solid fa-arrow-down-a-z" aria-hidden="true"></span>
     </button>
   </div>
+  <ul class="file-browser-tags" hidden></ul>
   {%- endif -%}
   <ul class="directory-tree">
     {%- for item in include.items -%}
@@ -53,6 +54,7 @@
 </div>
 {%- if include.searchable -%}
 <script src="{{ '/assets/js/fuzzy-score.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/search-controls.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/link-list-search.js' | relative_url }}" defer></script>
 {%- endif -%}
 {%- endif -%}
