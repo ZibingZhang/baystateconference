@@ -71,6 +71,8 @@ function initFileBrowser(browser) {
   const loading = browser.querySelector(".file-browser-loading");
   const input = browser.querySelector(".file-browser-search-input");
   const sortToggle = browser.querySelector(".file-browser-sort-toggle");
+  const backBtn = browser.querySelector(".file-browser-nav-back");
+  const forwardBtn = browser.querySelector(".file-browser-nav-forward");
 
   if (!src || !list) return;
 
@@ -81,6 +83,12 @@ function initFileBrowser(browser) {
   let rootFiles = [];
   let currentPath = [];
   let sortDescending = false;
+
+  // Independent back/forward stack, Finder-style: navigating to a new
+  // folder truncates anything ahead of the current position; going back
+  // then forward again just walks the existing stack.
+  let navHistory = [[]];
+  let navIndex = 0;
 
   function sortFiles(files) {
     const sorted = [...files].sort((a, b) => a.name.localeCompare(b.name));
@@ -240,18 +248,45 @@ function initFileBrowser(browser) {
     currentCrumb.hidden = true;
   }
 
-  function navigateTo(pathNames, replace) {
+  function applyPath(pathNames) {
     currentPath = pathNames;
     if (input) input.value = "";
     refreshList();
     updateBreadcrumbs(pathNames);
+  }
 
-    const href = pageHrefForPath(pathNames);
-    if (replace) {
-      window.history.replaceState(null, "", href);
-    } else {
-      window.history.pushState(null, "", href);
-    }
+  function updateNavButtons() {
+    if (backBtn) backBtn.disabled = navIndex <= 0;
+    if (forwardBtn) forwardBtn.disabled = navIndex >= navHistory.length - 1;
+  }
+
+  function recordHistory(pathNames) {
+    navHistory = navHistory.slice(0, navIndex + 1);
+    navHistory.push(pathNames);
+    navIndex = navHistory.length - 1;
+    updateNavButtons();
+  }
+
+  function navigateTo(pathNames) {
+    applyPath(pathNames);
+    window.history.pushState(null, "", pageHrefForPath(pathNames));
+    recordHistory(pathNames);
+  }
+
+  function goBack() {
+    if (navIndex <= 0) return;
+    navIndex -= 1;
+    applyPath(navHistory[navIndex]);
+    window.history.replaceState(null, "", pageHrefForPath(navHistory[navIndex]));
+    updateNavButtons();
+  }
+
+  function goForward() {
+    if (navIndex >= navHistory.length - 1) return;
+    navIndex += 1;
+    applyPath(navHistory[navIndex]);
+    window.history.replaceState(null, "", pageHrefForPath(navHistory[navIndex]));
+    updateNavButtons();
   }
 
   if (input) input.addEventListener("input", refreshList);
@@ -264,6 +299,9 @@ function initFileBrowser(browser) {
     });
   }
 
+  if (backBtn) backBtn.addEventListener("click", goBack);
+  if (forwardBtn) forwardBtn.addEventListener("click", goForward);
+
   fetch(src)
     .then((response) => {
       if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
@@ -275,16 +313,15 @@ function initFileBrowser(browser) {
       list.hidden = false;
 
       const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
-      currentPath = resolved.path;
-      refreshList();
-      updateBreadcrumbs(resolved.path);
+      applyPath(resolved.path);
+      navHistory = [resolved.path];
+      navIndex = 0;
+      updateNavButtons();
 
       window.addEventListener("popstate", () => {
         const popResolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
-        currentPath = popResolved.path;
-        if (input) input.value = "";
-        refreshList();
-        updateBreadcrumbs(popResolved.path);
+        applyPath(popResolved.path);
+        recordHistory(popResolved.path);
       });
     })
     .catch(() => {

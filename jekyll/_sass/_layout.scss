@@ -767,6 +767,33 @@
   }
 }
 
+.file-browser-nav {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 6px;
+}
+
+.file-browser-nav-btn {
+  align-items: center;
+  background: none;
+  border: none;
+  color: $brand-color-dimmed;
+  cursor: pointer;
+  display: flex;
+  flex: 0 0 auto;
+  padding: 0;
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    color: $text-color;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.35;
+  }
+}
+
 .file-browser-loading {
   align-items: center;
   color: $brand-color-dimmed;

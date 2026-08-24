@@ -1,5 +1,13 @@
 <div class="file-browser" data-page-url="{{ page.url }}" data-baseurl="{{ site.baseurl }}" data-s3-bucket-root="{{ site.s3_bucket_root }}" data-src="{{ '/assets/data/swimming-diving/file-browser/' | append: include.data | append: '/index.json' | relative_url }}">
   <div class="file-browser-search">
+    <div class="file-browser-nav">
+      <button type="button" class="file-browser-nav-btn file-browser-nav-back" aria-label="Back" title="Back" disabled>
+        <span class="fa-solid fa-chevron-left" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="file-browser-nav-btn file-browser-nav-forward" aria-label="Forward" title="Forward" disabled>
+        <span class="fa-solid fa-chevron-right" aria-hidden="true"></span>
+      </button>
+    </div>
     <span class="fa-solid fa-magnifying-glass" aria-hidden="true"></span>
     <input type="text" class="file-browser-search-input" placeholder="Search files…" aria-label="Search files">
     <button type="button" class="file-browser-sort-toggle" aria-pressed="false" aria-label="Sort Z to A" title="Sort Z to A">
