@@ -310,16 +310,16 @@
                   "s3Path": "organization=miaa/league=bay-state-conference/year=2019-2020/season=fall/conference-meet-results.pdf"
                 },
                 {
-                  "name": "2021-2022 Fall Results.pdf",
-                  "s3Path": "organization=miaa/league=bay-state-conference/year=2021-2022/season=fall/conference-meet-results.pdf"
+                  "name": "2021-2022 Fall Girls Results.pdf",
+                  "s3Path": "organization=miaa/league=bay-state-conference/year=2021-2022/season=fall/conference-meet-girls-results.pdf"
                 },
                 {
                   "name": "2021-2022 Winter Results.pdf",
                   "s3Path": "organization=miaa/league=bay-state-conference/year=2021-2022/season=winter/conference-meet-results.pdf"
                 },
                 {
-                  "name": "2022-2023 Fall Results.pdf",
-                  "s3Path": "organization=miaa/league=bay-state-conference/year=2022-2023/season=fall/conference-meet-results.pdf"
+                  "name": "2022-2023 Fall Girls Results.pdf",
+                  "s3Path": "organization=miaa/league=bay-state-conference/year=2022-2023/season=fall/conference-meet-girls-results.pdf"
                 },
                 {
                   "name": "2022-2023 Winter Results.pdf",
@@ -838,8 +838,8 @@
               "name": "2021-2022",
               "files": [
                 {
-                  "name": "Fall Bay State Conference Results.pdf",
-                  "s3Path": "organization=miaa/league=bay-state-conference/year=2021-2022/season=fall/conference-meet-results.pdf"
+                  "name": "Fall Bay State Conference Girls Results.pdf",
+                  "s3Path": "organization=miaa/league=bay-state-conference/year=2021-2022/season=fall/conference-meet-girls-results.pdf"
                 },
                 {
                   "name": "Winter Bay State Conference Results.pdf",
@@ -851,8 +851,8 @@
               "name": "2022-2023",
               "files": [
                 {
-                  "name": "Fall Bay State Conference Results.pdf",
-                  "s3Path": "organization=miaa/league=bay-state-conference/year=2022-2023/season=fall/conference-meet-results.pdf"
+                  "name": "Fall Bay State Conference Girls Results.pdf",
+                  "s3Path": "organization=miaa/league=bay-state-conference/year=2022-2023/season=fall/conference-meet-girls-results.pdf"
                 },
                 {
                   "name": "Winter Bay State Conference Results.pdf",
