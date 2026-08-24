@@ -6,14 +6,17 @@
 # lines of Ruby instead, exposed to Liquid as plain data via site.data.
 #
 # Each node: { "segment" => "emisca", "url" => "/swimming-diving/emisca/" or
-# nil, "title" => "...", "children" => [...] }. A node has a url/title only
-# when that path segment is itself a real page (e.g. "emisca" is both a page
-# and a folder containing "awards"); segments that are pure path components
-# with no page of their own (rare on this site) are folders with a nil url.
+# nil, "title" => "...", "collapsed" => false, "children" => [...] }. A node
+# has a url/title only when that path segment is itself a real page (e.g.
+# "emisca" is both a page and a folder containing "awards"); segments that
+# are pure path components with no page of their own (rare on this site)
+# are folders with a nil url.
 #
-# A page can set `sitemap: false` in its front matter to be left out
-# entirely — e.g. individual qualifying-standards seasons shouldn't each get
-# listed, just the index page that links to all of them.
+# A page can set `sitemap_collapsed: true` in its front matter (typically via
+# a `defaults` scope covering a whole directory) to have that folder start
+# out collapsed in the site map's file viewer — e.g. individual
+# qualifying-standards seasons are still listed, just tucked under a closed
+# folder by default.
 module SiteMap
   class PageTreeGenerator < Jekyll::Generator
     safe true
@@ -27,7 +30,6 @@ module SiteMap
       site.pages.each do |page|
         next unless page.output_ext == ".html"
         next if page.data["redirect_to"]
-        next if page.data["sitemap"] == false
         next if EXCLUDED_URLS.include?(page.url)
 
         segments = page.url.split("/").reject(&:empty?)
@@ -43,6 +45,7 @@ module SiteMap
 
         node["url"] = page.url
         node["title"] = page.data["title"] || page.url
+        node["collapsed"] = true if page.data["sitemap_collapsed"]
       end
 
       sort_children!(root)
@@ -52,7 +55,7 @@ module SiteMap
     private
 
     def new_node(segment)
-      { "segment" => segment, "url" => nil, "title" => nil, "children" => [] }
+      { "segment" => segment, "url" => nil, "title" => nil, "collapsed" => false, "children" => [] }
     end
 
     def sort_children!(node)

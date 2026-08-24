@@ -1,6 +1,7 @@
 {%- comment -%}
   Recursively renders a page tree (built by _plugins/page_tree_generator.rb)
-  as nested, expanded-by-default <details> disclosures. A folder's own
+  as nested <details> disclosures, expanded by default unless a folder's own
+  page set `sitemap_collapsed: true` in its front matter. A folder's own
   summary links to its page when it has one (e.g. "EMISCA" is both a page
   and a folder containing "Awards"). Usage:
     {% include directory-tree.html nodes=site.data.page_tree %}
@@ -11,7 +12,7 @@
     {%- assign node_label = node_label | strip -%}
     {%- if node.children.size > 0 -%}
   <li class="directory-folder">
-    <details open>
+    <details{% unless node.collapsed %} open{% endunless %}>
       <summary>
         <span class="directory-caret" aria-hidden="true"></span>
         <span class="fa-solid fa-folder" aria-hidden="true"></span>

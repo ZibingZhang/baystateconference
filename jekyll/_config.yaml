@@ -41,19 +41,11 @@ defaults:
   - scope:
       path: "swimming-diving/bay-state-conference/awards/all-stars"
     values:
-      sitemap: false
-  - scope:
-      path: "swimming-diving/bay-state-conference/awards/all-stars/index.md"
-    values:
-      sitemap: true
+      sitemap_collapsed: true
   - scope:
       path: "swimming-diving/miaa/qualifying-standards"
     values:
-      sitemap: false
-  - scope:
-      path: "swimming-diving/miaa/qualifying-standards/index.md"
-    values:
-      sitemap: true
+      sitemap_collapsed: true
 
 # Build settings
 # theme: minima
