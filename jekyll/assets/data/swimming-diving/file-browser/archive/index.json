@@ -36,11 +36,11 @@
               "name": "Qualifying Standards",
               "files": [
                 {
-                  "name": "2026-2027 Fall Qualifying Standards",
+                  "name": "2026-2027 Fall Qualifying Standards.pdf",
                   "s3Path": "organization=miaa/year=2026-2027/season=fall/qualifying-standards.pdf"
                 },
                 {
-                  "name": "2026-2027 Winter Qualifying Standards",
+                  "name": "2026-2027 Winter Qualifying Standards.pdf",
                   "s3Path": "organization=miaa/year=2026-2027/season=winter/qualifying-standards.pdf"
                 }
               ]
@@ -49,11 +49,11 @@
               "name": "Swimming & Diving Format",
               "files": [
                 {
-                  "name": "2026-2027 Fall Format",
+                  "name": "2026-2027 Fall Format.pdf",
                   "s3Path": "organization=miaa/year=2026-2027/season=fall/format.pdf"
                 },
                 {
-                  "name": "2026-2027 Winter Format",
+                  "name": "2026-2027 Winter Format.pdf",
                   "s3Path": "organization=miaa/year=2026-2027/season=winter/format.pdf"
                 }
               ]
@@ -67,19 +67,19 @@
               "name": "2026-2027",
               "files": [
                 {
-                  "name": "Fall Format",
+                  "name": "Fall Format.pdf",
                   "s3Path": "organization=miaa/year=2026-2027/season=fall/format.pdf"
                 },
                 {
-                  "name": "Fall Qualifying Standards",
+                  "name": "Fall Qualifying Standards.pdf",
                   "s3Path": "organization=miaa/year=2026-2027/season=fall/qualifying-standards.pdf"
                 },
                 {
-                  "name": "Winter Format",
+                  "name": "Winter Format.pdf",
                   "s3Path": "organization=miaa/year=2026-2027/season=winter/format.pdf"
                 },
                 {
-                  "name": "Winter Qualifying Standards",
+                  "name": "Winter Qualifying Standards.pdf",
                   "s3Path": "organization=miaa/year=2026-2027/season=winter/qualifying-standards.pdf"
                 }
               ]
