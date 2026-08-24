@@ -1,5 +1,18 @@
 Year,Season,Sex,Division,Place,School,Score
-2023,fall,F,North,1,Acton-Boxborough High School,273
+2023,fall,F,South,1,Wellesley High School,405
+2023,fall,F,South,2,Needham High School,397
+2023,fall,F,South,3,Newton North High School,323
+2023,fall,F,South,4,Brookline High School,188
+2023,fall,F,South,5,Boston Latin High School,160
+2023,fall,F,South,6,Notre Dame Academy High School,157
+2023,fall,F,South,7,Framingham High School,137
+2023,fall,F,South,8,Milton High School,115
+2023,fall,F,South,8,Natick High School,115
+2023,fall,F,South,10,Ursuline Academy High School,89
+2023,fall,F,South,11,Braintree High School,77
+2023,fall,F,South,12,Weymouth High School,46
+2023,fall,F,South,13,Walpole High School,43
+2023,fall,F,North,1,Acton-Boxborough Regional High School,273
 2023,fall,F,North,2,Andover High School,228
 2023,fall,F,North,3,Belmont High School,217
 2023,fall,F,North,4,Winchester High School,214
@@ -17,19 +30,41 @@ Year,Season,Sex,Division,Place,School,Score
 2023,fall,F,North,16,Academy of Notre Dame High Sch,30
 2023,fall,F,North,17,Methuen High School,19
 2023,fall,F,North,18,Stoneham High School,4
-2023,fall,F,South,1,Wellesley High School,405
-2023,fall,F,South,2,Needham High School,397
-2023,fall,F,South,3,Newton North High School,323
-2023,fall,F,South,4,Brookline High School,188
-2023,fall,F,South,5,Boston Latin High School,160
-2023,fall,F,South,6,Notre Dame Academy High School,157
-2023,fall,F,South,7,Framingham High School,137
-2023,fall,F,South,8,Milton High School,115
-2023,fall,F,South,8,Natick High School,115
-2023,fall,F,South,10,Ursuline Academy High School,89
-2023,fall,F,South,11,Braintree High School,77
-2023,fall,F,South,12,Weymouth High School,46
-2023,fall,F,South,13,Walpole High School,43
+2023,winter,M,South,1,Needham,254
+2023,winter,M,South,2,Xaverian Brothers,252
+2023,winter,M,South,3,Boston College High,231
+2023,winter,M,South,4,Brookline,149
+2023,winter,M,South,5,Westwood,126
+2023,winter,M,South,6,Duxbury,120
+2023,winter,M,South,7,Cohasset,110
+2023,winter,M,South,8,Framingham,106
+2023,winter,M,South,9,Holliston,99.5
+2023,winter,M,South,10,Attleboro,91
+2023,winter,M,South,11,Natick,88
+2023,winter,M,South,12,Wellesley,75
+2023,winter,M,South,13,Quincy,65
+2023,winter,M,South,14,Nauset,61
+2023,winter,M,South,15,Newton North,58
+2023,winter,M,South,16,Nantucket,52
+2023,winter,M,South,17,Hopkinton,48
+2023,winter,M,South,18,Bishop Feehan,44
+2023,winter,M,South,19,Sandwich,38
+2023,winter,M,South,19,Scituate,38
+2023,winter,M,South,21,Hanover,32
+2023,winter,M,South,21,Seekonk,32
+2023,winter,M,South,23,Plymouth North,27
+2023,winter,M,South,24,Sharon,26
+2023,winter,M,South,25,Catholic Memorial,21
+2023,winter,M,South,26,Dover-Sherborn,19
+2023,winter,M,South,27,Foxborough,12
+2023,winter,M,South,28,Dedham,11
+2023,winter,M,South,29,Marthas Vineyard,8
+2023,winter,M,South,30,Taunton,6
+2023,winter,M,South,30,Brockton,6
+2023,winter,M,South,32,Bridgewater-Raynham,4
+2023,winter,M,South,33,Apponequet,2
+2023,winter,M,South,33,Milford,2
+2023,winter,M,South,35,Oliver Ames,1.5
 2022,fall,F,North,1,Acton-Boxborough,321.5
 2022,fall,F,North,2,Andover,269
 2022,fall,F,North,3,Winchester,227
@@ -48,6 +83,61 @@ Year,Season,Sex,Division,Place,School,Score
 2022,fall,F,North,16,Methuen,21
 2022,fall,F,North,17,Stoneham,4
 2022,fall,F,North,18,Billerica,3
+2022,winter,M,South,1,Needham,258
+2022,winter,M,South,2,Bishop Feehan,231
+2022,winter,M,South,3,Brookline,216
+2022,winter,M,South,4,Boston College High,188
+2022,winter,M,South,5,Duxbury,143
+2022,winter,M,South,6,Framingham,110
+2022,winter,M,South,7,Holliston,96
+2022,winter,M,South,8,Nantucket,80.5
+2022,winter,M,South,9,Westwood,75
+2022,winter,M,South,10,Wellesley,74.5
+2022,winter,M,South,11,Newton North,74
+2022,winter,M,South,12,Xaverian Brothers,68
+2022,winter,M,South,13,Natick,59
+2022,winter,M,South,14,Sharon,56
+2022,winter,M,South,15,Dover-Sherborn,48
+2022,winter,M,South,16,Hopkinton,40
+2022,winter,M,South,17,Sandwich,37.5
+2022,winter,M,South,18,Scituate,37
+2022,winter,M,South,19,Silver Lake,34
+2022,winter,M,South,20,Medfield,32
+2022,winter,M,South,21,Milford,29
+2022,winter,M,South,22,Cohasset,28
+2022,winter,M,South,23,Hanover,26
+2022,winter,M,South,24,Oliver Ames,24
+2022,winter,M,South,24,Quincy,24
+2022,winter,M,South,24,Hingham,24
+2022,winter,M,South,27,Seekonk,23
+2022,winter,M,South,28,Norwell,21
+2022,winter,M,South,29,Bishop Stang,20
+2022,winter,M,South,30,Taunton,18
+2022,winter,M,South,31,Old Rochester,17
+2022,winter,M,South,32,Attleboro,16
+2022,winter,M,South,33,Foxborough,13
+2022,winter,M,South,34,Marthas Vineyard,12
+2022,winter,M,South,35,King Philip,9
+2022,winter,M,South,36,Apponequet,6
+2022,winter,M,South,37,Mansfield,3.5
+2022,winter,M,South,38,Ashland,3
+2022,winter,M,South,38,Franklin,3
+2022,winter,M,South,40,Plymoutn North,2
+2022,winter,M,South,40,North Attleborough,2
+2021,fall,F,South,1,Wellesley,390.5
+2021,fall,F,South,2,Needham,329
+2021,fall,F,South,3,Brookline,304
+2021,fall,F,South,4,Ursuline Academy,222
+2021,fall,F,South,5,Framingham,221
+2021,fall,F,South,6,Milton,196
+2021,fall,F,South,7,Newton North,190
+2021,fall,F,South,8,Natick,110
+2021,fall,F,South,9,Braintree,81
+2021,fall,F,South,10,Boston Latin School,69
+2021,fall,F,South,11,Notre Dame Academy - Hingham,60
+2021,fall,F,South,12,Walpole,51.5
+2021,fall,F,South,13,Notre Dame Hingham,32
+2021,fall,F,South,14,Weymouth,16
 2021,fall,F,North,1,Acton-Boxborough,356.5
 2021,fall,F,North,2,Andover,247
 2021,fall,F,North,3,Central Catholic,218
@@ -66,20 +156,45 @@ Year,Season,Sex,Division,Place,School,Score
 2021,fall,F,North,16,Melrose,10
 2021,fall,F,North,17,Burlington,2
 2021,fall,F,North,17,Stoneham,2
-2021,fall,F,South,1,Wellesley,390.5
-2021,fall,F,South,2,Needham,329
-2021,fall,F,South,3,Brookline,304
-2021,fall,F,South,4,Ursuline Academy,222
-2021,fall,F,South,5,Framingham,221
-2021,fall,F,South,6,Milton,196
-2021,fall,F,South,7,Newton North,190
-2021,fall,F,South,8,Natick,110
-2021,fall,F,South,9,Braintree,81
-2021,fall,F,South,10,Boston Latin School,69
-2021,fall,F,South,11,Notre Dame Academy - Hingham,60
-2021,fall,F,South,12,Walpole,51.5
-2021,fall,F,South,13,Notre Dame Hingham,32
-2021,fall,F,South,14,Weymouth,16
+2020,winter,M,South,1,Natick,197
+2020,winter,M,South,2,Bishop Feehan,191
+2020,winter,M,South,3,Framingham,186
+2020,winter,M,South,4,Ashland,180
+2020,winter,M,South,5,Nantucket,176
+2020,winter,M,South,6,Brookline,159
+2020,winter,M,South,7,Duxbury,148.5
+2020,winter,M,South,8,Boston College High,117.5
+2020,winter,M,South,9,Newton North,112
+2020,winter,M,South,10,Wellesley,89
+2020,winter,M,South,11,Needham,85
+2020,winter,M,South,12,Catholic Memorial,82
+2020,winter,M,South,13,Norwell,77
+2020,winter,M,South,14,Seekonk,76
+2020,winter,M,South,15,Taunton,57
+2020,winter,M,South,16,Old Rochester,40
+2020,winter,M,South,17,King Philip,35
+2020,winter,M,South,18,Hopkinton,31
+2020,winter,M,South,19,Xaverian Brothers,28
+2020,winter,M,South,20,Boston Latin Academy,25.5
+2020,winter,M,South,21,Sharon,25
+2020,winter,M,South,22,Cohasset,24
+2020,winter,M,South,22,Scituate,24
+2020,winter,M,South,24,Sandwich,23
+2020,winter,M,South,25,Holliston,22
+2020,winter,M,South,26,Nauset,21
+2020,winter,M,South,27,North Quincy,17.5
+2020,winter,M,South,28,St. John Paul II,11
+2020,winter,M,South,28,Bishop Stang,11
+2020,winter,M,South,30,Middleboro,9
+2020,winter,M,South,30,Barnstable,9
+2020,winter,M,South,32,Apponequet,7
+2020,winter,M,South,33,East Boston,5
+2020,winter,M,South,33,Oliver Ames,5
+2020,winter,M,South,35,O'Bryant,3
+2020,winter,M,South,36,Hingham,2
+2020,winter,M,South,36,Westwood,2
+2020,winter,M,South,38,New Bedford,1
+2020,winter,M,South,38,Canton,1
 2019,fall,F,North,1,Andover,467
 2019,fall,F,North,2,Central Catholic,254
 2019,fall,F,North,3,Reading,239
@@ -97,6 +212,57 @@ Year,Season,Sex,Division,Place,School,Score
 2019,fall,F,North,15,Woburn,15
 2019,fall,F,North,16,Burlington,14
 2019,fall,F,North,17,Billerica,2
+2019,winter,M,South,1,Nantucket,228
+2019,winter,M,South,2,Natick,213
+2019,winter,M,South,3,Needham,195.5
+2019,winter,M,South,4,Ashland,167
+2019,winter,M,South,5,Bishop Feehan,151
+2019,winter,M,South,6,King Philip,137
+2019,winter,M,South,7,Wellesley,124
+2019,winter,M,South,8,Boston College High,107
+2019,winter,M,South,9,Oliver Ames,98.5
+2019,winter,M,South,10,Framingham,94
+2019,winter,M,South,11,Newton North,85
+2019,winter,M,South,12,Seekonk,75
+2019,winter,M,South,13,Norwell,72
+2019,winter,M,South,14,Duxbury,65
+2019,winter,M,South,15,Bishop Stang,63
+2019,winter,M,South,16,Catholic Memorial,57
+2019,winter,M,South,17,Brookline,55.5
+2019,winter,M,South,18,Old Rochester,55
+2019,winter,M,South,19,Cohasset,51
+2019,winter,M,South,20,Attleboro,37
+2019,winter,M,South,21,Hopkinton,30
+2019,winter,M,South,22,Sharon,27
+2019,winter,M,South,23,Taunton,24
+2019,winter,M,South,24,Xaverian Brothers,21
+2019,winter,M,South,25,Milford,17
+2019,winter,M,South,26,Dover-Sherborn,16
+2019,winter,M,South,27,Bridgewater-Raynham,15
+2019,winter,M,South,28,Barnstable,9
+2019,winter,M,South,28,Holliston,9
+2019,winter,M,South,30,Hingham,6
+2019,winter,M,South,31,Scituate,4.5
+2019,winter,M,South,32,Medfield,3
+2019,winter,M,South,32,Middleboro,3
+2019,winter,M,South,32,Apponequet,3
+2019,winter,M,South,35,Franklin,2
+2019,winter,M,South,35,Boston Latin Academy,2
+2018,fall,F,South,1,Wellesley,352
+2018,fall,F,South,2,Ursuline Academy,255
+2018,fall,F,South,3,Needham,244
+2018,fall,F,South,4,Newton North,234
+2018,fall,F,South,5,Brookline,194.5
+2018,fall,F,South,6,Natick,186
+2018,fall,F,South,7,Framingham,179.5
+2018,fall,F,South,8,Marshfield,160
+2018,fall,F,South,9,Boston Latin School,139
+2018,fall,F,South,10,Notre Dame Academy - Hingham,138
+2018,fall,F,South,11,Milton,88
+2018,fall,F,South,12,Walpole,85
+2018,fall,F,South,13,Braintree,24
+2018,fall,F,South,14,Mount Alvernia,8
+2018,fall,F,South,14,Weymouth,8
 2018,fall,F,North,1,Andover,411
 2018,fall,F,North,2,Reading,400
 2018,fall,F,North,3,Acton-Boxborough,204.5
@@ -115,21 +281,58 @@ Year,Season,Sex,Division,Place,School,Score
 2018,fall,F,North,16,Burlington,23
 2018,fall,F,North,17,Woburn,11
 2018,fall,F,North,18,Stoneham,8
-2018,fall,F,South,1,Wellesley,352
-2018,fall,F,South,2,Ursuline Academy,255
-2018,fall,F,South,3,Needham,244
-2018,fall,F,South,4,Newton North,234
-2018,fall,F,South,5,Brookline,194.5
-2018,fall,F,South,6,Natick,186
-2018,fall,F,South,7,Framingham,179.5
-2018,fall,F,South,8,Marshfield,160
-2018,fall,F,South,9,Boston Latin School,139
-2018,fall,F,South,10,Notre Dame Academy - Hingham,138
-2018,fall,F,South,11,Milton,88
-2018,fall,F,South,12,Walpole,85
-2018,fall,F,South,13,Braintree,24
-2018,fall,F,South,14,Mount Alvernia,8
-2018,fall,F,South,14,Weymouth,8
+2018,winter,M,South,1,Needham,247
+2018,winter,M,South,2,Natick,240
+2018,winter,M,South,3,Ashland,175
+2018,winter,M,South,4,Wellesley,148
+2018,winter,M,South,5,Framingham,146
+2018,winter,M,South,6,Nantucket,136
+2018,winter,M,South,7,Boston College High,124
+2018,winter,M,South,8,King Philip,118
+2018,winter,M,South,9,Old Rochester,110
+2018,winter,M,South,10,Nauset,100
+2018,winter,M,South,11,Catholic Memorial,91
+2018,winter,M,South,12,Brookline,79
+2018,winter,M,South,13,North Attleborough,68
+2018,winter,M,South,14,Bishop Feehan,54
+2018,winter,M,South,15,Newton North,49
+2018,winter,M,South,16,Holliston,47
+2018,winter,M,South,17,Cohasset,46.5
+2018,winter,M,South,18,Duxbury,46
+2018,winter,M,South,19,Scituate,42
+2018,winter,M,South,20,Bishop Stang,41
+2018,winter,M,South,21,Oliver Ames,40
+2018,winter,M,South,22,Xaverian Brothers,26
+2018,winter,M,South,23,Hopkinton,21
+2018,winter,M,South,24,Dover-Sherborn,20
+2018,winter,M,South,25,Bridgewater-Raynham,15
+2018,winter,M,South,26,Mansfield,13
+2018,winter,M,South,26,Franklin,13
+2018,winter,M,South,28,Dighton-Rehoboth,12
+2018,winter,M,South,29,Sharon,11
+2018,winter,M,South,30,Milford,9
+2018,winter,M,South,30,Medfield,9
+2018,winter,M,South,32,Seekonk,7
+2018,winter,M,South,33,Norwell,6
+2018,winter,M,South,34,Norton,5
+2018,winter,M,South,35,Middleboro,4
+2018,winter,M,South,36,Barnstable,3
+2018,winter,M,South,36,Blue Hills Tech,3
+2018,winter,M,South,38,Attleboro,0.5
+2017,fall,F,South,1,Wellesley,376
+2017,fall,F,South,2,Newton North,332
+2017,fall,F,South,3,Brookline,268
+2017,fall,F,South,4,Natick,233
+2017,fall,F,South,5,Ursuline Academy,176
+2017,fall,F,South,5,Framingham,176
+2017,fall,F,South,7,Needham,168
+2017,fall,F,South,8,Boston Latin School,157
+2017,fall,F,South,9,Marshfield,144
+2017,fall,F,South,10,Notre Dame Academy - Hingham,119
+2017,fall,F,South,11,Braintree,46
+2017,fall,F,South,12,Walpole,35
+2017,fall,F,South,13,Norwood,32
+2017,fall,F,South,14,Milton,31
 2017,fall,F,North,1,Andover,409
 2017,fall,F,North,2,Reading,356
 2017,fall,F,North,3,Acton-Boxborough,264
@@ -149,20 +352,19 @@ Year,Season,Sex,Division,Place,School,Score
 2017,fall,F,North,17,Woburn,24
 2017,fall,F,North,18,North Andover,20
 2017,fall,F,North,19,Billerica,4
-2017,fall,F,South,1,Wellesley,376
-2017,fall,F,South,2,Newton North,332
-2017,fall,F,South,3,Brookline,268
-2017,fall,F,South,4,Natick,233
-2017,fall,F,South,5,Ursuline Academy,176
-2017,fall,F,South,5,Framingham,176
-2017,fall,F,South,7,Needham,168
-2017,fall,F,South,8,Boston Latin School,157
-2017,fall,F,South,9,Marshfield,144
-2017,fall,F,South,10,Notre Dame Academy - Hingham,119
-2017,fall,F,South,11,Braintree,46
-2017,fall,F,South,12,Walpole,35
-2017,fall,F,South,13,Norwood,32
-2017,fall,F,South,14,Milton,31
+2016,fall,F,South,1,Framingham,300
+2016,fall,F,South,2,Newton North,292
+2016,fall,F,South,3,Brookline,263
+2016,fall,F,South,4,Notre Dame Academy - Hingham,251
+2016,fall,F,South,5,Natick,242
+2016,fall,F,South,6,Wellesley,240
+2016,fall,F,South,7,Ursuline Academy,205
+2016,fall,F,South,8,Needham,179
+2016,fall,F,South,9,Marshfield,153
+2016,fall,F,South,10,Braintree,49
+2016,fall,F,South,11,Dedham,33
+2016,fall,F,South,12,Norwood,24
+2016,fall,F,South,13,Walpole,20
 2016,fall,F,North,1,Andover,464
 2016,fall,F,North,2,Acton-Boxborough,298
 2016,fall,F,North,3,Reading,258
@@ -183,19 +385,72 @@ Year,Season,Sex,Division,Place,School,Score
 2016,fall,F,North,18,Academy of Notre Dame,4
 2016,fall,F,North,18,Woburn,4
 2016,fall,F,North,20,Arlington,3
-2016,fall,F,South,1,Framingham,300
-2016,fall,F,South,2,Newton North,292
-2016,fall,F,South,3,Brookline,263
-2016,fall,F,South,4,Notre Dame Academy - Hingham,251
-2016,fall,F,South,5,Natick,242
-2016,fall,F,South,6,Wellesley,240
-2016,fall,F,South,7,Ursuline Academy,205
-2016,fall,F,South,8,Needham,179
-2016,fall,F,South,9,Marshfield,153
-2016,fall,F,South,10,Braintree,49
-2016,fall,F,South,11,Dedham,33
-2016,fall,F,South,12,Norwood,24
-2016,fall,F,South,13,Walpole,20
+2016,winter,M,Central/South,1,Norwell,187
+2016,winter,M,Central/South,2,Westborough,180.5
+2016,winter,M,Central/South,3,Wellesley,173.5
+2016,winter,M,Central/South,4,King Philip,137
+2016,winter,M,Central/South,5,Attleboro,127
+2016,winter,M,Central/South,6,Framingham,126.5
+2016,winter,M,Central/South,7,Duxbury,115
+2016,winter,M,Central/South,8,Ashland,113
+2016,winter,M,Central/South,9,Needham,105
+2016,winter,M,Central/South,10,Bishop Feehan,98
+2016,winter,M,Central/South,11,Brookline,96
+2016,winter,M,Central/South,12,Bridgewater-Raynham,80
+2016,winter,M,Central/South,13,Nauset,63.5
+2016,winter,M,Central/South,14,Apponequet,53
+2016,winter,M,Central/South,15,Bromfield,47
+2016,winter,M,Central/South,16,Tgd Coop,42.5
+2016,winter,M,Central/South,17,Boston College High,38.5
+2016,winter,M,Central/South,18,Scituate,38
+2016,winter,M,Central/South,18,Newton North,38
+2016,winter,M,Central/South,20,Algonquin,36
+2016,winter,M,Central/South,21,Cohasset,34
+2016,winter,M,Central/South,21,Hanover,34
+2016,winter,M,Central/South,21,North Attleborough,34
+2016,winter,M,Central/South,24,Sharon,30
+2016,winter,M,Central/South,24,Canton,30
+2016,winter,M,Central/South,26,Norton,26
+2016,winter,M,Central/South,27,Barnstable,21
+2016,winter,M,Central/South,28,Oliver Ames,20
+2016,winter,M,Central/South,28,Medfield,20
+2016,winter,M,Central/South,30,Milford,18
+2016,winter,M,Central/South,30,Taunton,18
+2016,winter,M,Central/South,32,Dover-Sherborn,17
+2016,winter,M,Central/South,32,Doherty,17
+2016,winter,M,Central/South,34,Sandwich,15
+2016,winter,M,Central/South,35,Seekonk,14
+2016,winter,M,Central/South,35,Saint John's,14
+2016,winter,M,Central/South,37,Franklin,12
+2016,winter,M,Central/South,37,New Bedford,12
+2016,winter,M,Central/South,39,Hopkinton,11
+2016,winter,M,Central/South,40,Natick,8
+2016,winter,M,Central/South,41,North Quincy,6
+2016,winter,M,Central/South,42,Shrewsbury,5
+2016,winter,M,Central/South,43,Xaverian,4
+2016,winter,M,Central/South,44,Holliston,3
+2016,winter,M,Central/South,44,Silver Lake,3
+2016,winter,M,Central/South,46,Nantucket,2
+2016,winter,M,Central/South,47,Tantasqua,1
+2016,winter,M,Central/South,47,Quincy,1
+2015,fall,F,South,1,Bishop Feehan,350
+2015,fall,F,South,2,Brookline,267.5
+2015,fall,F,South,3,Newton North,235.5
+2015,fall,F,South,4,Framingham,235
+2015,fall,F,South,5,Wellesley,213
+2015,fall,F,South,6,Needham,202
+2015,fall,F,South,7,Ursuline Academy,172.5
+2015,fall,F,South,8,Natick,144
+2015,fall,F,South,9,Notre Dame Academy - Hingham,133.5
+2015,fall,F,South,10,Marshfield,90
+2015,fall,F,South,11,New Bedford,71
+2015,fall,F,South,12,Braintree,53
+2015,fall,F,South,13,Advanced Math & Science,38
+2015,fall,F,South,14,Durfee,36
+2015,fall,F,South,15,Brockton,35
+2015,fall,F,South,16,Walpole,18
+2015,fall,F,South,17,Mount Alvernia,11
+2015,fall,F,South,18,Norwood,6
 2015,fall,F,North,1,Andover,474
 2015,fall,F,North,2,Acton-Boxborough,292.5
 2015,fall,F,North,3,Reading,249
@@ -216,24 +471,73 @@ Year,Season,Sex,Division,Place,School,Score
 2015,fall,F,North,18,Stoneham,12
 2015,fall,F,North,19,Billerica,9
 2015,fall,F,North,20,Notre Dame Academy - Worcester,4
-2015,fall,F,South,1,Bishop Feehan,350
-2015,fall,F,South,2,Brookline,267.5
-2015,fall,F,South,3,Newton North,235.5
-2015,fall,F,South,4,Framingham,235
-2015,fall,F,South,5,Wellesley,213
-2015,fall,F,South,6,Needham,202
-2015,fall,F,South,7,Ursuline Academy,172.5
-2015,fall,F,South,8,Natick,144
-2015,fall,F,South,9,Notre Dame Academy - Hingham,133.5
-2015,fall,F,South,10,Marshfield,90
-2015,fall,F,South,11,New Bedford,71
-2015,fall,F,South,12,Braintree,53
-2015,fall,F,South,13,Advanced Math & Science,38
-2015,fall,F,South,14,Durfee,36
-2015,fall,F,South,15,Brockton,35
-2015,fall,F,South,16,Walpole,18
-2015,fall,F,South,17,Mount Alvernia,11
-2015,fall,F,South,18,Norwood,6
+2015,winter,M,Central/South,1,Framingham,249.5
+2015,winter,M,Central/South,2,Brookline,180
+2015,winter,M,Central/South,3,Wellesley,171.5
+2015,winter,M,Central/South,4,Apponequet Boys Swimming,143
+2015,winter,M,Central/South,5,Algonquin Regional High School,139
+2015,winter,M,Central/South,6,Bishop Feehan,118
+2015,winter,M,Central/South,7,St John's Shrewsbury,110
+2015,winter,M,Central/South,8,Taunton,100
+2015,winter,M,Central/South,9,Duxbury,92
+2015,winter,M,Central/South,10,King Philip Regional High Scho,83
+2015,winter,M,Central/South,11,Bromfield,82
+2015,winter,M,Central/South,12,Franklin,62.5
+2015,winter,M,Central/South,13,BridgewaterRaynham High School,57
+2015,winter,M,Central/South,14,Westborough,53
+2015,winter,M,Central/South,15,Barnstable High School Swim,51
+2015,winter,M,Central/South,16,Holliston,50.5
+2015,winter,M,Central/South,16,Scituate,50.5
+2015,winter,M,Central/South,18,Milford,45
+2015,winter,M,Central/South,19,Needham,40.5
+2015,winter,M,Central/South,20,Canton,40
+2015,winter,M,Central/South,21,Nauset Regional High School,36
+2015,winter,M,Central/South,22,Medfield,35
+2015,winter,M,Central/South,22,Ashland,35
+2015,winter,M,Central/South,24,Sandwich,33
+2015,winter,M,Central/South,25,Boston College HS,31
+2015,winter,M,Central/South,26,Hopkinton,24
+2015,winter,M,Central/South,26,Hanover High School,24
+2015,winter,M,Central/South,28,North Attleborough,23
+2015,winter,M,Central/South,29,Oliver Ames,21
+2015,winter,M,Central/South,30,Dover Sherborn,17
+2015,winter,M,Central/South,31,Sharon,16
+2015,winter,M,Central/South,31,Attleboro,16
+2015,winter,M,Central/South,33,Leominster,15
+2015,winter,M,Central/South,34,Wachusett Regional,14
+2015,winter,M,Central/South,35,Xaverian Brothers,12
+2015,winter,M,Central/South,36,Newton North,10
+2015,winter,M,Central/South,37,Norton,8
+2015,winter,M,Central/South,38,North Attleborough,6
+2015,winter,M,Central/South,38,Quincy/ North Quincy,6
+2015,winter,M,Central/South,40,Durfee,4
+2015,winter,M,Central/South,40,Bishop Stang,4
+2015,winter,M,Central/South,40,Nantucket,4
+2015,winter,M,Central/South,43,Tyngsboro Groton Dunstable,3
+2015,winter,M,Central/South,43,Westwood,3
+2015,winter,M,Central/South,43,Dighton-Rehoboth,3
+2015,winter,M,Central/South,46,Catholic Memorial,2
+2015,winter,M,Central/South,46,Silver Lake,2
+2014,fall,F,South,1,Newton North,313
+2014,fall,F,South,2,Bishop Feehan,295
+2014,fall,F,South,3,Framingham,269
+2014,fall,F,South,4,Needham,209
+2014,fall,F,South,5,Natick,207
+2014,fall,F,South,6,Westwood,161
+2014,fall,F,South,7,Ursuline Academy,133
+2014,fall,F,South,8,Wellesley,131
+2014,fall,F,South,9,Bishop Stang,121
+2014,fall,F,South,10,Marshfield,81
+2014,fall,F,South,11,Walpole,77
+2014,fall,F,South,12,Brookline,71
+2014,fall,F,South,13,Brockton,51
+2014,fall,F,South,13,Durfee,51
+2014,fall,F,South,15,Notre Dame Academy - Hingham,48
+2014,fall,F,South,16,New Bedford,45
+2014,fall,F,South,17,Deedham,27
+2014,fall,F,South,18,Braintree,18
+2014,fall,F,South,19,Norwood,14
+2014,fall,F,South,20,Mount Alvernia,3
 2014,fall,F,North,1,Andover ,366
 2014,fall,F,North,2,Acton-Boxborough,320
 2014,fall,F,North,3,Belmont,217
@@ -255,26 +559,72 @@ Year,Season,Sex,Division,Place,School,Score
 2014,fall,F,North,19,Billerica,10
 2014,fall,F,North,20,Dracut,9
 2014,fall,F,North,21,Academy of Notre Dame,4
-2014,fall,F,South,1,Newton North,313
-2014,fall,F,South,2,Bishop Feehan,295
-2014,fall,F,South,3,Framingham,269
-2014,fall,F,South,4,Needham,209
-2014,fall,F,South,5,Natick,207
-2014,fall,F,South,6,Westwood,161
-2014,fall,F,South,7,Ursuline Academy,133
-2014,fall,F,South,8,Wellesley,131
-2014,fall,F,South,9,Bishop Stang,121
-2014,fall,F,South,10,Marshfield,81
-2014,fall,F,South,11,Walpole,77
-2014,fall,F,South,12,Brookline,71
-2014,fall,F,South,13,Brockton,51
-2014,fall,F,South,13,Durfee,51
-2014,fall,F,South,15,Notre Dame Academy,48
-2014,fall,F,South,16,New Bedford,45
-2014,fall,F,South,17,Deedham,27
-2014,fall,F,South,18,Braintree,18
-2014,fall,F,South,19,Norwood,14
-2014,fall,F,South,20,Mount Alvernia,3
+2014,winter,M,Central/South,1,King Philip Regional,218
+2014,winter,M,Central/South,2,Bishop Feehan,196
+2014,winter,M,Central/South,3,Hingham,157
+2014,winter,M,Central/South,4,Framingham,155
+2014,winter,M,Central/South,5,BridgewaterRaynham,150
+2014,winter,M,Central/South,6,Boston College HS,136
+2014,winter,M,Central/South,7,Brookline,132
+2014,winter,M,Central/South,8,Needham,105.5
+2014,winter,M,Central/South,9,Wellesley,96
+2014,winter,M,Central/South,10,Ashland,94
+2014,winter,M,Central/South,11,Algonquin Regional,93
+2014,winter,M,Central/South,12,Leominster,90
+2014,winter,M,Central/South,13,Duxbury,72.5
+2014,winter,M,Central/South,14,Apponequet,67
+2014,winter,M,Central/South,15,Hopkinton,57
+2014,winter,M,Central/South,16,St John's Shrewsbury,44
+2014,winter,M,Central/South,17,Xaverian Brothers,38
+2014,winter,M,Central/South,18,Bromfield,37
+2014,winter,M,Central/South,19,Norwell,36
+2014,winter,M,Central/South,20,Medfield,31
+2014,winter,M,Central/South,20,Cohasset,31
+2014,winter,M,Central/South,22,Milford,30
+2014,winter,M,Central/South,22,Catholic Memorial,30
+2014,winter,M,Central/South,24,Mansfield,26
+2014,winter,M,Central/South,25,Westwood,23
+2014,winter,M,Central/South,26,Franklin,22
+2014,winter,M,Central/South,27,Scituate,19
+2014,winter,M,Central/South,28,Sandwich,17
+2014,winter,M,Central/South,29,Newton North,14
+2014,winter,M,Central/South,30,Barnstable,13
+2014,winter,M,Central/South,30,Dover Sherborn,13
+2014,winter,M,Central/South,30,Tantasqua,13
+2014,winter,M,Central/South,33,Pembroke,11
+2014,winter,M,Central/South,34,Wachusett Regional,10
+2014,winter,M,Central/South,34,New Bedford,10
+2014,winter,M,Central/South,36,Northbridge,7
+2014,winter,M,Central/South,36,Durfee,7
+2014,winter,M,Central/South,38,Oliver Ames,5
+2014,winter,M,Central/South,39,Taunton,4
+2014,winter,M,Central/South,39,Dighton-Rehoboth,4
+2014,winter,M,Central/South,41,Seekonk,3
+2014,winter,M,Central/South,41,Norton,3
+2014,winter,M,Central/South,43,North Attleborough,2
+2014,winter,M,Central/South,44,Bishop Stang,1
+2014,winter,M,Central/South,44,Westborough,1
+2013,fall,F,South,1,Framingham,363
+2013,fall,F,South,2,Bishop Feehan,346
+2013,fall,F,South,3,Newton North,259
+2013,fall,F,South,4,Needham,257
+2013,fall,F,South,5,Natick,149
+2013,fall,F,South,6,Wellesley,144
+2013,fall,F,South,7,Westwood,120.5
+2013,fall,F,South,8,Ursuline Academy,93
+2013,fall,F,South,9,Apponequet,91
+2013,fall,F,South,10,Seekonk,83
+2013,fall,F,South,11,Bishop Stang Spartans,73
+2013,fall,F,South,12,Notre Dame Academy - Hingham,71
+2013,fall,F,South,13,Walpole,65
+2013,fall,F,South,14,Brockton,64
+2013,fall,F,South,15,Dedham,41
+2013,fall,F,South,16,Durfee,33
+2013,fall,F,South,17,Brookline,30
+2013,fall,F,South,18,Marshfield,24
+2013,fall,F,South,19,Norwood Mustangs,8
+2013,fall,F,South,20,Mount Alvernia,6
+2013,fall,F,South,21,Braintree,4.5
 2013,fall,F,North,1,Andover,345.5
 2013,fall,F,North,2,Chelmsford,336
 2013,fall,F,North,3,Acton-Boxborough,258.5
@@ -297,49 +647,6 @@ Year,Season,Sex,Division,Place,School,Score
 2013,fall,F,North,20,Burlington,21
 2013,fall,F,North,21,Dracut,4
 2013,fall,F,North,22,Academy of Notre Dame,2
-2013,fall,F,South,1,Framingham,363
-2013,fall,F,South,2,Bishop Feehan,346
-2013,fall,F,South,3,Newton North,259
-2013,fall,F,South,4,Needham,257
-2013,fall,F,South,5,Natick,149
-2013,fall,F,South,6,Wellesley,144
-2013,fall,F,South,7,Westwood,120.5
-2013,fall,F,South,8,Ursuline Academy,93
-2013,fall,F,South,9,Apponequet,91
-2013,fall,F,South,10,Seekonk,83
-2013,fall,F,South,11,Bishop Stang Spartans,73
-2013,fall,F,South,12,Notre Dame Academy - Hingham,71
-2013,fall,F,South,13,Walpole,65
-2013,fall,F,South,14,Brockton,64
-2013,fall,F,South,15,Dedham,41
-2013,fall,F,South,16,Durfee,33
-2013,fall,F,South,17,Brookline,30
-2013,fall,F,South,18,Marshfield,24
-2013,fall,F,South,19,Norwood Mustangs,8
-2013,fall,F,South,20,Mount Alvernia,6
-2013,fall,F,South,21,Braintree,4.5
-2012,fall,F,North,1,Andover,466
-2012,fall,F,North,2,Acton-Boxborough,281
-2012,fall,F,North,3,Chelmsford,269
-2012,fall,F,North,4,Reading,234
-2012,fall,F,North,5,Lexington,167
-2012,fall,F,North,6,Haverhill,152
-2012,fall,F,North,7,Belmont,151
-2012,fall,F,North,8,Methuen,125
-2012,fall,F,North,9,Wakefield,88
-2012,fall,F,North,10,Central Catholic,79
-2012,fall,F,North,11,Boston Latin School,75
-2012,fall,F,North,12,Notre Dame Academy,56
-2012,fall,F,North,13,Stoneham,51
-2012,fall,F,North,14,Winchester,28
-2012,fall,F,North,15,Billerica,22
-2012,fall,F,North,16,North Andover,21
-2012,fall,F,North,17,Melrose,16
-2012,fall,F,North,18,Lowell,15
-2012,fall,F,North,19,Woburn,14
-2012,fall,F,North,20,Academy of Notre Dame,7
-2012,fall,F,North,21,Dracut,6
-2012,fall,F,North,22,St Peter-Marion,2
 2012,fall,F,South,1,Framingham,344
 2012,fall,F,South,2,Bishop Feehan,337
 2012,fall,F,South,3,Needham,251.5
@@ -361,28 +668,68 @@ Year,Season,Sex,Division,Place,School,Score
 2012,fall,F,South,19,Apponequet,25
 2012,fall,F,South,20,Brookline,24
 2012,fall,F,South,21,Dedham,1
-2011,fall,F,North,1,Andover,538
-2011,fall,F,North,2,Acton-Boxborough,267
-2011,fall,F,North,3,Reading,262.5
-2011,fall,F,North,4,Chelmsford,243.5
-2011,fall,F,North,5,Haverhill,146
-2011,fall,F,North,6,Lexington,122
-2011,fall,F,North,7,Dracut,115
-2011,fall,F,North,8,Central Catholic,103
-2011,fall,F,North,9,Belmont,99
-2011,fall,F,North,10,Billerica,97
-2011,fall,F,North,11,Methuen,77
-2011,fall,F,North,12,Boston Latin School,42
-2011,fall,F,North,12,Notre Dame Academy,42
-2011,fall,F,North,14,Stoneham,41
-2011,fall,F,North,15,Wakefield,38
-2011,fall,F,North,16,Winchester,34
-2011,fall,F,North,17,Melrose,22
-2011,fall,F,North,18,Lowell,21
-2011,fall,F,North,19,Burlington,6
-2011,fall,F,North,20,St Peter-Marion,4
-2011,fall,F,North,20,Woburn,4
-2011,fall,F,North,22,Academy of Notre Dame,1
+2012,fall,F,North,1,Andover,466
+2012,fall,F,North,2,Acton-Boxborough,281
+2012,fall,F,North,3,Chelmsford,269
+2012,fall,F,North,4,Reading,234
+2012,fall,F,North,5,Lexington,167
+2012,fall,F,North,6,Haverhill,152
+2012,fall,F,North,7,Belmont,151
+2012,fall,F,North,8,Methuen,125
+2012,fall,F,North,9,Wakefield,88
+2012,fall,F,North,10,Central Catholic,79
+2012,fall,F,North,11,Boston Latin School,75
+2012,fall,F,North,12,Notre Dame Academy - Worcester,56
+2012,fall,F,North,13,Stoneham,51
+2012,fall,F,North,14,Winchester,28
+2012,fall,F,North,15,Billerica,22
+2012,fall,F,North,16,North Andover,21
+2012,fall,F,North,17,Melrose,16
+2012,fall,F,North,18,Lowell,15
+2012,fall,F,North,19,Woburn,14
+2012,fall,F,North,20,Academy of Notre Dame,7
+2012,fall,F,North,21,Dracut,6
+2012,fall,F,North,22,St Peter-Marion,2
+2012,winter,M,Central/South,1,Boston College HS,237
+2012,winter,M,Central/South,2,King Philip Regional,202
+2012,winter,M,Central/South,3,Hopkinton,185
+2012,winter,M,Central/South,4,North Attleborough,147
+2012,winter,M,Central/South,5,Needham,122
+2012,winter,M,Central/South,6,Bishop Stang,118
+2012,winter,M,Central/South,7,Bishop Feehan,110
+2012,winter,M,Central/South,8,St. John's Shrewsbury,102
+2012,winter,M,Central/South,9,Duxbury,95
+2012,winter,M,Central/South,10,Brookline,94
+2012,winter,M,Central/South,11,Framingham,82
+2012,winter,M,Central/South,12,Algonquin Regional,81
+2012,winter,M,Central/South,13,Sandwich,68.5
+2012,winter,M,Central/South,14,Medfield,67
+2012,winter,M,Central/South,15,Apponequet Regional,62
+2012,winter,M,Central/South,16,Norwell,59
+2012,winter,M,Central/South,17,Northbridge,52
+2012,winter,M,Central/South,18,Milford,50
+2012,winter,M,Central/South,18,Westborough,50
+2012,winter,M,Central/South,20,Middleboro,43
+2012,winter,M,Central/South,20,Seekonk,43
+2012,winter,M,Central/South,22,Attleboro,32
+2012,winter,M,Central/South,23,Franklin,28
+2012,winter,M,Central/South,24,Newton North,25
+2012,winter,M,Central/South,25,Sharon,24
+2012,winter,M,Central/South,25,Bromfield,24
+2012,winter,M,Central/South,27,Coyle & Cassidy,17
+2012,winter,M,Central/South,28,B.M.C. Durfee,16
+2012,winter,M,Central/South,28,Hingham,16
+2012,winter,M,Central/South,30,Xaverian Brothers,14
+2012,winter,M,Central/South,31,Cohasset,11
+2012,winter,M,Central/South,31,Bridgewater-Raynham Regional,11
+2012,winter,M,Central/South,33,Nauset Regional,7
+2012,winter,M,Central/South,33,Ashland,7
+2012,winter,M,Central/South,35,Dover Sherborn,6
+2012,winter,M,Central/South,35,Brockton,6
+2012,winter,M,Central/South,37,Wachusett Regional,4.5
+2012,winter,M,Central/South,38,Wellesley,4
+2012,winter,M,Central/South,39,Holliston,2
+2012,winter,M,Central/South,40,Nantucket,1
 2011,fall,F,South,1,Bishop Feehan,281.5
 2011,fall,F,South,2,Framingham,261
 2011,fall,F,South,3,Walpole,254
@@ -406,24 +753,62 @@ Year,Season,Sex,Division,Place,School,Score
 2011,fall,F,South,21,Brookline,23
 2011,fall,F,South,22,New Bedford,19
 2011,fall,F,South,23,Milford,15
-2010,fall,F,North,1,Andover,367
-2010,fall,F,North,2,Reading,219.5
-2010,fall,F,North,3,Acton-Boxborough,199.5
-2010,fall,F,North,4,Chelmsford,137
-2010,fall,F,North,5,Lexington,119
-2010,fall,F,North,6,Haverhill,97
-2010,fall,F,North,7,Central Catholic,61
-2010,fall,F,North,8,Stoneham,54
-2010,fall,F,North,9,Belmont,32
-2010,fall,F,North,10,Winchester,22
-2010,fall,F,North,11,Boston Latin School,21
-2010,fall,F,North,12,Lowell,15
-2010,fall,F,North,13,St Peter-Marion,13.5
-2010,fall,F,North,14,Notre Dame Academy,10
-2010,fall,F,North,15,Methuen,9
-2010,fall,F,North,16,Wakefield,8
-2010,fall,F,North,16,Billerica,8
-2010,fall,F,North,18,Dracut,2.5
+2011,fall,F,North,1,Andover,538
+2011,fall,F,North,2,Acton-Boxborough,267
+2011,fall,F,North,3,Reading,262.5
+2011,fall,F,North,4,Chelmsford,243.5
+2011,fall,F,North,5,Haverhill,146
+2011,fall,F,North,6,Lexington,122
+2011,fall,F,North,7,Dracut,115
+2011,fall,F,North,8,Central Catholic,103
+2011,fall,F,North,9,Belmont,99
+2011,fall,F,North,10,Billerica,97
+2011,fall,F,North,11,Methuen,77
+2011,fall,F,North,12,Boston Latin School,42
+2011,fall,F,North,12,Notre Dame Academy - Worcester,42
+2011,fall,F,North,14,Stoneham,41
+2011,fall,F,North,15,Wakefield,38
+2011,fall,F,North,16,Winchester,34
+2011,fall,F,North,17,Melrose,22
+2011,fall,F,North,18,Lowell,21
+2011,fall,F,North,19,Burlington,6
+2011,fall,F,North,20,St Peter-Marion,4
+2011,fall,F,North,20,Woburn,4
+2011,fall,F,North,22,Academy of Notre Dame,1
+2011,winter,M,Central/South,1,King Philip Regional,195
+2011,winter,M,Central/South,2,Boston College HS,144
+2011,winter,M,Central/South,3,Bishop Feehan,112
+2011,winter,M,Central/South,4,Brookline,92
+2011,winter,M,Central/South,5,North Attleborough,83
+2011,winter,M,Central/South,6,Hopkinton,68
+2011,winter,M,Central/South,7,Bishop Stang,59
+2011,winter,M,Central/South,7,Medfield,59
+2011,winter,M,Central/South,9,Seekonk,58
+2011,winter,M,Central/South,10,Coyle & Cassidy,48
+2011,winter,M,Central/South,11,St. John's Shrewsbury,46
+2011,winter,M,Central/South,12,Milford,44
+2011,winter,M,Central/South,13,Westborough,39
+2011,winter,M,Central/South,14,Norwell,37.5
+2011,winter,M,Central/South,15,Duxbury,37
+2011,winter,M,Central/South,16,Xaverian Brothers,29
+2011,winter,M,Central/South,17,Apponequet Regional,25
+2011,winter,M,Central/South,18,Catholic Memorial,24
+2011,winter,M,Central/South,18,Sharon,24
+2011,winter,M,Central/South,20,Northbridge,23
+2011,winter,M,Central/South,21,Sandwich,21
+2011,winter,M,Central/South,22,New Bedford,18
+2011,winter,M,Central/South,23,Wellesley,16
+2011,winter,M,Central/South,24,Attleboro,14
+2011,winter,M,Central/South,24,Newton North,14
+2011,winter,M,Central/South,26,Franklin,13
+2011,winter,M,Central/South,27,Needham,11
+2011,winter,M,Central/South,27,Cohasset,11
+2011,winter,M,Central/South,27,Natick,11
+2011,winter,M,Central/South,30,Middleboro,6.5
+2011,winter,M,Central/South,31,B.M.C. Durfee,5
+2011,winter,M,Central/South,32,Algonquin Regional,4
+2011,winter,M,Central/South,33,Framingham,3
+2011,winter,M,Central/South,34,Oliver Ames,1
 2010,fall,F,South,1,Bishop Feehan,263
 2010,fall,F,South,2,Framingham,182
 2010,fall,F,South,3,Bishop Stang,129
@@ -444,28 +829,65 @@ Year,Season,Sex,Division,Place,School,Score
 2010,fall,F,South,18,Marshfield,6
 2010,fall,F,South,19,Brockton,4
 2010,fall,F,South,20,New Bedford,2
-2009,fall,F,North,1,Andover,374
-2009,fall,F,North,2,Acton-Boxborough,219
-2009,fall,F,North,3,Reading,132.5
-2009,fall,F,North,4,Chelmsford,127
-2009,fall,F,North,5,Lexington,111
-2009,fall,F,North,6,Winchester,110.5
-2009,fall,F,North,7,Haverhill,96
-2009,fall,F,North,8,Wakefield Memorial,55
-2009,fall,F,North,9,Lawrence Central Catholic,39
-2009,fall,F,North,10,Lowell,32
-2009,fall,F,North,11,Boston Latin,27
-2009,fall,F,North,12,Belmont,26
-2009,fall,F,North,13,Dracut,24
-2009,fall,F,North,14,Stoneham,14
-2009,fall,F,North,15,Burlington,4
-2009,fall,F,North,15,Saint Peter-Marian,4
+2010,fall,F,North,1,Andover,367
+2010,fall,F,North,2,Reading,219.5
+2010,fall,F,North,3,Acton-Boxborough,199.5
+2010,fall,F,North,4,Chelmsford,137
+2010,fall,F,North,5,Lexington,119
+2010,fall,F,North,6,Haverhill,97
+2010,fall,F,North,7,Central Catholic,61
+2010,fall,F,North,8,Stoneham,54
+2010,fall,F,North,9,Belmont,32
+2010,fall,F,North,10,Winchester,22
+2010,fall,F,North,11,Boston Latin School,21
+2010,fall,F,North,12,Lowell,15
+2010,fall,F,North,13,St Peter-Marion,13.5
+2010,fall,F,North,14,Notre Dame Academy - Worcester,10
+2010,fall,F,North,15,Methuen,9
+2010,fall,F,North,16,Wakefield,8
+2010,fall,F,North,16,Billerica,8
+2010,fall,F,North,18,Dracut,2.5
+2010,winter,M,Central/South,1,Bishop Feehan,159
+2010,winter,M,Central/South,2,Boston College HS,154
+2010,winter,M,Central/South,3,King Philip Regional,130
+2010,winter,M,Central/South,4,Bishop Stang,115
+2010,winter,M,Central/South,5,Hopkinton,92
+2010,winter,M,Central/South,5,North Attleborough,92
+2010,winter,M,Central/South,7,Westborough,66
+2010,winter,M,Central/South,8,Milford,62
+2010,winter,M,Central/South,9,Seekonk,46
+2010,winter,M,Central/South,10,Needham,41
+2010,winter,M,Central/South,11,Duxbury,39
+2010,winter,M,Central/South,12,Framingham,35
+2010,winter,M,Central/South,13,Brookline,34
+2010,winter,M,Central/South,14,Apponequet Regional,33
+2010,winter,M,Central/South,15,Coyle & Cassidy,30
+2010,winter,M,Central/South,16,Sandwich,25
+2010,winter,M,Central/South,16,Xaverian Brothers,25
+2010,winter,M,Central/South,18,Newton North,24
+2010,winter,M,Central/South,19,Sharon,22
+2010,winter,M,Central/South,20,Norwell,21
+2010,winter,M,Central/South,20,Mansfield,21
+2010,winter,M,Central/South,22,Middleboro,18
+2010,winter,M,Central/South,23,Northbridge,17
+2010,winter,M,Central/South,24,Holliston,16
+2010,winter,M,Central/South,25,Catholic Memorial,14
+2010,winter,M,Central/South,26,Wellesley,13
+2010,winter,M,Central/South,27,St. John's Shrewsbury,12
+2010,winter,M,Central/South,28,Franklin,9
+2010,winter,M,Central/South,29,New Bedford,7
+2010,winter,M,Central/South,29,Medfield,7
+2010,winter,M,Central/South,31,Leominster,5
+2010,winter,M,Central/South,32,Natick,4
+2010,winter,M,Central/South,33,Nauset Regional,3
+2010,winter,M,Central/South,33,Wachusett Regional,3
+2010,winter,M,Central/South,35,Foxborough,1
 2009,fall,F,South,1,Bishop Feehan,251
 2009,fall,F,South,2,Notre Dame Academy - Hingham,159
 2009,fall,F,South,3,Bishop Stang,154
 2009,fall,F,South,4,Framingham,110
-2009,fall,F,South,6,Seekonk,83
 2009,fall,F,South,5,Marshfield,88
+2009,fall,F,South,6,Seekonk,83
 2009,fall,F,South,7,New Bedford,74
 2009,fall,F,South,8,Norwood,73
 2009,fall,F,South,9,Fontbonne Academy,48
@@ -483,24 +905,57 @@ Year,Season,Sex,Division,Place,School,Score
 2009,fall,F,South,21,Apponequet Regional,9
 2009,fall,F,South,22,Mount Alvernia,1
 2009,fall,F,South,22,Sandwich,1
-2008,fall,F,North,1,Reading,205
-2008,fall,F,North,2,Acton-Boxborough,199
-2008,fall,F,North,3,Chelmsford,182
-2008,fall,F,North,4,Andover,167
-2008,fall,F,North,5,Winchester,146
-2008,fall,F,North,6,Lexington,105
-2008,fall,F,North,7,Haverhill,96
-2008,fall,F,North,8,Belmont,74
-2008,fall,F,North,9,Central Catholic,60
-2008,fall,F,North,10,Methuen,38
-2008,fall,F,North,11,Dracut,32
-2008,fall,F,North,12,Lowell,24
-2008,fall,F,North,13,Burlington,23
-2008,fall,F,North,14,Notre Dame Academy,20
-2008,fall,F,North,15,Boston Latin School,16
-2008,fall,F,North,16,Wakefield,4
-2008,fall,F,North,17,Stoneham,2
-2008,fall,F,North,17,Melrose,2
+2009,fall,F,North,1,Andover,374
+2009,fall,F,North,2,Acton-Boxborough,219
+2009,fall,F,North,3,Reading,132.5
+2009,fall,F,North,4,Chelmsford,127
+2009,fall,F,North,5,Lexington,111
+2009,fall,F,North,6,Winchester,110.5
+2009,fall,F,North,7,Haverhill,96
+2009,fall,F,North,8,Wakefield Memorial,55
+2009,fall,F,North,9,Lawrence Central Catholic,39
+2009,fall,F,North,10,Lowell,32
+2009,fall,F,North,11,Boston Latin,27
+2009,fall,F,North,12,Belmont,26
+2009,fall,F,North,13,Dracut,24
+2009,fall,F,North,14,Stoneham,14
+2009,fall,F,North,15,Burlington,4
+2009,fall,F,North,15,Saint Peter-Marian,4
+2009,winter,M,Central/South,1,Boston College HS,218.5
+2009,winter,M,Central/South,2,Bishop Feehan,137
+2009,winter,M,Central/South,3,Bishop Stang,116
+2009,winter,M,Central/South,4,Needham,87
+2009,winter,M,Central/South,5,Wellesley,76
+2009,winter,M,Central/South,5,King Philip Regional,76
+2009,winter,M,Central/South,7,Sandwich,75.5
+2009,winter,M,Central/South,8,Duxbury,68
+2009,winter,M,Central/South,9,Framingham,67
+2009,winter,M,Central/South,10,Hopkinton-Ashland,63
+2009,winter,M,Central/South,11,Norwell,56
+2009,winter,M,Central/South,12,Newton North,43
+2009,winter,M,Central/South,13,Westborough,35
+2009,winter,M,Central/South,14,Brookline,33
+2009,winter,M,Central/South,15,Catholic Memorial,32
+2009,winter,M,Central/South,16,Natick,30
+2009,winter,M,Central/South,17,Oliver Ames,24
+2009,winter,M,Central/South,18,Nantucket,23
+2009,winter,M,Central/South,19,Seekonk,22
+2009,winter,M,Central/South,20,Apponequet Regional,19
+2009,winter,M,Central/South,21,Hingham,17
+2009,winter,M,Central/South,22,Holliston,16
+2009,winter,M,Central/South,23,Nauset Regional,14
+2009,winter,M,Central/South,24,New Bedford,10
+2009,winter,M,Central/South,25,St. John's Shrewsbury,7
+2009,winter,M,Central/South,25,Brockton,7
+2009,winter,M,Central/South,27,North Attleborough,5
+2009,winter,M,Central/South,28,Scituate,4
+2009,winter,M,Central/South,28,Quincy,4
+2009,winter,M,Central/South,30,Wachusett Regional,3
+2009,winter,M,Central/South,30,Westwood,3
+2009,winter,M,Central/South,32,Blue Hills Regional,1
+2009,winter,M,Central/South,32,Xaverian Brothers,1
+2009,winter,M,Central/South,32,Canton,1
+2009,winter,M,Central/South,32,Coyle & Cassidy,1
 2008,fall,F,South,1,Notre Dame Academy - Hingham,239
 2008,fall,F,South,2,Bishop Feehan,215.5
 2008,fall,F,South,3,Bishop Stang,162.5
@@ -523,24 +978,58 @@ Year,Season,Sex,Division,Place,School,Score
 2008,fall,F,South,19,Apponequet,14
 2008,fall,F,South,21,Marshfield,8
 2008,fall,F,South,22,Weymouth,2
-2007,fall,F,North,1,Andover,228
-2007,fall,F,North,2,Acton-Boxborough,221
-2007,fall,F,North,3,Chelmsford,161
-2007,fall,F,North,4,Reading,152
-2007,fall,F,North,5,Lexington,105
-2007,fall,F,North,6,Haverhill,96
-2007,fall,F,North,7,Winchester,81
-2007,fall,F,North,8,Methuen,80
-2007,fall,F,North,9,Central Catholic,46
-2007,fall,F,North,10,Belmont,42
-2007,fall,F,North,11,Dracut,41
-2007,fall,F,North,12,Boston Latin School,40
-2007,fall,F,North,13,Lowell,36
-2007,fall,F,North,14,Burlington,21
-2007,fall,F,North,15,Stoneham,19
-2007,fall,F,North,16,Academy of Notre Dame,12
-2007,fall,F,North,17,Notre Dame Academy,10
-2007,fall,F,North,18,Billerica,4
+2008,fall,F,North,1,Reading,205
+2008,fall,F,North,2,Acton-Boxborough,199
+2008,fall,F,North,3,Chelmsford,182
+2008,fall,F,North,4,Andover,167
+2008,fall,F,North,5,Winchester,146
+2008,fall,F,North,6,Lexington,105
+2008,fall,F,North,7,Haverhill,96
+2008,fall,F,North,8,Belmont,74
+2008,fall,F,North,9,Central Catholic,60
+2008,fall,F,North,10,Methuen,38
+2008,fall,F,North,11,Dracut,32
+2008,fall,F,North,12,Lowell,24
+2008,fall,F,North,13,Burlington,23
+2008,fall,F,North,14,Notre Dame Academy - Worcester,20
+2008,fall,F,North,15,Boston Latin School,16
+2008,fall,F,North,16,Wakefield,4
+2008,fall,F,North,17,Stoneham,2
+2008,fall,F,North,17,Melrose,2
+2008,winter,M,Central/South,1,Boston College HS,237
+2008,winter,M,Central/South,2,Bishop Feehan,143
+2008,winter,M,Central/South,3,Bishop Stang,117
+2008,winter,M,Central/South,4,Wellesley,109
+2008,winter,M,Central/South,5,Xaverian Brothers,95
+2008,winter,M,Central/South,6,Nauset Regional,93
+2008,winter,M,Central/South,7,Scituate,80
+2008,winter,M,Central/South,8,Sandwich,79
+2008,winter,M,Central/South,9,Newton North,46
+2008,winter,M,Central/South,10,Framingham,44
+2008,winter,M,Central/South,11,Apponequet Regional,43
+2008,winter,M,Central/South,12,Needham,30
+2008,winter,M,Central/South,13,Shrewsbury,27
+2008,winter,M,Central/South,13,Westborough,27
+2008,winter,M,Central/South,15,Hopkinton,24
+2008,winter,M,Central/South,16,Natick,22
+2008,winter,M,Central/South,17,Nantucket,18
+2008,winter,M,Central/South,18,Seekonk,16
+2008,winter,M,Central/South,18,Middleboro,16
+2008,winter,M,Central/South,20,Duxbury,14
+2008,winter,M,Central/South,20,Hanover,14
+2008,winter,M,Central/South,20,Catholic Memorial,14
+2008,winter,M,Central/South,23,Barnstable,12
+2008,winter,M,Central/South,24,Oliver Ames,11
+2008,winter,M,Central/South,25,Holliston,10
+2008,winter,M,Central/South,26,New Bedford,9
+2008,winter,M,Central/South,27,Sharon,8
+2008,winter,M,Central/South,27,Norwell,8
+2008,winter,M,Central/South,27,North Attleborough,8
+2008,winter,M,Central/South,30,Brockton,7
+2008,winter,M,Central/South,31,Brookline,6
+2008,winter,M,Central/South,32,Wachusett Regional,4
+2008,winter,M,Central/South,33,Attleboro,2
+2008,winter,M,Central/South,33,Quincy,2
 2007,fall,F,South,1,Notre Dame Academy - Hingham,255
 2007,fall,F,South,2,Bishop Feehan,201.5
 2007,fall,F,South,3,Bishop Stang,186
@@ -565,25 +1054,55 @@ Year,Season,Sex,Division,Place,School,Score
 2007,fall,F,South,22,Weymouth,1
 2007,fall,F,South,22,Marshfield,1
 2007,fall,F,South,24,Newton North,0.5
-2006,fall,F,North,1,Andover,320
-2006,fall,F,North,2,Acton-Boxborough,210.5
-2006,fall,F,North,3,Chelmsford,192
-2006,fall,F,North,4,Reading,95
-2006,fall,F,North,5,Methuen,79
-2006,fall,F,North,6,Haverhill,73
-2006,fall,F,North,7,Winchester,70
-2006,fall,F,North,8,Cambridge Rindge and Latin,57
-2006,fall,F,North,9,Belmont,53
-2006,fall,F,North,10,Lexington,44
-2006,fall,F,North,11,Stoneham,42.5
-2006,fall,F,North,12,Burlington,41
-2006,fall,F,North,13,Central Catholic,31
-2006,fall,F,North,14,Lowell,29
-2006,fall,F,North,15,Dracut,26
-2006,fall,F,North,16,Academy of Notre Dame,12
-2006,fall,F,North,17,Boston Latin School,11
-2006,fall,F,North,18,Billerica,7
-2006,fall,F,North,19,Notre Dame Academy,2
+2007,fall,F,North,1,Andover,228
+2007,fall,F,North,2,Acton-Boxborough,221
+2007,fall,F,North,3,Chelmsford,161
+2007,fall,F,North,4,Reading,152
+2007,fall,F,North,5,Lexington,105
+2007,fall,F,North,6,Haverhill,96
+2007,fall,F,North,7,Winchester,81
+2007,fall,F,North,8,Methuen,80
+2007,fall,F,North,9,Central Catholic,46
+2007,fall,F,North,10,Belmont,42
+2007,fall,F,North,11,Dracut,41
+2007,fall,F,North,12,Boston Latin School,40
+2007,fall,F,North,13,Lowell,36
+2007,fall,F,North,14,Burlington,21
+2007,fall,F,North,15,Stoneham,19
+2007,fall,F,North,16,Academy of Notre Dame,12
+2007,fall,F,North,17,Notre Dame Academy - Worcester,10
+2007,fall,F,North,18,Billerica,4
+2007,winter,M,Central/South,1,Bishop Feehan,194.5
+2007,winter,M,Central/South,2,Boston College HS,163
+2007,winter,M,Central/South,3,Xaverian Brothers,157
+2007,winter,M,Central/South,4,Nauset Regional,98
+2007,winter,M,Central/South,5,Bishop Stang,97
+2007,winter,M,Central/South,6,Framingham,75.5
+2007,winter,M,Central/South,7,Scituate,70
+2007,winter,M,Central/South,7,New Bedford,70
+2007,winter,M,Central/South,9,Apponequet Regional,60
+2007,winter,M,Central/South,10,Wachusett Regional,58
+2007,winter,M,Central/South,11,Westborough,44
+2007,winter,M,Central/South,12,Seekonk,42
+2007,winter,M,Central/South,13,Wellesley,40
+2007,winter,M,Central/South,14,Hopkinton,33
+2007,winter,M,Central/South,15,Holliston,29
+2007,winter,M,Central/South,16,Middleboro,23
+2007,winter,M,Central/South,17,Duxbury,19
+2007,winter,M,Central/South,18,St. John's Shrewsbury,15
+2007,winter,M,Central/South,19,Cardinal Spellman,14
+2007,winter,M,Central/South,19,Newton North,14
+2007,winter,M,Central/South,21,Sandwich,12
+2007,winter,M,Central/South,21,Brookline,12
+2007,winter,M,Central/South,23,Nantucket,11
+2007,winter,M,Central/South,24,Attleboro,10
+2007,winter,M,Central/South,25,Hanover,9
+2007,winter,M,Central/South,26,B.M.C. Durfee,7
+2007,winter,M,Central/South,27,Brockton,6
+2007,winter,M,Central/South,28,Algonquin Regional,5
+2007,winter,M,Central/South,28,North Attleboro,5
+2007,winter,M,Central/South,30,Sharon,1
+2007,winter,M,Central/South,30,Natick,1
 2006,fall,F,South,1,Notre Dame Academy - Hingham,244
 2006,fall,F,South,2,Bishop Stang,188.5
 2006,fall,F,South,3,Framingham,141
@@ -607,28 +1126,29 @@ Year,Season,Sex,Division,Place,School,Score
 2006,fall,F,South,21,Canton,9
 2006,fall,F,South,22,Needham,7
 2006,fall,F,South,23,New Bedford,3
-2005,fall,F,North,1,Andover
-2005,fall,F,North,2,Acton-Boxbourgh
-2005,fall,F,South,1,Notre Dame Academy - Hingham
-2005,fall,F,South,2,Bishop Stang
-2004,fall,F,North,1,Andover,336
-2004,fall,F,North,2,Acton-Boxborough,252
-2004,fall,F,North,3,Chelmsford,167
-2004,fall,F,North,4,Belmont,112
-2004,fall,F,North,5,Central Catholic High Schol,93
-2004,fall,F,North,5,Reading,93
-2004,fall,F,North,7,Haverhill,77
-2004,fall,F,North,8,Framingham,71
-2004,fall,F,North,9,Methuen,47
-2004,fall,F,North,10,Burlington,42
-2004,fall,F,North,11,Winchester,30
-2004,fall,F,North,12,Lowell,27
-2004,fall,F,North,13,Notre Dame Academy - Worcester,17
-2004,fall,F,North,14,Stoneham,12
-2004,fall,F,North,15,Cambridge,7
-2004,fall,F,North,16,Dracut,6
-2004,fall,F,North,17,St. Peter Mariian,4
-2004,fall,F,North,18,Billerica,2
+2006,fall,F,North,1,Andover,320
+2006,fall,F,North,2,Acton-Boxborough,210.5
+2006,fall,F,North,3,Chelmsford,192
+2006,fall,F,North,4,Reading,95
+2006,fall,F,North,5,Methuen,79
+2006,fall,F,North,6,Haverhill,73
+2006,fall,F,North,7,Winchester,70
+2006,fall,F,North,8,Cambridge Rindge and Latin,57
+2006,fall,F,North,9,Belmont,53
+2006,fall,F,North,10,Lexington,44
+2006,fall,F,North,11,Stoneham,42.5
+2006,fall,F,North,12,Burlington,41
+2006,fall,F,North,13,Central Catholic,31
+2006,fall,F,North,14,Lowell,29
+2006,fall,F,North,15,Dracut,26
+2006,fall,F,North,16,Academy of Notre Dame,12
+2006,fall,F,North,17,Boston Latin School,11
+2006,fall,F,North,18,Billerica,7
+2006,fall,F,North,19,Notre Dame Academy - Worcester,2
+2005,fall,F,South,1,Notre Dame Academy - Hingham,
+2005,fall,F,South,2,Bishop Stang,
+2005,fall,F,North,1,Andover,
+2005,fall,F,North,2,Acton-Boxbourgh,
 2004,fall,F,South,1,Bishop Stang,195.50
 2004,fall,F,South,2,Notre Dame Academy - Hingham,189
 2004,fall,F,South,3,Bishop Feehan,184.50
@@ -654,117 +1174,135 @@ Year,Season,Sex,Division,Place,School,Score
 2004,fall,F,South,23,Newton North,6
 2004,fall,F,South,23,Canton,6
 2004,fall,F,South,25,Sandwich,1
-2003,fall,F,North,1,Andover
-2003,fall,F,North,2,Acton-Boxbourgh
-2003,fall,F,South,1,Seekonk
-2003,fall,F,South,2,Notre Dame Academy - Hingham
-2002,fall,F,North,1,Andover
-2002,fall,F,North,2,Acton-Boxbourgh
-2002,fall,F,South,1,Seekonk
-2002,fall,F,South,2,Needham
-2001,fall,F,North,1,Andover
-2001,fall,F,North,2,Acton-Boxbourgh
-2001,fall,F,South,1,Needham
-2001,fall,F,South,2,Duxbury
-2000,fall,F,North,1,Andover
-2000,fall,F,North,2,Acton-Boxbourgh
-2000,fall,F,South,1,Duxbury
-2000,fall,F,South,2,Bishop Feehan
-1999,fall,F,North,1,Andover
-1999,fall,F,North,2,Chelmsford
-1999,fall,F,South,1,Duxbury
-1999,fall,F,South,2,Notre Dame Academy - Hingham
-1998,fall,F,North,1,Acton-Boxborough
-1998,fall,F,North,2,Chelmsford
-1998,fall,F,South,1,Duxbury
-1998,fall,F,South,2,Seekonk
-1997,fall,F,North,1,Acton-Boxborough
-1997,fall,F,North,2,Chelmsford
-1997,fall,F,South,1,Bishop Feehan
-1997,fall,F,South,2,Seekonk
-1996,fall,F,North,1,Acton-Boxborough
-1996,fall,F,North,2,Chelmsford
-1996,fall,F,South,1,Bishop Feehan
-1996,fall,F,South,2,Seekonk
-1995,fall,F,North,1,Acton-Boxborough
-1995,fall,F,North,2,Chelmsford
-1995,fall,F,South,1,Bishop Feehan
-1995,fall,F,South,2,Natick
-1994,fall,F,North,1,Acton-Boxborough
-1994,fall,F,North,2,Haverhill
-1994,fall,F,South,1,Natick
-1994,fall,F,South,2,Bishop Feehan
-1993,fall,F,North,1,Acton-Boxborough
-1993,fall,F,North,2,Chelmsford
-1993,fall,F,South,1,Westwood
-1993,fall,F,South,2,Duxbury
-1992,fall,F,North,1,Acton-Boxborough
-1992,fall,F,North,2,Chelmsford
-1992,fall,F,South,1,Westwood
-1992,fall,F,South,2,Wellesley
-1991,fall,F,North,1,Acton-Boxborough
-1991,fall,F,North,2,Lowell
-1991,fall,F,South,1,Ursuline Academy
-1991,fall,F,South,2,Wellesley
-1990,fall,F,North,1,Acton-Boxborough
-1990,fall,F,North,2,Lowell
-1990,fall,F,South,1,Wellesley
-1990,fall,F,South,2,Ursuline Academy
-1989,fall,F,North,1,Lowell
-1989,fall,F,North,2,Acton-Boxborough
-1989,fall,F,South,1,Wellesley
-1989,fall,F,South,2,Ursuline Academy
-1988,fall,F,North,1,Acton-Boxborough
-1988,fall,F,North,2,Lowell
-1988,fall,F,South,1,Wellesley
-1988,fall,F,South,2,New Bedford
-1987,fall,F,North,1,Acton-Boxborough
-1987,fall,F,North,2,Andover
-1987,fall,F,South,1,Wellesley
-1987,fall,F,South,2,Needham
-1986,fall,F,North,1,Acton-Boxborough
-1986,fall,F,North,2,Belmont
-1986,fall,F,South,1,Wellesley
-1986,fall,F,South,2,Brockton
-1985,fall,F,North,1,Acton-Boxborough
-1985,fall,F,North,2,Belmont
-1985,fall,F,South,1,Wellesley
-1985,fall,F,South,2,Brockton
-1984,fall,F,North,1,Acton-Boxborough
-1984,fall,F,North,2,Westford Academy
-1984,fall,F,South,1,Canton
-1984,fall,F,South,2,Brockton
-1983,fall,F,North,1,Acton-Boxborough
-1983,fall,F,North,2,Westford Academy
-1983,fall,F,South,1,Wellesley
-1983,fall,F,South,2,Brockton
-1982,fall,F,North,1,Acton-Boxborough
-1982,fall,F,North,2,Framingham North
-1982,fall,F,South,1,Seekonk
-1982,fall,F,South,2,Brockton
-1981,fall,F,North,1,Acton-Boxborough
-1981,fall,F,North,2,Hamilton Wenham
-1981,fall,F,South,1,Durfee
-1981,fall,F,South,2,Seekonk
-1980,fall,F,North,1,Acton-Boxborough
-1980,fall,F,North,2,Lexington
-1980,fall,F,South,1,Durfee
-1980,fall,F,South,2,Dover Sherborn
-1979,fall,F,North,1,Framingham North
-1979,fall,F,North,2,Lexington
-1979,fall,F,South,1,Durfee
-1979,fall,F,South,2,Brockton
-1978,fall,F,North,1,Framingham North
-1978,fall,F,North,2,Acton-Boxborough
-1978,fall,F,South,1,Durfee
-1978,fall,F,South,2,Dover Sherborn
-1977,fall,F,Eastern Mass,1,Acton-Boxbourgh
-1977,fall,F,Eastern Mass,2,Framingham North
-1976,fall,F,Eastern Mass,1,Acton-Boxbourgh
-1976,fall,F,Eastern Mass,2,Marblehead
-1975,fall,F,Eastern Mass,1,Bedford
-1975,fall,F,Eastern Mass,2,Wayland
-1974,fall,F,Eastern Mass,1,Bedford
-1974,fall,F,Eastern Mass,2,Wayland
-1973,fall,F,Eastern Mass,1,Wayland
-1972,fall,F,Eastern Mass,2,Acton-Boxborough
+2004,fall,F,North,1,Andover,336
+2004,fall,F,North,2,Acton-Boxborough,252
+2004,fall,F,North,3,Chelmsford,167
+2004,fall,F,North,4,Belmont,112
+2004,fall,F,North,5,Central Catholic High Schol,93
+2004,fall,F,North,5,Reading,93
+2004,fall,F,North,7,Haverhill,77
+2004,fall,F,North,8,Framingham,71
+2004,fall,F,North,9,Methuen,47
+2004,fall,F,North,10,Burlington,42
+2004,fall,F,North,11,Winchester,30
+2004,fall,F,North,12,Lowell,27
+2004,fall,F,North,13,Notre Dame Academy - Worcester,17
+2004,fall,F,North,14,Stoneham,12
+2004,fall,F,North,15,Cambridge,7
+2004,fall,F,North,16,Dracut,6
+2004,fall,F,North,17,St. Peter Mariian,4
+2004,fall,F,North,18,Billerica,2
+2003,fall,F,South,1,Seekonk,
+2003,fall,F,South,2,Notre Dame Academy - Hingham,
+2003,fall,F,North,1,Andover,
+2003,fall,F,North,2,Acton-Boxbourgh,
+2002,fall,F,South,1,Seekonk,
+2002,fall,F,South,2,Needham,
+2002,fall,F,North,1,Andover,
+2002,fall,F,North,2,Acton-Boxbourgh,
+2001,fall,F,South,1,Needham,
+2001,fall,F,South,2,Duxbury,
+2001,fall,F,North,1,Andover,
+2001,fall,F,North,2,Acton-Boxbourgh,
+2000,fall,F,South,1,Duxbury,
+2000,fall,F,South,2,Bishop Feehan,
+2000,fall,F,North,1,Andover,
+2000,fall,F,North,2,Acton-Boxbourgh,
+1999,fall,F,South,1,Duxbury,
+1999,fall,F,South,2,Notre Dame Academy - Hingham,
+1999,fall,F,North,1,Andover,
+1999,fall,F,North,2,Chelmsford,
+1998,fall,F,South,1,Duxbury,
+1998,fall,F,South,2,Seekonk,
+1998,fall,F,North,1,Acton-Boxborough,
+1998,fall,F,North,2,Chelmsford,
+1997,fall,F,South,1,Bishop Feehan,
+1997,fall,F,South,2,Seekonk,
+1997,fall,F,North,1,Acton-Boxborough,
+1997,fall,F,North,2,Chelmsford,
+1996,fall,F,South,1,Bishop Feehan,
+1996,fall,F,South,2,Seekonk,
+1996,fall,F,North,1,Acton-Boxborough,
+1996,fall,F,North,2,Chelmsford,
+1995,fall,F,South,1,Bishop Feehan,
+1995,fall,F,South,2,Natick,
+1995,fall,F,North,1,Acton-Boxborough,
+1995,fall,F,North,2,Chelmsford,
+1994,fall,F,South,1,Natick,
+1994,fall,F,South,2,Bishop Feehan,
+1994,fall,F,North,1,Acton-Boxborough,
+1994,fall,F,North,2,Haverhill,
+1993,fall,F,South,1,Westwood,
+1993,fall,F,South,2,Duxbury,
+1993,fall,F,North,1,Acton-Boxborough,
+1993,fall,F,North,2,Chelmsford,
+1992,fall,F,South,1,Westwood,
+1992,fall,F,South,2,Wellesley,
+1992,fall,F,North,1,Acton-Boxborough,
+1992,fall,F,North,2,Chelmsford,
+1991,fall,F,South,1,Ursuline Academy,
+1991,fall,F,South,2,Wellesley,
+1991,fall,F,North,1,Acton-Boxborough,
+1991,fall,F,North,2,Lowell,
+1990,fall,F,South,1,Wellesley,
+1990,fall,F,South,2,Ursuline Academy,
+1990,fall,F,North,1,Acton-Boxborough,
+1990,fall,F,North,2,Lowell,
+1989,fall,F,South,1,Wellesley,
+1989,fall,F,South,2,Ursuline Academy,
+1989,fall,F,North,1,Lowell,
+1989,fall,F,North,2,Acton-Boxborough,
+1988,fall,F,South,1,Wellesley,
+1988,fall,F,South,2,New Bedford,
+1988,fall,F,North,1,Acton-Boxborough,
+1988,fall,F,North,2,Lowell,
+1987,fall,F,South,1,Wellesley,
+1987,fall,F,South,2,Needham,
+1987,fall,F,North,1,Acton-Boxborough,
+1987,fall,F,North,2,Andover,
+1986,fall,F,South,1,Wellesley,
+1986,fall,F,South,2,Brockton,
+1986,fall,F,North,1,Acton-Boxborough,
+1986,fall,F,North,2,Belmont,
+1985,fall,F,South,1,Wellesley,
+1985,fall,F,South,2,Brockton,
+1985,fall,F,North,1,Acton-Boxborough,
+1985,fall,F,North,2,Belmont,
+1984,fall,F,South,1,Canton,
+1984,fall,F,South,2,Brockton,
+1984,fall,F,North,1,Acton-Boxborough,
+1984,fall,F,North,2,Westford Academy,
+1983,fall,F,South,1,Wellesley,
+1983,fall,F,South,2,Brockton,
+1983,fall,F,North,1,Acton-Boxborough,
+1983,fall,F,North,2,Westford Academy,
+1982,fall,F,South,1,Seekonk,
+1982,fall,F,South,2,Brockton,
+1982,fall,F,North,1,Acton-Boxborough,
+1982,fall,F,North,2,Framingham North,
+1981,fall,F,South,1,Durfee,
+1981,fall,F,South,2,Seekonk,
+1981,fall,F,North,1,Acton-Boxborough,
+1981,fall,F,North,2,Hamilton Wenham,
+1980,fall,F,South,1,Durfee,
+1980,fall,F,South,2,Dover Sherborn,
+1980,fall,F,North,1,Acton-Boxborough,
+1980,fall,F,North,2,Lexington,
+1979,fall,F,South,1,Durfee,
+1979,fall,F,South,2,Brockton,
+1979,fall,F,North,1,Framingham North,
+1979,fall,F,North,2,Lexington,
+1978,fall,F,South,1,Durfee,
+1978,fall,F,South,2,Dover Sherborn,
+1978,fall,F,North,1,Framingham North,
+1978,fall,F,North,2,Acton-Boxborough,
+1977,fall,F,Eastern Mass,1,Acton-Boxbourgh,
+1977,fall,F,Eastern Mass,2,Framingham North,
+1976,fall,F,Eastern Mass,1,Acton-Boxbourgh,
+1976,fall,F,Eastern Mass,2,Marblehead,
+1975,fall,F,Eastern Mass,1,Bedford,
+1975,fall,F,Eastern Mass,2,Wayland,
+1974,fall,F,Eastern Mass,1,Bedford,
+1974,fall,F,Eastern Mass,2,Wayland,
+1973,fall,F,Eastern Mass,1,Wayland,
+1972,fall,F,Eastern Mass,2,Acton-Boxborough,
