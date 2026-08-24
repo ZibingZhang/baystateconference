@@ -767,6 +767,48 @@
   }
 }
 
+.file-browser-tags {
+  border-bottom: 1px solid $border-color-01;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.file-browser-tag {
+  align-items: center;
+  background-color: $code-background-color;
+  border: 1px solid $border-color-01;
+  border-radius: 999px;
+  color: $text-color;
+  display: flex;
+  gap: 6px;
+  padding: 2px 4px 2px 10px;
+  @include relative-font-size(0.85);
+}
+
+.file-browser-tag-remove {
+  align-items: center;
+  background: none;
+  border: none;
+  color: $brand-color-dimmed;
+  cursor: pointer;
+  display: flex;
+  flex: 0 0 auto;
+  padding: 4px;
+
+  &:hover,
+  &:focus-visible {
+    color: $text-color;
+  }
+}
+
 .file-browser-nav {
   display: flex;
   flex: 0 0 auto;

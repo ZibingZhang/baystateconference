@@ -70,6 +70,7 @@ function initFileBrowser(browser) {
   const error = browser.querySelector(".file-browser-error");
   const loading = browser.querySelector(".file-browser-loading");
   const input = browser.querySelector(".file-browser-search-input");
+  const tagsList = browser.querySelector(".file-browser-tags");
   const sortToggle = browser.querySelector(".file-browser-sort-toggle");
   const backBtn = browser.querySelector(".file-browser-nav-back");
   const forwardBtn = browser.querySelector(".file-browser-nav-forward");
@@ -83,6 +84,7 @@ function initFileBrowser(browser) {
   let rootFiles = [];
   let currentPath = [];
   let sortDescending = false;
+  let filterTags = [];
 
   // Independent back/forward stack, Finder-style: navigating to a new
   // folder truncates anything ahead of the current position; going back
@@ -117,24 +119,40 @@ function initFileBrowser(browser) {
     return sortFiles(findFilesAtPath(rootFiles, currentPath));
   }
 
+  // Active queries are the committed tags ANDed with whatever's still being
+  // typed, so results narrow as soon as a tag lands and again on every
+  // keystroke after it.
+  function activeQueries() {
+    const liveQuery = input ? input.value.trim().toLowerCase() : "";
+    const queries = [...filterTags];
+    if (liveQuery.length > 0) queries.push(liveQuery);
+    return queries;
+  }
+
   // Re-derives what should be on screen from (rootFiles, currentPath, sort
-  // direction, search query) and re-renders it — the single place that
-  // decides display order, so fuzzy-match ranking and the A-Z/Z-A toggle
-  // compose instead of fighting over the list.
+  // direction, filter tags, search query) and re-renders it — the single
+  // place that decides display order, so fuzzy-match ranking and the A-Z/Z-A
+  // toggle compose instead of fighting over the list.
   function refreshList() {
-    const query = input ? input.value.trim().toLowerCase() : "";
+    const queries = activeQueries();
     const files = currentSortedFiles();
 
     let displayed;
     let emptyMessage;
 
-    if (query.length === 0) {
+    if (queries.length === 0) {
       displayed = files;
       emptyMessage = "This folder is empty.";
     } else {
       displayed = files
-        .map((file) => ({ file, score: fuzzyScore(query, file.name.toLowerCase()) }))
-        .filter(({ score }) => score !== null)
+        .map((file) => {
+          const name = file.name.toLowerCase();
+          const scores = queries.map((query) => fuzzyScore(query, name));
+          if (scores.some((score) => score === null)) return null;
+          const totalScore = scores.reduce((sum, score) => sum + score, 0);
+          return { file, score: totalScore };
+        })
+        .filter((entry) => entry !== null)
         .sort((a, b) => b.score - a.score)
         .map(({ file }) => file);
       emptyMessage = "No files match your search.";
@@ -146,6 +164,49 @@ function initFileBrowser(browser) {
       empty.textContent = emptyMessage;
       empty.hidden = displayed.length > 0;
     }
+  }
+
+  function renderTags() {
+    if (!tagsList) return;
+    tagsList.innerHTML = "";
+
+    filterTags.forEach((tag, index) => {
+      const li = document.createElement("li");
+      li.className = "file-browser-tag";
+
+      const label = document.createElement("span");
+      label.className = "file-browser-tag-label";
+      label.textContent = tag;
+
+      const removeBtn = document.createElement("button");
+      removeBtn.type = "button";
+      removeBtn.className = "file-browser-tag-remove";
+      removeBtn.setAttribute("aria-label", `Remove filter "${tag}"`);
+      removeBtn.addEventListener("click", () => {
+        filterTags.splice(index, 1);
+        renderTags();
+        refreshList();
+      });
+
+      const icon = document.createElement("span");
+      icon.className = "fa-solid fa-xmark";
+      icon.setAttribute("aria-hidden", "true");
+      removeBtn.appendChild(icon);
+
+      li.append(label, removeBtn);
+      tagsList.appendChild(li);
+    });
+
+    tagsList.hidden = filterTags.length === 0;
+  }
+
+  function addFilterTag(value) {
+    const tag = value.trim().toLowerCase();
+    if (tag.length === 0 || filterTags.includes(tag)) return;
+    filterTags.push(tag);
+    if (input) input.value = "";
+    renderTags();
+    refreshList();
   }
 
   function renderList(files) {
@@ -257,6 +318,8 @@ function initFileBrowser(browser) {
   function applyPath(pathNames) {
     currentPath = pathNames;
     if (input) input.value = "";
+    filterTags = [];
+    renderTags();
     refreshList();
     updateBreadcrumbs(pathNames);
   }
@@ -295,7 +358,14 @@ function initFileBrowser(browser) {
     updateNavButtons();
   }
 
-  if (input) input.addEventListener("input", refreshList);
+  if (input) {
+    input.addEventListener("input", refreshList);
+    input.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      addFilterTag(input.value);
+    });
+  }
 
   if (sortToggle) {
     sortToggle.addEventListener("click", () => {
