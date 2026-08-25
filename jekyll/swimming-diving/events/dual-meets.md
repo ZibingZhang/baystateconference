@@ -2,6 +2,9 @@
 layout: page
 title: Dual Meets
 permalink: /swimming-diving/events/dual-meets/
+internal_links:
+  - title: Results
+    url: /swimming-diving/results/dual-meets/
 ---
 
 <div class="calendar-embed">
@@ -13,3 +16,5 @@ permalink: /swimming-diving/events/dual-meets/
 </div>
 
 <script src="{{ '/assets/js/calendar-embed.js' | relative_url }}" defer></script>
+
+{% include link-list.html heading="See Also" items=page.internal_links %}

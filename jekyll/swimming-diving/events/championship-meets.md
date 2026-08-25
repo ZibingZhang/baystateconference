@@ -13,6 +13,8 @@ external_links:
 internal_links:
   - title: Qualifying Standards
     url: /swimming-diving/miaa/qualifying-standards/
+  - title: Results
+    url: /swimming-diving/results/championship-meets/
 ---
 
 ## Sectionals
