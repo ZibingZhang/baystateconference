@@ -15,10 +15,9 @@
     <details{% unless node.collapsed %} open{% endunless %}>
       <summary>
         <span class="directory-caret" aria-hidden="true"></span>
-        <span class="fa-solid fa-folder" aria-hidden="true"></span>
+        <span class="fa-solid fa-window-maximize" aria-hidden="true"></span>
         {%- if node.url -%}
         <a href="{{ node.url | relative_url }}">{{ node_label }}</a>
-        <span class="fa-solid fa-arrow-up-right-from-square directory-page-badge" aria-hidden="true" title="This section has its own page"></span>
         {%- else -%}
         <span>{{ node_label }}</span>
         {%- endif -%}

@@ -984,11 +984,6 @@ details[open] > summary .directory-caret {
   transform: rotate(90deg);
 }
 
-.directory-page-badge {
-  @include relative-font-size(0.7);
-  color: $brand-color-dimmed;
-}
-
 .nowrap-td {
   td {
     white-space: nowrap;
