@@ -38,14 +38,15 @@ defaults:
       path: "swimming-diving"
     values:
       nav: swimming-diving
-  - scope:
-      path: "swimming-diving/bay-state-conference/awards/all-stars"
-    values:
-      sitemap_collapsed: true
-  - scope:
-      path: "swimming-diving/miaa/qualifying-standards"
-    values:
-      sitemap_collapsed: true
+
+# Directories (matched against a page's own URL, without leading/trailing
+# slashes) whose folder should start collapsed in the site map's file
+# viewer. See _plugins/page_tree_generator.rb.
+sitemap_collapsed_paths:
+  - "swimming-diving/bay-state-conference/awards/all-stars"
+  - "swimming-diving/bay-state-conference/schools"
+  - "swimming-diving/emisca/awards"
+  - "swimming-diving/miaa/qualifying-standards"
 
 # Build settings
 # theme: minima

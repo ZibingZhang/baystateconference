@@ -12,11 +12,10 @@
 # are pure path components with no page of their own (rare on this site)
 # are folders with a nil url.
 #
-# A page can set `sitemap_collapsed: true` in its front matter (typically via
-# a `defaults` scope covering a whole directory) to have that folder start
-# out collapsed in the site map's file viewer — e.g. individual
-# qualifying-standards seasons are still listed, just tucked under a closed
-# folder by default.
+# A folder's URL can be listed under the site config's
+# `sitemap_collapsed_paths` to have it start out collapsed in the site map's
+# file viewer — e.g. individual qualifying-standards seasons are still
+# listed, just tucked under a closed folder by default.
 module SiteMap
   class PageTreeGenerator < Jekyll::Generator
     safe true
@@ -26,6 +25,8 @@ module SiteMap
 
     def generate(site)
       root = new_node("")
+      collapsed_paths = (site.config["sitemap_collapsed_paths"] || [])
+        .map { |path| path.to_s.gsub(%r{\A/+|/+\z}, "") }
 
       site.pages.each do |page|
         next unless page.output_ext == ".html"
@@ -45,7 +46,7 @@ module SiteMap
 
         node["url"] = page.url
         node["title"] = page.data["title"] || page.url
-        node["collapsed"] = true if page.data["sitemap_collapsed"]
+        node["collapsed"] = true if collapsed_paths.include?(segments.join("/"))
       end
 
       sort_children!(root)
