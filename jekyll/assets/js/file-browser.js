@@ -63,6 +63,67 @@ function isPlainClick(event) {
   return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
 }
 
+function fileExtension(name) {
+  const match = name.match(/\.([a-zA-Z0-9]+)$/);
+  return match ? match[1].toUpperCase() : "FILE";
+}
+
+const FILE_ICON_CLASSES = {
+  PDF: "fa-file-pdf",
+  TXT: "fa-file-lines",
+  HTML: "fa-file-code",
+  HTM: "fa-file-code",
+};
+
+function fileIconClass(name) {
+  return FILE_ICON_CLASSES[fileExtension(name)] || "fa-file";
+}
+
+// Walks the whole tree (not just the current folder) so the count reflects
+// every file, including ones nested in subfolders that aren't shown yet.
+// The same file often appears under more than one folder grouping (e.g. "By
+// Type" and "By School Year"), so entries are deduped by their target
+// (s3Path/url/externalUrl) to count each underlying file once.
+function countFilesByType(files, counts = { extensions: {}, internal: 0, external: 0, total: 0 }, seen = new Set()) {
+  for (const item of files) {
+    if (Array.isArray(item.files)) {
+      countFilesByType(item.files, counts, seen);
+    } else if (item.s3Path) {
+      if (seen.has(item.s3Path)) continue;
+      seen.add(item.s3Path);
+      const ext = fileExtension(item.name);
+      counts.extensions[ext] = (counts.extensions[ext] || 0) + 1;
+      counts.total += 1;
+    } else if (item.externalUrl) {
+      if (seen.has(item.externalUrl)) continue;
+      seen.add(item.externalUrl);
+      counts.external += 1;
+      counts.total += 1;
+    } else if (item.url) {
+      if (seen.has(item.url)) continue;
+      seen.add(item.url);
+      counts.internal += 1;
+      counts.total += 1;
+    }
+  }
+  return counts;
+}
+
+function pluralize(count, noun) {
+  return `${count} ${noun}${count === 1 ? "" : "s"}`;
+}
+
+function formatFileCountSummary(counts) {
+  const parts = Object.entries(counts.extensions)
+    .sort((a, b) => b[1] - a[1])
+    .map(([ext, count]) => pluralize(count, ext));
+
+  if (counts.internal > 0) parts.push(pluralize(counts.internal, "internal page"));
+  if (counts.external > 0) parts.push(pluralize(counts.external, "external page"));
+
+  return parts.join(", ");
+}
+
 function initFileBrowser(browser) {
   const src = browser.dataset.src;
   const list = browser.querySelector(".file-browser-list");
@@ -74,6 +135,7 @@ function initFileBrowser(browser) {
   const sortToggle = browser.querySelector(".file-browser-sort-toggle");
   const backBtn = browser.querySelector(".file-browser-nav-back");
   const forwardBtn = browser.querySelector(".file-browser-nav-forward");
+  const countEl = browser.querySelector(".file-browser-count");
 
   if (!src || !list) return;
 
@@ -167,7 +229,7 @@ function initFileBrowser(browser) {
           navigateTo([...currentPath, item.name]);
         });
       } else if (item.s3Path) {
-        icon.className = "fa-solid fa-file-pdf";
+        icon.className = `fa-solid ${fileIconClass(item.name)}`;
         a.href = `${s3BucketRoot.replace(/\/+$/, "")}/${encodePathSegments(item.s3Path)}`;
         a.target = "_blank";
         a.rel = "noopener";
@@ -192,6 +254,14 @@ function initFileBrowser(browser) {
       name.textContent = item.name;
 
       a.append(icon, name);
+
+      if (Array.isArray(item.files)) {
+        const count = document.createElement("span");
+        count.className = "file-browser-item-count";
+        count.textContent = countFilesByType(item.files).total;
+        a.append(count);
+      }
+
       li.appendChild(a);
       list.appendChild(li);
     });
@@ -253,12 +323,20 @@ function initFileBrowser(browser) {
     currentCrumb.hidden = true;
   }
 
+  function updateCount(pathNames) {
+    if (!countEl) return;
+    const summary = formatFileCountSummary(countFilesByType(findFilesAtPath(rootFiles, pathNames)));
+    countEl.textContent = summary;
+    countEl.hidden = !summary;
+  }
+
   function applyPath(pathNames) {
     currentPath = pathNames;
     if (input) input.value = "";
     tagFilter.reset();
     refreshList();
     updateBreadcrumbs(pathNames);
+    updateCount(pathNames);
   }
 
   function updateNavButtons() {

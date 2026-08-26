@@ -18,6 +18,16 @@
 {%- endcomment -%}
 {%- if include.items and include.items.size > 0 -%}
 {%- if include.heading -%}<h2>{{ include.heading }}</h2>{%- endif -%}
+{%- assign internal_count = 0 -%}
+{%- assign external_count = 0 -%}
+{%- for item in include.items -%}
+  {%- assign url_prefix = item.url | slice: 0, 4 | downcase -%}
+  {%- if url_prefix == "http" -%}
+    {%- assign external_count = external_count | plus: 1 -%}
+  {%- else -%}
+    {%- assign internal_count = internal_count | plus: 1 -%}
+  {%- endif -%}
+{%- endfor -%}
 <div class="directory-browser link-list{% if include.searchable %} searchable{% endif %}">
   {%- if include.searchable -%}
   <div class="file-browser-search">
@@ -51,6 +61,11 @@
   {%- if include.searchable -%}
   <p class="file-browser-empty" hidden>No matches.</p>
   {%- endif -%}
+  <p class="file-browser-count">
+    {%- if internal_count > 0 -%}{{ internal_count }} internal page{% if internal_count != 1 %}s{% endif %}{%- endif -%}
+    {%- if internal_count > 0 and external_count > 0 -%}, {% endif -%}
+    {%- if external_count > 0 -%}{{ external_count }} external page{% if external_count != 1 %}s{% endif %}{%- endif -%}
+  </p>
 </div>
 {%- if include.searchable -%}
 <script src="{{ '/assets/js/fuzzy-score.js' | relative_url }}" defer></script>

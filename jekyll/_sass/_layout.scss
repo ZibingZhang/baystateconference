@@ -720,13 +720,13 @@
   border: 1px solid $border-color-01;
   border-radius: 6px;
   margin-bottom: $spacing-unit;
-  overflow: hidden;
 }
 
 .file-browser-search {
   align-items: center;
   background-color: $code-background-color;
   border-bottom: 1px solid $border-color-01;
+  border-radius: 6px 6px 0 0;
   display: flex;
   gap: 10px;
   padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
@@ -874,9 +874,28 @@
     }
   }
 
+  // Fixed-width (matches FontAwesome's own .fa-fw utility) so file names line
+  // up regardless of which icon's glyph is showing — different file-type
+  // icons (fa-file-pdf, fa-file-code, ...) have different intrinsic widths.
   .fa-solid {
     color: $brand-color-dimmed;
+    text-align: center;
+    width: 1.25em;
   }
+}
+
+.file-browser-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-browser-item-count {
+  color: $brand-color-dimmed;
+  flex: 0 0 auto;
+  @include relative-font-size(0.85);
 }
 
 .file-browser-empty,
@@ -885,6 +904,23 @@
   margin: 0;
   padding: $spacing-unit * 0.5;
   text-align: center;
+}
+
+.file-browser-count {
+  background-color: $background-color;
+  border-radius: 0 0 6px 6px;
+  border-top: 1px solid $border-color-01;
+  bottom: 0;
+  color: $brand-color-dimmed;
+  margin: 0;
+  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+  position: sticky;
+  text-align: center;
+  @include relative-font-size(0.85);
+
+  &[hidden] {
+    display: none;
+  }
 }
 
 .comments-disabled-message {
@@ -896,7 +932,6 @@
   border: 1px solid $border-color-01;
   border-radius: 6px;
   margin-bottom: $spacing-unit;
-  overflow: hidden;
 }
 
 .directory-tree {
@@ -928,8 +963,12 @@
     }
   }
 
+  // Fixed-width (matches FontAwesome's own .fa-fw utility) so titles line up
+  // regardless of which icon's glyph is showing.
   .fa-solid {
     color: $brand-color-dimmed;
+    text-align: center;
+    width: 1.25em;
   }
 }
 
