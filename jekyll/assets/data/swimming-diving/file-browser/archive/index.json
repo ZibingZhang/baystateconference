@@ -1240,8 +1240,8 @@
                   "s3Path": "organization=miaa/year=2013-2014/season=fall/girls-boys-division-1-state-results.txt"
                 },
                 {
-                  "name": "2013-2014 Fall Girls Division 2 State Results.txt",
-                  "s3Path": "organization=miaa/year=2013-2014/season=fall/girls-division-2-state-results.txt"
+                  "name": "2013-2014 Fall Girls & Boys Division 2 State Results.txt",
+                  "s3Path": "organization=miaa/year=2013-2014/season=fall/girls-boys-division-2-state-results.txt"
                 },
                 {
                   "name": "2013-2014 Winter Boys Division 1 State Results.txt",
@@ -2125,8 +2125,8 @@
                   "s3Path": "organization=miaa/year=2013-2014/season=fall/girls-boys-division-1-state-results.txt"
                 },
                 {
-                  "name": "Fall Girls Division 2 State Results.txt",
-                  "s3Path": "organization=miaa/year=2013-2014/season=fall/girls-division-2-state-results.txt"
+                  "name": "Fall Girls & Boys Division 2 State Results.txt",
+                  "s3Path": "organization=miaa/year=2013-2014/season=fall/girls-boys-division-2-state-results.txt"
                 },
                 {
                   "name": "Fall Girls & Boys North Sectional Results.txt",
