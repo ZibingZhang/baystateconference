@@ -118,8 +118,8 @@ function formatFileCountSummary(counts) {
     .sort((a, b) => b[1] - a[1])
     .map(([ext, count]) => pluralize(count, ext));
 
-  if (counts.internal > 0) parts.push(pluralize(counts.internal, "internal page"));
-  if (counts.external > 0) parts.push(pluralize(counts.external, "external page"));
+  if (counts.internal > 0) parts.push(`${counts.internal} internal`);
+  if (counts.external > 0) parts.push(`${counts.external} external`);
 
   return parts.join(", ");
 }

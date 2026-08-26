@@ -62,9 +62,9 @@
   <p class="file-browser-empty" hidden>No matches.</p>
   {%- endif -%}
   <p class="file-browser-count">
-    {%- if internal_count > 0 -%}{{ internal_count }} internal page{% if internal_count != 1 %}s{% endif %}{%- endif -%}
+    {%- if internal_count > 0 -%}{{ internal_count }} internal{%- endif -%}
     {%- if internal_count > 0 and external_count > 0 -%}, {% endif -%}
-    {%- if external_count > 0 -%}{{ external_count }} external page{% if external_count != 1 %}s{% endif %}{%- endif -%}
+    {%- if external_count > 0 -%}{{ external_count }} external{%- endif -%}
   </p>
 </div>
 {%- if include.searchable -%}
