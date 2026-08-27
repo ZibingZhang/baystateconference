@@ -5,6 +5,27 @@
 
 - title: Schools
   url: /schools/
+  children:
+    - title: Braintree
+      url: /schools/braintree/
+    - title: Brookline
+      url: /schools/brookline/
+    - title: Framingham
+      url: /schools/framingham/
+    - title: Milton
+      url: /schools/milton/
+    - title: Natick
+      url: /schools/natick/
+    - title: Needham
+      url: /schools/needham/
+    - title: Newton North
+      url: /schools/newton-north/
+    - title: Walpole
+      url: /schools/walpole/
+    - title: Wellesley
+      url: /schools/wellesley/
+    - title: Weymouth
+      url: /schools/weymouth/
 
 - title: Sports
   url: /sports/
