@@ -1,5 +1,73 @@
 # Sports shown as cards on /sports/. Add an entry here as each new sport's
 # section is built out.
+- title: Football
+  url: /football/
+  icon: football
+
+- title: Soccer
+  url: /soccer/
+  icon: futbol
+
+- title: Cross Country
+  url: /cross-country/
+  icon: shoe-prints
+
+- title: Golf
+  url: /golf/
+  icon: golf-ball-tee
+
 - title: Swimming & Diving
   url: /swimming-diving/
   icon: person-swimming
+
+- title: Field Hockey
+  url: /field-hockey/
+  icon: hockey-puck
+
+- title: Volleyball
+  url: /volleyball/
+  icon: volleyball
+
+- title: Basketball
+  url: /basketball/
+  icon: basketball
+
+- title: Indoor Track
+  url: /indoor-track/
+  icon: stopwatch
+
+- title: Outdoor Track
+  url: /outdoor-track/
+  icon: person-running
+
+- title: Gymnastics
+  url: /gymnastics/
+  icon: medal
+
+- title: Hockey
+  url: /hockey/
+  icon: hockey-puck
+
+- title: Wrestling
+  url: /wrestling/
+  icon: hand-fist
+
+- title: Lacrosse
+  url: /lacrosse/
+  icon: circle-dot
+
+- title: Tennis
+  url: /tennis/
+  icon: circle
+
+- title: Rugby
+  url: /rugby/
+  icon: football
+
+- title: Baseball
+  url: /baseball/
+  icon: baseball-bat-ball
+
+- title: Softball
+  url: /softball/
+  icon: baseball
