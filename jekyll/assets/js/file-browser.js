@@ -31,6 +31,20 @@ function parseSlugsFromLocation() {
   return decodePathSlugs(params.get("path"));
 }
 
+function encodeTagsParam(tags) {
+  return tags.map(encodeURIComponent).join(",");
+}
+
+function decodeTagsParam(value) {
+  if (!value) return [];
+  return value.split(",").filter((segment) => segment.length > 0).map(decodeURIComponent);
+}
+
+function parseTagsFromLocation() {
+  const params = new URLSearchParams(window.location.search);
+  return decodeTagsParam(params.get("tags"));
+}
+
 function findFilesAtPath(rootFiles, pathNames) {
   let current = rootFiles;
 
@@ -152,7 +166,14 @@ function initFileBrowser(browser) {
   let navHistory = [[]];
   let navIndex = 0;
 
-  const tagFilter = createTagFilter({ input, tagsList, onChange: refreshList });
+  const tagFilter = createTagFilter({
+    input,
+    tagsList,
+    onChange: () => {
+      refreshList();
+      updateUrlForCurrentState();
+    },
+  });
   const sortState = createSortToggle(sortToggle, refreshList);
 
   function sortFiles(files) {
@@ -161,11 +182,20 @@ function initFileBrowser(browser) {
     return sorted;
   }
 
-  function pageHrefForPath(pathNames) {
+  function pageHrefForPath(pathNames, tags = []) {
     const pageHref = joinPath(baseurl, pageUrl);
     const href = `/${pageHref}/`.replace(/\/+/g, "/");
-    if (pathNames.length === 0) return href;
-    return `${href}?path=${encodePathNames(pathNames)}`;
+    const params = [];
+    if (pathNames.length > 0) params.push(`path=${encodePathNames(pathNames)}`);
+    if (tags.length > 0) params.push(`tags=${encodeTagsParam(tags)}`);
+    return params.length > 0 ? `${href}?${params.join("&")}` : href;
+  }
+
+  // Rewrites the current entry's query string to match currentPath and the
+  // committed tag filters, without adding a browser-history entry, so the
+  // address bar always reflects a URL that reproduces the same view.
+  function updateUrlForCurrentState() {
+    window.history.replaceState(null, "", pageHrefForPath(currentPath, tagFilter.tags));
   }
 
   function currentSortedFiles() {
@@ -330,10 +360,10 @@ function initFileBrowser(browser) {
     countEl.hidden = !summary;
   }
 
-  function applyPath(pathNames) {
+  function applyPath(pathNames, tags = []) {
     currentPath = pathNames;
     if (input) input.value = "";
-    tagFilter.reset();
+    tagFilter.set(tags);
     refreshList();
     updateBreadcrumbs(pathNames);
     updateCount(pathNames);
@@ -389,7 +419,7 @@ function initFileBrowser(browser) {
       list.hidden = false;
 
       const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
-      applyPath(resolved.path);
+      applyPath(resolved.path, parseTagsFromLocation());
       navHistory = resolved.path.map((_, index) => resolved.path.slice(0, index));
       navHistory.push(resolved.path);
       navIndex = navHistory.length - 1;
@@ -397,7 +427,7 @@ function initFileBrowser(browser) {
 
       window.addEventListener("popstate", () => {
         const popResolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
-        applyPath(popResolved.path);
+        applyPath(popResolved.path, parseTagsFromLocation());
         recordHistory(popResolved.path);
       });
     })

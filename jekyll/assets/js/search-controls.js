@@ -51,8 +51,11 @@ function createTagFilter({ input, tagsList, onChange }) {
     onChange();
   }
 
-  function reset() {
-    tags = [];
+  // Replaces the committed tag set without firing onChange, so callers can
+  // seed tags from external state (e.g. the URL) without triggering a
+  // redundant re-write of that same state.
+  function set(newTags) {
+    tags = [...newTags];
     render();
   }
 
@@ -71,7 +74,7 @@ function createTagFilter({ input, tagsList, onChange }) {
       return [...tags];
     },
     add,
-    reset,
+    set,
   };
 }
 
