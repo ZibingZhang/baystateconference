@@ -655,6 +655,27 @@
   font-weight: 700;
 }
 
+.under-construction-banner {
+  align-items: center;
+  background-color: $code-background-color;
+  border: 1px solid $border-color-01;
+  border-radius: 6px;
+  display: flex;
+  gap: $spacing-unit * 0.5;
+  margin-bottom: $spacing-unit;
+  padding: $spacing-unit * 0.75;
+
+  .material-symbols-outlined {
+    color: $brand-color-dimmed;
+    flex-shrink: 0;
+    font-size: 32px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
 .post-meta {
   .bullet-divider { padding-inline: 15px }
   .meta-label { font-weight: 600 }
