@@ -77,6 +77,11 @@ function isPlainClick(event) {
   return event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
 }
 
+function isEditableElement(el) {
+  if (!el) return false;
+  return el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.isContentEditable;
+}
+
 function fileExtension(name) {
   const match = name.match(/\.([a-zA-Z0-9]+)$/);
   return match ? match[1].toUpperCase() : "FILE";
@@ -138,6 +143,38 @@ function formatFileCountSummary(counts) {
   return parts.join(", ");
 }
 
+// Wires a button that toggles a popover open/closed, closing it on an
+// outside click or Escape. Kept generic (no file-browser-specific logic)
+// since the open/close/outside-click dance is the same for any such button.
+function initPopoverToggle(button, popover) {
+  if (!button || !popover) return;
+
+  function close() {
+    popover.hidden = true;
+    button.setAttribute("aria-expanded", "false");
+  }
+
+  function open() {
+    popover.hidden = false;
+    button.setAttribute("aria-expanded", "true");
+  }
+
+  button.addEventListener("click", () => {
+    if (popover.hidden) open();
+    else close();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (popover.hidden) return;
+    if (button.contains(event.target) || popover.contains(event.target)) return;
+    close();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !popover.hidden) close();
+  });
+}
+
 function initFileBrowser(browser) {
   const src = browser.dataset.src;
   const list = browser.querySelector(".file-browser-list");
@@ -147,6 +184,8 @@ function initFileBrowser(browser) {
   const input = browser.querySelector(".file-browser-search-input");
   const tagsList = browser.querySelector(".file-browser-tags");
   const sortToggle = browser.querySelector(".file-browser-sort-toggle");
+  const shortcutsToggle = browser.querySelector(".file-browser-shortcuts-toggle");
+  const shortcutsPopover = browser.querySelector(".file-browser-shortcuts-popover");
   const backBtn = browser.querySelector(".file-browser-nav-back");
   const forwardBtn = browser.querySelector(".file-browser-nav-forward");
   const countEl = browser.querySelector(".file-browser-count");
@@ -159,6 +198,14 @@ function initFileBrowser(browser) {
 
   let rootFiles = [];
   let currentPath = [];
+  // Anchors for the currently rendered rows, in display order, so arrow-key
+  // navigation can move real focus between them.
+  let itemElements = [];
+  // Parallel to itemElements: the folder path a row navigates to, or null
+  // for file rows. Lets the Enter handler tell folders (which get a
+  // deliberate, explicit "navigate + refocus search" step below) apart from
+  // files (which just get the browser's native link-activation).
+  let itemFolderPaths = [];
 
   // Independent back/forward stack, Finder-style: navigating to a new
   // folder truncates anything ahead of the current position; going back
@@ -175,6 +222,7 @@ function initFileBrowser(browser) {
     },
   });
   const sortState = createSortToggle(sortToggle, refreshList);
+  initPopoverToggle(shortcutsToggle, shortcutsPopover);
 
   function sortFiles(files) {
     const sorted = [...files].sort((a, b) => a.name.localeCompare(b.name));
@@ -241,6 +289,8 @@ function initFileBrowser(browser) {
 
   function renderList(files) {
     list.innerHTML = "";
+    itemElements = [];
+    itemFolderPaths = [];
 
     files.forEach((item) => {
       const li = document.createElement("li");
@@ -250,13 +300,16 @@ function initFileBrowser(browser) {
       const icon = document.createElement("span");
       icon.setAttribute("aria-hidden", "true");
 
+      let folderPath = null;
+
       if (Array.isArray(item.files)) {
+        folderPath = [...currentPath, item.name];
         icon.className = "fa-solid fa-folder";
-        a.href = pageHrefForPath([...currentPath, item.name]);
+        a.href = pageHrefForPath(folderPath);
         a.addEventListener("click", (event) => {
           if (!isPlainClick(event)) return;
           event.preventDefault();
-          navigateTo([...currentPath, item.name]);
+          navigateTo(folderPath);
         });
       } else if (item.s3Path) {
         icon.className = `fa-solid ${fileIconClass(item.name)}`;
@@ -294,7 +347,90 @@ function initFileBrowser(browser) {
 
       li.appendChild(a);
       list.appendChild(li);
+      itemElements.push(a);
+      itemFolderPaths.push(folderPath);
     });
+  }
+
+  // Moves real focus to the row at `index` (clamped) and scrolls it into
+  // view. For file rows, Enter/Space then activates them via the browser's
+  // native anchor behavior; folder rows are handled explicitly below.
+  function focusItemAt(index) {
+    if (itemElements.length === 0) return;
+    const clamped = Math.max(0, Math.min(index, itemElements.length - 1));
+    const el = itemElements[clamped];
+    el.focus();
+    el.scrollIntoView({ block: "nearest" });
+  }
+
+  function handleListKeydown(event) {
+    const currentIndex = itemElements.indexOf(event.target);
+    const isItemFocused = currentIndex !== -1;
+    const isInputFocused = event.target === input;
+    if (!isItemFocused && !isInputFocused) return;
+
+    switch (event.key) {
+      case "ArrowDown":
+        event.preventDefault();
+        focusItemAt(isItemFocused ? currentIndex + 1 : 0);
+        break;
+      case "ArrowUp":
+        event.preventDefault();
+        if (isItemFocused) {
+          if (currentIndex === 0) {
+            if (input) input.focus();
+          } else {
+            focusItemAt(currentIndex - 1);
+          }
+        }
+        break;
+      case "Home":
+        if (isItemFocused) {
+          event.preventDefault();
+          focusItemAt(0);
+        }
+        break;
+      case "End":
+        if (isItemFocused) {
+          event.preventDefault();
+          focusItemAt(itemElements.length - 1);
+        }
+        break;
+      // Folders get an explicit codepath (rather than relying on the
+      // browser's default Enter-triggers-click behavior, whose synthesized
+      // click isn't reliably distinguishable from a real mouse click) so the
+      // search box can be refocused afterward — otherwise arrow-key
+      // navigation would stop working on the new page without pressing "/"
+      // again. File rows fall through to the browser's native activation.
+      case "Enter": {
+        if (!isItemFocused) break;
+        const folderPath = itemFolderPaths[currentIndex];
+        if (folderPath) {
+          event.preventDefault();
+          navigateTo(folderPath);
+          if (input) input.focus();
+        }
+        break;
+      }
+      // Also works from the search box, but only at the start/end of its
+      // text, so this doesn't steal Left/Right from normal cursor movement
+      // while editing a query.
+      case "ArrowLeft":
+        if (isItemFocused || (isInputFocused && input.selectionStart === 0 && input.selectionEnd === 0)) {
+          event.preventDefault();
+          goBack(true);
+        }
+        break;
+      case "ArrowRight":
+        if (
+          isItemFocused ||
+          (isInputFocused && input.selectionStart === input.value.length && input.selectionEnd === input.value.length)
+        ) {
+          event.preventDefault();
+          goForward(true);
+        }
+        break;
+    }
   }
 
   function updateBreadcrumbs(pathNames) {
@@ -387,26 +523,45 @@ function initFileBrowser(browser) {
     recordHistory(pathNames);
   }
 
-  function goBack() {
+  // `focusAfterNav` re-focuses the search box afterward — used for the
+  // keyboard shortcut (Left/Right on a focused row) so arrow-key navigation
+  // keeps working, but not for the actual back/forward button clicks, which
+  // shouldn't yank focus (and would pop up the on-screen keyboard on mobile).
+  function goBack(focusAfterNav = false) {
     if (navIndex <= 0) return;
     navIndex -= 1;
     applyPath(navHistory[navIndex]);
     window.history.replaceState(null, "", pageHrefForPath(navHistory[navIndex]));
     updateNavButtons();
+    if (focusAfterNav && input) input.focus();
   }
 
-  function goForward() {
+  function goForward(focusAfterNav = false) {
     if (navIndex >= navHistory.length - 1) return;
     navIndex += 1;
     applyPath(navHistory[navIndex]);
     window.history.replaceState(null, "", pageHrefForPath(navHistory[navIndex]));
     updateNavButtons();
+    if (focusAfterNav && input) input.focus();
   }
 
   if (input) input.addEventListener("input", refreshList);
 
-  if (backBtn) backBtn.addEventListener("click", goBack);
-  if (forwardBtn) forwardBtn.addEventListener("click", goForward);
+  if (backBtn) backBtn.addEventListener("click", () => goBack());
+  if (forwardBtn) forwardBtn.addEventListener("click", () => goForward());
+
+  browser.addEventListener("keydown", handleListKeydown);
+
+  // "/" jumps into this browser's search box from anywhere on the page,
+  // unless the user is already typing somewhere else.
+  if (input) {
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "/" || event.metaKey || event.ctrlKey || event.altKey) return;
+      if (isEditableElement(document.activeElement)) return;
+      event.preventDefault();
+      input.focus();
+    });
+  }
 
   fetch(src)
     .then((response) => {

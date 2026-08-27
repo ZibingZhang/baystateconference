@@ -13,6 +13,18 @@
     <button type="button" class="file-browser-sort-toggle" aria-pressed="false" aria-label="Sort Z to A" title="Sort Z to A">
       <span class="fa-solid fa-arrow-down-a-z" aria-hidden="true"></span>
     </button>
+    <button type="button" class="file-browser-shortcuts-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts" title="Keyboard shortcuts">
+      <span class="fa-solid fa-keyboard" aria-hidden="true"></span>
+    </button>
+    <div class="file-browser-shortcuts-popover" role="dialog" aria-label="Keyboard shortcuts" hidden>
+      <ul>
+        <li><kbd>/</kbd> Focus search</li>
+        <li><kbd>&uarr;</kbd><kbd>&darr;</kbd> Move through list</li>
+        <li><kbd>&larr;</kbd><kbd>&rarr;</kbd> Back / forward</li>
+        <li><kbd>Enter</kbd> Open selected</li>
+        <li><kbd>Home</kbd><kbd>End</kbd> Jump to first/last</li>
+      </ul>
+    </div>
   </div>
   <ul class="file-browser-tags" hidden></ul>
   <div class="file-browser-loading loading-indicator">

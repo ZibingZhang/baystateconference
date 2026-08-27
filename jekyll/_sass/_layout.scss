@@ -730,6 +730,7 @@
   display: flex;
   gap: 10px;
   padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+  position: relative; // anchors .file-browser-shortcuts-popover
 
   .fa-solid {
     color: $brand-color-dimmed;
@@ -764,6 +765,64 @@
   &:hover,
   &:focus-visible {
     color: $text-color;
+  }
+}
+
+.file-browser-shortcuts-toggle {
+  align-items: center;
+  background: none;
+  border: none;
+  color: $brand-color-dimmed;
+  cursor: pointer;
+  display: flex;
+  flex: 0 0 auto;
+  padding: 0;
+
+  &:hover,
+  &:focus-visible {
+    color: $text-color;
+  }
+
+  // Keyboard shortcuts aren't actionable on touch devices, so the entry
+  // point for them is hidden rather than shown with nothing to discover.
+  @media screen and (max-width: $on-medium) {
+    display: none;
+  }
+}
+
+.file-browser-shortcuts-popover {
+  background-color: $background-color;
+  border: 1px solid $border-color-01;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-top: 6px;
+  padding: $spacing-unit * 0.5 $spacing-unit * 0.6;
+  position: absolute;
+  right: $spacing-unit * 0.5;
+  top: 100%;
+  z-index: 10;
+  @include relative-font-size(0.85);
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    padding: 3px 0;
+    white-space: nowrap;
+  }
+
+  kbd {
+    background-color: $code-background-color;
+    border: 1px solid $border-color-01;
+    border-radius: 4px;
+    padding: 1px 6px;
+    @include relative-font-size(0.8);
   }
 }
 
@@ -869,8 +928,18 @@
     gap: 10px;
     padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       background-color: $code-background-color;
+    }
+
+    // Inset instead of the browser's default outset ring: an outset ring on
+    // the first/last row gets visually clipped by the search bar/count
+    // footer sitting right above/below it, since it pokes past the row's
+    // own box into theirs.
+    &:focus-visible {
+      box-shadow: inset 0 0 0 2px $brand-color-dimmed;
+      outline: none;
     }
   }
 
