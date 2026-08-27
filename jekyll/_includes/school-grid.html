@@ -1,8 +1,28 @@
+{%- comment -%}
+  Renders a grid of school-card links for a given list of schools. Sport-
+  agnostic: pass which schools and where their pages live, so this can back
+  a school grid for any sport (or the sport-agnostic /schools/ directory),
+  not just swimming. Knows nothing about any one sport's own extras (e.g.
+  swimming's pool location) - a caller wanting to add one passes the path
+  to a partial via `card_extra`, which is rendered inside each card with
+  `school` set to that card's record. See
+  swimming-diving-pool-location.html for an example partial.
+
+  include.schools      required - list of school records (town, team-name,
+                        logo, and whatever else a card_extra partial needs)
+  include.url_prefix    required - path each card links to, e.g.
+                        "/swimming-diving/bsc/schools/" or "/schools/"
+  include.card_extra    optional - path to a partial rendered per card,
+                        given `school` as the current record
+
+  Usage: {% include school-grid.html schools=site.data.swimming-diving.schools url_prefix="/swimming-diving/bsc/schools/" card_extra="swimming-diving-pool-location.html" %}
+         {% include school-grid.html schools=site.data.swimming-diving.schools url_prefix="/schools/" %}
+{%- endcomment -%}
 <div class="school-grid">
-  {%- for school in site.data.swimming-diving.schools -%}
+  {%- for school in include.schools -%}
   {%- assign label = school.town | append: ' ' | append: school.team-name -%}
   {%- assign school-slug = school.town | slugify -%}
-  {%- assign school-url = '/swimming-diving/bsc/schools/' | append: school-slug | append: '/' -%}
+  {%- assign school-url = include.url_prefix | append: school-slug | append: '/' -%}
   <div class="school-card">
     <a class="school-card-link" href="{{ school-url | relative_url }}">
       {%- if school.logo -%}
@@ -12,16 +32,8 @@
       {%- endif -%}
       <p class="school-name">{{ label }}</p>
     </a>
-    {%- if school.pool -%}
-    <a class="school-pool" href="{{ school.pool.google-maps }}" target="_blank" rel="noopener" title="{{ school.pool.name }}">
-      <span class="fa-solid fa-location-dot" aria-hidden="true"></span>
-      Pool Location
-    </a>
-    {%- else -%}
-    <span class="school-pool school-pool-placeholder" aria-hidden="true">
-      <span class="fa-solid fa-location-dot" aria-hidden="true"></span>
-      Pool Location
-    </span>
+    {%- if include.card_extra -%}
+    {%- include {{ include.card_extra }} school=school -%}
     {%- endif -%}
   </div>
   {%- endfor -%}

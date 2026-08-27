@@ -1,8 +1,7 @@
 ---
 layout: school
-info_extra: "swimming-diving-school-extra.html"
 title: Newton North High School
-permalink: /swimming-diving/bsc/schools/newton-north/
+permalink: /schools/newton-north/
 breadcrumb: Newton North
 school: "Newton North"
 ---

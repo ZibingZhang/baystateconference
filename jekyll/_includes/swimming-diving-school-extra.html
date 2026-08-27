@@ -1,0 +1,108 @@
+{%- comment -%}
+  Swimming & diving's school-page info_extra: pool location, team Instagram,
+  and Girls/Boys sections (team Instagram, sectional/state wins pulled from
+  the MIAA sectionals/states results data) as a colspan header row followed
+  by their rows within the same table. Every row (and each Girls/Boys
+  section itself) is optional and simply omitted when the underlying data
+  doesn't exist for that school. Expects `include.school` (see school.html).
+{%- endcomment -%}
+{%- assign school = include.school -%}
+{%- comment -%}
+  Matches sectionals/states results against the school's town, its formal
+  name, and any further aliases (most schools have none, since
+  `school-name` alone already covers "<town> High School").
+{%- endcomment -%}
+{%- assign school_names = "" | split: "" -%}
+{%- assign school_names = school_names | push: school.town -%}
+{%- assign school_names = school_names | push: school.school-name -%}
+{%- if school.aliases -%}
+  {%- for alias in school.aliases -%}
+    {%- assign school_names = school_names | push: alias -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- assign sectionals = site.data.swimming-diving.miaa.rankings.sectionals -%}
+{%- assign states = site.data.swimming-diving.miaa.rankings.states -%}
+
+{%- assign girls_sectional_wins = sectionals | where_exp: 'row', 'row.Sex == "F" and row.Place == "1" and school_names contains row.School' -%}
+{%- assign girls_sectional_years = girls_sectional_wins | map: 'Year' | uniq | sort | reverse -%}
+{%- assign girls_state_wins = states | where_exp: 'row', 'row.Sex == "F" and row.Place == "1" and school_names contains row.School' -%}
+{%- assign girls_state_years = girls_state_wins | map: 'Year' | uniq | sort | reverse -%}
+
+{%- assign boys_sectional_wins = sectionals | where_exp: 'row', 'row.Sex == "M" and row.Place == "1" and school_names contains row.School' -%}
+{%- assign boys_sectional_years = boys_sectional_wins | map: 'Year' | uniq | sort | reverse -%}
+{%- assign boys_state_wins = states | where_exp: 'row', 'row.Sex == "M" and row.Place == "1" and school_names contains row.School' -%}
+{%- assign boys_state_years = boys_state_wins | map: 'Year' | uniq | sort | reverse -%}
+
+{%- if school.pool -%}
+<tr>
+  <th>Pool</th>
+  <td>
+    <a href="{{ school.pool.google-maps }}" target="_blank" rel="noopener">{{ school.pool.name }}</a>
+  </td>
+</tr>
+{%- endif -%}
+
+{%- if school.instagram.team -%}
+{%- assign team_username = school.instagram.team | split: '/' | slice: 3 | first -%}
+<tr>
+  <th>Instagram</th>
+  <td><a href="{{ school.instagram.team }}" target="_blank" rel="noopener me">@{{ team_username }}</a></td>
+</tr>
+{%- endif -%}
+
+{%- if school.instagram.girls-team or girls_sectional_years.size > 0 or girls_state_years.size > 0 -%}
+<tr class="school-info-section">
+  <th colspan="2">Girls</th>
+</tr>
+
+{%- if school.instagram.girls-team -%}
+{%- assign girls_team_username = school.instagram.girls-team | split: '/' | slice: 3 | first -%}
+<tr>
+  <th>Instagram</th>
+  <td><a href="{{ school.instagram.girls-team }}" target="_blank" rel="noopener me">@{{ girls_team_username }}</a></td>
+</tr>
+{%- endif -%}
+
+{%- if girls_sectional_years.size > 0 -%}
+<tr>
+  <th>Sectional Wins</th>
+  <td>{{ girls_sectional_years | join: ', ' }}</td>
+</tr>
+{%- endif -%}
+
+{%- if girls_state_years.size > 0 -%}
+<tr>
+  <th>State Wins</th>
+  <td>{{ girls_state_years | join: ', ' }}</td>
+</tr>
+{%- endif -%}
+{%- endif -%}
+
+{%- if school.instagram.boys-team or boys_sectional_years.size > 0 or boys_state_years.size > 0 -%}
+<tr class="school-info-section">
+  <th colspan="2">Boys</th>
+</tr>
+
+{%- if school.instagram.boys-team -%}
+{%- assign boys_team_username = school.instagram.boys-team | split: '/' | slice: 3 | first -%}
+<tr>
+  <th>Instagram</th>
+  <td><a href="{{ school.instagram.boys-team }}" target="_blank" rel="noopener me">@{{ boys_team_username }}</a></td>
+</tr>
+{%- endif -%}
+
+{%- if boys_sectional_years.size > 0 -%}
+<tr>
+  <th>Sectional Wins</th>
+  <td>{{ boys_sectional_years | join: ', ' }}</td>
+</tr>
+{%- endif -%}
+
+{%- if boys_state_years.size > 0 -%}
+<tr>
+  <th>State Wins</th>
+  <td>{{ boys_state_years | join: ', ' }}</td>
+</tr>
+{%- endif -%}
+{%- endif -%}

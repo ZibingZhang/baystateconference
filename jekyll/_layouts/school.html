@@ -1,0 +1,67 @@
+---
+layout: base
+---
+{%- comment -%}
+  Renders a single school's page: a card with its logo and a 2-column info
+  table, built from its entry in _data/swimming-diving/schools.yaml. Sport-
+  agnostic: knows nothing about any one sport's own rows (e.g. swimming's
+  pool location, team/girls/boys Instagram, sectional/state wins) - a page
+  wanting to add those sets `info_extra` in its front matter to the path of
+  a partial, rendered as extra <tr> rows with `school` as the current
+  record. See swimming-diving-school-extra.html for an example partial.
+
+  A page using this layout needs `school: "Braintree"` in its front matter
+  to match against the `town` field in schools.yaml, and may optionally set
+  `info_extra: "some-partial.html"`.
+{%- endcomment -%}
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+
+    {%- assign school = site.data.swimming-diving.schools | where: 'town', page.school | first -%}
+    {%- if school -%}
+    <div class="school-info-card">
+      {%- if school.logo -%}
+      <img class="school-logo" src="{{ school.logo }}" alt="{{ page.title | escape }} logo" loading="lazy">
+      {%- endif -%}
+
+      <table class="school-info-table">
+        <tbody>
+          {%- if school.team-name -%}
+          <tr>
+            <th>Mascot</th>
+            <td>{{ school.team-name }}</td>
+          </tr>
+          {%- endif -%}
+
+          {%- if school.instagram.athletic-dept -%}
+          {%- assign athletic_dept_username = school.instagram.athletic-dept | split: '/' | slice: 3 | first -%}
+          <tr>
+            <th>A.D. Instagram</th>
+            <td><a href="{{ school.instagram.athletic-dept }}" target="_blank" rel="noopener me">@{{ athletic_dept_username }}</a></td>
+          </tr>
+          {%- endif -%}
+
+          {%- if school.wikipedia -%}
+          {%- assign wiki_title = school.wikipedia | split: '/' | last | replace: '_', ' ' -%}
+          <tr>
+            <th>Wiki Page</th>
+            <td><a href="{{ school.wikipedia }}" target="_blank" rel="noopener">{{ wiki_title }}</a></td>
+          </tr>
+          {%- endif -%}
+
+          {%- if page.info_extra -%}
+          {%- include {{ page.info_extra }} school=school -%}
+          {%- endif -%}
+        </tbody>
+      </table>
+    </div>
+    {%- endif -%}
+  </div>
+
+</article>

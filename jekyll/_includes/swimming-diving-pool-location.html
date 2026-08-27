@@ -1,0 +1,16 @@
+{%- comment -%}
+  Swimming & diving's school-grid card_extra: a link to the school's pool,
+  or a hidden placeholder to keep card heights aligned when a school has
+  none on file. Expects `include.school` (see school-grid.html).
+{%- endcomment -%}
+{%- if include.school.pool -%}
+<a class="school-pool" href="{{ include.school.pool.google-maps }}" target="_blank" rel="noopener" title="{{ include.school.pool.name }}">
+  <span class="fa-solid fa-location-dot" aria-hidden="true"></span>
+  Pool Location
+</a>
+{%- else -%}
+<span class="school-pool school-pool-placeholder" aria-hidden="true">
+  <span class="fa-solid fa-location-dot" aria-hidden="true"></span>
+  Pool Location
+</span>
+{%- endif -%}
