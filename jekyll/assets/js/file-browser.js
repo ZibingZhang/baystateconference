@@ -301,6 +301,15 @@ function initFileBrowser(browser) {
   const sortState = createSortToggle(sortToggle, refreshList);
   initPopoverToggle(shortcutsToggle, shortcutsPopover);
 
+  // The shortcuts popover's markup defaults to "Ctrl"; swap in "⌘" on Mac so
+  // the hint matches the modifier the jump-to-first/last handler actually
+  // checks (event.metaKey there).
+  if (/Mac|iPod|iPhone|iPad/.test(navigator.platform)) {
+    browser.querySelectorAll(".file-browser-mod-key").forEach((el) => {
+      el.textContent = "⌘";
+    });
+  }
+
   function sortFiles(files) {
     const sorted = [...files].sort((a, b) => a.name.localeCompare(b.name));
     if (sortState.descending) sorted.reverse();
@@ -446,31 +455,32 @@ function initFileBrowser(browser) {
     const isInputFocused = event.target === input;
     if (!isItemFocused && !isInputFocused) return;
 
+    // Cmd (Mac) / Ctrl (Windows/Linux) turns a single-row Up/Down step into a
+    // jump to the first/last row — chosen over Home/End since those are
+    // frequently remapped or intercepted by browsers/OSes for other things,
+    // while Cmd/Ctrl+Up/Down mirrors the "jump to start/end" convention apps
+    // like Mail and Slack already use for lists.
+    const jumpModifier = event.metaKey || event.ctrlKey;
+
     switch (event.key) {
       case "ArrowDown":
         event.preventDefault();
-        focusItemAt(isItemFocused ? currentIndex + 1 : 0);
+        if (isItemFocused && jumpModifier) {
+          focusItemAt(itemElements.length - 1);
+        } else {
+          focusItemAt(isItemFocused ? currentIndex + 1 : 0);
+        }
         break;
       case "ArrowUp":
         event.preventDefault();
         if (isItemFocused) {
-          if (currentIndex === 0) {
+          if (jumpModifier) {
+            focusItemAt(0);
+          } else if (currentIndex === 0) {
             if (input) input.focus();
           } else {
             focusItemAt(currentIndex - 1);
           }
-        }
-        break;
-      case "Home":
-        if (isItemFocused) {
-          event.preventDefault();
-          focusItemAt(0);
-        }
-        break;
-      case "End":
-        if (isItemFocused) {
-          event.preventDefault();
-          focusItemAt(itemElements.length - 1);
         }
         break;
       // Folders get an explicit codepath (rather than relying on the
