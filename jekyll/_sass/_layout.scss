@@ -924,6 +924,29 @@
     border-bottom: none;
   }
 
+  // The keyboard-focus ring lives here instead of on `a` itself, as a
+  // dedicated overlay painted last (generated content always paints after
+  // its element's other children) so it's never covered by the overlaid
+  // .file-browser-copy-btn — which sits on top of `a` and would otherwise
+  // paint over whichever edge of the ring falls under it.
+  &::after {
+    bottom: 0;
+    content: "";
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  // Inset instead of the browser's default outset ring: an outset ring on
+  // the first/last row gets visually clipped by the search bar/count footer
+  // sitting right above/below it, since it pokes past the row's own box
+  // into theirs.
+  &:has(a:focus-visible)::after {
+    box-shadow: inset 0 0 0 2px $brand-color-dimmed;
+  }
+
   a {
     align-items: center;
     color: $text-color;
@@ -933,17 +956,11 @@
     min-width: 0;
     padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
 
-    &:hover,
-    &:focus-visible {
+    &:hover {
       background-color: $code-background-color;
     }
 
-    // Inset instead of the browser's default outset ring: an outset ring on
-    // the first/last row gets visually clipped by the search bar/count
-    // footer sitting right above/below it, since it pokes past the row's
-    // own box into theirs.
     &:focus-visible {
-      box-shadow: inset 0 0 0 2px $brand-color-dimmed;
       outline: none;
     }
   }
@@ -998,8 +1015,11 @@
     right: 0;
     top: 0;
 
+    // :focus-visible (not the row's :focus-within) — arrow-key navigation
+    // focuses the row's `a`, not this button, and shouldn't reveal it; it
+    // should only appear once Tab/Shift+Tab lands on the button itself.
     .file-browser-item:hover &,
-    .file-browser-item:focus-within &,
+    &:focus-visible,
     &.is-copied {
       background-color: $code-background-color;
       opacity: 1;
