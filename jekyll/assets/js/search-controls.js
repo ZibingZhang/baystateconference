@@ -31,7 +31,8 @@ function createTagFilter({ input, tagsList, onChange }) {
       });
 
       const icon = document.createElement("span");
-      icon.className = "fa-solid fa-xmark";
+      icon.className = "material-symbols-outlined";
+      icon.textContent = "close";
       icon.setAttribute("aria-hidden", "true");
       removeBtn.appendChild(icon);
 
@@ -94,9 +95,9 @@ function createSortToggle(button, onChange) {
 
   function update() {
     if (!button) return;
-    const icon = button.querySelector(".fa-solid");
+    const icon = button.querySelector(".material-symbols-outlined");
     const label = descending ? "Sort A to Z" : "Sort Z to A";
-    icon.className = descending ? "fa-solid fa-arrow-down-z-a" : "fa-solid fa-arrow-down-a-z";
+    icon.textContent = descending ? "arrow_downward" : "arrow_upward";
     button.setAttribute("aria-label", label);
     button.title = label;
     button.setAttribute("aria-pressed", String(descending));

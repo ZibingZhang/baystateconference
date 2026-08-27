@@ -1,7 +1,7 @@
 <div class="sport-grid">
   {%- for sport in site.data.sports -%}
   <a class="sport-card" href="{{ sport.url | relative_url }}">
-    <span class="sport-icon fa-solid fa-{{ sport.icon }}" aria-hidden="true"></span>
+    <span class="sport-icon material-symbols-outlined" aria-hidden="true">{{ sport.icon }}</span>
     <p class="sport-name">{{ sport.title }}</p>
   </a>
   {%- endfor -%}

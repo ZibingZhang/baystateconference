@@ -530,7 +530,7 @@
     color: $link-base-color;
   }
 
-  .fa-solid {
+  .material-symbols-outlined {
     margin-right: 4px;
   }
 }
@@ -575,9 +575,15 @@
   }
 }
 
-.sport-icon {
+// Doubled up as `&.material-symbols-outlined` for specificity: Google's
+// font stylesheet (loaded in footer.html, after this one) ships its own
+// same-specificity `.material-symbols-outlined { font-size: 24px; }` and,
+// loading later, would otherwise win the cascade and silently clobber the
+// larger size below.
+.sport-icon.material-symbols-outlined {
   color: $brand-color-dimmed;
-  font-size: 48px;
+  font-size: 72px;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
   margin-bottom: $spacing-unit * 0.3;
 }
 
@@ -725,13 +731,16 @@
   }
 }
 
-// Font Awesome disables .fa-spin under prefers-reduced-motion, and its
-// stylesheet loads after ours so it wins ties at equal specificity. Loading
-// indicators are brief and purely decorative, so any icon marked
-// .force-spin inside a .loading-indicator opts back in, via a selector
-// specific enough to outrank Font Awesome's regardless of load order.
-.loading-indicator .force-spin {
-  animation: fa-spin 2s infinite linear !important;
+@keyframes icon-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Loading indicators are brief and purely decorative, so this animation
+// ignores prefers-reduced-motion.
+.icon-spin {
+  animation: icon-spin 2s infinite linear;
 }
 
 .calendar-embed {
@@ -778,7 +787,7 @@
   padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
   position: relative; // anchors .file-browser-shortcuts-popover
 
-  .fa-solid {
+  .material-symbols-outlined {
     color: $brand-color-dimmed;
   }
 }
@@ -1070,10 +1079,10 @@
     }
   }
 
-  // Fixed-width (matches FontAwesome's own .fa-fw utility) so file names line
-  // up regardless of which icon's glyph is showing — different file-type
-  // icons (fa-file-pdf, fa-file-code, ...) have different intrinsic widths.
-  .fa-solid {
+  // Fixed-width so file names line up regardless of which icon's glyph is
+  // showing — different file-type icons (picture_as_pdf, code, ...) have
+  // different intrinsic widths.
+  .material-symbols-outlined {
     color: $brand-color-dimmed;
     text-align: center;
     width: 1.25em;
@@ -1243,9 +1252,9 @@
     }
   }
 
-  // Fixed-width (matches FontAwesome's own .fa-fw utility) so titles line up
-  // regardless of which icon's glyph is showing.
-  .fa-solid {
+  // Fixed-width so titles line up regardless of which icon's glyph is
+  // showing.
+  .material-symbols-outlined {
     color: $brand-color-dimmed;
     text-align: center;
     width: 1.25em;
@@ -1284,7 +1293,7 @@
     border-bottom: none;
   }
 
-  .fa-solid {
+  .material-symbols-outlined {
     color: $brand-color-dimmed;
   }
 }
@@ -1325,6 +1334,13 @@ details[open] > summary .directory-caret {
       padding: 10px 12px;
       &:hover { border-color: $border-color-02 }
     }
+  }
+
+  // Icon fonts (unlike inline .svg-icon SVGs, sized via _base.scss) don't
+  // size themselves - match .svg-icon's 1.25em so a non-brand icon added
+  // here later doesn't look small next to the others.
+  .material-symbols-outlined {
+    font-size: 1.25em;
   }
 }
 

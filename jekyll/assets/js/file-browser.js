@@ -87,15 +87,15 @@ function fileExtension(name) {
   return match ? match[1].toUpperCase() : "FILE";
 }
 
-const FILE_ICON_CLASSES = {
-  PDF: "fa-file-pdf",
-  TXT: "fa-file-lines",
-  HTML: "fa-file-code",
-  HTM: "fa-file-code",
+const FILE_ICON_NAMES = {
+  PDF: "picture_as_pdf",
+  TXT: "description",
+  HTML: "code",
+  HTM: "code",
 };
 
-function fileIconClass(name) {
-  return FILE_ICON_CLASSES[fileExtension(name)] || "fa-file";
+function fileIconName(name) {
+  return FILE_ICON_NAMES[fileExtension(name)] || "insert_drive_file";
 }
 
 // Walks the whole tree (not just the current folder) so the count reflects
@@ -501,13 +501,14 @@ function initFileBrowser(browser) {
 
       const a = document.createElement("a");
       const icon = document.createElement("span");
+      icon.className = "material-symbols-outlined";
       icon.setAttribute("aria-hidden", "true");
 
       let folderPath = null;
 
       if (Array.isArray(item.files)) {
         folderPath = [...currentPath, item.name];
-        icon.className = "fa-solid fa-folder";
+        icon.textContent = "folder";
         a.href = pageHrefForPath(folderPath);
         a.addEventListener("click", (event) => {
           if (!isPlainClick(event)) return;
@@ -515,18 +516,18 @@ function initFileBrowser(browser) {
           navigateTo(folderPath);
         });
       } else if (item.s3Path) {
-        icon.className = `fa-solid ${fileIconClass(item.name)}`;
+        icon.textContent = fileIconName(item.name);
         a.href = `${s3BucketRoot.replace(/\/+$/, "")}/${encodePathSegments(item.s3Path)}`;
         a.target = "_blank";
         a.rel = "noopener";
       } else if (item.externalUrl) {
-        icon.className = "fa-solid fa-arrow-up-right-from-square";
+        icon.textContent = "open_in_new";
         a.href = item.externalUrl;
         a.target = "_blank";
         a.rel = "noopener";
         a.title = "Opens an external website in a new tab";
       } else if (item.url) {
-        icon.className = "fa-solid fa-window-maximize";
+        icon.textContent = "tab";
         if (item.url.startsWith("/")) {
           // Site-absolute path — points outside this file browser's own page subtree.
           a.href = `/${joinPath(baseurl, item.url)}/`.replace(/\/+/g, "/");

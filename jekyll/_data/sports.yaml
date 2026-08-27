@@ -1,73 +1,74 @@
 # Sports shown as cards on /sports/. Add an entry here as each new sport's
-# section is built out.
-- title: Football
-  url: /football/
-  icon: football
-
-- title: Soccer
-  url: /soccer/
-  icon: futbol
-
-- title: Cross Country
-  url: /cross-country/
-  icon: shoe-prints
-
-- title: Golf
-  url: /golf/
-  icon: golf-ball-tee
-
-- title: Swimming & Diving
-  url: /swimming-diving/
-  icon: person-swimming
-
-- title: Field Hockey
-  url: /field-hockey/
-  icon: hockey-puck
-
-- title: Volleyball
-  url: /volleyball/
-  icon: volleyball
+# section is built out. `icon` is a Material Symbols (Outlined) icon name:
+# https://fonts.google.com/icons
+- title: Baseball
+  url: /baseball/
+  icon: sports_baseball
 
 - title: Basketball
   url: /basketball/
-  icon: basketball
+  icon: sports_basketball
 
-- title: Indoor Track
-  url: /indoor-track/
-  icon: stopwatch
+- title: Cross Country
+  url: /cross-country/
+  icon: footprint
 
-- title: Outdoor Track
-  url: /outdoor-track/
-  icon: person-running
+- title: Field Hockey
+  url: /field-hockey/
+  icon: sports_hockey
+
+- title: Football
+  url: /football/
+  icon: sports_football
+
+- title: Golf
+  url: /golf/
+  icon: sports_golf
 
 - title: Gymnastics
   url: /gymnastics/
-  icon: medal
+  icon: sports_gymnastics
 
 - title: Hockey
   url: /hockey/
-  icon: hockey-puck
+  icon: sports_hockey
 
-- title: Wrestling
-  url: /wrestling/
-  icon: hand-fist
+- title: Indoor Track
+  url: /indoor-track/
+  icon: timer
 
 - title: Lacrosse
   url: /lacrosse/
-  icon: circle-dot
+  icon: padel
 
-- title: Tennis
-  url: /tennis/
-  icon: circle
+- title: Outdoor Track
+  url: /outdoor-track/
+  icon: directions_run
 
 - title: Rugby
   url: /rugby/
-  icon: football
+  icon: sports_rugby
 
-- title: Baseball
-  url: /baseball/
-  icon: baseball-bat-ball
+- title: Soccer
+  url: /soccer/
+  icon: sports_soccer
 
 - title: Softball
   url: /softball/
-  icon: baseball
+  icon: sports_baseball
+
+- title: Swimming & Diving
+  url: /swimming-diving/
+  icon: pool
+
+- title: Tennis
+  url: /tennis/
+  icon: sports_tennis
+
+- title: Volleyball
+  url: /volleyball/
+  icon: sports_volleyball
+
+- title: Wrestling
+  url: /wrestling/
+  icon: sports_kabaddi

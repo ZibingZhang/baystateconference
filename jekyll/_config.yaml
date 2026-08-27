@@ -101,14 +101,25 @@ show_excerpts: false
 # date_format: "%b-%d-%Y"
 
 # Social Media Links
-#   Renders icons via Font Awesome Free webfonts CDN, based on ordered list of entries.
+#   Renders icons based on an ordered list of entries. By default `icon` is
+#   a Material Symbols icon name (https://fonts.google.com/icons); set
+#   `brand: true` to render it as a Font Awesome Brands icon instead (id
+#   without the `fa-` prefix, e.g. `github` -> `fa-github`), since Material
+#   Symbols has no brand logos. Brand icons also get FA's `fa-lg` class -
+#   without it an icon glyph's default line-height/vertical-align reads as
+#   noticeably off-center in its box (verified on fa-github); fa-lg's
+#   line-height/vertical-align combo is FA's own fix for that, not
+#   something specific to this site.
 #   Entry keys:
 #     * title    Tooltip rendered on hovering over icon.
-#     * icon     Font Awesome icon id. `github` corresponds to `fa-github`.
+#     * icon     Icon id, see above.
+#     * brand    Optional - true to render `icon` via Font Awesome Brands
+#                instead of Material Symbols.
 #     * url      Full URL of social profile.
 social_links:
   - title: Source Code Repository at GitHub
     icon: github
+    brand: true
     url: "https://github.com/ZibingZhang/baystateconference"
 
 hide_site_feed_link: true

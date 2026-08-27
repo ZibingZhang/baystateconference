@@ -15,7 +15,7 @@
     <details{% unless node.collapsed %} open{% endunless %}>
       <summary>
         <span class="directory-caret" aria-hidden="true"></span>
-        <span class="fa-solid fa-window-maximize" aria-hidden="true"></span>
+        <span class="material-symbols-outlined" aria-hidden="true">tab</span>
         {%- if node.url -%}
         <a href="{{ node.url | relative_url }}">{{ node_label }}</a>
         {%- else -%}
@@ -28,7 +28,7 @@
     {%- else -%}
   <li class="directory-file">
     <a href="{{ node.url | relative_url }}">
-      <span class="fa-solid fa-window-maximize" aria-hidden="true"></span>
+      <span class="material-symbols-outlined" aria-hidden="true">tab</span>
       <span>{{ node.title }}</span>
     </a>
   </li>

@@ -31,10 +31,10 @@
 <div class="directory-browser link-list{% if include.searchable %} searchable{% endif %}">
   {%- if include.searchable -%}
   <div class="file-browser-search">
-    <span class="fa-solid fa-magnifying-glass" aria-hidden="true"></span>
+    <span class="material-symbols-outlined" aria-hidden="true">search</span>
     <input type="text" class="file-browser-search-input" placeholder="Search…" aria-label="Search">
     <button type="button" class="file-browser-sort-toggle" aria-pressed="false" aria-label="Sort Z to A" title="Sort Z to A">
-      <span class="fa-solid fa-arrow-down-a-z" aria-hidden="true"></span>
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
     </button>
   </div>
   <ul class="file-browser-tags" hidden></ul>
@@ -49,9 +49,9 @@
       <li class="directory-file">
         <a href="{% if is_external %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>
           {%- if is_external -%}
-          <span class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></span>
+          <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
           {%- else -%}
-          <span class="fa-solid fa-window-maximize" aria-hidden="true"></span>
+          <span class="material-symbols-outlined" aria-hidden="true">tab</span>
           {%- endif -%}
           <span>{{ item.title }}</span>
         </a>

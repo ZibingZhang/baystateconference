@@ -38,7 +38,8 @@ function createCopyLinkButton(anchor) {
   button.title = "Copy link";
 
   const icon = document.createElement("span");
-  icon.className = "fa-solid fa-link";
+  icon.className = "material-symbols-outlined";
+  icon.textContent = "link";
   icon.setAttribute("aria-hidden", "true");
   button.appendChild(icon);
 
@@ -49,7 +50,7 @@ function createCopyLinkButton(anchor) {
     event.stopPropagation();
     copyTextToClipboard(anchor.href);
 
-    icon.className = "fa-solid fa-check";
+    icon.textContent = "check";
     button.title = "Copied!";
     button.setAttribute("aria-label", "Copied!");
     button.classList.add("is-copied");
@@ -65,7 +66,7 @@ function createCopyLinkButton(anchor) {
 
     clearTimeout(resetTimer);
     resetTimer = setTimeout(() => {
-      icon.className = "fa-solid fa-link";
+      icon.textContent = "link";
       button.title = "Copy link";
       button.setAttribute("aria-label", "Copy link");
       button.classList.remove("is-copied");

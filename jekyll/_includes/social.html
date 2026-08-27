@@ -2,7 +2,11 @@
 {%- for entry in site.social_links -%}
   <li>
     <a rel="me" href="{{ entry.url }}" target="_blank" title="{{ entry.title }}">
-      <span class="grey fa-brands fa-{{ entry.icon }} fa-lg"></span>
+      {%- if entry.brand -%}
+      <span class="grey fa-brands fa-{{ entry.icon }} fa-lg" aria-hidden="true"></span>
+      {%- else -%}
+      <span class="grey material-symbols-outlined">{{ entry.icon }}</span>
+      {%- endif -%}
     </a>
   </li>
 {%- endfor -%}
