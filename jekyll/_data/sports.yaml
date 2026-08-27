@@ -1,0 +1,5 @@
+# Sports shown as cards on /sports/. Add an entry here as each new sport's
+# section is built out.
+- title: Swimming & Diving
+  url: /swimming-diving/
+  icon: person-swimming

@@ -4,7 +4,7 @@
   url: /
 
 - title: Sports
-  url: /swimming-diving/
+  url: /sports/
   children:
     - title: Swimming & Diving
       url: /swimming-diving/

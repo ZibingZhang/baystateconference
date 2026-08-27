@@ -539,6 +539,52 @@
   visibility: hidden;
 }
 
+.sport-grid {
+  display: grid;
+  gap: $spacing-unit;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: $spacing-unit;
+
+  @include media-query($on-laptop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-query($on-palm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sport-card {
+  align-items: center;
+  background-color: $code-background-color;
+  border: 1px solid $border-color-01;
+  border-radius: 6px;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-unit;
+  text-align: center;
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover .sport-name {
+    text-decoration: underline;
+  }
+}
+
+.sport-icon {
+  color: $brand-color-dimmed;
+  font-size: 48px;
+  margin-bottom: $spacing-unit * 0.3;
+}
+
+.sport-name {
+  font-weight: 600;
+}
+
 .post-list {
   list-style: none;
   margin-left: 0;
