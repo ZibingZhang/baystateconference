@@ -3,7 +3,7 @@
 # matching the whole (still-hyphenated) crumb overrides the entire label,
 # for phrases that need more than per-word capitalization (e.g. "&").
 all-stars: All-Stars
-bsc: BSC
+bsc: Bay State Conference
 emisca: EMISCA
 miaa: MIAA
 nfhs: NFHS
