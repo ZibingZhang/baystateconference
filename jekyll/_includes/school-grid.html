@@ -2,7 +2,7 @@
   {%- for school in site.data.swimming-diving.schools -%}
   {%- assign label = school.town | append: ' ' | append: school.team-name -%}
   {%- assign school-slug = school.town | slugify -%}
-  {%- assign school-url = '/swimming-diving/bay-state-conference/schools/' | append: school-slug | append: '/' -%}
+  {%- assign school-url = '/swimming-diving/bsc/schools/' | append: school-slug | append: '/' -%}
   <div class="school-card">
     <a class="school-card-link" href="{{ school-url | relative_url }}">
       {%- if school.logo -%}

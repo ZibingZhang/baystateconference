@@ -43,8 +43,8 @@ defaults:
 # slashes) whose folder should start collapsed in the site map's file
 # viewer. See _plugins/page_tree_generator.rb.
 sitemap_collapsed_paths:
-  - "swimming-diving/bay-state-conference/awards/all-stars"
-  - "swimming-diving/bay-state-conference/schools"
+  - "swimming-diving/bsc/awards/all-stars"
+  - "swimming-diving/bsc/schools"
   - "swimming-diving/emisca/awards"
   - "swimming-diving/miaa/qualifying-standards"
 

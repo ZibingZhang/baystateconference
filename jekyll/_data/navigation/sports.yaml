@@ -8,3 +8,6 @@
   children:
     - title: Swimming & Diving
       url: /swimming-diving/
+
+- title: League Documents
+  url: /league-documents/

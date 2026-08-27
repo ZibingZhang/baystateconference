@@ -1,7 +1,7 @@
 ---
 layout: page
 title: BSC All-Stars
-permalink: /swimming-diving/bay-state-conference/awards/all-stars/
+permalink: /swimming-diving/bsc/awards/all-stars/
 breadcrumb: All-Stars
 ---
 

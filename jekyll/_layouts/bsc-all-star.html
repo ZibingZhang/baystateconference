@@ -5,7 +5,7 @@ layout: base
   Renders a single school year's Bay State Conference All-Stars, split into
   Girls Fall / Boys Fall / Boys Winter tables (Boys Winter exists because a
   few schools' boys teams swim in winter rather than fall — see
-  swimming-diving/bay-state-conference/index.md; there's no Girls Winter
+  swimming-diving/bsc/index.md; there's no Girls Winter
   since girls swimming is always a fall sport in this conference). A page
   using this layout just needs `year: "2011-2012"` in its front matter to
   match against the Year column in the all-stars data; tables for seasons
@@ -20,7 +20,7 @@ layout: base
   <div class="post-content">
     {{ content }}
 
-    {%- assign all_stars = site.data['swimming-diving']['bay-state-conference']['awards']['all-stars'] -%}
+    {%- assign all_stars = site.data['swimming-diving']['bsc']['awards']['all-stars'] -%}
     {%- assign year_entries = all_stars | where: 'Year', page.year -%}
     {%- assign girls_fall = year_entries | where: 'Season', 'Fall' | where: 'Sex', 'F' -%}
     {%- assign boys_fall = year_entries | where: 'Season', 'Fall' | where: 'Sex', 'M' -%}

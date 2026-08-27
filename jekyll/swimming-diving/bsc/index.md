@@ -1,12 +1,12 @@
 ---
 layout: page
 title: Bay State Conference
-permalink: /swimming-diving/bay-state-conference/
+permalink: /swimming-diving/bsc/
 internal_links:
   - title: Awards
-    url: /swimming-diving/bay-state-conference/awards/
+    url: /swimming-diving/bsc/awards/
   - title: Schools
-    url: /swimming-diving/bay-state-conference/schools/
+    url: /swimming-diving/bsc/schools/
 ---
 
 [^1]: <https://en.wikipedia.org/wiki/Bay_State_Conference>

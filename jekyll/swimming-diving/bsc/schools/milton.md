@@ -1,7 +1,7 @@
 ---
 layout: bsc-school
 title: Milton High School
-permalink: /swimming-diving/bay-state-conference/schools/milton/
+permalink: /swimming-diving/bsc/schools/milton/
 breadcrumb: Milton
 school: "Milton"
 ---

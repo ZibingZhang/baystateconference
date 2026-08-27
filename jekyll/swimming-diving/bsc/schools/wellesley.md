@@ -1,7 +1,7 @@
 ---
 layout: bsc-school
 title: Wellesley High School
-permalink: /swimming-diving/bay-state-conference/schools/wellesley/
+permalink: /swimming-diving/bsc/schools/wellesley/
 breadcrumb: Wellesley
 school: "Wellesley"
 ---

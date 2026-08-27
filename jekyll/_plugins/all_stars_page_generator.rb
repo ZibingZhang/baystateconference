@@ -1,5 +1,5 @@
 # Generates one page per school year for the Bay State Conference All-Stars
-# (swimming-diving/bay-state-conference/awards/all-stars/YYYY-YYYY/) straight
+# (swimming-diving/bsc/awards/all-stars/YYYY-YYYY/) straight
 # from the Year column of _data/.../all-stars.csv, so adding a new season's
 # entries to the CSV is enough on its own — no matching .md file to remember.
 # A year with no rows simply has no page yet; add its first entry and the
@@ -12,8 +12,8 @@ module Awards
   class AllStarsPageGenerator < Jekyll::Generator
     safe true
 
-    DATA_PATH = %w[swimming-diving bay-state-conference awards all-stars].freeze
-    DIR = "swimming-diving/bay-state-conference/awards/all-stars".freeze
+    DATA_PATH = %w[swimming-diving bsc awards all-stars].freeze
+    DIR = "swimming-diving/bsc/awards/all-stars".freeze
 
     def generate(site)
       entries = DATA_PATH.reduce(site.data) { |data, key| data[key] || {} }
