@@ -768,6 +768,23 @@
   }
 }
 
+.file-browser-select-toggle {
+  align-items: center;
+  background: none;
+  border: none;
+  color: $brand-color-dimmed;
+  cursor: pointer;
+  display: flex;
+  flex: 0 0 auto;
+  padding: 0;
+
+  &:hover,
+  &:focus-visible,
+  &[aria-pressed="true"] {
+    color: $text-color;
+  }
+}
+
 .file-browser-shortcuts-toggle {
   align-items: center;
   background: none;
@@ -865,6 +882,48 @@
   &:hover,
   &:focus-visible {
     color: $text-color;
+  }
+}
+
+.file-browser-select-bar {
+  align-items: center;
+  border-bottom: 1px solid $border-color-01;
+  display: flex;
+  gap: 10px;
+  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.file-browser-select-count {
+  color: $brand-color-dimmed;
+  flex: 1 1 auto;
+  @include relative-font-size(0.85);
+}
+
+.file-browser-select-download {
+  align-items: center;
+  background-color: $code-background-color;
+  border: 1px solid $border-color-01;
+  border-radius: 4px;
+  color: $text-color;
+  cursor: pointer;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 6px;
+  padding: $spacing-unit * 0.3 $spacing-unit * 0.6;
+  @include relative-font-size(0.85);
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    background-color: $border-color-01;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.4;
   }
 }
 
@@ -1045,6 +1104,18 @@
   @include relative-font-size(0.85);
 }
 
+.file-browser-item-checkbox {
+  align-self: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+  margin-left: $spacing-unit * 0.5;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+}
+
 .file-browser-empty,
 .file-browser-error {
   color: $brand-color-dimmed;
@@ -1062,6 +1133,18 @@
   margin: 0;
   padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
   position: sticky;
+  text-align: center;
+  @include relative-font-size(0.85);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.file-browser-zip-status {
+  color: $brand-color-dimmed;
+  margin: 0;
+  padding: $spacing-unit * 0.5;
   text-align: center;
   @include relative-font-size(0.85);
 

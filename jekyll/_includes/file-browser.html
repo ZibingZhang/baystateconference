@@ -13,6 +13,9 @@
     <button type="button" class="file-browser-sort-toggle" aria-pressed="false" aria-label="Sort Z to A" title="Sort Z to A">
       <span class="fa-solid fa-arrow-down-a-z" aria-hidden="true"></span>
     </button>
+    <button type="button" class="file-browser-select-toggle" aria-pressed="false" aria-label="Select files to download" title="Select files to download">
+      <span class="fa-solid fa-download" aria-hidden="true"></span>
+    </button>
     <button type="button" class="file-browser-shortcuts-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Keyboard shortcuts" title="Keyboard shortcuts">
       <span class="fa-solid fa-keyboard" aria-hidden="true"></span>
     </button>
@@ -27,6 +30,12 @@
     </div>
   </div>
   <ul class="file-browser-tags" hidden></ul>
+  <div class="file-browser-select-bar" hidden>
+    <span class="file-browser-select-count">0 selected</span>
+    <button type="button" class="file-browser-select-download" disabled>
+      <span class="fa-solid fa-file-zipper" aria-hidden="true"></span> Download ZIP
+    </button>
+  </div>
   <div class="file-browser-loading loading-indicator">
     <span class="fa-solid fa-spinner fa-spin force-spin" aria-hidden="true"></span>
     <span>Loading files…</span>
@@ -35,8 +44,10 @@
   <p class="file-browser-empty" hidden>No files match your search.</p>
   <p class="file-browser-error" hidden>Unable to load files. Please try again later.</p>
   <p class="file-browser-count" hidden></p>
+  <p class="file-browser-zip-status" aria-live="polite" hidden></p>
 </div>
 
+<script src="{{ '/assets/js/vendor/jszip.min.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/fuzzy-score.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/search-controls.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/copy-link.js' | relative_url }}" defer></script>

@@ -143,6 +143,184 @@ function formatFileCountSummary(counts) {
   return parts.join(", ");
 }
 
+// U+0001 as separator (never appears in real file/folder names) so that
+// e.g. ["A", "BC"] and ["AB", "C"] can't collide into the same key.
+const KEY_SEP = "\u0001";
+
+function pathKey(pathNames) {
+  return pathNames.join(KEY_SEP);
+}
+
+function isSelfOrDescendantKey(key, ancestorKey) {
+  return key === ancestorKey || key.startsWith(ancestorKey + KEY_SEP);
+}
+
+function isAncestorSelected(pathNames, selectedKeys) {
+  for (let i = 1; i < pathNames.length; i++) {
+    if (selectedKeys.has(pathKey(pathNames.slice(0, i)))) return true;
+  }
+  return false;
+}
+
+// Counts real (s3Path) files within a subtree, deduped by s3Path — the same
+// dedup convention countFilesByType uses — since external/internal links
+// aren't real files and can't go in a ZIP.
+function countSelectableFiles(items, seen = new Set()) {
+  let total = 0;
+  for (const item of items) {
+    if (Array.isArray(item.files)) {
+      total += countSelectableFiles(item.files, seen);
+    } else if (item.s3Path) {
+      if (seen.has(item.s3Path)) continue;
+      seen.add(item.s3Path);
+      total += 1;
+    }
+  }
+  return total;
+}
+
+// Walks a subtree computing { total, selected } selectable-file counts,
+// used to derive a folder checkbox's checked/indeterminate state.
+// `inherited` becomes true once an ancestor folder's own key is selected,
+// at which point every descendant file counts as selected too.
+function countSelectionState(items, pathNames, selectedKeys, inherited, seen = new Set()) {
+  let total = 0;
+  let selected = 0;
+  for (const item of items) {
+    const itemPath = [...pathNames, item.name];
+    const itemInherited = inherited || selectedKeys.has(pathKey(itemPath));
+    if (Array.isArray(item.files)) {
+      const sub = countSelectionState(item.files, itemPath, selectedKeys, itemInherited, seen);
+      total += sub.total;
+      selected += sub.selected;
+    } else if (item.s3Path) {
+      if (seen.has(item.s3Path)) continue;
+      seen.add(item.s3Path);
+      total += 1;
+      if (itemInherited) selected += 1;
+    }
+  }
+  return { total, selected };
+}
+
+// Derives a single row's checkbox visual state: checked, indeterminate
+// (folders only), and disabled (non-file rows, empty folders, or rows
+// already fully included because an ancestor folder is selected).
+function computeCheckboxState(item, itemPath, selectedKeys) {
+  const ancestorSelected = isAncestorSelected(itemPath, selectedKeys);
+
+  if (Array.isArray(item.files)) {
+    if (ancestorSelected) return { checked: true, indeterminate: false, disabled: true };
+    const selfSelected = selectedKeys.has(pathKey(itemPath));
+    const { total, selected } = countSelectionState(item.files, itemPath, selectedKeys, selfSelected);
+    if (total === 0) return { checked: false, indeterminate: false, disabled: true };
+    if (selected === total) return { checked: true, indeterminate: false, disabled: false };
+    if (selected === 0) return { checked: false, indeterminate: false, disabled: false };
+    return { checked: false, indeterminate: true, disabled: false };
+  }
+
+  if (item.s3Path) {
+    if (ancestorSelected) return { checked: true, indeterminate: false, disabled: true };
+    return { checked: selectedKeys.has(pathKey(itemPath)), indeterminate: false, disabled: false };
+  }
+
+  // externalUrl or internal url — not a real file, can't be zipped.
+  return { checked: false, indeterminate: false, disabled: true };
+}
+
+// Walks the whole tree collecting every selected file's full path (so the
+// ZIP mirrors the browsed folder structure exactly), keyed by that path. A
+// file selected via more than one location in the tree (the same
+// duplication countFilesByType already accounts for) ends up as multiple
+// map entries pointing at the same s3Path, so it's fetched once but written
+// into the ZIP at every location — see buildZipBlob.
+function collectSelectedFiles(rootFiles, selectedKeys) {
+  const entries = new Map();
+
+  function collectAll(items, pathNames) {
+    for (const item of items) {
+      const itemPath = [...pathNames, item.name];
+      if (Array.isArray(item.files)) collectAll(item.files, itemPath);
+      else if (item.s3Path) entries.set(itemPath.join("/"), item.s3Path);
+    }
+  }
+
+  function walk(items, pathNames) {
+    for (const item of items) {
+      const itemPath = [...pathNames, item.name];
+      const key = pathKey(itemPath);
+      if (Array.isArray(item.files)) {
+        if (selectedKeys.has(key)) collectAll(item.files, itemPath);
+        else walk(item.files, itemPath);
+      } else if (item.s3Path && selectedKeys.has(key)) {
+        entries.set(itemPath.join("/"), item.s3Path);
+      }
+    }
+  }
+
+  walk(rootFiles, []);
+  return entries;
+}
+
+class ZipFetchError extends Error {
+  constructor(s3Path, status) {
+    super(`Failed to fetch ${s3Path} (${status ?? "network error"})`);
+    this.s3Path = s3Path;
+  }
+}
+
+// Fetches each unique s3Path once, then writes the resulting bytes into the
+// zip at every entry path that maps to it (see collectSelectedFiles).
+async function buildZipBlob(entries, s3BucketRoot, onProgress) {
+  const zip = new JSZip();
+  const uniquePaths = [...new Set(entries.values())];
+  const bytesByPath = new Map();
+  let completed = 0;
+
+  for (const s3Path of uniquePaths) {
+    const url = `${s3BucketRoot.replace(/\/+$/, "")}/${encodePathSegments(s3Path)}`;
+    let response;
+    try {
+      response = await fetch(url);
+    } catch {
+      throw new ZipFetchError(s3Path, null);
+    }
+    if (!response.ok) throw new ZipFetchError(s3Path, response.status);
+    bytesByPath.set(s3Path, await response.arrayBuffer());
+    completed += 1;
+    onProgress({ phase: "fetching", completed, total: uniquePaths.length });
+  }
+
+  for (const [entryPath, s3Path] of entries) {
+    zip.file(entryPath, bytesByPath.get(s3Path));
+  }
+
+  onProgress({ phase: "compressing", percent: 0 });
+  return zip.generateAsync({ type: "blob" }, (meta) => {
+    onProgress({ phase: "compressing", percent: Math.round(meta.percent) });
+  });
+}
+
+function triggerBlobDownload(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function buildZipFilename() {
+  const base = (document.title || "files")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+  return `${base || "files"}-${new Date().toISOString().slice(0, 10)}.zip`;
+}
+
 // copyTextToClipboard and createCopyLinkButton are defined in copy-link.js,
 // loaded before this file.
 
@@ -192,6 +370,11 @@ function initFileBrowser(browser) {
   const backBtn = browser.querySelector(".file-browser-nav-back");
   const forwardBtn = browser.querySelector(".file-browser-nav-forward");
   const countEl = browser.querySelector(".file-browser-count");
+  const selectToggle = browser.querySelector(".file-browser-select-toggle");
+  const selectBar = browser.querySelector(".file-browser-select-bar");
+  const selectCountEl = browser.querySelector(".file-browser-select-count");
+  const downloadBtn = browser.querySelector(".file-browser-select-download");
+  const zipStatusEl = browser.querySelector(".file-browser-zip-status");
 
   if (!src || !list) return;
 
@@ -215,6 +398,14 @@ function initFileBrowser(browser) {
   // then forward again just walks the existing stack.
   let navHistory = [[]];
   let navIndex = 0;
+
+  // Whether the select-files UI is active, and which nodes (by full path
+  // key) are selected. selectedKeys only ever stores selection "roots" —
+  // selecting a folder clears any descendant keys and stores just the
+  // folder's own key — which is what keeps checkbox-state computation and
+  // ZIP traversal simple.
+  let isSelecting = false;
+  let selectedKeys = new Set();
 
   const tagFilter = createTagFilter({
     input,
@@ -355,6 +546,28 @@ function initFileBrowser(browser) {
         count.className = "file-browser-item-count";
         count.textContent = countFilesByType(item.files).total;
         a.append(count);
+      }
+
+      if (isSelecting) {
+        const itemPath = [...currentPath, item.name];
+        const state = computeCheckboxState(item, itemPath, selectedKeys);
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "file-browser-item-checkbox";
+        checkbox.setAttribute("aria-label", `Select ${item.name}`);
+        checkbox.checked = state.checked;
+        checkbox.indeterminate = state.indeterminate;
+        checkbox.disabled = state.disabled;
+        if (!Array.isArray(item.files) && !item.s3Path) {
+          checkbox.title = "Not a file — can't be included in a ZIP download";
+        }
+        checkbox.addEventListener("click", (event) => event.stopPropagation());
+        checkbox.addEventListener("change", () => {
+          setSelected(itemPath, checkbox.checked);
+          updateSelectionSummary();
+          refreshList();
+        });
+        li.append(checkbox);
       }
 
       li.append(a, createCopyLinkButton(a));
@@ -509,6 +722,36 @@ function initFileBrowser(browser) {
     countEl.hidden = !summary;
   }
 
+  // Sets/clears the selection for a node. Setting a folder selected clears
+  // any of its own descendant keys first (they're now implied by the
+  // folder's key), which keeps selectedKeys holding only selection roots.
+  function setSelected(pathNames, checked) {
+    const key = pathKey(pathNames);
+    for (const k of [...selectedKeys]) {
+      if (isSelfOrDescendantKey(k, key)) selectedKeys.delete(k);
+    }
+    if (checked) selectedKeys.add(key);
+  }
+
+  function updateSelectionSummary() {
+    if (!selectCountEl || !downloadBtn) return;
+    const entries = collectSelectedFiles(rootFiles, selectedKeys);
+    const uniqueCount = new Set(entries.values()).size;
+    selectCountEl.textContent = `${uniqueCount} selected`;
+    downloadBtn.disabled = uniqueCount === 0;
+  }
+
+  function showZipStatus(message) {
+    if (!zipStatusEl) return;
+    zipStatusEl.textContent = message;
+    zipStatusEl.hidden = false;
+  }
+
+  function hideZipStatus() {
+    if (!zipStatusEl) return;
+    zipStatusEl.hidden = true;
+  }
+
   function applyPath(pathNames, tags = []) {
     currentPath = pathNames;
     if (input) input.value = "";
@@ -562,6 +805,50 @@ function initFileBrowser(browser) {
 
   if (backBtn) backBtn.addEventListener("click", () => goBack());
   if (forwardBtn) forwardBtn.addEventListener("click", () => goForward());
+
+  if (selectToggle) {
+    selectToggle.addEventListener("click", () => {
+      isSelecting = !isSelecting;
+      selectToggle.setAttribute("aria-pressed", String(isSelecting));
+      if (selectBar) selectBar.hidden = !isSelecting;
+      if (!isSelecting) {
+        selectedKeys.clear();
+        hideZipStatus();
+      }
+      updateSelectionSummary();
+      refreshList();
+    });
+  }
+
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", async () => {
+      const entries = collectSelectedFiles(rootFiles, selectedKeys);
+      if (entries.size === 0) return;
+
+      downloadBtn.disabled = true;
+      const uniqueTotal = new Set(entries.values()).size;
+      showZipStatus(`Preparing ZIP… fetching 0 of ${uniqueTotal} files`);
+
+      try {
+        const blob = await buildZipBlob(entries, s3BucketRoot, (progress) => {
+          if (progress.phase === "fetching") {
+            showZipStatus(`Preparing ZIP… fetching ${progress.completed} of ${progress.total} files`);
+          } else {
+            showZipStatus(`Compressing… ${progress.percent ?? 0}%`);
+          }
+        });
+        triggerBlobDownload(blob, buildZipFilename());
+        hideZipStatus();
+      } catch (err) {
+        showZipStatus(
+          `Couldn't build the ZIP${err instanceof ZipFetchError ? ` — failed to download "${err.s3Path}"` : ""}. ` +
+            `This can also happen if downloads from file storage aren't allowed for this site yet. Try again in a bit.`
+        );
+      } finally {
+        downloadBtn.disabled = false;
+      }
+    });
+  }
 
   browser.addEventListener("keydown", handleListKeydown);
 
