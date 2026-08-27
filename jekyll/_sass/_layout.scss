@@ -1018,7 +1018,11 @@
     // :focus-visible (not the row's :focus-within) — arrow-key navigation
     // focuses the row's `a`, not this button, and shouldn't reveal it; it
     // should only appear once Tab/Shift+Tab lands on the button itself.
+    // Matched against both .file-browser-item (the file-browser) and
+    // .directory-file (the link-list) — this same button/class is reused by
+    // both row types.
     .file-browser-item:hover &,
+    .directory-file:hover &,
     &:focus-visible,
     &.is-copied {
       background-color: $code-background-color;
@@ -1089,6 +1093,8 @@
 
 .directory-file {
   border-bottom: 1px solid $border-color-01;
+  display: flex;
+  position: relative; // anchors the overlaid .file-browser-copy-btn, on link-list rows
 
   &:last-child {
     border-bottom: none;
@@ -1098,7 +1104,9 @@
     align-items: center;
     color: $text-color;
     display: flex;
+    flex: 1 1 auto;
     gap: 10px;
+    min-width: 0;
     padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
 
     &:hover {
