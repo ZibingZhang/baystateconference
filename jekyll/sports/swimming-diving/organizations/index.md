@@ -3,8 +3,6 @@ layout: page
 title: Organizations
 permalink: /sports/swimming-diving/organizations/
 internal_links:
-  - title: Bay State Conference
-    url: /sports/swimming-diving/organizations/bsc/
   - title: EMISCA
     url: /sports/swimming-diving/organizations/emisca/
   - title: MIAA

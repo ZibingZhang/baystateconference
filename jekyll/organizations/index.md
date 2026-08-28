@@ -3,8 +3,6 @@ layout: page
 title: Organizations
 permalink: /organizations/
 internal_links:
-  - title: Bay State Conference
-    url: /organizations/bsc/
   - title: MIAA
     url: /organizations/miaa/
   - title: NFHS
