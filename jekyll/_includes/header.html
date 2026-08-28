@@ -7,7 +7,7 @@
 
     <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
-    {%- assign nav_name = page.nav | default: "sports" -%}
+    {%- assign nav_name = page.nav | default: "home" -%}
     {%- assign nav = site.data.navigation[nav_name] -%}
 
     {%- unless nav == empty %}
