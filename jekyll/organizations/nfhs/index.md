@@ -1,7 +1,7 @@
 ---
 layout: page
 title: National Federation of State High School Associations
-permalink: /about/nfhs/
+permalink: /organizations/nfhs/
 external_links:
   - title: NFHS Website
     url: https://www.nfhs.org

@@ -3,7 +3,7 @@
 # https://fonts.google.com/icons
 #
 # For each sport, _plugins/sport_governing_body_page_generator.rb generates
-# its About > MIAA and About > NFHS pages (/<sport>/miaa/, /<sport>/nfhs/)
+# its Organizations > MIAA and Organizations > NFHS pages (/<sport>/miaa/, /<sport>/nfhs/)
 # straight from this file - there's no miaa/index.md or nfhs/index.md to
 # hand-write per sport. A sport gets a page for a governing body only if it
 # has an `external_links` entry for that body below (e.g. Rugby has no

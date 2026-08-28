@@ -4,11 +4,15 @@
   url: /
 
 - title: About
+  url: /about/
+
+- title: Organizations
+  url: /organizations/
   children:
     - title: MIAA
-      url: /about/miaa/
+      url: /organizations/miaa/
     - title: NFHS
-      url: /about/nfhs/
+      url: /organizations/nfhs/
 
 - title: Schools
   url: /schools/
@@ -40,8 +44,9 @@
     - title: Swimming & Diving
       url: /sports/swimming-diving/
 
-- title: League Documents
-  url: /league-documents/
-
-- title: Directory
-  url: /directory/
+- title: Resources
+  children:
+    - title: Documents
+      url: /resources/documents/
+    - title: Directory
+      url: /resources/directory/

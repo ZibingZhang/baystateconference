@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Directory
-permalink: /directory/
+permalink: /resources/directory/
 ---
 
 <div class="directory-browser">
