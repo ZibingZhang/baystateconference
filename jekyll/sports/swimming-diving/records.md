@@ -3,13 +3,11 @@ layout: page
 title: Records
 permalink: /sports/swimming-diving/records/
 internal_links:
-  - title: Dual Meets
-    url: /sports/swimming-diving/dual-meets/records/
-  - title: Bay State Conference Meet
+  - title: Bay State Conference Records
     url: /sports/swimming-diving/bsc/records/
-  - title: Sectional Meets
+  - title: Sectionals Records
     url: /sports/swimming-diving/sectionals/records/
-  - title: State Meets
+  - title: States Records
     url: /sports/swimming-diving/states/records/
 ---
 

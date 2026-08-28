@@ -2,13 +2,6 @@
 layout: page
 title: Dual Meets
 permalink: /sports/swimming-diving/dual-meets/
-internal_links:
-  - title: Results
-    url: /sports/swimming-diving/dual-meets/results/
-  - title: Rankings
-    url: /sports/swimming-diving/dual-meets/rankings/
-  - title: Records
-    url: /sports/swimming-diving/dual-meets/records/
 ---
 
 <div class="calendar-embed">
@@ -21,4 +14,4 @@ internal_links:
 
 <script src="{{ '/assets/js/calendar-embed.js' | relative_url }}" defer></script>
 
-{% include link-list.html heading="See Also" items=page.internal_links %}
+{% include directory-listing.html %}
