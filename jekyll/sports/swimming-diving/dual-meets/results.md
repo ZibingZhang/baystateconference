@@ -3,6 +3,7 @@ layout: page
 title: Dual Meets Results
 permalink: /sports/swimming-diving/dual-meets/results/
 breadcrumb: Results
+under_construction: true
 internal_links:
   - title: Rankings
     url: /sports/swimming-diving/dual-meets/rankings/
