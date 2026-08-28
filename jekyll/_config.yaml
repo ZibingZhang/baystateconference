@@ -112,7 +112,7 @@ defaults:
 # viewer. See _plugins/page_tree_generator.rb.
 sitemap_collapsed_paths:
   - "sports/swimming-diving/bsc/awards/all-stars"
-  - "sports/swimming-diving/bsc/schools"
+  - "sports/swimming-diving/schools"
   - "sports/swimming-diving/emisca/awards"
   - "sports/swimming-diving/miaa/qualifying-standards"
 

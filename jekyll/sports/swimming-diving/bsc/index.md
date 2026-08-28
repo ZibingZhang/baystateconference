@@ -5,8 +5,9 @@ permalink: /sports/swimming-diving/bsc/
 internal_links:
   - title: Awards
     url: /sports/swimming-diving/bsc/awards/
+see_also:
   - title: Schools
-    url: /sports/swimming-diving/bsc/schools/
+    url: /sports/swimming-diving/schools/
 ---
 
 [^1]: <https://en.wikipedia.org/wiki/Bay_State_Conference>
@@ -16,3 +17,5 @@ The __Bay State Conference__ comprises of 10 high schools in two divisions, divi
 Girls swimming and diving is a fall sport, while boys swimming and diving is a winter sport. Four out of the ten high schools don't have a boys team in the winter: Braintree, Milton, Walpole, and Weymouth.
 
 {% include link-list.html heading="Directory" items=page.internal_links %}
+
+{% include link-list.html heading="See Also" items=page.see_also %}
