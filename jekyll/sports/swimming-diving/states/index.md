@@ -1,6 +1,6 @@
 ---
 layout: page
-title: State Meets
+title: State Championship Meets
 permalink: /sports/swimming-diving/states/
 countdowns:
   - label: "States"
@@ -9,12 +9,6 @@ external_links:
   - title: MIAA Website
     url: https://www.miaa.net/swimming-diving
 internal_links:
-  - title: Results
-    url: /sports/swimming-diving/states/results/
-  - title: Rankings
-    url: /sports/swimming-diving/states/rankings/
-  - title: Records
-    url: /sports/swimming-diving/states/records/
   - title: Qualifying Standards
     url: /sports/swimming-diving/resources/miaa-qualifying-standards/
 ---
@@ -26,6 +20,8 @@ Schedule:
 - 3:00 PM: doors open for teams
 - 3:30 PM: doors open for spectators
 - 4:15 PM: meet starts
+
+{% include directory-listing.html %}
 
 {% include link-list.html heading="See Also" items=page.internal_links %}
 

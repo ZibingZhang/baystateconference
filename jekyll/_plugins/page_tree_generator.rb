@@ -6,10 +6,14 @@
 # lines of Ruby instead, exposed to Liquid as plain data via site.data.
 #
 # Each node: { "segment" => "emisca", "url" => "/sports/swimming-diving/emisca/" or
-# nil, "title" => "...", "children" => [...] }. A node has a url/title only
-# when that path segment is itself a real page (e.g. "emisca" is both a page
-# and a folder containing "awards"); segments that are pure path components
-# with no page of their own (rare on this site) are folders with a nil url.
+# nil, "title" => "...", "breadcrumb" => "..." or nil, "children" => [...] }. A
+# node has a url/title only when that path segment is itself a real page (e.g.
+# "emisca" is both a page and a folder containing "awards"); segments that are
+# pure path components with no page of their own (rare on this site) are
+# folders with a nil url. "breadcrumb" mirrors the page's own `breadcrumb`
+# front matter (see _includes/breadcrumbs.html), exposed here so
+# directory-listing.html can label a child the same short way its own
+# breadcrumb trail would.
 module SiteMap
   class PageTreeGenerator < Jekyll::Generator
     safe true
@@ -38,6 +42,7 @@ module SiteMap
 
         node["url"] = page.url
         node["title"] = page.data["title"] || page.url
+        node["breadcrumb"] = page.data["breadcrumb"]
       end
 
       sort_children!(root)
@@ -47,7 +52,7 @@ module SiteMap
     private
 
     def new_node(segment)
-      { "segment" => segment, "url" => nil, "title" => nil, "children" => [] }
+      { "segment" => segment, "url" => nil, "title" => nil, "breadcrumb" => nil, "children" => [] }
     end
 
     def sort_children!(node)

@@ -1,0 +1,81 @@
+{%- comment -%}
+  Renders a "Directory" link-list of the current page's immediate children,
+  discovered from site.data.page_tree (built by _plugins/page_tree_generator.rb)
+  instead of a hand-maintained internal_links/links front matter array. Add a
+  page under an existing folder and it shows up here automatically; no parent
+  page needs editing.
+
+  Mirrors link-list.html's markup directly (rather than building it an items
+  array, which plain Liquid has no syntax to construct) so children get the
+  same bordered-row styling as every other link list on the site.
+
+  Each child's label follows the same precedence as breadcrumbs.html: the
+  child's own `breadcrumb` front matter, then an acronym match on its URL
+  segment (see _data/acronyms.yaml), then its `title`.
+
+  Usage: {% include directory-listing.html %}
+         {% include directory-listing.html heading="Resources" searchable=true %}
+{%- endcomment -%}
+{%- assign segments = page.url | split: '/' -%}
+{%- assign nodes = site.data.page_tree -%}
+{%- for segment in segments -%}
+  {%- unless segment == '' -%}
+    {%- assign found = nil -%}
+    {%- for node in nodes -%}
+      {%- if node.segment == segment -%}
+        {%- assign found = node -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- assign nodes = found.children -%}
+  {%- endunless -%}
+{%- endfor -%}
+{%- assign heading = include.heading | default: "Directory" -%}
+{%- if nodes.size > 0 -%}
+<h2>{{ heading }}</h2>
+<div class="directory-browser link-list{% if include.searchable %} searchable{% endif %}">
+  {%- if include.searchable -%}
+  <div class="file-browser-search">
+    <span class="material-symbols-outlined" aria-hidden="true">search</span>
+    <input type="text" class="file-browser-search-input" placeholder="Search…" aria-label="Search">
+    <button type="button" class="file-browser-sort-toggle" aria-pressed="false" aria-label="Sort Z to A" title="Sort Z to A">
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+    </button>
+  </div>
+  <ul class="file-browser-tags" hidden></ul>
+  {%- endif -%}
+  <ul class="directory-tree">
+    {%- for child in nodes -%}
+      {%- if child.url -%}
+        {%- assign matched_acronym = false -%}
+        {%- capture segment_label %}{% include url-label.html segment=child.segment %}{% endcapture -%}
+        {%- assign segment_label = segment_label | strip -%}
+        {%- if child.breadcrumb -%}
+          {%- assign child_label = child.breadcrumb -%}
+        {%- elsif matched_acronym -%}
+          {%- assign child_label = segment_label -%}
+        {%- else -%}
+          {%- assign child_label = child.title -%}
+        {%- endif -%}
+      <li class="directory-file">
+        <a href="{{ child.url | relative_url }}">
+          <span class="material-symbols-outlined" aria-hidden="true">tab</span>
+          <span>{{ child_label }}</span>
+        </a>
+      </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+  {%- if include.searchable -%}
+  <p class="file-browser-empty" hidden>No matches.</p>
+  {%- endif -%}
+  <p class="file-browser-count">{{ nodes.size }} internal</p>
+</div>
+{%- if include.searchable -%}
+<script src="{{ '/assets/js/fuzzy-score.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/search-controls.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/link-list-search.js' | relative_url }}" defer></script>
+{%- endif -%}
+<script src="{{ '/assets/js/copy-link.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/link-list-copy.js' | relative_url }}" defer></script>
+{%- endif -%}

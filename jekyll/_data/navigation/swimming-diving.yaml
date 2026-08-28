@@ -17,11 +17,11 @@
   children:
     - title: Dual Meets
       url: /sports/swimming-diving/dual-meets/
-    - title: Bay State Conference Meet
+    - title: Bay State Conference
       url: /sports/swimming-diving/bsc/
-    - title: Sectional Meets
+    - title: Sectionals
       url: /sports/swimming-diving/sectionals/
-    - title: State Meets
+    - title: States
       url: /sports/swimming-diving/states/
 
 - title: Results
@@ -29,11 +29,11 @@
   children:
     - title: Dual Meets
       url: /sports/swimming-diving/dual-meets/results/
-    - title: Bay State Conference Meet
+    - title: Bay State Conference
       url: /sports/swimming-diving/bsc/results/
-    - title: Sectional Meets
+    - title: Sectionals
       url: /sports/swimming-diving/sectionals/results/
-    - title: State Meets
+    - title: States
       url: /sports/swimming-diving/states/results/
     - title: Records
       url: /sports/swimming-diving/records/

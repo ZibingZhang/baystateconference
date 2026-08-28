@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Bay State Conference Meet Results
+title: Bay State Conference Results
 permalink: /sports/swimming-diving/bsc/results/
 breadcrumb: Results
 internal_links:

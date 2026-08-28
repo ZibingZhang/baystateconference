@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Sectional Meets
+title: Sectional Championship Meets
 permalink: /sports/swimming-diving/sectionals/
 countdowns:
   - label: "Sectionals"
@@ -9,17 +9,13 @@ external_links:
   - title: MIAA Website
     url: https://www.miaa.net/swimming-diving
 internal_links:
-  - title: Results
-    url: /sports/swimming-diving/sectionals/results/
-  - title: Rankings
-    url: /sports/swimming-diving/sectionals/rankings/
-  - title: Records
-    url: /sports/swimming-diving/sectionals/records/
   - title: Qualifying Standards
     url: /sports/swimming-diving/resources/miaa-qualifying-standards/
 ---
 
 The north and south fall sectional championship meets will take place on November 8th.
+
+{% include directory-listing.html %}
 
 {% include link-list.html heading="See Also" items=page.internal_links %}
 
