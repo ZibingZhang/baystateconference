@@ -3,6 +3,13 @@
 - title: Home
   url: /
 
+- title: About
+  children:
+    - title: MIAA
+      url: /about/miaa/
+    - title: NFHS
+      url: /about/nfhs/
+
 - title: Schools
   url: /schools/
   children:
