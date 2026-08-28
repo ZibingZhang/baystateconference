@@ -48,6 +48,7 @@
       url: /sports/swimming-diving/
 
 - title: Resources
+  url: /resources/
   children:
     - title: Documents
       url: /resources/documents/
