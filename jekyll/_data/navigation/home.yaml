@@ -5,6 +5,9 @@
 
 - title: About
   url: /about/
+  children:
+    - title: History
+      url: /about/history/
 
 - title: Organizations
   url: /organizations/
