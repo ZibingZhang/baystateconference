@@ -57,6 +57,31 @@ function findFilesAtPath(rootFiles, pathNames) {
   return current;
 }
 
+// Looks up the folder node itself (not just its children) at pathNames, so
+// callers can read metadata like a per-folder default sort order. Returns
+// null for the root (which has no node of its own) or an unresolvable path.
+function findNodeAtPath(rootFiles, pathNames) {
+  let node = null;
+  let current = rootFiles;
+
+  for (const name of pathNames) {
+    node = current.find((item) => item.name === name && Array.isArray(item.files));
+    if (!node) return null;
+    current = node.files;
+  }
+
+  return node;
+}
+
+// A folder can carry "sort": "desc" in the data (e.g. the "By Meet"
+// subfolders, which hold many files named by year and read better
+// newest-first) to set what order it's *initially* shown in. Defaults to
+// ascending when unset, matching every other folder on the site.
+function folderDefaultDescending(rootFiles, pathNames) {
+  const node = findNodeAtPath(rootFiles, pathNames);
+  return node ? node.sort === "desc" : false;
+}
+
 // Resolves URL path slugs (lowercase, dash-separated) back to the tree's
 // actual display names, so breadcrumbs and rendering always use real names.
 function resolvePathSlugs(rootFiles, slugSegments) {
@@ -757,6 +782,7 @@ function initFileBrowser(browser) {
     currentPath = pathNames;
     if (input) input.value = "";
     tagFilter.set(tags);
+    sortState.setDescending(folderDefaultDescending(rootFiles, pathNames));
     refreshList();
     updateBreadcrumbs(pathNames);
     updateCount(pathNames);

@@ -70,6 +70,7 @@
           "files": [
             {
               "name": "Bay State Conference",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2006-2007 Fall Girls Braintree Results.pdf",
@@ -323,6 +324,7 @@
             },
             {
               "name": "Sectionals",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2004-2005 Fall Girls North Sectional Results.pdf",
@@ -944,6 +946,7 @@
             },
             {
               "name": "States",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2003-2004 Fall Girls State Results.pdf",

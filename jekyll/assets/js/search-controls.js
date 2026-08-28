@@ -121,5 +121,13 @@ function createSortToggle(button, onChange, initialDescending = false) {
     get descending() {
       return descending;
     },
+    // Resets the toggle to a folder's own default order (e.g. a "By Meet"
+    // subfolder with lots of results defaults to newest-first) without
+    // firing onChange — callers re-render explicitly right after navigating,
+    // so notifying here would just trigger a redundant second render.
+    setDescending(value) {
+      descending = value;
+      update();
+    },
   };
 }
