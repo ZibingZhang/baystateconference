@@ -1,4 +1,386 @@
 School Year,Season,Sex,Division,Place,School,Score
+2025-2026,fall,F,Division 2,1,Wellesley High School,292
+2025-2026,fall,F,Division 2,2,Chelmsford High School,282
+2025-2026,fall,F,Division 2,3,Belmont High School,275
+2025-2026,fall,F,Division 2,4,Natick High School,190
+2025-2026,fall,F,Division 2,5,Woburn Memorial High School & Burlington High School,164
+2025-2026,fall,F,Division 2,6,North Andover High School,159
+2025-2026,fall,F,Division 2,7,Wakefield Memorial High School,139
+2025-2026,fall,F,Division 2,8,Winchester High School,138
+2025-2026,fall,F,Division 2,9,Reading Memorial High School,134
+2025-2026,fall,F,Division 2,10,Milton High School,130
+2025-2026,fall,F,Division 2,11,Weymouth High School,129
+2025-2026,fall,F,Division 2,12,Billerica Memorial High School,104
+2025-2026,fall,F,Division 2,13,Walpole High School,44
+2025-2026,fall,F,Division 2,14,Academy of Notre Dame,40
+2025-2026,fall,F,Division 1,1,Newton North High School,349
+2025-2026,fall,F,Division 1,2,Brookline High School,260
+2025-2026,fall,F,Division 1,3,Haverhill High School,256
+2025-2026,fall,F,Division 1,4,Andover High School,210
+2025-2026,fall,F,Division 1,5,Framingham High School,207
+2025-2026,fall,F,Division 1,6,Lexington High School,174
+2025-2026,fall,F,Division 1,7,Needham High School,154
+2025-2026,fall,F,Division 1,8,Acton-Boxborough Regional High School,124
+2025-2026,fall,F,Division 1,9,Boston Latin School,103
+2025-2026,fall,F,Division 1,10,Arlington High School,97
+2025-2026,fall,F,Division 1,10,Ursuline Academy,97
+2025-2026,fall,F,Division 1,12,Notre Dame Academy,79
+2025-2026,fall,F,Division 1,13,Malden Catholic High School,60
+2025-2026,fall,F,Division 1,14,Methuen High School,24
+2025-2026,fall,F,Division 1,15,Central Catholic High School,23
+2025-2026,fall,F,Division 1,16,Lowell High School,18
+2025-2026,fall,M,Division 2,1,Milton High School,197
+2025-2026,fall,M,Division 2,2,Braintree High School,95
+2025-2026,fall,M,Division 2,3,Billerica Memorial High School,71
+2025-2026,fall,M,Division 2,4,Walpole High School,63
+2025-2026,fall,M,Division 2,5,North Andover High School,40
+2025-2026,fall,M,Division 2,6,Weymouth High School,32
+2025-2026,fall,M,Division 2,7,Academy of Notre Dame,20
+2025-2026,fall,M,Division 1,1,Methuen High School,100
+2025-2026,winter,F,Division 2,1,Weston High School,262
+2025-2026,winter,F,Division 2,2,Wayland High School,257
+2025-2026,winter,F,Division 2,3,Seekonk High School,189
+2025-2026,winter,F,Division 2,4,Mystic Valley Regional Charter School,179
+2025-2026,winter,F,Division 2,4,Dover-Sherborn High School,179
+2025-2026,winter,F,Division 2,6,Triton Regional High School,131
+2025-2026,winter,F,Division 2,7,Medfield High School & Norwood High School,118
+2025-2026,winter,F,Division 2,8,Duxbury High School,93
+2025-2026,winter,F,Division 2,9,Nantucket High School,84
+2025-2026,winter,F,Division 2,10,Westwood High School,76
+2025-2026,winter,F,Division 2,11,Greater Lowell Technical High School,62
+2025-2026,winter,F,Division 2,12,Apponequet Regional High School,60
+2025-2026,winter,F,Division 2,12,The Bromfield School,60
+2025-2026,winter,F,Division 2,14,Scituate High School,59
+2025-2026,winter,F,Division 2,15,Lynnfield High School & Wakefield Memorial High School,57
+2025-2026,winter,F,Division 2,16,Dedham High School,56
+2025-2026,winter,F,Division 2,17,Ashland High School,54
+2025-2026,winter,F,Division 2,18,Belchertown High School,52
+2025-2026,winter,F,Division 2,19,Tantasqua Regional High School,40
+2025-2026,winter,F,Division 2,20,Sandwich High School,38
+2025-2026,winter,F,Division 2,21,Norwell High School & South Shore Vocational Technical High School,32
+2025-2026,winter,F,Division 2,22,Hamilton-Wenham Regional High School,31
+2025-2026,winter,F,Division 2,22,Swampscott High School,31
+2025-2026,winter,F,Division 2,24,Norton High School,29
+2025-2026,winter,F,Division 2,25,Nauset Regional High School,20
+2025-2026,winter,F,Division 2,26,Advanced Math and Science Academy Charter School,17
+2025-2026,winter,F,Division 2,27,Easthampton High School,12
+2025-2026,winter,F,Division 2,28,North Reading High School & Wilmington High School,7
+2025-2026,winter,F,Division 2,29,Old Rochester Regional High School,5
+2025-2026,winter,F,Division 2,30,Salem High School,3
+2025-2026,winter,F,Division 2,31,Lynn Vocational and Technical Institute,2
+2025-2026,winter,F,Division 1,1,Concord-Carlisle High School,283
+2025-2026,winter,F,Division 1,2,Amherst Regional High School,244
+2025-2026,winter,F,Division 1,3,Marblehead High School,176
+2025-2026,winter,F,Division 1,4,Longmeadow High School,153
+2025-2026,winter,F,Division 1,5,Sharon High School,123
+2025-2026,winter,F,Division 1,6,Minnechaug Regional High School,113.5
+2025-2026,winter,F,Division 1,7,Westford Academy,106
+2025-2026,winter,F,Division 1,8,Algonquin Regional High School,97
+2025-2026,winter,F,Division 1,9,New Bedford High School,96
+2025-2026,winter,F,Division 1,10,Westfield High School,91.5
+2025-2026,winter,F,Division 1,11,Lincoln-Sudbury Regional High School,70
+2025-2026,winter,F,Division 1,12,Newton South High School,69
+2025-2026,winter,F,Division 1,13,Franklin High School,64.5
+2025-2026,winter,F,Division 1,14,Cambridge Rindge and Latin School,63
+2025-2026,winter,F,Division 1,15,Bishop Feehan High School,61
+2025-2026,winter,F,Division 1,16,Hingham High School & Cohasset High School,51
+2025-2026,winter,F,Division 1,17,Masconomet Regional High School,50
+2025-2026,winter,F,Division 1,18,Marshfield High School & Hanover High School,47
+2025-2026,winter,F,Division 1,18,Agawam High School,47
+2025-2026,winter,F,Division 1,20,Grafton High School,44
+2025-2026,winter,F,Division 1,21,Bishop Fenwick High School,40
+2025-2026,winter,F,Division 1,22,Attleboro High School,38
+2025-2026,winter,F,Division 1,23,Bedford High School,37
+2025-2026,winter,F,Division 1,24,Quincy High School + North Quincy High School,29
+2025-2026,winter,F,Division 1,25,East Longmeadow High School,23
+2025-2026,winter,F,Division 1,26,Gardner High School,20
+2025-2026,winter,F,Division 1,27,Bishop Stang High School,18
+2025-2026,winter,F,Division 1,28,West Springfield High School,12
+2025-2026,winter,F,Division 1,28,Malden High School,12
+2025-2026,winter,F,Division 1,30,Hopkinton High School,11
+2025-2026,winter,F,Division 1,31,Springfield Central High School,10
+2025-2026,winter,F,Division 1,32,Cardinal Spellman High School,6
+2025-2026,winter,F,Division 1,33,Plymouth North High School & Plymouth South High School,5
+2025-2026,winter,F,Division 1,33,Silver Lake Regional High School & Whitman-Hanson Regional High School,5
+2025-2026,winter,F,Division 1,33,Northampton High School,5
+2025-2026,winter,F,Division 1,36,Chicopee Comprehensive High School,2.5
+2025-2026,winter,F,Division 1,37,Brockton High School,1
+2025-2026,winter,F,Division 1,37,Milford High School,1
+2025-2026,winter,M,Division 2,1,Wayland High School,291
+2025-2026,winter,M,Division 2,2,Weston High School,263.5
+2025-2026,winter,M,Division 2,3,Mystic Valley Regional Charter School,262
+2025-2026,winter,M,Division 2,4,Belchertown High School,141
+2025-2026,winter,M,Division 2,5,East Longmeadow High School,139
+2025-2026,winter,M,Division 2,6,Duxbury High School,136.5
+2025-2026,winter,M,Division 2,7,Medfield High School & Norwood High School,95
+2025-2026,winter,M,Division 2,8,Westwood High School,91
+2025-2026,winter,M,Division 2,9,Marblehead High School,83
+2025-2026,winter,M,Division 2,10,Bedford High School,74
+2025-2026,winter,M,Division 2,11,Lynnfield High School & Wakefield Memorial High School,68
+2025-2026,winter,M,Division 2,12,Martha's Vineyard Regional High School,52
+2025-2026,winter,M,Division 2,13,Holliston High School & Medway High School,49
+2025-2026,winter,M,Division 2,14,Old Rochester Regional High School,47
+2025-2026,winter,M,Division 2,15,The Bromfield School,44
+2025-2026,winter,M,Division 2,16,North Reading High School & Wilmington High School,40
+2025-2026,winter,M,Division 2,16,Sandwich High School,40
+2025-2026,winter,M,Division 2,16,Salem High School,40
+2025-2026,winter,M,Division 2,19,Tantasqua Regional High School,34
+2025-2026,winter,M,Division 2,20,Melrose High School & Stoneham High School,30
+2025-2026,winter,M,Division 2,20,Ipswich High School,30
+2025-2026,winter,M,Division 2,22,Canton High School,21
+2025-2026,winter,M,Division 2,23,Masconomet Regional High School,20
+2025-2026,winter,M,Division 2,23,Burlington High School,20
+2025-2026,winter,M,Division 2,25,Reading Memorial High School,18
+2025-2026,winter,M,Division 2,25,Boston Latin Academy,18
+2025-2026,winter,M,Division 2,27,Scituate High School,17
+2025-2026,winter,M,Division 2,27,Dedham High School,17
+2025-2026,winter,M,Division 2,29,Seekonk High School,16
+2025-2026,winter,M,Division 2,30,Triton Regional High School,15
+2025-2026,winter,M,Division 2,30,Hamilton-Wenham Regional High School,15
+2025-2026,winter,M,Division 2,32,Ludlow High School,14
+2025-2026,winter,M,Division 2,33,Minuteman Regional High School,11
+2025-2026,winter,M,Division 2,34,Foxborough High School,7
+2025-2026,winter,M,Division 2,34,Turners Falls High School,7
+2025-2026,winter,M,Division 2,36,Nantucket High School,6
+2025-2026,winter,M,Division 2,36,Danvers High School,6
+2025-2026,winter,M,Division 2,36,Nauset Regional High School,6
+2025-2026,winter,M,Division 2,39,Swampscott High School,5
+2025-2026,winter,M,Division 2,40,Dover-Sherborn High School,3
+2025-2026,winter,M,Division 2,41,Palmer High School,1
+2025-2026,winter,M,Division 1,1,St. John's Preparatory School,193
+2025-2026,winter,M,Division 1,2,Westford Academy,183
+2025-2026,winter,M,Division 1,3,Minnechaug Regional High School,181
+2025-2026,winter,M,Division 1,4,Xaverian Brothers High School,151
+2025-2026,winter,M,Division 1,5,Concord-Carlisle High School,146
+2025-2026,winter,M,Division 1,6,Catholic Memorial High School,133
+2025-2026,winter,M,Division 1,7,Haverhill High School,121
+2025-2026,winter,M,Division 1,8,Acton-Boxborough Regional High School,119.5
+2025-2026,winter,M,Division 1,9,Lincoln-Sudbury Regional High School,119
+2025-2026,winter,M,Division 1,10,Natick High School,109.5
+2025-2026,winter,M,Division 1,11,Lexington High School,94
+2025-2026,winter,M,Division 1,12,Chelmsford High School,93
+2025-2026,winter,M,Division 1,13,Newton North High School,67
+2025-2026,winter,M,Division 1,14,Quincy High School + North Quincy High School,59
+2025-2026,winter,M,Division 1,14,Brookline High School,59
+2025-2026,winter,M,Division 1,16,Hingham High School & Cohasset High School,50
+2025-2026,winter,M,Division 1,17,Algonquin Regional High School,49
+2025-2026,winter,M,Division 1,18,Sharon High School,41
+2025-2026,winter,M,Division 1,19,Newton South High School,40
+2025-2026,winter,M,Division 1,20,Belmont High School,36
+2025-2026,winter,M,Division 1,20,Franklin High School,36
+2025-2026,winter,M,Division 1,22,Chicopee Comprehensive High School,32
+2025-2026,winter,M,Division 1,23,Framingham High School,29
+2025-2026,winter,M,Division 1,24,West Springfield High School,27
+2025-2026,winter,M,Division 1,25,Barnstable High School,26
+2025-2026,winter,M,Division 1,26,Bishop Feehan High School,22
+2025-2026,winter,M,Division 1,27,Springfield Central High School,21
+2025-2026,winter,M,Division 1,28,Grafton High School,17
+2025-2026,winter,M,Division 1,28,Andover High School,17
+2025-2026,winter,M,Division 1,30,St. John's High School,15
+2025-2026,winter,M,Division 1,31,Mansfield High School,10
+2025-2026,winter,M,Division 1,31,Milford High School,10
+2025-2026,winter,M,Division 1,33,Needham High School,5
+2025-2026,winter,M,Division 1,34,Shawsheen Valley Technical High School,4
+2025-2026,winter,M,Division 1,34,Hopkinton High School,4
+2025-2026,winter,M,Division 1,36,Cambridge Rindge and Latin School,2
+2025-2026,winter,M,Division 1,36,Malden Catholic High School,2
+2025-2026,winter,M,Division 1,38,Malden High School,1
+2025-2026,winter,M,Division 1,38,Arlington High School,1
+2024-2025,fall,F,Division 2,1,Wellesley High School,384
+2024-2025,fall,F,Division 2,2,North Andover High School,225
+2024-2025,fall,F,Division 2,3,Belmont High School,200
+2024-2025,fall,F,Division 2,4,Chelmsford High School,169
+2024-2025,fall,F,Division 2,5,Reading Memorial High School,163
+2024-2025,fall,F,Division 2,6,Natick High School,155
+2024-2025,fall,F,Division 2,7,Wakefield Memorial High School,150
+2024-2025,fall,F,Division 2,8,Woburn Memorial High School & Burlington High School,143
+2024-2025,fall,F,Division 2,9,Milton High School,132
+2024-2025,fall,F,Division 2,10,Boston Latin School,129
+2024-2025,fall,F,Division 2,11,Billerica Memorial High School,105
+2024-2025,fall,F,Division 2,12,Weymouth High School,101
+2024-2025,fall,F,Division 2,13,Braintree High School,63
+2024-2025,fall,F,Division 2,14,Walpole High School,46
+2024-2025,fall,F,Division 2,15,Academy of Notre Dame,40
+2024-2025,fall,F,Division 1,1,Acton-Boxborough Regional High School,308
+2024-2025,fall,F,Division 1,2,Brookline High School,248
+2024-2025,fall,F,Division 1,3,Needham High School,227
+2024-2025,fall,F,Division 1,3,Newton North High School,227
+2024-2025,fall,F,Division 1,5,Andover High School,213
+2024-2025,fall,F,Division 1,6,Winchester High School,187
+2024-2025,fall,F,Division 1,7,Haverhill High School,182
+2024-2025,fall,F,Division 1,8,Ursuline Academy,160
+2024-2025,fall,F,Division 1,9,Lexington High School,123
+2024-2025,fall,F,Division 1,10,Framingham High School,114
+2024-2025,fall,F,Division 1,11,Notre Dame Academy,108
+2024-2025,fall,F,Division 1,12,Watertown High School & Arlington High School,70
+2024-2025,fall,F,Division 1,13,Methuen High School,46
+2024-2025,fall,F,Division 1,14,Malden Catholic High School,41
+2024-2025,fall,F,Division 1,15,Central Catholic High School,28
+2024-2025,fall,F,Division 1,16,Lowell High School,7
+2024-2025,fall,M,Division 2,1,Milton High School,248
+2024-2025,fall,M,Division 2,2,North Andover High School,107
+2024-2025,fall,M,Division 2,3,Walpole High School,96
+2024-2025,fall,M,Division 2,4,Braintree High School,66
+2024-2025,fall,M,Division 2,5,Billerica Memorial High School,63
+2024-2025,fall,M,Division 2,6,Academy of Notre Dame,30
+2024-2025,fall,M,Division 2,7,Weymouth High School,28
+2024-2025,fall,M,Division 1,1,Methuen High School,100
+2024-2025,winter,F,Division 2,1,Weston High School,230
+2024-2025,winter,F,Division 2,2,Mystic Valley Regional Charter School,194
+2024-2025,winter,F,Division 2,3,Longmeadow High School,180
+2024-2025,winter,F,Division 2,4,Dover-Sherborn High School,152
+2024-2025,winter,F,Division 2,5,Triton Regional High School,146
+2024-2025,winter,F,Division 2,6,Amherst Regional High School,138
+2024-2025,winter,F,Division 2,6,Wayland High School,138
+2024-2025,winter,F,Division 2,8,Seekonk High School,121
+2024-2025,winter,F,Division 2,9,Norton High School,110
+2024-2025,winter,F,Division 2,10,Hamilton-Wenham Regional High School,101
+2024-2025,winter,F,Division 2,11,Duxbury High School,77
+2024-2025,winter,F,Division 2,12,Scituate High School,64
+2024-2025,winter,F,Division 2,13,Monument Mountain Regional High School,59
+2024-2025,winter,F,Division 2,14,Nantucket High School,57
+2024-2025,winter,F,Division 2,15,Marblehead High School,56
+2024-2025,winter,F,Division 2,16,Gardner High School,49
+2024-2025,winter,F,Division 2,17,Northampton High School,46
+2024-2025,winter,F,Division 2,18,Belchertown High School,41
+2024-2025,winter,F,Division 2,18,Canton High School,41
+2024-2025,winter,F,Division 2,20,Monson High School,36
+2024-2025,winter,F,Division 2,20,The Bromfield School,36
+2024-2025,winter,F,Division 2,22,Cohasset High School,34
+2024-2025,winter,F,Division 2,23,Lynnfield High School & Wakefield Memorial High School,27
+2024-2025,winter,F,Division 2,24,Ashland High School,26
+2024-2025,winter,F,Division 2,25,Grafton High School,22
+2024-2025,winter,F,Division 2,26,Norwell High School & South Shore Vocational Technical High School,21
+2024-2025,winter,F,Division 2,27,Dedham High School,19
+2024-2025,winter,F,Division 2,28,Advanced Math and Science Academy Charter School,16
+2024-2025,winter,F,Division 2,29,Foxborough High School,15
+2024-2025,winter,F,Division 2,29,Bedford High School,15
+2024-2025,winter,F,Division 2,31,Medfield High School,13
+2024-2025,winter,F,Division 2,32,Swampscott High School,10
+2024-2025,winter,F,Division 2,32,East Longmeadow High School,10
+2024-2025,winter,F,Division 2,34,Sandwich High School,7
+2024-2025,winter,F,Division 2,35,Ludlow High School,6
+2024-2025,winter,F,Division 2,36,Tyngsborough High School & Groton-Dunstable Regional High School,5
+2024-2025,winter,F,Division 2,37,Nauset Regional High School,3
+2024-2025,winter,F,Division 2,38,Old Rochester Regional High School,2
+2024-2025,winter,F,Division 2,38,Holyoke High School,2
+2024-2025,winter,F,Division 1,1,Concord-Carlisle High School,270
+2024-2025,winter,F,Division 1,2,Lincoln-Sudbury Regional High School,220
+2024-2025,winter,F,Division 1,3,Franklin High School,181.5
+2024-2025,winter,F,Division 1,4,Minnechaug Regional High School,161
+2024-2025,winter,F,Division 1,5,Attleboro High School,131
+2024-2025,winter,F,Division 1,6,Westford Academy,125
+2024-2025,winter,F,Division 1,7,Sharon High School,122
+2024-2025,winter,F,Division 1,8,Westfield High School,116
+2024-2025,winter,F,Division 1,9,Bishop Feehan High School,89
+2024-2025,winter,F,Division 1,10,Bishop Fenwick High School,86
+2024-2025,winter,F,Division 1,11,Marshfield High School & Hanover High School,85
+2024-2025,winter,F,Division 1,12,New Bedford High School,81
+2024-2025,winter,F,Division 1,13,Algonquin Regional High School,79
+2024-2025,winter,F,Division 1,14,Norwood High School,59
+2024-2025,winter,F,Division 1,15,Agawam High School,50
+2024-2025,winter,F,Division 1,16,Masconomet Regional High School,40
+2024-2025,winter,F,Division 1,17,Wachusett Regional High School,38
+2024-2025,winter,F,Division 1,18,Malden High School,35
+2024-2025,winter,F,Division 1,19,Saint Mary's (Lynn) High School,31
+2024-2025,winter,F,Division 1,20,Quincy High School + North Quincy High School,30
+2024-2025,winter,F,Division 1,21,Newton South High School,28
+2024-2025,winter,F,Division 1,22,Shrewsbury High School,26
+2024-2025,winter,F,Division 1,23,Plymouth North High School & Plymouth South High School,25
+2024-2025,winter,F,Division 1,23,B.M.C. Durfee High School,25
+2024-2025,winter,F,Division 1,25,Springfield Central High School,24
+2024-2025,winter,F,Division 1,26,Mansfield High School,22
+2024-2025,winter,F,Division 1,26,Westwood High School,22
+2024-2025,winter,F,Division 1,26,Cambridge Rindge and Latin School,22
+2024-2025,winter,F,Division 1,29,Chicopee Comprehensive High School,18
+2024-2025,winter,F,Division 1,30,Hopkinton High School,17
+2024-2025,winter,F,Division 1,31,Hingham High School,16
+2024-2025,winter,F,Division 1,32,West Springfield High School,11
+2024-2025,winter,F,Division 1,33,Bishop Stang High School,10
+2024-2025,winter,F,Division 1,33,Cardinal Spellman High School,10
+2024-2025,winter,F,Division 1,35,Silver Lake Regional High School & Whitman-Hanson Regional High School,6
+2024-2025,winter,F,Division 1,35,Peabody Veterans Memorial High School,6
+2024-2025,winter,F,Division 1,37,Brockton High School,5
+2024-2025,winter,F,Division 1,38,Oliver Ames High School,2.5
+2024-2025,winter,M,Division 2,1,Wayland High School,296
+2024-2025,winter,M,Division 2,2,Weston High School,243
+2024-2025,winter,M,Division 2,3,Mystic Valley Regional Charter School,180
+2024-2025,winter,M,Division 2,4,Grafton High School,169
+2024-2025,winter,M,Division 2,5,Longmeadow High School,144
+2024-2025,winter,M,Division 2,6,Belchertown High School,105.5
+2024-2025,winter,M,Division 2,7,Marblehead High School,98.5
+2024-2025,winter,M,Division 2,8,Medfield High School,90
+2024-2025,winter,M,Division 2,9,Minnechaug Regional High School,78
+2024-2025,winter,M,Division 2,10,Holliston High School & Medway High School,69
+2024-2025,winter,M,Division 2,11,Bedford High School,64
+2024-2025,winter,M,Division 2,12,Triton Regional High School,61
+2024-2025,winter,M,Division 2,13,West Springfield High School,56
+2024-2025,winter,M,Division 2,14,Scituate High School,53
+2024-2025,winter,M,Division 2,15,Westwood High School,51
+2024-2025,winter,M,Division 2,16,Seekonk High School,44
+2024-2025,winter,M,Division 2,17,Ludlow High School,43
+2024-2025,winter,M,Division 2,18,Foxborough High School,41
+2024-2025,winter,M,Division 2,19,Dover-Sherborn High School,37
+2024-2025,winter,M,Division 2,20,Melrose High School & Stoneham High School,36
+2024-2025,winter,M,Division 2,21,Salem High School,34
+2024-2025,winter,M,Division 2,22,Silver Lake Regional High School & Whitman-Hanson Regional High School,32
+2024-2025,winter,M,Division 2,23,North Reading High School & Wilmington High School,31
+2024-2025,winter,M,Division 2,24,Nantucket High School,30
+2024-2025,winter,M,Division 2,25,Masconomet Regional High School,28
+2024-2025,winter,M,Division 2,26,Martha's Vineyard Regional High School,24
+2024-2025,winter,M,Division 2,27,The Bromfield School,21
+2024-2025,winter,M,Division 2,27,Tantasqua Regional High School,21
+2024-2025,winter,M,Division 2,29,Duxbury High School,19
+2024-2025,winter,M,Division 2,30,East Longmeadow High School,18
+2024-2025,winter,M,Division 2,30,Monument Mountain Regional High School,18
+2024-2025,winter,M,Division 2,32,Dedham High School,17
+2024-2025,winter,M,Division 2,33,Holyoke High School,13
+2024-2025,winter,M,Division 2,34,Cohasset High School,10
+2024-2025,winter,M,Division 2,35,Burlington High School,9
+2024-2025,winter,M,Division 2,36,Lynnfield High School & Wakefield Memorial High School,8
+2024-2025,winter,M,Division 2,37,Sandwich High School,7
+2024-2025,winter,M,Division 2,38,Old Rochester Regional High School,6
+2024-2025,winter,M,Division 2,39,The Springfield Renaissance School,2
+2024-2025,winter,M,Division 2,40,Boston Latin Academy,1
+2024-2025,winter,M,Division 2,40,Danvers High School,1
+2024-2025,winter,M,Division 2,40,Ipswich High School,1
+2024-2025,winter,M,Division 1,1,St. John's Preparatory School,330
+2024-2025,winter,M,Division 1,2,Westford Academy,161
+2024-2025,winter,M,Division 1,3,Newton North High School,160
+2024-2025,winter,M,Division 1,4,Concord-Carlisle High School,143.5
+2024-2025,winter,M,Division 1,5,Acton-Boxborough Regional High School,134
+2024-2025,winter,M,Division 1,6,Franklin High School,132
+2024-2025,winter,M,Division 1,7,Haverhill High School,125
+2024-2025,winter,M,Division 1,8,Catholic Memorial High School,107
+2024-2025,winter,M,Division 1,9,Framingham High School,96
+2024-2025,winter,M,Division 1,9,Belmont High School,96
+2024-2025,winter,M,Division 1,11,Lincoln-Sudbury Regional High School,85
+2024-2025,winter,M,Division 1,12,Brookline High School,75
+2024-2025,winter,M,Division 1,13,Xaverian Brothers High School,70
+2024-2025,winter,M,Division 1,14,Bishop Feehan High School,60
+2024-2025,winter,M,Division 1,15,Milford High School,57
+2024-2025,winter,M,Division 1,15,Chelmsford High School,57
+2024-2025,winter,M,Division 1,17,Boston Latin School,51
+2024-2025,winter,M,Division 1,18,Westborough High School,48
+2024-2025,winter,M,Division 1,19,Sharon High School,47
+2024-2025,winter,M,Division 1,20,Westfield High School,44
+2024-2025,winter,M,Division 1,21,Cambridge Rindge and Latin School,29
+2024-2025,winter,M,Division 1,22,Needham High School,26
+2024-2025,winter,M,Division 1,23,Lexington High School,24
+2024-2025,winter,M,Division 1,24,Reading Memorial High School,22
+2024-2025,winter,M,Division 1,25,Gardner High School,20
+2024-2025,winter,M,Division 1,26,Barnstable High School,18
+2024-2025,winter,M,Division 1,27,Wellesley High School,15
+2024-2025,winter,M,Division 1,27,Algonquin Regional High School,15
+2024-2025,winter,M,Division 1,29,North Attleborough High School,14
+2024-2025,winter,M,Division 1,30,Plymouth North High School & Plymouth South High School,13
+2024-2025,winter,M,Division 1,31,Watertown High School & Arlington High School,11
+2024-2025,winter,M,Division 1,31,St. John's High School,11
+2024-2025,winter,M,Division 1,33,Hopkinton High School,7.5
+2024-2025,winter,M,Division 1,34,Natick High School,4
+2024-2025,winter,M,Division 1,34,Malden Catholic High School,4
+2024-2025,winter,M,Division 1,36,Springfield Central High School,2
+2024-2025,winter,M,Division 1,37,B.M.C. Durfee High School,1
 2023-2024,fall,F,Division 2,1,Wellesley High School,426
 2023-2024,fall,F,Division 2,2,Chelmsford High School,229.5
 2023-2024,fall,F,Division 2,3,Wakefield Memorial High School,219
@@ -30,6 +412,274 @@ School Year,Season,Sex,Division,Place,School,Score
 2023-2024,fall,F,Division 1,13,Central Catholic High School,64
 2023-2024,fall,F,Division 1,14,Arlington High School,44
 2023-2024,fall,F,Division 1,15,Methuen High School,12
+2023-2024,fall,M,Division 2,1,Milton High School,225
+2023-2024,fall,M,Division 2,2,North Andover High School,184
+2023-2024,fall,M,Division 2,3,Walpole High School,66
+2023-2024,fall,M,Division 2,4,Billerica Memorial High School,64
+2023-2024,fall,M,Division 2,5,Braintree High School,62
+2023-2024,fall,M,Division 2,6,Stoneham High School,61
+2023-2024,winter,F,Division 2,1,Weston High School,250
+2023-2024,winter,F,Division 2,2,Longmeadow High School,207.5
+2023-2024,winter,F,Division 2,3,Wayland High School,205
+2023-2024,winter,F,Division 2,4,Duxbury High School,143
+2023-2024,winter,F,Division 2,5,Marblehead High School,125
+2023-2024,winter,F,Division 2,6,Mystic Valley Regional Charter School,111
+2023-2024,winter,F,Division 2,7,Medfield High School,108
+2023-2024,winter,F,Division 2,8,Seekonk High School,105
+2023-2024,winter,F,Division 2,9,Ludlow High School,104
+2023-2024,winter,F,Division 2,10,Triton Regional High School,97
+2023-2024,winter,F,Division 2,11,Norton High School,84
+2023-2024,winter,F,Division 2,12,Canton High School,75
+2023-2024,winter,F,Division 2,13,Scituate High School,68
+2023-2024,winter,F,Division 2,14,Northampton High School,59
+2023-2024,winter,F,Division 2,14,Nantucket High School,59
+2023-2024,winter,F,Division 2,16,Nauset Regional High School,45
+2023-2024,winter,F,Division 2,16,Amherst Regional High School,45
+2023-2024,winter,F,Division 2,18,Monument Mountain Regional High School,38.5
+2023-2024,winter,F,Division 2,19,Monson High School,37
+2023-2024,winter,F,Division 2,20,North Reading High School & Wilmington High School,36
+2023-2024,winter,F,Division 2,21,Hamilton-Wenham Regional High School,34
+2023-2024,winter,F,Division 2,22,Gardner High School,31
+2023-2024,winter,F,Division 2,23,Sandwich High School,29
+2023-2024,winter,F,Division 2,23,Salem High School,29
+2023-2024,winter,F,Division 2,25,Manchester Essex High School,26
+2023-2024,winter,F,Division 2,26,The Bromfield School,21
+2023-2024,winter,F,Division 2,27,Swampscott High School,16
+2023-2024,winter,F,Division 2,27,Dover-Sherborn High School,16
+2023-2024,winter,F,Division 2,29,Norwell High School,15
+2023-2024,winter,F,Division 2,30,Bedford High School,14
+2023-2024,winter,F,Division 2,30,Foxboro High School,14
+2023-2024,winter,F,Division 2,30,Martha's Vineyard Regional High School,14
+2023-2024,winter,F,Division 2,33,Ashland High School,12
+2023-2024,winter,F,Division 2,34,Cohasset High School,8
+2023-2024,winter,F,Division 2,35,Nashoba Regional High School,6
+2023-2024,winter,F,Division 2,35,Dedham High School,6
+2023-2024,winter,F,Division 2,37,Tyngsborough High School & Groton-Dunstable Regional High School,5
+2023-2024,winter,F,Division 2,38,Advanced Math and Science Academy Charter School,4
+2023-2024,winter,F,Division 2,39,Tantasqua Regional High School,2
+2023-2024,winter,F,Division 1,1,Concord-Carlisle High School,381
+2023-2024,winter,F,Division 1,2,Lincoln-Sudbury Regional High School,212.5
+2023-2024,winter,F,Division 1,3,Newton South High School,164.5
+2023-2024,winter,F,Division 1,4,Minnechaug Regional High School,164
+2023-2024,winter,F,Division 1,5,Westford Academy,159
+2023-2024,winter,F,Division 1,6,Westfield High School,118
+2023-2024,winter,F,Division 1,7,Attleboro High School,116
+2023-2024,winter,F,Division 1,8,Marshfield High School & Hanover High School,107
+2023-2024,winter,F,Division 1,9,Bishop Feehan High School,105
+2023-2024,winter,F,Division 1,10,Franklin High School,95
+2023-2024,winter,F,Division 1,11,Shrewsbury High School,66.5
+2023-2024,winter,F,Division 1,12,Hingham High School,55
+2023-2024,winter,F,Division 1,13,New Bedford High School,49
+2023-2024,winter,F,Division 1,14,Agawam High School,45
+2023-2024,winter,F,Division 1,15,Sharon High School,44
+2023-2024,winter,F,Division 1,16,Plymouth High School,40
+2023-2024,winter,F,Division 1,16,Masconomet Regional High School,40
+2023-2024,winter,F,Division 1,18,Cambridge Rindge and Latin School,39
+2023-2024,winter,F,Division 1,19,Peabody Veterans Memorial High School,33
+2023-2024,winter,F,Division 1,20,Westborough High School,30
+2023-2024,winter,F,Division 1,21,Hopkinton High School,29
+2023-2024,winter,F,Division 1,22,Beverly High School,28.5
+2023-2024,winter,F,Division 1,23,Algonquin Regional High School,26
+2023-2024,winter,F,Division 1,24,Mansfield High School,25
+2023-2024,winter,F,Division 1,25,Westwood High School,23
+2023-2024,winter,F,Division 1,26,Malden High School,21
+2023-2024,winter,F,Division 1,27,Archbishop Williams High School,19
+2023-2024,winter,F,Division 1,28,Chicopee Comprehensive High School,18
+2023-2024,winter,F,Division 1,29,Saint Mary's (Lynn) High School,16
+2023-2024,winter,F,Division 1,29,B.M.C. Durfee High School,16
+2023-2024,winter,F,Division 1,31,Norwood High School,14
+2023-2024,winter,F,Division 1,32,Wachusett Regional High School,8
+2023-2024,winter,F,Division 1,32,Bishop Stang High School,8
+2023-2024,winter,F,Division 1,34,Quincy High School + North Quincy High School,6
+2023-2024,winter,F,Division 1,35,Springfield Central High School,4
+2023-2024,winter,M,Division 2,1,Weston High School,293
+2023-2024,winter,M,Division 2,2,Wayland High School,214
+2023-2024,winter,M,Division 2,3,Medfield High School,141
+2023-2024,winter,M,Division 2,4,Belchertown High School,127
+2023-2024,winter,M,Division 2,5,Westwood High School,125
+2023-2024,winter,M,Division 2,6,Minnechaug Regional High School,113
+2023-2024,winter,M,Division 2,6,Cohasset High School,113
+2023-2024,winter,M,Division 2,8,Duxbury High School,111
+2023-2024,winter,M,Division 2,9,Sandwich High School,105
+2023-2024,winter,M,Division 2,10,Mystic Valley Regional Charter School,100
+2023-2024,winter,M,Division 2,11,Holliston High School & Medway High School,87
+2023-2024,winter,M,Division 2,12,Northampton High School,82
+2023-2024,winter,M,Division 2,13,Triton Regional High School,78
+2023-2024,winter,M,Division 2,14,Lynnfield High School & Wakefield Memorial High School,57
+2023-2024,winter,M,Division 2,15,Marblehead High School,56.5
+2023-2024,winter,M,Division 2,16,Melrose High School,51
+2023-2024,winter,M,Division 2,17,Ludlow High School,42
+2023-2024,winter,M,Division 2,18,Seekonk High School,40
+2023-2024,winter,M,Division 2,19,Norwell High School,36
+2023-2024,winter,M,Division 2,20,Tantasqua Regional High School,30
+2023-2024,winter,M,Division 2,20,Nantucket High School,30
+2023-2024,winter,M,Division 2,22,Scituate High School,29.5
+2023-2024,winter,M,Division 2,23,Foxboro High School,28
+2023-2024,winter,M,Division 2,24,East Longmeadow High School,26
+2023-2024,winter,M,Division 2,25,Masconomet Regional High School,24
+2023-2024,winter,M,Division 2,26,West Springfield High School,20
+2023-2024,winter,M,Division 2,27,The Bromfield School,19
+2023-2024,winter,M,Division 2,28,Bedford High School,18
+2023-2024,winter,M,Division 2,29,Old Rochester Regional High School,17
+2023-2024,winter,M,Division 2,29,Longmeadow High School,17
+2023-2024,winter,M,Division 2,29,Dedham High School,17
+2023-2024,winter,M,Division 2,32,Holyoke High School,15
+2023-2024,winter,M,Division 2,33,North Reading High School & Wilmington High School,14
+2023-2024,winter,M,Division 2,34,Salem High School,13
+2023-2024,winter,M,Division 2,35,Dover-Sherborn High School,9
+2023-2024,winter,M,Division 2,36,Nauset Regional High School,5
+2023-2024,winter,M,Division 2,37,The Springfield Renaissance School,4
+2023-2024,winter,M,Division 2,38,Agawam High School,3
+2023-2024,winter,M,Division 1,1,St. John's Preparatory School,239
+2023-2024,winter,M,Division 1,2,Westford Academy,212
+2023-2024,winter,M,Division 1,3,Lincoln-Sudbury Regional High School,165
+2023-2024,winter,M,Division 1,4,Attleboro High School,146
+2023-2024,winter,M,Division 1,5,Acton-Boxborough Regional High School,141
+2023-2024,winter,M,Division 1,6,Concord-Carlisle High School,136
+2023-2024,winter,M,Division 1,7,Sharon High School,113
+2023-2024,winter,M,Division 1,8,Framingham High School,89
+2023-2024,winter,M,Division 1,9,Haverhill High School,84
+2023-2024,winter,M,Division 1,10,Brookline High School,73
+2023-2024,winter,M,Division 1,10,Westfield High School,73
+2023-2024,winter,M,Division 1,12,Catholic Memorial High School,72
+2023-2024,winter,M,Division 1,13,Needham High School,68.5
+2023-2024,winter,M,Division 1,14,Xaverian Brothers High School,66
+2023-2024,winter,M,Division 1,15,Plymouth High School,65
+2023-2024,winter,M,Division 1,16,Belmont High School,56
+2023-2024,winter,M,Division 1,17,Wellesley High School,54
+2023-2024,winter,M,Division 1,18,Hopkinton High School,34
+2023-2024,winter,M,Division 1,18,Natick High School,34
+2023-2024,winter,M,Division 1,18,Westborough High School,34
+2023-2024,winter,M,Division 1,21,Boston Latin School,33
+2023-2024,winter,M,Division 1,22,St. John's High School,29
+2023-2024,winter,M,Division 1,23,Quincy High School + North Quincy High School,27.5
+2023-2024,winter,M,Division 1,24,Milford High School,26
+2023-2024,winter,M,Division 1,25,Boston College High School,25
+2023-2024,winter,M,Division 1,26,Bishop Feehan High School,23
+2023-2024,winter,M,Division 1,26,Gardner High School,23
+2023-2024,winter,M,Division 1,28,Newton South High School,22
+2023-2024,winter,M,Division 1,29,Malden Catholic High School,20
+2023-2024,winter,M,Division 1,29,Newton North High School,20
+2023-2024,winter,M,Division 1,31,Lexington High School,18
+2023-2024,winter,M,Division 1,32,Winchester High School,16
+2023-2024,winter,M,Division 1,32,Watertown High School & Arlington High School,16
+2023-2024,winter,M,Division 1,34,Shrewsbury High School,14
+2023-2024,winter,M,Division 1,35,Chelmsford High School,12
+2023-2024,winter,M,Division 1,36,"Lowell, Innovation, Nashoba High School",11
+2023-2024,winter,M,Division 1,37,Oliver Ames High School,10
+2023-2024,winter,M,Division 1,38,Andover High School,6
+2023-2024,winter,M,Division 1,39,Reading Memorial High School,5
+2023-2024,winter,M,Division 1,39,Cambridge Rindge and Latin School,5
+2023-2024,winter,M,Division 1,39,Algonquin Regional High School,5
+2023-2024,winter,M,Division 1,42,Peabody Veterans Memorial High School,4
+2022-2023,fall,F,Division 2,1,Wellesley High School,477.5
+2022-2023,fall,F,Division 2,2,Needham High School,330
+2022-2023,fall,F,Division 2,3,Winchester High School,252
+2022-2023,fall,F,Division 2,4,Chelmsford High School,189
+2022-2023,fall,F,Division 2,5,Belmont High School,165
+2022-2023,fall,F,Division 2,6,North Andover High School,154
+2022-2023,fall,F,Division 2,7,Natick High School,150
+2022-2023,fall,F,Division 2,8,Reading Memorial High School,132
+2022-2023,fall,F,Division 2,9,Wakefield Memorial High School,123
+2022-2023,fall,F,Division 2,10,Watertown High School,96
+2022-2023,fall,F,Division 2,11,Boston Latin School,70.5
+2022-2023,fall,F,Division 2,12,Milton High School,41
+2022-2023,fall,F,Division 2,13,Walpole High School,22
+2022-2023,fall,F,Division 2,14,Stoneham High School,11
+2022-2023,fall,F,Division 2,14,Academy of Notre Dame,11
+2022-2023,fall,F,Division 2,16,Billerica Memorial High School,6
+2022-2023,fall,F,Division 1,1,Acton-Boxborough Regional High School,299
+2022-2023,fall,F,Division 1,2,Andover High School,268
+2022-2023,fall,F,Division 1,3,Lexington High School,255
+2022-2023,fall,F,Division 1,4,Brookline High School,244
+2022-2023,fall,F,Division 1,5,Haverhill High School,227
+2022-2023,fall,F,Division 1,6,Ursuline Academy,181
+2022-2023,fall,F,Division 1,7,Central Catholic High School,171
+2022-2023,fall,F,Division 1,8,Newton North High School,160
+2022-2023,fall,F,Division 1,9,Framingham High School,114
+2022-2023,fall,F,Division 1,10,Notre Dame Academy - Hingham,86
+2022-2023,fall,F,Division 1,11,Braintree High School,79
+2022-2023,fall,F,Division 1,12,Malden Catholic High School,68
+2022-2023,fall,F,Division 1,13,Weymouth High School,57
+2022-2023,fall,F,Division 1,14,Woburn Memorial High School,22
+2022-2023,fall,F,Division 1,15,Methuen High School,10
+2022-2023,fall,M,Division 2,1,Billerica Memorial High School,191
+2022-2023,fall,M,Division 2,2,Milton High School,185
+2022-2023,fall,M,Division 1,1,Methuen High School,197
+2022-2023,fall,M,Division 1,2,Braintree High School,34
+2022-2023,winter,F,Division 2,1,Marblehead High School,241
+2022-2023,winter,F,Division 2,2,Amherst Regional High School,196.5
+2022-2023,winter,F,Division 2,3,Duxbury High School,184
+2022-2023,winter,F,Division 2,4,Wayland High School,168.5
+2022-2023,winter,F,Division 2,5,Weston High School,140.5
+2022-2023,winter,F,Division 2,6,Longmeadow High School,121
+2022-2023,winter,F,Division 2,7,Seekonk High School,105.5
+2022-2023,winter,F,Division 2,8,Scituate High School,94
+2022-2023,winter,F,Division 2,9,Ludlow High School,85
+2022-2023,winter,F,Division 2,10,Canton High School,84
+2022-2023,winter,F,Division 2,11,Norton High School,77
+2022-2023,winter,F,Division 2,12,East Longmeadow High School,74
+2022-2023,winter,F,Division 2,13,Monument Mountain Regional High School,71
+2022-2023,winter,F,Division 2,14,Medfield High School,56
+2022-2023,winter,F,Division 2,15,Mystic Valley Regional Charter School,52
+2022-2023,winter,F,Division 2,15,Hanover High School,52
+2022-2023,winter,F,Division 2,17,Triton Regional High School,50
+2022-2023,winter,F,Division 2,18,Northampton High School,48
+2022-2023,winter,F,Division 2,19,Nantucket High School,47
+2022-2023,winter,F,Division 2,20,Nauset Regional High School,44
+2022-2023,winter,F,Division 2,21,Norwell High School,40
+2022-2023,winter,F,Division 2,22,Easthampton High School,37
+2022-2023,winter,F,Division 2,23,Monson High School,31
+2022-2023,winter,F,Division 2,23,Tyngsborough High School & Groton-Dunstable Regional High School,31
+2022-2023,winter,F,Division 2,23,Ashland High School,31
+2022-2023,winter,F,Division 2,26,The Bromfield School,21
+2022-2023,winter,F,Division 2,27,Foxborough High School,20
+2022-2023,winter,F,Division 2,28,Cohasset High School,19
+2022-2023,winter,F,Division 2,29,Dedham High School,16
+2022-2023,winter,F,Division 2,30,Sandwich High School,14
+2022-2023,winter,F,Division 2,31,Manchester-Essex Regional Junior-Senior High School,13
+2022-2023,winter,F,Division 2,32,Dover-Sherborn High School,12
+2022-2023,winter,F,Division 2,32,Westwood High School,12
+2022-2023,winter,F,Division 2,32,Hamilton-Wenham Regional High School,12
+2022-2023,winter,F,Division 2,35,Taconic High School,9
+2022-2023,winter,F,Division 2,36,Pittsfield High School,8
+2022-2023,winter,F,Division 2,37,Gloucester High School,3
+2022-2023,winter,F,Division 2,38,Belchertown High School,2
+2022-2023,winter,F,Division 1,1,Lincoln-Sudbury Regional High School,274
+2022-2023,winter,F,Division 1,2,Westford Academy,212
+2022-2023,winter,F,Division 1,3,Franklin High School,206.5
+2022-2023,winter,F,Division 1,4,Concord-Carlisle High School,198.5
+2022-2023,winter,F,Division 1,5,Newton South High School,196
+2022-2023,winter,F,Division 1,6,Hingham High School,109
+2022-2023,winter,F,Division 1,7,Bishop Feehan High School,101
+2022-2023,winter,F,Division 1,8,Masconomet Regional High School,92
+2022-2023,winter,F,Division 1,9,Minnechaug Regional High School,86
+2022-2023,winter,F,Division 1,10,Bishop Fenwick High School,76
+2022-2023,winter,F,Division 1,11,Cambridge Rindge and Latin School,64.5
+2022-2023,winter,F,Division 1,12,Attleboro High School,62
+2022-2023,winter,F,Division 1,13,West Springfield High School,59
+2022-2023,winter,F,Division 1,14,New Bedford High School,55
+2022-2023,winter,F,Division 1,15,Agawam High School,45
+2022-2023,winter,F,Division 1,16,Westborough High School,44
+2022-2023,winter,F,Division 1,17,Mansfield High School,37
+2022-2023,winter,F,Division 1,18,Bridgewater-Raynham Regional High School,36
+2022-2023,winter,F,Division 1,18,Chicopee Comprehensive High School,36
+2022-2023,winter,F,Division 1,18,Cardinal Spellman High School,36
+2022-2023,winter,F,Division 1,21,Beverly High School,35
+2022-2023,winter,F,Division 1,22,Shrewsbury High School,32
+2022-2023,winter,F,Division 1,23,Peabody Veterans Memorial High School,27
+2022-2023,winter,F,Division 1,24,Sharon High School,26
+2022-2023,winter,F,Division 1,25,B.M.C. Durfee High School,25
+2022-2023,winter,F,Division 1,25,King Philip Regional High School,25
+2022-2023,winter,F,Division 1,27,Quincy High School,22
+2022-2023,winter,F,Division 1,28,Salem High School,17
+2022-2023,winter,F,Division 1,29,Westfield High School,16.5
+2022-2023,winter,F,Division 1,30,Barnstable High School,16
+2022-2023,winter,F,Division 1,30,Hopkinton High School,16
+2022-2023,winter,F,Division 1,32,Algonquin Regional High School,8
+2022-2023,winter,F,Division 1,33,Plymouth North High School,6
+2022-2023,winter,F,Division 1,33,Malden High School,6
+2022-2023,winter,F,Division 1,35,Archbishop Williams High School,4
 2022-2023,winter,M,Division 2,1,Weston High School,326
 2022-2023,winter,M,Division 2,2,Wayland High School,213
 2022-2023,winter,M,Division 2,3,Mystic Valley Regional Charter School,176
@@ -109,37 +759,122 @@ School Year,Season,Sex,Division,Place,School,Score
 2022-2023,winter,M,Division 1,37,Dover-Sherborn High School,2
 2022-2023,winter,M,Division 1,37,Catholic Memorial High School,2
 2022-2023,winter,M,Division 1,40,Hopkinton High School,1
-2022-2023,fall,F,Division 2,1,Wellesley High School,477.5
-2022-2023,fall,F,Division 2,2,Needham High School,330
-2022-2023,fall,F,Division 2,3,Winchester High School,252
-2022-2023,fall,F,Division 2,4,Chelmsford High School,189
-2022-2023,fall,F,Division 2,5,Belmont High School,165
-2022-2023,fall,F,Division 2,6,North Andover High School,154
-2022-2023,fall,F,Division 2,7,Natick High School,150
-2022-2023,fall,F,Division 2,8,Reading Memorial High School,132
-2022-2023,fall,F,Division 2,9,Wakefield Memorial High School,123
-2022-2023,fall,F,Division 2,10,Watertown High School,96
-2022-2023,fall,F,Division 2,11,Boston Latin School,70.5
-2022-2023,fall,F,Division 2,12,Milton High School,41
-2022-2023,fall,F,Division 2,13,Walpole High School,22
-2022-2023,fall,F,Division 2,14,Stoneham High School,11
-2022-2023,fall,F,Division 2,14,Academy of Notre Dame,11
-2022-2023,fall,F,Division 2,16,Billerica Memorial High School,6
-2022-2023,fall,F,Division 1,1,Acton-Boxborough Regional High School,299
-2022-2023,fall,F,Division 1,2,Andover High School,268
-2022-2023,fall,F,Division 1,3,Lexington High School,255
-2022-2023,fall,F,Division 1,4,Brookline High School,244
-2022-2023,fall,F,Division 1,5,Haverhill High School,227
-2022-2023,fall,F,Division 1,6,Ursuline Academy,181
-2022-2023,fall,F,Division 1,7,Central Catholic High School,171
-2022-2023,fall,F,Division 1,8,Newton North High School,160
-2022-2023,fall,F,Division 1,9,Framingham High School,114
-2022-2023,fall,F,Division 1,10,Notre Dame Academy - Hingham,86
-2022-2023,fall,F,Division 1,11,Braintree High School,79
-2022-2023,fall,F,Division 1,12,Malden Catholic High School,68
-2022-2023,fall,F,Division 1,13,Weymouth High School,57
-2022-2023,fall,F,Division 1,14,Woburn Memorial High School,22
-2022-2023,fall,F,Division 1,15,Methuen High School,10
+2021-2022,fall,F,Division 2,1,Wellesley High School,358
+2021-2022,fall,F,Division 2,2,Needham High School,294
+2021-2022,fall,F,Division 2,3,Chelmsford High School,248
+2021-2022,fall,F,Division 2,4,Winchester High School,222
+2021-2022,fall,F,Division 2,5,North Andover High School,212
+2021-2022,fall,F,Division 2,6,Milton High School,181
+2021-2022,fall,F,Division 2,7,Belmont High School,141
+2021-2022,fall,F,Division 2,8,Reading Memorial High School,138
+2021-2022,fall,F,Division 2,9,Watertown High School,128
+2021-2022,fall,F,Division 2,10,Wakefield Memorial High School,111
+2021-2022,fall,F,Division 2,11,Natick High School,96
+2021-2022,fall,F,Division 2,12,Boston Latin School,44
+2021-2022,fall,F,Division 2,13,Walpole High School,43
+2021-2022,fall,F,Division 2,14,Woburn Memorial High School,41
+2021-2022,fall,F,Division 2,15,Braintree High School,36
+2021-2022,fall,F,Division 2,16,Melrose High School,8
+2021-2022,fall,F,Division 2,17,Burlington High School,2
+2021-2022,fall,F,Division 2,18,Billerica Memorial High School,1
+2021-2022,fall,F,Division 1,1,Acton-Boxborough Regional High School,350
+2021-2022,fall,F,Division 1,2,Brookline High School,264
+2021-2022,fall,F,Division 1,3,Andover High School,242
+2021-2022,fall,F,Division 1,4,Central Catholic High School,235
+2021-2022,fall,F,Division 1,5,Framingham High School,212
+2021-2022,fall,F,Division 1,6,Ursuline Academy,209
+2021-2022,fall,F,Division 1,6,Newton North High School,209
+2021-2022,fall,F,Division 1,8,Haverhill High School,207
+2021-2022,fall,F,Division 1,9,Lexington High School,104
+2021-2022,fall,F,Division 1,10,Notre Dame Academy - Hingham,77
+2021-2022,fall,F,Division 1,11,Malden Catholic High School,51
+2021-2022,fall,F,Division 1,12,Methuen High School,34
+2021-2022,fall,F,Division 1,13,Weymouth High School,5
+2021-2022,fall,M,Division 2,1,Billerica Memorial High School,114
+2021-2022,fall,M,Division 2,2,Milton High School,86
+2021-2022,fall,M,Division 2,3,Walpole High School,74
+2021-2022,fall,M,Division 1,1,Methuen High School,171
+2021-2022,fall,M,Division 1,2,Braintree High School,74
+2021-2022,winter,F,Division 2,1,Amherst Regional High School,235
+2021-2022,winter,F,Division 2,2,Marblehead High School,196
+2021-2022,winter,F,Division 2,3,Weston High School,184.5
+2021-2022,winter,F,Division 2,3,Duxbury High School,184.5
+2021-2022,winter,F,Division 2,5,Dover-Sherborn High School,167
+2021-2022,winter,F,Division 2,6,Medfield High School,120
+2021-2022,winter,F,Division 2,7,Nantucket High School,114
+2021-2022,winter,F,Division 2,8,Wayland High School,86
+2021-2022,winter,F,Division 2,9,Seekonk High School,79
+2021-2022,winter,F,Division 2,10,Scituate High School,72
+2021-2022,winter,F,Division 2,11,Holliston High School,68.5
+2021-2022,winter,F,Division 2,12,The Bromfield School,68
+2021-2022,winter,F,Division 2,13,East Longmeadow High School,65
+2021-2022,winter,F,Division 2,14,Nauset Regional High School,56
+2021-2022,winter,F,Division 2,14,Longmeadow High School,56
+2021-2022,winter,F,Division 2,16,Northampton High School,55
+2021-2022,winter,F,Division 2,17,Manchester-Essex Regional Junior-Senior High School,48
+2021-2022,winter,F,Division 2,18,Hanover High School,44
+2021-2022,winter,F,Division 2,19,Mystic Valley Regional Charter School,42.5
+2021-2022,winter,F,Division 2,20,Westwood High School,34
+2021-2022,winter,F,Division 2,21,Triton Regional High School,31
+2021-2022,winter,F,Division 2,22,Ashland High School,27
+2021-2022,winter,F,Division 2,23,Easthampton High School,26
+2021-2022,winter,F,Division 2,24,Hamilton-Wenham Regional High School,23
+2021-2022,winter,F,Division 2,24,Tyngsborough High School & Groton-Dunstable Regional High School,23
+2021-2022,winter,F,Division 2,26,Canton High School,21
+2021-2022,winter,F,Division 2,26,Monument Mountain Regional High School,21
+2021-2022,winter,F,Division 2,26,Belchertown High School,21
+2021-2022,winter,F,Division 2,29,Cohasset High School,20
+2021-2022,winter,F,Division 2,30,Gloucester High School,16
+2021-2022,winter,F,Division 2,31,Ipswich High School,15.5
+2021-2022,winter,F,Division 2,32,Taconic High School,14
+2021-2022,winter,F,Division 2,33,Bedford High School,12
+2021-2022,winter,F,Division 2,34,Salem High School,11
+2021-2022,winter,F,Division 2,34,Norwell High School,11
+2021-2022,winter,F,Division 2,34,Norton High School,11
+2021-2022,winter,F,Division 2,34,Sandwich High School,11
+2021-2022,winter,F,Division 2,38,Dedham High School,10
+2021-2022,winter,F,Division 2,39,Foxborough High School,7
+2021-2022,winter,F,Division 2,40,Pittsfield High School,6.5
+2021-2022,winter,F,Division 2,41,Nashoba Regional High School,5
+2021-2022,winter,F,Division 2,41,Monson High School,5
+2021-2022,winter,F,Division 2,43,Middleborough High School,1
+2021-2022,winter,F,Division 2,43,Northbridge High School,1
+2021-2022,winter,F,Division 1,1,Westford Academy,286
+2021-2022,winter,F,Division 1,2,Concord-Carlisle High School,217
+2021-2022,winter,F,Division 1,3,Lincoln-Sudbury Regional High School,210
+2021-2022,winter,F,Division 1,4,Newton South High School,167
+2021-2022,winter,F,Division 1,5,Hingham High School,141
+2021-2022,winter,F,Division 1,6,Bishop Feehan High School,139
+2021-2022,winter,F,Division 1,7,Minnechaug Regional High School,104
+2021-2022,winter,F,Division 1,8,Bridgewater-Raynham Regional High School,103
+2021-2022,winter,F,Division 1,9,Chicopee Comprehensive High School,102
+2021-2022,winter,F,Division 1,10,Austin Preparatory School,89
+2021-2022,winter,F,Division 1,11,Franklin High School,86
+2021-2022,winter,F,Division 1,12,Bishop Fenwick High School,72
+2021-2022,winter,F,Division 1,13,Plymouth North High School,59
+2021-2022,winter,F,Division 1,14,Matignon High School,58
+2021-2022,winter,F,Division 1,15,Oliver Ames High School,39
+2021-2022,winter,F,Division 1,16,Shrewsbury High School,38
+2021-2022,winter,F,Division 1,17,Masconomet Regional High School,36
+2021-2022,winter,F,Division 1,18,Cardinal Spellman High School,35
+2021-2022,winter,F,Division 1,19,Attleboro High School,34
+2021-2022,winter,F,Division 1,20,Hopkinton High School,31
+2021-2022,winter,F,Division 1,20,Waltham High School,31
+2021-2022,winter,F,Division 1,22,Arlington Catholic High School,30
+2021-2022,winter,F,Division 1,23,Cambridge Rindge and Latin School,25
+2021-2022,winter,F,Division 1,24,New Bedford High School,24
+2021-2022,winter,F,Division 1,25,King Philip Regional High School,16
+2021-2022,winter,F,Division 1,26,Boston Latin Academy,14
+2021-2022,winter,F,Division 1,26,Westborough High School,14
+2021-2022,winter,F,Division 1,26,Algonquin Regional High School,14
+2021-2022,winter,F,Division 1,29,Beverly High School,13
+2021-2022,winter,F,Division 1,30,Wachusett Regional High School,12
+2021-2022,winter,F,Division 1,31,Barnstable High School,11
+2021-2022,winter,F,Division 1,32,B.M.C. Durfee High School,9
+2021-2022,winter,F,Division 1,33,Archbishop Williams High School,7
+2021-2022,winter,F,Division 1,34,Westfield High School,6
+2021-2022,winter,F,Division 1,35,Quincy High School,3
+2021-2022,winter,F,Division 1,36,Sharon High School,1
 2021-2022,winter,M,Division 2,1,Weston High School,328.5
 2021-2022,winter,M,Division 2,2,Wayland High School,229
 2021-2022,winter,M,Division 2,3,Mystic Valley Regional Charter School,167
@@ -222,37 +957,6 @@ School Year,Season,Sex,Division,Place,School,Score
 2021-2022,winter,M,Division 1,35,Taunton High School,4
 2021-2022,winter,M,Division 1,40,Hopkinton High School,2
 2021-2022,winter,M,Division 1,41,Austin Preparatory School,1
-2021-2022,fall,F,Division 2,1,Wellesley High School,358
-2021-2022,fall,F,Division 2,2,Needham High School,294
-2021-2022,fall,F,Division 2,3,Chelmsford High School,248
-2021-2022,fall,F,Division 2,4,Winchester High School,222
-2021-2022,fall,F,Division 2,5,North Andover High School,212
-2021-2022,fall,F,Division 2,6,Milton High School,181
-2021-2022,fall,F,Division 2,7,Belmont High School,141
-2021-2022,fall,F,Division 2,8,Reading Memorial High School,138
-2021-2022,fall,F,Division 2,9,Watertown High School,128
-2021-2022,fall,F,Division 2,10,Wakefield Memorial High School,111
-2021-2022,fall,F,Division 2,11,Natick High School,96
-2021-2022,fall,F,Division 2,12,Boston Latin School,44
-2021-2022,fall,F,Division 2,13,Walpole High School,43
-2021-2022,fall,F,Division 2,14,Woburn Memorial High School,41
-2021-2022,fall,F,Division 2,15,Braintree High School,36
-2021-2022,fall,F,Division 2,16,Melrose High School,8
-2021-2022,fall,F,Division 2,17,Burlington High School,2
-2021-2022,fall,F,Division 2,18,Billerica Memorial High School,1
-2021-2022,fall,F,Division 1,1,Acton-Boxborough Regional High School,350
-2021-2022,fall,F,Division 1,2,Brookline High School,264
-2021-2022,fall,F,Division 1,3,Andover High School,242
-2021-2022,fall,F,Division 1,4,Central Catholic High School,235
-2021-2022,fall,F,Division 1,5,Framingham High School,212
-2021-2022,fall,F,Division 1,6,Ursuline Academy,209
-2021-2022,fall,F,Division 1,6,Newton North High School,209
-2021-2022,fall,F,Division 1,8,Haverhill High School,207
-2021-2022,fall,F,Division 1,9,Lexington High School,104
-2021-2022,fall,F,Division 1,10,Notre Dame Academy - Hingham,77
-2021-2022,fall,F,Division 1,11,Malden Catholic High School,51
-2021-2022,fall,F,Division 1,12,Methuen High School,34
-2021-2022,fall,F,Division 1,13,Weymouth High School,5
 2019-2020,fall,F,Division 2,1,Wellesley High School,430
 2019-2020,fall,F,Division 2,2,Central Catholic High School,279
 2019-2020,fall,F,Division 2,3,Ursuline Academy,258
@@ -285,6 +989,131 @@ School Year,Season,Sex,Division,Place,School,Score
 2019-2020,fall,F,Division 1,13,Methuen High School,34.5
 2019-2020,fall,F,Division 1,14,Boston Latin School,31
 2019-2020,fall,F,Division 1,15,Braintree High School,10
+2019-2020,fall,M,Division 2,1,Walpole High School,192
+2019-2020,fall,M,Division 2,2,Milton High School,185
+2019-2020,fall,M,Division 2,3,Billerica Memorial High School,51
+2019-2020,fall,M,Division 1,1,Braintree High School,112
+2019-2020,fall,M,Division 1,2,Marshfield High School,90
+2019-2020,fall,M,Division 1,3,Weymouth High School,40
+2019-2020,fall,M,Division 1,4,Methuen High School,37
+2018-2019,fall,F,Division 2,1,Reading Memorial High School,402.5
+2018-2019,fall,F,Division 2,2,Wellesley High School,307.5
+2018-2019,fall,F,Division 2,3,Ursuline Academy,235
+2018-2019,fall,F,Division 2,4,Milton High School,183
+2018-2019,fall,F,Division 2,5,Central Catholic High School,174
+2018-2019,fall,F,Division 2,6,Marshfield High School,161.5
+2018-2019,fall,F,Division 2,7,Belmont High School,153
+2018-2019,fall,F,Division 2,8,Wakefield Memorial High School,136
+2018-2019,fall,F,Division 2,9,Notre Dame Academy - Hingham,127
+2018-2019,fall,F,Division 2,10,Natick High School,121
+2018-2019,fall,F,Division 2,11,Winchester High School,99
+2018-2019,fall,F,Division 2,12,Walpole High School,81.5
+2018-2019,fall,F,Division 2,13,Melrose High School,66
+2018-2019,fall,F,Division 2,14,Burlington High School,28
+2018-2019,fall,F,Division 2,15,Woburn Memorial High School,27
+2018-2019,fall,F,Division 2,16,Stoneham High School,20
+2018-2019,fall,F,Division 1,1,Andover High School,518
+2018-2019,fall,F,Division 1,2,Acton-Boxborough Regional High School,224
+2018-2019,fall,F,Division 1,3,Newton North High School,206.5
+2018-2019,fall,F,Division 1,4,Needham High School,191
+2018-2019,fall,F,Division 1,5,Framingham High School,163.5
+2018-2019,fall,F,Division 1,6,Brookline High School,162
+2018-2019,fall,F,Division 1,7,Haverhill High School,158
+2018-2019,fall,F,Division 1,8,Arlington High School,148
+2018-2019,fall,F,Division 1,9,Chelmsford High School,129
+2018-2019,fall,F,Division 1,10,Boston Latin School,119
+2018-2019,fall,F,Division 1,11,Lexington High School,100
+2018-2019,fall,F,Division 1,12,North Andover High School,70
+2018-2019,fall,F,Division 1,13,Methuen High School,63
+2018-2019,fall,F,Division 1,14,Lowell High School,55
+2018-2019,fall,F,Division 1,15,Braintree High School,4
+2018-2019,fall,M,Division 2,1,Walpole High School,100
+2018-2019,fall,M,Division 2,2,Milton High School,77
+2018-2019,fall,M,Division 2,3,Billerica Memorial High School,34
+2018-2019,fall,M,Division 1,1,Braintree High School,120
+2018-2019,fall,M,Division 1,2,Methuen High School,40
+2018-2019,fall,M,Division 1,3,Weymouth High School,34
+2018-2019,fall,M,Division 1,4,Marshfield High School,20
+2018-2019,winter,F,Division 2,1,Wayland High School,253.5
+2018-2019,winter,F,Division 2,2,Duxbury High School,248
+2018-2019,winter,F,Division 2,3,Weston High School,193.5
+2018-2019,winter,F,Division 2,4,Longmeadow High School,136
+2018-2019,winter,F,Division 2,5,Cohasset High School,129
+2018-2019,winter,F,Division 2,6,Nantucket High School,121
+2018-2019,winter,F,Division 2,7,Manchester-Essex Regional Junior-Senior High School,109
+2018-2019,winter,F,Division 2,8,Hopkinton High School,93
+2018-2019,winter,F,Division 2,9,Mystic Valley Regional Charter School,82
+2018-2019,winter,F,Division 2,10,Marblehead High School,78
+2018-2019,winter,F,Division 2,11,Scituate High School,76
+2018-2019,winter,F,Division 2,11,Ashland High School,76
+2018-2019,winter,F,Division 2,13,Amherst Regional High School,58
+2018-2019,winter,F,Division 2,13,Dover-Sherborn High School,58
+2018-2019,winter,F,Division 2,15,Seekonk High School,50
+2018-2019,winter,F,Division 2,16,Bishop Fenwick High School,49
+2018-2019,winter,F,Division 2,17,Northampton High School,44
+2018-2019,winter,F,Division 2,18,Medfield High School,43
+2018-2019,winter,F,Division 2,19,Swampscott High School,40
+2018-2019,winter,F,Division 2,19,Westborough High School,40
+2018-2019,winter,F,Division 2,21,Hamilton-Wenham Regional High School,39
+2018-2019,winter,F,Division 2,22,Sandwich High School,35
+2018-2019,winter,F,Division 2,23,Norwell High School,34
+2018-2019,winter,F,Division 2,24,Matignon High School,31
+2018-2019,winter,F,Division 2,25,Hanover High School,27
+2018-2019,winter,F,Division 2,26,Easthampton High School,25
+2018-2019,winter,F,Division 2,27,Arlington Catholic High School,22
+2018-2019,winter,F,Division 2,28,Ipswich High School,19
+2018-2019,winter,F,Division 2,29,Old Rochester Regional High School,17
+2018-2019,winter,F,Division 2,30,Belchertown High School,14
+2018-2019,winter,F,Division 2,30,East Longmeadow High School,14
+2018-2019,winter,F,Division 2,30,Westwood High School,14
+2018-2019,winter,F,Division 2,33,Martha's Vineyard Regional High School,13
+2018-2019,winter,F,Division 2,34,Norton High School,10
+2018-2019,winter,F,Division 2,35,North Reading High School,9
+2018-2019,winter,F,Division 2,36,Gloucester High School,6
+2018-2019,winter,F,Division 2,37,Norwood High School,4
+2018-2019,winter,F,Division 2,37,Milford High School,4
+2018-2019,winter,F,Division 2,39,Pittsfield High School,3
+2018-2019,winter,F,Division 2,39,Lowell Catholic High School,3
+2018-2019,winter,F,Division 2,39,Apponequet Regional High School,3
+2018-2019,winter,F,Division 2,42,Turners Falls High School,1
+2018-2019,winter,F,Division 2,42,Bedford High School,1
+2018-2019,winter,F,Division 1,1,Westford Academy,439.5
+2018-2019,winter,F,Division 1,2,Concord-Carlisle High School,186
+2018-2019,winter,F,Division 1,3,Minnechaug Regional High School,171
+2018-2019,winter,F,Division 1,4,Triton Regional High School,130
+2018-2019,winter,F,Division 1,5,Oliver Ames High School,122
+2018-2019,winter,F,Division 1,6,Bridgewater-Raynham Regional High School,117
+2018-2019,winter,F,Division 1,7,Monument Mountain Regional High School,101
+2018-2019,winter,F,Division 1,8,Bishop Feehan High School,97.5
+2018-2019,winter,F,Division 1,9,Beverly High School,94
+2018-2019,winter,F,Division 1,10,The Bromfield School,88
+2018-2019,winter,F,Division 1,11,Lincoln-Sudbury Regional High School,87
+2018-2019,winter,F,Division 1,12,Hingham High School,73
+2018-2019,winter,F,Division 1,13,Silver Lake Regional High School,68
+2018-2019,winter,F,Division 1,14,Newton South High School,63
+2018-2019,winter,F,Division 1,15,Franklin High School,62
+2018-2019,winter,F,Division 1,16,Chicopee Comprehensive High School,59
+2018-2019,winter,F,Division 1,17,Westfield High School,58
+2018-2019,winter,F,Division 1,18,Attleboro High School,50
+2018-2019,winter,F,Division 1,19,Grafton High School,42
+2018-2019,winter,F,Division 1,20,West Springfield High School,31
+2018-2019,winter,F,Division 1,21,Leominster High School,27
+2018-2019,winter,F,Division 1,22,Algonquin Regional High School,21
+2018-2019,winter,F,Division 1,23,Agawam High School,20
+2018-2019,winter,F,Division 1,24,Mansfield High School,19
+2018-2019,winter,F,Division 1,25,Lynn Classical High School,18
+2018-2019,winter,F,Division 1,25,King Philip Regional High School,18
+2018-2019,winter,F,Division 1,27,Masconomet Regional High School,17
+2018-2019,winter,F,Division 1,28,Shrewsbury High School,9
+2018-2019,winter,F,Division 1,28,Peabody Veterans Memorial High School,9
+2018-2019,winter,F,Division 1,30,B.M.C. Durfee High School,8
+2018-2019,winter,F,Division 1,31,Malden High School,6
+2018-2019,winter,F,Division 1,32,Holliston High School,4
+2018-2019,winter,F,Division 1,32,Quincy N Quincy High School,4
+2018-2019,winter,F,Division 1,34,Wachusett Regional High School,3
+2018-2019,winter,F,Division 1,35,Sharon High School,1
+2018-2019,winter,F,Division 1,35,Gardner High School,1
+2018-2019,winter,F,Division 1,35,Middleborough High School,1
 2018-2019,winter,M,Division 2,1,Wayland High School,368.5
 2018-2019,winter,M,Division 2,2,Nantucket High School,220
 2018-2019,winter,M,Division 2,3,Weston High School,186
@@ -366,37 +1195,126 @@ School Year,Season,Sex,Division,Place,School,Score
 2018-2019,winter,M,Division 1,45,Watertown High School,1
 2018-2019,winter,M,Division 1,45,Monument Mountain Regional High School,1
 2018-2019,winter,M,Division 1,45,Gloucester High School,1
-2018-2019,fall,F,Division 2,1,Reading Memorial High School,402.5
-2018-2019,fall,F,Division 2,2,Wellesley High School,307.5
-2018-2019,fall,F,Division 2,3,Ursuline Academy,235
-2018-2019,fall,F,Division 2,4,Milton High School,183
-2018-2019,fall,F,Division 2,5,Central Catholic High School,174
-2018-2019,fall,F,Division 2,6,Marshfield High School,161.5
-2018-2019,fall,F,Division 2,7,Belmont High School,153
-2018-2019,fall,F,Division 2,8,Wakefield Memorial High School,136
-2018-2019,fall,F,Division 2,9,Notre Dame Academy - Hingham,127
-2018-2019,fall,F,Division 2,10,Natick High School,121
-2018-2019,fall,F,Division 2,11,Winchester High School,99
-2018-2019,fall,F,Division 2,12,Walpole High School,81.5
-2018-2019,fall,F,Division 2,13,Melrose High School,66
-2018-2019,fall,F,Division 2,14,Burlington High School,28
-2018-2019,fall,F,Division 2,15,Woburn Memorial High School,27
-2018-2019,fall,F,Division 2,16,Stoneham High School,20
-2018-2019,fall,F,Division 1,1,Andover High School,518
-2018-2019,fall,F,Division 1,2,Acton-Boxborough Regional High School,224
-2018-2019,fall,F,Division 1,3,Newton North High School,206.5
-2018-2019,fall,F,Division 1,4,Needham High School,191
-2018-2019,fall,F,Division 1,5,Framingham High School,163.5
-2018-2019,fall,F,Division 1,6,Brookline High School,162
-2018-2019,fall,F,Division 1,7,Haverhill High School,158
-2018-2019,fall,F,Division 1,8,Arlington High School,148
-2018-2019,fall,F,Division 1,9,Chelmsford High School,129
-2018-2019,fall,F,Division 1,10,Boston Latin School,119
-2018-2019,fall,F,Division 1,11,Lexington High School,100
-2018-2019,fall,F,Division 1,12,North Andover High School,70
-2018-2019,fall,F,Division 1,13,Methuen High School,63
-2018-2019,fall,F,Division 1,14,Lowell High School,55
-2018-2019,fall,F,Division 1,15,Braintree High School,4
+2017-2018,fall,F,Division 2,1,Reading Memorial High School,388.5
+2017-2018,fall,F,Division 2,2,Wellesley High School,350
+2017-2018,fall,F,Division 2,3,Natick High School,211
+2017-2018,fall,F,Division 2,4,Central Catholic High School,176
+2017-2018,fall,F,Division 2,5,Belmont High School,172
+2017-2018,fall,F,Division 2,6,Ursuline Academy,164
+2017-2018,fall,F,Division 2,7,Melrose High School,160
+2017-2018,fall,F,Division 2,8,Winchester High School,143
+2017-2018,fall,F,Division 2,9,Marshfield High School,127
+2017-2018,fall,F,Division 2,10,Notre Dame Academy - Hingham,122
+2017-2018,fall,F,Division 2,11,Stoneham High School,84
+2017-2018,fall,F,Division 2,12,Wakefield Memorial High School,55.5
+2017-2018,fall,F,Division 2,13,Milton High School,36
+2017-2018,fall,F,Division 2,14,Woburn Memorial High School,33
+2017-2018,fall,F,Division 2,15,Norwood High School,32
+2017-2018,fall,F,Division 2,16,Walpole High School,29
+2017-2018,fall,F,Division 2,17,Burlington High School,28
+2017-2018,fall,F,Division 2,18,Mount Alvernia High School,11
+2017-2018,fall,F,Division 1,1,Andover High School,488.5
+2017-2018,fall,F,Division 1,2,Acton-Boxborough Regional High School,267.5
+2017-2018,fall,F,Division 1,3,Newton North High School,263
+2017-2018,fall,F,Division 1,4,Chelmsford High School,210
+2017-2018,fall,F,Division 1,5,Brookline High School,176
+2017-2018,fall,F,Division 1,6,Haverhill High School,170
+2017-2018,fall,F,Division 1,7,Needham High School,165
+2017-2018,fall,F,Division 1,8,Boston Latin School,148
+2017-2018,fall,F,Division 1,9,Framingham High School,109
+2017-2018,fall,F,Division 1,10,Lexington High School,86
+2017-2018,fall,F,Division 1,11,Lowell High School,66
+2017-2018,fall,F,Division 1,12,Arlington High School,59
+2017-2018,fall,F,Division 1,13,Methuen High School,54
+2017-2018,fall,F,Division 1,14,Braintree High School,29
+2017-2018,fall,F,Division 1,15,North Andover High School,20
+2017-2018,fall,M,Division 2,1,Advanced Math and Science Academy Charter School,116
+2017-2018,fall,M,Division 2,2,Billerica Memorial High School,74
+2017-2018,fall,M,Division 2,3,Norwood High School,70
+2017-2018,fall,M,Division 2,4,Walpole High School,49
+2017-2018,fall,M,Division 2,5,Milton High School,37
+2017-2018,fall,M,Division 1,1,Braintree High School,190
+2017-2018,fall,M,Division 1,2,Marshfield High School,87
+2017-2018,fall,M,Division 1,3,Weymouth High School,34
+2017-2018,winter,F,Division 2,1,Duxbury High School,323
+2017-2018,winter,F,Division 2,2,Weston High School,181
+2017-2018,winter,F,Division 2,3,Hopkinton High School,166
+2017-2018,winter,F,Division 2,4,Marblehead High School,145
+2017-2018,winter,F,Division 2,5,Longmeadow High School,134.5
+2017-2018,winter,F,Division 2,6,Cohasset High School,131
+2017-2018,winter,F,Division 2,7,Nantucket High School,127
+2017-2018,winter,F,Division 2,8,Bishop Stang High School,113
+2017-2018,winter,F,Division 2,9,Wayland High School,96.5
+2017-2018,winter,F,Division 2,10,Mystic Valley Regional Charter School,93
+2017-2018,winter,F,Division 2,11,Ashland High School,85
+2017-2018,winter,F,Division 2,12,Bishop Fenwick High School,73
+2017-2018,winter,F,Division 2,13,East Longmeadow High School,69
+2017-2018,winter,F,Division 2,13,Belchertown High School,69
+2017-2018,winter,F,Division 2,15,Westborough High School,50.5
+2017-2018,winter,F,Division 2,16,Amherst Regional High School,48
+2017-2018,winter,F,Division 2,17,Northampton High School,42
+2017-2018,winter,F,Division 2,18,Scituate High School,33
+2017-2018,winter,F,Division 2,18,Medfield High School,33
+2017-2018,winter,F,Division 2,20,Wahconah High School,31
+2017-2018,winter,F,Division 2,21,Dover-Sherborn High School,29
+2017-2018,winter,F,Division 2,22,Hamilton-Wenham Regional High School,26
+2017-2018,winter,F,Division 2,23,Hanover High School,21.5
+2017-2018,winter,F,Division 2,24,Bedford High School,21
+2017-2018,winter,F,Division 2,25,Swampscott High School,20
+2017-2018,winter,F,Division 2,25,Manchester-Essex Regional Junior-Senior High School,20
+2017-2018,winter,F,Division 2,25,Lynnfield High School,20
+2017-2018,winter,F,Division 2,28,Easthampton High School,18
+2017-2018,winter,F,Division 2,29,Ipswich High School,16
+2017-2018,winter,F,Division 2,30,Norton High School,15
+2017-2018,winter,F,Division 2,31,Somerville High School,14
+2017-2018,winter,F,Division 2,32,Old Rochester Regional High School,11
+2017-2018,winter,F,Division 2,33,Westwood High School,9
+2017-2018,winter,F,Division 2,34,Coyle and Cassidy High School,8
+2017-2018,winter,F,Division 2,35,Norwell High School,6
+2017-2018,winter,F,Division 2,36,Salem High School,5
+2017-2018,winter,F,Division 2,36,Arlington Catholic High School,5
+2017-2018,winter,F,Division 2,38,Sandwich High School,4
+2017-2018,winter,F,Division 2,38,Martha's Vineyard Regional High School,4
+2017-2018,winter,F,Division 2,40,Archbishop Williams High School,3
+2017-2018,winter,F,Division 2,40,Milford High School,3
+2017-2018,winter,F,Division 2,42,Nauset Regional High School,2
+2017-2018,winter,F,Division 2,43,Bishop Connolly High School,1
+2017-2018,winter,F,Division 1,1,Westford Academy,445
+2017-2018,winter,F,Division 1,2,Concord-Carlisle High School,166.5
+2017-2018,winter,F,Division 1,3,Masconomet Regional High School,166
+2017-2018,winter,F,Division 1,4,Minnechaug Regional High School,150
+2017-2018,winter,F,Division 1,5,Beverly High School,144
+2017-2018,winter,F,Division 1,6,Bishop Feehan High School,136
+2017-2018,winter,F,Division 1,7,Silver Lake Regional High School,135
+2017-2018,winter,F,Division 1,8,Bridgewater-Raynham Regional High School,102
+2017-2018,winter,F,Division 1,9,Lincoln-Sudbury Regional High School,96
+2017-2018,winter,F,Division 1,10,Franklin High School,89
+2017-2018,winter,F,Division 1,11,Monument Mountain Regional High School,70
+2017-2018,winter,F,Division 1,12,Oliver Ames High School,69
+2017-2018,winter,F,Division 1,13,King Philip Regional High School,67
+2017-2018,winter,F,Division 1,14,Hingham High School,55
+2017-2018,winter,F,Division 1,15,Triton Regional High School,50
+2017-2018,winter,F,Division 1,16,Westfield High School,48
+2017-2018,winter,F,Division 1,17,Newton South High School,43
+2017-2018,winter,F,Division 1,18,Attleboro High School,38
+2017-2018,winter,F,Division 1,19,The Bromfield School,37
+2017-2018,winter,F,Division 1,20,Algonquin Regional High School,34
+2017-2018,winter,F,Division 1,21,Lynn Classical High School,33
+2017-2018,winter,F,Division 1,22,Shrewsbury High School,27
+2017-2018,winter,F,Division 1,23,Northbridge High School,23
+2017-2018,winter,F,Division 1,24,Agawam High School,21
+2017-2018,winter,F,Division 1,25,Holliston High School,16
+2017-2018,winter,F,Division 1,26,Mansfield High School,14
+2017-2018,winter,F,Division 1,27,Peabody Veterans Memorial High School,13.5
+2017-2018,winter,F,Division 1,28,Taunton High School,12
+2017-2018,winter,F,Division 1,29,Waltham High School,5
+2017-2018,winter,F,Division 1,29,Leominster High School,5
+2017-2018,winter,F,Division 1,31,Malden High School,4
+2017-2018,winter,F,Division 1,31,North Quincy High School,4
+2017-2018,winter,F,Division 1,33,New Bedford High School,2
+2017-2018,winter,F,Division 1,33,Tyngsborough High School & Groton-Dunstable Regional High School,2
+2017-2018,winter,F,Division 1,33,Barnstable High School,2
+2017-2018,winter,F,Division 1,36,Middleborough High School,1
 2017-2018,winter,M,Division 2,1,Wayland High School,341.5
 2017-2018,winter,M,Division 2,2,Longmeadow High School,220
 2017-2018,winter,M,Division 2,3,Westborough High School,196
@@ -475,39 +1393,125 @@ School Year,Season,Sex,Division,Place,School,Score
 2017-2018,winter,M,Division 1,38,Nashoba Regional High School,3
 2017-2018,winter,M,Division 1,40,Bridgewater-Raynham Regional High School,2
 2017-2018,winter,M,Division 1,40,Northbridge High School,2
-2017-2018,fall,F,Division 2,1,Reading Memorial High School,388.5
-2017-2018,fall,F,Division 2,2,Wellesley High School,350
-2017-2018,fall,F,Division 2,3,Natick High School,211
-2017-2018,fall,F,Division 2,4,Central Catholic High School,176
-2017-2018,fall,F,Division 2,5,Belmont High School,172
-2017-2018,fall,F,Division 2,6,Ursuline Academy,164
-2017-2018,fall,F,Division 2,7,Melrose High School,160
-2017-2018,fall,F,Division 2,8,Winchester High School,143
-2017-2018,fall,F,Division 2,9,Marshfield High School,127
-2017-2018,fall,F,Division 2,10,Notre Dame Academy - Hingham,122
-2017-2018,fall,F,Division 2,11,Stoneham High School,84
-2017-2018,fall,F,Division 2,12,Wakefield Memorial High School,55.5
-2017-2018,fall,F,Division 2,13,Milton High School,36
-2017-2018,fall,F,Division 2,14,Woburn Memorial High School,33
-2017-2018,fall,F,Division 2,15,Norwood High School,32
-2017-2018,fall,F,Division 2,16,Walpole High School,29
-2017-2018,fall,F,Division 2,17,Burlington High School,28
-2017-2018,fall,F,Division 2,18,Mount Alvernia High School,11
-2017-2018,fall,F,Division 1,1,Andover High School,488.5
-2017-2018,fall,F,Division 1,2,Acton-Boxborough Regional High School,267.5
-2017-2018,fall,F,Division 1,3,Newton North High School,263
-2017-2018,fall,F,Division 1,4,Chelmsford High School,210
-2017-2018,fall,F,Division 1,5,Brookline High School,176
-2017-2018,fall,F,Division 1,6,Haverhill High School,170
-2017-2018,fall,F,Division 1,7,Needham High School,165
-2017-2018,fall,F,Division 1,8,Boston Latin School,148
-2017-2018,fall,F,Division 1,9,Framingham High School,109
-2017-2018,fall,F,Division 1,10,Lexington High School,86
-2017-2018,fall,F,Division 1,11,Lowell High School,66
-2017-2018,fall,F,Division 1,12,Arlington High School,59
-2017-2018,fall,F,Division 1,13,Methuen High School,54
-2017-2018,fall,F,Division 1,14,Braintree High School,29
-2017-2018,fall,F,Division 1,15,North Andover High School,20
+2016-2017,fall,F,Division 2,1,Reading Memorial High School,287
+2016-2017,fall,F,Division 2,2,Central Catholic High School,261
+2016-2017,fall,F,Division 2,3,Wellesley High School,239.5
+2016-2017,fall,F,Division 2,4,Notre Dame Academy - Hingham,238
+2016-2017,fall,F,Division 2,5,Belmont High School,226.5
+2016-2017,fall,F,Division 2,6,Natick High School,219
+2016-2017,fall,F,Division 2,7,Ursuline Academy,185
+2016-2017,fall,F,Division 2,8,Winchester High School,145
+2016-2017,fall,F,Division 2,9,Melrose High School,139
+2016-2017,fall,F,Division 2,10,Marshfield High School,124
+2016-2017,fall,F,Division 2,11,Burlington High School,68
+2016-2017,fall,F,Division 2,12,Stoneham High School,52
+2016-2017,fall,F,Division 2,13,North Andover High School,35
+2016-2017,fall,F,Division 2,14,Walpole High School,20
+2016-2017,fall,F,Division 2,14,Academy of Notre Dame,20
+2016-2017,fall,F,Division 2,16,Dedham High School,14
+2016-2017,fall,F,Division 2,17,Norwood High School,8
+2016-2017,fall,F,Division 2,17,Woburn Memorial High School,8
+2016-2017,fall,F,Division 2,19,Mount Alvernia High School,7
+2016-2017,fall,F,Division 2,20,Arlington High School,6
+2016-2017,fall,F,Division 2,20,Wakefield Memorial High School,6
+2016-2017,fall,F,Division 1,1,Andover High School,476.5
+2016-2017,fall,F,Division 1,2,Newton North High School,281
+2016-2017,fall,F,Division 1,3,Acton-Boxborough Regional High School,263
+2016-2017,fall,F,Division 1,4,Framingham High School,205
+2016-2017,fall,F,Division 1,4,Chelmsford High School,205
+2016-2017,fall,F,Division 1,6,Brookline High School,196
+2016-2017,fall,F,Division 1,7,Haverhill High School,156
+2016-2017,fall,F,Division 1,8,Lexington High School,141
+2016-2017,fall,F,Division 1,9,Needham High School,122.5
+2016-2017,fall,F,Division 1,10,Lowell High School,100
+2016-2017,fall,F,Division 1,11,Boston Latin School,66
+2016-2017,fall,F,Division 1,12,Braintree High School,36
+2016-2017,fall,F,Division 1,13,Billerica Memorial High School,17
+2016-2017,fall,F,Division 1,14,Methuen High School,16
+2016-2017,fall,M,Division 2,1,Norwood High School,87
+2016-2017,fall,M,Division 2,2,Dedham High School,40
+2016-2017,fall,M,Division 2,3,Advanced Math and Science Academy Charter School,34
+2016-2017,fall,M,Division 2,4,Walpole High School,32
+2016-2017,fall,M,Division 1,1,Braintree High School,217
+2016-2017,fall,M,Division 1,2,Methuen High School,74
+2016-2017,fall,M,Division 1,3,Arlington High School,49
+2016-2017,fall,M,Division 1,4,Billerica Memorial High School,20
+2016-2017,winter,F,Division 2,1,Duxbury High School,250
+2016-2017,winter,F,Division 2,2,Weston High School,242
+2016-2017,winter,F,Division 2,3,Marblehead High School,206
+2016-2017,winter,F,Division 2,4,Norwell High School,169.5
+2016-2017,winter,F,Division 2,5,Nantucket High School,144.5
+2016-2017,winter,F,Division 2,6,Bishop Stang High School,130
+2016-2017,winter,F,Division 2,7,Wayland High School,117
+2016-2017,winter,F,Division 2,8,Longmeadow High School,108
+2016-2017,winter,F,Division 2,9,Northampton High School,90
+2016-2017,winter,F,Division 2,10,East Longmeadow High School,75
+2016-2017,winter,F,Division 2,11,Belchertown High School,74
+2016-2017,winter,F,Division 2,12,Ashland High School,67
+2016-2017,winter,F,Division 2,13,Bishop Fenwick High School,64
+2016-2017,winter,F,Division 2,14,Westborough High School,63
+2016-2017,winter,F,Division 2,15,Norton High School,59.5
+2016-2017,winter,F,Division 2,16,Hanover High School,56
+2016-2017,winter,F,Division 2,17,The Bromfield School,49
+2016-2017,winter,F,Division 2,18,Milton High School,42
+2016-2017,winter,F,Division 2,19,Cohasset High School,35.5
+2016-2017,winter,F,Division 2,20,Mystic Valley Regional Charter School,34
+2016-2017,winter,F,Division 2,21,Seekonk High School,33
+2016-2017,winter,F,Division 2,22,Danvers High School,32
+2016-2017,winter,F,Division 2,23,Dover-Sherborn High School,27
+2016-2017,winter,F,Division 2,24,Hamilton-Wenham Regional High School,23
+2016-2017,winter,F,Division 2,25,Lynnfield High School,20
+2016-2017,winter,F,Division 2,26,Manchester-Essex Regional Junior-Senior High School,19
+2016-2017,winter,F,Division 2,27,Old Rochester Regional High School,17
+2016-2017,winter,F,Division 2,27,Bedford High School,17
+2016-2017,winter,F,Division 2,29,Archbishop Williams High School,14
+2016-2017,winter,F,Division 2,29,Apponequet Regional High School,14
+2016-2017,winter,F,Division 2,31,Scituate High School,11
+2016-2017,winter,F,Division 2,32,Pembroke High School,5
+2016-2017,winter,F,Division 2,33,Westwood High School,4
+2016-2017,winter,F,Division 2,33,St. John Paul II High School,4
+2016-2017,winter,F,Division 2,35,Coyle and Cassidy High School,3
+2016-2017,winter,F,Division 2,35,Amherst Regional High School,3
+2016-2017,winter,F,Division 2,37,Easthampton High School,1
+2016-2017,winter,F,Division 2,37,Swampscott High School,1
+2016-2017,winter,F,Division 2,37,Saint Mary's (Lynn) High School,1
+2016-2017,winter,F,Division 1,1,Westford Academy,325
+2016-2017,winter,F,Division 1,2,Masconomet Regional High School,177
+2016-2017,winter,F,Division 1,3,Beverly High School,173
+2016-2017,winter,F,Division 1,4,Silver Lake Regional High School,154
+2016-2017,winter,F,Division 1,5,Lincoln-Sudbury Regional High School,137
+2016-2017,winter,F,Division 1,6,Bishop Feehan High School,124.5
+2016-2017,winter,F,Division 1,7,T G D Co-op High School,119
+2016-2017,winter,F,Division 1,8,Malden High School,116
+2016-2017,winter,F,Division 1,9,Monument Mountain Regional High School,94.5
+2016-2017,winter,F,Division 1,10,Saint Joseph Central,91.5
+2016-2017,winter,F,Division 1,11,Concord-Carlisle High School,89
+2016-2017,winter,F,Division 1,12,Northbridge High School,82
+2016-2017,winter,F,Division 1,13,Hopkinton High School,79
+2016-2017,winter,F,Division 1,14,Triton Regional High School,77
+2016-2017,winter,F,Division 1,15,King Philip Regional High School,64
+2016-2017,winter,F,Division 1,16,Minnechaug Regional High School,52
+2016-2017,winter,F,Division 1,17,Franklin High School,44
+2016-2017,winter,F,Division 1,18,Hingham High School,42
+2016-2017,winter,F,Division 1,19,New Bedford High School,32
+2016-2017,winter,F,Division 1,20,Bridgewater-Raynham Regional High School,27
+2016-2017,winter,F,Division 1,21,Algonquin Regional High School,26
+2016-2017,winter,F,Division 1,22,Lynn Classical High School,23
+2016-2017,winter,F,Division 1,23,Taunton High School,22
+2016-2017,winter,F,Division 1,23,Agawam High School,22
+2016-2017,winter,F,Division 1,25,Westfield High School,20
+2016-2017,winter,F,Division 1,26,Newton South High School,16
+2016-2017,winter,F,Division 1,27,Quincy High School,15
+2016-2017,winter,F,Division 1,28,Attleboro High School,13
+2016-2017,winter,F,Division 1,28,North Attleborough High School,13
+2016-2017,winter,F,Division 1,30,Oliver Ames High School,12
+2016-2017,winter,F,Division 1,31,Leominster High School,11.5
+2016-2017,winter,F,Division 1,32,Holliston High School,11
+2016-2017,winter,F,Division 1,33,B.M.C. Durfee High School,9
+2016-2017,winter,F,Division 1,34,Peabody Veterans Memorial High School,5
+2016-2017,winter,F,Division 1,35,Holyoke High School,3
+2016-2017,winter,F,Division 1,36,Mansfield High School,2
+2016-2017,winter,F,Division 1,36,Waltham High School,2
 2016-2017,winter,M,Division 2,1,Wayland High School,283
 2016-2017,winter,M,Division 2,2,Westborough High School,202
 2016-2017,winter,M,Division 2,3,Weston High School,186
@@ -592,41 +1596,134 @@ School Year,Season,Sex,Division,Place,School,Score
 2016-2017,winter,M,Division 1,38,St. John's High School,3
 2016-2017,winter,M,Division 1,39,Natick High School,2
 2016-2017,winter,M,Division 1,39,Xaverian Brothers High School,2
-2016-2017,fall,F,Division 2,1,Reading Memorial High School,287
-2016-2017,fall,F,Division 2,2,Central Catholic High School,261
-2016-2017,fall,F,Division 2,3,Wellesley High School,239.5
-2016-2017,fall,F,Division 2,4,Notre Dame Academy - Hingham,238
-2016-2017,fall,F,Division 2,5,Belmont High School,226.5
-2016-2017,fall,F,Division 2,6,Natick High School,219
-2016-2017,fall,F,Division 2,7,Ursuline Academy,185
-2016-2017,fall,F,Division 2,8,Winchester High School,145
-2016-2017,fall,F,Division 2,9,Melrose High School,139
-2016-2017,fall,F,Division 2,10,Marshfield High School,124
-2016-2017,fall,F,Division 2,11,Burlington High School,68
-2016-2017,fall,F,Division 2,12,Stoneham High School,52
-2016-2017,fall,F,Division 2,13,North Andover High School,35
-2016-2017,fall,F,Division 2,14,Walpole High School,20
-2016-2017,fall,F,Division 2,14,Academy of Notre Dame,20
-2016-2017,fall,F,Division 2,16,Dedham High School,14
-2016-2017,fall,F,Division 2,17,Norwood High School,8
-2016-2017,fall,F,Division 2,17,Woburn Memorial High School,8
-2016-2017,fall,F,Division 2,19,Mount Alvernia High School,7
-2016-2017,fall,F,Division 2,20,Arlington High School,6
-2016-2017,fall,F,Division 2,20,Wakefield Memorial High School,6
-2016-2017,fall,F,Division 1,1,Andover High School,476.5
-2016-2017,fall,F,Division 1,2,Newton North High School,281
-2016-2017,fall,F,Division 1,3,Acton-Boxborough Regional High School,263
-2016-2017,fall,F,Division 1,4,Framingham High School,205
-2016-2017,fall,F,Division 1,4,Chelmsford High School,205
-2016-2017,fall,F,Division 1,6,Brookline High School,196
-2016-2017,fall,F,Division 1,7,Haverhill High School,156
-2016-2017,fall,F,Division 1,8,Lexington High School,141
-2016-2017,fall,F,Division 1,9,Needham High School,122.5
-2016-2017,fall,F,Division 1,10,Lowell High School,100
-2016-2017,fall,F,Division 1,11,Boston Latin School,66
-2016-2017,fall,F,Division 1,12,Braintree High School,36
-2016-2017,fall,F,Division 1,13,Billerica Memorial High School,17
-2016-2017,fall,F,Division 1,14,Methuen High School,16
+2015-2016,fall,F,Division 2,1,Bishop Feehan High School,314
+2015-2016,fall,F,Division 2,2,Belmont High School,293
+2015-2016,fall,F,Division 2,3,Reading Memorial High School,280
+2015-2016,fall,F,Division 2,4,Wellesley High School,205
+2015-2016,fall,F,Division 2,5,Central Catholic High School,173.5
+2015-2016,fall,F,Division 2,6,Ursuline Academy,162
+2015-2016,fall,F,Division 2,7,Melrose High School,159
+2015-2016,fall,F,Division 2,8,Notre Dame Academy - Hingham,136.5
+2015-2016,fall,F,Division 2,9,Marshfield High School,113
+2015-2016,fall,F,Division 2,10,Winchester High School,112
+2015-2016,fall,F,Division 2,11,Natick High School,107
+2015-2016,fall,F,Division 2,12,Woburn Memorial High School,56
+2015-2016,fall,F,Division 2,13,Burlington High School,38.5
+2015-2016,fall,F,Division 2,14,North Andover High School,37
+2015-2016,fall,F,Division 2,14,Wakefield Memorial High School,37
+2015-2016,fall,F,Division 2,16,Advanced Math and Science Academy Charter School,35
+2015-2016,fall,F,Division 2,17,Stoneham High School,28.5
+2015-2016,fall,F,Division 2,18,Mount Alvernia High School,12
+2015-2016,fall,F,Division 2,19,Walpole High School,8
+2015-2016,fall,F,Division 2,20,Notre Dame Academy - Worcester & Saint Peter-Marian High School,3
+2015-2016,fall,F,Division 1,1,Andover High School,527
+2015-2016,fall,F,Division 1,2,Acton-Boxborough Regional High School,233
+2015-2016,fall,F,Division 1,3,Newton North High School,217
+2015-2016,fall,F,Division 1,4,Chelmsford High School,201
+2015-2016,fall,F,Division 1,5,Brookline High School,197
+2015-2016,fall,F,Division 1,6,Haverhill High School,187
+2015-2016,fall,F,Division 1,7,Framingham High School,166
+2015-2016,fall,F,Division 1,8,Needham High School,156
+2015-2016,fall,F,Division 1,9,Lexington High School,147
+2015-2016,fall,F,Division 1,10,New Bedford High School,73
+2015-2016,fall,F,Division 1,11,Braintree High School,45
+2015-2016,fall,F,Division 1,12,Boston Latin School,41
+2015-2016,fall,F,Division 1,13,Billerica Memorial High School,35
+2015-2016,fall,F,Division 1,14,Lowell High School,32
+2015-2016,fall,F,Division 1,15,Brockton High School,16
+2015-2016,fall,F,Division 1,16,B.M.C. Durfee High School,10
+2015-2016,fall,F,Division 1,17,Methuen High School & Tewksbury Memorial High School,4
+2015-2016,fall,M,Division 2,1,Norwood High School,110
+2015-2016,fall,M,Division 2,2,Advanced Math and Science Academy Charter School,105
+2015-2016,fall,M,Division 2,3,Walpole High School,72
+2015-2016,fall,M,Division 2,4,Wakefield Memorial High School,40
+2015-2016,fall,M,Division 2,5,Stoneham High School,37
+2015-2016,fall,M,Division 1,1,Braintree High School,237
+2015-2016,fall,M,Division 1,2,Methuen High School & Tewksbury Memorial High School,40
+2015-2016,fall,M,Division 1,3,Marshfield High School,34
+2015-2016,fall,M,Division 1,4,Woburn Memorial High School,33
+2015-2016,fall,M,Division 1,5,Arlington High School,17
+2015-2016,winter,F,Division 2,1,Marblehead High School,271.5
+2015-2016,winter,F,Division 2,2,Weston High School,199
+2015-2016,winter,F,Division 2,3,Longmeadow High School,188
+2015-2016,winter,F,Division 2,4,Duxbury High School,180
+2015-2016,winter,F,Division 2,5,Norwell High School,160.5
+2015-2016,winter,F,Division 2,6,Bishop Stang High School,148
+2015-2016,winter,F,Division 2,7,Northampton High School,113
+2015-2016,winter,F,Division 2,8,Bishop Fenwick High School,109
+2015-2016,winter,F,Division 2,9,Wayland High School,93.5
+2015-2016,winter,F,Division 2,10,Nantucket High School,86.5
+2015-2016,winter,F,Division 2,11,Cohasset High School,67
+2015-2016,winter,F,Division 2,12,The Bromfield School,59
+2015-2016,winter,F,Division 2,13,Ashland High School,58
+2015-2016,winter,F,Division 2,14,Westborough High School,56
+2015-2016,winter,F,Division 2,15,East Longmeadow High School,55
+2015-2016,winter,F,Division 2,15,Belchertown High School,55
+2015-2016,winter,F,Division 2,17,Nauset Regional High School,31
+2015-2016,winter,F,Division 2,18,Danvers High School,30
+2015-2016,winter,F,Division 2,18,Dover-Sherborn High School,30
+2015-2016,winter,F,Division 2,18,Pope Francis High School,30
+2015-2016,winter,F,Division 2,21,Seekonk High School,25
+2015-2016,winter,F,Division 2,21,Easthampton High School,25
+2015-2016,winter,F,Division 2,23,Bedford High School,24
+2015-2016,winter,F,Division 2,24,Amherst Regional High School,23
+2015-2016,winter,F,Division 2,25,Austin Preparatory School,22
+2015-2016,winter,F,Division 2,25,Hamilton-Wenham Regional High School,22
+2015-2016,winter,F,Division 2,27,Apponequet Regional High School,20
+2015-2016,winter,F,Division 2,27,Lynnfield High School,20
+2015-2016,winter,F,Division 2,29,Manchester-Essex Regional Junior-Senior High School,18
+2015-2016,winter,F,Division 2,30,Sandwich High School,15
+2015-2016,winter,F,Division 2,30,Canton High School,15
+2015-2016,winter,F,Division 2,32,Mystic Valley Regional Charter School,13
+2015-2016,winter,F,Division 2,33,South Hadley High School,12
+2015-2016,winter,F,Division 2,34,Swampscott High School,9
+2015-2016,winter,F,Division 2,35,Foxborough High School,7
+2015-2016,winter,F,Division 2,35,Ipswich High School,7
+2015-2016,winter,F,Division 2,37,Archbishop Williams High School,6
+2015-2016,winter,F,Division 2,38,Hanover High School,4.5
+2015-2016,winter,F,Division 2,38,Greater Lawrence Tech High School,4.5
+2015-2016,winter,F,Division 2,40,Westwood High School,4
+2015-2016,winter,F,Division 2,40,Monson High School,4
+2015-2016,winter,F,Division 2,42,St. John Paul II High School,2
+2015-2016,winter,F,Division 2,42,Scituate High School,2
+2015-2016,winter,F,Division 2,44,Medfield High School,1
+2015-2016,winter,F,Division 1,1,Westford Academy,312
+2015-2016,winter,F,Division 1,2,Beverly High School,228.5
+2015-2016,winter,F,Division 1,3,Lincoln-Sudbury Regional High School,156
+2015-2016,winter,F,Division 1,4,Malden High School,140
+2015-2016,winter,F,Division 1,5,Concord-Carlisle High School,125
+2015-2016,winter,F,Division 1,6,Tyngsborough High School & Groton-Dunstable Regional High School,122
+2015-2016,winter,F,Division 1,7,Minnechaug Regional High School,112.5
+2015-2016,winter,F,Division 1,8,Monument Mountain Regional High School,109
+2015-2016,winter,F,Division 1,9,Hopkinton High School,108
+2015-2016,winter,F,Division 1,10,Westfield High School,94
+2015-2016,winter,F,Division 1,11,Northbridge High School,91
+2015-2016,winter,F,Division 1,12,Franklin High School,85.5
+2015-2016,winter,F,Division 1,13,Masconomet Regional High School,71.5
+2015-2016,winter,F,Division 1,13,Newton South High School,71.5
+2015-2016,winter,F,Division 1,15,Silver Lake Regional High School,68.5
+2015-2016,winter,F,Division 1,16,Holliston High School,67
+2015-2016,winter,F,Division 1,17,St Joeseph High School,53.5
+2015-2016,winter,F,Division 1,18,Algonquin Regional High School,34
+2015-2016,winter,F,Division 1,18,Hingham High School,34
+2015-2016,winter,F,Division 1,20,Triton Regional High School,32
+2015-2016,winter,F,Division 1,21,Shrewsbury High School,30
+2015-2016,winter,F,Division 1,22,Chicopee High School,24
+2015-2016,winter,F,Division 1,23,Sharon High School,22
+2015-2016,winter,F,Division 1,24,King Philip Regional High School,19
+2015-2016,winter,F,Division 1,25,Cambridge Rindge and Latin School,17
+2015-2016,winter,F,Division 1,26,Quincy High School,16
+2015-2016,winter,F,Division 1,27,Lynn Classical High School,15
+2015-2016,winter,F,Division 1,28,Leominster High School,14
+2015-2016,winter,F,Division 1,29,Wachusett Regional High School,13.5
+2015-2016,winter,F,Division 1,30,Agawam High School,9
+2015-2016,winter,F,Division 1,30,Salem High School,9
+2015-2016,winter,F,Division 1,32,Bridgewater-Raynham Regional High School,6
+2015-2016,winter,F,Division 1,33,Peabody Veterans Memorial High School,5
+2015-2016,winter,F,Division 1,34,West Springfield High School,4
+2015-2016,winter,F,Division 1,35,Taunton High School,2
+2015-2016,winter,F,Division 1,35,Barnstable High School,2
+2015-2016,winter,F,Division 1,37,North Attleborough High School,1
 2015-2016,winter,M,Division 2,1,Weston High School,215
 2015-2016,winter,M,Division 2,2,Wayland High School,206
 2015-2016,winter,M,Division 2,3,Norwell High School,202
@@ -705,43 +1802,122 @@ School Year,Season,Sex,Division,Place,School,Score
 2015-2016,winter,M,Division 1,34,St. John's High School,7
 2015-2016,winter,M,Division 1,35,New Bedford High School,6
 2015-2016,winter,M,Division 1,36,Waltham High School,4
-2015-2016,fall,F,Division 2,1,Bishop Feehan High School,314
-2015-2016,fall,F,Division 2,2,Belmont High School,293
-2015-2016,fall,F,Division 2,3,Reading Memorial High School,280
-2015-2016,fall,F,Division 2,4,Wellesley High School,205
-2015-2016,fall,F,Division 2,5,Central Catholic High School,173.5
-2015-2016,fall,F,Division 2,6,Ursuline Academy,162
-2015-2016,fall,F,Division 2,7,Melrose High School,159
-2015-2016,fall,F,Division 2,8,Notre Dame Academy - Hingham,136.5
-2015-2016,fall,F,Division 2,9,Marshfield High School,113
-2015-2016,fall,F,Division 2,10,Winchester High School,112
-2015-2016,fall,F,Division 2,11,Natick High School,107
-2015-2016,fall,F,Division 2,12,Woburn Memorial High School,56
-2015-2016,fall,F,Division 2,13,Burlington High School,38.5
-2015-2016,fall,F,Division 2,14,North Andover High School,37
-2015-2016,fall,F,Division 2,14,Wakefield Memorial High School,37
-2015-2016,fall,F,Division 2,16,Advanced Math and Science Academy Charter School,35
-2015-2016,fall,F,Division 2,17,Stoneham High School,28.5
-2015-2016,fall,F,Division 2,18,Mount Alvernia High School,12
-2015-2016,fall,F,Division 2,19,Walpole High School,8
-2015-2016,fall,F,Division 2,20,Notre Dame Academy - Worcester & Saint Peter-Marian High School,3
-2015-2016,fall,F,Division 1,1,Andover High School,527
-2015-2016,fall,F,Division 1,2,Acton-Boxborough Regional High School,233
-2015-2016,fall,F,Division 1,3,Newton North High School,217
-2015-2016,fall,F,Division 1,4,Chelmsford High School,201
-2015-2016,fall,F,Division 1,5,Brookline High School,197
-2015-2016,fall,F,Division 1,6,Haverhill High School,187
-2015-2016,fall,F,Division 1,7,Framingham High School,166
-2015-2016,fall,F,Division 1,8,Needham High School,156
-2015-2016,fall,F,Division 1,9,Lexington High School,147
-2015-2016,fall,F,Division 1,10,New Bedford High School,73
-2015-2016,fall,F,Division 1,11,Braintree High School,45
-2015-2016,fall,F,Division 1,12,Boston Latin School,41
-2015-2016,fall,F,Division 1,13,Billerica Memorial High School,35
-2015-2016,fall,F,Division 1,14,Lowell High School,32
-2015-2016,fall,F,Division 1,15,Brockton High School,16
-2015-2016,fall,F,Division 1,16,B.M.C. Durfee High School,10
-2015-2016,fall,F,Division 1,17,Methuen High School & Tewksbury Memorial High School,4
+2014-2015,fall,F,Division 2,1,Bishop Feehan High School,270
+2014-2015,fall,F,Division 2,2,Belmont High School,239
+2014-2015,fall,F,Division 2,3,Bishop Stang High School,199
+2014-2015,fall,F,Division 2,4,Natick High School,198
+2014-2015,fall,F,Division 2,5,Westwood High School,165
+2014-2015,fall,F,Division 2,6,Wellesley High School,149
+2014-2015,fall,F,Division 2,7,Winchester High School,134
+2014-2015,fall,F,Division 2,8,Melrose High School,130
+2014-2015,fall,F,Division 2,9,Central Catholic High School,126
+2014-2015,fall,F,Division 2,10,Ursuline Academy,122
+2014-2015,fall,F,Division 2,11,Stoneham High School,83
+2014-2015,fall,F,Division 2,12,Reading Memorial High School,78
+2014-2015,fall,F,Division 2,13,Walpole High School,75
+2014-2015,fall,F,Division 2,14,Marshfield High School,67
+2014-2015,fall,F,Division 2,15,Notre Dame Academy - Hingham,61
+2014-2015,fall,F,Division 2,16,Wakefield Memorial High School,59
+2014-2015,fall,F,Division 2,17,North Andover High School,53
+2014-2015,fall,F,Division 2,18,Woburn Memorial High School,41
+2014-2015,fall,F,Division 2,19,Burlington High School,39
+2014-2015,fall,F,Division 2,20,Dedham High School,20
+2014-2015,fall,F,Division 2,21,Norwood High School,7
+2014-2015,fall,F,Division 2,22,Mount Alvernia High School,5
+2014-2015,fall,F,Division 2,23,Dracut High School,4
+2014-2015,fall,F,Division 2,24,Academy of Notre Dame,1
+2014-2015,fall,F,Division 1,1,Andover High School,367
+2014-2015,fall,F,Division 1,2,Acton-Boxborough Regional High School,314
+2014-2015,fall,F,Division 1,3,Newton North High School,309
+2014-2015,fall,F,Division 1,4,Framingham High School,209
+2014-2015,fall,F,Division 1,5,Lexington High School,195
+2014-2015,fall,F,Division 1,6,Needham High School,180.5
+2014-2015,fall,F,Division 1,7,Chelmsford High School,159
+2014-2015,fall,F,Division 1,8,Lowell High School,105
+2014-2015,fall,F,Division 1,9,Haverhill High School,88
+2014-2015,fall,F,Division 1,10,Brookline High School,84.5
+2014-2015,fall,F,Division 1,11,Boston Latin School,56
+2014-2015,fall,F,Division 1,12,New Bedford High School,55
+2014-2015,fall,F,Division 1,13,B.M.C. Durfee High School,54
+2014-2015,fall,F,Division 1,14,Methuen High School,39
+2014-2015,fall,F,Division 1,15,Billerica Memorial High School,26
+2014-2015,fall,F,Division 1,16,Brockton High School,25
+2014-2015,fall,F,Division 1,17,Braintree High School,23
+2014-2015,winter,F,Division 2,1,Weston High School,300
+2014-2015,winter,F,Division 2,2,Wayland High School,242.5
+2014-2015,winter,F,Division 2,3,Marblehead High School,211
+2014-2015,winter,F,Division 2,4,Longmeadow High School,174
+2014-2015,winter,F,Division 2,5,Northampton High School,173
+2014-2015,winter,F,Division 2,6,Duxbury High School,162
+2014-2015,winter,F,Division 2,7,Nantucket High School,109
+2014-2015,winter,F,Division 2,8,Saint Joseph Central,105
+2014-2015,winter,F,Division 2,9,Amherst Regional High School,98
+2014-2015,winter,F,Division 2,10,Norwell High School,87
+2014-2015,winter,F,Division 2,11,Ashland High School,78
+2014-2015,winter,F,Division 2,12,Belchertown High School,61.5
+2014-2015,winter,F,Division 2,13,Dover-Sherborn Regional High School,55
+2014-2015,winter,F,Division 2,14,Nauset Regional High School,49
+2014-2015,winter,F,Division 2,15,East Longmeadow High School,44
+2014-2015,winter,F,Division 2,16,Holyoke Catholic High School,39
+2014-2015,winter,F,Division 2,17,Norton High School,38
+2014-2015,winter,F,Division 2,18,Apponequet Regional High School,37
+2014-2015,winter,F,Division 2,19,Seekonk High School,31
+2014-2015,winter,F,Division 2,20,Medfield High School,30
+2014-2015,winter,F,Division 2,21,Austin Preparatory School,28
+2014-2015,winter,F,Division 2,22,Sandwich High School,27
+2014-2015,winter,F,Division 2,23,Danvers High School,26
+2014-2015,winter,F,Division 2,23,The Bromfield School,26
+2014-2015,winter,F,Division 2,25,Bedford High School,17
+2014-2015,winter,F,Division 2,25,Lynnfield High School,17
+2014-2015,winter,F,Division 2,27,Easthampton High School,16
+2014-2015,winter,F,Division 2,28,Gardner High School,15
+2014-2015,winter,F,Division 2,29,Foxboro High School,9
+2014-2015,winter,F,Division 2,30,Archbishop Williams High School,5
+2014-2015,winter,F,Division 2,31,Scituate High School,4
+2014-2015,winter,F,Division 2,32,Dighton-Rehoboth Regional High School,3
+2014-2015,winter,F,Division 2,33,Mystic Valley Charter,2
+2014-2015,winter,F,Division 2,33,Canton High School,2
+2014-2015,winter,F,Division 2,33,Ipswich High School,2
+2014-2015,winter,F,Division 2,33,Shawsheen Valley Technical High School,2
+2014-2015,winter,F,Division 1,1,Lincoln-Sudbury Regional High School,223
+2014-2015,winter,F,Division 1,2,Beverly High School,221
+2014-2015,winter,F,Division 1,3,Westford Academy,208
+2014-2015,winter,F,Division 1,4,King Philip Regional High School,145
+2014-2015,winter,F,Division 1,5,Monument Mountain Regional High School,131
+2014-2015,winter,F,Division 1,6,Tyngsborough High School & Groton-Dunstable Regional High School,129.5
+2014-2015,winter,F,Division 1,7,Malden High School,112
+2014-2015,winter,F,Division 1,8,Westfield High School,105
+2014-2015,winter,F,Division 1,9,Hopkinton High School,91
+2014-2015,winter,F,Division 1,10,Masconomet Regional High School,90
+2014-2015,winter,F,Division 1,11,Newton South High School,84
+2014-2015,winter,F,Division 1,12,Minnechaug Regional High School,77.5
+2014-2015,winter,F,Division 1,13,Concord-Carlisle Regional High School,77
+2014-2015,winter,F,Division 1,14,Algonquin Regional High School,76
+2014-2015,winter,F,Division 1,15,North Attleborough High School,73
+2014-2015,winter,F,Division 1,16,Franklin High School,69
+2014-2015,winter,F,Division 1,17,Shrewsbury High School,66
+2014-2015,winter,F,Division 1,18,Holliston High School,50
+2014-2015,winter,F,Division 1,19,Oliver Ames High School,40
+2014-2015,winter,F,Division 1,20,Triton Regional High School,31
+2014-2015,winter,F,Division 1,21,Sharon High School,30.5
+2014-2015,winter,F,Division 1,22,Cambridge Rindge and Latin School,29
+2014-2015,winter,F,Division 1,23,Chicopee High School,28
+2014-2015,winter,F,Division 1,24,Silver Lake Regional High School,17
+2014-2015,winter,F,Division 1,25,Agawam High School,16
+2014-2015,winter,F,Division 1,26,Milford High School,15
+2014-2015,winter,F,Division 1,26,Hingham High School,15
+2014-2015,winter,F,Division 1,26,Northbridge High School,15
+2014-2015,winter,F,Division 1,29,Barnstable High School,11.5
+2014-2015,winter,F,Division 1,30,Quincy High School,11
+2014-2015,winter,F,Division 1,31,Mansfield High School,7
+2014-2015,winter,F,Division 1,31,Bridgewater-Raynham Regional High School,7
+2014-2015,winter,F,Division 1,33,Salem High School,6
+2014-2015,winter,F,Division 1,33,Wachusett Regional High School,6
+2014-2015,winter,F,Division 1,35,Peabody Veterans Memorial High School,5
+2014-2015,winter,F,Division 1,36,Chicopee Comprehensive High School,3
+2014-2015,winter,F,Division 1,37,Leominster High School,2
+2014-2015,winter,F,Division 1,38,Arlington High School,1
+2014-2015,winter,F,Division 1,38,Lynn Classical High School,1
 2014-2015,winter,M,Division 2,1,Weston High School, 245
 2014-2015,winter,M,Division 2,2,Wayland High School,  181
 2014-2015,winter,M,Division 2,3,Mystic Valley Regional Charter School, 156
@@ -819,47 +1995,127 @@ School Year,Season,Sex,Division,Place,School,Score
 2014-2015,winter,M,Division 1,37,Tyngsborough High School & Groton-Dunstable Regional High School,3
 2014-2015,winter,M,Division 1,38,Agawam High School,2
 2014-2015,winter,M,Division 1,39,Natick High School,1
-2014-2015,fall,F,Division 2,1,Bishop Feehan High School,270
-2014-2015,fall,F,Division 2,2,Belmont High School,239
-2014-2015,fall,F,Division 2,3,Bishop Stang High School,199
-2014-2015,fall,F,Division 2,4,Natick High School,198
-2014-2015,fall,F,Division 2,5,Westwood High School,165
-2014-2015,fall,F,Division 2,6,Wellesley High School,149
-2014-2015,fall,F,Division 2,7,Winchester High School,134
-2014-2015,fall,F,Division 2,8,Melrose High School,130
-2014-2015,fall,F,Division 2,9,Central Catholic High School,126
-2014-2015,fall,F,Division 2,10,Ursuline Academy,122
-2014-2015,fall,F,Division 2,11,Stoneham High School,83
-2014-2015,fall,F,Division 2,12,Reading Memorial High School,78
-2014-2015,fall,F,Division 2,13,Walpole High School,75
-2014-2015,fall,F,Division 2,14,Marshfield High School,67
-2014-2015,fall,F,Division 2,15,Notre Dame Academy - Hingham,61
-2014-2015,fall,F,Division 2,16,Wakefield Memorial High School,59
-2014-2015,fall,F,Division 2,17,North Andover High School,53
-2014-2015,fall,F,Division 2,18,Woburn Memorial High School,41
-2014-2015,fall,F,Division 2,19,Burlington High School,39
-2014-2015,fall,F,Division 2,20,Dedham High School,20
-2014-2015,fall,F,Division 2,21,Norwood High School,7
-2014-2015,fall,F,Division 2,22,Mount Alvernia High School,5
-2014-2015,fall,F,Division 2,23,Dracut High School,4
-2014-2015,fall,F,Division 2,24,Academy of Notre Dame,1
-2014-2015,fall,F,Division 1,1,Andover High School,367
-2014-2015,fall,F,Division 1,2,Acton-Boxborough Regional High School,314
-2014-2015,fall,F,Division 1,3,Newton North High School,309
-2014-2015,fall,F,Division 1,4,Framingham High School,209
-2014-2015,fall,F,Division 1,5,Lexington High School,195
-2014-2015,fall,F,Division 1,6,Needham High School,180.5
-2014-2015,fall,F,Division 1,7,Chelmsford High School,159
-2014-2015,fall,F,Division 1,8,Lowell High School,105
-2014-2015,fall,F,Division 1,9,Haverhill High School,88
-2014-2015,fall,F,Division 1,10,Brookline High School,84.5
-2014-2015,fall,F,Division 1,11,Boston Latin School,56
-2014-2015,fall,F,Division 1,12,New Bedford High School,55
-2014-2015,fall,F,Division 1,13,B.M.C. Durfee High School,54
-2014-2015,fall,F,Division 1,14,Methuen High School,39
-2014-2015,fall,F,Division 1,15,Billerica Memorial High School,26
-2014-2015,fall,F,Division 1,16,Brockton High School,25
-2014-2015,fall,F,Division 1,17,Braintree High School,23
+2013-2014,fall,F,Division 2,1,Bishop Feehan High School,317.5
+2013-2014,fall,F,Division 2,2,Belmont High School,287.5
+2013-2014,fall,F,Division 2,3,Natick High School,159.5
+2013-2014,fall,F,Division 2,4,Reading Memorial High School,151
+2013-2014,fall,F,Division 2,5,Westwood High School,144
+2013-2014,fall,F,Division 2,6,Wellesley High School,143
+2013-2014,fall,F,Division 2,7,Central Catholic High School,135
+2013-2014,fall,F,Division 2,8,North Andover High School,119.5
+2013-2014,fall,F,Division 2,9,Ursuline Academy,108
+2013-2014,fall,F,Division 2,10,Bishop Stang High School,105
+2013-2014,fall,F,Division 2,11,Notre Dame Academy - Worcester,85
+2013-2014,fall,F,Division 2,12,Seekonk High School,70
+2013-2014,fall,F,Division 2,13,Notre Dame Academy - Hingham,68
+2013-2014,fall,F,Division 2,14,Walpole High School,67
+2013-2014,fall,F,Division 2,15,Wakefield Memorial High School,60
+2013-2014,fall,F,Division 2,16,Apponequet Regional High School,59.5
+2013-2014,fall,F,Division 2,17,Winchester High School,56
+2013-2014,fall,F,Division 2,18,Melrose High School,48.5
+2013-2014,fall,F,Division 2,19,Stoneham High School,35
+2013-2014,fall,F,Division 2,20,Woburn Memorial High School,29
+2013-2014,fall,F,Division 2,21,Burlington High School,22
+2013-2014,fall,F,Division 2,22,Dedham High School,20
+2013-2014,fall,F,Division 2,23,Norwood High School,16
+2013-2014,fall,F,Division 2,24,Marshfield High School,15
+2013-2014,fall,F,Division 2,25,Mount Alvernia High School,3
+2013-2014,fall,F,Division 2,26,Dracut High School,1
+2013-2014,fall,F,Division 1,1,Chelmsford High School,381.5
+2013-2014,fall,F,Division 1,2,Andover High School,278.5
+2013-2014,fall,F,Division 1,3,Framingham High School,252
+2013-2014,fall,F,Division 1,4,Acton-Boxborough Regional High School,243
+2013-2014,fall,F,Division 1,5,Newton North High School,217
+2013-2014,fall,F,Division 1,6,Lexington High School,204
+2013-2014,fall,F,Division 1,7,Needham High School,167
+2013-2014,fall,F,Division 1,8,Haverhill High School,145
+2013-2014,fall,F,Division 1,9,Brockton High School,85
+2013-2014,fall,F,Division 1,10,Methuen High School,55
+2013-2014,fall,F,Division 1,11,Boston Latin School,45
+2013-2014,fall,F,Division 1,11,Brookline High School,45
+2013-2014,fall,F,Division 1,13,Lowell High School,37
+2013-2014,fall,F,Division 1,14,B.M.C. Durfee High School,30
+2013-2014,fall,F,Division 1,15,Braintree High School,7
+2013-2014,winter,F,Division 2,1,Wayland High School,331.5
+2013-2014,winter,F,Division 2,2,Weston High School,234
+2013-2014,winter,F,Division 2,3,Northampton High School,229
+2013-2014,winter,F,Division 2,4,Marblehead High School,209
+2013-2014,winter,F,Division 2,5,Longmeadow High School,130.5
+2013-2014,winter,F,Division 2,6,Nauset Regional High School,122
+2013-2014,winter,F,Division 2,7,Belchertown High School,108.5
+2013-2014,winter,F,Division 2,8,Duxbury High School,107.5
+2013-2014,winter,F,Division 2,9,Norwell High School,92
+2013-2014,winter,F,Division 2,10,Nantucket High School,75
+2013-2014,winter,F,Division 2,11,Ashland High School,73.5
+2013-2014,winter,F,Division 2,12,Westborough High School,69
+2013-2014,winter,F,Division 2,13,Hanover High School,54.5
+2013-2014,winter,F,Division 2,14,Amherst Regional High School,50
+2013-2014,winter,F,Division 2,15,The Bromfield School,48
+2013-2014,winter,F,Division 2,16,Dover-Sherborn High School,43
+2013-2014,winter,F,Division 2,17,Easthampton High School,40
+2013-2014,winter,F,Division 2,18,Cohasset High School,38
+2013-2014,winter,F,Division 2,19,Pope John Paul II High School,32
+2013-2014,winter,F,Division 2,20,Holyoke Catholic High School,30
+2013-2014,winter,F,Division 2,21,Saint Joseph Central,26
+2013-2014,winter,F,Division 2,22,Sandwich High School,25
+2013-2014,winter,F,Division 2,23,Matignon High School,21
+2013-2014,winter,F,Division 2,24,South Hadley High School,20
+2013-2014,winter,F,Division 2,25,Hamilton-Wenham Regional High School,18
+2013-2014,winter,F,Division 2,26,Bedford High School,16.5
+2013-2014,winter,F,Division 2,27,Dighton-Rehoboth Regional High School,15.5
+2013-2014,winter,F,Division 2,28,Nashoba Regional High School,14
+2013-2014,winter,F,Division 2,29,Scituate High School,10
+2013-2014,winter,F,Division 2,29,Mystic Valley Charter,10
+2013-2014,winter,F,Division 2,31,Medfield High School,8
+2013-2014,winter,F,Division 2,31,Arlington Catholic High School,8
+2013-2014,winter,F,Division 2,33,Ipswich High School,5
+2013-2014,winter,F,Division 2,33,East Longmeadow High School,5
+2013-2014,winter,F,Division 2,35,Norton High School,2
+2013-2014,winter,F,Division 2,35,North Reading High School,2
+2013-2014,winter,F,Division 2,35,Minuteman Reg Voc Tech High School,2
+2013-2014,winter,F,Division 1,1,Westford Academy,320
+2013-2014,winter,F,Division 1,2,Lincoln-Sudbury Regional High School,211
+2013-2014,winter,F,Division 1,3,Beverly High School,168
+2013-2014,winter,F,Division 1,4,Westfield High School,131
+2013-2014,winter,F,Division 1,5,Concord-Carlisle Regional High School,110.5
+2013-2014,winter,F,Division 1,6,Hopkinton High School,107
+2013-2014,winter,F,Division 1,7,Tyngsborough High School & Groton-Dunstable Regional High School,106.5
+2013-2014,winter,F,Division 1,8,Minnechaug Regional High School,106
+2013-2014,winter,F,Division 1,9,Hoosac Valley High School,96
+2013-2014,winter,F,Division 1,10,Shrewsbury High School,87
+2013-2014,winter,F,Division 1,11,Malden High School,86
+2013-2014,winter,F,Division 1,12,Algonquin Regional High School,82
+2013-2014,winter,F,Division 1,12,Holliston High School,82
+2013-2014,winter,F,Division 1,14,Monument Mountain Regional High School,64
+2013-2014,winter,F,Division 1,15,Chicopee High School,61
+2013-2014,winter,F,Division 1,16,Masconomet Regional High School,48
+2013-2014,winter,F,Division 1,17,North Attleborough High School,44
+2013-2014,winter,F,Division 1,18,Mansfield High School,36
+2013-2014,winter,F,Division 1,19,Hingham High School,33
+2013-2014,winter,F,Division 1,19,Milford High School,33
+2013-2014,winter,F,Division 1,21,Cambridge Rindge and Latin School,32
+2013-2014,winter,F,Division 1,21,Barnstable High School,32
+2013-2014,winter,F,Division 1,23,Franklin High School,30
+2013-2014,winter,F,Division 1,24,Agawam High School,28
+2013-2014,winter,F,Division 1,25,Sharon High School,24
+2013-2014,winter,F,Division 1,26,Palmer High School,22
+2013-2014,winter,F,Division 1,26,Peabody Veterans Memorial High School,22
+2013-2014,winter,F,Division 1,28,Oliver Ames High School,20
+2013-2014,winter,F,Division 1,29,Triton Regional High School,17
+2013-2014,winter,F,Division 1,30,Arlington High School,16
+2013-2014,winter,F,Division 1,31,Quincy High School,13
+2013-2014,winter,F,Division 1,32,Middleborough High School,12
+2013-2014,winter,F,Division 1,33,North Quincy High School,9
+2013-2014,winter,F,Division 1,34,Attleboro High School,7
+2013-2014,winter,F,Division 1,35,Waltham High School,6
+2013-2014,winter,F,Division 1,36,Leominster High School,5
+2013-2014,winter,F,Division 1,37,King Philip Regional High School,4
+2013-2014,winter,F,Division 1,37,Bridgewater-Raynham Regional High School,4
+2013-2014,winter,F,Division 1,39,West Springfield High School,3
+2013-2014,winter,F,Division 1,39,Chicopee Comprehensive High School,3
+2013-2014,winter,F,Division 1,41,Salem High School,2
+2013-2014,winter,F,Division 1,42,Lynn Classical High School,1
+2013-2014,winter,F,Division 1,42,Wachusett Regional High School,1
 2013-2014,winter,M,Division 2,1,Weston High School,244
 2013-2014,winter,M,Division 2,2,Bishop Feehan High School,225
 2013-2014,winter,M,Division 2,3,Amherst Regional High School,163
@@ -942,47 +2198,119 @@ School Year,Season,Sex,Division,Place,School,Score
 2013-2014,winter,M,Division 1,38,Monument Mountain Regional High School,1.5
 2013-2014,winter,M,Division 1,39,Chicopee Comprehensive High School,1
 2013-2014,winter,M,Division 1,40,Palmer High School,0.5
-2013-2014,fall,F,Division 2,1,Bishop Feehan High School,317.5
-2013-2014,fall,F,Division 2,2,Belmont High School,287.5
-2013-2014,fall,F,Division 2,3,Natick High School,159.5
-2013-2014,fall,F,Division 2,4,Reading Memorial High School,151
-2013-2014,fall,F,Division 2,5,Westwood High School,144
-2013-2014,fall,F,Division 2,6,Wellesley High School,143
-2013-2014,fall,F,Division 2,7,Central Catholic High School,135
-2013-2014,fall,F,Division 2,8,North Andover High School,119.5
-2013-2014,fall,F,Division 2,9,Ursuline Academy,108
-2013-2014,fall,F,Division 2,10,Bishop Stang High School,105
-2013-2014,fall,F,Division 2,11,Notre Dame Academy - Worcester,85
-2013-2014,fall,F,Division 2,12,Seekonk High School,70
-2013-2014,fall,F,Division 2,13,Notre Dame Academy - Hingham,68
-2013-2014,fall,F,Division 2,14,Walpole High School,67
-2013-2014,fall,F,Division 2,15,Wakefield Memorial High School,60
-2013-2014,fall,F,Division 2,16,Apponequet Regional High School,59.5
-2013-2014,fall,F,Division 2,17,Winchester High School,56
-2013-2014,fall,F,Division 2,18,Melrose High School,48.5
-2013-2014,fall,F,Division 2,19,Stoneham High School,35
-2013-2014,fall,F,Division 2,20,Woburn Memorial High School,29
-2013-2014,fall,F,Division 2,21,Burlington High School,22
-2013-2014,fall,F,Division 2,22,Dedham High School,20
-2013-2014,fall,F,Division 2,23,Norwood High School,16
-2013-2014,fall,F,Division 2,24,Marshfield High School,15
-2013-2014,fall,F,Division 2,25,Mount Alvernia High School,3
-2013-2014,fall,F,Division 2,26,Dracut High School,1
-2013-2014,fall,F,Division 1,1,Chelmsford High School,381.5
-2013-2014,fall,F,Division 1,2,Andover High School,278.5
-2013-2014,fall,F,Division 1,3,Framingham High School,252
-2013-2014,fall,F,Division 1,4,Acton-Boxborough Regional High School,243
-2013-2014,fall,F,Division 1,5,Newton North High School,217
-2013-2014,fall,F,Division 1,6,Lexington High School,204
-2013-2014,fall,F,Division 1,7,Needham High School,167
-2013-2014,fall,F,Division 1,8,Haverhill High School,145
-2013-2014,fall,F,Division 1,9,Brockton High School,85
-2013-2014,fall,F,Division 1,10,Methuen High School,55
-2013-2014,fall,F,Division 1,11,Boston Latin School,45
-2013-2014,fall,F,Division 1,11,Brookline High School,45
-2013-2014,fall,F,Division 1,13,Lowell High School,37
-2013-2014,fall,F,Division 1,14,B.M.C. Durfee High School,30
-2013-2014,fall,F,Division 1,15,Braintree High School,7
+2012-2013,fall,F,Division 2,1,Bishop Feehan High School,336.5
+2012-2013,fall,F,Division 2,2,Reading Memorial High School,313
+2012-2013,fall,F,Division 2,3,Belmont High School,232
+2012-2013,fall,F,Division 2,4,Notre Dame Academy - Hingham,208
+2012-2013,fall,F,Division 2,5,Bishop Stang High School,195
+2012-2013,fall,F,Division 2,6,Westwood High School,167.5
+2012-2013,fall,F,Division 2,7,Seekonk High School,115
+2012-2013,fall,F,Division 2,8,Wakefield Memorial High School,114
+2012-2013,fall,F,Division 2,9,Ursuline Academy,110
+2012-2013,fall,F,Division 2,10,Norwood High School,96
+2012-2013,fall,F,Division 2,11,Apponequet Regional High School,87
+2012-2013,fall,F,Division 2,12,Walpole High School,74
+2012-2013,fall,F,Division 2,13,Notre Dame Academy - Worcester,68
+2012-2013,fall,F,Division 2,14,Stoneham High School,52
+2012-2013,fall,F,Division 2,15,Winchester High School,51
+2012-2013,fall,F,Division 2,16,Mount Alvernia High School,49
+2012-2013,fall,F,Division 2,17,Melrose High School,47
+2012-2013,fall,F,Division 2,18,Academy of Notre Dame,5
+2012-2013,fall,F,Division 1,1,Andover High School,428
+2012-2013,fall,F,Division 1,2,Chelmsford High School,282.5
+2012-2013,fall,F,Division 1,3,Acton-Boxborough Regional High School,253
+2012-2013,fall,F,Division 1,4,Framingham High School,225.5
+2012-2013,fall,F,Division 1,5,Needham High School,185
+2012-2013,fall,F,Division 1,6,Haverhill High School,174
+2012-2013,fall,F,Division 1,7,Lexington High School,120
+2012-2013,fall,F,Division 1,8,Wellesley High School,104
+2012-2013,fall,F,Division 1,9,Methuen High School,96
+2012-2013,fall,F,Division 1,10,Natick High School,84
+2012-2013,fall,F,Division 1,11,Newton North High School,76.5
+2012-2013,fall,F,Division 1,12,Brockton High School,61
+2012-2013,fall,F,Division 1,13,Central Catholic High School,47
+2012-2013,fall,F,Division 1,14,Braintree High School,39.5
+2012-2013,fall,F,Division 1,15,Boston Latin School,31
+2012-2013,fall,F,Division 1,16,B.M.C. Durfee High School,30
+2012-2013,fall,F,Division 1,17,Marshfield High School,20
+2012-2013,fall,F,Division 1,18,Lowell High School,19
+2012-2013,fall,F,Division 1,19,Billerica Memorial High School,17
+2012-2013,fall,F,Division 1,20,Brookline High School,16
+2012-2013,fall,F,Division 1,21,North Andover High School,14
+2012-2013,fall,F,Division 1,22,Dracut High School,2
+2012-2013,winter,F,Division 2,1,Wayland High School,340.5
+2012-2013,winter,F,Division 2,2,Northampton High School,213
+2012-2013,winter,F,Division 2,3,Marblehead High School,205.5
+2012-2013,winter,F,Division 2,4,Weston High School,183
+2012-2013,winter,F,Division 2,5,Holyoke Catholic High School,156
+2012-2013,winter,F,Division 2,6,Nauset Regional High School,146.5
+2012-2013,winter,F,Division 2,7,Duxbury High School,132
+2012-2013,winter,F,Division 2,8,Longmeadow High School,109.5
+2012-2013,winter,F,Division 2,9,Bedford High School,90
+2012-2013,winter,F,Division 2,10,Hopkinton High School,89
+2012-2013,winter,F,Division 2,11,Belchertown High School,67
+2012-2013,winter,F,Division 2,12,South Hadley High School,65
+2012-2013,winter,F,Division 2,13,Scituate High School,58
+2012-2013,winter,F,Division 2,14,Nantucket High School,47
+2012-2013,winter,F,Division 2,15,The Bromfield School,44
+2012-2013,winter,F,Division 2,16,Norwell High School,40
+2012-2013,winter,F,Division 2,16,Dover-Sherborn High School,40
+2012-2013,winter,F,Division 2,18,East Longmeadow High School,32
+2012-2013,winter,F,Division 2,19,Austin Preparatory School,31
+2012-2013,winter,F,Division 2,20,Pope John Paul II High School,28
+2012-2013,winter,F,Division 2,21,Dighton-Rehoboth Regional High School,24.5
+2012-2013,winter,F,Division 2,22,Medfield High School,22
+2012-2013,winter,F,Division 2,23,Canton High School,21.5
+2012-2013,winter,F,Division 2,24,Holliston High School,21
+2012-2013,winter,F,Division 2,25,Cohasset High School,18
+2012-2013,winter,F,Division 2,26,Lynnfield High School,16
+2012-2013,winter,F,Division 2,27,Ashland High School,15
+2012-2013,winter,F,Division 2,28,Matignon High School,12
+2012-2013,winter,F,Division 2,29,Arlington Catholic High School,11
+2012-2013,winter,F,Division 2,29,Nashoba Regional High School,11
+2012-2013,winter,F,Division 2,31,Hanover High School,9
+2012-2013,winter,F,Division 2,31,Advanced Math and Science Academy Charter School,9
+2012-2013,winter,F,Division 2,33,Sandwich High School,7
+2012-2013,winter,F,Division 2,34,Ipswich High School,4
+2012-2013,winter,F,Division 2,34,North Reading High School,4
+2012-2013,winter,F,Division 2,36,Norton High School,3
+2012-2013,winter,F,Division 1,1,Westford Academy,351.5
+2012-2013,winter,F,Division 1,2,Lincoln Sudbury High School,250
+2012-2013,winter,F,Division 1,3,Westfield High School,219
+2012-2013,winter,F,Division 1,4,King Philip Regional High School,153
+2012-2013,winter,F,Division 1,5,Minnechaug Regional High School,146
+2012-2013,winter,F,Division 1,6,North Attleborough High School,134
+2012-2013,winter,F,Division 1,7,Concord-Carlisle High School,131
+2012-2013,winter,F,Division 1,8,Beverly High School,99
+2012-2013,winter,F,Division 1,9,Tyngsborough High School,93
+2012-2013,winter,F,Division 1,10,Barnstable High School,85
+2012-2013,winter,F,Division 1,11,Mansfield High School,49.5
+2012-2013,winter,F,Division 1,12,Oliver Ames High School,46
+2012-2013,winter,F,Division 1,13,Shrewsbury High School,45
+2012-2013,winter,F,Division 1,14,Newton South High School,43
+2012-2013,winter,F,Division 1,15,Algonquin Regional High School,42
+2012-2013,winter,F,Division 1,16,Easthampton High School,40
+2012-2013,winter,F,Division 1,17,Chicopee High School,38
+2012-2013,winter,F,Division 1,18,Tantasqua High School Warriors,34
+2012-2013,winter,F,Division 1,19,Franklin High School,33
+2012-2013,winter,F,Division 1,20,Masconomet Regional High School,31
+2012-2013,winter,F,Division 1,21,Milford High School,29
+2012-2013,winter,F,Division 1,21,Agawam High School,29
+2012-2013,winter,F,Division 1,23,Cambridge Rindge and Latin School,25
+2012-2013,winter,F,Division 1,23,Hingham High School,25
+2012-2013,winter,F,Division 1,25,Hoosac Valley High School,21
+2012-2013,winter,F,Division 1,26,Monument Mountain Regional High School,20
+2012-2013,winter,F,Division 1,27,Amherst-Pelham Reg High School,18
+2012-2013,winter,F,Division 1,28,Westborough High School,17
+2012-2013,winter,F,Division 1,28,Arlington High School,17
+2012-2013,winter,F,Division 1,30,Malden High School,16
+2012-2013,winter,F,Division 1,31,Sharon High School,12
+2012-2013,winter,F,Division 1,32,Attleboro High School,10
+2012-2013,winter,F,Division 1,33,North Quincy High School,6
+2012-2013,winter,F,Division 1,34,West Springfield High School,5
+2012-2013,winter,F,Division 1,34,Peabody Veterans Memorial High School,5
+2012-2013,winter,F,Division 1,36,Chicopee Comprehensive High School,4
+2012-2013,winter,F,Division 1,37,Gardner High School,3
 2012-2013,winter,M,Division 2,1,Weston High School,299
 2012-2013,winter,M,Division 2,2,Wayland High School,171
 2012-2013,winter,M,Division 2,3,Bishop Feehan High School,167
@@ -1063,46 +2391,123 @@ School Year,Season,Sex,Division,Place,School,Score
 2012-2013,winter,M,Division 1,29,B.M.C. Durfee High School,6
 2012-2013,winter,M,Division 1,31,Haverhill High School,5
 2012-2013,winter,M,Division 1,32,Boston Latin School,3
-2012-2013,fall,F,Division 2,1,Bishop Feehan High School,336.5
-2012-2013,fall,F,Division 2,2,Reading Memorial High School,313
-2012-2013,fall,F,Division 2,3,Belmont High School,232
-2012-2013,fall,F,Division 2,4,Notre Dame Academy - Hingham,208
-2012-2013,fall,F,Division 2,5,Bishop Stang High School,195
-2012-2013,fall,F,Division 2,6,Westwood High School,167.5
-2012-2013,fall,F,Division 2,7,Seekonk High School,115
-2012-2013,fall,F,Division 2,8,Wakefield Memorial High School,114
-2012-2013,fall,F,Division 2,9,Ursuline Academy,110
-2012-2013,fall,F,Division 2,10,Norwood High School,96
-2012-2013,fall,F,Division 2,11,Apponequet Regional High School,87
-2012-2013,fall,F,Division 2,12,Walpole High School,74
-2012-2013,fall,F,Division 2,13,Notre Dame Academy - Worcester,68
-2012-2013,fall,F,Division 2,14,Stoneham High School,52
-2012-2013,fall,F,Division 2,15,Winchester High School,51
-2012-2013,fall,F,Division 2,16,Mount Alvernia High School,49
-2012-2013,fall,F,Division 2,17,Melrose High School,47
-2012-2013,fall,F,Division 2,18,Academy of Notre Dame,5
-2012-2013,fall,F,Division 1,1,Andover High School,428
-2012-2013,fall,F,Division 1,2,Chelmsford High School,282.5
-2012-2013,fall,F,Division 1,3,Acton-Boxborough Regional High School,253
-2012-2013,fall,F,Division 1,4,Framingham High School,225.5
-2012-2013,fall,F,Division 1,5,Needham High School,185
-2012-2013,fall,F,Division 1,6,Haverhill High School,174
-2012-2013,fall,F,Division 1,7,Lexington High School,120
-2012-2013,fall,F,Division 1,8,Wellesley High School,104
-2012-2013,fall,F,Division 1,9,Methuen High School,96
-2012-2013,fall,F,Division 1,10,Natick High School,84
-2012-2013,fall,F,Division 1,11,Newton North High School,76.5
-2012-2013,fall,F,Division 1,12,Brockton High School,61
-2012-2013,fall,F,Division 1,13,Central Catholic High School,47
-2012-2013,fall,F,Division 1,14,Braintree High School,39.5
-2012-2013,fall,F,Division 1,15,Boston Latin School,31
-2012-2013,fall,F,Division 1,16,B.M.C. Durfee High School,30
-2012-2013,fall,F,Division 1,17,Marshfield High School,20
-2012-2013,fall,F,Division 1,18,Lowell High School,19
-2012-2013,fall,F,Division 1,19,Billerica Memorial High School,17
-2012-2013,fall,F,Division 1,20,Brookline High School,16
-2012-2013,fall,F,Division 1,21,North Andover High School,14
-2012-2013,fall,F,Division 1,22,Dracut High School,2
+2011-2012,fall,F,Division 2,1,Bishop Feehan High School,363.5
+2011-2012,fall,F,Division 2,2,Reading Memorial High School,319
+2011-2012,fall,F,Division 2,3,Bishop Stang High School,255.5
+2011-2012,fall,F,Division 2,4,Notre Dame Academy - Hingham,193
+2011-2012,fall,F,Division 2,5,Westwood High School,170
+2011-2012,fall,F,Division 2,6,Sandwich High School,156
+2011-2012,fall,F,Division 2,7,Belmont High School,136
+2011-2012,fall,F,Division 2,8,Seekonk High School,134
+2011-2012,fall,F,Division 2,9,Milford High School,94
+2011-2012,fall,F,Division 2,10,Wakefield Memorial High School,84
+2011-2012,fall,F,Division 2,11,Apponequet Regional High School,82
+2011-2012,fall,F,Division 2,12,Ursuline Academy,81
+2011-2012,fall,F,Division 2,13,Stoneham High School,64
+2011-2012,fall,F,Division 2,14,Mount Alvernia High School,54
+2011-2012,fall,F,Division 2,15,Notre Dame Academy - Worcester,44
+2011-2012,fall,F,Division 2,16,Winchester High School,26
+2011-2012,fall,F,Division 2,17,Melrose High School,22
+2011-2012,fall,F,Division 2,18,Burlington High School,14
+2011-2012,fall,F,Division 2,18,Dedham High School,14
+2011-2012,fall,F,Division 2,20,Academy of Notre Dame,9
+2011-2012,fall,F,Division 2,21,Saint Peter-Marian High School,4
+2011-2012,fall,F,Division 1,1,Andover High School,481
+2011-2012,fall,F,Division 1,2,Chelmsford High School,273
+2011-2012,fall,F,Division 1,3,Acton-Boxborough Regional High School,247
+2011-2012,fall,F,Division 1,4,Needham High School,173
+2011-2012,fall,F,Division 1,5,Framingham High School,171
+2011-2012,fall,F,Division 1,6,Walpole High School,166
+2011-2012,fall,F,Division 1,7,Haverhill High School,154
+2011-2012,fall,F,Division 1,8,Lexington High School,77
+2011-2012,fall,F,Division 1,9,Methuen High School,72
+2011-2012,fall,F,Division 1,10,Newton North High School,64
+2011-2012,fall,F,Division 1,11,Dracut High School,60
+2011-2012,fall,F,Division 1,12,Braintree High School,56
+2011-2012,fall,F,Division 1,13,Natick High School,51
+2011-2012,fall,F,Division 1,14,Norwood High School,49
+2011-2012,fall,F,Division 1,15,Central Catholic High School,46
+2011-2012,fall,F,Division 1,16,Marshfield High School,41
+2011-2012,fall,F,Division 1,17,Billerica Memorial High School,36
+2011-2012,fall,F,Division 1,18,Wellesley High School,35
+2011-2012,fall,F,Division 1,19,B.M.C. Durfee High School,33
+2011-2012,fall,F,Division 1,20,Brockton High School,27
+2011-2012,fall,F,Division 1,21,Lowell High School,6
+2011-2012,fall,F,Division 1,21,Brookline High School,6
+2011-2012,fall,F,Division 1,23,Boston Latin School,1
+2011-2012,winter,F,Division 2,1,Wayland High School,349
+2011-2012,winter,F,Division 2,2,Weston High School,299
+2011-2012,winter,F,Division 2,3,Marblehead High School,269
+2011-2012,winter,F,Division 2,4,East Longmeadow High School,193
+2011-2012,winter,F,Division 2,5,Holyoke Catholic High School,130.5
+2011-2012,winter,F,Division 2,6,Duxbury High School,126
+2011-2012,winter,F,Division 2,7,Nauset Regional High School,115
+2011-2012,winter,F,Division 2,8,Belchertown High School,87
+2011-2012,winter,F,Division 2,8,Northampton High School,87
+2011-2012,winter,F,Division 2,10,Bedford High School,84
+2011-2012,winter,F,Division 2,11,Longmeadow High School,81
+2011-2012,winter,F,Division 2,12,Hopkinton High School,78
+2011-2012,winter,F,Division 2,13,South Hadley High School,67
+2011-2012,winter,F,Division 2,14,Dover-Sherborn High School,53
+2011-2012,winter,F,Division 2,15,Austin Preparatory School,43
+2011-2012,winter,F,Division 2,16,Foxborough High School,30
+2011-2012,winter,F,Division 2,17,Norwell High School,26
+2011-2012,winter,F,Division 2,18,Middleborough High School,24
+2011-2012,winter,F,Division 2,19,Nantucket High School,23
+2011-2012,winter,F,Division 2,20,Medfield High School,21
+2011-2012,winter,F,Division 2,20,Mystic Valley Regional Charter School,21
+2011-2012,winter,F,Division 2,22,Holliston High School,19
+2011-2012,winter,F,Division 2,23,Cohasset High School,17
+2011-2012,winter,F,Division 2,24,Lynnfield High School,15
+2011-2012,winter,F,Division 2,25,North Reading High School,11
+2011-2012,winter,F,Division 2,25,Pembroke High School,11
+2011-2012,winter,F,Division 2,27,Scituate High School,9
+2011-2012,winter,F,Division 2,28,Ludlow High School,7
+2011-2012,winter,F,Division 2,28,Pope John Paul II High School,7
+2011-2012,winter,F,Division 2,30,Ashland High School,6
+2011-2012,winter,F,Division 2,30,Hanover High School,6
+2011-2012,winter,F,Division 2,32,Canton High School,4
+2011-2012,winter,F,Division 2,33,Norton High School,3
+2011-2012,winter,F,Division 2,34,Arlington Catholic High School,2
+2011-2012,winter,F,Division 2,35,Dighton-Rehoboth Regional High School,1.5
+2011-2012,winter,F,Division 1,1,Westford Academy,305
+2011-2012,winter,F,Division 1,2,Lincoln-Sudbury Regional High School,202
+2011-2012,winter,F,Division 1,3,King Philip Regional High School,201
+2011-2012,winter,F,Division 1,4,Minnechaug Regional High School,183.5
+2011-2012,winter,F,Division 1,5,Concord-Carlisle Regional High School,152.5
+2011-2012,winter,F,Division 1,6,Barnstable High School,135
+2011-2012,winter,F,Division 1,7,The Bromfield School,126.5
+2011-2012,winter,F,Division 1,8,North Attleborough High School,115
+2011-2012,winter,F,Division 1,9,Westfield High School,89
+2011-2012,winter,F,Division 1,10,Beverly High School,87
+2011-2012,winter,F,Division 1,11,Easthampton High School,86
+2011-2012,winter,F,Division 1,12,Wachusett Regional High School,58
+2011-2012,winter,F,Division 1,13,Mansfield High School,55
+2011-2012,winter,F,Division 1,14,Tyngsborough High School,50
+2011-2012,winter,F,Division 1,15,Newton South High School,45
+2011-2012,winter,F,Division 1,16,Westborough High School,43
+2011-2012,winter,F,Division 1,17,Chicopee Comprehensive High School,36
+2011-2012,winter,F,Division 1,17,Agawam High School,36
+2011-2012,winter,F,Division 1,19,Tantasqua Regional High School,35
+2011-2012,winter,F,Division 1,20,Chicopee High School,30
+2011-2012,winter,F,Division 1,21,Cambridge Rindge and Latin School,29
+2011-2012,winter,F,Division 1,22,Leominster High School,27
+2011-2012,winter,F,Division 1,23,Franklin High School,26
+2011-2012,winter,F,Division 1,24,Gardner High School,24
+2011-2012,winter,F,Division 1,25,Algonquin Regional High School,22
+2011-2012,winter,F,Division 1,26,Hoosac Valley Regional High School,20
+2011-2012,winter,F,Division 1,26,Oliver Ames High School,20
+2011-2012,winter,F,Division 1,28,North Quincy High School,19
+2011-2012,winter,F,Division 1,29,Hingham High School,18
+2011-2012,winter,F,Division 1,30,Arlington High School,17
+2011-2012,winter,F,Division 1,31,Sharon High School,11.5
+2011-2012,winter,F,Division 1,32,Amherst Regional High School,8
+2011-2012,winter,F,Division 1,33,Peabody Veterans Memorial High School,3
+2011-2012,winter,F,Division 1,33,Lynn English High School,3
+2011-2012,winter,F,Division 1,35,North Andover High School,2
+2011-2012,winter,F,Division 1,35,Shrewsbury High School,2
+2011-2012,winter,F,Division 1,37,Monument Mountain Regional High School,1
+2011-2012,winter,F,Division 1,37,Attleboro High School,1
 2011-2012,winter,M,Divsiion 2,1,Weston High School,235.5
 2011-2012,winter,M,Divsiion 2,2,Concord-Carlisle High School,222
 2011-2012,winter,M,Divsiion 2,3,King Philip Regional High School,210
@@ -1148,6 +2553,51 @@ School Year,Season,Sex,Division,Place,School,Score
 2011-2012,winter,M,Divsiion 2,43,Beverly High School,2
 2011-2012,winter,M,Divsiion 2,43,Pittsfield High School,2
 2011-2012,winter,M,Divsiion 2,45,Nauset Regional High School,1
+2011-2012,winter,M,Division 2,1,Weston High School,235.5
+2011-2012,winter,M,Division 2,2,Concord-Carlisle High School,222
+2011-2012,winter,M,Division 2,3,King Philip Regional High School,210
+2011-2012,winter,M,Division 2,4,Hopkinton High School,163
+2011-2012,winter,M,Division 2,5,Mystic Valley Regional Charter School,144
+2011-2012,winter,M,Division 2,6,Bishop Stang High School,115
+2011-2012,winter,M,Division 2,7,Wayland High School,112
+2011-2012,winter,M,Division 2,8,Sandwich High School,106
+2011-2012,winter,M,Division 2,9,Bishop Feehan High School,95
+2011-2012,winter,M,Division 2,10,Northampton High School,85
+2011-2012,winter,M,Division 2,11,Duxbury High School,84
+2011-2012,winter,M,Division 2,12,Marblehead High School,83
+2011-2012,winter,M,Division 2,13,Medfield High School,65
+2011-2012,winter,M,Division 2,14,Amerhst-Pelham Reg High School,63
+2011-2012,winter,M,Division 2,15,Palmer High School,54
+2011-2012,winter,M,Division 2,16,Longmeadow High School,45.5
+2011-2012,winter,M,Division 2,17,Milford High School,44
+2011-2012,winter,M,Division 2,18,Manchester Essex High School,35
+2011-2012,winter,M,Division 2,18,Sharon High School,35
+2011-2012,winter,M,Division 2,18,Arlington Catholic High School,35
+2011-2012,winter,M,Division 2,21,Seekonk High School,32
+2011-2012,winter,M,Division 2,22,Westborough High School,30
+2011-2012,winter,M,Division 2,23,Taconic High School,28
+2011-2012,winter,M,Division 2,23,Norwell High School,28
+2011-2012,winter,M,Division 2,25,Hamilton Wenham High School,19
+2011-2012,winter,M,Division 2,26,Cohasset High School,17
+2011-2012,winter,M,Division 2,26,Bishop Fenwick High School,17
+2011-2012,winter,M,Division 2,28,The Bromfield School,16
+2011-2012,winter,M,Division 2,29,Coyle and Cassidy High School,13
+2011-2012,winter,M,Division 2,29,Ashland High School,13
+2011-2012,winter,M,Division 2,29,Middleborough High School,13
+2011-2012,winter,M,Division 2,32,Hingham High School,11.5
+2011-2012,winter,M,Division 2,33,Monson High School,11
+2011-2012,winter,M,Division 2,34,Chicopee High School,7
+2011-2012,winter,M,Division 2,35,Belchertown High School,6
+2011-2012,winter,M,Division 2,35,Dover-Sherborn High School,6
+2011-2012,winter,M,Division 2,37,Holyoke Catholic High School,4.5
+2011-2012,winter,M,Division 2,38,Boston Latin Academy,4
+2011-2012,winter,M,Division 2,38,Arlington High School,4
+2011-2012,winter,M,Division 2,40,Catholic Memorial High School,3
+2011-2012,winter,M,Division 2,40,South Hadley High School,3
+2011-2012,winter,M,Division 2,40,Wellesley High School,3
+2011-2012,winter,M,Division 2,43,Beverly High School,2
+2011-2012,winter,M,Division 2,43,Pittsfield High School,2
+2011-2012,winter,M,Division 2,45,Nauset Regional High School,1
 2011-2012,winter,M,Division 1,1,St. John's Preparatory School,388
 2011-2012,winter,M,Division 1,2,Minnechaug Regional High School,185.5
 2011-2012,winter,M,Division 1,3,Lowell High School,180
@@ -1180,50 +2630,95 @@ School Year,Season,Sex,Division,Place,School,Score
 2011-2012,winter,M,Division 1,30,Brockton High School,3
 2011-2012,winter,M,Division 1,31,Northbridge High School,2
 2011-2012,winter,M,Division 1,31,Lynn English High School,2
-2011-2012,fall,F,Division 2,1,Bishop Feehan High School,363.5
-2011-2012,fall,F,Division 2,2,Reading Memorial High School,319
-2011-2012,fall,F,Division 2,3,Bishop Stang High School,255.5
-2011-2012,fall,F,Division 2,4,Notre Dame Academy - Hingham,193
-2011-2012,fall,F,Division 2,5,Westwood High School,170
-2011-2012,fall,F,Division 2,6,Sandwich High School,156
-2011-2012,fall,F,Division 2,7,Belmont High School,136
-2011-2012,fall,F,Division 2,8,Seekonk High School,134
-2011-2012,fall,F,Division 2,9,Milford High School,94
-2011-2012,fall,F,Division 2,10,Wakefield Memorial High School,84
-2011-2012,fall,F,Division 2,11,Apponequet Regional High School,82
-2011-2012,fall,F,Division 2,12,Ursuline Academy,81
-2011-2012,fall,F,Division 2,13,Stoneham High School,64
-2011-2012,fall,F,Division 2,14,Mount Alvernia High School,54
-2011-2012,fall,F,Division 2,15,Notre Dame Academy - Worcester,44
-2011-2012,fall,F,Division 2,16,Winchester High School,26
-2011-2012,fall,F,Division 2,17,Melrose High School,22
-2011-2012,fall,F,Division 2,18,Burlington High School,14
-2011-2012,fall,F,Division 2,18,Dedham High School,14
-2011-2012,fall,F,Division 2,20,Academy of Notre Dame,9
-2011-2012,fall,F,Division 2,21,Saint Peter-Marian High School,4
-2011-2012,fall,F,Division 1,1,Andover High School,481
-2011-2012,fall,F,Division 1,2,Chelmsford High School,273
-2011-2012,fall,F,Division 1,3,Acton-Boxborough Regional High School,247
-2011-2012,fall,F,Division 1,4,Needham High School,173
-2011-2012,fall,F,Division 1,5,Framingham High School,171
-2011-2012,fall,F,Division 1,6,Walpole High School,166
-2011-2012,fall,F,Division 1,7,Haverhill High School,154
-2011-2012,fall,F,Division 1,8,Lexington High School,77
-2011-2012,fall,F,Division 1,9,Methuen High School,72
-2011-2012,fall,F,Division 1,10,Newton North High School,64
-2011-2012,fall,F,Division 1,11,Dracut High School,60
-2011-2012,fall,F,Division 1,12,Braintree High School,56
-2011-2012,fall,F,Division 1,13,Natick High School,51
-2011-2012,fall,F,Division 1,14,Norwood High School,49
-2011-2012,fall,F,Division 1,15,Central Catholic High School,46
-2011-2012,fall,F,Division 1,16,Marshfield High School,41
-2011-2012,fall,F,Division 1,17,Billerica Memorial High School,36
-2011-2012,fall,F,Division 1,18,Wellesley High School,35
-2011-2012,fall,F,Division 1,19,B.M.C. Durfee High School,33
-2011-2012,fall,F,Division 1,20,Brockton High School,27
-2011-2012,fall,F,Division 1,21,Lowell High School,6
-2011-2012,fall,F,Division 1,21,Brookline High School,6
-2011-2012,fall,F,Division 1,23,Boston Latin School,1
+2010-2011,fall,F,Division 2,1,Reading Memorial High School,279
+2010-2011,fall,F,Division 2,2,Bishop Feehan High School,241
+2010-2011,fall,F,Division 2,3,Bishop Stang High School,150
+2010-2011,fall,F,Division 2,4,Notre Dame Academy - Hingham,137
+2010-2011,fall,F,Division 2,5,Seekonk High School,97
+2010-2011,fall,F,Division 2,6,Ursuline Academy,84
+2010-2011,fall,F,Division 2,7,Walpole High School,75
+2010-2011,fall,F,Division 2,8,Westwood High School,72
+2010-2011,fall,F,Division 2,9,Stoneham High School,71
+2010-2011,fall,F,Division 2,10,Sandwich High School,70
+2010-2011,fall,F,Division 2,11,Belmont High School,26
+2010-2011,fall,F,Division 2,12,Mount Alvernia High School,25
+2010-2011,fall,F,Division 2,12,Notre Dame Academy - Worcester,25
+2010-2011,fall,F,Division 2,14,Winchester High School,14
+2010-2011,fall,F,Division 2,14,Milford High School,14
+2010-2011,fall,F,Division 2,16,Wakefield Memorial High School,9
+2010-2011,fall,F,Division 1,1,Andover High School,357.5
+2010-2011,fall,F,Division 1,2,Acton-Boxborough Regional High School,225
+2010-2011,fall,F,Division 1,3,Chelmsford High School,187
+2010-2011,fall,F,Division 1,4,Framingham High School,113
+2010-2011,fall,F,Division 1,5,Haverhill High School,98
+2010-2011,fall,F,Division 1,6,Lexington High School,97
+2010-2011,fall,F,Division 1,7,Central Catholic High School,63
+2010-2011,fall,F,Division 1,8,Needham High School,62.5
+2010-2011,fall,F,Division 1,9,Wellesley High School,52.5
+2010-2011,fall,F,Division 1,10,Natick High School,43.5
+2010-2011,fall,F,Division 1,11,Norwood High School,28
+2010-2011,fall,F,Division 1,12,Lowell High School,19
+2010-2011,fall,F,Division 1,13,Newton North High School,18
+2010-2011,fall,F,Division 1,14,Brookline High School,12
+2010-2011,fall,F,Division 1,15,Boston Latin School,9
+2010-2011,fall,F,Division 1,16,Methuen High School,4
+2010-2011,fall,F,Division 1,17,Braintree High School,3
+2010-2011,fall,F,Division 1,17,Saint Peter-Marian High School,3
+2010-2011,winter,F,Division 2,1,Marblehead High School,229
+2010-2011,winter,F,Division 2,2,Wayland High School,223.5
+2010-2011,winter,F,Division 2,3,Duxbury High School,128
+2010-2011,winter,F,Division 2,4,East Longmeadow High School,124
+2010-2011,winter,F,Division 2,5,Weston High School,122
+2010-2011,winter,F,Division 2,6,Holyoke Catholic High School,92
+2010-2011,winter,F,Division 2,7,Northampton High School,55
+2010-2011,winter,F,Division 2,8,Bedford High School,54
+2010-2011,winter,F,Division 2,9,Nauset Regional High School,49
+2010-2011,winter,F,Division 2,10,Belchertown High School,42
+2010-2011,winter,F,Division 2,11,Arlington Catholic High School,38.5
+2010-2011,winter,F,Division 2,12,Longmeadow High School,26
+2010-2011,winter,F,Division 2,13,Austin Preparatory School,24
+2010-2011,winter,F,Division 2,13,Hanover High School,24
+2010-2011,winter,F,Division 2,15,Middleborough High School,23
+2010-2011,winter,F,Division 2,15,Ludlow High School,23
+2010-2011,winter,F,Division 2,15,Norwell High School,23
+2010-2011,winter,F,Division 2,18,Holliston High School,21
+2010-2011,winter,F,Division 2,19,Cohasset High School,20
+2010-2011,winter,F,Division 2,20,Medfield High School,17
+2010-2011,winter,F,Division 2,21,South Hadley High School,12
+2010-2011,winter,F,Division 2,22,Dover-Sherborn High School,9
+2010-2011,winter,F,Division 2,23,Mystic Valley Regional Charter School,6
+2010-2011,winter,F,Division 2,24,Foxborough High School,4
+2010-2011,winter,F,Division 2,25,Pembroke High School,3
+2010-2011,winter,F,Division 2,26,Norton High School,2
+2010-2011,winter,F,Division 1,1,Lincoln-Sudbury Regional High School,195
+2010-2011,winter,F,Division 1,2,Westford Academy,181.5
+2010-2011,winter,F,Division 1,3,Concord-Carlisle Regional High School,127
+2010-2011,winter,F,Division 1,4,Gardner High School,124.5
+2010-2011,winter,F,Division 1,5,Minnechaug Regional High School,106
+2010-2011,winter,F,Division 1,6,Beverly High School,79
+2010-2011,winter,F,Division 1,6,Westborough High School,79
+2010-2011,winter,F,Division 1,8,Barnstable High School,72
+2010-2011,winter,F,Division 1,9,Westfield High School,67
+2010-2011,winter,F,Division 1,10,King Philip Regional High School,43
+2010-2011,winter,F,Division 1,11,Easthampton High School,38
+2010-2011,winter,F,Division 1,12,North Attleborough High School,37
+2010-2011,winter,F,Division 1,13,The Bromfield School,35
+2010-2011,winter,F,Division 1,14,Amherst Regional High School,26
+2010-2011,winter,F,Division 1,14,Wachusett Regional High School,26
+2010-2011,winter,F,Division 1,16,Algonquin Regional High School,25
+2010-2011,winter,F,Division 1,17,Taunton High School,17
+2010-2011,winter,F,Division 1,17,Newton South High School,17
+2010-2011,winter,F,Division 1,19,Tantasqua Regional High School,14
+2010-2011,winter,F,Division 1,19,Chicopee Comprehensive High School,14
+2010-2011,winter,F,Division 1,19,Shrewsbury High School,14
+2010-2011,winter,F,Division 1,22,Franklin High School,13
+2010-2011,winter,F,Division 1,23,Arlington High School,12
+2010-2011,winter,F,Division 1,23,Quincy High School + North Quincy High School,12
+2010-2011,winter,F,Division 1,25,Oliver Ames High School,9
+2010-2011,winter,F,Division 1,26,Mansfield High School,6
+2010-2011,winter,F,Division 1,27,North Andover High School,3
+2010-2011,winter,F,Division 1,28,Tyngsborough High School,2
+2010-2011,winter,F,Division 1,29,Peabody Veterans Memorial High School,1
 2010-2011,winter,M,Division 2,1,King Philip Regional High School,178
 2010-2011,winter,M,Division 2,2,Weston High School,172
 2010-2011,winter,M,Division 2,3,Concord-Carlisle High School,111
@@ -1289,40 +2784,101 @@ School Year,Season,Sex,Division,Place,School,Score
 2010-2011,winter,M,Division 1,24,Needham High School,3
 2010-2011,winter,M,Division 1,27,New Bedford High School,2
 2010-2011,winter,M,Division 1,27,Somerville High School,2
-2010-2011,fall,F,Division 2,1,Reading Memorial High School,279
-2010-2011,fall,F,Division 2,2,Bishop Feehan High School,241
-2010-2011,fall,F,Division 2,3,Bishop Stang High School,150
-2010-2011,fall,F,Division 2,4,Notre Dame Academy - Hingham,137
-2010-2011,fall,F,Division 2,5,Seekonk High School,97
-2010-2011,fall,F,Division 2,6,Ursuline Academy,84
-2010-2011,fall,F,Division 2,7,Walpole High School,75
-2010-2011,fall,F,Division 2,8,Westwood High School,72
-2010-2011,fall,F,Division 2,9,Stoneham High School,71
-2010-2011,fall,F,Division 2,10,Sandwich High School,70
-2010-2011,fall,F,Division 2,11,Belmont High School,26
-2010-2011,fall,F,Division 2,12,Mount Alvernia High School,25
-2010-2011,fall,F,Division 2,12,Notre Dame Academy - Worcester,25
-2010-2011,fall,F,Division 2,14,Winchester High School,14
-2010-2011,fall,F,Division 2,14,Milford High School,14
-2010-2011,fall,F,Division 2,16,Wakefield Memorial High School,9
-2010-2011,fall,F,Division 1,1,Andover High School,357.5
-2010-2011,fall,F,Division 1,2,Acton-Boxborough Regional High School,225
-2010-2011,fall,F,Division 1,3,Chelmsford High School,187
-2010-2011,fall,F,Division 1,4,Framingham High School,113
-2010-2011,fall,F,Division 1,5,Haverhill High School,98
-2010-2011,fall,F,Division 1,6,Lexington High School,97
-2010-2011,fall,F,Division 1,7,Central Catholic High School,63
-2010-2011,fall,F,Division 1,8,Needham High School,62.5
-2010-2011,fall,F,Division 1,9,Wellesley High School,52.5
-2010-2011,fall,F,Division 1,10,Natick High School,43.5
-2010-2011,fall,F,Division 1,11,Norwood High School,28
-2010-2011,fall,F,Division 1,12,Lowell High School,19
-2010-2011,fall,F,Division 1,13,Newton North High School,18
-2010-2011,fall,F,Division 1,14,Brookline High School,12
-2010-2011,fall,F,Division 1,15,Boston Latin School,9
-2010-2011,fall,F,Division 1,16,Methuen High School,4
-2010-2011,fall,F,Division 1,17,Braintree High School,3
-2010-2011,fall,F,Division 1,17,Saint Peter-Marian High School,3
+2009-2010,fall,F,Division 2,1,Bishop Feehan High School,264
+2009-2010,fall,F,Division 2,2,Bishop Stang High School,175
+2009-2010,fall,F,Division 2,3,Notre Dame Academy - Hingham,154
+2009-2010,fall,F,Division 2,4,Winchester High School,148
+2009-2010,fall,F,Division 2,5,Reading Memorial High School,140
+2009-2010,fall,F,Division 2,6,Seekonk High School,99
+2009-2010,fall,F,Division 2,7,Westwood High School,79
+2009-2010,fall,F,Division 2,8,Norwood High School,75
+2009-2010,fall,F,Division 2,9,Fontbonne Academy,67
+2009-2010,fall,F,Division 2,10,Ursuline Academy,38
+2009-2010,fall,F,Division 2,11,Wakefield Memorial High School,37
+2009-2010,fall,F,Division 2,12,Walpole High School,35
+2009-2010,fall,F,Division 2,13,Milford High School,28
+2009-2010,fall,F,Division 2,14,Sandwich High School,23
+2009-2010,fall,F,Division 2,15,Stoneham High School,16
+2009-2010,fall,F,Division 2,16,Belmont High School,12
+2009-2010,fall,F,Division 2,17,Apponequet Regional High School,5
+2009-2010,fall,F,Division 1,1,Andover High School,321
+2009-2010,fall,F,Division 1,2,Chelmsford High School,214.5
+2009-2010,fall,F,Division 1,3,Acton-Boxborough Regional High School,193.5
+2009-2010,fall,F,Division 1,4,Framingham High School,98.5
+2009-2010,fall,F,Division 1,5,Haverhill High School,81.5
+2009-2010,fall,F,Division 1,6,New Bedford High School,71
+2009-2010,fall,F,Division 1,7,Dedham High School,62
+2009-2010,fall,F,Division 1,8,Lexington High School,46
+2009-2010,fall,F,Division 1,9,Central Catholic High School,44
+2009-2010,fall,F,Division 1,10,Marshfield High School,39
+2009-2010,fall,F,Division 1,11,Wellesley High School,38
+2009-2010,fall,F,Division 1,12,Natick High School,33
+2009-2010,fall,F,Division 1,13,Dracut High School,29
+2009-2010,fall,F,Division 1,14,Lowell High School,28
+2009-2010,fall,F,Division 1,14,Needham High School,28
+2009-2010,fall,F,Division 1,16,Braintree High School,25
+2009-2010,fall,F,Division 1,17,B.M.C. Durfee High School,19
+2009-2010,fall,F,Division 1,18,Newton North High School,10
+2009-2010,fall,F,Division 1,19,Brookline High School,8
+2009-2010,fall,F,Division 1,20,Boston Latin School,6
+2009-2010,winter,F,Division 2,1,Wayland High School,223
+2009-2010,winter,F,Division 2,2,Weston High School,202
+2009-2010,winter,F,Division 2,3,Marblehead High School,115
+2009-2010,winter,F,Division 2,4,Duxbury High School,112
+2009-2010,winter,F,Division 2,5,Northampton High School,95
+2009-2010,winter,F,Division 2,6,Longmeadow High School,93
+2009-2010,winter,F,Division 2,7,Holyoke Catholic High School,81
+2009-2010,winter,F,Division 2,8,Arlington Catholic High School,68
+2009-2010,winter,F,Division 2,9,East Longmeadow High School,60
+2009-2010,winter,F,Division 2,10,Bedford High School,53
+2009-2010,winter,F,Division 2,11,Monson High School,49
+2009-2010,winter,F,Division 2,12,Mystic Valley Regional Charter School,48
+2009-2010,winter,F,Division 2,13,Nauset Regional High School,33
+2009-2010,winter,F,Division 2,14,Cohasset High School,27
+2009-2010,winter,F,Division 2,15,South Hadley High School,26
+2009-2010,winter,F,Division 2,16,Middleborough High School,20
+2009-2010,winter,F,Division 2,16,Easthampton High School,20
+2009-2010,winter,F,Division 2,16,Wahconah Regional High School,20
+2009-2010,winter,F,Division 2,19,Hopkinton High School,16
+2009-2010,winter,F,Division 2,20,Ludlow High School,13
+2009-2010,winter,F,Division 2,21,Norwell High School,12
+2009-2010,winter,F,Division 2,22,Foxborough High School,3
+2009-2010,winter,F,Division 2,23,Scituate High School,2
+2009-2010,winter,F,Division 2,23,Belchertown High School,2
+2009-2010,winter,F,Division 2,23,Manchester-Essex Regional High School,2
+2009-2010,winter,F,Division 1,1,Gardner High School,207
+2009-2010,winter,F,Division 1,2,Lincoln-Sudbury Regional High School,139.5
+2009-2010,winter,F,Division 1,3,Minnechaug Regional High School,113.5
+2009-2010,winter,F,Division 1,4,Concord-Carlisle Regional High School,109
+2009-2010,winter,F,Division 1,5,Barnstable High School,96
+2009-2010,winter,F,Division 1,6,Westford Academy,91
+2009-2010,winter,F,Division 1,7,Westfield High School,88
+2009-2010,winter,F,Division 1,8,Medfield High School,85
+2009-2010,winter,F,Division 1,9,North Attleborough High School,47
+2009-2010,winter,F,Division 1,10,Westborough High School,46
+2009-2010,winter,F,Division 1,11,Amherst Regional High School,44
+2009-2010,winter,F,Division 1,12,King Philip Regional High School,39
+2009-2010,winter,F,Division 1,13,North Andover High School,37
+2009-2010,winter,F,Division 1,14,Algonquin Regional High School,36
+2009-2010,winter,F,Division 1,15,Monument Mountain Regional High School,29
+2009-2010,winter,F,Division 1,16,Beverly High School,23
+2009-2010,winter,F,Division 1,16,Lynn Classical High School,23
+2009-2010,winter,F,Division 1,18,Chicopee Comprehensive High School,21
+2009-2010,winter,F,Division 1,19,Franklin High School,17
+2009-2010,winter,F,Division 1,20,Tantasqua Regional High School,15
+2009-2010,winter,F,Division 1,21,Quincy High School,12
+2009-2010,winter,F,Division 1,21,Hanover High School,12
+2009-2010,winter,F,Division 1,23,The Bromfield School,11
+2009-2010,winter,F,Division 1,24,Mansfield High School,10
+2009-2010,winter,F,Division 1,24,Taunton High School,10
+2009-2010,winter,F,Division 1,26,Agawam High School,9
+2009-2010,winter,F,Division 1,27,Bridgewater-Raynam Reg. High School,8
+2009-2010,winter,F,Division 1,28,Peabody Veterans Memorial High School,5
+2009-2010,winter,F,Division 1,29,Shrewsbury High School,3
+2009-2010,winter,F,Division 1,29,Hoosac Valley Regional High School,3
+2009-2010,winter,F,Division 1,29,Sharon High School,3
+2009-2010,winter,F,Division 1,32,Newton South High School,2
+2009-2010,winter,F,Division 1,33,Leominster High School,1
 2009-2010,winter,M,Division 2,1,Wayland High School,154
 2009-2010,winter,M,Division 2,2,Weston High School,141
 2009-2010,winter,M,Division 2,3,Bishop Feehan High School,131
@@ -1387,43 +2943,106 @@ School Year,Season,Sex,Division,Place,School,Score
 2009-2010,winter,M,Division 1,26,Chicopee Comprehensive High School,1
 2009-2010,winter,M,Division 1,26,New Bedford High School,1
 2009-2010,winter,M,Division 1,26,Natick High School,1
-2009-2010,fall,F,Division 2,1,Bishop Feehan High School,264
-2009-2010,fall,F,Division 2,2,Bishop Stang High School,175
-2009-2010,fall,F,Division 2,3,Notre Dame Academy - Hingham,154
-2009-2010,fall,F,Division 2,4,Winchester High School,148
-2009-2010,fall,F,Division 2,5,Reading Memorial High School,140
-2009-2010,fall,F,Division 2,6,Seekonk High School,99
-2009-2010,fall,F,Division 2,7,Westwood High School,79
-2009-2010,fall,F,Division 2,8,Norwood High School,75
-2009-2010,fall,F,Division 2,9,Fontbonne Academy,67
-2009-2010,fall,F,Division 2,10,Ursuline Academy,38
-2009-2010,fall,F,Division 2,11,Wakefield Memorial High School,37
-2009-2010,fall,F,Division 2,12,Walpole High School,35
-2009-2010,fall,F,Division 2,13,Milford High School,28
-2009-2010,fall,F,Division 2,14,Sandwich High School,23
-2009-2010,fall,F,Division 2,15,Stoneham High School,16
-2009-2010,fall,F,Division 2,16,Belmont High School,12
-2009-2010,fall,F,Division 2,17,Apponequet Regional High School,5
-2009-2010,fall,F,Division 1,1,Andover High School,321
-2009-2010,fall,F,Division 1,2,Chelmsford High School,214.5
-2009-2010,fall,F,Division 1,3,Acton-Boxborough Regional High School,193.5
-2009-2010,fall,F,Division 1,4,Framingham High School,98.5
-2009-2010,fall,F,Division 1,5,Haverhill High School,81.5
-2009-2010,fall,F,Division 1,6,New Bedford High School,71
-2009-2010,fall,F,Division 1,7,Dedham High School,62
-2009-2010,fall,F,Division 1,8,Lexington High School,46
-2009-2010,fall,F,Division 1,9,Central Catholic High School,44
-2009-2010,fall,F,Division 1,10,Marshfield High School,39
-2009-2010,fall,F,Division 1,11,Wellesley High School,38
-2009-2010,fall,F,Division 1,12,Natick High School,33
-2009-2010,fall,F,Division 1,13,Dracut High School,29
-2009-2010,fall,F,Division 1,14,Lowell High School,28
-2009-2010,fall,F,Division 1,14,Needham High School,28
-2009-2010,fall,F,Division 1,16,Braintree High School,25
-2009-2010,fall,F,Division 1,17,B.M.C. Durfee High School,19
-2009-2010,fall,F,Division 1,18,Newton North High School,10
-2009-2010,fall,F,Division 1,19,Brookline High School,8
-2009-2010,fall,F,Division 1,20,Boston Latin School,6
+2008-2009,fall,F,Division 2,1,Notre Dame Academy - Hingham,238
+2008-2009,fall,F,Division 2,2,Bishop Feehan High School,183.5
+2008-2009,fall,F,Division 2,3,Bishop Stang High School,180.5
+2008-2009,fall,F,Division 2,4,Winchester High School,152
+2008-2009,fall,F,Division 2,5,Belmont High School,95
+2008-2009,fall,F,Division 2,6,Central Catholic High School,85
+2008-2009,fall,F,Division 2,7,Norwood High School,63
+2008-2009,fall,F,Division 2,8,Seekonk High School,61
+2008-2009,fall,F,Division 2,9,Wellesley High School,58
+2008-2009,fall,F,Division 2,10,Ursuline Academy,50
+2008-2009,fall,F,Division 2,11,Westwood High School,37
+2008-2009,fall,F,Division 2,12,Walpole High School,36
+2008-2009,fall,F,Division 2,13,Dracut High School,31
+2008-2009,fall,F,Division 2,13,Burlington High School,31
+2008-2009,fall,F,Division 2,15,Apponequet Regional High School,24
+2008-2009,fall,F,Division 2,16,Milford High School,22
+2008-2009,fall,F,Division 2,17,Notre Dame Academy - Worcester,17
+2008-2009,fall,F,Division 2,18,Dedham High School,12
+2008-2009,fall,F,Division 2,19,Stoneham High School,9
+2008-2009,fall,F,Division 2,20,Natick High School,5
+2008-2009,fall,F,Division 2,21,Wakefield Memorial High School,4
+2008-2009,fall,F,Division 2,22,Melrose High School,1
+2008-2009,fall,F,Division 1,1,Chelmsford High School,277
+2008-2009,fall,F,Division 1,2,Acton-Boxborough Regional High School,170
+2008-2009,fall,F,Division 1,3,Reading Memorial High School,165.5
+2008-2009,fall,F,Division 1,4,Andover High School,162.5
+2008-2009,fall,F,Division 1,5,Haverhill High School,119
+2008-2009,fall,F,Division 1,6,Framingham High School,89
+2008-2009,fall,F,Division 1,7,Lexington High School,79
+2008-2009,fall,F,Division 1,8,Brookline High School,65
+2008-2009,fall,F,Division 1,9,New Bedford High School,54
+2008-2009,fall,F,Division 1,10,B.M.C. Durfee High School,52
+2008-2009,fall,F,Division 1,11,Fontbonne Academy,47
+2008-2009,fall,F,Division 1,12,Lowell High School,25
+2008-2009,fall,F,Division 1,12,Brockton High School,25
+2008-2009,fall,F,Division 1,14,Methuen High School,23
+2008-2009,fall,F,Division 1,15,Braintree High School,21
+2008-2009,fall,F,Division 1,16,Marshfield High School,11
+2008-2009,fall,F,Division 1,17,Newton North High School,4
+2008-2009,fall,F,Division 1,17,Boston Latin School,4
+2008-2009,fall,F,Division 1,19,Weymouth High School,2
+2008-2009,winter,F,Division 2,1,Wayland High School,308
+2008-2009,winter,F,Division 2,2,Weston High School,194
+2008-2009,winter,F,Division 2,3,Marblehead High School,108
+2008-2009,winter,F,Division 2,4,Longmeadow High School,98
+2008-2009,winter,F,Division 2,5,East Longmeadow High School,85
+2008-2009,winter,F,Division 2,6,Duxbury High School,79.5
+2008-2009,winter,F,Division 2,7,Holyoke Catholic High School,78
+2008-2009,winter,F,Division 2,8,Easthampton High School,68
+2008-2009,winter,F,Division 2,9,Northampton High School,62.5
+2008-2009,winter,F,Division 2,10,Austin Preparatory School,51
+2008-2009,winter,F,Division 2,11,Arlington Catholic High School,50
+2008-2009,winter,F,Division 2,12,Hamilton-Wenham Regional High School,47
+2008-2009,winter,F,Division 2,13,Monson High School,32
+2008-2009,winter,F,Division 2,14,Bedford High School,30
+2008-2009,winter,F,Division 2,15,South Hadley High School,17
+2008-2009,winter,F,Division 2,16,Masconomet Regional High School,13
+2008-2009,winter,F,Division 2,16,Wahconah Regional High School,13
+2008-2009,winter,F,Division 2,18,Norwell High School,12
+2008-2009,winter,F,Division 2,19,"Oliver Ames, North Easton High School",11
+2008-2009,winter,F,Division 2,20,"Sacred Heart, Kingston High School",8
+2008-2009,winter,F,Division 2,20,Hingham High School,8
+2008-2009,winter,F,Division 2,22,Middleborough High School,6
+2008-2009,winter,F,Division 2,23,Manchester-Essex Regional High School,4
+2008-2009,winter,F,Division 2,24,Ludlow High School,3
+2008-2009,winter,F,Division 2,25,Coyle and Cassidy High School,2
+2008-2009,winter,F,Division 2,26,Belchertown High School,1
+2008-2009,winter,F,Division 1,1,Lincoln-Sudbury Regional High School,175
+2008-2009,winter,F,Division 1,2,North Andover High School,147
+2008-2009,winter,F,Division 1,3,Gardner High School,118
+2008-2009,winter,F,Division 1,4,Concord-Carlisle Regional High School,117
+2008-2009,winter,F,Division 1,5,Barnstable High School,112
+2008-2009,winter,F,Division 1,6,Westborough High School,93
+2008-2009,winter,F,Division 1,7,Minnechaug Regional High School,86
+2008-2009,winter,F,Division 1,8,Westfield High School,61
+2008-2009,winter,F,Division 1,9,Monument Mountain Regional High School,54
+2008-2009,winter,F,Division 1,10,Westford Academy,52
+2008-2009,winter,F,Division 1,11,Algonquin Regional High School,45
+2008-2009,winter,F,Division 1,12,Amherst Regional High School,44
+2008-2009,winter,F,Division 1,13,North Attleborough High School,37
+2008-2009,winter,F,Division 1,14,Medfield High School,32
+2008-2009,winter,F,Division 1,15,Mansfield High School,29
+2008-2009,winter,F,Division 1,15,Hopkinton-Ashland Co-op High School,29
+2008-2009,winter,F,Division 1,17,Beverly High School,28
+2008-2009,winter,F,Division 1,18,Lynn Classical High School,21
+2008-2009,winter,F,Division 1,19,King Philip Regional High School,20
+2008-2009,winter,F,Division 1,20,Chicopee Comprehensive High School,18
+2008-2009,winter,F,Division 1,21,Taunton High School,15
+2008-2009,winter,F,Division 1,22,The Bromfield School,11
+2008-2009,winter,F,Division 1,23,Scituate-Cohasset Co-operative High School,9
+2008-2009,winter,F,Division 1,24,Hanover High School,7
+2008-2009,winter,F,Division 1,24,Agawam High School,7
+2008-2009,winter,F,Division 1,24,Peabody Veterans Memorial High School,7
+2008-2009,winter,F,Division 1,27,Leominster High School,5
+2008-2009,winter,F,Division 1,28,Nauset Regional High School,4
+2008-2009,winter,F,Division 1,28,"Doherty Memorial, Worcester High School",4
+2008-2009,winter,F,Division 1,30,West Springfield High School,3
+2008-2009,winter,F,Division 1,31,Boston Latin Academy,2
+2008-2009,winter,F,Division 1,31,Bridgewater-Raynam Reg. High School,2
+2008-2009,winter,F,Division 1,33,Sharon High School,1
 2008-2009,winter,M,Division 2,1,Wayland High School,156
 2008-2009,winter,M,Division 2,2,Bishop Feehan High School,147
 2008-2009,winter,M,Division 2,3,Weston High School,138
@@ -1489,47 +3108,96 @@ School Year,Season,Sex,Division,Place,School,Score
 2008-2009,winter,M,Division 1,27,Agawam High School,4
 2008-2009,winter,M,Division 1,29,Peabody Veterans Memorial High School,3
 2008-2009,winter,M,Division 1,30,St. John's High School,1
-2008-2009,fall,F,Division 2,1,Notre Dame Academy - Hingham,238
-2008-2009,fall,F,Division 2,2,Bishop Feehan High School,183.5
-2008-2009,fall,F,Division 2,3,Bishop Stang High School,180.5
-2008-2009,fall,F,Division 2,4,Winchester High School,152
-2008-2009,fall,F,Division 2,5,Belmont High School,95
-2008-2009,fall,F,Division 2,6,Central Catholic High School,85
-2008-2009,fall,F,Division 2,7,Norwood High School,63
-2008-2009,fall,F,Division 2,8,Seekonk High School,61
-2008-2009,fall,F,Division 2,9,Wellesley High School,58
-2008-2009,fall,F,Division 2,10,Ursuline Academy,50
-2008-2009,fall,F,Division 2,11,Westwood High School,37
-2008-2009,fall,F,Division 2,12,Walpole High School,36
-2008-2009,fall,F,Division 2,13,Dracut High School,31
-2008-2009,fall,F,Division 2,13,Burlington High School,31
-2008-2009,fall,F,Division 2,15,Apponequet Regional High School,24
-2008-2009,fall,F,Division 2,16,Milford High School,22
-2008-2009,fall,F,Division 2,17,Notre Dame Academy - Worcester,17
-2008-2009,fall,F,Division 2,18,Dedham High School,12
-2008-2009,fall,F,Division 2,19,Stoneham High School,9
-2008-2009,fall,F,Division 2,20,Natick High School,5
-2008-2009,fall,F,Division 2,21,Wakefield Memorial High School,4
-2008-2009,fall,F,Division 2,22,Melrose High School,1
-2008-2009,fall,F,Division 1,1,Chelmsford High School,277
-2008-2009,fall,F,Division 1,2,Acton-Boxborough Regional High School,170
-2008-2009,fall,F,Division 1,3,Reading Memorial High School,165.5
-2008-2009,fall,F,Division 1,4,Andover High School,162.5
-2008-2009,fall,F,Division 1,5,Haverhill High School,119
-2008-2009,fall,F,Division 1,6,Framingham High School,89
-2008-2009,fall,F,Division 1,7,Lexington High School,79
-2008-2009,fall,F,Division 1,8,Brookline High School,65
-2008-2009,fall,F,Division 1,9,New Bedford High School,54
-2008-2009,fall,F,Division 1,10,B.M.C. Durfee High School,52
-2008-2009,fall,F,Division 1,11,Fontbonne Academy,47
-2008-2009,fall,F,Division 1,12,Lowell High School,25
-2008-2009,fall,F,Division 1,12,Brockton High School,25
-2008-2009,fall,F,Division 1,14,Methuen High School,23
-2008-2009,fall,F,Division 1,15,Braintree High School,21
-2008-2009,fall,F,Division 1,16,Marshfield High School,11
-2008-2009,fall,F,Division 1,17,Newton North High School,4
-2008-2009,fall,F,Division 1,17,Boston Latin School,4
-2008-2009,fall,F,Division 1,19,Weymouth High School,2
+2007-2008,fall,F,Division 2,1,Notre Dame Academy - Hingham,233.5
+2007-2008,fall,F,Division 2,2,Bishop Stang High School,195
+2007-2008,fall,F,Division 2,3,Bishop Feehan High School,186
+2007-2008,fall,F,Division 2,4,Winchester High School,112
+2007-2008,fall,F,Division 2,5,Central Catholic High School,90
+2007-2008,fall,F,Division 2,6,Milford High School,87
+2007-2008,fall,F,Division 2,7,Norwood High School,78
+2007-2008,fall,F,Division 2,8,Dracut High School,59
+2007-2008,fall,F,Division 2,9,Belmont High School,56
+2007-2008,fall,F,Division 2,10,Natick High School,49
+2007-2008,fall,F,Division 2,11,Wellesley High School,47
+2007-2008,fall,F,Division 2,12,Stoneham High School,36
+2007-2008,fall,F,Division 2,13,Dedham High School,28
+2007-2008,fall,F,Division 2,14,Westwood High School,24
+2007-2008,fall,F,Division 2,15,Burlington High School,22.5
+2007-2008,fall,F,Division 2,16,Seekonk High School,21
+2007-2008,fall,F,Division 2,17,Apponequet Regional High School,16
+2007-2008,fall,F,Division 2,17,Academy of Notre Dame,16
+2007-2008,fall,F,Division 2,19,Notre Dame Academy - Worcester,14
+2007-2008,fall,F,Division 2,20,Ursuline Academy,11
+2007-2008,fall,F,Division 2,21,Walpole High School,8
+2007-2008,fall,F,Division 1,1,Andover High School,245
+2007-2008,fall,F,Division 1,2,Chelmsford High School,227
+2007-2008,fall,F,Division 1,3,Acton-Boxborough Regional High School,211
+2007-2008,fall,F,Division 1,4,Reading Memorial High School,134
+2007-2008,fall,F,Division 1,5,Framingham High School,95
+2007-2008,fall,F,Division 1,6,Lexington High School,86
+2007-2008,fall,F,Division 1,7,Haverhill High School,84
+2007-2008,fall,F,Division 1,8,Methuen High School,82
+2007-2008,fall,F,Division 1,9,Brookline High School,56
+2007-2008,fall,F,Division 1,10,Lowell High School,43
+2007-2008,fall,F,Division 1,11,Fontbonne Academy,39
+2007-2008,fall,F,Division 1,12,B.M.C. Durfee High School,31
+2007-2008,fall,F,Division 1,13,Brockton High School,25
+2007-2008,fall,F,Division 1,14,Boston Latin School,22
+2007-2008,fall,F,Division 1,15,Braintree High School,12
+2007-2008,fall,F,Division 1,16,Needham High School,2
+2007-2008,fall,F,Division 1,17,Weymouth High School,1
+2007-2008,winter,F,Division 2,1,Wayland High School,272
+2007-2008,winter,F,Division 2,2,Marblehead High School,182
+2007-2008,winter,F,Division 2,3,Weston High School,167
+2007-2008,winter,F,Division 2,4,Longmeadow High School,153
+2007-2008,winter,F,Division 2,5,Arlington Catholic High School,106
+2007-2008,winter,F,Division 2,6,Holyoke Catholic High School,75
+2007-2008,winter,F,Division 2,7,Duxbury High School,63
+2007-2008,winter,F,Division 2,8,Austin Preparatory School,58
+2007-2008,winter,F,Division 2,9,Hamilton-Wenham Regional High School,41
+2007-2008,winter,F,Division 2,10,Mystic Valley Regional Charter School,40
+2007-2008,winter,F,Division 2,11,South Hadley High School,36
+2007-2008,winter,F,Division 2,12,Easthampton High School,28
+2007-2008,winter,F,Division 2,13,Norwell High School,25
+2007-2008,winter,F,Division 2,14,Nantucket High School,20
+2007-2008,winter,F,Division 2,15,Wahconah Regional High School,19.5
+2007-2008,winter,F,Division 2,16,Monson High School,19
+2007-2008,winter,F,Division 2,17,Holliston High School,18
+2007-2008,winter,F,Division 2,18,East Longmeadow High School,12
+2007-2008,winter,F,Division 2,19,"Sacred Heart, Kingston High School",10.5
+2007-2008,winter,F,Division 2,20,Masconomet Regional High School,9
+2007-2008,winter,F,Division 2,21,Manchester-Essex Regional High School,7
+2007-2008,winter,F,Division 2,22,Hopkinton High School,6
+2007-2008,winter,F,Division 2,23,Coyle and Cassidy High School,5
+2007-2008,winter,F,Division 2,24,Hingham High School,4
+2007-2008,winter,F,Division 2,25,Tyngsborough High School,3
+2007-2008,winter,F,Division 2,26,Bedford High School,2
+2007-2008,winter,F,Division 1,1,Gardner High School,253
+2007-2008,winter,F,Division 1,2,North Andover High School,143
+2007-2008,winter,F,Division 1,3,Barnstable High School,135
+2007-2008,winter,F,Division 1,4,Concord-Carlisle Regional High School,119
+2007-2008,winter,F,Division 1,5,Northampton High School,114
+2007-2008,winter,F,Division 1,6,Lincoln-Sudbury Regional High School,107
+2007-2008,winter,F,Division 1,7,Monument Mountain Regional High School,101
+2007-2008,winter,F,Division 1,8,Westford Academy,84
+2007-2008,winter,F,Division 1,9,Westborough High School,57
+2007-2008,winter,F,Division 1,10,Minnechaug Regional High School,48
+2007-2008,winter,F,Division 1,11,Waltham High School,36
+2007-2008,winter,F,Division 1,12,Mansfield High School,34
+2007-2008,winter,F,Division 1,13,Beverly High School,27
+2007-2008,winter,F,Division 1,14,Amherst Regional High School,24
+2007-2008,winter,F,Division 1,15,Lynn Classical High School,20
+2007-2008,winter,F,Division 1,16,Westfield High School,16
+2007-2008,winter,F,Division 1,17,Nauset Regional High School,13
+2007-2008,winter,F,Division 1,18,Wachusett Regional High School,12
+2007-2008,winter,F,Division 1,18,Agawam High School,12
+2007-2008,winter,F,Division 1,18,North Attleborough High School,12
+2007-2008,winter,F,Division 1,18,Medfield High School,12
+2007-2008,winter,F,Division 1,22,Sharon High School,5
+2007-2008,winter,F,Division 1,23,Scituate-Cohasset Co-operative High School,3
+2007-2008,winter,F,Division 1,23,"Doherty Memorial, Worcester High School",3
+2007-2008,winter,F,Division 1,23,Tantasqua Regional High School,3
+2007-2008,winter,F,Division 1,26,Taunton High School,2
 2007-2008,winter,M,Division 2,1,Weston High School,217
 2007-2008,winter,M,Division 2,2,Ipswich High School,117
 2007-2008,winter,M,Division 2,3,Bishop Feehan High School,114
@@ -1593,44 +3261,98 @@ School Year,Season,Sex,Division,Place,School,Score
 2007-2008,winter,M,Division 1,27,Westborough High School,1.5
 2007-2008,winter,M,Division 1,28,Lowell High School,1
 2007-2008,winter,M,Division 1,28,Peabody Veterans Memorial High School,1
-2007-2008,fall,F,Division 2,1,Notre Dame Academy - Hingham,233.5
-2007-2008,fall,F,Division 2,2,Bishop Stang High School,195
-2007-2008,fall,F,Division 2,3,Bishop Feehan High School,186
-2007-2008,fall,F,Division 2,4,Winchester High School,112
-2007-2008,fall,F,Division 2,5,Central Catholic High School,90
-2007-2008,fall,F,Division 2,6,Milford High School,87
-2007-2008,fall,F,Division 2,7,Norwood High School,78
-2007-2008,fall,F,Division 2,8,Dracut High School,59
-2007-2008,fall,F,Division 2,9,Belmont High School,56
-2007-2008,fall,F,Division 2,10,Natick High School,49
-2007-2008,fall,F,Division 2,11,Wellesley High School,47
-2007-2008,fall,F,Division 2,12,Stoneham High School,36
-2007-2008,fall,F,Division 2,13,Dedham High School,28
-2007-2008,fall,F,Division 2,14,Westwood High School,24
-2007-2008,fall,F,Division 2,15,Burlington High School,22.5
-2007-2008,fall,F,Division 2,16,Seekonk High School,21
-2007-2008,fall,F,Division 2,17,Apponequet Regional High School,16
-2007-2008,fall,F,Division 2,17,Academy of Notre Dame,16
-2007-2008,fall,F,Division 2,19,Notre Dame Academy - Worcester,14
-2007-2008,fall,F,Division 2,20,Ursuline Academy,11
-2007-2008,fall,F,Division 2,21,Walpole High School,8
-2007-2008,fall,F,Division 1,1,Andover High School,245
-2007-2008,fall,F,Division 1,2,Chelmsford High School,227
-2007-2008,fall,F,Division 1,3,Acton-Boxborough Regional High School,211
-2007-2008,fall,F,Division 1,4,Reading Memorial High School,134
-2007-2008,fall,F,Division 1,5,Framingham High School,95
-2007-2008,fall,F,Division 1,6,Lexington High School,86
-2007-2008,fall,F,Division 1,7,Haverhill High School,84
-2007-2008,fall,F,Division 1,8,Methuen High School,82
-2007-2008,fall,F,Division 1,9,Brookline High School,56
-2007-2008,fall,F,Division 1,10,Lowell High School,43
-2007-2008,fall,F,Division 1,11,Fontbonne Academy,39
-2007-2008,fall,F,Division 1,12,B.M.C. Durfee High School,31
-2007-2008,fall,F,Division 1,13,Brockton High School,25
-2007-2008,fall,F,Division 1,14,Boston Latin School,22
-2007-2008,fall,F,Division 1,15,Braintree High School,12
-2007-2008,fall,F,Division 1,16,Needham High School,2
-2007-2008,fall,F,Division 1,17,Weymouth High School,1
+2006-2007,fall,F,Division 2,1,Notre Dame Academy - Hingham,233
+2006-2007,fall,F,Division 2,2,Bishop Stang High School,156.5
+2006-2007,fall,F,Division 2,3,Bishop Feehan High School,143
+2006-2007,fall,F,Division 2,4,Winchester High School,124
+2006-2007,fall,F,Division 2,5,Central Catholic High School,78
+2006-2007,fall,F,Division 2,6,Norwood High School,73
+2006-2007,fall,F,Division 2,7,Dedham High School,70
+2006-2007,fall,F,Division 2,8,Burlington High School,63
+2006-2007,fall,F,Division 2,9,Belmont High School,61
+2006-2007,fall,F,Division 2,10,Natick High School,55.5
+2006-2007,fall,F,Division 2,11,Stoneham High School,50
+2006-2007,fall,F,Division 2,12,Milford High School,48
+2006-2007,fall,F,Division 2,13,Walpole High School,38
+2006-2007,fall,F,Division 2,14,Apponequet Regional High School,34
+2006-2007,fall,F,Division 2,15,Ursuline Academy,32
+2006-2007,fall,F,Division 2,16,Dracut High School,30
+2006-2007,fall,F,Division 2,17,Academy of Notre Dame,19
+2006-2007,fall,F,Division 2,18,Wellesley High School,16
+2006-2007,fall,F,Division 2,18,Westwood High School,16
+2006-2007,fall,F,Division 2,20,Seekonk High School,15
+2006-2007,fall,F,Division 2,21,Canton High School,14
+2006-2007,fall,F,Division 2,22,Notre Dame Academy - Worcester,4
+2006-2007,fall,F,Division 1,1,Andover High School,301
+2006-2007,fall,F,Division 1,2,Chelmsford High School,288
+2006-2007,fall,F,Division 1,3,Acton-Boxborough Regional High School,220
+2006-2007,fall,F,Division 1,4,Reading Memorial High School,104
+2006-2007,fall,F,Division 1,5,Framingham High School,89
+2006-2007,fall,F,Division 1,6,Haverhill High School,80
+2006-2007,fall,F,Division 1,7,B.M.C. Durfee High School,51
+2006-2007,fall,F,Division 1,7,Lexington High School,51
+2006-2007,fall,F,Division 1,9,Brookline High School,50
+2006-2007,fall,F,Division 1,10,Methuen High School,49
+2006-2007,fall,F,Division 1,11,Lowell High School,40
+2006-2007,fall,F,Division 1,12,Brockton High School,26
+2006-2007,fall,F,Division 1,13,Needham High School,15
+2006-2007,fall,F,Division 1,14,Cambridge Rindge and Latin School,8
+2006-2007,fall,F,Division 1,15,Sandwich High School,7
+2006-2007,fall,F,Division 1,16,Fontbonne Academy,6
+2006-2007,fall,F,Division 1,17,Boston Latin School,4
+2006-2007,fall,F,Division 1,18,Braintree High School,3
+2006-2007,winter,F,Division 2,1,Wayland High School,196
+2006-2007,winter,F,Division 2,2,Longmeadow High School,183
+2006-2007,winter,F,Division 2,3,Weston High School,170
+2006-2007,winter,F,Division 2,4,Holyoke Catholic High School,122
+2006-2007,winter,F,Division 2,5,Marblehead High School,120
+2006-2007,winter,F,Division 2,6,Arlington Catholic High School,103
+2006-2007,winter,F,Division 2,7,East Longmeadow High School,95
+2006-2007,winter,F,Division 2,8,Pittsfield High School,56
+2006-2007,winter,F,Division 2,9,Hamilton-Wenham Regional High School,55
+2006-2007,winter,F,Division 2,10,Hopkinton High School,42
+2006-2007,winter,F,Division 2,11,Monson High School,40
+2006-2007,winter,F,Division 2,12,Masconomet Regional High School,33
+2006-2007,winter,F,Division 2,13,Middleborough High School,29
+2006-2007,winter,F,Division 2,14,Ipswich High School,26
+2006-2007,winter,F,Division 2,15,Easthampton High School,23
+2006-2007,winter,F,Division 2,15,South Hadley High School,23
+2006-2007,winter,F,Division 2,17,Norwell High School,21
+2006-2007,winter,F,Division 2,18,Nantucket High School,16
+2006-2007,winter,F,Division 2,19,Holliston High School,10
+2006-2007,winter,F,Division 2,20,Hingham High School,6
+2006-2007,winter,F,Division 2,20,Tyngsborough High School,6
+2006-2007,winter,F,Division 2,20,Duxbury High School,6
+2006-2007,winter,F,Division 2,23,North Reading High School,5
+2006-2007,winter,F,Division 2,24,Saint Joseph Central,4
+2006-2007,winter,F,Division 2,25,Ludlow High School,2
+2006-2007,winter,F,Division 2,25,Bedford High School,2
+2006-2007,winter,F,Division 1,1,Gardner High School,258
+2006-2007,winter,F,Division 1,2,Lincoln-Sudbury Regional High School,176
+2006-2007,winter,F,Division 1,3,North Andover High School,122
+2006-2007,winter,F,Division 1,4,Barnstable High School,114
+2006-2007,winter,F,Division 1,5,Lenox Memorial High School,110
+2006-2007,winter,F,Division 1,6,Beverly High School,108.5
+2006-2007,winter,F,Division 1,7,Concord-Carlisle Regional High School,85.5
+2006-2007,winter,F,Division 1,8,Westford Academy,64
+2006-2007,winter,F,Division 1,9,Northampton High School,53
+2006-2007,winter,F,Division 1,10,North Attleborough High School,49.5
+2006-2007,winter,F,Division 1,11,Amherst Regional High School,47
+2006-2007,winter,F,Division 1,12,Westborough High School,29.5
+2006-2007,winter,F,Division 1,13,Waltham High School,28
+2006-2007,winter,F,Division 1,14,Tantasqua Regional High School,23
+2006-2007,winter,F,Division 1,14,Medfield High School,23
+2006-2007,winter,F,Division 1,14,Minnechaug Regional High School,23
+2006-2007,winter,F,Division 1,17,Reading-Lynnfield Co-op High School,21
+2006-2007,winter,F,Division 1,18,Nauset Regional High School,19
+2006-2007,winter,F,Division 1,19,Algonquin Regional High School,14
+2006-2007,winter,F,Division 1,20,Westfield High School,8
+2006-2007,winter,F,Division 1,21,Agawam High School,7
+2006-2007,winter,F,Division 1,22,Taunton High School,4
+2006-2007,winter,F,Division 1,23,Bishop Fenwick High School,3
+2006-2007,winter,F,Division 1,23,Hanover High School,3
+2006-2007,winter,F,Division 1,25,Lynn Classical High School,1
+2006-2007,winter,F,Division 1,25,Wachusett Regional High School,1
 2006-2007,winter,M,Division 2,1,Weston High School,296
 2006-2007,winter,M,Division 2,2,Bishop Feehan High School,165
 2006-2007,winter,M,Division 2,3,Ipswich High School,106
@@ -1691,46 +3413,6 @@ School Year,Season,Sex,Division,Place,School,Score
 2006-2007,winter,M,Division 1,24,Brookline High School,3
 2006-2007,winter,M,Division 1,27,Brockton High School,2
 2006-2007,winter,M,Division 1,27,Newton South High School,2
-2006-2007,fall,F,Division 2,1,Notre Dame Academy - Hingham,233
-2006-2007,fall,F,Division 2,2,Bishop Stang High School,156.5
-2006-2007,fall,F,Division 2,3,Bishop Feehan High School,143
-2006-2007,fall,F,Division 2,4,Winchester High School,124
-2006-2007,fall,F,Division 2,5,Central Catholic High School,78
-2006-2007,fall,F,Division 2,6,Norwood High School,73
-2006-2007,fall,F,Division 2,7,Dedham High School,70
-2006-2007,fall,F,Division 2,8,Burlington High School,63
-2006-2007,fall,F,Division 2,9,Belmont High School,61
-2006-2007,fall,F,Division 2,10,Natick High School,55.5
-2006-2007,fall,F,Division 2,11,Stoneham High School,50
-2006-2007,fall,F,Division 2,12,Milford High School,48
-2006-2007,fall,F,Division 2,13,Walpole High School,38
-2006-2007,fall,F,Division 2,14,Apponequet Regional High School,34
-2006-2007,fall,F,Division 2,15,Ursuline Academy,32
-2006-2007,fall,F,Division 2,16,Dracut High School,30
-2006-2007,fall,F,Division 2,17,Academy of Notre Dame,19
-2006-2007,fall,F,Division 2,18,Wellesley High School,16
-2006-2007,fall,F,Division 2,18,Westwood High School,16
-2006-2007,fall,F,Division 2,20,Seekonk High School,15
-2006-2007,fall,F,Division 2,21,Canton High School,14
-2006-2007,fall,F,Division 2,22,Notre Dame Academy - Worcester,4
-2006-2007,fall,F,Division 1,1,Andover High School,301
-2006-2007,fall,F,Division 1,2,Chelmsford High School,288
-2006-2007,fall,F,Division 1,3,Acton-Boxborough Regional High School,220
-2006-2007,fall,F,Division 1,4,Reading Memorial High School,104
-2006-2007,fall,F,Division 1,5,Framingham High School,89
-2006-2007,fall,F,Division 1,6,Haverhill High School,80
-2006-2007,fall,F,Division 1,7,B.M.C. Durfee High School,51
-2006-2007,fall,F,Division 1,7,Lexington High School,51
-2006-2007,fall,F,Division 1,9,Brookline High School,50
-2006-2007,fall,F,Division 1,10,Methuen High School,49
-2006-2007,fall,F,Division 1,11,Lowell High School,40
-2006-2007,fall,F,Division 1,12,Brockton High School,26
-2006-2007,fall,F,Division 1,13,Needham High School,15
-2006-2007,fall,F,Division 1,14,Cambridge Rindge and Latin School,8
-2006-2007,fall,F,Division 1,15,Sandwich High School,7
-2006-2007,fall,F,Division 1,16,Fontbonne Academy,6
-2006-2007,fall,F,Division 1,17,Boston Latin School,4
-2006-2007,fall,F,Division 1,18,Braintree High School,3
 2005-2006,fall,F,Division 2,1,Notre Dame Academy - Hingham,
 2005-2006,fall,F,Division 2,2,Bishop Stang High School,
 2005-2006,fall,F,Division 1,1,Andover High School,
@@ -1739,6 +3421,39 @@ School Year,Season,Sex,Division,Place,School,Score
 2004-2005,fall,F,Division 2,2,Bishop Stang High School,
 2004-2005,fall,F,Division 1,1,Andover High School,
 2004-2005,fall,F,Division 1,2,Acton-Boxborough Regional High School,
+2003-2004,fall,F,State,1,Andover High School,244
+2003-2004,fall,F,State,2,Acton-Boxborough Regional High School,127
+2003-2004,fall,F,State,3,Notre Dame Academy - Hingham,50
+2003-2004,fall,F,State,4,Seekonk High School,107
+2003-2004,fall,F,State,5,Belmont High School,106
+2003-2004,fall,F,State,6,Chelmsford High School,94
+2003-2004,fall,F,State,7,Needham High School,69
+2003-2004,fall,F,State,8,Apponequet Regional High School,67
+2003-2004,fall,F,State,9,Westwood High School,54
+2003-2004,fall,F,State,10,Framingham High School,48
+2003-2004,fall,F,State,11,Bishop Feehan High School,42
+2003-2004,fall,F,State,12,Milford High School,37
+2003-2004,fall,F,State,13,Melrose High School,33
+2003-2004,fall,F,State,13,Newton North High School,33
+2003-2004,fall,F,State,15,Central Catholic High School,27
+2003-2004,fall,F,State,16,Cambridge Rindge and Latin School,22
+2003-2004,fall,F,State,16,Brockton High School,22
+2003-2004,fall,F,State,18,Duxbury High School,19
+2003-2004,fall,F,State,18,Haverhill High School,19
+2003-2004,fall,F,State,20,Notre Dame Academy - Worcester,14
+2003-2004,fall,F,State,21,Burlington High School,13
+2003-2004,fall,F,State,22,Ursuline Academy,11
+2003-2004,fall,F,State,23,Reading Memorial High School,10
+2003-2004,fall,F,State,23,Natick High School,10
+2003-2004,fall,F,State,25,Bishop Stang High School,50
+2003-2004,fall,F,State,26,Lexington High School,8
+2003-2004,fall,F,State,27,Academy of Notre Dame,7
+2003-2004,fall,F,State,28,New Bedford High School,4
+2003-2004,fall,F,State,28,Lowell High School,4
+2003-2004,fall,F,State,30,Brookline High School,3
+2003-2004,fall,F,State,30,Dedham High School,3
+2003-2004,fall,F,State,30,Attleboro High School,3
+2003-2004,fall,F,State,33,Winchester High School,1
 2003-2004,fall,F,,1,Andover High School,244
 2003-2004,fall,F,,2,Acton-Boxborough Regional High School,127
 2003-2004,fall,F,,3,Notre Dame Academy - Hingham,125.50
@@ -1774,6 +3489,71 @@ School Year,Season,Sex,Division,Place,School,Score
 2003-2004,fall,F,,33,Winchester High School,1
 2002-2003,fall,F,,1,Andover High School,
 2002-2003,fall,F,,2,Acton-Boxborough Regional High School,
+2002-2003,winter,M,Division 2,1,Weston High School,191.00
+2002-2003,winter,M,Division 2,2,North Attleborough High School,123.00
+2002-2003,winter,M,Division 2,3,Westford Academy,114.00
+2002-2003,winter,M,Division 2,4,Wayland High School,91.00
+2002-2003,winter,M,Division 2,5,Concord-Carlisle High School,81.50
+2002-2003,winter,M,Division 2,6,Duxbury High School,79.00
+2002-2003,winter,M,Division 2,7,Wellesley High School,75.00
+2002-2003,winter,M,Division 2,8,Longmeadow High School,69.00
+2002-2003,winter,M,Division 2,9,Gardner High School,57.00
+2002-2003,winter,M,Division 2,10,Hamilton Wenham High School,48.00
+2002-2003,winter,M,Division 2,11,South Hadley High School,41.50
+2002-2003,winter,M,Division 2,12,Nauset Regional High School,39.00
+2002-2003,winter,M,Division 2,13,Dover-Sherborn High School & Medfield High School,38.00
+2002-2003,winter,M,Division 2,14,Bishop Feehan High School,35.00
+2002-2003,winter,M,Division 2,15,Sandwich High School,33.50
+2002-2003,winter,M,Division 2,16,North Andover High School,32.00
+2002-2003,winter,M,Division 2,17,East Longmeadow High School,31.00
+2002-2003,winter,M,Division 2,18,Minnechaug Regional High School,29.00
+2002-2003,winter,M,Division 2,19,Swampscott High School,28.50
+2002-2003,winter,M,Division 2,20,Palmer High School,28.00
+2002-2003,winter,M,Division 2,21,Nantucket High School,19.50
+2002-2003,winter,M,Division 2,22,Westborough High School,16.00
+2002-2003,winter,M,Division 2,22,Hopkinton High School,16.00
+2002-2003,winter,M,Division 2,24,Holliston High School,14.00
+2002-2003,winter,M,Division 2,25,Westwood High School,11.50
+2002-2003,winter,M,Division 2,26,Lenox Memorial High School,11.00
+2002-2003,winter,M,Division 2,27,Bishop Stang High School,10.00
+2002-2003,winter,M,Division 2,28,Needham High School,5.00
+2002-2003,winter,M,Division 2,28,Boston Latin Academy,5.00
+2002-2003,winter,M,Division 2,30,Winchester High School,4.00
+2002-2003,winter,M,Division 2,30,Apponequet Regional High School,4.00
+2002-2003,winter,M,Division 2,32,Monson High School,3.00
+2002-2003,winter,M,Division 2,32,Seekonk High School,3.00
+2002-2003,winter,M,Division 2,32,Sharon High School,3.00
+2002-2003,winter,M,Division 2,35,Melrose High School,2.00
+2002-2003,winter,M,Division 2,35,Holyoke Catholic High School,2.00
+2002-2003,winter,M,Division 2,35,Greater Lowell Technical High School,2.00
+2002-2003,winter,M,Division 1,1,Chelmsford High School,242.00
+2002-2003,winter,M,Division 1,2,Boston College High School,161.00
+2002-2003,winter,M,Division 1,3,St. John's High School,156.00
+2002-2003,winter,M,Division 1,4,St. John's Preparatory School,145.00
+2002-2003,winter,M,Division 1,5,Amherst Regional High School,98.00
+2002-2003,winter,M,Division 1,6,Xaverian Brothers High School,95.00
+2002-2003,winter,M,Division 1,7,Andover High School,91.50
+2002-2003,winter,M,Division 1,8,Lexington High School,63.50
+2002-2003,winter,M,Division 1,9,New Bedford High School,58.00
+2002-2003,winter,M,Division 1,10,Springfield Central High School,43.00
+2002-2003,winter,M,Division 1,11,Westfield High School,41.00
+2002-2003,winter,M,Division 1,12,Acton-Boxborough Regional High School,40.00
+2002-2003,winter,M,Division 1,13,Lowell High School,31.00
+2002-2003,winter,M,Division 1,14,Peabody Veterans Memorial High School,16.00
+2002-2003,winter,M,Division 1,14,Reading Memorial High School,16.00
+2002-2003,winter,M,Division 1,16,Brockton High School,13.00
+2002-2003,winter,M,Division 1,16,Framingham High School,13.00
+2002-2003,winter,M,Division 1,18,Taunton High School,12.00
+2002-2003,winter,M,Division 1,19,Boston Latin School,10.00
+2002-2003,winter,M,Division 1,19,Newton South High School,10.00
+2002-2003,winter,M,Division 1,21,Lincoln-Sudbury Regional High School,8.00
+2002-2003,winter,M,Division 1,21,Agawam High School,8.00
+2002-2003,winter,M,Division 1,23,Newton North High School,7.00
+2002-2003,winter,M,Division 1,23,Beverly High School,7.00
+2002-2003,winter,M,Division 1,25,Haverhill High School,4.00
+2002-2003,winter,M,Division 1,26,Holyoke High School,2.00
+2002-2003,winter,M,Division 1,26,West Springfield High School,2.00
+2002-2003,winter,M,Division 1,28,Brookline High School,1.00
 2001-2002,fall,F,,1,Andover High School,
 2001-2002,fall,F,,2,Chelmsford High School,
 2000-2001,fall,F,,1,Andover High School,305
