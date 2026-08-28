@@ -5,7 +5,9 @@ permalink: /sports/swimming-diving/resources/nfhs-rule-changes/
 breadcrumb: NFHS Rule Changes
 ---
 
-[^20262027]: <https://www.nfhs.org/sports/sports/swimming-diving/rules>
+See the [NFHS Swimming & Diving Rules](https://www.nfhs.org/sports/swimming-diving/rules) page for additional details.
+
+[^20262027]: <https://www.nfhs.org/sports/swimming-diving/rules>
 [^20252026]: <https://www.nfhs.org/sports-resource-content/swimming-and-diving-rules-changes-2025-26/>
 [^20242025]: <https://www.nfhs.org/sports-resource-content/swimming-and-diving-rules-changes-2024-25/>
 [^20232024]: <https://www.nfhs.org/sports-resource-content/swimming-and-diving-rules-changes-2023-24/>
