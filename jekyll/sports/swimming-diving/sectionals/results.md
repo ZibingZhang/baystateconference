@@ -6,6 +6,10 @@ breadcrumb: Results
 internal_links:
   - title: Archive
     url: /sports/swimming-diving/resources/archive/?path=meet-results/by-meet/sectionals
+  - title: Rankings
+    url: /sports/swimming-diving/sectionals/rankings/
+  - title: Records
+    url: /sports/swimming-diving/sectionals/records/
 ---
 
 Results will be posted after each meet.

@@ -3,6 +3,9 @@ layout: page
 title: Dual Meets Results
 permalink: /sports/swimming-diving/dual-meets/results/
 breadcrumb: Results
+internal_links:
+  - title: Rankings
+    url: /sports/swimming-diving/dual-meets/rankings/
 ---
 
 {%- assign meets = site.data.swimming-diving["dual-meet-schedule"] -%}
@@ -29,3 +32,5 @@ breadcrumb: Results
     {%- endfor -%}
   </tbody>
 </table>
+
+{% include link-list.html heading="See Also" items=page.internal_links %}
