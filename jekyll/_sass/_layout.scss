@@ -168,39 +168,36 @@
     }
 
     .menu-icon {
+      align-items: center;
+      display: flex;
       float: left;
-      height: 26px;
-      line-height: 0;
-      padding-top: 18px;
-      text-align: center;
+      height: 36px;
+      justify-content: center;
       width: 36px;
 
-      &::before {
-        font-family: "Font Awesome 7 Free";
-        font-weight: 900;
+      .material-symbols-outlined {
+        color: $border-color-03;
+        font-size: 1.25em;
       }
 
-      > svg path {
-        fill: $border-color-03;
+      .menu-icon-close {
+        display: none;
       }
     }
 
     #nav-trigger {
-      ~ label[for=nav-trigger] .menu-icon {
-        &::before {
-          content: "\f0c9";
-          font-size: 1.25em;
-        }
-      }
       ~ .nav-items {
         clear: both;
         display: none
       }
       &:checked {
       ~ label[for=nav-trigger] .menu-icon {
-        &::before {
-          content: "\f00d";
-          font-size: 1.5em;
+        .menu-icon-open {
+          display: none;
+        }
+
+        .menu-icon-close {
+          display: inline-block;
         }
       }
         ~ .nav-items {
