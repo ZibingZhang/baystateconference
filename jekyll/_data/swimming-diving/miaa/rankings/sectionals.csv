@@ -1,1308 +1,1308 @@
-Year,Season,Sex,Division,Place,School,Score
-2023,fall,F,South,1,Wellesley High School,405
-2023,fall,F,South,2,Needham High School,397
-2023,fall,F,South,3,Newton North High School,323
-2023,fall,F,South,4,Brookline High School,188
-2023,fall,F,South,5,Boston Latin School,160
-2023,fall,F,South,6,Notre Dame Academy - Hingham,157
-2023,fall,F,South,7,Framingham High School,137
-2023,fall,F,South,8,Milton High School,115
-2023,fall,F,South,8,Natick High School,115
-2023,fall,F,South,10,Ursuline Academy,89
-2023,fall,F,South,11,Braintree High School,77
-2023,fall,F,South,12,Weymouth High School,46
-2023,fall,F,South,13,Walpole High School,43
-2023,fall,F,North,1,Acton-Boxborough Regional High School,273
-2023,fall,F,North,2,Andover High School,228
-2023,fall,F,North,3,Belmont High School,217
-2023,fall,F,North,4,Winchester High School,214
-2023,fall,F,North,5,Haverhill High School,196
-2023,fall,F,North,6,Wakefield Memorial High School,193
-2023,fall,F,North,7,Malden Catholic High School,170
-2023,fall,F,North,7,North Andover High School,170
-2023,fall,F,North,9,Chelmsford High School,145
-2023,fall,F,North,10,Lexington High School,133
-2023,fall,F,North,11,Arlington High School,83
-2023,fall,F,North,12,Central Catholic High School,78
-2023,fall,F,North,13,Woburn Memorial High School,55
-2023,fall,F,North,14,Reading Memorial High School,54
-2023,fall,F,North,15,Billerica Memorial High School,31
-2023,fall,F,North,16,Academy of Notre Dame,30
-2023,fall,F,North,17,Methuen High School,19
-2023,fall,F,North,18,Stoneham High School,4
-2023,winter,M,South,1,Needham High School,254
-2023,winter,M,South,2,Xaverian Brothers High School,252
-2023,winter,M,South,3,Boston College High School,231
-2023,winter,M,South,4,Brookline High School,149
-2023,winter,M,South,5,Westwood High School,126
-2023,winter,M,South,6,Duxbury High School,120
-2023,winter,M,South,7,Cohasset High School,110
-2023,winter,M,South,8,Framingham High School,106
-2023,winter,M,South,9,Holliston High School,99.5
-2023,winter,M,South,10,Attleboro High School,91
-2023,winter,M,South,11,Natick High School,88
-2023,winter,M,South,12,Wellesley High School,75
-2023,winter,M,South,13,Quincy High School,65
-2023,winter,M,South,14,Nauset Regional High School,61
-2023,winter,M,South,15,Newton North High School,58
-2023,winter,M,South,16,Nantucket High School,52
-2023,winter,M,South,17,Hopkinton High School,48
-2023,winter,M,South,18,Bishop Feehan High School,44
-2023,winter,M,South,19,Sandwich High School,38
-2023,winter,M,South,19,Scituate High School,38
-2023,winter,M,South,21,Hanover High School,32
-2023,winter,M,South,21,Seekonk High School,32
-2023,winter,M,South,23,Plymouth North High School,27
-2023,winter,M,South,24,Sharon High School,26
-2023,winter,M,South,25,Catholic Memorial High School,21
-2023,winter,M,South,26,Dover-Sherborn High School,19
-2023,winter,M,South,27,Foxborough High School,12
-2023,winter,M,South,28,Dedham High School,11
-2023,winter,M,South,29,Martha's Vineyard Regional High School,8
-2023,winter,M,South,30,Taunton High School,6
-2023,winter,M,South,30,Brockton High School,6
-2023,winter,M,South,32,Bridgewater-Raynham Regional High School,4
-2023,winter,M,South,33,Apponequet Regional High School,2
-2023,winter,M,South,33,Milford High School,2
-2023,winter,M,South,35,Oliver Ames High School,1.5
-2022,fall,F,North,1,Acton-Boxborough Regional High School,321.5
-2022,fall,F,North,2,Andover High School,269
-2022,fall,F,North,3,Winchester High School,227
-2022,fall,F,North,3,Lexington High School,227
-2022,fall,F,North,5,Chelmsford High School,193
-2022,fall,F,North,6,Belmont High School,157
-2022,fall,F,North,7,Haverhill High School,156
-2022,fall,F,North,8,Reading Memorial High School,143
-2022,fall,F,North,9,Central Catholic High School,138
-2022,fall,F,North,10,North Andover High School,133.5
-2022,fall,F,North,11,Wakefield Memorial High School,128
-2022,fall,F,North,12,Watertown High School,78
-2022,fall,F,North,13,Malden Catholic High School,65
-2022,fall,F,North,14,Academy of Notre Dame,28
-2022,fall,F,North,15,Woburn Memorial High School,26
-2022,fall,F,North,16,Methuen High School,21
-2022,fall,F,North,17,Stoneham High School,4
-2022,fall,F,North,18,Billerica Memorial High School,3
-2022,winter,M,South,1,Needham High School,258
-2022,winter,M,South,2,Bishop Feehan High School,231
-2022,winter,M,South,3,Brookline High School,216
-2022,winter,M,South,4,Boston College High School,188
-2022,winter,M,South,5,Duxbury High School,143
-2022,winter,M,South,6,Framingham High School,110
-2022,winter,M,South,7,Holliston High School,96
-2022,winter,M,South,8,Nantucket High School,80.5
-2022,winter,M,South,9,Westwood High School,75
-2022,winter,M,South,10,Wellesley High School,74.5
-2022,winter,M,South,11,Newton North High School,74
-2022,winter,M,South,12,Xaverian Brothers High School,68
-2022,winter,M,South,13,Natick High School,59
-2022,winter,M,South,14,Sharon High School,56
-2022,winter,M,South,15,Dover-Sherborn High School,48
-2022,winter,M,South,16,Hopkinton High School,40
-2022,winter,M,South,17,Sandwich High School,37.5
-2022,winter,M,South,18,Scituate High School,37
-2022,winter,M,South,19,Silver Lake Regional High School,34
-2022,winter,M,South,20,Medfield High School,32
-2022,winter,M,South,21,Milford High School,29
-2022,winter,M,South,22,Cohasset High School,28
-2022,winter,M,South,23,Hanover High School,26
-2022,winter,M,South,24,Oliver Ames High School,24
-2022,winter,M,South,24,Quincy High School,24
-2022,winter,M,South,24,Hingham High School,24
-2022,winter,M,South,27,Seekonk High School,23
-2022,winter,M,South,28,Norwell High School,21
-2022,winter,M,South,29,Bishop Stang High School,20
-2022,winter,M,South,30,Taunton High School,18
-2022,winter,M,South,31,Old Rochester Regional High School,17
-2022,winter,M,South,32,Attleboro High School,16
-2022,winter,M,South,33,Foxborough High School,13
-2022,winter,M,South,34,Martha's Vineyard Regional High School,12
-2022,winter,M,South,35,King Philip Regional High School,9
-2022,winter,M,South,36,Apponequet Regional High School,6
-2022,winter,M,South,37,Mansfield High School,3.5
-2022,winter,M,South,38,Ashland High School,3
-2022,winter,M,South,38,Franklin High School,3
-2022,winter,M,South,40,Plymouth North High School,2
-2022,winter,M,South,40,North Attleborough High School,2
-2021,fall,F,South,1,Wellesley High School,390.5
-2021,fall,F,South,2,Needham High School,329
-2021,fall,F,South,3,Brookline High School,304
-2021,fall,F,South,4,Ursuline Academy,222
-2021,fall,F,South,5,Framingham High School,221
-2021,fall,F,South,6,Milton High School,196
-2021,fall,F,South,7,Newton North High School,190
-2021,fall,F,South,8,Natick High School,110
-2021,fall,F,South,9,Braintree High School,81
-2021,fall,F,South,10,Boston Latin School,69
-2021,fall,F,South,11,Notre Dame Academy - Hingham,60
-2021,fall,F,South,12,Walpole High School,51.5
-2021,fall,F,South,13,Notre Dame Academy - Hingham,32
-2021,fall,F,South,14,Weymouth High School,16
-2021,fall,F,North,1,Acton-Boxborough Regional High School,356.5
-2021,fall,F,North,2,Andover High School,247
-2021,fall,F,North,3,Central Catholic High School,218
-2021,fall,F,North,4,North Andover High School,206
-2021,fall,F,North,5,Chelmsford High School,196
-2021,fall,F,North,6,Winchester High School,193
-2021,fall,F,North,7,Haverhill High School,190
-2021,fall,F,North,8,Belmont High School,146
-2021,fall,F,North,9,Reading Memorial High School,136
-2021,fall,F,North,10,Watertown High School,134
-2021,fall,F,North,11,Wakefield Memorial High School,108
-2021,fall,F,North,12,Lexington High School,95
-2021,fall,F,North,13,Malden Catholic High School,44.5
-2021,fall,F,North,14,Methuen High School,23
-2021,fall,F,North,15,Woburn Memorial High School,12
-2021,fall,F,North,16,Melrose High School,10
-2021,fall,F,North,17,Burlington High School,2
-2021,fall,F,North,17,Stoneham High School,2
-2020,winter,M,South,1,Natick High School,197
-2020,winter,M,South,2,Bishop Feehan High School,191
-2020,winter,M,South,3,Framingham High School,186
-2020,winter,M,South,4,Ashland High School,180
-2020,winter,M,South,5,Nantucket High School,176
-2020,winter,M,South,6,Brookline High School,159
-2020,winter,M,South,7,Duxbury High School,148.5
-2020,winter,M,South,8,Boston College High School,117.5
-2020,winter,M,South,9,Newton North High School,112
-2020,winter,M,South,10,Wellesley High School,89
-2020,winter,M,South,11,Needham High School,85
-2020,winter,M,South,12,Catholic Memorial High School,82
-2020,winter,M,South,13,Norwell High School,77
-2020,winter,M,South,14,Seekonk High School,76
-2020,winter,M,South,15,Taunton High School,57
-2020,winter,M,South,16,Old Rochester Regional High School,40
-2020,winter,M,South,17,King Philip Regional High School,35
-2020,winter,M,South,18,Hopkinton High School,31
-2020,winter,M,South,19,Xaverian Brothers High School,28
-2020,winter,M,South,20,Boston Latin Academy,25.5
-2020,winter,M,South,21,Sharon High School,25
-2020,winter,M,South,22,Cohasset High School,24
-2020,winter,M,South,22,Scituate High School,24
-2020,winter,M,South,24,Sandwich High School,23
-2020,winter,M,South,25,Holliston High School,22
-2020,winter,M,South,26,Nauset Regional High School,21
-2020,winter,M,South,27,North Quincy High School,17.5
-2020,winter,M,South,28,St. John Paul II High School,11
-2020,winter,M,South,28,Bishop Stang High School,11
-2020,winter,M,South,30,Middleborough High School,9
-2020,winter,M,South,30,Barnstable High School,9
-2020,winter,M,South,32,Apponequet Regional High School,7
-2020,winter,M,South,33,East Boston High School,5
-2020,winter,M,South,33,Oliver Ames High School,5
-2020,winter,M,South,35,John D. O'Bryant School of Mathematics & Science,3
-2020,winter,M,South,36,Hingham High School,2
-2020,winter,M,South,36,Westwood High School,2
-2020,winter,M,South,38,New Bedford High School,1
-2020,winter,M,South,38,Canton High School,1
-2019,fall,F,North,1,Andover High School,467
-2019,fall,F,North,2,Central Catholic High School,254
-2019,fall,F,North,3,Reading Memorial High School,239
-2019,fall,F,North,4,Lexington High School,196
-2019,fall,F,North,5,Acton-Boxborough Regional High School,178
-2019,fall,F,North,6,North Andover High School,149
-2019,fall,F,North,7,Arlington High School,135.5
-2019,fall,F,North,8,Chelmsford High School,131
-2019,fall,F,North,9,Wakefield Memorial High School,121.5
-2019,fall,F,North,10,Winchester High School,118
-2019,fall,F,North,10,Haverhill High School,118
-2019,fall,F,North,12,Belmont High School,95
-2019,fall,F,North,13,Methuen High School,54
-2019,fall,F,North,14,Lowell High School,38
-2019,fall,F,North,15,Woburn Memorial High School,15
-2019,fall,F,North,16,Burlington High School,14
-2019,fall,F,North,17,Billerica Memorial High School,2
-2019,winter,M,South,1,Nantucket High School,228
-2019,winter,M,South,2,Natick High School,213
-2019,winter,M,South,3,Needham High School,195.5
-2019,winter,M,South,4,Ashland High School,167
-2019,winter,M,South,5,Bishop Feehan High School,151
-2019,winter,M,South,6,King Philip Regional High School,137
-2019,winter,M,South,7,Wellesley High School,124
-2019,winter,M,South,8,Boston College High School,107
-2019,winter,M,South,9,Oliver Ames High School,98.5
-2019,winter,M,South,10,Framingham High School,94
-2019,winter,M,South,11,Newton North High School,85
-2019,winter,M,South,12,Seekonk High School,75
-2019,winter,M,South,13,Norwell High School,72
-2019,winter,M,South,14,Duxbury High School,65
-2019,winter,M,South,15,Bishop Stang High School,63
-2019,winter,M,South,16,Catholic Memorial High School,57
-2019,winter,M,South,17,Brookline High School,55.5
-2019,winter,M,South,18,Old Rochester Regional High School,55
-2019,winter,M,South,19,Cohasset High School,51
-2019,winter,M,South,20,Attleboro High School,37
-2019,winter,M,South,21,Hopkinton High School,30
-2019,winter,M,South,22,Sharon High School,27
-2019,winter,M,South,23,Taunton High School,24
-2019,winter,M,South,24,Xaverian Brothers High School,21
-2019,winter,M,South,25,Milford High School,17
-2019,winter,M,South,26,Dover-Sherborn High School,16
-2019,winter,M,South,27,Bridgewater-Raynham Regional High School,15
-2019,winter,M,South,28,Barnstable High School,9
-2019,winter,M,South,28,Holliston High School,9
-2019,winter,M,South,30,Hingham High School,6
-2019,winter,M,South,31,Scituate High School,4.5
-2019,winter,M,South,32,Medfield High School,3
-2019,winter,M,South,32,Middleborough High School,3
-2019,winter,M,South,32,Apponequet Regional High School,3
-2019,winter,M,South,35,Franklin High School,2
-2019,winter,M,South,35,Boston Latin Academy,2
-2018,fall,F,South,1,Wellesley High School,352
-2018,fall,F,South,2,Ursuline Academy,255
-2018,fall,F,South,3,Needham High School,244
-2018,fall,F,South,4,Newton North High School,234
-2018,fall,F,South,5,Brookline High School,194.5
-2018,fall,F,South,6,Natick High School,186
-2018,fall,F,South,7,Framingham High School,179.5
-2018,fall,F,South,8,Marshfield High School,160
-2018,fall,F,South,9,Boston Latin School,139
-2018,fall,F,South,10,Notre Dame Academy - Hingham,138
-2018,fall,F,South,11,Milton High School,88
-2018,fall,F,South,12,Walpole High School,85
-2018,fall,F,South,13,Braintree High School,24
-2018,fall,F,South,14,Mount Alvernia High School,8
-2018,fall,F,South,14,Weymouth High School,8
-2018,fall,F,North,1,Andover High School,411
-2018,fall,F,North,2,Reading Memorial High School,400
-2018,fall,F,North,3,Acton-Boxborough Regional High School,204.5
-2018,fall,F,North,4,Belmont High School,173.5
-2018,fall,F,North,5,Chelmsford High School,140.5
-2018,fall,F,North,6,Haverhill High School,139
-2018,fall,F,North,7,Central Catholic High School,131.5
-2018,fall,F,North,8,Arlington High School,128
-2018,fall,F,North,9,Lexington High School,124
-2018,fall,F,North,10,Wakefield Memorial High School,122
-2018,fall,F,North,11,Winchester High School,78
-2018,fall,F,North,12,Melrose High School,75
-2018,fall,F,North,13,North Andover High School,57
-2018,fall,F,North,14,Methuen High School,55
-2018,fall,F,North,15,Lowell High School,43
-2018,fall,F,North,16,Burlington High School,23
-2018,fall,F,North,17,Woburn Memorial High School,11
-2018,fall,F,North,18,Stoneham High School,8
-2018,winter,M,South,1,Needham High School,247
-2018,winter,M,South,2,Natick High School,240
-2018,winter,M,South,3,Ashland High School,175
-2018,winter,M,South,4,Wellesley High School,148
-2018,winter,M,South,5,Framingham High School,146
-2018,winter,M,South,6,Nantucket High School,136
-2018,winter,M,South,7,Boston College High School,124
-2018,winter,M,South,8,King Philip Regional High School,118
-2018,winter,M,South,9,Old Rochester Regional High School,110
-2018,winter,M,South,10,Nauset Regional High School,100
-2018,winter,M,South,11,Catholic Memorial High School,91
-2018,winter,M,South,12,Brookline High School,79
-2018,winter,M,South,13,North Attleborough High School,68
-2018,winter,M,South,14,Bishop Feehan High School,54
-2018,winter,M,South,15,Newton North High School,49
-2018,winter,M,South,16,Holliston High School,47
-2018,winter,M,South,17,Cohasset High School,46.5
-2018,winter,M,South,18,Duxbury High School,46
-2018,winter,M,South,19,Scituate High School,42
-2018,winter,M,South,20,Bishop Stang High School,41
-2018,winter,M,South,21,Oliver Ames High School,40
-2018,winter,M,South,22,Xaverian Brothers High School,26
-2018,winter,M,South,23,Hopkinton High School,21
-2018,winter,M,South,24,Dover-Sherborn High School,20
-2018,winter,M,South,25,Bridgewater-Raynham Regional High School,15
-2018,winter,M,South,26,Mansfield High School,13
-2018,winter,M,South,26,Franklin High School,13
-2018,winter,M,South,28,Dighton-Rehoboth Regional High School,12
-2018,winter,M,South,29,Sharon High School,11
-2018,winter,M,South,30,Milford High School,9
-2018,winter,M,South,30,Medfield High School,9
-2018,winter,M,South,32,Seekonk High School,7
-2018,winter,M,South,33,Norwell High School,6
-2018,winter,M,South,34,Norton High School,5
-2018,winter,M,South,35,Middleborough High School,4
-2018,winter,M,South,36,Barnstable High School,3
-2018,winter,M,South,36,Blue Hills Regional Technical School,3
-2018,winter,M,South,38,Attleboro High School,0.5
-2017,fall,F,South,1,Wellesley High School,376
-2017,fall,F,South,2,Newton North High School,332
-2017,fall,F,South,3,Brookline High School,268
-2017,fall,F,South,4,Natick High School,233
-2017,fall,F,South,5,Ursuline Academy,176
-2017,fall,F,South,5,Framingham High School,176
-2017,fall,F,South,7,Needham High School,168
-2017,fall,F,South,8,Boston Latin School,157
-2017,fall,F,South,9,Marshfield High School,144
-2017,fall,F,South,10,Notre Dame Academy - Hingham,119
-2017,fall,F,South,11,Braintree High School,46
-2017,fall,F,South,12,Walpole High School,35
-2017,fall,F,South,13,Norwood High School,32
-2017,fall,F,South,14,Milton High School,31
-2017,fall,F,North,1,Andover High School,409
-2017,fall,F,North,2,Reading Memorial High School,356
-2017,fall,F,North,3,Acton-Boxborough Regional High School,264
-2017,fall,F,North,4,Belmont High School,165
-2017,fall,F,North,5,Melrose High School,164
-2017,fall,F,North,6,Central Catholic High School,144
-2017,fall,F,North,7,Haverhill High School,135
-2017,fall,F,North,8,Winchester High School,129
-2017,fall,F,North,9,Chelmsford High School,126
-2017,fall,F,North,10,Stoneham High School,85
-2017,fall,F,North,11,Lexington High School,68
-2017,fall,F,North,12,Lowell High School,60
-2017,fall,F,North,13,Wakefield Memorial High School,57
-2017,fall,F,North,14,Methuen High School,48
-2017,fall,F,North,15,Arlington High School,40
-2017,fall,F,North,16,Burlington High School,26
-2017,fall,F,North,17,Woburn Memorial High School,24
-2017,fall,F,North,18,North Andover High School,20
-2017,fall,F,North,19,Billerica Memorial High School,4
-2016,fall,F,South,1,Framingham High School,300
-2016,fall,F,South,2,Newton North High School,292
-2016,fall,F,South,3,Brookline High School,263
-2016,fall,F,South,4,Notre Dame Academy - Hingham,251
-2016,fall,F,South,5,Natick High School,242
-2016,fall,F,South,6,Wellesley High School,240
-2016,fall,F,South,7,Ursuline Academy,205
-2016,fall,F,South,8,Needham High School,179
-2016,fall,F,South,9,Marshfield High School,153
-2016,fall,F,South,10,Braintree High School,49
-2016,fall,F,South,11,Dedham High School,33
-2016,fall,F,South,12,Norwood High School,24
-2016,fall,F,South,13,Walpole High School,20
-2016,fall,F,North,1,Andover High School,464
-2016,fall,F,North,2,Acton-Boxborough Regional High School,298
-2016,fall,F,North,3,Reading Memorial High School,258
-2016,fall,F,North,4,Central Catholic High School,204
-2016,fall,F,North,5,Belmont High School,180
-2016,fall,F,North,6,Lexington High School,127
-2016,fall,F,North,7,Winchester High School,126
-2016,fall,F,North,8,Chelmsford High School,117
-2016,fall,F,North,9,Haverhill High School,111
-2016,fall,F,North,9,Melrose High School,111
-2016,fall,F,North,11,Lowell High School,107
-2016,fall,F,North,12,Burlington High School,55
-2016,fall,F,North,13,Boston Latin School,53
-2016,fall,F,North,14,Stoneham High School,46
-2016,fall,F,North,15,North Andover High School,26
-2016,fall,F,North,16,Billerica Memorial High School,17
-2016,fall,F,North,17,Methuen High School,13
-2016,fall,F,North,18,Academy of Notre Dame,4
-2016,fall,F,North,18,Woburn Memorial High School,4
-2016,fall,F,North,20,Arlington High School,3
-2016,winter,M,Central/South,1,Norwell High School,187
-2016,winter,M,Central/South,2,Westborough High School,180.5
-2016,winter,M,Central/South,3,Wellesley High School,173.5
-2016,winter,M,Central/South,4,King Philip Regional High School,137
-2016,winter,M,Central/South,5,Attleboro High School,127
-2016,winter,M,Central/South,6,Framingham High School,126.5
-2016,winter,M,Central/South,7,Duxbury High School,115
-2016,winter,M,Central/South,8,Ashland High School,113
-2016,winter,M,Central/South,9,Needham High School,105
-2016,winter,M,Central/South,10,Bishop Feehan High School,98
-2016,winter,M,Central/South,11,Brookline High School,96
-2016,winter,M,Central/South,12,Bridgewater-Raynham Regional High School,80
-2016,winter,M,Central/South,13,Nauset Regional High School,63.5
-2016,winter,M,Central/South,14,Apponequet Regional High School,53
-2016,winter,M,Central/South,15,The Bromfield School,47
-2016,winter,M,Central/South,16,Tyngsborough High School & Groton-Dunstable Regional High School,42.5
-2016,winter,M,Central/South,17,Boston College High School,38.5
-2016,winter,M,Central/South,18,Scituate High School,38
-2016,winter,M,Central/South,18,Newton North High School,38
-2016,winter,M,Central/South,20,Algonquin Regional High School,36
-2016,winter,M,Central/South,21,Cohasset High School,34
-2016,winter,M,Central/South,21,Hanover High School,34
-2016,winter,M,Central/South,21,North Attleborough High School,34
-2016,winter,M,Central/South,24,Sharon High School,30
-2016,winter,M,Central/South,24,Canton High School,30
-2016,winter,M,Central/South,26,Norton High School,26
-2016,winter,M,Central/South,27,Barnstable High School,21
-2016,winter,M,Central/South,28,Oliver Ames High School,20
-2016,winter,M,Central/South,28,Medfield High School,20
-2016,winter,M,Central/South,30,Milford High School,18
-2016,winter,M,Central/South,30,Taunton High School,18
-2016,winter,M,Central/South,32,Dover-Sherborn High School,17
-2016,winter,M,Central/South,32,Doherty Memorial High School,17
-2016,winter,M,Central/South,34,Sandwich High School,15
-2016,winter,M,Central/South,35,Seekonk High School,14
-2016,winter,M,Central/South,35,St. John's High School,14
-2016,winter,M,Central/South,37,Franklin High School,12
-2016,winter,M,Central/South,37,New Bedford High School,12
-2016,winter,M,Central/South,39,Hopkinton High School,11
-2016,winter,M,Central/South,40,Natick High School,8
-2016,winter,M,Central/South,41,North Quincy High School,6
-2016,winter,M,Central/South,42,Shrewsbury High School,5
-2016,winter,M,Central/South,43,Xaverian Brothers High School,4
-2016,winter,M,Central/South,44,Holliston High School,3
-2016,winter,M,Central/South,44,Silver Lake Regional High School,3
-2016,winter,M,Central/South,46,Nantucket High School,2
-2016,winter,M,Central/South,47,Tantasqua Regional High School,1
-2016,winter,M,Central/South,47,Quincy High School,1
-2015,fall,F,South,1,Bishop Feehan High School,350
-2015,fall,F,South,2,Brookline High School,267.5
-2015,fall,F,South,3,Newton North High School,235.5
-2015,fall,F,South,4,Framingham High School,235
-2015,fall,F,South,5,Wellesley High School,213
-2015,fall,F,South,6,Needham High School,202
-2015,fall,F,South,7,Ursuline Academy,172.5
-2015,fall,F,South,8,Natick High School,144
-2015,fall,F,South,9,Notre Dame Academy - Hingham,133.5
-2015,fall,F,South,10,Marshfield High School,90
-2015,fall,F,South,11,New Bedford High School,71
-2015,fall,F,South,12,Braintree High School,53
-2015,fall,F,South,13,Advanced Math and Science Academy Charter School,38
-2015,fall,F,South,14,B.M.C. Durfee High School,36
-2015,fall,F,South,15,Brockton High School,35
-2015,fall,F,South,16,Walpole High School,18
-2015,fall,F,South,17,Mount Alvernia High School,11
-2015,fall,F,South,18,Norwood High School,6
-2015,fall,F,North,1,Andover High School,474
-2015,fall,F,North,2,Acton-Boxborough Regional High School,292.5
-2015,fall,F,North,3,Reading Memorial High School,249
-2015,fall,F,North,4,Belmont High School,236
-2015,fall,F,North,5,Lexington High School,151
-2015,fall,F,North,6,Haverhill High School,141.5
-2015,fall,F,North,7,Central Catholic High School,139
-2015,fall,F,North,8,Melrose High School,125
-2015,fall,F,North,9,Chelmsford High School,113.5
-2015,fall,F,North,10,Winchester High School,100.5
-2015,fall,F,North,11,Burlington High School,54
-2015,fall,F,North,12,Woburn Memorial High School,49
-2015,fall,F,North,13,Boston Latin School,46
-2015,fall,F,North,14,Wakefield Memorial High School,43
-2015,fall,F,North,15,North Andover High School,37
-2015,fall,F,North,16,Lowell High School,30.5
-2015,fall,F,North,17,Methuen High School,18.5
-2015,fall,F,North,18,Stoneham High School,12
-2015,fall,F,North,19,Billerica Memorial High School,9
-2015,fall,F,North,20,Notre Dame Academy - Worcester,4
-2015,winter,M,Central/South,1,Framingham High School,249.5
-2015,winter,M,Central/South,2,Brookline High School,180
-2015,winter,M,Central/South,3,Wellesley High School,171.5
-2015,winter,M,Central/South,4,Apponequet Regional High School,143
-2015,winter,M,Central/South,5,Algonquin Regional High School,139
-2015,winter,M,Central/South,6,Bishop Feehan High School,118
-2015,winter,M,Central/South,7,St. John's High School,110
-2015,winter,M,Central/South,8,Taunton High School,100
-2015,winter,M,Central/South,9,Duxbury High School,92
-2015,winter,M,Central/South,10,King Philip Regional High School,83
-2015,winter,M,Central/South,11,The Bromfield School,82
-2015,winter,M,Central/South,12,Franklin High School,62.5
-2015,winter,M,Central/South,13,Bridgewater-Raynham Regional High School,57
-2015,winter,M,Central/South,14,Westborough High School,53
-2015,winter,M,Central/South,15,Barnstable High School,51
-2015,winter,M,Central/South,16,Holliston High School,50.5
-2015,winter,M,Central/South,16,Scituate High School,50.5
-2015,winter,M,Central/South,18,Milford High School,45
-2015,winter,M,Central/South,19,Needham High School,40.5
-2015,winter,M,Central/South,20,Canton High School,40
-2015,winter,M,Central/South,21,Nauset Regional High School,36
-2015,winter,M,Central/South,22,Medfield High School,35
-2015,winter,M,Central/South,22,Ashland High School,35
-2015,winter,M,Central/South,24,Sandwich High School,33
-2015,winter,M,Central/South,25,Boston College High School,31
-2015,winter,M,Central/South,26,Hopkinton High School,24
-2015,winter,M,Central/South,26,Hanover High School,24
-2015,winter,M,Central/South,28,North Attleborough High School,23
-2015,winter,M,Central/South,29,Oliver Ames High School,21
-2015,winter,M,Central/South,30,Dover-Sherborn High School,17
-2015,winter,M,Central/South,31,Sharon High School,16
-2015,winter,M,Central/South,31,Attleboro High School,16
-2015,winter,M,Central/South,33,Leominster High School,15
-2015,winter,M,Central/South,34,Wachusett Regional High School,14
-2015,winter,M,Central/South,35,Xaverian Brothers High School,12
-2015,winter,M,Central/South,36,Newton North High School,10
-2015,winter,M,Central/South,37,Norton High School,8
-2015,winter,M,Central/South,38,North Attleborough High School,6
-2015,winter,M,Central/South,38,Quincy High School + North Quincy High School,6
-2015,winter,M,Central/South,40,B.M.C. Durfee High School,4
-2015,winter,M,Central/South,40,Bishop Stang High School,4
-2015,winter,M,Central/South,40,Nantucket High School,4
-2015,winter,M,Central/South,43,Tyngsborough High School & Groton-Dunstable Regional High School,3
-2015,winter,M,Central/South,43,Westwood High School,3
-2015,winter,M,Central/South,43,Dighton-Rehoboth Regional High School,3
-2015,winter,M,Central/South,46,Catholic Memorial High School,2
-2015,winter,M,Central/South,46,Silver Lake Regional High School,2
-2014,fall,F,South,1,Newton North High School,313
-2014,fall,F,South,2,Bishop Feehan High School,295
-2014,fall,F,South,3,Framingham High School,269
-2014,fall,F,South,4,Needham High School,209
-2014,fall,F,South,5,Natick High School,207
-2014,fall,F,South,6,Westwood High School,161
-2014,fall,F,South,7,Ursuline Academy,133
-2014,fall,F,South,8,Wellesley High School,131
-2014,fall,F,South,9,Bishop Stang High School,121
-2014,fall,F,South,10,Marshfield High School,81
-2014,fall,F,South,11,Walpole High School,77
-2014,fall,F,South,12,Brookline High School,71
-2014,fall,F,South,13,Brockton High School,51
-2014,fall,F,South,13,B.M.C. Durfee High School,51
-2014,fall,F,South,15,Notre Dame Academy - Hingham,48
-2014,fall,F,South,16,New Bedford High School,45
-2014,fall,F,South,17,Dedham High School,27
-2014,fall,F,South,18,Braintree High School,18
-2014,fall,F,South,19,Norwood High School,14
-2014,fall,F,South,20,Mount Alvernia High School,3
-2014,fall,F,North,1,Andover High School,366
-2014,fall,F,North,2,Acton-Boxborough Regional High School,320
-2014,fall,F,North,3,Belmont High School,217
-2014,fall,F,North,4,Lexington High School,182
-2014,fall,F,North,5,Chelmsford High School,160
-2014,fall,F,North,6,Winchester High School,145
-2014,fall,F,North,7,Central Catholic High School,125
-2014,fall,F,North,8,Lowell High School,105
-2014,fall,F,North,9,Haverhill High School,99.5
-2014,fall,F,North,10,North Andover High School,96
-2014,fall,F,North,11,Melrose High School,95
-2014,fall,F,North,12,Stoneham High School,80
-2014,fall,F,North,13,Reading Memorial High School,72
-2014,fall,F,North,14,Wakefield Memorial High School,68
-2014,fall,F,North,15,Woburn Memorial High School,50.5
-2014,fall,F,North,16,Methuen High School,50
-2014,fall,F,North,17,Burlington High School,37
-2014,fall,F,North,18,Boston Latin School,34
-2014,fall,F,North,19,Billerica Memorial High School,10
-2014,fall,F,North,20,Dracut High School,9
-2014,fall,F,North,21,Academy of Notre Dame,4
-2014,winter,M,Central/South,1,King Philip Regional High School,218
-2014,winter,M,Central/South,2,Bishop Feehan High School,196
-2014,winter,M,Central/South,3,Hingham High School,157
-2014,winter,M,Central/South,4,Framingham High School,155
-2014,winter,M,Central/South,5,Bridgewater-Raynham Regional High School,150
-2014,winter,M,Central/South,6,Boston College High School,136
-2014,winter,M,Central/South,7,Brookline High School,132
-2014,winter,M,Central/South,8,Needham High School,105.5
-2014,winter,M,Central/South,9,Wellesley High School,96
-2014,winter,M,Central/South,10,Ashland High School,94
-2014,winter,M,Central/South,11,Algonquin Regional High School,93
-2014,winter,M,Central/South,12,Leominster High School,90
-2014,winter,M,Central/South,13,Duxbury High School,72.5
-2014,winter,M,Central/South,14,Apponequet Regional High School,67
-2014,winter,M,Central/South,15,Hopkinton High School,57
-2014,winter,M,Central/South,16,St. John's High School,44
-2014,winter,M,Central/South,17,Xaverian Brothers High School,38
-2014,winter,M,Central/South,18,The Bromfield School,37
-2014,winter,M,Central/South,19,Norwell High School,36
-2014,winter,M,Central/South,20,Medfield High School,31
-2014,winter,M,Central/South,20,Cohasset High School,31
-2014,winter,M,Central/South,22,Milford High School,30
-2014,winter,M,Central/South,22,Catholic Memorial High School,30
-2014,winter,M,Central/South,24,Mansfield High School,26
-2014,winter,M,Central/South,25,Westwood High School,23
-2014,winter,M,Central/South,26,Franklin High School,22
-2014,winter,M,Central/South,27,Scituate High School,19
-2014,winter,M,Central/South,28,Sandwich High School,17
-2014,winter,M,Central/South,29,Newton North High School,14
-2014,winter,M,Central/South,30,Barnstable High School,13
-2014,winter,M,Central/South,30,Dover-Sherborn High School,13
-2014,winter,M,Central/South,30,Tantasqua Regional High School,13
-2014,winter,M,Central/South,33,Pembroke High School,11
-2014,winter,M,Central/South,34,Wachusett Regional High School,10
-2014,winter,M,Central/South,34,New Bedford High School,10
-2014,winter,M,Central/South,36,Northbridge High School,7
-2014,winter,M,Central/South,36,B.M.C. Durfee High School,7
-2014,winter,M,Central/South,38,Oliver Ames High School,5
-2014,winter,M,Central/South,39,Taunton High School,4
-2014,winter,M,Central/South,39,Dighton-Rehoboth Regional High School,4
-2014,winter,M,Central/South,41,Seekonk High School,3
-2014,winter,M,Central/South,41,Norton High School,3
-2014,winter,M,Central/South,43,North Attleborough High School,2
-2014,winter,M,Central/South,44,Bishop Stang High School,1
-2014,winter,M,Central/South,44,Westborough High School,1
-2013,fall,F,South,1,Framingham High School,363
-2013,fall,F,South,2,Bishop Feehan High School,346
-2013,fall,F,South,3,Newton North High School,259
-2013,fall,F,South,4,Needham High School,257
-2013,fall,F,South,5,Natick High School,149
-2013,fall,F,South,6,Wellesley High School,144
-2013,fall,F,South,7,Westwood High School,120.5
-2013,fall,F,South,8,Ursuline Academy,93
-2013,fall,F,South,9,Apponequet Regional High School,91
-2013,fall,F,South,10,Seekonk High School,83
-2013,fall,F,South,11,Bishop Stang High School,73
-2013,fall,F,South,12,Notre Dame Academy - Hingham,71
-2013,fall,F,South,13,Walpole High School,65
-2013,fall,F,South,14,Brockton High School,64
-2013,fall,F,South,15,Dedham High School,41
-2013,fall,F,South,16,B.M.C. Durfee High School,33
-2013,fall,F,South,17,Brookline High School,30
-2013,fall,F,South,18,Marshfield High School,24
-2013,fall,F,South,19,Norwood High School,8
-2013,fall,F,South,20,Mount Alvernia High School,6
-2013,fall,F,South,21,Braintree High School,4.5
-2013,fall,F,North,1,Andover High School,345.5
-2013,fall,F,North,2,Chelmsford High School,336
-2013,fall,F,North,3,Acton-Boxborough Regional High School,258.5
-2013,fall,F,North,4,Belmont High School,252
-2013,fall,F,North,5,Lexington High School,178
-2013,fall,F,North,6,Haverhill High School,118.5
-2013,fall,F,North,7,North Andover High School,117
-2013,fall,F,North,8,Reading Memorial High School,103
-2013,fall,F,North,9,Central Catholic High School,102.5
-2013,fall,F,North,10,Wakefield Memorial High School,92
-2013,fall,F,North,11,Notre Dame Academy - Worcester,71
-2013,fall,F,North,12,Melrose High School,54
-2013,fall,F,North,13,Winchester High School,50
-2013,fall,F,North,14,Methuen High School,49
-2013,fall,F,North,15,Boston Latin School,43
-2013,fall,F,North,16,Stoneham High School,35
-2013,fall,F,North,17,Billerica Memorial High School,34
-2013,fall,F,North,18,Lowell High School,33
-2013,fall,F,North,19,Woburn Memorial High School,26
-2013,fall,F,North,20,Burlington High School,21
-2013,fall,F,North,21,Dracut High School,4
-2013,fall,F,North,22,Academy of Notre Dame,2
-2012,fall,F,South,1,Framingham High School,344
-2012,fall,F,South,2,Bishop Feehan High School,337
-2012,fall,F,South,3,Needham High School,251.5
-2012,fall,F,South,4,Natick High School,147.5
-2012,fall,F,South,5,Bishop Stang High School,138
-2012,fall,F,South,6,Wellesley High School,121
-2012,fall,F,South,6,Notre Dame Academy - Hingham,121
-2012,fall,F,South,8,Westwood High School,119
-2012,fall,F,South,9,Seekonk High School,114
-2012,fall,F,South,10,Newton North High School,103
-2012,fall,F,South,11,Braintree High School,91
-2012,fall,F,South,12,Ursuline Academy,78
-2012,fall,F,South,13,Walpole High School,68
-2012,fall,F,South,14,Brockton High School,62
-2012,fall,F,South,15,Marshfield High School,58
-2012,fall,F,South,16,Norwood High School,46
-2012,fall,F,South,17,Mount Alvernia High School,40
-2012,fall,F,South,18,B.M.C. Durfee High School,36
-2012,fall,F,South,19,Apponequet Regional High School,25
-2012,fall,F,South,20,Brookline High School,24
-2012,fall,F,South,21,Dedham High School,1
-2012,fall,F,North,1,Andover High School,466
-2012,fall,F,North,2,Acton-Boxborough Regional High School,281
-2012,fall,F,North,3,Chelmsford High School,269
-2012,fall,F,North,4,Reading Memorial High School,234
-2012,fall,F,North,5,Lexington High School,167
-2012,fall,F,North,6,Haverhill High School,152
-2012,fall,F,North,7,Belmont High School,151
-2012,fall,F,North,8,Methuen High School,125
-2012,fall,F,North,9,Wakefield Memorial High School,88
-2012,fall,F,North,10,Central Catholic High School,79
-2012,fall,F,North,11,Boston Latin School,75
-2012,fall,F,North,12,Notre Dame Academy - Worcester,56
-2012,fall,F,North,13,Stoneham High School,51
-2012,fall,F,North,14,Winchester High School,28
-2012,fall,F,North,15,Billerica Memorial High School,22
-2012,fall,F,North,16,North Andover High School,21
-2012,fall,F,North,17,Melrose High School,16
-2012,fall,F,North,18,Lowell High School,15
-2012,fall,F,North,19,Woburn Memorial High School,14
-2012,fall,F,North,20,Academy of Notre Dame,7
-2012,fall,F,North,21,Dracut High School,6
-2012,fall,F,North,22,Saint Peter-Marian High School,2
-2012,winter,M,Central/South,1,Boston College High School,237
-2012,winter,M,Central/South,2,King Philip Regional High School,202
-2012,winter,M,Central/South,3,Hopkinton High School,185
-2012,winter,M,Central/South,4,North Attleborough High School,147
-2012,winter,M,Central/South,5,Needham High School,122
-2012,winter,M,Central/South,6,Bishop Stang High School,118
-2012,winter,M,Central/South,7,Bishop Feehan High School,110
-2012,winter,M,Central/South,8,St. John's High School,102
-2012,winter,M,Central/South,9,Duxbury High School,95
-2012,winter,M,Central/South,10,Brookline High School,94
-2012,winter,M,Central/South,11,Framingham High School,82
-2012,winter,M,Central/South,12,Algonquin Regional High School,81
-2012,winter,M,Central/South,13,Sandwich High School,68.5
-2012,winter,M,Central/South,14,Medfield High School,67
-2012,winter,M,Central/South,15,Apponequet Regional High School,62
-2012,winter,M,Central/South,16,Norwell High School,59
-2012,winter,M,Central/South,17,Northbridge High School,52
-2012,winter,M,Central/South,18,Milford High School,50
-2012,winter,M,Central/South,18,Westborough High School,50
-2012,winter,M,Central/South,20,Middleborough High School,43
-2012,winter,M,Central/South,20,Seekonk High School,43
-2012,winter,M,Central/South,22,Attleboro High School,32
-2012,winter,M,Central/South,23,Franklin High School,28
-2012,winter,M,Central/South,24,Newton North High School,25
-2012,winter,M,Central/South,25,Sharon High School,24
-2012,winter,M,Central/South,25,The Bromfield School,24
-2012,winter,M,Central/South,27,Coyle and Cassidy High School,17
-2012,winter,M,Central/South,28,B.M.C. Durfee High School,16
-2012,winter,M,Central/South,28,Hingham High School,16
-2012,winter,M,Central/South,30,Xaverian Brothers High School,14
-2012,winter,M,Central/South,31,Cohasset High School,11
-2012,winter,M,Central/South,31,Bridgewater-Raynham Regional High School,11
-2012,winter,M,Central/South,33,Nauset Regional High School,7
-2012,winter,M,Central/South,33,Ashland High School,7
-2012,winter,M,Central/South,35,Dover-Sherborn High School,6
-2012,winter,M,Central/South,35,Brockton High School,6
-2012,winter,M,Central/South,37,Wachusett Regional High School,4.5
-2012,winter,M,Central/South,38,Wellesley High School,4
-2012,winter,M,Central/South,39,Holliston High School,2
-2012,winter,M,Central/South,40,Nantucket High School,1
-2011,fall,F,South,1,Bishop Feehan High School,281.5
-2011,fall,F,South,2,Framingham High School,261
-2011,fall,F,South,3,Walpole High School,254
-2011,fall,F,South,4,Needham High School,202.5
-2011,fall,F,South,5,Bishop Stang High School,164.5
-2011,fall,F,South,6,Notre Dame Academy - Hingham,140.5
-2011,fall,F,South,7,Seekonk High School,114
-2011,fall,F,South,8,Norwood High School,100
-2011,fall,F,South,9,Marshfield High School,96
-2011,fall,F,South,9,Westwood High School,96
-2011,fall,F,South,11,Natick High School,83
-2011,fall,F,South,12,Sandwich High School,78
-2011,fall,F,South,13,Braintree High School,73
-2011,fall,F,South,14,Newton North High School,71
-2011,fall,F,South,15,B.M.C. Durfee High School,59
-2011,fall,F,South,16,Apponequet Regional High School,46
-2011,fall,F,South,17,Wellesley High School,43
-2011,fall,F,South,18,Ursuline Academy,40
-2011,fall,F,South,19,Brockton High School,33
-2011,fall,F,South,20,Mount Alvernia High School,32
-2011,fall,F,South,21,Brookline High School,23
-2011,fall,F,South,22,New Bedford High School,19
-2011,fall,F,South,23,Milford High School,15
-2011,fall,F,North,1,Andover High School,538
-2011,fall,F,North,2,Acton-Boxborough Regional High School,267
-2011,fall,F,North,3,Reading Memorial High School,262.5
-2011,fall,F,North,4,Chelmsford High School,243.5
-2011,fall,F,North,5,Haverhill High School,146
-2011,fall,F,North,6,Lexington High School,122
-2011,fall,F,North,7,Dracut High School,115
-2011,fall,F,North,8,Central Catholic High School,103
-2011,fall,F,North,9,Belmont High School,99
-2011,fall,F,North,10,Billerica Memorial High School,97
-2011,fall,F,North,11,Methuen High School,77
-2011,fall,F,North,12,Boston Latin School,42
-2011,fall,F,North,12,Notre Dame Academy - Worcester,42
-2011,fall,F,North,14,Stoneham High School,41
-2011,fall,F,North,15,Wakefield Memorial High School,38
-2011,fall,F,North,16,Winchester High School,34
-2011,fall,F,North,17,Melrose High School,22
-2011,fall,F,North,18,Lowell High School,21
-2011,fall,F,North,19,Burlington High School,6
-2011,fall,F,North,20,Saint Peter-Marian High School,4
-2011,fall,F,North,20,Woburn Memorial High School,4
-2011,fall,F,North,22,Academy of Notre Dame,1
-2011,winter,M,Central/South,1,King Philip Regional High School,195
-2011,winter,M,Central/South,2,Boston College High School,144
-2011,winter,M,Central/South,3,Bishop Feehan High School,112
-2011,winter,M,Central/South,4,Brookline High School,92
-2011,winter,M,Central/South,5,North Attleborough High School,83
-2011,winter,M,Central/South,6,Hopkinton High School,68
-2011,winter,M,Central/South,7,Bishop Stang High School,59
-2011,winter,M,Central/South,7,Medfield High School,59
-2011,winter,M,Central/South,9,Seekonk High School,58
-2011,winter,M,Central/South,10,Coyle and Cassidy High School,48
-2011,winter,M,Central/South,11,St. John's High School,46
-2011,winter,M,Central/South,12,Milford High School,44
-2011,winter,M,Central/South,13,Westborough High School,39
-2011,winter,M,Central/South,14,Norwell High School,37.5
-2011,winter,M,Central/South,15,Duxbury High School,37
-2011,winter,M,Central/South,16,Xaverian Brothers High School,29
-2011,winter,M,Central/South,17,Apponequet Regional High School,25
-2011,winter,M,Central/South,18,Catholic Memorial High School,24
-2011,winter,M,Central/South,18,Sharon High School,24
-2011,winter,M,Central/South,20,Northbridge High School,23
-2011,winter,M,Central/South,21,Sandwich High School,21
-2011,winter,M,Central/South,22,New Bedford High School,18
-2011,winter,M,Central/South,23,Wellesley High School,16
-2011,winter,M,Central/South,24,Attleboro High School,14
-2011,winter,M,Central/South,24,Newton North High School,14
-2011,winter,M,Central/South,26,Franklin High School,13
-2011,winter,M,Central/South,27,Needham High School,11
-2011,winter,M,Central/South,27,Cohasset High School,11
-2011,winter,M,Central/South,27,Natick High School,11
-2011,winter,M,Central/South,30,Middleborough High School,6.5
-2011,winter,M,Central/South,31,B.M.C. Durfee High School,5
-2011,winter,M,Central/South,32,Algonquin Regional High School,4
-2011,winter,M,Central/South,33,Framingham High School,3
-2011,winter,M,Central/South,34,Oliver Ames High School,1
-2010,fall,F,South,1,Bishop Feehan High School,263
-2010,fall,F,South,2,Framingham High School,182
-2010,fall,F,South,3,Bishop Stang High School,129
-2010,fall,F,South,4,Needham High School,113
-2010,fall,F,South,5,Notre Dame Academy - Hingham,111
-2010,fall,F,South,6,Seekonk High School,77.5
-2010,fall,F,South,7,Walpole High School,77
-2010,fall,F,South,8,Sandwich High School,69
-2010,fall,F,South,9,Ursuline Academy,68
-2010,fall,F,South,10,Natick High School,63
-2010,fall,F,South,11,Westwood High School,62
-2010,fall,F,South,12,Wellesley High School,60.5
-2010,fall,F,South,13,Norwood High School,28
-2010,fall,F,South,14,Brookline High School,27
-2010,fall,F,South,15,Newton North High School,23
-2010,fall,F,South,16,Mount Alvernia High School,22
-2010,fall,F,South,17,Braintree High School,8
-2010,fall,F,South,18,Marshfield High School,6
-2010,fall,F,South,19,Brockton High School,4
-2010,fall,F,South,20,New Bedford High School,2
-2010,fall,F,North,1,Andover High School,367
-2010,fall,F,North,2,Reading Memorial High School,219.5
-2010,fall,F,North,3,Acton-Boxborough Regional High School,199.5
-2010,fall,F,North,4,Chelmsford High School,137
-2010,fall,F,North,5,Lexington High School,119
-2010,fall,F,North,6,Haverhill High School,97
-2010,fall,F,North,7,Central Catholic High School,61
-2010,fall,F,North,8,Stoneham High School,54
-2010,fall,F,North,9,Belmont High School,32
-2010,fall,F,North,10,Winchester High School,22
-2010,fall,F,North,11,Boston Latin School,21
-2010,fall,F,North,12,Lowell High School,15
-2010,fall,F,North,13,Saint Peter-Marian High School,13.5
-2010,fall,F,North,14,Notre Dame Academy - Worcester,10
-2010,fall,F,North,15,Methuen High School,9
-2010,fall,F,North,16,Wakefield Memorial High School,8
-2010,fall,F,North,16,Billerica Memorial High School,8
-2010,fall,F,North,18,Dracut High School,2.5
-2010,winter,M,Central/South,1,Bishop Feehan High School,159
-2010,winter,M,Central/South,2,Boston College High School,154
-2010,winter,M,Central/South,3,King Philip Regional High School,130
-2010,winter,M,Central/South,4,Bishop Stang High School,115
-2010,winter,M,Central/South,5,Hopkinton High School,92
-2010,winter,M,Central/South,5,North Attleborough High School,92
-2010,winter,M,Central/South,7,Westborough High School,66
-2010,winter,M,Central/South,8,Milford High School,62
-2010,winter,M,Central/South,9,Seekonk High School,46
-2010,winter,M,Central/South,10,Needham High School,41
-2010,winter,M,Central/South,11,Duxbury High School,39
-2010,winter,M,Central/South,12,Framingham High School,35
-2010,winter,M,Central/South,13,Brookline High School,34
-2010,winter,M,Central/South,14,Apponequet Regional High School,33
-2010,winter,M,Central/South,15,Coyle and Cassidy High School,30
-2010,winter,M,Central/South,16,Sandwich High School,25
-2010,winter,M,Central/South,16,Xaverian Brothers High School,25
-2010,winter,M,Central/South,18,Newton North High School,24
-2010,winter,M,Central/South,19,Sharon High School,22
-2010,winter,M,Central/South,20,Norwell High School,21
-2010,winter,M,Central/South,20,Mansfield High School,21
-2010,winter,M,Central/South,22,Middleborough High School,18
-2010,winter,M,Central/South,23,Northbridge High School,17
-2010,winter,M,Central/South,24,Holliston High School,16
-2010,winter,M,Central/South,25,Catholic Memorial High School,14
-2010,winter,M,Central/South,26,Wellesley High School,13
-2010,winter,M,Central/South,27,St. John's High School,12
-2010,winter,M,Central/South,28,Franklin High School,9
-2010,winter,M,Central/South,29,New Bedford High School,7
-2010,winter,M,Central/South,29,Medfield High School,7
-2010,winter,M,Central/South,31,Leominster High School,5
-2010,winter,M,Central/South,32,Natick High School,4
-2010,winter,M,Central/South,33,Nauset Regional High School,3
-2010,winter,M,Central/South,33,Wachusett Regional High School,3
-2010,winter,M,Central/South,35,Foxborough High School,1
-2009,fall,F,South,1,Bishop Feehan High School,251
-2009,fall,F,South,2,Notre Dame Academy - Hingham,159
-2009,fall,F,South,3,Bishop Stang High School,154
-2009,fall,F,South,4,Framingham High School,110
-2009,fall,F,South,5,Marshfield High School,88
-2009,fall,F,South,6,Seekonk High School,83
-2009,fall,F,South,7,New Bedford High School,74
-2009,fall,F,South,8,Norwood High School,73
-2009,fall,F,South,9,Fontbonne Academy,48
-2009,fall,F,South,10,Dedham High School,45
-2009,fall,F,South,11,Ursuline Academy,41
-2009,fall,F,South,11,Natick High School,41
-2009,fall,F,South,13,Walpole High School,40
-2009,fall,F,South,13,Westwood High School,40
-2009,fall,F,South,15,Needham High School,31
-2009,fall,F,South,16,Wellesley High School,28
-2009,fall,F,South,17,Braintree High School,25
-2009,fall,F,South,18,B.M.C. Durfee High School,22
-2009,fall,F,South,19,Milford High School,19
-2009,fall,F,South,20,Newton North High School,12
-2009,fall,F,South,21,Apponequet Regional High School,9
-2009,fall,F,South,22,Mount Alvernia High School,1
-2009,fall,F,South,22,Sandwich High School,1
-2009,fall,F,North,1,Andover High School,374
-2009,fall,F,North,2,Acton-Boxborough Regional High School,219
-2009,fall,F,North,3,Reading Memorial High School,132.5
-2009,fall,F,North,4,Chelmsford High School,127
-2009,fall,F,North,5,Lexington High School,111
-2009,fall,F,North,6,Winchester High School,110.5
-2009,fall,F,North,7,Haverhill High School,96
-2009,fall,F,North,8,Wakefield Memorial High School,55
-2009,fall,F,North,9,Central Catholic High School,39
-2009,fall,F,North,10,Lowell High School,32
-2009,fall,F,North,11,Boston Latin School,27
-2009,fall,F,North,12,Belmont High School,26
-2009,fall,F,North,13,Dracut High School,24
-2009,fall,F,North,14,Stoneham High School,14
-2009,fall,F,North,15,Burlington High School,4
-2009,fall,F,North,15,Saint Peter-Marian High School,4
-2009,winter,M,Central/South,1,Boston College High School,218.5
-2009,winter,M,Central/South,2,Bishop Feehan High School,137
-2009,winter,M,Central/South,3,Bishop Stang High School,116
-2009,winter,M,Central/South,4,Needham High School,87
-2009,winter,M,Central/South,5,Wellesley High School,76
-2009,winter,M,Central/South,5,King Philip Regional High School,76
-2009,winter,M,Central/South,7,Sandwich High School,75.5
-2009,winter,M,Central/South,8,Duxbury High School,68
-2009,winter,M,Central/South,9,Framingham High School,67
-2009,winter,M,Central/South,10,Hopkinton High School & Ashland High School,63
-2009,winter,M,Central/South,11,Norwell High School,56
-2009,winter,M,Central/South,12,Newton North High School,43
-2009,winter,M,Central/South,13,Westborough High School,35
-2009,winter,M,Central/South,14,Brookline High School,33
-2009,winter,M,Central/South,15,Catholic Memorial High School,32
-2009,winter,M,Central/South,16,Natick High School,30
-2009,winter,M,Central/South,17,Oliver Ames High School,24
-2009,winter,M,Central/South,18,Nantucket High School,23
-2009,winter,M,Central/South,19,Seekonk High School,22
-2009,winter,M,Central/South,20,Apponequet Regional High School,19
-2009,winter,M,Central/South,21,Hingham High School,17
-2009,winter,M,Central/South,22,Holliston High School,16
-2009,winter,M,Central/South,23,Nauset Regional High School,14
-2009,winter,M,Central/South,24,New Bedford High School,10
-2009,winter,M,Central/South,25,St. John's High School,7
-2009,winter,M,Central/South,25,Brockton High School,7
-2009,winter,M,Central/South,27,North Attleborough High School,5
-2009,winter,M,Central/South,28,Scituate High School,4
-2009,winter,M,Central/South,28,Quincy High School,4
-2009,winter,M,Central/South,30,Wachusett Regional High School,3
-2009,winter,M,Central/South,30,Westwood High School,3
-2009,winter,M,Central/South,32,Blue Hills Regional Technical School,1
-2009,winter,M,Central/South,32,Xaverian Brothers High School,1
-2009,winter,M,Central/South,32,Canton High School,1
-2009,winter,M,Central/South,32,Coyle and Cassidy High School,1
-2008,fall,F,South,1,Notre Dame Academy - Hingham,239
-2008,fall,F,South,2,Bishop Feehan High School,215.5
-2008,fall,F,South,3,Bishop Stang High School,162.5
-2008,fall,F,South,4,Framingham High School,115.5
-2008,fall,F,South,5,Brookline High School,88.5
-2008,fall,F,South,6,New Bedford High School,80
-2008,fall,F,South,7,Fontbonne Academy,63.5
-2008,fall,F,South,8,B.M.C. Durfee High School,59
-2008,fall,F,South,9,Brockton High School,52.5
-2008,fall,F,South,10,Norwood High School,51.5
-2008,fall,F,South,11,Westwood High School,36
-2008,fall,F,South,12,Seekonk High School,35
-2008,fall,F,South,13,Ursuline Academy,32.5
-2008,fall,F,South,14,Walpole High School,31
-2008,fall,F,South,15,Wellesley High School,29
-2008,fall,F,South,16,Braintree High School,25
-2008,fall,F,South,17,Milford High School,24
-2008,fall,F,South,18,Dedham High School,15
-2008,fall,F,South,19,Natick High School,14
-2008,fall,F,South,19,Apponequet Regional High School,14
-2008,fall,F,South,21,Marshfield High School,8
-2008,fall,F,South,22,Weymouth High School,2
-2008,fall,F,North,1,Reading Memorial High School,205
-2008,fall,F,North,2,Acton-Boxborough Regional High School,199
-2008,fall,F,North,3,Chelmsford High School,182
-2008,fall,F,North,4,Andover High School,167
-2008,fall,F,North,5,Winchester High School,146
-2008,fall,F,North,6,Lexington High School,105
-2008,fall,F,North,7,Haverhill High School,96
-2008,fall,F,North,8,Belmont High School,74
-2008,fall,F,North,9,Central Catholic High School,60
-2008,fall,F,North,10,Methuen High School,38
-2008,fall,F,North,11,Dracut High School,32
-2008,fall,F,North,12,Lowell High School,24
-2008,fall,F,North,13,Burlington High School,23
-2008,fall,F,North,14,Notre Dame Academy - Worcester,20
-2008,fall,F,North,15,Boston Latin School,16
-2008,fall,F,North,16,Wakefield Memorial High School,4
-2008,fall,F,North,17,Stoneham High School,2
-2008,fall,F,North,17,Melrose High School,2
-2008,winter,M,Central/South,1,Boston College High School,237
-2008,winter,M,Central/South,2,Bishop Feehan High School,143
-2008,winter,M,Central/South,3,Bishop Stang High School,117
-2008,winter,M,Central/South,4,Wellesley High School,109
-2008,winter,M,Central/South,5,Xaverian Brothers High School,95
-2008,winter,M,Central/South,6,Nauset Regional High School,93
-2008,winter,M,Central/South,7,Scituate High School,80
-2008,winter,M,Central/South,8,Sandwich High School,79
-2008,winter,M,Central/South,9,Newton North High School,46
-2008,winter,M,Central/South,10,Framingham High School,44
-2008,winter,M,Central/South,11,Apponequet Regional High School,43
-2008,winter,M,Central/South,12,Needham High School,30
-2008,winter,M,Central/South,13,Shrewsbury High School,27
-2008,winter,M,Central/South,13,Westborough High School,27
-2008,winter,M,Central/South,15,Hopkinton High School,24
-2008,winter,M,Central/South,16,Natick High School,22
-2008,winter,M,Central/South,17,Nantucket High School,18
-2008,winter,M,Central/South,18,Seekonk High School,16
-2008,winter,M,Central/South,18,Middleborough High School,16
-2008,winter,M,Central/South,20,Duxbury High School,14
-2008,winter,M,Central/South,20,Hanover High School,14
-2008,winter,M,Central/South,20,Catholic Memorial High School,14
-2008,winter,M,Central/South,23,Barnstable High School,12
-2008,winter,M,Central/South,24,Oliver Ames High School,11
-2008,winter,M,Central/South,25,Holliston High School,10
-2008,winter,M,Central/South,26,New Bedford High School,9
-2008,winter,M,Central/South,27,Sharon High School,8
-2008,winter,M,Central/South,27,Norwell High School,8
-2008,winter,M,Central/South,27,North Attleborough High School,8
-2008,winter,M,Central/South,30,Brockton High School,7
-2008,winter,M,Central/South,31,Brookline High School,6
-2008,winter,M,Central/South,32,Wachusett Regional High School,4
-2008,winter,M,Central/South,33,Attleboro High School,2
-2008,winter,M,Central/South,33,Quincy High School,2
-2007,fall,F,South,1,Notre Dame Academy - Hingham,255
-2007,fall,F,South,2,Bishop Feehan High School,201.5
-2007,fall,F,South,3,Bishop Stang High School,186
-2007,fall,F,South,4,Framingham High School,119
-2007,fall,F,South,5,Milford High School,89
-2007,fall,F,South,6,Brookline High School,84
-2007,fall,F,South,6,Norwood High School,84
-2007,fall,F,South,8,Fontbonne Academy,82
-2007,fall,F,South,9,B.M.C. Durfee High School,41
-2007,fall,F,South,9,Natick High School,41
-2007,fall,F,South,11,Wellesley High School,37
-2007,fall,F,South,12,Brockton High School,33
-2007,fall,F,South,13,Dedham High School,30
-2007,fall,F,South,14,Seekonk High School,27
-2007,fall,F,South,15,Apponequet Regional High School,21
-2007,fall,F,South,16,Ursuline Academy,18
-2007,fall,F,South,17,Braintree High School,17
-2007,fall,F,South,18,Westwood High School,15
-2007,fall,F,South,19,Needham High School,6
-2007,fall,F,South,20,Attleboro High School,3
-2007,fall,F,South,21,Walpole High School,2
-2007,fall,F,South,22,Weymouth High School,1
-2007,fall,F,South,22,Marshfield High School,1
-2007,fall,F,South,24,Newton North High School,0.5
-2007,fall,F,North,1,Andover High School,228
-2007,fall,F,North,2,Acton-Boxborough Regional High School,221
-2007,fall,F,North,3,Chelmsford High School,161
-2007,fall,F,North,4,Reading Memorial High School,152
-2007,fall,F,North,5,Lexington High School,105
-2007,fall,F,North,6,Haverhill High School,96
-2007,fall,F,North,7,Winchester High School,81
-2007,fall,F,North,8,Methuen High School,80
-2007,fall,F,North,9,Central Catholic High School,46
-2007,fall,F,North,10,Belmont High School,42
-2007,fall,F,North,11,Dracut High School,41
-2007,fall,F,North,12,Boston Latin School,40
-2007,fall,F,North,13,Lowell High School,36
-2007,fall,F,North,14,Burlington High School,21
-2007,fall,F,North,15,Stoneham High School,19
-2007,fall,F,North,16,Academy of Notre Dame,12
-2007,fall,F,North,17,Notre Dame Academy - Worcester,10
-2007,fall,F,North,18,Billerica Memorial High School,4
-2007,winter,M,Central/South,1,Bishop Feehan High School,194.5
-2007,winter,M,Central/South,2,Boston College High School,163
-2007,winter,M,Central/South,3,Xaverian Brothers High School,157
-2007,winter,M,Central/South,4,Nauset Regional High School,98
-2007,winter,M,Central/South,5,Bishop Stang High School,97
-2007,winter,M,Central/South,6,Framingham High School,75.5
-2007,winter,M,Central/South,7,Scituate High School,70
-2007,winter,M,Central/South,7,New Bedford High School,70
-2007,winter,M,Central/South,9,Apponequet Regional High School,60
-2007,winter,M,Central/South,10,Wachusett Regional High School,58
-2007,winter,M,Central/South,11,Westborough High School,44
-2007,winter,M,Central/South,12,Seekonk High School,42
-2007,winter,M,Central/South,13,Wellesley High School,40
-2007,winter,M,Central/South,14,Hopkinton High School,33
-2007,winter,M,Central/South,15,Holliston High School,29
-2007,winter,M,Central/South,16,Middleborough High School,23
-2007,winter,M,Central/South,17,Duxbury High School,19
-2007,winter,M,Central/South,18,St. John's High School,15
-2007,winter,M,Central/South,19,Cardinal Spellman High School,14
-2007,winter,M,Central/South,19,Newton North High School,14
-2007,winter,M,Central/South,21,Sandwich High School,12
-2007,winter,M,Central/South,21,Brookline High School,12
-2007,winter,M,Central/South,23,Nantucket High School,11
-2007,winter,M,Central/South,24,Attleboro High School,10
-2007,winter,M,Central/South,25,Hanover High School,9
-2007,winter,M,Central/South,26,B.M.C. Durfee High School,7
-2007,winter,M,Central/South,27,Brockton High School,6
-2007,winter,M,Central/South,28,Algonquin Regional High School,5
-2007,winter,M,Central/South,28,North Attleborough High School,5
-2007,winter,M,Central/South,30,Sharon High School,1
-2007,winter,M,Central/South,30,Natick High School,1
-2006,fall,F,South,1,Notre Dame Academy - Hingham,244
-2006,fall,F,South,2,Bishop Stang High School,188.5
-2006,fall,F,South,3,Framingham High School,141
-2006,fall,F,South,4,Bishop Feehan High School,129
-2006,fall,F,South,5,Dedham High School,96
-2006,fall,F,South,6,Brookline High School,77
-2006,fall,F,South,7,Milford High School,75
-2006,fall,F,South,8,Natick High School,74
-2006,fall,F,South,9,B.M.C. Durfee High School,60
-2006,fall,F,South,10,Norwood High School,56
-2006,fall,F,South,11,Walpole High School,52
-2006,fall,F,South,12,Ursuline Academy,32
-2006,fall,F,South,13,Seekonk High School,28
-2006,fall,F,South,14,Apponequet Regional High School,26
-2006,fall,F,South,15,Brockton High School,25.5
-2006,fall,F,South,16,Fontbonne Academy,18
-2006,fall,F,South,17,Westwood High School,17
-2006,fall,F,South,18,Wellesley High School,16
-2006,fall,F,South,19,Sandwich High School,11
-2006,fall,F,South,20,Stoughton High School,10
-2006,fall,F,South,21,Canton High School,9
-2006,fall,F,South,22,Needham High School,7
-2006,fall,F,South,23,New Bedford High School,3
-2006,fall,F,North,1,Andover High School,320
-2006,fall,F,North,2,Acton-Boxborough Regional High School,210.5
-2006,fall,F,North,3,Chelmsford High School,192
-2006,fall,F,North,4,Reading Memorial High School,95
-2006,fall,F,North,5,Methuen High School,79
-2006,fall,F,North,6,Haverhill High School,73
-2006,fall,F,North,7,Winchester High School,70
-2006,fall,F,North,8,Cambridge Rindge and Latin School,57
-2006,fall,F,North,9,Belmont High School,53
-2006,fall,F,North,10,Lexington High School,44
-2006,fall,F,North,11,Stoneham High School,42.5
-2006,fall,F,North,12,Burlington High School,41
-2006,fall,F,North,13,Central Catholic High School,31
-2006,fall,F,North,14,Lowell High School,29
-2006,fall,F,North,15,Dracut High School,26
-2006,fall,F,North,16,Academy of Notre Dame,12
-2006,fall,F,North,17,Boston Latin School,11
-2006,fall,F,North,18,Billerica Memorial High School,7
-2006,fall,F,North,19,Notre Dame Academy - Worcester,2
-2005,fall,F,South,1,Notre Dame Academy - Hingham,
-2005,fall,F,South,2,Bishop Stang High School,
-2005,fall,F,North,1,Andover High School,
-2005,fall,F,North,2,Acton-Boxborough Regional High School,
-2004,fall,F,South,1,Bishop Stang High School,195.50
-2004,fall,F,South,2,Notre Dame Academy - Hingham,189
-2004,fall,F,South,3,Bishop Feehan High School,184.50
-2004,fall,F,South,4,Seekonk High School,130
-2004,fall,F,South,5,Brockton High School,123
-2004,fall,F,South,6,Walpole High School,88
-2004,fall,F,South,7,Milford High School,84
-2004,fall,F,South,8,Natick High School,57
-2004,fall,F,South,9,Brookline High School,55
-2004,fall,F,South,10,Marshfield High School,39
-2004,fall,F,South,11,Wellesley High School,35
-2004,fall,F,South,12,Norwood High School,33
-2004,fall,F,South,13,Duxbury High School,32
-2004,fall,F,South,14,Ursuline Academy,28
-2004,fall,F,South,14,New Bedford High School,28
-2004,fall,F,South,16,Dedham High School,27
-2004,fall,F,South,17,Boston Latin School,16
-2004,fall,F,South,18,Needham High School,15
-2004,fall,F,South,19,Stoughton High School,11
-2004,fall,F,South,19,Apponequet Regional High School,11
-2004,fall,F,South,21,Quincy High School & North Quincy High School,10
-2004,fall,F,South,22,B.M.C. Durfee High School,9
-2004,fall,F,South,23,Newton North High School,6
-2004,fall,F,South,23,Canton High School,6
-2004,fall,F,South,25,Sandwich High School,1
-2004,fall,F,North,1,Andover High School,336
-2004,fall,F,North,2,Acton-Boxborough Regional High School,252
-2004,fall,F,North,3,Chelmsford High School,167
-2004,fall,F,North,4,Belmont High School,112
-2004,fall,F,North,5,Central Catholic High School,93
-2004,fall,F,North,5,Reading Memorial High School,93
-2004,fall,F,North,7,Haverhill High School,77
-2004,fall,F,North,8,Framingham High School,71
-2004,fall,F,North,9,Methuen High School,47
-2004,fall,F,North,10,Burlington High School,42
-2004,fall,F,North,11,Winchester High School,30
-2004,fall,F,North,12,Lowell High School,27
-2004,fall,F,North,13,Notre Dame Academy - Worcester,17
-2004,fall,F,North,14,Stoneham High School,12
-2004,fall,F,North,15,Cambridge Rindge and Latin School,7
-2004,fall,F,North,16,Dracut High School,6
-2004,fall,F,North,17,Saint Peter-Marian High School,4
-2004,fall,F,North,18,Billerica Memorial High School,2
-2003,fall,F,South,1,Seekonk High School,
-2003,fall,F,South,2,Notre Dame Academy - Hingham,
-2003,fall,F,North,1,Andover High School,
-2003,fall,F,North,2,Acton-Boxborough Regional High School,
-2002,fall,F,South,1,Seekonk High School,
-2002,fall,F,South,2,Needham High School,
-2002,fall,F,North,1,Andover High School,
-2002,fall,F,North,2,Acton-Boxborough Regional High School,
-2001,fall,F,South,1,Needham High School,
-2001,fall,F,South,2,Duxbury High School,
-2001,fall,F,North,1,Andover High School,
-2001,fall,F,North,2,Acton-Boxborough Regional High School,
-2000,fall,F,South,1,Duxbury High School,
-2000,fall,F,South,2,Bishop Feehan High School,
-2000,fall,F,North,1,Andover High School,
-2000,fall,F,North,2,Acton-Boxborough Regional High School,
-1999,fall,F,South,1,Duxbury High School,
-1999,fall,F,South,2,Notre Dame Academy - Hingham,
-1999,fall,F,North,1,Andover High School,
-1999,fall,F,North,2,Chelmsford High School,
-1998,fall,F,South,1,Duxbury High School,
-1998,fall,F,South,2,Seekonk High School,
-1998,fall,F,North,1,Acton-Boxborough Regional High School,
-1998,fall,F,North,2,Chelmsford High School,
-1997,fall,F,South,1,Bishop Feehan High School,
-1997,fall,F,South,2,Seekonk High School,
-1997,fall,F,North,1,Acton-Boxborough Regional High School,
-1997,fall,F,North,2,Chelmsford High School,
-1996,fall,F,South,1,Bishop Feehan High School,
-1996,fall,F,South,2,Seekonk High School,
-1996,fall,F,North,1,Acton-Boxborough Regional High School,
-1996,fall,F,North,2,Chelmsford High School,
-1995,fall,F,South,1,Bishop Feehan High School,
-1995,fall,F,South,2,Natick High School,
-1995,fall,F,North,1,Acton-Boxborough Regional High School,
-1995,fall,F,North,2,Chelmsford High School,
-1994,fall,F,South,1,Natick High School,
-1994,fall,F,South,2,Bishop Feehan High School,
-1994,fall,F,North,1,Acton-Boxborough Regional High School,
-1994,fall,F,North,2,Haverhill High School,
-1993,fall,F,South,1,Westwood High School,
-1993,fall,F,South,2,Duxbury High School,
-1993,fall,F,North,1,Acton-Boxborough Regional High School,
-1993,fall,F,North,2,Chelmsford High School,
-1992,fall,F,South,1,Westwood High School,
-1992,fall,F,South,2,Wellesley High School,
-1992,fall,F,North,1,Acton-Boxborough Regional High School,
-1992,fall,F,North,2,Chelmsford High School,
-1991,fall,F,South,1,Ursuline Academy,
-1991,fall,F,South,2,Wellesley High School,
-1991,fall,F,North,1,Acton-Boxborough Regional High School,
-1991,fall,F,North,2,Lowell High School,
-1990,fall,F,South,1,Wellesley High School,
-1990,fall,F,South,2,Ursuline Academy,
-1990,fall,F,North,1,Acton-Boxborough Regional High School,
-1990,fall,F,North,2,Lowell High School,
-1989,fall,F,South,1,Wellesley High School,
-1989,fall,F,South,2,Ursuline Academy,
-1989,fall,F,North,1,Lowell High School,
-1989,fall,F,North,2,Acton-Boxborough Regional High School,
-1988,fall,F,South,1,Wellesley High School,
-1988,fall,F,South,2,New Bedford High School,
-1988,fall,F,North,1,Acton-Boxborough Regional High School,
-1988,fall,F,North,2,Lowell High School,
-1987,fall,F,South,1,Wellesley High School,
-1987,fall,F,South,2,Needham High School,
-1987,fall,F,North,1,Acton-Boxborough Regional High School,
-1987,fall,F,North,2,Andover High School,
-1986,fall,F,South,1,Wellesley High School,
-1986,fall,F,South,2,Brockton High School,
-1986,fall,F,North,1,Acton-Boxborough Regional High School,
-1986,fall,F,North,2,Belmont High School,
-1985,fall,F,South,1,Wellesley High School,
-1985,fall,F,South,2,Brockton High School,
-1985,fall,F,North,1,Acton-Boxborough Regional High School,
-1985,fall,F,North,2,Belmont High School,
-1984,fall,F,South,1,Canton High School,
-1984,fall,F,South,2,Brockton High School,
-1984,fall,F,North,1,Acton-Boxborough Regional High School,
-1984,fall,F,North,2,Westford Academy,
-1983,fall,F,South,1,Wellesley High School,
-1983,fall,F,South,2,Brockton High School,
-1983,fall,F,North,1,Acton-Boxborough Regional High School,
-1983,fall,F,North,2,Westford Academy,
-1982,fall,F,South,1,Seekonk High School,
-1982,fall,F,South,2,Brockton High School,
-1982,fall,F,North,1,Acton-Boxborough Regional High School,
-1982,fall,F,North,2,Framingham North High School,
-1981,fall,F,South,1,B.M.C. Durfee High School,
-1981,fall,F,South,2,Seekonk High School,
-1981,fall,F,North,1,Acton-Boxborough Regional High School,
-1981,fall,F,North,2,Hamilton-Wenham Regional High School,
-1980,fall,F,South,1,B.M.C. Durfee High School,
-1980,fall,F,South,2,Dover-Sherborn High School,
-1980,fall,F,North,1,Acton-Boxborough Regional High School,
-1980,fall,F,North,2,Lexington High School,
-1979,fall,F,South,1,B.M.C. Durfee High School,
-1979,fall,F,South,2,Brockton High School,
-1979,fall,F,North,1,Framingham North High School,
-1979,fall,F,North,2,Lexington High School,
-1978,fall,F,South,1,B.M.C. Durfee High School,
-1978,fall,F,South,2,Dover-Sherborn High School,
-1978,fall,F,North,1,Framingham North High School,
-1978,fall,F,North,2,Acton-Boxborough Regional High School,
-1977,fall,F,Eastern Mass,1,Acton-Boxborough Regional High School,
-1977,fall,F,Eastern Mass,2,Framingham North High School,
-1976,fall,F,Eastern Mass,1,Acton-Boxborough Regional High School,
-1976,fall,F,Eastern Mass,2,Marblehead High School,
-1975,fall,F,Eastern Mass,1,Bedford High School,
-1975,fall,F,Eastern Mass,2,Wayland High School,
-1974,fall,F,Eastern Mass,1,Bedford High School,
-1974,fall,F,Eastern Mass,2,Wayland High School,
-1973,fall,F,Eastern Mass,1,Wayland High School,
-1972,fall,F,Eastern Mass,2,Acton-Boxborough Regional High School,
+School Year,Season,Sex,Division,Place,School,Score
+2023-2024,fall,F,South,1,Wellesley High School,405
+2023-2024,fall,F,South,2,Needham High School,397
+2023-2024,fall,F,South,3,Newton North High School,323
+2023-2024,fall,F,South,4,Brookline High School,188
+2023-2024,fall,F,South,5,Boston Latin School,160
+2023-2024,fall,F,South,6,Notre Dame Academy - Hingham,157
+2023-2024,fall,F,South,7,Framingham High School,137
+2023-2024,fall,F,South,8,Milton High School,115
+2023-2024,fall,F,South,8,Natick High School,115
+2023-2024,fall,F,South,10,Ursuline Academy,89
+2023-2024,fall,F,South,11,Braintree High School,77
+2023-2024,fall,F,South,12,Weymouth High School,46
+2023-2024,fall,F,South,13,Walpole High School,43
+2023-2024,fall,F,North,1,Acton-Boxborough Regional High School,273
+2023-2024,fall,F,North,2,Andover High School,228
+2023-2024,fall,F,North,3,Belmont High School,217
+2023-2024,fall,F,North,4,Winchester High School,214
+2023-2024,fall,F,North,5,Haverhill High School,196
+2023-2024,fall,F,North,6,Wakefield Memorial High School,193
+2023-2024,fall,F,North,7,Malden Catholic High School,170
+2023-2024,fall,F,North,7,North Andover High School,170
+2023-2024,fall,F,North,9,Chelmsford High School,145
+2023-2024,fall,F,North,10,Lexington High School,133
+2023-2024,fall,F,North,11,Arlington High School,83
+2023-2024,fall,F,North,12,Central Catholic High School,78
+2023-2024,fall,F,North,13,Woburn Memorial High School,55
+2023-2024,fall,F,North,14,Reading Memorial High School,54
+2023-2024,fall,F,North,15,Billerica Memorial High School,31
+2023-2024,fall,F,North,16,Academy of Notre Dame,30
+2023-2024,fall,F,North,17,Methuen High School,19
+2023-2024,fall,F,North,18,Stoneham High School,4
+2022-2023,winter,M,South,1,Needham High School,254
+2022-2023,winter,M,South,2,Xaverian Brothers High School,252
+2022-2023,winter,M,South,3,Boston College High School,231
+2022-2023,winter,M,South,4,Brookline High School,149
+2022-2023,winter,M,South,5,Westwood High School,126
+2022-2023,winter,M,South,6,Duxbury High School,120
+2022-2023,winter,M,South,7,Cohasset High School,110
+2022-2023,winter,M,South,8,Framingham High School,106
+2022-2023,winter,M,South,9,Holliston High School,99.5
+2022-2023,winter,M,South,10,Attleboro High School,91
+2022-2023,winter,M,South,11,Natick High School,88
+2022-2023,winter,M,South,12,Wellesley High School,75
+2022-2023,winter,M,South,13,Quincy High School,65
+2022-2023,winter,M,South,14,Nauset Regional High School,61
+2022-2023,winter,M,South,15,Newton North High School,58
+2022-2023,winter,M,South,16,Nantucket High School,52
+2022-2023,winter,M,South,17,Hopkinton High School,48
+2022-2023,winter,M,South,18,Bishop Feehan High School,44
+2022-2023,winter,M,South,19,Sandwich High School,38
+2022-2023,winter,M,South,19,Scituate High School,38
+2022-2023,winter,M,South,21,Hanover High School,32
+2022-2023,winter,M,South,21,Seekonk High School,32
+2022-2023,winter,M,South,23,Plymouth North High School,27
+2022-2023,winter,M,South,24,Sharon High School,26
+2022-2023,winter,M,South,25,Catholic Memorial High School,21
+2022-2023,winter,M,South,26,Dover-Sherborn High School,19
+2022-2023,winter,M,South,27,Foxborough High School,12
+2022-2023,winter,M,South,28,Dedham High School,11
+2022-2023,winter,M,South,29,Martha's Vineyard Regional High School,8
+2022-2023,winter,M,South,30,Taunton High School,6
+2022-2023,winter,M,South,30,Brockton High School,6
+2022-2023,winter,M,South,32,Bridgewater-Raynham Regional High School,4
+2022-2023,winter,M,South,33,Apponequet Regional High School,2
+2022-2023,winter,M,South,33,Milford High School,2
+2022-2023,winter,M,South,35,Oliver Ames High School,1.5
+2022-2023,fall,F,North,1,Acton-Boxborough Regional High School,321.5
+2022-2023,fall,F,North,2,Andover High School,269
+2022-2023,fall,F,North,3,Winchester High School,227
+2022-2023,fall,F,North,3,Lexington High School,227
+2022-2023,fall,F,North,5,Chelmsford High School,193
+2022-2023,fall,F,North,6,Belmont High School,157
+2022-2023,fall,F,North,7,Haverhill High School,156
+2022-2023,fall,F,North,8,Reading Memorial High School,143
+2022-2023,fall,F,North,9,Central Catholic High School,138
+2022-2023,fall,F,North,10,North Andover High School,133.5
+2022-2023,fall,F,North,11,Wakefield Memorial High School,128
+2022-2023,fall,F,North,12,Watertown High School,78
+2022-2023,fall,F,North,13,Malden Catholic High School,65
+2022-2023,fall,F,North,14,Academy of Notre Dame,28
+2022-2023,fall,F,North,15,Woburn Memorial High School,26
+2022-2023,fall,F,North,16,Methuen High School,21
+2022-2023,fall,F,North,17,Stoneham High School,4
+2022-2023,fall,F,North,18,Billerica Memorial High School,3
+2021-2022,winter,M,South,1,Needham High School,258
+2021-2022,winter,M,South,2,Bishop Feehan High School,231
+2021-2022,winter,M,South,3,Brookline High School,216
+2021-2022,winter,M,South,4,Boston College High School,188
+2021-2022,winter,M,South,5,Duxbury High School,143
+2021-2022,winter,M,South,6,Framingham High School,110
+2021-2022,winter,M,South,7,Holliston High School,96
+2021-2022,winter,M,South,8,Nantucket High School,80.5
+2021-2022,winter,M,South,9,Westwood High School,75
+2021-2022,winter,M,South,10,Wellesley High School,74.5
+2021-2022,winter,M,South,11,Newton North High School,74
+2021-2022,winter,M,South,12,Xaverian Brothers High School,68
+2021-2022,winter,M,South,13,Natick High School,59
+2021-2022,winter,M,South,14,Sharon High School,56
+2021-2022,winter,M,South,15,Dover-Sherborn High School,48
+2021-2022,winter,M,South,16,Hopkinton High School,40
+2021-2022,winter,M,South,17,Sandwich High School,37.5
+2021-2022,winter,M,South,18,Scituate High School,37
+2021-2022,winter,M,South,19,Silver Lake Regional High School,34
+2021-2022,winter,M,South,20,Medfield High School,32
+2021-2022,winter,M,South,21,Milford High School,29
+2021-2022,winter,M,South,22,Cohasset High School,28
+2021-2022,winter,M,South,23,Hanover High School,26
+2021-2022,winter,M,South,24,Oliver Ames High School,24
+2021-2022,winter,M,South,24,Quincy High School,24
+2021-2022,winter,M,South,24,Hingham High School,24
+2021-2022,winter,M,South,27,Seekonk High School,23
+2021-2022,winter,M,South,28,Norwell High School,21
+2021-2022,winter,M,South,29,Bishop Stang High School,20
+2021-2022,winter,M,South,30,Taunton High School,18
+2021-2022,winter,M,South,31,Old Rochester Regional High School,17
+2021-2022,winter,M,South,32,Attleboro High School,16
+2021-2022,winter,M,South,33,Foxborough High School,13
+2021-2022,winter,M,South,34,Martha's Vineyard Regional High School,12
+2021-2022,winter,M,South,35,King Philip Regional High School,9
+2021-2022,winter,M,South,36,Apponequet Regional High School,6
+2021-2022,winter,M,South,37,Mansfield High School,3.5
+2021-2022,winter,M,South,38,Ashland High School,3
+2021-2022,winter,M,South,38,Franklin High School,3
+2021-2022,winter,M,South,40,Plymouth North High School,2
+2021-2022,winter,M,South,40,North Attleborough High School,2
+2021-2022,fall,F,South,1,Wellesley High School,390.5
+2021-2022,fall,F,South,2,Needham High School,329
+2021-2022,fall,F,South,3,Brookline High School,304
+2021-2022,fall,F,South,4,Ursuline Academy,222
+2021-2022,fall,F,South,5,Framingham High School,221
+2021-2022,fall,F,South,6,Milton High School,196
+2021-2022,fall,F,South,7,Newton North High School,190
+2021-2022,fall,F,South,8,Natick High School,110
+2021-2022,fall,F,South,9,Braintree High School,81
+2021-2022,fall,F,South,10,Boston Latin School,69
+2021-2022,fall,F,South,11,Notre Dame Academy - Hingham,60
+2021-2022,fall,F,South,12,Walpole High School,51.5
+2021-2022,fall,F,South,13,Notre Dame Academy - Hingham,32
+2021-2022,fall,F,South,14,Weymouth High School,16
+2021-2022,fall,F,North,1,Acton-Boxborough Regional High School,356.5
+2021-2022,fall,F,North,2,Andover High School,247
+2021-2022,fall,F,North,3,Central Catholic High School,218
+2021-2022,fall,F,North,4,North Andover High School,206
+2021-2022,fall,F,North,5,Chelmsford High School,196
+2021-2022,fall,F,North,6,Winchester High School,193
+2021-2022,fall,F,North,7,Haverhill High School,190
+2021-2022,fall,F,North,8,Belmont High School,146
+2021-2022,fall,F,North,9,Reading Memorial High School,136
+2021-2022,fall,F,North,10,Watertown High School,134
+2021-2022,fall,F,North,11,Wakefield Memorial High School,108
+2021-2022,fall,F,North,12,Lexington High School,95
+2021-2022,fall,F,North,13,Malden Catholic High School,44.5
+2021-2022,fall,F,North,14,Methuen High School,23
+2021-2022,fall,F,North,15,Woburn Memorial High School,12
+2021-2022,fall,F,North,16,Melrose High School,10
+2021-2022,fall,F,North,17,Burlington High School,2
+2021-2022,fall,F,North,17,Stoneham High School,2
+2019-2020,winter,M,South,1,Natick High School,197
+2019-2020,winter,M,South,2,Bishop Feehan High School,191
+2019-2020,winter,M,South,3,Framingham High School,186
+2019-2020,winter,M,South,4,Ashland High School,180
+2019-2020,winter,M,South,5,Nantucket High School,176
+2019-2020,winter,M,South,6,Brookline High School,159
+2019-2020,winter,M,South,7,Duxbury High School,148.5
+2019-2020,winter,M,South,8,Boston College High School,117.5
+2019-2020,winter,M,South,9,Newton North High School,112
+2019-2020,winter,M,South,10,Wellesley High School,89
+2019-2020,winter,M,South,11,Needham High School,85
+2019-2020,winter,M,South,12,Catholic Memorial High School,82
+2019-2020,winter,M,South,13,Norwell High School,77
+2019-2020,winter,M,South,14,Seekonk High School,76
+2019-2020,winter,M,South,15,Taunton High School,57
+2019-2020,winter,M,South,16,Old Rochester Regional High School,40
+2019-2020,winter,M,South,17,King Philip Regional High School,35
+2019-2020,winter,M,South,18,Hopkinton High School,31
+2019-2020,winter,M,South,19,Xaverian Brothers High School,28
+2019-2020,winter,M,South,20,Boston Latin Academy,25.5
+2019-2020,winter,M,South,21,Sharon High School,25
+2019-2020,winter,M,South,22,Cohasset High School,24
+2019-2020,winter,M,South,22,Scituate High School,24
+2019-2020,winter,M,South,24,Sandwich High School,23
+2019-2020,winter,M,South,25,Holliston High School,22
+2019-2020,winter,M,South,26,Nauset Regional High School,21
+2019-2020,winter,M,South,27,North Quincy High School,17.5
+2019-2020,winter,M,South,28,St. John Paul II High School,11
+2019-2020,winter,M,South,28,Bishop Stang High School,11
+2019-2020,winter,M,South,30,Middleborough High School,9
+2019-2020,winter,M,South,30,Barnstable High School,9
+2019-2020,winter,M,South,32,Apponequet Regional High School,7
+2019-2020,winter,M,South,33,East Boston High School,5
+2019-2020,winter,M,South,33,Oliver Ames High School,5
+2019-2020,winter,M,South,35,John D. O'Bryant School of Mathematics & Science,3
+2019-2020,winter,M,South,36,Hingham High School,2
+2019-2020,winter,M,South,36,Westwood High School,2
+2019-2020,winter,M,South,38,New Bedford High School,1
+2019-2020,winter,M,South,38,Canton High School,1
+2019-2020,fall,F,North,1,Andover High School,467
+2019-2020,fall,F,North,2,Central Catholic High School,254
+2019-2020,fall,F,North,3,Reading Memorial High School,239
+2019-2020,fall,F,North,4,Lexington High School,196
+2019-2020,fall,F,North,5,Acton-Boxborough Regional High School,178
+2019-2020,fall,F,North,6,North Andover High School,149
+2019-2020,fall,F,North,7,Arlington High School,135.5
+2019-2020,fall,F,North,8,Chelmsford High School,131
+2019-2020,fall,F,North,9,Wakefield Memorial High School,121.5
+2019-2020,fall,F,North,10,Winchester High School,118
+2019-2020,fall,F,North,10,Haverhill High School,118
+2019-2020,fall,F,North,12,Belmont High School,95
+2019-2020,fall,F,North,13,Methuen High School,54
+2019-2020,fall,F,North,14,Lowell High School,38
+2019-2020,fall,F,North,15,Woburn Memorial High School,15
+2019-2020,fall,F,North,16,Burlington High School,14
+2019-2020,fall,F,North,17,Billerica Memorial High School,2
+2018-2019,winter,M,South,1,Nantucket High School,228
+2018-2019,winter,M,South,2,Natick High School,213
+2018-2019,winter,M,South,3,Needham High School,195.5
+2018-2019,winter,M,South,4,Ashland High School,167
+2018-2019,winter,M,South,5,Bishop Feehan High School,151
+2018-2019,winter,M,South,6,King Philip Regional High School,137
+2018-2019,winter,M,South,7,Wellesley High School,124
+2018-2019,winter,M,South,8,Boston College High School,107
+2018-2019,winter,M,South,9,Oliver Ames High School,98.5
+2018-2019,winter,M,South,10,Framingham High School,94
+2018-2019,winter,M,South,11,Newton North High School,85
+2018-2019,winter,M,South,12,Seekonk High School,75
+2018-2019,winter,M,South,13,Norwell High School,72
+2018-2019,winter,M,South,14,Duxbury High School,65
+2018-2019,winter,M,South,15,Bishop Stang High School,63
+2018-2019,winter,M,South,16,Catholic Memorial High School,57
+2018-2019,winter,M,South,17,Brookline High School,55.5
+2018-2019,winter,M,South,18,Old Rochester Regional High School,55
+2018-2019,winter,M,South,19,Cohasset High School,51
+2018-2019,winter,M,South,20,Attleboro High School,37
+2018-2019,winter,M,South,21,Hopkinton High School,30
+2018-2019,winter,M,South,22,Sharon High School,27
+2018-2019,winter,M,South,23,Taunton High School,24
+2018-2019,winter,M,South,24,Xaverian Brothers High School,21
+2018-2019,winter,M,South,25,Milford High School,17
+2018-2019,winter,M,South,26,Dover-Sherborn High School,16
+2018-2019,winter,M,South,27,Bridgewater-Raynham Regional High School,15
+2018-2019,winter,M,South,28,Barnstable High School,9
+2018-2019,winter,M,South,28,Holliston High School,9
+2018-2019,winter,M,South,30,Hingham High School,6
+2018-2019,winter,M,South,31,Scituate High School,4.5
+2018-2019,winter,M,South,32,Medfield High School,3
+2018-2019,winter,M,South,32,Middleborough High School,3
+2018-2019,winter,M,South,32,Apponequet Regional High School,3
+2018-2019,winter,M,South,35,Franklin High School,2
+2018-2019,winter,M,South,35,Boston Latin Academy,2
+2018-2019,fall,F,South,1,Wellesley High School,352
+2018-2019,fall,F,South,2,Ursuline Academy,255
+2018-2019,fall,F,South,3,Needham High School,244
+2018-2019,fall,F,South,4,Newton North High School,234
+2018-2019,fall,F,South,5,Brookline High School,194.5
+2018-2019,fall,F,South,6,Natick High School,186
+2018-2019,fall,F,South,7,Framingham High School,179.5
+2018-2019,fall,F,South,8,Marshfield High School,160
+2018-2019,fall,F,South,9,Boston Latin School,139
+2018-2019,fall,F,South,10,Notre Dame Academy - Hingham,138
+2018-2019,fall,F,South,11,Milton High School,88
+2018-2019,fall,F,South,12,Walpole High School,85
+2018-2019,fall,F,South,13,Braintree High School,24
+2018-2019,fall,F,South,14,Mount Alvernia High School,8
+2018-2019,fall,F,South,14,Weymouth High School,8
+2018-2019,fall,F,North,1,Andover High School,411
+2018-2019,fall,F,North,2,Reading Memorial High School,400
+2018-2019,fall,F,North,3,Acton-Boxborough Regional High School,204.5
+2018-2019,fall,F,North,4,Belmont High School,173.5
+2018-2019,fall,F,North,5,Chelmsford High School,140.5
+2018-2019,fall,F,North,6,Haverhill High School,139
+2018-2019,fall,F,North,7,Central Catholic High School,131.5
+2018-2019,fall,F,North,8,Arlington High School,128
+2018-2019,fall,F,North,9,Lexington High School,124
+2018-2019,fall,F,North,10,Wakefield Memorial High School,122
+2018-2019,fall,F,North,11,Winchester High School,78
+2018-2019,fall,F,North,12,Melrose High School,75
+2018-2019,fall,F,North,13,North Andover High School,57
+2018-2019,fall,F,North,14,Methuen High School,55
+2018-2019,fall,F,North,15,Lowell High School,43
+2018-2019,fall,F,North,16,Burlington High School,23
+2018-2019,fall,F,North,17,Woburn Memorial High School,11
+2018-2019,fall,F,North,18,Stoneham High School,8
+2017-2018,winter,M,South,1,Needham High School,247
+2017-2018,winter,M,South,2,Natick High School,240
+2017-2018,winter,M,South,3,Ashland High School,175
+2017-2018,winter,M,South,4,Wellesley High School,148
+2017-2018,winter,M,South,5,Framingham High School,146
+2017-2018,winter,M,South,6,Nantucket High School,136
+2017-2018,winter,M,South,7,Boston College High School,124
+2017-2018,winter,M,South,8,King Philip Regional High School,118
+2017-2018,winter,M,South,9,Old Rochester Regional High School,110
+2017-2018,winter,M,South,10,Nauset Regional High School,100
+2017-2018,winter,M,South,11,Catholic Memorial High School,91
+2017-2018,winter,M,South,12,Brookline High School,79
+2017-2018,winter,M,South,13,North Attleborough High School,68
+2017-2018,winter,M,South,14,Bishop Feehan High School,54
+2017-2018,winter,M,South,15,Newton North High School,49
+2017-2018,winter,M,South,16,Holliston High School,47
+2017-2018,winter,M,South,17,Cohasset High School,46.5
+2017-2018,winter,M,South,18,Duxbury High School,46
+2017-2018,winter,M,South,19,Scituate High School,42
+2017-2018,winter,M,South,20,Bishop Stang High School,41
+2017-2018,winter,M,South,21,Oliver Ames High School,40
+2017-2018,winter,M,South,22,Xaverian Brothers High School,26
+2017-2018,winter,M,South,23,Hopkinton High School,21
+2017-2018,winter,M,South,24,Dover-Sherborn High School,20
+2017-2018,winter,M,South,25,Bridgewater-Raynham Regional High School,15
+2017-2018,winter,M,South,26,Mansfield High School,13
+2017-2018,winter,M,South,26,Franklin High School,13
+2017-2018,winter,M,South,28,Dighton-Rehoboth Regional High School,12
+2017-2018,winter,M,South,29,Sharon High School,11
+2017-2018,winter,M,South,30,Milford High School,9
+2017-2018,winter,M,South,30,Medfield High School,9
+2017-2018,winter,M,South,32,Seekonk High School,7
+2017-2018,winter,M,South,33,Norwell High School,6
+2017-2018,winter,M,South,34,Norton High School,5
+2017-2018,winter,M,South,35,Middleborough High School,4
+2017-2018,winter,M,South,36,Barnstable High School,3
+2017-2018,winter,M,South,36,Blue Hills Regional Technical School,3
+2017-2018,winter,M,South,38,Attleboro High School,0.5
+2017-2018,fall,F,South,1,Wellesley High School,376
+2017-2018,fall,F,South,2,Newton North High School,332
+2017-2018,fall,F,South,3,Brookline High School,268
+2017-2018,fall,F,South,4,Natick High School,233
+2017-2018,fall,F,South,5,Ursuline Academy,176
+2017-2018,fall,F,South,5,Framingham High School,176
+2017-2018,fall,F,South,7,Needham High School,168
+2017-2018,fall,F,South,8,Boston Latin School,157
+2017-2018,fall,F,South,9,Marshfield High School,144
+2017-2018,fall,F,South,10,Notre Dame Academy - Hingham,119
+2017-2018,fall,F,South,11,Braintree High School,46
+2017-2018,fall,F,South,12,Walpole High School,35
+2017-2018,fall,F,South,13,Norwood High School,32
+2017-2018,fall,F,South,14,Milton High School,31
+2017-2018,fall,F,North,1,Andover High School,409
+2017-2018,fall,F,North,2,Reading Memorial High School,356
+2017-2018,fall,F,North,3,Acton-Boxborough Regional High School,264
+2017-2018,fall,F,North,4,Belmont High School,165
+2017-2018,fall,F,North,5,Melrose High School,164
+2017-2018,fall,F,North,6,Central Catholic High School,144
+2017-2018,fall,F,North,7,Haverhill High School,135
+2017-2018,fall,F,North,8,Winchester High School,129
+2017-2018,fall,F,North,9,Chelmsford High School,126
+2017-2018,fall,F,North,10,Stoneham High School,85
+2017-2018,fall,F,North,11,Lexington High School,68
+2017-2018,fall,F,North,12,Lowell High School,60
+2017-2018,fall,F,North,13,Wakefield Memorial High School,57
+2017-2018,fall,F,North,14,Methuen High School,48
+2017-2018,fall,F,North,15,Arlington High School,40
+2017-2018,fall,F,North,16,Burlington High School,26
+2017-2018,fall,F,North,17,Woburn Memorial High School,24
+2017-2018,fall,F,North,18,North Andover High School,20
+2017-2018,fall,F,North,19,Billerica Memorial High School,4
+2016-2017,fall,F,South,1,Framingham High School,300
+2016-2017,fall,F,South,2,Newton North High School,292
+2016-2017,fall,F,South,3,Brookline High School,263
+2016-2017,fall,F,South,4,Notre Dame Academy - Hingham,251
+2016-2017,fall,F,South,5,Natick High School,242
+2016-2017,fall,F,South,6,Wellesley High School,240
+2016-2017,fall,F,South,7,Ursuline Academy,205
+2016-2017,fall,F,South,8,Needham High School,179
+2016-2017,fall,F,South,9,Marshfield High School,153
+2016-2017,fall,F,South,10,Braintree High School,49
+2016-2017,fall,F,South,11,Dedham High School,33
+2016-2017,fall,F,South,12,Norwood High School,24
+2016-2017,fall,F,South,13,Walpole High School,20
+2016-2017,fall,F,North,1,Andover High School,464
+2016-2017,fall,F,North,2,Acton-Boxborough Regional High School,298
+2016-2017,fall,F,North,3,Reading Memorial High School,258
+2016-2017,fall,F,North,4,Central Catholic High School,204
+2016-2017,fall,F,North,5,Belmont High School,180
+2016-2017,fall,F,North,6,Lexington High School,127
+2016-2017,fall,F,North,7,Winchester High School,126
+2016-2017,fall,F,North,8,Chelmsford High School,117
+2016-2017,fall,F,North,9,Haverhill High School,111
+2016-2017,fall,F,North,9,Melrose High School,111
+2016-2017,fall,F,North,11,Lowell High School,107
+2016-2017,fall,F,North,12,Burlington High School,55
+2016-2017,fall,F,North,13,Boston Latin School,53
+2016-2017,fall,F,North,14,Stoneham High School,46
+2016-2017,fall,F,North,15,North Andover High School,26
+2016-2017,fall,F,North,16,Billerica Memorial High School,17
+2016-2017,fall,F,North,17,Methuen High School,13
+2016-2017,fall,F,North,18,Academy of Notre Dame,4
+2016-2017,fall,F,North,18,Woburn Memorial High School,4
+2016-2017,fall,F,North,20,Arlington High School,3
+2015-2016,winter,M,Central/South,1,Norwell High School,187
+2015-2016,winter,M,Central/South,2,Westborough High School,180.5
+2015-2016,winter,M,Central/South,3,Wellesley High School,173.5
+2015-2016,winter,M,Central/South,4,King Philip Regional High School,137
+2015-2016,winter,M,Central/South,5,Attleboro High School,127
+2015-2016,winter,M,Central/South,6,Framingham High School,126.5
+2015-2016,winter,M,Central/South,7,Duxbury High School,115
+2015-2016,winter,M,Central/South,8,Ashland High School,113
+2015-2016,winter,M,Central/South,9,Needham High School,105
+2015-2016,winter,M,Central/South,10,Bishop Feehan High School,98
+2015-2016,winter,M,Central/South,11,Brookline High School,96
+2015-2016,winter,M,Central/South,12,Bridgewater-Raynham Regional High School,80
+2015-2016,winter,M,Central/South,13,Nauset Regional High School,63.5
+2015-2016,winter,M,Central/South,14,Apponequet Regional High School,53
+2015-2016,winter,M,Central/South,15,The Bromfield School,47
+2015-2016,winter,M,Central/South,16,Tyngsborough High School & Groton-Dunstable Regional High School,42.5
+2015-2016,winter,M,Central/South,17,Boston College High School,38.5
+2015-2016,winter,M,Central/South,18,Scituate High School,38
+2015-2016,winter,M,Central/South,18,Newton North High School,38
+2015-2016,winter,M,Central/South,20,Algonquin Regional High School,36
+2015-2016,winter,M,Central/South,21,Cohasset High School,34
+2015-2016,winter,M,Central/South,21,Hanover High School,34
+2015-2016,winter,M,Central/South,21,North Attleborough High School,34
+2015-2016,winter,M,Central/South,24,Sharon High School,30
+2015-2016,winter,M,Central/South,24,Canton High School,30
+2015-2016,winter,M,Central/South,26,Norton High School,26
+2015-2016,winter,M,Central/South,27,Barnstable High School,21
+2015-2016,winter,M,Central/South,28,Oliver Ames High School,20
+2015-2016,winter,M,Central/South,28,Medfield High School,20
+2015-2016,winter,M,Central/South,30,Milford High School,18
+2015-2016,winter,M,Central/South,30,Taunton High School,18
+2015-2016,winter,M,Central/South,32,Dover-Sherborn High School,17
+2015-2016,winter,M,Central/South,32,Doherty Memorial High School,17
+2015-2016,winter,M,Central/South,34,Sandwich High School,15
+2015-2016,winter,M,Central/South,35,Seekonk High School,14
+2015-2016,winter,M,Central/South,35,St. John's High School,14
+2015-2016,winter,M,Central/South,37,Franklin High School,12
+2015-2016,winter,M,Central/South,37,New Bedford High School,12
+2015-2016,winter,M,Central/South,39,Hopkinton High School,11
+2015-2016,winter,M,Central/South,40,Natick High School,8
+2015-2016,winter,M,Central/South,41,North Quincy High School,6
+2015-2016,winter,M,Central/South,42,Shrewsbury High School,5
+2015-2016,winter,M,Central/South,43,Xaverian Brothers High School,4
+2015-2016,winter,M,Central/South,44,Holliston High School,3
+2015-2016,winter,M,Central/South,44,Silver Lake Regional High School,3
+2015-2016,winter,M,Central/South,46,Nantucket High School,2
+2015-2016,winter,M,Central/South,47,Tantasqua Regional High School,1
+2015-2016,winter,M,Central/South,47,Quincy High School,1
+2015-2016,fall,F,South,1,Bishop Feehan High School,350
+2015-2016,fall,F,South,2,Brookline High School,267.5
+2015-2016,fall,F,South,3,Newton North High School,235.5
+2015-2016,fall,F,South,4,Framingham High School,235
+2015-2016,fall,F,South,5,Wellesley High School,213
+2015-2016,fall,F,South,6,Needham High School,202
+2015-2016,fall,F,South,7,Ursuline Academy,172.5
+2015-2016,fall,F,South,8,Natick High School,144
+2015-2016,fall,F,South,9,Notre Dame Academy - Hingham,133.5
+2015-2016,fall,F,South,10,Marshfield High School,90
+2015-2016,fall,F,South,11,New Bedford High School,71
+2015-2016,fall,F,South,12,Braintree High School,53
+2015-2016,fall,F,South,13,Advanced Math and Science Academy Charter School,38
+2015-2016,fall,F,South,14,B.M.C. Durfee High School,36
+2015-2016,fall,F,South,15,Brockton High School,35
+2015-2016,fall,F,South,16,Walpole High School,18
+2015-2016,fall,F,South,17,Mount Alvernia High School,11
+2015-2016,fall,F,South,18,Norwood High School,6
+2015-2016,fall,F,North,1,Andover High School,474
+2015-2016,fall,F,North,2,Acton-Boxborough Regional High School,292.5
+2015-2016,fall,F,North,3,Reading Memorial High School,249
+2015-2016,fall,F,North,4,Belmont High School,236
+2015-2016,fall,F,North,5,Lexington High School,151
+2015-2016,fall,F,North,6,Haverhill High School,141.5
+2015-2016,fall,F,North,7,Central Catholic High School,139
+2015-2016,fall,F,North,8,Melrose High School,125
+2015-2016,fall,F,North,9,Chelmsford High School,113.5
+2015-2016,fall,F,North,10,Winchester High School,100.5
+2015-2016,fall,F,North,11,Burlington High School,54
+2015-2016,fall,F,North,12,Woburn Memorial High School,49
+2015-2016,fall,F,North,13,Boston Latin School,46
+2015-2016,fall,F,North,14,Wakefield Memorial High School,43
+2015-2016,fall,F,North,15,North Andover High School,37
+2015-2016,fall,F,North,16,Lowell High School,30.5
+2015-2016,fall,F,North,17,Methuen High School,18.5
+2015-2016,fall,F,North,18,Stoneham High School,12
+2015-2016,fall,F,North,19,Billerica Memorial High School,9
+2015-2016,fall,F,North,20,Notre Dame Academy - Worcester,4
+2014-2015,winter,M,Central/South,1,Framingham High School,249.5
+2014-2015,winter,M,Central/South,2,Brookline High School,180
+2014-2015,winter,M,Central/South,3,Wellesley High School,171.5
+2014-2015,winter,M,Central/South,4,Apponequet Regional High School,143
+2014-2015,winter,M,Central/South,5,Algonquin Regional High School,139
+2014-2015,winter,M,Central/South,6,Bishop Feehan High School,118
+2014-2015,winter,M,Central/South,7,St. John's High School,110
+2014-2015,winter,M,Central/South,8,Taunton High School,100
+2014-2015,winter,M,Central/South,9,Duxbury High School,92
+2014-2015,winter,M,Central/South,10,King Philip Regional High School,83
+2014-2015,winter,M,Central/South,11,The Bromfield School,82
+2014-2015,winter,M,Central/South,12,Franklin High School,62.5
+2014-2015,winter,M,Central/South,13,Bridgewater-Raynham Regional High School,57
+2014-2015,winter,M,Central/South,14,Westborough High School,53
+2014-2015,winter,M,Central/South,15,Barnstable High School,51
+2014-2015,winter,M,Central/South,16,Holliston High School,50.5
+2014-2015,winter,M,Central/South,16,Scituate High School,50.5
+2014-2015,winter,M,Central/South,18,Milford High School,45
+2014-2015,winter,M,Central/South,19,Needham High School,40.5
+2014-2015,winter,M,Central/South,20,Canton High School,40
+2014-2015,winter,M,Central/South,21,Nauset Regional High School,36
+2014-2015,winter,M,Central/South,22,Medfield High School,35
+2014-2015,winter,M,Central/South,22,Ashland High School,35
+2014-2015,winter,M,Central/South,24,Sandwich High School,33
+2014-2015,winter,M,Central/South,25,Boston College High School,31
+2014-2015,winter,M,Central/South,26,Hopkinton High School,24
+2014-2015,winter,M,Central/South,26,Hanover High School,24
+2014-2015,winter,M,Central/South,28,North Attleborough High School,23
+2014-2015,winter,M,Central/South,29,Oliver Ames High School,21
+2014-2015,winter,M,Central/South,30,Dover-Sherborn High School,17
+2014-2015,winter,M,Central/South,31,Sharon High School,16
+2014-2015,winter,M,Central/South,31,Attleboro High School,16
+2014-2015,winter,M,Central/South,33,Leominster High School,15
+2014-2015,winter,M,Central/South,34,Wachusett Regional High School,14
+2014-2015,winter,M,Central/South,35,Xaverian Brothers High School,12
+2014-2015,winter,M,Central/South,36,Newton North High School,10
+2014-2015,winter,M,Central/South,37,Norton High School,8
+2014-2015,winter,M,Central/South,38,North Attleborough High School,6
+2014-2015,winter,M,Central/South,38,Quincy High School + North Quincy High School,6
+2014-2015,winter,M,Central/South,40,B.M.C. Durfee High School,4
+2014-2015,winter,M,Central/South,40,Bishop Stang High School,4
+2014-2015,winter,M,Central/South,40,Nantucket High School,4
+2014-2015,winter,M,Central/South,43,Tyngsborough High School & Groton-Dunstable Regional High School,3
+2014-2015,winter,M,Central/South,43,Westwood High School,3
+2014-2015,winter,M,Central/South,43,Dighton-Rehoboth Regional High School,3
+2014-2015,winter,M,Central/South,46,Catholic Memorial High School,2
+2014-2015,winter,M,Central/South,46,Silver Lake Regional High School,2
+2014-2015,fall,F,South,1,Newton North High School,313
+2014-2015,fall,F,South,2,Bishop Feehan High School,295
+2014-2015,fall,F,South,3,Framingham High School,269
+2014-2015,fall,F,South,4,Needham High School,209
+2014-2015,fall,F,South,5,Natick High School,207
+2014-2015,fall,F,South,6,Westwood High School,161
+2014-2015,fall,F,South,7,Ursuline Academy,133
+2014-2015,fall,F,South,8,Wellesley High School,131
+2014-2015,fall,F,South,9,Bishop Stang High School,121
+2014-2015,fall,F,South,10,Marshfield High School,81
+2014-2015,fall,F,South,11,Walpole High School,77
+2014-2015,fall,F,South,12,Brookline High School,71
+2014-2015,fall,F,South,13,Brockton High School,51
+2014-2015,fall,F,South,13,B.M.C. Durfee High School,51
+2014-2015,fall,F,South,15,Notre Dame Academy - Hingham,48
+2014-2015,fall,F,South,16,New Bedford High School,45
+2014-2015,fall,F,South,17,Dedham High School,27
+2014-2015,fall,F,South,18,Braintree High School,18
+2014-2015,fall,F,South,19,Norwood High School,14
+2014-2015,fall,F,South,20,Mount Alvernia High School,3
+2014-2015,fall,F,North,1,Andover High School,366
+2014-2015,fall,F,North,2,Acton-Boxborough Regional High School,320
+2014-2015,fall,F,North,3,Belmont High School,217
+2014-2015,fall,F,North,4,Lexington High School,182
+2014-2015,fall,F,North,5,Chelmsford High School,160
+2014-2015,fall,F,North,6,Winchester High School,145
+2014-2015,fall,F,North,7,Central Catholic High School,125
+2014-2015,fall,F,North,8,Lowell High School,105
+2014-2015,fall,F,North,9,Haverhill High School,99.5
+2014-2015,fall,F,North,10,North Andover High School,96
+2014-2015,fall,F,North,11,Melrose High School,95
+2014-2015,fall,F,North,12,Stoneham High School,80
+2014-2015,fall,F,North,13,Reading Memorial High School,72
+2014-2015,fall,F,North,14,Wakefield Memorial High School,68
+2014-2015,fall,F,North,15,Woburn Memorial High School,50.5
+2014-2015,fall,F,North,16,Methuen High School,50
+2014-2015,fall,F,North,17,Burlington High School,37
+2014-2015,fall,F,North,18,Boston Latin School,34
+2014-2015,fall,F,North,19,Billerica Memorial High School,10
+2014-2015,fall,F,North,20,Dracut High School,9
+2014-2015,fall,F,North,21,Academy of Notre Dame,4
+2013-2014,winter,M,Central/South,1,King Philip Regional High School,218
+2013-2014,winter,M,Central/South,2,Bishop Feehan High School,196
+2013-2014,winter,M,Central/South,3,Hingham High School,157
+2013-2014,winter,M,Central/South,4,Framingham High School,155
+2013-2014,winter,M,Central/South,5,Bridgewater-Raynham Regional High School,150
+2013-2014,winter,M,Central/South,6,Boston College High School,136
+2013-2014,winter,M,Central/South,7,Brookline High School,132
+2013-2014,winter,M,Central/South,8,Needham High School,105.5
+2013-2014,winter,M,Central/South,9,Wellesley High School,96
+2013-2014,winter,M,Central/South,10,Ashland High School,94
+2013-2014,winter,M,Central/South,11,Algonquin Regional High School,93
+2013-2014,winter,M,Central/South,12,Leominster High School,90
+2013-2014,winter,M,Central/South,13,Duxbury High School,72.5
+2013-2014,winter,M,Central/South,14,Apponequet Regional High School,67
+2013-2014,winter,M,Central/South,15,Hopkinton High School,57
+2013-2014,winter,M,Central/South,16,St. John's High School,44
+2013-2014,winter,M,Central/South,17,Xaverian Brothers High School,38
+2013-2014,winter,M,Central/South,18,The Bromfield School,37
+2013-2014,winter,M,Central/South,19,Norwell High School,36
+2013-2014,winter,M,Central/South,20,Medfield High School,31
+2013-2014,winter,M,Central/South,20,Cohasset High School,31
+2013-2014,winter,M,Central/South,22,Milford High School,30
+2013-2014,winter,M,Central/South,22,Catholic Memorial High School,30
+2013-2014,winter,M,Central/South,24,Mansfield High School,26
+2013-2014,winter,M,Central/South,25,Westwood High School,23
+2013-2014,winter,M,Central/South,26,Franklin High School,22
+2013-2014,winter,M,Central/South,27,Scituate High School,19
+2013-2014,winter,M,Central/South,28,Sandwich High School,17
+2013-2014,winter,M,Central/South,29,Newton North High School,14
+2013-2014,winter,M,Central/South,30,Barnstable High School,13
+2013-2014,winter,M,Central/South,30,Dover-Sherborn High School,13
+2013-2014,winter,M,Central/South,30,Tantasqua Regional High School,13
+2013-2014,winter,M,Central/South,33,Pembroke High School,11
+2013-2014,winter,M,Central/South,34,Wachusett Regional High School,10
+2013-2014,winter,M,Central/South,34,New Bedford High School,10
+2013-2014,winter,M,Central/South,36,Northbridge High School,7
+2013-2014,winter,M,Central/South,36,B.M.C. Durfee High School,7
+2013-2014,winter,M,Central/South,38,Oliver Ames High School,5
+2013-2014,winter,M,Central/South,39,Taunton High School,4
+2013-2014,winter,M,Central/South,39,Dighton-Rehoboth Regional High School,4
+2013-2014,winter,M,Central/South,41,Seekonk High School,3
+2013-2014,winter,M,Central/South,41,Norton High School,3
+2013-2014,winter,M,Central/South,43,North Attleborough High School,2
+2013-2014,winter,M,Central/South,44,Bishop Stang High School,1
+2013-2014,winter,M,Central/South,44,Westborough High School,1
+2013-2014,fall,F,South,1,Framingham High School,363
+2013-2014,fall,F,South,2,Bishop Feehan High School,346
+2013-2014,fall,F,South,3,Newton North High School,259
+2013-2014,fall,F,South,4,Needham High School,257
+2013-2014,fall,F,South,5,Natick High School,149
+2013-2014,fall,F,South,6,Wellesley High School,144
+2013-2014,fall,F,South,7,Westwood High School,120.5
+2013-2014,fall,F,South,8,Ursuline Academy,93
+2013-2014,fall,F,South,9,Apponequet Regional High School,91
+2013-2014,fall,F,South,10,Seekonk High School,83
+2013-2014,fall,F,South,11,Bishop Stang High School,73
+2013-2014,fall,F,South,12,Notre Dame Academy - Hingham,71
+2013-2014,fall,F,South,13,Walpole High School,65
+2013-2014,fall,F,South,14,Brockton High School,64
+2013-2014,fall,F,South,15,Dedham High School,41
+2013-2014,fall,F,South,16,B.M.C. Durfee High School,33
+2013-2014,fall,F,South,17,Brookline High School,30
+2013-2014,fall,F,South,18,Marshfield High School,24
+2013-2014,fall,F,South,19,Norwood High School,8
+2013-2014,fall,F,South,20,Mount Alvernia High School,6
+2013-2014,fall,F,South,21,Braintree High School,4.5
+2013-2014,fall,F,North,1,Andover High School,345.5
+2013-2014,fall,F,North,2,Chelmsford High School,336
+2013-2014,fall,F,North,3,Acton-Boxborough Regional High School,258.5
+2013-2014,fall,F,North,4,Belmont High School,252
+2013-2014,fall,F,North,5,Lexington High School,178
+2013-2014,fall,F,North,6,Haverhill High School,118.5
+2013-2014,fall,F,North,7,North Andover High School,117
+2013-2014,fall,F,North,8,Reading Memorial High School,103
+2013-2014,fall,F,North,9,Central Catholic High School,102.5
+2013-2014,fall,F,North,10,Wakefield Memorial High School,92
+2013-2014,fall,F,North,11,Notre Dame Academy - Worcester,71
+2013-2014,fall,F,North,12,Melrose High School,54
+2013-2014,fall,F,North,13,Winchester High School,50
+2013-2014,fall,F,North,14,Methuen High School,49
+2013-2014,fall,F,North,15,Boston Latin School,43
+2013-2014,fall,F,North,16,Stoneham High School,35
+2013-2014,fall,F,North,17,Billerica Memorial High School,34
+2013-2014,fall,F,North,18,Lowell High School,33
+2013-2014,fall,F,North,19,Woburn Memorial High School,26
+2013-2014,fall,F,North,20,Burlington High School,21
+2013-2014,fall,F,North,21,Dracut High School,4
+2013-2014,fall,F,North,22,Academy of Notre Dame,2
+2012-2013,fall,F,South,1,Framingham High School,344
+2012-2013,fall,F,South,2,Bishop Feehan High School,337
+2012-2013,fall,F,South,3,Needham High School,251.5
+2012-2013,fall,F,South,4,Natick High School,147.5
+2012-2013,fall,F,South,5,Bishop Stang High School,138
+2012-2013,fall,F,South,6,Wellesley High School,121
+2012-2013,fall,F,South,6,Notre Dame Academy - Hingham,121
+2012-2013,fall,F,South,8,Westwood High School,119
+2012-2013,fall,F,South,9,Seekonk High School,114
+2012-2013,fall,F,South,10,Newton North High School,103
+2012-2013,fall,F,South,11,Braintree High School,91
+2012-2013,fall,F,South,12,Ursuline Academy,78
+2012-2013,fall,F,South,13,Walpole High School,68
+2012-2013,fall,F,South,14,Brockton High School,62
+2012-2013,fall,F,South,15,Marshfield High School,58
+2012-2013,fall,F,South,16,Norwood High School,46
+2012-2013,fall,F,South,17,Mount Alvernia High School,40
+2012-2013,fall,F,South,18,B.M.C. Durfee High School,36
+2012-2013,fall,F,South,19,Apponequet Regional High School,25
+2012-2013,fall,F,South,20,Brookline High School,24
+2012-2013,fall,F,South,21,Dedham High School,1
+2012-2013,fall,F,North,1,Andover High School,466
+2012-2013,fall,F,North,2,Acton-Boxborough Regional High School,281
+2012-2013,fall,F,North,3,Chelmsford High School,269
+2012-2013,fall,F,North,4,Reading Memorial High School,234
+2012-2013,fall,F,North,5,Lexington High School,167
+2012-2013,fall,F,North,6,Haverhill High School,152
+2012-2013,fall,F,North,7,Belmont High School,151
+2012-2013,fall,F,North,8,Methuen High School,125
+2012-2013,fall,F,North,9,Wakefield Memorial High School,88
+2012-2013,fall,F,North,10,Central Catholic High School,79
+2012-2013,fall,F,North,11,Boston Latin School,75
+2012-2013,fall,F,North,12,Notre Dame Academy - Worcester,56
+2012-2013,fall,F,North,13,Stoneham High School,51
+2012-2013,fall,F,North,14,Winchester High School,28
+2012-2013,fall,F,North,15,Billerica Memorial High School,22
+2012-2013,fall,F,North,16,North Andover High School,21
+2012-2013,fall,F,North,17,Melrose High School,16
+2012-2013,fall,F,North,18,Lowell High School,15
+2012-2013,fall,F,North,19,Woburn Memorial High School,14
+2012-2013,fall,F,North,20,Academy of Notre Dame,7
+2012-2013,fall,F,North,21,Dracut High School,6
+2012-2013,fall,F,North,22,Saint Peter-Marian High School,2
+2011-2012,winter,M,Central/South,1,Boston College High School,237
+2011-2012,winter,M,Central/South,2,King Philip Regional High School,202
+2011-2012,winter,M,Central/South,3,Hopkinton High School,185
+2011-2012,winter,M,Central/South,4,North Attleborough High School,147
+2011-2012,winter,M,Central/South,5,Needham High School,122
+2011-2012,winter,M,Central/South,6,Bishop Stang High School,118
+2011-2012,winter,M,Central/South,7,Bishop Feehan High School,110
+2011-2012,winter,M,Central/South,8,St. John's High School,102
+2011-2012,winter,M,Central/South,9,Duxbury High School,95
+2011-2012,winter,M,Central/South,10,Brookline High School,94
+2011-2012,winter,M,Central/South,11,Framingham High School,82
+2011-2012,winter,M,Central/South,12,Algonquin Regional High School,81
+2011-2012,winter,M,Central/South,13,Sandwich High School,68.5
+2011-2012,winter,M,Central/South,14,Medfield High School,67
+2011-2012,winter,M,Central/South,15,Apponequet Regional High School,62
+2011-2012,winter,M,Central/South,16,Norwell High School,59
+2011-2012,winter,M,Central/South,17,Northbridge High School,52
+2011-2012,winter,M,Central/South,18,Milford High School,50
+2011-2012,winter,M,Central/South,18,Westborough High School,50
+2011-2012,winter,M,Central/South,20,Middleborough High School,43
+2011-2012,winter,M,Central/South,20,Seekonk High School,43
+2011-2012,winter,M,Central/South,22,Attleboro High School,32
+2011-2012,winter,M,Central/South,23,Franklin High School,28
+2011-2012,winter,M,Central/South,24,Newton North High School,25
+2011-2012,winter,M,Central/South,25,Sharon High School,24
+2011-2012,winter,M,Central/South,25,The Bromfield School,24
+2011-2012,winter,M,Central/South,27,Coyle and Cassidy High School,17
+2011-2012,winter,M,Central/South,28,B.M.C. Durfee High School,16
+2011-2012,winter,M,Central/South,28,Hingham High School,16
+2011-2012,winter,M,Central/South,30,Xaverian Brothers High School,14
+2011-2012,winter,M,Central/South,31,Cohasset High School,11
+2011-2012,winter,M,Central/South,31,Bridgewater-Raynham Regional High School,11
+2011-2012,winter,M,Central/South,33,Nauset Regional High School,7
+2011-2012,winter,M,Central/South,33,Ashland High School,7
+2011-2012,winter,M,Central/South,35,Dover-Sherborn High School,6
+2011-2012,winter,M,Central/South,35,Brockton High School,6
+2011-2012,winter,M,Central/South,37,Wachusett Regional High School,4.5
+2011-2012,winter,M,Central/South,38,Wellesley High School,4
+2011-2012,winter,M,Central/South,39,Holliston High School,2
+2011-2012,winter,M,Central/South,40,Nantucket High School,1
+2011-2012,fall,F,South,1,Bishop Feehan High School,281.5
+2011-2012,fall,F,South,2,Framingham High School,261
+2011-2012,fall,F,South,3,Walpole High School,254
+2011-2012,fall,F,South,4,Needham High School,202.5
+2011-2012,fall,F,South,5,Bishop Stang High School,164.5
+2011-2012,fall,F,South,6,Notre Dame Academy - Hingham,140.5
+2011-2012,fall,F,South,7,Seekonk High School,114
+2011-2012,fall,F,South,8,Norwood High School,100
+2011-2012,fall,F,South,9,Marshfield High School,96
+2011-2012,fall,F,South,9,Westwood High School,96
+2011-2012,fall,F,South,11,Natick High School,83
+2011-2012,fall,F,South,12,Sandwich High School,78
+2011-2012,fall,F,South,13,Braintree High School,73
+2011-2012,fall,F,South,14,Newton North High School,71
+2011-2012,fall,F,South,15,B.M.C. Durfee High School,59
+2011-2012,fall,F,South,16,Apponequet Regional High School,46
+2011-2012,fall,F,South,17,Wellesley High School,43
+2011-2012,fall,F,South,18,Ursuline Academy,40
+2011-2012,fall,F,South,19,Brockton High School,33
+2011-2012,fall,F,South,20,Mount Alvernia High School,32
+2011-2012,fall,F,South,21,Brookline High School,23
+2011-2012,fall,F,South,22,New Bedford High School,19
+2011-2012,fall,F,South,23,Milford High School,15
+2011-2012,fall,F,North,1,Andover High School,538
+2011-2012,fall,F,North,2,Acton-Boxborough Regional High School,267
+2011-2012,fall,F,North,3,Reading Memorial High School,262.5
+2011-2012,fall,F,North,4,Chelmsford High School,243.5
+2011-2012,fall,F,North,5,Haverhill High School,146
+2011-2012,fall,F,North,6,Lexington High School,122
+2011-2012,fall,F,North,7,Dracut High School,115
+2011-2012,fall,F,North,8,Central Catholic High School,103
+2011-2012,fall,F,North,9,Belmont High School,99
+2011-2012,fall,F,North,10,Billerica Memorial High School,97
+2011-2012,fall,F,North,11,Methuen High School,77
+2011-2012,fall,F,North,12,Boston Latin School,42
+2011-2012,fall,F,North,12,Notre Dame Academy - Worcester,42
+2011-2012,fall,F,North,14,Stoneham High School,41
+2011-2012,fall,F,North,15,Wakefield Memorial High School,38
+2011-2012,fall,F,North,16,Winchester High School,34
+2011-2012,fall,F,North,17,Melrose High School,22
+2011-2012,fall,F,North,18,Lowell High School,21
+2011-2012,fall,F,North,19,Burlington High School,6
+2011-2012,fall,F,North,20,Saint Peter-Marian High School,4
+2011-2012,fall,F,North,20,Woburn Memorial High School,4
+2011-2012,fall,F,North,22,Academy of Notre Dame,1
+2010-2011,winter,M,Central/South,1,King Philip Regional High School,195
+2010-2011,winter,M,Central/South,2,Boston College High School,144
+2010-2011,winter,M,Central/South,3,Bishop Feehan High School,112
+2010-2011,winter,M,Central/South,4,Brookline High School,92
+2010-2011,winter,M,Central/South,5,North Attleborough High School,83
+2010-2011,winter,M,Central/South,6,Hopkinton High School,68
+2010-2011,winter,M,Central/South,7,Bishop Stang High School,59
+2010-2011,winter,M,Central/South,7,Medfield High School,59
+2010-2011,winter,M,Central/South,9,Seekonk High School,58
+2010-2011,winter,M,Central/South,10,Coyle and Cassidy High School,48
+2010-2011,winter,M,Central/South,11,St. John's High School,46
+2010-2011,winter,M,Central/South,12,Milford High School,44
+2010-2011,winter,M,Central/South,13,Westborough High School,39
+2010-2011,winter,M,Central/South,14,Norwell High School,37.5
+2010-2011,winter,M,Central/South,15,Duxbury High School,37
+2010-2011,winter,M,Central/South,16,Xaverian Brothers High School,29
+2010-2011,winter,M,Central/South,17,Apponequet Regional High School,25
+2010-2011,winter,M,Central/South,18,Catholic Memorial High School,24
+2010-2011,winter,M,Central/South,18,Sharon High School,24
+2010-2011,winter,M,Central/South,20,Northbridge High School,23
+2010-2011,winter,M,Central/South,21,Sandwich High School,21
+2010-2011,winter,M,Central/South,22,New Bedford High School,18
+2010-2011,winter,M,Central/South,23,Wellesley High School,16
+2010-2011,winter,M,Central/South,24,Attleboro High School,14
+2010-2011,winter,M,Central/South,24,Newton North High School,14
+2010-2011,winter,M,Central/South,26,Franklin High School,13
+2010-2011,winter,M,Central/South,27,Needham High School,11
+2010-2011,winter,M,Central/South,27,Cohasset High School,11
+2010-2011,winter,M,Central/South,27,Natick High School,11
+2010-2011,winter,M,Central/South,30,Middleborough High School,6.5
+2010-2011,winter,M,Central/South,31,B.M.C. Durfee High School,5
+2010-2011,winter,M,Central/South,32,Algonquin Regional High School,4
+2010-2011,winter,M,Central/South,33,Framingham High School,3
+2010-2011,winter,M,Central/South,34,Oliver Ames High School,1
+2010-2011,fall,F,South,1,Bishop Feehan High School,263
+2010-2011,fall,F,South,2,Framingham High School,182
+2010-2011,fall,F,South,3,Bishop Stang High School,129
+2010-2011,fall,F,South,4,Needham High School,113
+2010-2011,fall,F,South,5,Notre Dame Academy - Hingham,111
+2010-2011,fall,F,South,6,Seekonk High School,77.5
+2010-2011,fall,F,South,7,Walpole High School,77
+2010-2011,fall,F,South,8,Sandwich High School,69
+2010-2011,fall,F,South,9,Ursuline Academy,68
+2010-2011,fall,F,South,10,Natick High School,63
+2010-2011,fall,F,South,11,Westwood High School,62
+2010-2011,fall,F,South,12,Wellesley High School,60.5
+2010-2011,fall,F,South,13,Norwood High School,28
+2010-2011,fall,F,South,14,Brookline High School,27
+2010-2011,fall,F,South,15,Newton North High School,23
+2010-2011,fall,F,South,16,Mount Alvernia High School,22
+2010-2011,fall,F,South,17,Braintree High School,8
+2010-2011,fall,F,South,18,Marshfield High School,6
+2010-2011,fall,F,South,19,Brockton High School,4
+2010-2011,fall,F,South,20,New Bedford High School,2
+2010-2011,fall,F,North,1,Andover High School,367
+2010-2011,fall,F,North,2,Reading Memorial High School,219.5
+2010-2011,fall,F,North,3,Acton-Boxborough Regional High School,199.5
+2010-2011,fall,F,North,4,Chelmsford High School,137
+2010-2011,fall,F,North,5,Lexington High School,119
+2010-2011,fall,F,North,6,Haverhill High School,97
+2010-2011,fall,F,North,7,Central Catholic High School,61
+2010-2011,fall,F,North,8,Stoneham High School,54
+2010-2011,fall,F,North,9,Belmont High School,32
+2010-2011,fall,F,North,10,Winchester High School,22
+2010-2011,fall,F,North,11,Boston Latin School,21
+2010-2011,fall,F,North,12,Lowell High School,15
+2010-2011,fall,F,North,13,Saint Peter-Marian High School,13.5
+2010-2011,fall,F,North,14,Notre Dame Academy - Worcester,10
+2010-2011,fall,F,North,15,Methuen High School,9
+2010-2011,fall,F,North,16,Wakefield Memorial High School,8
+2010-2011,fall,F,North,16,Billerica Memorial High School,8
+2010-2011,fall,F,North,18,Dracut High School,2.5
+2009-2010,winter,M,Central/South,1,Bishop Feehan High School,159
+2009-2010,winter,M,Central/South,2,Boston College High School,154
+2009-2010,winter,M,Central/South,3,King Philip Regional High School,130
+2009-2010,winter,M,Central/South,4,Bishop Stang High School,115
+2009-2010,winter,M,Central/South,5,Hopkinton High School,92
+2009-2010,winter,M,Central/South,5,North Attleborough High School,92
+2009-2010,winter,M,Central/South,7,Westborough High School,66
+2009-2010,winter,M,Central/South,8,Milford High School,62
+2009-2010,winter,M,Central/South,9,Seekonk High School,46
+2009-2010,winter,M,Central/South,10,Needham High School,41
+2009-2010,winter,M,Central/South,11,Duxbury High School,39
+2009-2010,winter,M,Central/South,12,Framingham High School,35
+2009-2010,winter,M,Central/South,13,Brookline High School,34
+2009-2010,winter,M,Central/South,14,Apponequet Regional High School,33
+2009-2010,winter,M,Central/South,15,Coyle and Cassidy High School,30
+2009-2010,winter,M,Central/South,16,Sandwich High School,25
+2009-2010,winter,M,Central/South,16,Xaverian Brothers High School,25
+2009-2010,winter,M,Central/South,18,Newton North High School,24
+2009-2010,winter,M,Central/South,19,Sharon High School,22
+2009-2010,winter,M,Central/South,20,Norwell High School,21
+2009-2010,winter,M,Central/South,20,Mansfield High School,21
+2009-2010,winter,M,Central/South,22,Middleborough High School,18
+2009-2010,winter,M,Central/South,23,Northbridge High School,17
+2009-2010,winter,M,Central/South,24,Holliston High School,16
+2009-2010,winter,M,Central/South,25,Catholic Memorial High School,14
+2009-2010,winter,M,Central/South,26,Wellesley High School,13
+2009-2010,winter,M,Central/South,27,St. John's High School,12
+2009-2010,winter,M,Central/South,28,Franklin High School,9
+2009-2010,winter,M,Central/South,29,New Bedford High School,7
+2009-2010,winter,M,Central/South,29,Medfield High School,7
+2009-2010,winter,M,Central/South,31,Leominster High School,5
+2009-2010,winter,M,Central/South,32,Natick High School,4
+2009-2010,winter,M,Central/South,33,Nauset Regional High School,3
+2009-2010,winter,M,Central/South,33,Wachusett Regional High School,3
+2009-2010,winter,M,Central/South,35,Foxborough High School,1
+2009-2010,fall,F,South,1,Bishop Feehan High School,251
+2009-2010,fall,F,South,2,Notre Dame Academy - Hingham,159
+2009-2010,fall,F,South,3,Bishop Stang High School,154
+2009-2010,fall,F,South,4,Framingham High School,110
+2009-2010,fall,F,South,5,Marshfield High School,88
+2009-2010,fall,F,South,6,Seekonk High School,83
+2009-2010,fall,F,South,7,New Bedford High School,74
+2009-2010,fall,F,South,8,Norwood High School,73
+2009-2010,fall,F,South,9,Fontbonne Academy,48
+2009-2010,fall,F,South,10,Dedham High School,45
+2009-2010,fall,F,South,11,Ursuline Academy,41
+2009-2010,fall,F,South,11,Natick High School,41
+2009-2010,fall,F,South,13,Walpole High School,40
+2009-2010,fall,F,South,13,Westwood High School,40
+2009-2010,fall,F,South,15,Needham High School,31
+2009-2010,fall,F,South,16,Wellesley High School,28
+2009-2010,fall,F,South,17,Braintree High School,25
+2009-2010,fall,F,South,18,B.M.C. Durfee High School,22
+2009-2010,fall,F,South,19,Milford High School,19
+2009-2010,fall,F,South,20,Newton North High School,12
+2009-2010,fall,F,South,21,Apponequet Regional High School,9
+2009-2010,fall,F,South,22,Mount Alvernia High School,1
+2009-2010,fall,F,South,22,Sandwich High School,1
+2009-2010,fall,F,North,1,Andover High School,374
+2009-2010,fall,F,North,2,Acton-Boxborough Regional High School,219
+2009-2010,fall,F,North,3,Reading Memorial High School,132.5
+2009-2010,fall,F,North,4,Chelmsford High School,127
+2009-2010,fall,F,North,5,Lexington High School,111
+2009-2010,fall,F,North,6,Winchester High School,110.5
+2009-2010,fall,F,North,7,Haverhill High School,96
+2009-2010,fall,F,North,8,Wakefield Memorial High School,55
+2009-2010,fall,F,North,9,Central Catholic High School,39
+2009-2010,fall,F,North,10,Lowell High School,32
+2009-2010,fall,F,North,11,Boston Latin School,27
+2009-2010,fall,F,North,12,Belmont High School,26
+2009-2010,fall,F,North,13,Dracut High School,24
+2009-2010,fall,F,North,14,Stoneham High School,14
+2009-2010,fall,F,North,15,Burlington High School,4
+2009-2010,fall,F,North,15,Saint Peter-Marian High School,4
+2008-2009,winter,M,Central/South,1,Boston College High School,218.5
+2008-2009,winter,M,Central/South,2,Bishop Feehan High School,137
+2008-2009,winter,M,Central/South,3,Bishop Stang High School,116
+2008-2009,winter,M,Central/South,4,Needham High School,87
+2008-2009,winter,M,Central/South,5,Wellesley High School,76
+2008-2009,winter,M,Central/South,5,King Philip Regional High School,76
+2008-2009,winter,M,Central/South,7,Sandwich High School,75.5
+2008-2009,winter,M,Central/South,8,Duxbury High School,68
+2008-2009,winter,M,Central/South,9,Framingham High School,67
+2008-2009,winter,M,Central/South,10,Hopkinton High School & Ashland High School,63
+2008-2009,winter,M,Central/South,11,Norwell High School,56
+2008-2009,winter,M,Central/South,12,Newton North High School,43
+2008-2009,winter,M,Central/South,13,Westborough High School,35
+2008-2009,winter,M,Central/South,14,Brookline High School,33
+2008-2009,winter,M,Central/South,15,Catholic Memorial High School,32
+2008-2009,winter,M,Central/South,16,Natick High School,30
+2008-2009,winter,M,Central/South,17,Oliver Ames High School,24
+2008-2009,winter,M,Central/South,18,Nantucket High School,23
+2008-2009,winter,M,Central/South,19,Seekonk High School,22
+2008-2009,winter,M,Central/South,20,Apponequet Regional High School,19
+2008-2009,winter,M,Central/South,21,Hingham High School,17
+2008-2009,winter,M,Central/South,22,Holliston High School,16
+2008-2009,winter,M,Central/South,23,Nauset Regional High School,14
+2008-2009,winter,M,Central/South,24,New Bedford High School,10
+2008-2009,winter,M,Central/South,25,St. John's High School,7
+2008-2009,winter,M,Central/South,25,Brockton High School,7
+2008-2009,winter,M,Central/South,27,North Attleborough High School,5
+2008-2009,winter,M,Central/South,28,Scituate High School,4
+2008-2009,winter,M,Central/South,28,Quincy High School,4
+2008-2009,winter,M,Central/South,30,Wachusett Regional High School,3
+2008-2009,winter,M,Central/South,30,Westwood High School,3
+2008-2009,winter,M,Central/South,32,Blue Hills Regional Technical School,1
+2008-2009,winter,M,Central/South,32,Xaverian Brothers High School,1
+2008-2009,winter,M,Central/South,32,Canton High School,1
+2008-2009,winter,M,Central/South,32,Coyle and Cassidy High School,1
+2008-2009,fall,F,South,1,Notre Dame Academy - Hingham,239
+2008-2009,fall,F,South,2,Bishop Feehan High School,215.5
+2008-2009,fall,F,South,3,Bishop Stang High School,162.5
+2008-2009,fall,F,South,4,Framingham High School,115.5
+2008-2009,fall,F,South,5,Brookline High School,88.5
+2008-2009,fall,F,South,6,New Bedford High School,80
+2008-2009,fall,F,South,7,Fontbonne Academy,63.5
+2008-2009,fall,F,South,8,B.M.C. Durfee High School,59
+2008-2009,fall,F,South,9,Brockton High School,52.5
+2008-2009,fall,F,South,10,Norwood High School,51.5
+2008-2009,fall,F,South,11,Westwood High School,36
+2008-2009,fall,F,South,12,Seekonk High School,35
+2008-2009,fall,F,South,13,Ursuline Academy,32.5
+2008-2009,fall,F,South,14,Walpole High School,31
+2008-2009,fall,F,South,15,Wellesley High School,29
+2008-2009,fall,F,South,16,Braintree High School,25
+2008-2009,fall,F,South,17,Milford High School,24
+2008-2009,fall,F,South,18,Dedham High School,15
+2008-2009,fall,F,South,19,Natick High School,14
+2008-2009,fall,F,South,19,Apponequet Regional High School,14
+2008-2009,fall,F,South,21,Marshfield High School,8
+2008-2009,fall,F,South,22,Weymouth High School,2
+2008-2009,fall,F,North,1,Reading Memorial High School,205
+2008-2009,fall,F,North,2,Acton-Boxborough Regional High School,199
+2008-2009,fall,F,North,3,Chelmsford High School,182
+2008-2009,fall,F,North,4,Andover High School,167
+2008-2009,fall,F,North,5,Winchester High School,146
+2008-2009,fall,F,North,6,Lexington High School,105
+2008-2009,fall,F,North,7,Haverhill High School,96
+2008-2009,fall,F,North,8,Belmont High School,74
+2008-2009,fall,F,North,9,Central Catholic High School,60
+2008-2009,fall,F,North,10,Methuen High School,38
+2008-2009,fall,F,North,11,Dracut High School,32
+2008-2009,fall,F,North,12,Lowell High School,24
+2008-2009,fall,F,North,13,Burlington High School,23
+2008-2009,fall,F,North,14,Notre Dame Academy - Worcester,20
+2008-2009,fall,F,North,15,Boston Latin School,16
+2008-2009,fall,F,North,16,Wakefield Memorial High School,4
+2008-2009,fall,F,North,17,Stoneham High School,2
+2008-2009,fall,F,North,17,Melrose High School,2
+2007-2008,winter,M,Central/South,1,Boston College High School,237
+2007-2008,winter,M,Central/South,2,Bishop Feehan High School,143
+2007-2008,winter,M,Central/South,3,Bishop Stang High School,117
+2007-2008,winter,M,Central/South,4,Wellesley High School,109
+2007-2008,winter,M,Central/South,5,Xaverian Brothers High School,95
+2007-2008,winter,M,Central/South,6,Nauset Regional High School,93
+2007-2008,winter,M,Central/South,7,Scituate High School,80
+2007-2008,winter,M,Central/South,8,Sandwich High School,79
+2007-2008,winter,M,Central/South,9,Newton North High School,46
+2007-2008,winter,M,Central/South,10,Framingham High School,44
+2007-2008,winter,M,Central/South,11,Apponequet Regional High School,43
+2007-2008,winter,M,Central/South,12,Needham High School,30
+2007-2008,winter,M,Central/South,13,Shrewsbury High School,27
+2007-2008,winter,M,Central/South,13,Westborough High School,27
+2007-2008,winter,M,Central/South,15,Hopkinton High School,24
+2007-2008,winter,M,Central/South,16,Natick High School,22
+2007-2008,winter,M,Central/South,17,Nantucket High School,18
+2007-2008,winter,M,Central/South,18,Seekonk High School,16
+2007-2008,winter,M,Central/South,18,Middleborough High School,16
+2007-2008,winter,M,Central/South,20,Duxbury High School,14
+2007-2008,winter,M,Central/South,20,Hanover High School,14
+2007-2008,winter,M,Central/South,20,Catholic Memorial High School,14
+2007-2008,winter,M,Central/South,23,Barnstable High School,12
+2007-2008,winter,M,Central/South,24,Oliver Ames High School,11
+2007-2008,winter,M,Central/South,25,Holliston High School,10
+2007-2008,winter,M,Central/South,26,New Bedford High School,9
+2007-2008,winter,M,Central/South,27,Sharon High School,8
+2007-2008,winter,M,Central/South,27,Norwell High School,8
+2007-2008,winter,M,Central/South,27,North Attleborough High School,8
+2007-2008,winter,M,Central/South,30,Brockton High School,7
+2007-2008,winter,M,Central/South,31,Brookline High School,6
+2007-2008,winter,M,Central/South,32,Wachusett Regional High School,4
+2007-2008,winter,M,Central/South,33,Attleboro High School,2
+2007-2008,winter,M,Central/South,33,Quincy High School,2
+2007-2008,fall,F,South,1,Notre Dame Academy - Hingham,255
+2007-2008,fall,F,South,2,Bishop Feehan High School,201.5
+2007-2008,fall,F,South,3,Bishop Stang High School,186
+2007-2008,fall,F,South,4,Framingham High School,119
+2007-2008,fall,F,South,5,Milford High School,89
+2007-2008,fall,F,South,6,Brookline High School,84
+2007-2008,fall,F,South,6,Norwood High School,84
+2007-2008,fall,F,South,8,Fontbonne Academy,82
+2007-2008,fall,F,South,9,B.M.C. Durfee High School,41
+2007-2008,fall,F,South,9,Natick High School,41
+2007-2008,fall,F,South,11,Wellesley High School,37
+2007-2008,fall,F,South,12,Brockton High School,33
+2007-2008,fall,F,South,13,Dedham High School,30
+2007-2008,fall,F,South,14,Seekonk High School,27
+2007-2008,fall,F,South,15,Apponequet Regional High School,21
+2007-2008,fall,F,South,16,Ursuline Academy,18
+2007-2008,fall,F,South,17,Braintree High School,17
+2007-2008,fall,F,South,18,Westwood High School,15
+2007-2008,fall,F,South,19,Needham High School,6
+2007-2008,fall,F,South,20,Attleboro High School,3
+2007-2008,fall,F,South,21,Walpole High School,2
+2007-2008,fall,F,South,22,Weymouth High School,1
+2007-2008,fall,F,South,22,Marshfield High School,1
+2007-2008,fall,F,South,24,Newton North High School,0.5
+2007-2008,fall,F,North,1,Andover High School,228
+2007-2008,fall,F,North,2,Acton-Boxborough Regional High School,221
+2007-2008,fall,F,North,3,Chelmsford High School,161
+2007-2008,fall,F,North,4,Reading Memorial High School,152
+2007-2008,fall,F,North,5,Lexington High School,105
+2007-2008,fall,F,North,6,Haverhill High School,96
+2007-2008,fall,F,North,7,Winchester High School,81
+2007-2008,fall,F,North,8,Methuen High School,80
+2007-2008,fall,F,North,9,Central Catholic High School,46
+2007-2008,fall,F,North,10,Belmont High School,42
+2007-2008,fall,F,North,11,Dracut High School,41
+2007-2008,fall,F,North,12,Boston Latin School,40
+2007-2008,fall,F,North,13,Lowell High School,36
+2007-2008,fall,F,North,14,Burlington High School,21
+2007-2008,fall,F,North,15,Stoneham High School,19
+2007-2008,fall,F,North,16,Academy of Notre Dame,12
+2007-2008,fall,F,North,17,Notre Dame Academy - Worcester,10
+2007-2008,fall,F,North,18,Billerica Memorial High School,4
+2006-2007,winter,M,Central/South,1,Bishop Feehan High School,194.5
+2006-2007,winter,M,Central/South,2,Boston College High School,163
+2006-2007,winter,M,Central/South,3,Xaverian Brothers High School,157
+2006-2007,winter,M,Central/South,4,Nauset Regional High School,98
+2006-2007,winter,M,Central/South,5,Bishop Stang High School,97
+2006-2007,winter,M,Central/South,6,Framingham High School,75.5
+2006-2007,winter,M,Central/South,7,Scituate High School,70
+2006-2007,winter,M,Central/South,7,New Bedford High School,70
+2006-2007,winter,M,Central/South,9,Apponequet Regional High School,60
+2006-2007,winter,M,Central/South,10,Wachusett Regional High School,58
+2006-2007,winter,M,Central/South,11,Westborough High School,44
+2006-2007,winter,M,Central/South,12,Seekonk High School,42
+2006-2007,winter,M,Central/South,13,Wellesley High School,40
+2006-2007,winter,M,Central/South,14,Hopkinton High School,33
+2006-2007,winter,M,Central/South,15,Holliston High School,29
+2006-2007,winter,M,Central/South,16,Middleborough High School,23
+2006-2007,winter,M,Central/South,17,Duxbury High School,19
+2006-2007,winter,M,Central/South,18,St. John's High School,15
+2006-2007,winter,M,Central/South,19,Cardinal Spellman High School,14
+2006-2007,winter,M,Central/South,19,Newton North High School,14
+2006-2007,winter,M,Central/South,21,Sandwich High School,12
+2006-2007,winter,M,Central/South,21,Brookline High School,12
+2006-2007,winter,M,Central/South,23,Nantucket High School,11
+2006-2007,winter,M,Central/South,24,Attleboro High School,10
+2006-2007,winter,M,Central/South,25,Hanover High School,9
+2006-2007,winter,M,Central/South,26,B.M.C. Durfee High School,7
+2006-2007,winter,M,Central/South,27,Brockton High School,6
+2006-2007,winter,M,Central/South,28,Algonquin Regional High School,5
+2006-2007,winter,M,Central/South,28,North Attleborough High School,5
+2006-2007,winter,M,Central/South,30,Sharon High School,1
+2006-2007,winter,M,Central/South,30,Natick High School,1
+2006-2007,fall,F,South,1,Notre Dame Academy - Hingham,244
+2006-2007,fall,F,South,2,Bishop Stang High School,188.5
+2006-2007,fall,F,South,3,Framingham High School,141
+2006-2007,fall,F,South,4,Bishop Feehan High School,129
+2006-2007,fall,F,South,5,Dedham High School,96
+2006-2007,fall,F,South,6,Brookline High School,77
+2006-2007,fall,F,South,7,Milford High School,75
+2006-2007,fall,F,South,8,Natick High School,74
+2006-2007,fall,F,South,9,B.M.C. Durfee High School,60
+2006-2007,fall,F,South,10,Norwood High School,56
+2006-2007,fall,F,South,11,Walpole High School,52
+2006-2007,fall,F,South,12,Ursuline Academy,32
+2006-2007,fall,F,South,13,Seekonk High School,28
+2006-2007,fall,F,South,14,Apponequet Regional High School,26
+2006-2007,fall,F,South,15,Brockton High School,25.5
+2006-2007,fall,F,South,16,Fontbonne Academy,18
+2006-2007,fall,F,South,17,Westwood High School,17
+2006-2007,fall,F,South,18,Wellesley High School,16
+2006-2007,fall,F,South,19,Sandwich High School,11
+2006-2007,fall,F,South,20,Stoughton High School,10
+2006-2007,fall,F,South,21,Canton High School,9
+2006-2007,fall,F,South,22,Needham High School,7
+2006-2007,fall,F,South,23,New Bedford High School,3
+2006-2007,fall,F,North,1,Andover High School,320
+2006-2007,fall,F,North,2,Acton-Boxborough Regional High School,210.5
+2006-2007,fall,F,North,3,Chelmsford High School,192
+2006-2007,fall,F,North,4,Reading Memorial High School,95
+2006-2007,fall,F,North,5,Methuen High School,79
+2006-2007,fall,F,North,6,Haverhill High School,73
+2006-2007,fall,F,North,7,Winchester High School,70
+2006-2007,fall,F,North,8,Cambridge Rindge and Latin School,57
+2006-2007,fall,F,North,9,Belmont High School,53
+2006-2007,fall,F,North,10,Lexington High School,44
+2006-2007,fall,F,North,11,Stoneham High School,42.5
+2006-2007,fall,F,North,12,Burlington High School,41
+2006-2007,fall,F,North,13,Central Catholic High School,31
+2006-2007,fall,F,North,14,Lowell High School,29
+2006-2007,fall,F,North,15,Dracut High School,26
+2006-2007,fall,F,North,16,Academy of Notre Dame,12
+2006-2007,fall,F,North,17,Boston Latin School,11
+2006-2007,fall,F,North,18,Billerica Memorial High School,7
+2006-2007,fall,F,North,19,Notre Dame Academy - Worcester,2
+2005-2006,fall,F,South,1,Notre Dame Academy - Hingham,
+2005-2006,fall,F,South,2,Bishop Stang High School,
+2005-2006,fall,F,North,1,Andover High School,
+2005-2006,fall,F,North,2,Acton-Boxborough Regional High School,
+2004-2005,fall,F,South,1,Bishop Stang High School,195.50
+2004-2005,fall,F,South,2,Notre Dame Academy - Hingham,189
+2004-2005,fall,F,South,3,Bishop Feehan High School,184.50
+2004-2005,fall,F,South,4,Seekonk High School,130
+2004-2005,fall,F,South,5,Brockton High School,123
+2004-2005,fall,F,South,6,Walpole High School,88
+2004-2005,fall,F,South,7,Milford High School,84
+2004-2005,fall,F,South,8,Natick High School,57
+2004-2005,fall,F,South,9,Brookline High School,55
+2004-2005,fall,F,South,10,Marshfield High School,39
+2004-2005,fall,F,South,11,Wellesley High School,35
+2004-2005,fall,F,South,12,Norwood High School,33
+2004-2005,fall,F,South,13,Duxbury High School,32
+2004-2005,fall,F,South,14,Ursuline Academy,28
+2004-2005,fall,F,South,14,New Bedford High School,28
+2004-2005,fall,F,South,16,Dedham High School,27
+2004-2005,fall,F,South,17,Boston Latin School,16
+2004-2005,fall,F,South,18,Needham High School,15
+2004-2005,fall,F,South,19,Stoughton High School,11
+2004-2005,fall,F,South,19,Apponequet Regional High School,11
+2004-2005,fall,F,South,21,Quincy High School & North Quincy High School,10
+2004-2005,fall,F,South,22,B.M.C. Durfee High School,9
+2004-2005,fall,F,South,23,Newton North High School,6
+2004-2005,fall,F,South,23,Canton High School,6
+2004-2005,fall,F,South,25,Sandwich High School,1
+2004-2005,fall,F,North,1,Andover High School,336
+2004-2005,fall,F,North,2,Acton-Boxborough Regional High School,252
+2004-2005,fall,F,North,3,Chelmsford High School,167
+2004-2005,fall,F,North,4,Belmont High School,112
+2004-2005,fall,F,North,5,Central Catholic High School,93
+2004-2005,fall,F,North,5,Reading Memorial High School,93
+2004-2005,fall,F,North,7,Haverhill High School,77
+2004-2005,fall,F,North,8,Framingham High School,71
+2004-2005,fall,F,North,9,Methuen High School,47
+2004-2005,fall,F,North,10,Burlington High School,42
+2004-2005,fall,F,North,11,Winchester High School,30
+2004-2005,fall,F,North,12,Lowell High School,27
+2004-2005,fall,F,North,13,Notre Dame Academy - Worcester,17
+2004-2005,fall,F,North,14,Stoneham High School,12
+2004-2005,fall,F,North,15,Cambridge Rindge and Latin School,7
+2004-2005,fall,F,North,16,Dracut High School,6
+2004-2005,fall,F,North,17,Saint Peter-Marian High School,4
+2004-2005,fall,F,North,18,Billerica Memorial High School,2
+2003-2004,fall,F,South,1,Seekonk High School,
+2003-2004,fall,F,South,2,Notre Dame Academy - Hingham,
+2003-2004,fall,F,North,1,Andover High School,
+2003-2004,fall,F,North,2,Acton-Boxborough Regional High School,
+2002-2003,fall,F,South,1,Seekonk High School,
+2002-2003,fall,F,South,2,Needham High School,
+2002-2003,fall,F,North,1,Andover High School,
+2002-2003,fall,F,North,2,Acton-Boxborough Regional High School,
+2001-2002,fall,F,South,1,Needham High School,
+2001-2002,fall,F,South,2,Duxbury High School,
+2001-2002,fall,F,North,1,Andover High School,
+2001-2002,fall,F,North,2,Acton-Boxborough Regional High School,
+2000-2001,fall,F,South,1,Duxbury High School,
+2000-2001,fall,F,South,2,Bishop Feehan High School,
+2000-2001,fall,F,North,1,Andover High School,
+2000-2001,fall,F,North,2,Acton-Boxborough Regional High School,
+1999-2000,fall,F,South,1,Duxbury High School,
+1999-2000,fall,F,South,2,Notre Dame Academy - Hingham,
+1999-2000,fall,F,North,1,Andover High School,
+1999-2000,fall,F,North,2,Chelmsford High School,
+1998-1999,fall,F,South,1,Duxbury High School,
+1998-1999,fall,F,South,2,Seekonk High School,
+1998-1999,fall,F,North,1,Acton-Boxborough Regional High School,
+1998-1999,fall,F,North,2,Chelmsford High School,
+1997-1998,fall,F,South,1,Bishop Feehan High School,
+1997-1998,fall,F,South,2,Seekonk High School,
+1997-1998,fall,F,North,1,Acton-Boxborough Regional High School,
+1997-1998,fall,F,North,2,Chelmsford High School,
+1996-1997,fall,F,South,1,Bishop Feehan High School,
+1996-1997,fall,F,South,2,Seekonk High School,
+1996-1997,fall,F,North,1,Acton-Boxborough Regional High School,
+1996-1997,fall,F,North,2,Chelmsford High School,
+1995-1996,fall,F,South,1,Bishop Feehan High School,
+1995-1996,fall,F,South,2,Natick High School,
+1995-1996,fall,F,North,1,Acton-Boxborough Regional High School,
+1995-1996,fall,F,North,2,Chelmsford High School,
+1994-1995,fall,F,South,1,Natick High School,
+1994-1995,fall,F,South,2,Bishop Feehan High School,
+1994-1995,fall,F,North,1,Acton-Boxborough Regional High School,
+1994-1995,fall,F,North,2,Haverhill High School,
+1993-1994,fall,F,South,1,Westwood High School,
+1993-1994,fall,F,South,2,Duxbury High School,
+1993-1994,fall,F,North,1,Acton-Boxborough Regional High School,
+1993-1994,fall,F,North,2,Chelmsford High School,
+1992-1993,fall,F,South,1,Westwood High School,
+1992-1993,fall,F,South,2,Wellesley High School,
+1992-1993,fall,F,North,1,Acton-Boxborough Regional High School,
+1992-1993,fall,F,North,2,Chelmsford High School,
+1991-1992,fall,F,South,1,Ursuline Academy,
+1991-1992,fall,F,South,2,Wellesley High School,
+1991-1992,fall,F,North,1,Acton-Boxborough Regional High School,
+1991-1992,fall,F,North,2,Lowell High School,
+1990-1991,fall,F,South,1,Wellesley High School,
+1990-1991,fall,F,South,2,Ursuline Academy,
+1990-1991,fall,F,North,1,Acton-Boxborough Regional High School,
+1990-1991,fall,F,North,2,Lowell High School,
+1989-1990,fall,F,South,1,Wellesley High School,
+1989-1990,fall,F,South,2,Ursuline Academy,
+1989-1990,fall,F,North,1,Lowell High School,
+1989-1990,fall,F,North,2,Acton-Boxborough Regional High School,
+1988-1989,fall,F,South,1,Wellesley High School,
+1988-1989,fall,F,South,2,New Bedford High School,
+1988-1989,fall,F,North,1,Acton-Boxborough Regional High School,
+1988-1989,fall,F,North,2,Lowell High School,
+1987-1988,fall,F,South,1,Wellesley High School,
+1987-1988,fall,F,South,2,Needham High School,
+1987-1988,fall,F,North,1,Acton-Boxborough Regional High School,
+1987-1988,fall,F,North,2,Andover High School,
+1986-1987,fall,F,South,1,Wellesley High School,
+1986-1987,fall,F,South,2,Brockton High School,
+1986-1987,fall,F,North,1,Acton-Boxborough Regional High School,
+1986-1987,fall,F,North,2,Belmont High School,
+1985-1986,fall,F,South,1,Wellesley High School,
+1985-1986,fall,F,South,2,Brockton High School,
+1985-1986,fall,F,North,1,Acton-Boxborough Regional High School,
+1985-1986,fall,F,North,2,Belmont High School,
+1984-1985,fall,F,South,1,Canton High School,
+1984-1985,fall,F,South,2,Brockton High School,
+1984-1985,fall,F,North,1,Acton-Boxborough Regional High School,
+1984-1985,fall,F,North,2,Westford Academy,
+1983-1984,fall,F,South,1,Wellesley High School,
+1983-1984,fall,F,South,2,Brockton High School,
+1983-1984,fall,F,North,1,Acton-Boxborough Regional High School,
+1983-1984,fall,F,North,2,Westford Academy,
+1982-1983,fall,F,South,1,Seekonk High School,
+1982-1983,fall,F,South,2,Brockton High School,
+1982-1983,fall,F,North,1,Acton-Boxborough Regional High School,
+1982-1983,fall,F,North,2,Framingham North High School,
+1981-1982,fall,F,South,1,B.M.C. Durfee High School,
+1981-1982,fall,F,South,2,Seekonk High School,
+1981-1982,fall,F,North,1,Acton-Boxborough Regional High School,
+1981-1982,fall,F,North,2,Hamilton-Wenham Regional High School,
+1980-1981,fall,F,South,1,B.M.C. Durfee High School,
+1980-1981,fall,F,South,2,Dover-Sherborn High School,
+1980-1981,fall,F,North,1,Acton-Boxborough Regional High School,
+1980-1981,fall,F,North,2,Lexington High School,
+1979-1980,fall,F,South,1,B.M.C. Durfee High School,
+1979-1980,fall,F,South,2,Brockton High School,
+1979-1980,fall,F,North,1,Framingham North High School,
+1979-1980,fall,F,North,2,Lexington High School,
+1978-1979,fall,F,South,1,B.M.C. Durfee High School,
+1978-1979,fall,F,South,2,Dover-Sherborn High School,
+1978-1979,fall,F,North,1,Framingham North High School,
+1978-1979,fall,F,North,2,Acton-Boxborough Regional High School,
+1977-1978,fall,F,Eastern Mass,1,Acton-Boxborough Regional High School,
+1977-1978,fall,F,Eastern Mass,2,Framingham North High School,
+1976-1977,fall,F,Eastern Mass,1,Acton-Boxborough Regional High School,
+1976-1977,fall,F,Eastern Mass,2,Marblehead High School,
+1975-1976,fall,F,Eastern Mass,1,Bedford High School,
+1975-1976,fall,F,Eastern Mass,2,Wayland High School,
+1974-1975,fall,F,Eastern Mass,1,Bedford High School,
+1974-1975,fall,F,Eastern Mass,2,Wayland High School,
+1973-1974,fall,F,Eastern Mass,1,Wayland High School,
+1972-1973,fall,F,Eastern Mass,2,Acton-Boxborough Regional High School,

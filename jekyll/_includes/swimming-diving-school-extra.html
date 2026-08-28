@@ -26,15 +26,57 @@
 {%- assign sectionals = site.data.swimming-diving.miaa.rankings.sectionals -%}
 {%- assign states = site.data.swimming-diving.miaa.rankings.states -%}
 
+{%- comment -%}
+  Displayed as a single year rather than the full school-year range: fall
+  results show the range's first year, winter results show its second year.
+{%- endcomment -%}
 {%- assign girls_sectional_wins = sectionals | where_exp: 'row', 'row.Sex == "F" and row.Place == "1" and school_names contains row.School' -%}
-{%- assign girls_sectional_years = girls_sectional_wins | map: 'Year' | uniq | sort | reverse -%}
+{%- assign girls_sectional_years = "" | split: "" -%}
+{%- for row in girls_sectional_wins -%}
+  {%- assign school_year_parts = row['School Year'] | split: '-' -%}
+  {%- if row.Season == 'fall' -%}
+    {%- assign girls_sectional_years = girls_sectional_years | push: school_year_parts[0] -%}
+  {%- else -%}
+    {%- assign girls_sectional_years = girls_sectional_years | push: school_year_parts[1] -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign girls_sectional_years = girls_sectional_years | uniq | sort | reverse -%}
+
 {%- assign girls_state_wins = states | where_exp: 'row', 'row.Sex == "F" and row.Place == "1" and school_names contains row.School' -%}
-{%- assign girls_state_years = girls_state_wins | map: 'Year' | uniq | sort | reverse -%}
+{%- assign girls_state_years = "" | split: "" -%}
+{%- for row in girls_state_wins -%}
+  {%- assign school_year_parts = row['School Year'] | split: '-' -%}
+  {%- if row.Season == 'fall' -%}
+    {%- assign girls_state_years = girls_state_years | push: school_year_parts[0] -%}
+  {%- else -%}
+    {%- assign girls_state_years = girls_state_years | push: school_year_parts[1] -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign girls_state_years = girls_state_years | uniq | sort | reverse -%}
 
 {%- assign boys_sectional_wins = sectionals | where_exp: 'row', 'row.Sex == "M" and row.Place == "1" and school_names contains row.School' -%}
-{%- assign boys_sectional_years = boys_sectional_wins | map: 'Year' | uniq | sort | reverse -%}
+{%- assign boys_sectional_years = "" | split: "" -%}
+{%- for row in boys_sectional_wins -%}
+  {%- assign school_year_parts = row['School Year'] | split: '-' -%}
+  {%- if row.Season == 'fall' -%}
+    {%- assign boys_sectional_years = boys_sectional_years | push: school_year_parts[0] -%}
+  {%- else -%}
+    {%- assign boys_sectional_years = boys_sectional_years | push: school_year_parts[1] -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign boys_sectional_years = boys_sectional_years | uniq | sort | reverse -%}
+
 {%- assign boys_state_wins = states | where_exp: 'row', 'row.Sex == "M" and row.Place == "1" and school_names contains row.School' -%}
-{%- assign boys_state_years = boys_state_wins | map: 'Year' | uniq | sort | reverse -%}
+{%- assign boys_state_years = "" | split: "" -%}
+{%- for row in boys_state_wins -%}
+  {%- assign school_year_parts = row['School Year'] | split: '-' -%}
+  {%- if row.Season == 'fall' -%}
+    {%- assign boys_state_years = boys_state_years | push: school_year_parts[0] -%}
+  {%- else -%}
+    {%- assign boys_state_years = boys_state_years | push: school_year_parts[1] -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign boys_state_years = boys_state_years | uniq | sort | reverse -%}
 
 {%- if pool -%}
 <tr>
