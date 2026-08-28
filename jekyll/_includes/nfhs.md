@@ -27,4 +27,4 @@ The __National Federation of State High School Associations (NFHS)__ is the nati
 
 {% include link-list.html heading="Resources" items=resources %}
 
-{% include link-list.html heading="Directory" items=directory %}
+{% include link-list.html heading="See Also" items=directory %}

@@ -27,4 +27,4 @@ The __Massachusetts Interscholastic Athletic Association (MIAA)__ is the governi
 
 {% include link-list.html heading="Resources" items=resources %}
 
-{% include link-list.html heading="Directory" items=directory %}
+{% include link-list.html heading="See Also" items=directory %}
