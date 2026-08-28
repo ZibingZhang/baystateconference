@@ -8,100 +8,133 @@
   school-name: "Braintree High School"
   team-name: "Wamps"
   logo: "https://assets.scorebooklive.com/uploads/production/school/17614/image/Braintree__MA__Wamps_Logo.png"
+  ad_website: "https://www.braintreeschools.org/athletics"
   wikipedia: "https://en.wikipedia.org/wiki/Braintree_High_School"
-  pool:
-    name: "Blue Hills Regional Technical School"
-    google-maps: "https://maps.app.goo.gl/Mw2f2v3KDZrFxWjL6"
-  instagram:
-    team: "https://www.instagram.com/braintreeswim.dive/"
+  sport:
+    swimming-diving:
+      pool:
+        name: "Blue Hills Regional Technical School"
+        google-maps: "https://maps.app.goo.gl/Mw2f2v3KDZrFxWjL6"
+      instagram:
+        team: "https://www.instagram.com/braintreeswim.dive/"
 - town: "Brookline"
   school-name: "Brookline High School"
   team-name: "Warriors"
   logo: "https://resources.finalsite.net/images/f_auto,q_auto/v1742892411/brooklinek12maus/uubrkwndyjdbsqqjcwfx/BrooklineHighSchoolPrimaryLogoImage.png"
+  ad_website: "https://bhs.psbma.org/athletics"
   wikipedia: "https://en.wikipedia.org/wiki/Brookline_High_School"
-  pool:
-    name: "Evelyn Kirrane Aquatics Center"
-    google-maps: "https://maps.app.goo.gl/pCPv2QDVBMyvoAq28"
   instagram:
     athletic-dept: "https://www.instagram.com/brooklineathletics/"
-    girls-team: "https://www.instagram.com/brooklineswimanddive/"
-    boys-team: "https://www.instagram.com/brookline_swim.dive/"
+  sport:
+    swimming-diving:
+      pool:
+        name: "Evelyn Kirrane Aquatics Center"
+        google-maps: "https://maps.app.goo.gl/pCPv2QDVBMyvoAq28"
+      instagram:
+        girls-team: "https://www.instagram.com/brooklineswimanddive/"
+        boys-team: "https://www.instagram.com/brookline_swim.dive/"
 - town: "Framingham"
   school-name: "Framingham High School"
   aliases:
     - "Framingham North High School"
   team-name: "Flyers"
   logo: "https://assets.scorebooklive.com/uploads/production/school/18397/image/Framingham__MA__Flyers_"
+  ad_website: "https://fhs.framingham.k12.ma.us/82682_2"
   wikipedia: "https://en.wikipedia.org/wiki/Framingham_High_School"
   instagram:
     athletic-dept: "https://www.instagram.com/framinghamflyerathletics/"
-    girls-team: "https://www.instagram.com/fhsgirlsswimanddive/"
-    boys-team: "https://www.instagram.com/fhs_boys.swim.and.dive/"
+  sport:
+    swimming-diving:
+      instagram:
+        girls-team: "https://www.instagram.com/fhsgirlsswimanddive/"
+        boys-team: "https://www.instagram.com/fhs_boys.swim.and.dive/"
 - town: "Milton"
   school-name: "Milton High School"
   team-name: "Wildcats"
   logo: "https://assets.scorebooklive.com/uploads/production/school/19503/image/Milton__MA__Wildcats_Logo.png"
+  ad_website: "https://www.miltonps.org/page/athletics-gs"
   wikipedia: "https://en.wikipedia.org/wiki/Milton_High_School_(Massachusetts)"
-  pool:
-    name: "Blue Hills Regional Technical School"
-    google-maps: "https://maps.app.goo.gl/Mw2f2v3KDZrFxWjL6"
-  instagram:
-    team: "https://www.instagram.com/miltonhighswim/"
+  sport:
+    swimming-diving:
+      pool:
+        name: "Blue Hills Regional Technical School"
+        google-maps: "https://maps.app.goo.gl/Mw2f2v3KDZrFxWjL6"
+      instagram:
+        team: "https://www.instagram.com/miltonhighswim/"
 - town: "Natick"
   school-name: "Natick High School"
   team-name: "Redhawks"
+  ad_website: "https://www.natickps.org/page/athletics"
   wikipedia: "https://en.wikipedia.org/wiki/Natick_High_School"
-  instagram:
-    girls-team: "https://www.instagram.com/redhawksswimdive/"
-    boys-team: "https://www.instagram.com/naticksnd/"
+  sport:
+    swimming-diving:
+      instagram:
+        girls-team: "https://www.instagram.com/redhawksswimdive/"
+        boys-team: "https://www.instagram.com/naticksnd/"
 - town: "Needham"
   school-name: "Needham High School"
   team-name: "Rockets"
   logo: "https://cdnsm5-ss13.sharpschool.com/UserFiles/Servers/Server_78554/Image/School-Logo/needham%20rocket.png"
+  ad_website: "https://sites.google.com/needham.k12.ma.us/rockets/home"
   wikipedia: "https://en.wikipedia.org/wiki/Needham_High_School"
-  pool:
-    name: "Babson University"
-    google-maps: "https://maps.app.goo.gl/dAnkX6coezFPeA7C9"
   instagram:
     athletic-dept: "https://www.instagram.com/needhamrockets/"
-    girls-team: "https://www.instagram.com/needhamgirlsswive/"
-    boys-team: "https://www.instagram.com/nhsboysswive/"
+  sport:
+    swimming-diving:
+      pool:
+        name: "Babson University"
+        google-maps: "https://maps.app.goo.gl/dAnkX6coezFPeA7C9"
+      instagram:
+        girls-team: "https://www.instagram.com/needhamgirlsswive/"
+        boys-team: "https://www.instagram.com/nhsboysswive/"
 - town: "Newton North"
   school-name: "Newton North High School"
   team-name: "Tigers"
+  ad_website: "https://nnhs.newton.k12.ma.us/athletics"
   wikipedia: "https://en.wikipedia.org/wiki/Newton_North_High_School"
-  pool:
-    name: "Newton North High School"
-    google-maps: "https://maps.app.goo.gl/kXVhiLcxruDabcEv7"
   instagram:
     athletic-dept: "https://www.instagram.com/newton_north_tigers/"
-    girls-team: "https://www.instagram.com/nnhsswimanddive/"
-    boys-team: "https://www.instagram.com/nnhsboysswimanddive/"
+  sport:
+    swimming-diving:
+      pool:
+        name: "Newton North High School"
+        google-maps: "https://maps.app.goo.gl/kXVhiLcxruDabcEv7"
+      instagram:
+        girls-team: "https://www.instagram.com/nnhsswimanddive/"
+        boys-team: "https://www.instagram.com/nnhsboysswimanddive/"
 - town: "Walpole"
   school-name: "Walpole High School"
   team-name: "Timberwolves"
+  ad_website: "https://sites.google.com/a/walpole.k12.ma.us/athletics/"
   wikipedia: "https://en.wikipedia.org/wiki/Walpole_High_School"
-  pool:
-    name: "Westwood High School"
-    google-maps: "https://maps.app.goo.gl/K9pZb3uG86tMhgEg7"
-  instagram:
-    team: "https://www.instagram.com/whs.swive/"
+  sport:
+    swimming-diving:
+      pool:
+        name: "Westwood High School"
+        google-maps: "https://maps.app.goo.gl/K9pZb3uG86tMhgEg7"
+      instagram:
+        team: "https://www.instagram.com/whs.swive/"
 - town: "Wellesley"
   school-name: "Wellesley High School"
   team-name: "Raiders"
   logo: "https://wellesleyps.org/athletics/wp-content/uploads/sites/9/2016/07/cropped-wps-raiders-favicon.png"
+  ad_website: "https://wellesleyps.org/athletics/"
   wikipedia: "https://en.wikipedia.org/wiki/Wellesley_High_School"
-  pool:
-    name: "Boston Sports Institute"
-    google-maps: "https://maps.app.goo.gl/K9pZb3uG86tMhgEg7"
-  instagram:
-    girls-team: "https://www.instagram.com/raidersgswimanddive/"
-    boys-team: "https://www.instagram.com/whsboysswimanddive/"
+  sport:
+    swimming-diving:
+      pool:
+        name: "Boston Sports Institute"
+        google-maps: "https://maps.app.goo.gl/K9pZb3uG86tMhgEg7"
+      instagram:
+        girls-team: "https://www.instagram.com/raidersgswimanddive/"
+        boys-team: "https://www.instagram.com/whsboysswimanddive/"
 - town: "Weymouth"
   school-name: "Weymouth High School"
   team-name: "Wildcats"
   logo: "https://www.weymouthfootball.com/_next/image?url=%2Fimages%2Flogo%2Fwildcats-logo-primary.png&w=3840&q=75"
   wikipedia: "https://en.wikipedia.org/wiki/Weymouth_High_School"
-  pool:
-    name: "William A. Connell Swimming Pool & Skating Rink"
-    google-maps: "https://maps.app.goo.gl/YxxcKpqRG5SC5XyUA"
+  sport:
+    swimming-diving:
+      pool:
+        name: "William A. Connell Swimming Pool & Skating Rink"
+        google-maps: "https://maps.app.goo.gl/YxxcKpqRG5SC5XyUA"

@@ -7,6 +7,8 @@
   doesn't exist for that school. Expects `include.school` (see school.html).
 {%- endcomment -%}
 {%- assign school = include.school -%}
+{%- assign pool = school.sport.swimming-diving.pool -%}
+{%- assign instagram = school.sport.swimming-diving.instagram -%}
 {%- comment -%}
   Matches sectionals/states results against the school's town, its formal
   name, and any further aliases (most schools have none, since
@@ -34,33 +36,33 @@
 {%- assign boys_state_wins = states | where_exp: 'row', 'row.Sex == "M" and row.Place == "1" and school_names contains row.School' -%}
 {%- assign boys_state_years = boys_state_wins | map: 'Year' | uniq | sort | reverse -%}
 
-{%- if school.pool -%}
+{%- if pool -%}
 <tr>
   <th>Pool</th>
   <td>
-    <a href="{{ school.pool.google-maps }}" target="_blank" rel="noopener">{{ school.pool.name }}</a>
+    <a href="{{ pool.google-maps }}" target="_blank" rel="noopener">{{ pool.name }}</a>
   </td>
 </tr>
 {%- endif -%}
 
-{%- if school.instagram.team -%}
-{%- assign team_username = school.instagram.team | split: '/' | slice: 3 | first -%}
+{%- if instagram.team -%}
+{%- assign team_username = instagram.team | split: '/' | slice: 3 | first -%}
 <tr>
   <th>Instagram</th>
-  <td><a href="{{ school.instagram.team }}" target="_blank" rel="noopener me">@{{ team_username }}</a></td>
+  <td><a href="{{ instagram.team }}" target="_blank" rel="noopener me">@{{ team_username }}</a></td>
 </tr>
 {%- endif -%}
 
-{%- if school.instagram.girls-team or girls_sectional_years.size > 0 or girls_state_years.size > 0 -%}
+{%- if instagram.girls-team or girls_sectional_years.size > 0 or girls_state_years.size > 0 -%}
 <tr class="school-info-section">
   <th colspan="2">Girls</th>
 </tr>
 
-{%- if school.instagram.girls-team -%}
-{%- assign girls_team_username = school.instagram.girls-team | split: '/' | slice: 3 | first -%}
+{%- if instagram.girls-team -%}
+{%- assign girls_team_username = instagram.girls-team | split: '/' | slice: 3 | first -%}
 <tr>
   <th>Instagram</th>
-  <td><a href="{{ school.instagram.girls-team }}" target="_blank" rel="noopener me">@{{ girls_team_username }}</a></td>
+  <td><a href="{{ instagram.girls-team }}" target="_blank" rel="noopener me">@{{ girls_team_username }}</a></td>
 </tr>
 {%- endif -%}
 
@@ -79,16 +81,16 @@
 {%- endif -%}
 {%- endif -%}
 
-{%- if school.instagram.boys-team or boys_sectional_years.size > 0 or boys_state_years.size > 0 -%}
+{%- if instagram.boys-team or boys_sectional_years.size > 0 or boys_state_years.size > 0 -%}
 <tr class="school-info-section">
   <th colspan="2">Boys</th>
 </tr>
 
-{%- if school.instagram.boys-team -%}
-{%- assign boys_team_username = school.instagram.boys-team | split: '/' | slice: 3 | first -%}
+{%- if instagram.boys-team -%}
+{%- assign boys_team_username = instagram.boys-team | split: '/' | slice: 3 | first -%}
 <tr>
   <th>Instagram</th>
-  <td><a href="{{ school.instagram.boys-team }}" target="_blank" rel="noopener me">@{{ boys_team_username }}</a></td>
+  <td><a href="{{ instagram.boys-team }}" target="_blank" rel="noopener me">@{{ boys_team_username }}</a></td>
 </tr>
 {%- endif -%}
 

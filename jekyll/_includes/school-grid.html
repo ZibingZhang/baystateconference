@@ -15,8 +15,8 @@
   include.card_extra    optional - path to a partial rendered per card,
                         given `school` as the current record
 
-  Usage: {% include school-grid.html schools=site.data.swimming-diving.schools url_prefix="/sports/swimming-diving/schools/" card_extra="swimming-diving-pool-location.html" %}
-         {% include school-grid.html schools=site.data.swimming-diving.schools url_prefix="/schools/" %}
+  Usage: {% include school-grid.html schools=site.data.schools url_prefix="/sports/swimming-diving/schools/" card_extra="swimming-diving-pool-location.html" %}
+         {% include school-grid.html schools=site.data.schools url_prefix="/schools/" %}
 {%- endcomment -%}
 <div class="school-grid">
   {%- for school in include.schools -%}

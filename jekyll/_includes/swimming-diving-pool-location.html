@@ -3,8 +3,9 @@
   or a hidden placeholder to keep card heights aligned when a school has
   none on file. Expects `include.school` (see school-grid.html).
 {%- endcomment -%}
-{%- if include.school.pool -%}
-<a class="school-pool" href="{{ include.school.pool.google-maps }}" target="_blank" rel="noopener" title="{{ include.school.pool.name }}">
+{%- assign pool = include.school.sport.swimming-diving.pool -%}
+{%- if pool -%}
+<a class="school-pool" href="{{ pool.google-maps }}" target="_blank" rel="noopener" title="{{ pool.name }}">
   <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
   Pool Location
 </a>

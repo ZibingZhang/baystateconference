@@ -3,10 +3,8 @@ layout: base
 ---
 {%- comment -%}
   Renders a single school's page: a card with its logo and a 2-column info
-  table, built from its entry in _data/swimming-diving/schools.yaml. Sport-
-  agnostic: knows nothing about any one sport's own rows (e.g. swimming's
-  pool location, team/girls/boys Instagram, sectional/state wins) - a page
-  wanting to add those sets `info_extra` in its front matter to the path of
+  table, built from its entry in _data/schools.yaml. Sport-agnostic - a page
+  wanting to add information into `info_extra` in its front matter to the path of
   a partial, rendered as extra <tr> rows with `school` as the current
   record. See swimming-diving-school-extra.html for an example partial.
 
@@ -23,7 +21,7 @@ layout: base
   <div class="post-content">
     {{ content }}
 
-    {%- assign school = site.data.swimming-diving.schools | where: 'town', page.school | first -%}
+    {%- assign school = site.data.schools | where: 'town', page.school | first -%}
     {%- if school -%}
     <div class="school-info-card">
       {%- if school.logo -%}
@@ -36,6 +34,13 @@ layout: base
           <tr>
             <th>Mascot</th>
             <td>{{ school.team-name }}</td>
+          </tr>
+          {%- endif -%}
+
+          {%- if school.ad_website -%}
+          <tr>
+            <th>A.D. Website</th>
+            <td><a href="{{ school.ad_website }}" target="_blank" rel="noopener">{{ school.ad_website | remove_first: 'https://' | remove_first: 'http://' | split: '/' | first }}</a></td>
           </tr>
           {%- endif -%}
 
