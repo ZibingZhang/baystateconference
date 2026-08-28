@@ -64,6 +64,7 @@
 - town: "Natick"
   school-name: "Natick High School"
   team-name: "Redhawks"
+  logo: "https://on3static.com/uploads/assets/182/694/694182.png"
   ad_website: "https://www.natickps.org/page/athletics"
   wikipedia: "https://en.wikipedia.org/wiki/Natick_High_School"
   sport:
@@ -90,6 +91,7 @@
 - town: "Newton North"
   school-name: "Newton North High School"
   team-name: "Tigers"
+  logo: "https://assets.scorebooklive.com/uploads/production/school/19749/image/Newton_North__MA__Tigers_"
   ad_website: "https://nnhs.newton.k12.ma.us/athletics"
   wikipedia: "https://en.wikipedia.org/wiki/Newton_North_High_School"
   instagram:
@@ -105,6 +107,7 @@
 - town: "Walpole"
   school-name: "Walpole High School"
   team-name: "Timberwolves"
+  logo: "https://therunhouse.com/cdn/shop/collections/WALPOLE_TW_HAT_LOGO.png?v=1669821516"
   ad_website: "https://sites.google.com/a/walpole.k12.ma.us/athletics/"
   wikipedia: "https://en.wikipedia.org/wiki/Walpole_High_School"
   sport:
