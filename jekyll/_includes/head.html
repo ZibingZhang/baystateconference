@@ -5,9 +5,13 @@
   <script>
     (function () {
       try {
-        var stored = localStorage.getItem("theme");
-        if (stored === "light" || stored === "dark") {
-          document.documentElement.setAttribute("data-theme", stored);
+        var theme = localStorage.getItem("theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+        var palette = localStorage.getItem("palette");
+        if (palette === "solarized") {
+          document.documentElement.setAttribute("data-palette", palette);
         }
       } catch (e) {}
     })();

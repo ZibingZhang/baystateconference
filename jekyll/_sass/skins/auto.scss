@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+@import "skins/solarized-runtime";
+
 // Default color scheme settings
 // These are overridden in classic.css and dark.scss
 
@@ -394,6 +396,33 @@ $table-border-color: $lm-table-border-color;
     --minima-text-color: #{$lm-text-color};
 
     @include lm-highlight;
+  }
+
+  // Solarized palette override, layered the same way as the light/dark
+  // theme override above: a [data-palette="solarized"] attribute (set via
+  // JS + localStorage on the settings page) activates it, following system
+  // preference on its own; pairing it with [data-theme] on the same element
+  // (two attribute selectors on :root) outranks both this and the plain
+  // [data-theme] blocks above, so an explicit light/dark choice still wins
+  // over system preference while the solarized palette is active.
+  :root[data-palette="solarized"] {
+    @include sol-vars-light;
+    @include sol-highlight-light;
+
+    @media (prefers-color-scheme: dark) {
+      @include sol-vars-dark;
+      @include sol-highlight-dark;
+    }
+  }
+
+  :root[data-palette="solarized"][data-theme="light"] {
+    @include sol-vars-light;
+    @include sol-highlight-light;
+  }
+
+  :root[data-palette="solarized"][data-theme="dark"] {
+    @include sol-vars-dark;
+    @include sol-highlight-dark;
   }
 
   $brand-color: var(--minima-brand-color);

@@ -1,0 +1,39 @@
+---
+layout: page
+title: Settings
+permalink: /settings/
+---
+
+<div class="settings-page">
+  <fieldset>
+    <legend>Appearance</legend>
+
+    <div class="settings-option">
+      <input type="radio" name="theme" value="system" id="theme-system">
+      <label for="theme-system">System default</label>
+    </div>
+    <div class="settings-option">
+      <input type="radio" name="theme" value="light" id="theme-light">
+      <label for="theme-light">Light</label>
+    </div>
+    <div class="settings-option">
+      <input type="radio" name="theme" value="dark" id="theme-dark">
+      <label for="theme-dark">Dark</label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Color palette</legend>
+
+    <div class="settings-option">
+      <input type="radio" name="palette" value="classic" id="palette-classic">
+      <label for="palette-classic">Classic</label>
+    </div>
+    <div class="settings-option">
+      <input type="radio" name="palette" value="solarized" id="palette-solarized">
+      <label for="palette-solarized">Solarized</label>
+    </div>
+  </fieldset>
+</div>
+
+<script src="{{ '/assets/js/settings.js' | relative_url }}" defer></script>

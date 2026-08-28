@@ -1,12 +1,9 @@
 <header class="site-header">
 
-  <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
-
   <div class="wrapper">
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
-      <span class="material-symbols-outlined theme-toggle-icon-dark" aria-hidden="true">dark_mode</span>
-      <span class="material-symbols-outlined theme-toggle-icon-light" aria-hidden="true">light_mode</span>
-    </button>
+    <a class="settings-link" href="{{ '/settings/' | relative_url }}" aria-label="Appearance settings">
+      <span class="material-symbols-outlined" aria-hidden="true">settings</span>
+    </a>
 
     <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
