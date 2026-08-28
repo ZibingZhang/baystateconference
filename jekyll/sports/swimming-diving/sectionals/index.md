@@ -2,6 +2,7 @@
 layout: page
 title: Sectional Championship Meets
 permalink: /sports/swimming-diving/sectionals/
+breadcrumb: Sectionals
 countdowns:
   - label: "Sectionals"
     date: "2026-11-08"

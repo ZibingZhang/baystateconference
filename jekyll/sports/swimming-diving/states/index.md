@@ -2,6 +2,7 @@
 layout: page
 title: State Championship Meets
 permalink: /sports/swimming-diving/states/
+breadcrumb: States
 countdowns:
   - label: "States"
     date: "2026-11-15T16:45"
