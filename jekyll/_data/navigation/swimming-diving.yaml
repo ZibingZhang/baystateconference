@@ -49,9 +49,10 @@
 - title: Resources
   url: /sports/swimming-diving/resources/
   children:
-    - title: Archive
-      url: /sports/swimming-diving/resources/archive/
     - title: MIAA Qualifying Standards
       url: /sports/swimming-diving/resources/miaa-qualifying-standards/
     - title: NFHS Rule Changes
       url: /sports/swimming-diving/resources/nfhs-rule-changes/
+
+- title: Archive
+  url: /sports/swimming-diving/archive
