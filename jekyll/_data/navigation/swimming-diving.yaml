@@ -14,26 +14,29 @@
       url: /sports/swimming-diving/organizations/nfhs/
 
 - title: Events
-  url: /sports/swimming-diving/events/
   children:
     - title: Dual Meets
-      url: /sports/swimming-diving/events/dual-meets/
+      url: /sports/swimming-diving/dual-meets/
     - title: Bay State Conference Meet
-      url: /sports/swimming-diving/events/bay-state-conference-meet/
-    - title: Championship Meets
-      url: /sports/swimming-diving/events/championship-meets/
+      url: /sports/swimming-diving/bsc/
+    - title: Sectional Meets
+      url: /sports/swimming-diving/sectionals/
+    - title: State Meets
+      url: /sports/swimming-diving/states/
 
 - title: Results
   url: /sports/swimming-diving/results/
   children:
     - title: Dual Meets
-      url: /sports/swimming-diving/results/dual-meets/
+      url: /sports/swimming-diving/dual-meets/results/
     - title: Bay State Conference Meet
-      url: /sports/swimming-diving/results/bay-state-conference-meet/
-    - title: Championship Meets
-      url: /sports/swimming-diving/results/championship-meets/
+      url: /sports/swimming-diving/bsc/results/
+    - title: Sectional Meets
+      url: /sports/swimming-diving/sectionals/results/
+    - title: State Meets
+      url: /sports/swimming-diving/states/results/
     - title: Records
-      url: /sports/swimming-diving/results/records/
+      url: /sports/swimming-diving/records/
 
 - title: Awards
   url: /sports/swimming-diving/awards/

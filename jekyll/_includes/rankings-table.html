@@ -1,0 +1,27 @@
+{%- comment -%}
+  Renders one MIAA Sectional/State meet rankings table (Place/School/Score
+  columns), or nothing at all if there are no entries.
+
+  Usage: {% include rankings-table.html heading="Girls Fall — South" entries=entries %}
+{%- endcomment -%}
+{%- if include.entries and include.entries.size > 0 -%}
+<h2>{{ include.heading }}</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Place</th>
+      <th>School</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for entry in include.entries -%}
+    <tr>
+      <td>{{ entry.Place }}</td>
+      <td>{{ entry.School }}</td>
+      <td>{{ entry.Score }}</td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+{%- endif -%}

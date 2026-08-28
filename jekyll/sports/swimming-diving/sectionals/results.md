@@ -1,12 +1,11 @@
 ---
 layout: page
-title: Championship Meets
-permalink: /sports/swimming-diving/results/championship-meets/
+title: Sectionals Results
+permalink: /sports/swimming-diving/sectionals/results/
+breadcrumb: Results
 internal_links:
-  - title: Sectionals Archive
+  - title: Archive
     url: /sports/swimming-diving/resources/archive/?path=meet-results/by-meet/sectionals
-  - title: States Archive
-    url: /sports/swimming-diving/resources/archive/?path=meet-results/by-meet/states
 ---
 
 Results will be posted after each meet.

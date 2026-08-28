@@ -1,10 +1,14 @@
 ---
 layout: page
 title: Dual Meets
-permalink: /sports/swimming-diving/events/dual-meets/
+permalink: /sports/swimming-diving/dual-meets/
 internal_links:
   - title: Results
-    url: /sports/swimming-diving/results/dual-meets/
+    url: /sports/swimming-diving/dual-meets/results/
+  - title: Rankings
+    url: /sports/swimming-diving/dual-meets/rankings/
+  - title: Records
+    url: /sports/swimming-diving/dual-meets/records/
 ---
 
 <div class="calendar-embed">

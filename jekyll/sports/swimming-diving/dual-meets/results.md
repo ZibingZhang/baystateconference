@@ -1,7 +1,8 @@
 ---
 layout: page
-title: Dual Meets
-permalink: /sports/swimming-diving/results/dual-meets/
+title: Dual Meets Results
+permalink: /sports/swimming-diving/dual-meets/results/
+breadcrumb: Results
 ---
 
 {%- assign meets = site.data.swimming-diving["dual-meet-schedule"] -%}
