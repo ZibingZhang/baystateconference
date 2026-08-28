@@ -72,8 +72,11 @@ module Rankings
         end
         rows.sort_by! { |entry| entry["Place"].to_f }
 
+        heading = "#{SEX_LABELS[sex] || sex} #{SEASON_LABELS[season] || season}"
+        heading += " — #{division}" unless division.to_s.empty?
+
         {
-          "heading" => "#{SEX_LABELS[sex] || sex} #{SEASON_LABELS[season] || season} — #{division}",
+          "heading" => heading,
           "entries" => rows,
         }
       end
