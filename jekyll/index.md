@@ -3,6 +3,8 @@ layout: page
 title: Bay State Conference
 permalink: /
 school_links:
+  - title: All Schools
+    url: /schools/
   - title: Braintree
     url: /schools/braintree/
   - title: Brookline
@@ -24,6 +26,8 @@ school_links:
   - title: Weymouth
     url: /schools/weymouth/
 sport_links:
+  - title: All Sports
+    url: /sports/
   - title: Baseball
     url: /sports/baseball/
   - title: Basketball
