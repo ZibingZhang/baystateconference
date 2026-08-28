@@ -146,7 +146,7 @@ sass:
 #     * solarized-light    Light variant of solarized color scheme.
 #     * solarized-dark     Dark variant of solarized color scheme.
 #     * solarized          Adaptive skin for solarized color scheme skins.
-skin: classic
+skin: auto
 
 # Site navigation is now defined in _data/navigation.yml (supports hover
 # subsections via a `children` list per item) instead of nav_pages here.

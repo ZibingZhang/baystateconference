@@ -14,6 +14,73 @@
     flex-direction: column;
     padding-bottom: $spacing-unit * 0.4;
     padding-top: $spacing-unit * 0.5;
+    position: relative;
+  }
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid $border-color-01;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: $spacing-unit * 0.5;
+  width: 36px;
+
+  &:hover {
+    background-color: $border-color-02;
+  }
+
+  .material-symbols-outlined {
+    color: $brand-color-dimmed;
+    font-size: 20px;
+  }
+
+  // Shown/hidden based on the theme actually in effect: the OS-level
+  // prefers-color-scheme media query below flips the default, and an
+  // explicit data-theme attribute (set by theme-toggle.js) outranks that
+  // media query the same way the color variables in skins/auto.scss do -
+  // see the comment there.
+  .theme-toggle-icon-light {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .theme-toggle {
+    .theme-toggle-icon-dark {
+      display: none;
+    }
+
+    .theme-toggle-icon-light {
+      display: block;
+    }
+  }
+}
+
+:root[data-theme="dark"] .theme-toggle {
+  .theme-toggle-icon-dark {
+    display: none;
+  }
+
+  .theme-toggle-icon-light {
+    display: block;
+  }
+}
+
+:root[data-theme="light"] .theme-toggle {
+  .theme-toggle-icon-dark {
+    display: block;
+  }
+
+  .theme-toggle-icon-light {
+    display: none;
   }
 }
 

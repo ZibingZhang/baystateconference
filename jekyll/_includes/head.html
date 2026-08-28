@@ -2,6 +2,16 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem("theme");
+        if (stored === "light" || stored === "dark") {
+          document.documentElement.setAttribute("data-theme", stored);
+        }
+      } catch (e) {}
+    })();
+  </script>
   {%- if page.redirect_to -%}
   {%- assign redirect_url = page.redirect_to | relative_url -%}
   <meta http-equiv="refresh" content="0; url={{ redirect_url }}">

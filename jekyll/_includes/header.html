@@ -1,6 +1,13 @@
 <header class="site-header">
 
+  <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
+
   <div class="wrapper">
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+      <span class="material-symbols-outlined theme-toggle-icon-dark" aria-hidden="true">dark_mode</span>
+      <span class="material-symbols-outlined theme-toggle-icon-light" aria-hidden="true">light_mode</span>
+    </button>
+
     <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
     {%- assign nav_name = page.nav | default: "sports" -%}
