@@ -6,39 +6,39 @@
 - title: About
   children:
     - title: Bay State Conference
-      url: /swimming-diving/bsc/
+      url: /sports/swimming-diving/bsc/
     - title: EMISCA
-      url: /swimming-diving/emisca/
+      url: /sports/swimming-diving/emisca/
     - title: MIAA
-      url: /swimming-diving/miaa/
+      url: /sports/swimming-diving/miaa/
     - title: NFHS
-      url: /swimming-diving/nfhs/
+      url: /sports/swimming-diving/nfhs/
 
 - title: Events
-  url: /swimming-diving/events/
+  url: /sports/swimming-diving/events/
   children:
     - title: Dual Meets
-      url: /swimming-diving/events/dual-meets/
+      url: /sports/swimming-diving/events/dual-meets/
     - title: Bay State Conference Meet
-      url: /swimming-diving/events/bay-state-conference-meet/
+      url: /sports/swimming-diving/events/bay-state-conference-meet/
     - title: Championship Meets
-      url: /swimming-diving/events/championship-meets/
+      url: /sports/swimming-diving/events/championship-meets/
 
 - title: Results
-  url: /swimming-diving/results/
+  url: /sports/swimming-diving/results/
   children:
     - title: Dual Meets
-      url: /swimming-diving/results/dual-meets/
+      url: /sports/swimming-diving/results/dual-meets/
     - title: Bay State Conference Meet
-      url: /swimming-diving/results/bay-state-conference-meet/
+      url: /sports/swimming-diving/results/bay-state-conference-meet/
     - title: Championship Meets
-      url: /swimming-diving/results/championship-meets/
+      url: /sports/swimming-diving/results/championship-meets/
 
 - title: Records
-  url: /swimming-diving/records/
+  url: /sports/swimming-diving/records/
 
 - title: Archive
-  url: /swimming-diving/archive/
+  url: /sports/swimming-diving/archive/
 
 - title: Site Map
-  url: /swimming-diving/directory/
+  url: /sports/swimming-diving/directory/

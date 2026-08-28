@@ -1,11 +1,11 @@
 # Builds a nested tree of every generated HTML page from their URLs, for the
-# site map page (swimming-diving/directory.md) to render as an actual
+# site map page (sports/swimming-diving/directory.md) to render as an actual
 # expandable folder structure. Doing this as a flat-to-nested walk in Liquid
 # would mean hand-rolling a stack machine with no real recursion or mutable
 # state to lean on; a Jekyll generator gets a straightforward tree in a dozen
 # lines of Ruby instead, exposed to Liquid as plain data via site.data.
 #
-# Each node: { "segment" => "emisca", "url" => "/swimming-diving/emisca/" or
+# Each node: { "segment" => "emisca", "url" => "/sports/swimming-diving/emisca/" or
 # nil, "title" => "...", "collapsed" => false, "children" => [...] }. A node
 # has a url/title only when that path segment is itself a real page (e.g.
 # "emisca" is both a page and a folder containing "awards"); segments that
@@ -21,7 +21,7 @@ module SiteMap
     safe true
     priority :low
 
-    EXCLUDED_URLS = ["/404.html", "/swimming-diving/directory/"].freeze
+    EXCLUDED_URLS = ["/404.html", "/sports/swimming-diving/directory/"].freeze
 
     def generate(site)
       root = new_node("")

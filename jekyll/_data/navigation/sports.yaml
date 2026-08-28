@@ -38,7 +38,7 @@
   url: /sports/
   children:
     - title: Swimming & Diving
-      url: /swimming-diving/
+      url: /sports/swimming-diving/
 
 - title: League Documents
   url: /league-documents/

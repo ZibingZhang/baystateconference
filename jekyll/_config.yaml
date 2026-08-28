@@ -35,75 +35,75 @@ s3_bucket_root: "https://dly214yt7lp83.cloudfront.net"
 # Pages can override this directly in their own front matter with `nav:`.
 defaults:
   - scope:
-      path: "swimming-diving"
+      path: "sports/swimming-diving"
     values:
       nav: swimming-diving
   - scope:
-      path: "baseball"
+      path: "sports/baseball"
     values:
       nav: baseball
   - scope:
-      path: "basketball"
+      path: "sports/basketball"
     values:
       nav: basketball
   - scope:
-      path: "cross-country"
+      path: "sports/cross-country"
     values:
       nav: cross-country
   - scope:
-      path: "field-hockey"
+      path: "sports/field-hockey"
     values:
       nav: field-hockey
   - scope:
-      path: "football"
+      path: "sports/football"
     values:
       nav: football
   - scope:
-      path: "golf"
+      path: "sports/golf"
     values:
       nav: golf
   - scope:
-      path: "gymnastics"
+      path: "sports/gymnastics"
     values:
       nav: gymnastics
   - scope:
-      path: "hockey"
+      path: "sports/hockey"
     values:
       nav: hockey
   - scope:
-      path: "indoor-track"
+      path: "sports/indoor-track"
     values:
       nav: indoor-track
   - scope:
-      path: "lacrosse"
+      path: "sports/lacrosse"
     values:
       nav: lacrosse
   - scope:
-      path: "outdoor-track"
+      path: "sports/outdoor-track"
     values:
       nav: outdoor-track
   - scope:
-      path: "rugby"
+      path: "sports/rugby"
     values:
       nav: rugby
   - scope:
-      path: "soccer"
+      path: "sports/soccer"
     values:
       nav: soccer
   - scope:
-      path: "softball"
+      path: "sports/softball"
     values:
       nav: softball
   - scope:
-      path: "tennis"
+      path: "sports/tennis"
     values:
       nav: tennis
   - scope:
-      path: "volleyball"
+      path: "sports/volleyball"
     values:
       nav: volleyball
   - scope:
-      path: "wrestling"
+      path: "sports/wrestling"
     values:
       nav: wrestling
 
@@ -111,10 +111,10 @@ defaults:
 # slashes) whose folder should start collapsed in the site map's file
 # viewer. See _plugins/page_tree_generator.rb.
 sitemap_collapsed_paths:
-  - "swimming-diving/bsc/awards/all-stars"
-  - "swimming-diving/bsc/schools"
-  - "swimming-diving/emisca/awards"
-  - "swimming-diving/miaa/qualifying-standards"
+  - "sports/swimming-diving/bsc/awards/all-stars"
+  - "sports/swimming-diving/bsc/schools"
+  - "sports/swimming-diving/emisca/awards"
+  - "sports/swimming-diving/miaa/qualifying-standards"
 
 # Build settings
 # theme: minima

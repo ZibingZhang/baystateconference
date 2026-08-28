@@ -25,41 +25,41 @@ school_links:
     url: /schools/weymouth/
 sport_links:
   - title: Baseball
-    url: /baseball/
+    url: /sports/baseball/
   - title: Basketball
-    url: /basketball/
+    url: /sports/basketball/
   - title: Cross Country
-    url: /cross-country/
+    url: /sports/cross-country/
   - title: Field Hockey
-    url: /field-hockey/
+    url: /sports/field-hockey/
   - title: Football
-    url: /football/
+    url: /sports/football/
   - title: Golf
-    url: /golf/
+    url: /sports/golf/
   - title: Gymnastics
-    url: /gymnastics/
+    url: /sports/gymnastics/
   - title: Hockey
-    url: /hockey/
+    url: /sports/hockey/
   - title: Indoor Track
-    url: /indoor-track/
+    url: /sports/indoor-track/
   - title: Lacrosse
-    url: /lacrosse/
+    url: /sports/lacrosse/
   - title: Outdoor Track
-    url: /outdoor-track/
+    url: /sports/outdoor-track/
   - title: Rugby
-    url: /rugby/
+    url: /sports/rugby/
   - title: Soccer
-    url: /soccer/
+    url: /sports/soccer/
   - title: Softball
-    url: /softball/
+    url: /sports/softball/
   - title: Swimming & Diving
-    url: /swimming-diving/
+    url: /sports/swimming-diving/
   - title: Tennis
-    url: /tennis/
+    url: /sports/tennis/
   - title: Volleyball
-    url: /volleyball/
+    url: /sports/volleyball/
   - title: Wrestling
-    url: /wrestling/
+    url: /sports/wrestling/
 ---
 
 An unofficial website for the Bay State Conference, meant to serve as a resource for athletes, parents, coaches, and officials.

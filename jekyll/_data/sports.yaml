@@ -7,7 +7,7 @@
 # straight from this file - there's no miaa/index.md or nfhs/index.md to
 # hand-write per sport. A sport gets a page for a governing body only if it
 # has an `external_links` entry for that body below (e.g. Rugby has no
-# `nfhs` key since NFHS doesn't sanction it, so no /rugby/nfhs/ is built).
+# `nfhs` key since NFHS doesn't sanction it, so no /sports/rugby/nfhs/ is built).
 #
 # Fields a sport entry can set, per governing body (`miaa` and/or `nfhs`):
 #
@@ -34,7 +34,7 @@
 #                            reach for internal_links first if what you need
 #                            is just another link.
 - title: Baseball
-  url: /baseball/
+  url: /sports/baseball/
   icon: sports_baseball
   external_links:
     miaa:
@@ -45,7 +45,7 @@
         url: https://www.nfhs.org/sports/baseball
 
 - title: Basketball
-  url: /basketball/
+  url: /sports/basketball/
   icon: sports_basketball
   external_links:
     miaa:
@@ -56,7 +56,7 @@
         url: https://www.nfhs.org/sports/basketball
 
 - title: Cross Country
-  url: /cross-country/
+  url: /sports/cross-country/
   icon: footprint
   external_links:
     miaa:
@@ -67,7 +67,7 @@
         url: https://www.nfhs.org/sports/cross-country
 
 - title: Field Hockey
-  url: /field-hockey/
+  url: /sports/field-hockey/
   icon: sports_hockey
   external_links:
     miaa:
@@ -78,7 +78,7 @@
         url: https://www.nfhs.org/sports/field-hockey
 
 - title: Football
-  url: /football/
+  url: /sports/football/
   icon: sports_football
   external_links:
     miaa:
@@ -89,7 +89,7 @@
         url: https://www.nfhs.org/sports/football
 
 - title: Golf
-  url: /golf/
+  url: /sports/golf/
   icon: sports_golf
   external_links:
     miaa:
@@ -100,7 +100,7 @@
         url: https://www.nfhs.org/sports/golf
 
 - title: Gymnastics
-  url: /gymnastics/
+  url: /sports/gymnastics/
   icon: sports_gymnastics
   external_links:
     miaa:
@@ -111,7 +111,7 @@
         url: https://www.nfhs.org/sports/gymnastics
 
 - title: Hockey
-  url: /hockey/
+  url: /sports/hockey/
   icon: sports_hockey
   external_links:
     miaa:
@@ -122,7 +122,7 @@
         url: https://www.nfhs.org/sports/ice-hockey
 
 - title: Indoor Track
-  url: /indoor-track/
+  url: /sports/indoor-track/
   icon: timer
   external_links:
     miaa:
@@ -133,7 +133,7 @@
         url: https://www.nfhs.org/sports/track-field
 
 - title: Lacrosse
-  url: /lacrosse/
+  url: /sports/lacrosse/
   icon: padel
   external_links:
     miaa:
@@ -146,7 +146,7 @@
         url: https://www.nfhs.org/sports/lacrosse-girls
 
 - title: Outdoor Track
-  url: /outdoor-track/
+  url: /sports/outdoor-track/
   icon: directions_run
   external_links:
     miaa:
@@ -157,7 +157,7 @@
         url: https://www.nfhs.org/sports/track-field
 
 - title: Rugby
-  url: /rugby/
+  url: /sports/rugby/
   icon: sports_rugby
   external_links:
     miaa:
@@ -165,7 +165,7 @@
         url: https://www.miaa.net/rugby
 
 - title: Soccer
-  url: /soccer/
+  url: /sports/soccer/
   icon: sports_soccer
   external_links:
     miaa:
@@ -176,7 +176,7 @@
         url: https://www.nfhs.org/sports/soccer
 
 - title: Softball
-  url: /softball/
+  url: /sports/softball/
   icon: sports_baseball
   external_links:
     miaa:
@@ -187,7 +187,7 @@
         url: https://www.nfhs.org/sports/softball
 
 - title: Swimming & Diving
-  url: /swimming-diving/
+  url: /sports/swimming-diving/
   icon: pool
   external_links:
     miaa:
@@ -199,13 +199,13 @@
   internal_links:
     miaa:
       - title: Qualifying Standards
-        url: /swimming-diving/miaa/qualifying-standards/
+        url: /sports/swimming-diving/miaa/qualifying-standards/
     nfhs:
       - title: Rule Changes
-        url: /swimming-diving/nfhs/rule-changes/
+        url: /sports/swimming-diving/nfhs/rule-changes/
 
 - title: Tennis
-  url: /tennis/
+  url: /sports/tennis/
   icon: sports_tennis
   external_links:
     miaa:
@@ -216,7 +216,7 @@
         url: https://www.nfhs.org/sports/tennis
 
 - title: Volleyball
-  url: /volleyball/
+  url: /sports/volleyball/
   icon: sports_volleyball
   external_links:
     miaa:
@@ -227,7 +227,7 @@
         url: https://www.nfhs.org/sports/volleyball
 
 - title: Wrestling
-  url: /wrestling/
+  url: /sports/wrestling/
   icon: sports_kabaddi
   external_links:
     miaa:

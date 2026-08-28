@@ -11,7 +11,7 @@
   `include.internal_links` if the caller passes them (that's what
   /about/miaa/index.md does, with its own front matter); otherwise they
   default to the current sport's entry in site.data.sports, matched by the
-  page's own first URL segment (e.g. "/baseball/miaa/" -> "/baseball/") -
+  page's own first URL segment (e.g. "/sports/baseball/miaa/" -> "/sports/baseball/") -
   see the field reference atop _data/sports.yaml.
 {%- endcomment -%}
 {%- assign url_segments = page.url | split: "/" -%}
