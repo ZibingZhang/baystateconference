@@ -6,16 +6,10 @@
 # lines of Ruby instead, exposed to Liquid as plain data via site.data.
 #
 # Each node: { "segment" => "emisca", "url" => "/sports/swimming-diving/emisca/" or
-# nil, "title" => "...", "collapsed" => false, "children" => [...] }. A node
-# has a url/title only when that path segment is itself a real page (e.g.
-# "emisca" is both a page and a folder containing "awards"); segments that
-# are pure path components with no page of their own (rare on this site)
-# are folders with a nil url.
-#
-# A folder's URL can be listed under the site config's
-# `sitemap_collapsed_paths` to have it start out collapsed in the site map's
-# file viewer — e.g. individual qualifying-standards seasons are still
-# listed, just tucked under a closed folder by default.
+# nil, "title" => "...", "children" => [...] }. A node has a url/title only
+# when that path segment is itself a real page (e.g. "emisca" is both a page
+# and a folder containing "awards"); segments that are pure path components
+# with no page of their own (rare on this site) are folders with a nil url.
 module SiteMap
   class PageTreeGenerator < Jekyll::Generator
     safe true
@@ -25,8 +19,6 @@ module SiteMap
 
     def generate(site)
       root = new_node("")
-      collapsed_paths = (site.config["sitemap_collapsed_paths"] || [])
-        .map { |path| path.to_s.gsub(%r{\A/+|/+\z}, "") }
 
       site.pages.each do |page|
         next unless page.output_ext == ".html"
@@ -46,7 +38,6 @@ module SiteMap
 
         node["url"] = page.url
         node["title"] = page.data["title"] || page.url
-        node["collapsed"] = true if collapsed_paths.include?(segments.join("/"))
       end
 
       sort_children!(root)
@@ -56,7 +47,7 @@ module SiteMap
     private
 
     def new_node(segment)
-      { "segment" => segment, "url" => nil, "title" => nil, "collapsed" => false, "children" => [] }
+      { "segment" => segment, "url" => nil, "title" => nil, "children" => [] }
     end
 
     def sort_children!(node)

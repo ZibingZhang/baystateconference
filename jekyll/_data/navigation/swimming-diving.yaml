@@ -1,18 +1,19 @@
 # Site navigation. Each top-level item can have an optional `children` list;
 # items with children show a hover-out submenu (tap-to-expand on mobile).
 - title: Home
-  url: /
+  url: /sports/swimming-diving/
 
-- title: About
+- title: Organizations
+  url: /sports/swimming-diving/organizations/
   children:
     - title: Bay State Conference
-      url: /sports/swimming-diving/bsc/
+      url: /sports/swimming-diving/organizations/bsc/
     - title: EMISCA
-      url: /sports/swimming-diving/emisca/
+      url: /sports/swimming-diving/organizations/emisca/
     - title: MIAA
-      url: /sports/swimming-diving/miaa/
+      url: /sports/swimming-diving/organizations/miaa/
     - title: NFHS
-      url: /sports/swimming-diving/nfhs/
+      url: /sports/swimming-diving/organizations/nfhs/
 
 - title: Events
   url: /sports/swimming-diving/events/
@@ -33,12 +34,23 @@
       url: /sports/swimming-diving/results/bay-state-conference-meet/
     - title: Championship Meets
       url: /sports/swimming-diving/results/championship-meets/
+    - title: Records
+      url: /sports/swimming-diving/results/records/
 
-- title: Records
-  url: /sports/swimming-diving/records/
+- title: Awards
+  url: /sports/swimming-diving/awards/
+  children:
+    - title: BSC All-Stars
+      url: /sports/swimming-diving/awards/bsc/all-stars/
+    - title: EMISCA Awards
+      url: /sports/swimming-diving/awards/emisca/
 
-- title: Archive
-  url: /sports/swimming-diving/archive/
-
-- title: Site Map
-  url: /sports/swimming-diving/directory/
+- title: Resources
+  url: /sports/swimming-diving/resources/
+  children:
+    - title: MIAA Qualifying Standards
+      url: /sports/swimming-diving/resources/miaa-qualifying-standards/
+    - title: NFHS Rule Changes
+      url: /sports/swimming-diving/resources/nfhs-rule-changes/
+    - title: Archive
+      url: /sports/swimming-diving/resources/archive/

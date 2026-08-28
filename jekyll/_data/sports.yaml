@@ -7,7 +7,7 @@
 # straight from this file - there's no miaa/index.md or nfhs/index.md to
 # hand-write per sport. A sport gets a page for a governing body only if it
 # has an `external_links` entry for that body below (e.g. Rugby has no
-# `nfhs` key since NFHS doesn't sanction it, so no /sports/rugby/nfhs/ is built).
+# `nfhs` key since NFHS doesn't sanction it, so no /sports/rugby/organizations/nfhs/ is built).
 #
 # Fields a sport entry can set, per governing body (`miaa` and/or `nfhs`):
 #
@@ -199,10 +199,10 @@
   internal_links:
     miaa:
       - title: Qualifying Standards
-        url: /sports/swimming-diving/miaa/qualifying-standards/
+        url: /sports/swimming-diving/resources/miaa-qualifying-standards/
     nfhs:
       - title: Rule Changes
-        url: /sports/swimming-diving/nfhs/rule-changes/
+        url: /sports/swimming-diving/resources/nfhs-rule-changes/
 
 - title: Tennis
   url: /sports/tennis/

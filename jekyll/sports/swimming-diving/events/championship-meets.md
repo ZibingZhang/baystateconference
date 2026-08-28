@@ -12,7 +12,7 @@ external_links:
     url: https://www.miaa.net/swimming-diving
 internal_links:
   - title: Qualifying Standards
-    url: /sports/swimming-diving/miaa/qualifying-standards/
+    url: /sports/swimming-diving/resources/miaa-qualifying-standards/
   - title: Results
     url: /sports/swimming-diving/results/championship-meets/
 ---

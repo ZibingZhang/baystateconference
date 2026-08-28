@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Site Map
-permalink: /sports/swimming-diving/directory/
+title: Directory
+permalink: /directory/
 ---
 
 <div class="directory-browser">

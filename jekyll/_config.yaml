@@ -107,15 +107,6 @@ defaults:
     values:
       nav: wrestling
 
-# Directories (matched against a page's own URL, without leading/trailing
-# slashes) whose folder should start collapsed in the site map's file
-# viewer. See _plugins/page_tree_generator.rb.
-sitemap_collapsed_paths:
-  - "sports/swimming-diving/bsc/awards/all-stars"
-  - "sports/swimming-diving/schools"
-  - "sports/swimming-diving/emisca/awards"
-  - "sports/swimming-diving/miaa/qualifying-standards"
-
 # Build settings
 # theme: minima
 plugins:

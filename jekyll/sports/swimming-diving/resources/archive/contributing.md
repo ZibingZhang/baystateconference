@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Contributing to the Archive
-permalink: /sports/swimming-diving/archive/contributing/
+permalink: /sports/swimming-diving/resources/archive/contributing/
 breadcrumb: Contributing
 ---
 

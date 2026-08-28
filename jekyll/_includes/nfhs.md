@@ -11,12 +11,12 @@
   `include.internal_links` if the caller passes them (that's what
   /about/nfhs/index.md does, with its own front matter); otherwise they
   default to the current sport's entry in site.data.sports, matched by the
-  page's own first URL segment (e.g. "/sports/baseball/nfhs/" -> "/sports/baseball/") -
+  page's own first URL segment (e.g. "/sports/baseball/organizations/nfhs/" -> "/sports/baseball/") -
   see the field reference atop _data/sports.yaml.
 {%- endcomment -%}
 {%- assign url_segments = page.url | split: "/" -%}
-{%- assign sport_slug = url_segments[1] -%}
-{%- assign sport_url = "/" | append: sport_slug | append: "/" -%}
+{%- assign sport_slug = url_segments[2] -%}
+{%- assign sport_url = "/" | append: url_segments[1] | append: "/" | append: sport_slug | append: "/" -%}
 {%- assign sport = site.data.sports | where: "url", sport_url | first -%}
 {%- assign resources = include.external_links | default: sport.external_links.nfhs -%}
 {%- assign directory = include.internal_links | default: sport.internal_links.nfhs -%}

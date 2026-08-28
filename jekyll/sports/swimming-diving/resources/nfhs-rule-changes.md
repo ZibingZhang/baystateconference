@@ -1,8 +1,8 @@
 ---
 layout: page
 title: NFHS Rule Changes
-permalink: /sports/swimming-diving/nfhs/rule-changes/
-breadcrumb: Rule Changes
+permalink: /sports/swimming-diving/resources/nfhs-rule-changes/
+breadcrumb: NFHS Rule Changes
 ---
 
 [^20262027]: <https://www.nfhs.org/sports/sports/swimming-diving/rules>
