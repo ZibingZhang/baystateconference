@@ -3,6 +3,7 @@ layout: page
 title: Sectionals Rankings
 permalink: /sports/swimming-diving/sectionals/rankings/
 breadcrumb: Rankings
+directory_sort: desc
 ---
 
-{% include link-list.html heading="Directory" items=site.data.sectionals_ranking_years searchable=true %}
+{% include directory-listing.html searchable=true %}

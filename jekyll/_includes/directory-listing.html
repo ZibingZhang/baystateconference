@@ -13,6 +13,11 @@
   child's own `breadcrumb` front matter, then an acronym match on its URL
   segment (see _data/acronyms.yaml), then its `title`.
 
+  A page whose children should list newest-first instead of the default
+  ascending order (e.g. a folder of generated school-year pages) sets
+  `directory_sort: desc` in its own front matter; page_tree_generator.rb
+  reads that flag when building the tree.
+
   Usage: {% include directory-listing.html %}
          {% include directory-listing.html heading="Resources" searchable=true %}
 {%- endcomment -%}
@@ -33,7 +38,7 @@
 {%- assign heading = include.heading | default: "Directory" -%}
 {%- if nodes.size > 0 -%}
 <h2>{{ heading }}</h2>
-<div class="directory-browser link-list{% if include.searchable %} searchable{% endif %}">
+<div class="directory-browser link-list{% if include.searchable %} searchable{% endif %}"{% if page.directory_sort == "desc" %} data-default-sort="desc"{% endif %}>
   {%- if include.searchable -%}
   <div class="file-browser-search">
     <span class="material-symbols-outlined" aria-hidden="true">search</span>

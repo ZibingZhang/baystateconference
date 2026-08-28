@@ -3,6 +3,7 @@ layout: page
 title: States Rankings
 permalink: /sports/swimming-diving/states/rankings/
 breadcrumb: Rankings
+directory_sort: desc
 ---
 
-{% include link-list.html heading="Directory" items=site.data.states_ranking_years searchable=true %}
+{% include directory-listing.html searchable=true %}

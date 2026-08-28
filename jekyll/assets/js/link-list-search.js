@@ -8,10 +8,14 @@ function initLinkListSearch(container) {
   if (!input || !list) return;
 
   const tagFilter = createTagFilter({ input, tagsList, onChange: applyFilter });
-  const sortState = createSortToggle(sortToggle, () => {
-    sortItems();
-    applyFilter();
-  });
+  const sortState = createSortToggle(
+    sortToggle,
+    () => {
+      sortItems();
+      applyFilter();
+    },
+    container.dataset.defaultSort === "desc"
+  );
 
   function itemName(item) {
     return item.querySelector("a span:last-child").textContent;

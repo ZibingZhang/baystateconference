@@ -89,9 +89,13 @@ function activeQueries(tagFilter, input) {
 }
 
 // Manages the A-Z/Z-A sort toggle button's state and icon/label, calling
-// `onChange(descending)` whenever it's clicked.
-function createSortToggle(button, onChange) {
-  let descending = false;
+// `onChange(descending)` whenever it's clicked. `initialDescending` seeds the
+// starting state for lists that are server-rendered Z-A (e.g. newest-first
+// school-year folders via `directory_sort: desc`), so the button's label and
+// the first sortItems() pass agree with what's already on the page instead
+// of silently flipping it back to A-Z.
+function createSortToggle(button, onChange, initialDescending = false) {
+  let descending = initialDescending;
 
   function update() {
     if (!button) return;

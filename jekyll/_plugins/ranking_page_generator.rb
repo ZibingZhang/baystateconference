@@ -10,9 +10,11 @@
 # combination that year (e.g. "Girls Fall - South"), sorted by Place, since
 # schools are only ranked against the rest of their own division.
 #
-# Also exposes site.data["sectionals_ranking_years"] / ["states_ranking_years"]
-# (newest first, en-dash titles) so the sectionals/states rankings index
-# pages' directory listings stay in sync with the CSVs too.
+# The sectionals/states rankings index pages pick these generated pages up
+# automatically via directory-listing.html (see page_tree_generator.rb),
+# newest-first thanks to their `directory_sort: desc` front matter - so a
+# year appears in the index the moment its first CSV row does, no matching
+# listing entry to remember.
 module Rankings
   class PageGenerator < Jekyll::Generator
     safe true
@@ -40,10 +42,6 @@ module Rankings
       years = entries.map { |entry| entry["School Year"] }.compact.uniq.sort.reverse
       dir = "#{DIR_BASE}/#{meet}/rankings"
 
-      site.data["#{meet}_ranking_years"] = years.map do |year|
-        { "title" => en_dash(year), "url" => "/#{dir}/#{year}/" }
-      end
-
       years.each do |year|
         site.pages << build_page(site, dir, meet, year, entries)
       end
@@ -56,7 +54,7 @@ module Rankings
         "layout" => "ranking",
         "title" => "#{en_dash(year)} #{MEETS[meet]} Rankings",
         "permalink" => "/#{dir}/#{year}/",
-        "breadcrumb" => year,
+        "breadcrumb" => en_dash(year),
         "groups" => groups_for(entries, year)
       )
       page
