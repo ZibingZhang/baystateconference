@@ -1,10 +1,15 @@
 {%- comment -%}
   Swimming & diving's school-page info_extra: pool location, team Instagram,
-  and Girls/Boys sections (team Instagram, sectional/state wins pulled from
-  the MIAA sectionals/states results data) as a colspan header row followed
-  by their rows within the same table. Every row (and each Girls/Boys
-  section itself) is optional and simply omitted when the underlying data
-  doesn't exist for that school. Expects `include.school` (see school.html).
+  and Girls/Boys sections (team Instagram, BSC/sectional/state wins pulled
+  from the BSC rankings and MIAA sectionals/states results data) as a
+  colspan header row followed by their rows within the same table. Every row
+  (and each Girls/Boys section itself) is optional and simply omitted when
+  the underlying data doesn't exist for that school. Expects `include.school`
+  (see school.html).
+
+  BSC wins are split by Season since, unlike the MIAA sectional/state
+  results, the BSC has fielded separate Boys Fall and Boys Winter
+  championships across its history (Girls has only ever raced in the fall).
 {%- endcomment -%}
 {%- assign school = include.school -%}
 {%- assign pool = school.sport.swimming-diving.pool -%}
@@ -23,6 +28,7 @@
   {%- endfor -%}
 {%- endif -%}
 
+{%- assign bsc = site.data.swimming-diving.bsc.rankings -%}
 {%- assign sectionals = site.data.swimming-diving.miaa.rankings.sectionals -%}
 {%- assign states = site.data.swimming-diving.miaa.rankings.states -%}
 
@@ -30,6 +36,30 @@
   Displayed as a single year rather than the full school-year range: fall
   results show the range's first year, winter results show its second year.
 {%- endcomment -%}
+{%- assign girls_bsc_wins = bsc | where_exp: 'row', 'row.Sex == "F" and row.Season == "fall" and row.Place == "1" and school_names contains row.School' -%}
+{%- assign girls_bsc_years = "" | split: "" -%}
+{%- for row in girls_bsc_wins -%}
+  {%- assign school_year_parts = row['School Year'] | split: '-' -%}
+  {%- assign girls_bsc_years = girls_bsc_years | push: school_year_parts[0] -%}
+{%- endfor -%}
+{%- assign girls_bsc_years = girls_bsc_years | uniq | sort | reverse -%}
+
+{%- assign boys_bsc_fall_wins = bsc | where_exp: 'row', 'row.Sex == "M" and row.Season == "fall" and row.Place == "1" and school_names contains row.School' -%}
+{%- assign boys_bsc_fall_years = "" | split: "" -%}
+{%- for row in boys_bsc_fall_wins -%}
+  {%- assign school_year_parts = row['School Year'] | split: '-' -%}
+  {%- assign boys_bsc_fall_years = boys_bsc_fall_years | push: school_year_parts[0] -%}
+{%- endfor -%}
+{%- assign boys_bsc_fall_years = boys_bsc_fall_years | uniq | sort | reverse -%}
+
+{%- assign boys_bsc_winter_wins = bsc | where_exp: 'row', 'row.Sex == "M" and row.Season == "winter" and row.Place == "1" and school_names contains row.School' -%}
+{%- assign boys_bsc_winter_years = "" | split: "" -%}
+{%- for row in boys_bsc_winter_wins -%}
+  {%- assign school_year_parts = row['School Year'] | split: '-' -%}
+  {%- assign boys_bsc_winter_years = boys_bsc_winter_years | push: school_year_parts[1] -%}
+{%- endfor -%}
+{%- assign boys_bsc_winter_years = boys_bsc_winter_years | uniq | sort | reverse -%}
+
 {%- assign girls_sectional_wins = sectionals | where_exp: 'row', 'row.Sex == "F" and row.Place == "1" and school_names contains row.School' -%}
 {%- assign girls_sectional_years = "" | split: "" -%}
 {%- for row in girls_sectional_wins -%}
@@ -95,7 +125,7 @@
 </tr>
 {%- endif -%}
 
-{%- if instagram.girls-team or girls_sectional_years.size > 0 or girls_state_years.size > 0 -%}
+{%- if instagram.girls-team or girls_bsc_years.size > 0 or girls_sectional_years.size > 0 or girls_state_years.size > 0 -%}
 <tr class="school-info-section">
   <th colspan="2">Girls</th>
 </tr>
@@ -105,6 +135,13 @@
 <tr>
   <th>Instagram</th>
   <td><a href="{{ instagram.girls-team }}" target="_blank" rel="noopener me">@{{ girls_team_username }}</a></td>
+</tr>
+{%- endif -%}
+
+{%- if girls_bsc_years.size > 0 -%}
+<tr>
+  <th>BSC Wins</th>
+  <td>{{ girls_bsc_years | join: ', ' }}</td>
 </tr>
 {%- endif -%}
 
@@ -123,7 +160,7 @@
 {%- endif -%}
 {%- endif -%}
 
-{%- if instagram.boys-team or boys_sectional_years.size > 0 or boys_state_years.size > 0 -%}
+{%- if instagram.boys-team or boys_bsc_fall_years.size > 0 or boys_bsc_winter_years.size > 0 or boys_sectional_years.size > 0 or boys_state_years.size > 0 -%}
 <tr class="school-info-section">
   <th colspan="2">Boys</th>
 </tr>
@@ -133,6 +170,20 @@
 <tr>
   <th>Instagram</th>
   <td><a href="{{ instagram.boys-team }}" target="_blank" rel="noopener me">@{{ boys_team_username }}</a></td>
+</tr>
+{%- endif -%}
+
+{%- if boys_bsc_fall_years.size > 0 -%}
+<tr>
+  <th>BSC Wins (Fall)</th>
+  <td>{{ boys_bsc_fall_years | join: ', ' }}</td>
+</tr>
+{%- endif -%}
+
+{%- if boys_bsc_winter_years.size > 0 -%}
+<tr>
+  <th>BSC Wins (Winter)</th>
+  <td>{{ boys_bsc_winter_years | join: ', ' }}</td>
 </tr>
 {%- endif -%}
 

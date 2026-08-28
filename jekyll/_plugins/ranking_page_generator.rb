@@ -1,30 +1,42 @@
-# Generates one page per school year for MIAA Sectional and State meet
-# rankings (sports/swimming-diving/<sectionals|states>/rankings/YYYY-YYYY/)
-# straight from the School Year column of
-# _data/swimming-diving/miaa/rankings/<sectionals|states>.csv, so adding a
-# new season's rows to a CSV is enough on its own - no matching page to
-# remember. A year with no rows simply has no page yet; add its first entry
-# and the page appears on the next build.
+# Generates one page per school year for MIAA Sectional/State meet and Bay
+# State Conference meet rankings
+# (sports/swimming-diving/<sectionals|states|bsc>/rankings/YYYY-YYYY/)
+# straight from the School Year column of each source's rankings CSV, so
+# adding a new season's rows to a CSV is enough on its own - no matching page
+# to remember. A year with no rows simply has no page yet; add its first
+# entry and the page appears on the next build.
 #
 # Each page's rankings are split into one table per Season/Sex/Division
 # combination that year (e.g. "Girls Fall - South"), sorted by Place, since
-# schools are only ranked against the rest of their own division.
+# schools are only ranked against the rest of their own division. The BSC
+# meet has no Division column, so its pages get one table per Season/Sex
+# instead (e.g. "Girls Fall").
 #
-# The sectionals/states rankings index pages pick these generated pages up
-# automatically via directory-listing.html (see page_tree_generator.rb),
-# newest-first thanks to their `directory_sort: desc` front matter - so a
-# year appears in the index the moment its first CSV row does, no matching
-# listing entry to remember.
+# The rankings index pages pick these generated pages up automatically via
+# directory-listing.html (see page_tree_generator.rb), newest-first thanks to
+# their `directory_sort: desc` front matter - so a year appears in the index
+# the moment its first CSV row does, no matching listing entry to remember.
 module Rankings
   class PageGenerator < Jekyll::Generator
     safe true
 
-    MEETS = {
-      "sectionals" => "Sectional",
-      "states" => "State",
-    }.freeze
-
-    DIR_BASE = "sports/swimming-diving".freeze
+    SOURCES = [
+      {
+        data_path: %w[swimming-diving miaa rankings sectionals],
+        dir: "sports/swimming-diving/sectionals/rankings",
+        title_suffix: "Sectional Rankings",
+      },
+      {
+        data_path: %w[swimming-diving miaa rankings states],
+        dir: "sports/swimming-diving/states/rankings",
+        title_suffix: "State Rankings",
+      },
+      {
+        data_path: %w[swimming-diving bsc rankings],
+        dir: "sports/swimming-diving/bsc/rankings",
+        title_suffix: "Bay State Conference Rankings",
+      },
+    ].freeze
 
     SEASON_ORDER = { "fall" => 0, "winter" => 1 }.freeze
     SEASON_LABELS = { "fall" => "Fall", "winter" => "Winter" }.freeze
@@ -32,27 +44,27 @@ module Rankings
     SEX_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
 
     def generate(site)
-      MEETS.each_key { |meet| generate_meet(site, meet) }
+      SOURCES.each { |source| generate_source(site, source) }
     end
 
     private
 
-    def generate_meet(site, meet)
-      entries = site.data.dig("swimming-diving", "miaa", "rankings", meet) || []
+    def generate_source(site, source)
+      entries = site.data.dig(*source[:data_path]) || []
       years = entries.map { |entry| entry["School Year"] }.compact.uniq.sort.reverse
-      dir = "#{DIR_BASE}/#{meet}/rankings"
 
       years.each do |year|
-        site.pages << build_page(site, dir, meet, year, entries)
+        site.pages << build_page(site, source, year, entries)
       end
     end
 
-    def build_page(site, dir, meet, year, entries)
+    def build_page(site, source, year, entries)
+      dir = source[:dir]
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "#{year}.html")
       page.content = ""
       page.data.merge!(
         "layout" => "ranking",
-        "title" => "#{en_dash(year)} #{MEETS[meet]} Rankings",
+        "title" => "#{en_dash(year)} #{source[:title_suffix]}",
         "permalink" => "/#{dir}/#{year}/",
         "breadcrumb" => en_dash(year),
         "groups" => groups_for(entries, year)

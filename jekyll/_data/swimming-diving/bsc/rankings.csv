@@ -1,0 +1,243 @@
+School Year,Season,Sex,Place,School,Score
+2025-2026,fall,F,1,Newton North,504.5
+2025-2026,fall,F,2,Brookline,387
+2025-2026,fall,F,3,Wellesley,342
+2025-2026,fall,F,4,Framingham,266
+2025-2026,fall,F,5,Needham,264.5
+2025-2026,fall,F,6,Natick,207
+2025-2026,fall,F,7,Milton,167
+2025-2026,fall,F,8,Weymouth,105
+2025-2026,fall,F,9,Walpole,50
+2025-2026,fall,F,10,Braintree,0
+2025-2026,fall,M,1,Milton,492
+2025-2026,fall,M,2,Walpole,315
+2025-2026,fall,M,3,Braintree,309
+2025-2026,fall,M,4,Weymouth,223
+2024-2025,fall,F,1,Wellesley,493.5
+2024-2025,fall,F,2,Brookline,389
+2024-2025,fall,F,3,Needham,360
+2024-2025,fall,F,4,Newton North,358
+2024-2025,fall,F,5,Framingham,218.5
+2024-2025,fall,F,6,Natick,140
+2024-2025,fall,F,7,Milton,136
+2024-2025,fall,F,8,Weymouth,105
+2024-2025,fall,F,9,Walpole,58
+2024-2025,fall,F,10,Braintree,35
+2024-2025,fall,M,1,Walpole,376
+2024-2025,fall,M,2,Milton,369
+2024-2025,fall,M,3,Braintree,344
+2024-2025,fall,M,4,Weymouth,198
+2023-2024,fall,F,1,Needham,516
+2023-2024,fall,F,2,Wellesley,489
+2023-2024,fall,F,3,Newton North,443
+2023-2024,fall,F,4,Brookline,272
+2023-2024,fall,F,5,Framingham,175
+2023-2024,fall,F,6,Milton,109
+2023-2024,fall,F,7,Natick,103
+2023-2024,fall,F,8,Braintree,99
+2023-2024,fall,F,9,Weymouth,47
+2023-2024,fall,F,10,Walpole,42
+2023-2024,fall,M,1,Milton,402
+2023-2024,fall,M,2,Walpole,342
+2023-2024,fall,M,3,Braintree,312
+2023-2024,fall,M,4,Weymouth,219
+2022-2023,fall,F,1,Wellesley,618
+2022-2023,fall,F,2,Needham,502.5
+2022-2023,fall,F,3,Brookline,336.5
+2022-2023,fall,F,4,Newton North,239
+2022-2023,fall,F,5,Framingham,164
+2022-2023,fall,F,6,Natick,133
+2022-2023,fall,F,7,Braintree,96
+2022-2023,fall,F,8,Weymouth,82
+2022-2023,fall,F,9,Walpole,76
+2022-2023,fall,F,10,Milton,48
+2022-2023,winter,M,1,Needham,362
+2022-2023,winter,M,2,Brookline,268
+2022-2023,winter,M,3,Wellesley,
+2022-2023,winter,M,4,Framingham,
+2022-2023,winter,M,5,Newton North
+2022-2023,winter,M,6,Natick
+2021-2022,fall,F,1,Wellesley,488
+2021-2022,fall,F,2,Needham,484
+2021-2022,fall,F,3,Brookline,370.5
+2021-2022,fall,F,4,Newton North,271.5
+2021-2022,fall,F,5,Framingham,255
+2021-2022,fall,F,6,Milton,214
+2021-2022,fall,F,7,Natick,91
+2021-2022,fall,F,8,Braintree,75
+2021-2022,fall,F,9,Walpole,66
+2021-2022,fall,F,10,Weymouth,10
+2021-2022,winter,M,1,Needham
+2019-2020,fall,F,1,Wellesley,524.5
+2019-2020,fall,F,2,Needham,481.5
+2019-2020,fall,F,3,Brookline,327.5
+2019-2020,fall,F,4,Framingham,309.5
+2019-2020,fall,F,5,Newton North,286
+2019-2020,fall,F,6,Milton,168
+2019-2020,fall,F,7,Natick,124.5
+2019-2020,fall,F,8,Braintree,78
+2019-2020,fall,F,9,Walpole,20.5
+2019-2020,fall,F,10,Weymouth,5
+2018-2019,fall,F,1,Wellesley,422.5
+2018-2019,fall,F,2,Needham,398
+2018-2019,fall,F,3,Framingham,357
+2018-2019,fall,F,4,Newton North,325.5
+2018-2019,fall,F,5,Brookline,299.5
+2018-2019,fall,F,6,Milton,197
+2018-2019,fall,F,7,Natick,195.5
+2018-2019,fall,F,8,Walpole,80
+2018-2019,fall,F,9,Braintree,22
+2018-2019,fall,F,10,Weymouth,8
+2018-2019,winter,M,1,Natick,344
+2018-2019,winter,M,2,Needham,288
+2018-2019,winter,M,3,Framingham,253
+2018-2019,winter,M,4,Wellesley,236
+2018-2019,winter,M,5,Newton North,146
+2018-2019,winter,M,6,Brookline,127
+2017-2018,fall,F,1,Newton North,507
+2017-2018,fall,F,2,Wellesley,465.5
+2017-2018,fall,F,3,Brookline,378.5
+2017-2018,fall,F,4,Natick,324.5
+2017-2018,fall,F,5,Needham,267.5
+2017-2018,fall,F,6,Framingham,260.5
+2017-2018,fall,F,7,Braintree,43.5
+2017-2018,fall,F,8,Milton,40
+2017-2018,fall,F,9,Walpole,20
+2017-2018,fall,F,10,Norwood,18
+2017-2018,fall,F,11,Weymouth,0
+2017-2018,winter,M,1,Natick,337
+2017-2018,winter,M,2,Needham,301
+2017-2018,winter,M,3,Framingham,233
+2017-2018,winter,M,4,Wellesley,212
+2017-2018,winter,M,5,Brookline,210
+2017-2018,winter,M,6,Newton North,102
+2016-2017,fall,F,1,Framingham,511
+2016-2017,fall,F,2,Newton North,451
+2016-2017,fall,F,3,Needham,370
+2016-2017,fall,F,4,Wellesley,314
+2016-2017,fall,F,5,Brookline,307
+2016-2017,fall,F,6,Natick,264
+2016-2017,fall,F,7,Dedham,34
+2016-2017,fall,F,8,Braintree,26
+2016-2017,fall,F,9,Norwood,24
+2016-2017,fall,F,10,Walpole,20
+2016-2017,fall,F,11,Weymouth,4
+2016-2017,winter,M,1,Needham,305.5
+2016-2017,winter,M,2,Wellesley,310
+2016-2017,winter,M,3,Brookline,252
+2016-2017,winter,M,4,Framingham,231
+2016-2017,winter,M,5,Natick,144
+2016-2017,winter,M,6,Newton North,100.5
+2016-2017,fall,M,7,Milton,7
+2015-2016,fall,F,1,Framingham,491
+2015-2016,fall,F,2,Newton North,438
+2015-2016,fall,F,3,Brookline,415
+2015-2016,fall,F,4,Needham,383
+2015-2016,fall,F,5,Wellesley,277
+2015-2016,fall,F,6,Natick,210
+2015-2016,fall,F,7,Braintree,58
+2015-2016,fall,F,8,Walpole,33
+2015-2016,fall,F,9,Norwood,18
+2015-2016,fall,F,10,Weymouth,2
+2015-2016,fall,F,11,Dedham,0
+2014-2015,fall,F,1,Framingham,553
+2014-2015,fall,F,2,Newton North,487
+2014-2015,fall,F,3,Needham,387.5
+2014-2015,fall,F,4,Wellesley,272
+2014-2015,fall,F,5,Natick,243
+2014-2015,fall,F,6,Brookline,168
+2014-2015,fall,F,7,Walpole,119
+2014-2015,fall,F,8,Dedham,38.5
+2014-2015,fall,F,9,Braintree,35
+2014-2015,fall,F,10,Norwood,20
+2014-2015,fall,F,11,Weymouth,2
+2013-2014,fall,F,1,Framingham,571
+2013-2014,fall,F,2,Needham,473
+2013-2014,fall,F,3,Newton North,446.5
+2013-2014,fall,F,4,Natick,255
+2013-2014,fall,F,5,Wellesley,213
+2013-2014,fall,F,6,Walpole,157
+2013-2014,fall,F,7,Brookline,97
+2013-2014,fall,F,8,Dedham,68.5
+2013-2014,fall,F,9,Norwood,29
+2013-2014,fall,F,10,Braintree,13
+2013-2014,fall,F,11,Weymouth,2
+2013-2014,fall,M,1,Norwood,355
+2013-2014,fall,M,2,Braintree,272
+2013-2014,fall,M,3,Walpole,219
+2013-2014,fall,M,4,Dedham,51
+2013-2014,fall,M,5,Weymouth,27
+2012-2013,fall,F,1,Framingham
+2012-2013,fall,F,2,Natick
+2012-2013,fall,F,3,Needham
+2011-2012,fall,F,1,Framingham
+2011-2012,fall,F,2,Walpole
+2011-2012,fall,F,3,Needham
+2010-2011,fall,F,1,Framingham
+2010-2011,fall,F,2,Needham
+2010-2011,fall,F,3,Walpole
+2009-2010,fall,F,1,Framingham
+2009-2010,fall,F,2,Walpole
+2009-2010,fall,F,3,Needham
+2008-2009,fall,F,1,Framingham,353
+2008-2009,fall,F,2,Walpole,196
+2008-2009,fall,F,3,Brookline,187
+2008-2009,fall,F,4?,Needham
+2008-2009,fall,F,4?,Wellesley
+2008-2009,winter,M,1,Newton North,306
+2008-2009,winter,M,2,Needham,293.5
+2007-2008,fall,F,1,Framingham
+2007-2008,fall,F,2,Brookline
+2007-2008,fall,F,3,Wellesley
+2007-2008,fall,F,7,Needham
+2006-2007,fall,F,1,Framingham
+2006-2007,fall,F,2,Needham
+2006-2007,fall,F,3,Natick
+2005-2006,fall,F,1,Framingham
+2005-2006,fall,F,2,Needham
+2005-2006,fall,F,3,Dedham
+2004-2005,fall,F,1,Framingham
+2004-2005,fall,F,2,Walpole
+2004-2005,fall,F,3,Natick
+2003-2004,fall,F,1,Needham
+2003-2004,fall,F,2,Framingham
+2003-2004,fall,F,3,Wellesley
+2002-2003,fall,F,1,Needham
+2002-2003,fall,F,2,Brookline
+2002-2003,fall,F,3,Wellesley
+2001-2002,fall,F,1,Needham
+2001-2002,fall,F,2,Brookline
+2001-2002,fall,F,3,Dedham
+2000-2001,fall,F,1,Needham
+2000-2001,fall,F,2,Brookline
+2000-2001,fall,F,3,Newton North
+1999-2000,fall,F,1,Needham
+1999-2000,fall,F,2,Wellesley
+1999-2000,fall,F,3,Brookline
+1998-1999,fall,F,1,Needham
+1998-1999,fall,F,2,Framingham
+1998-1999,fall,F,3,Brookline
+1997-1998,fall,F,1,Natick
+1997-1998,fall,F,2,Needham
+1997-1998,fall,F,3,Framingham
+1996-1997,fall,F,1,Needham
+1996-1997,fall,F,2,Natick
+1996-1997,fall,F,3,Framingham
+1995-1996,fall,F,1,Natick
+1995-1996,fall,F,2,Newton North
+1995-1996,fall,F,3,Needham
+1994-1995,fall,F,1,Natick
+1994-1995,fall,F,2,Needham
+1994-1995,fall,F,3,Newton North
+1993-1994,fall,F,1,Natick
+1993-1994,fall,F,2,Needham
+1993-1994,fall,F,3,Wellesley
+1992-1993,fall,F,1,Wellesley
+1992-1993,fall,F,2,Needham
+1992-1993,fall,F,3,Newton North
+1991-1992,fall,F,1,Wellesley
+1991-1992,fall,F,2,Needham
+1991-1992,fall,F,3,Newton North
+1990-1991,fall,F,1,Wellesley
+1990-1991,fall,F,2,Needham
+1990-1991,fall,F,3,Brookline
