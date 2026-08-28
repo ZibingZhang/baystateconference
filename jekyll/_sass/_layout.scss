@@ -26,9 +26,13 @@
   height: 36px;
   justify-content: center;
   position: absolute;
-  right: 0;
+  right: $spacing-unit;
   top: $spacing-unit * 0.5;
   width: 36px;
+
+  @media screen and (max-width: $on-medium) {
+    right: $spacing-unit * 0.6;
+  }
 
   &:hover {
     background-color: $border-color-02;
