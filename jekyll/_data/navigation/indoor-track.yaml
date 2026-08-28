@@ -1,0 +1,10 @@
+# Site navigation for the Indoor Track section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /indoor-track/miaa/
+    - title: NFHS
+      url: /indoor-track/nfhs/

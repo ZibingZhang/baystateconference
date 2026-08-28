@@ -1,0 +1,10 @@
+# Site navigation for the Baseball section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /baseball/miaa/
+    - title: NFHS
+      url: /baseball/nfhs/

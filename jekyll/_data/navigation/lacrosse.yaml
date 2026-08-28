@@ -1,0 +1,10 @@
+# Site navigation for the Lacrosse section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /lacrosse/miaa/
+    - title: NFHS
+      url: /lacrosse/nfhs/

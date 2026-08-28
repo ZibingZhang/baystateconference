@@ -4,7 +4,6 @@
   url: /
 
 - title: About
-  url: /swimming-diving/about/
   children:
     - title: Bay State Conference
       url: /swimming-diving/bsc/

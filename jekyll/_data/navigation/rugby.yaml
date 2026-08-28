@@ -1,0 +1,8 @@
+# Site navigation for the Rugby section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /rugby/miaa/

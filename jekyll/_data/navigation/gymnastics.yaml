@@ -1,0 +1,10 @@
+# Site navigation for the Gymnastics section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /gymnastics/miaa/
+    - title: NFHS
+      url: /gymnastics/nfhs/

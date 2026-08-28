@@ -1,0 +1,10 @@
+# Site navigation for the Golf section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /golf/miaa/
+    - title: NFHS
+      url: /golf/nfhs/

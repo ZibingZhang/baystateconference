@@ -1,74 +1,238 @@
 # Sports shown as cards on /sports/. Add an entry here as each new sport's
 # section is built out. `icon` is a Material Symbols (Outlined) icon name:
 # https://fonts.google.com/icons
+#
+# For each sport, _plugins/sport_governing_body_page_generator.rb generates
+# its About > MIAA and About > NFHS pages (/<sport>/miaa/, /<sport>/nfhs/)
+# straight from this file - there's no miaa/index.md or nfhs/index.md to
+# hand-write per sport. A sport gets a page for a governing body only if it
+# has an `external_links` entry for that body below (e.g. Rugby has no
+# `nfhs` key since NFHS doesn't sanction it, so no /rugby/nfhs/ is built).
+#
+# Fields a sport entry can set, per governing body (`miaa` and/or `nfhs`):
+#
+#   external_links.<body>   Required to generate that body's page at all.
+#                            A list of {title, url} pairs rendered under
+#                            "Resources" - typically just that body's own
+#                            website, but a sport can list more than one
+#                            (e.g. Lacrosse links both the NFHS boys' and
+#                            girls' pages, since NFHS doesn't have a
+#                            combined one).
+#
+#   internal_links.<body>   Optional. A list of {title, url} pairs to pages
+#                            within this site (e.g. a qualifying-standards
+#                            or rule-changes page), rendered under
+#                            "Directory" below Resources. Omit if the sport
+#                            has no such subpages yet.
+#
+#   page_content.about.<body>
+#                            Optional escape hatch for when the standard
+#                            paragraph + Resources + Directory isn't enough
+#                            and a sport's page needs extra freeform content
+#                            (more Markdown/Liquid, appended at the very end
+#                            of the page). Not currently used by any sport -
+#                            reach for internal_links first if what you need
+#                            is just another link.
 - title: Baseball
   url: /baseball/
   icon: sports_baseball
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/baseball
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/baseball
 
 - title: Basketball
   url: /basketball/
   icon: sports_basketball
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/basketball
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/basketball
 
 - title: Cross Country
   url: /cross-country/
   icon: footprint
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/track-cross-country
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/cross-country
 
 - title: Field Hockey
   url: /field-hockey/
   icon: sports_hockey
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/field-hockey
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/field-hockey
 
 - title: Football
   url: /football/
   icon: sports_football
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/football
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/football
 
 - title: Golf
   url: /golf/
   icon: sports_golf
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/golf
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/golf
 
 - title: Gymnastics
   url: /gymnastics/
   icon: sports_gymnastics
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/gymnastics
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/gymnastics
 
 - title: Hockey
   url: /hockey/
   icon: sports_hockey
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/ice-hockey
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/ice-hockey
 
 - title: Indoor Track
   url: /indoor-track/
   icon: timer
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/track-cross-country
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/track-field
 
 - title: Lacrosse
   url: /lacrosse/
   icon: padel
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/lacrosse
+    nfhs:
+      - title: NFHS Website (Boys)
+        url: https://www.nfhs.org/sports/lacrosse-boys
+      - title: NFHS Website (Girls)
+        url: https://www.nfhs.org/sports/lacrosse-girls
 
 - title: Outdoor Track
   url: /outdoor-track/
   icon: directions_run
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/track-cross-country
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/track-field
 
 - title: Rugby
   url: /rugby/
   icon: sports_rugby
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/rugby
 
 - title: Soccer
   url: /soccer/
   icon: sports_soccer
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/soccer
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/soccer
 
 - title: Softball
   url: /softball/
   icon: sports_baseball
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/softball
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/softball
 
 - title: Swimming & Diving
   url: /swimming-diving/
   icon: pool
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/swimming-diving
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/swimming-diving
+  internal_links:
+    miaa:
+      - title: Qualifying Standards
+        url: /swimming-diving/miaa/qualifying-standards/
+    nfhs:
+      - title: Rule Changes
+        url: /swimming-diving/nfhs/rule-changes/
 
 - title: Tennis
   url: /tennis/
   icon: sports_tennis
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/tennis
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/tennis
 
 - title: Volleyball
   url: /volleyball/
   icon: sports_volleyball
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/volleyball
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/volleyball
 
 - title: Wrestling
   url: /wrestling/
   icon: sports_kabaddi
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/wrestling
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/wrestling

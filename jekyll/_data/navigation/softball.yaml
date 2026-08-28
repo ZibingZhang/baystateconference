@@ -1,0 +1,10 @@
+# Site navigation for the Softball section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /softball/miaa/
+    - title: NFHS
+      url: /softball/nfhs/

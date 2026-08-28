@@ -1,0 +1,10 @@
+# Site navigation for the Field Hockey section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /field-hockey/miaa/
+    - title: NFHS
+      url: /field-hockey/nfhs/

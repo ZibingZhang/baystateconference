@@ -5,7 +5,11 @@
       {%- if item.children -%}
       <input type="checkbox" id="nav-sub-trigger-{{ forloop.index }}" class="nav-sub-trigger" />
       {%- endif -%}
+      {%- if item.url -%}
       <a class="nav-item" href="{% if item.url contains '://' or item.url == '#' %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}">{{ item.title | escape }}</a>
+      {%- else -%}
+      <span class="nav-item nav-item-static">{{ item.title | escape }}</span>
+      {%- endif -%}
       {%- if item.children -%}
       <label class="nav-sub-toggle" for="nav-sub-trigger-{{ forloop.index }}" aria-label="Toggle {{ item.title | escape }} submenu">
         <span class="nav-sub-caret"></span>
@@ -15,7 +19,13 @@
     {%- if item.children -%}
     <ul class="nav-subitems">
       {%- for child in item.children -%}
-      <li><a class="nav-subitem" href="{% if child.url contains '://' or child.url == '#' %}{{ child.url }}{% else %}{{ child.url | relative_url }}{% endif %}">{{ child.title | escape }}</a></li>
+      <li>
+        {%- if child.url -%}
+        <a class="nav-subitem" href="{% if child.url contains '://' or child.url == '#' %}{{ child.url }}{% else %}{{ child.url | relative_url }}{% endif %}">{{ child.title | escape }}</a>
+        {%- else -%}
+        <span class="nav-subitem nav-item-static">{{ child.title | escape }}</span>
+        {%- endif -%}
+      </li>
       {%- endfor -%}
     </ul>
     {%- endif -%}

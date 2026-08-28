@@ -1,0 +1,10 @@
+# Site navigation for the Soccer section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /soccer/miaa/
+    - title: NFHS
+      url: /soccer/nfhs/

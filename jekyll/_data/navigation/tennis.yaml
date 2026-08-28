@@ -1,0 +1,10 @@
+# Site navigation for the Tennis section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /tennis/miaa/
+    - title: NFHS
+      url: /tennis/nfhs/

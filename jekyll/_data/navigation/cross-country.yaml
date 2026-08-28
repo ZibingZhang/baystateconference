@@ -1,0 +1,10 @@
+# Site navigation for the Cross Country section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /cross-country/miaa/
+    - title: NFHS
+      url: /cross-country/nfhs/

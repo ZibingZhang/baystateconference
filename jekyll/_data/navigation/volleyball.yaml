@@ -1,0 +1,10 @@
+# Site navigation for the Volleyball section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /volleyball/miaa/
+    - title: NFHS
+      url: /volleyball/nfhs/

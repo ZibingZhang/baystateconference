@@ -1,0 +1,10 @@
+# Site navigation for the Basketball section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /basketball/miaa/
+    - title: NFHS
+      url: /basketball/nfhs/

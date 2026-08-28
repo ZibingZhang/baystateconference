@@ -1,0 +1,10 @@
+# Site navigation for the Football section.
+- title: Home
+  url: /
+
+- title: About
+  children:
+    - title: MIAA
+      url: /football/miaa/
+    - title: NFHS
+      url: /football/nfhs/

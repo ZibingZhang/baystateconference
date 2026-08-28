@@ -73,6 +73,13 @@
     color: $text-color;
   }
 
+  // A top-level item with children but no url of its own (e.g. "About" used
+  // purely as a submenu grouping) - not a link, so no pointer cursor or hover
+  // affordance implying it's clickable.
+  .nav-item-static {
+    cursor: default;
+  }
+
   .nav-sub-trigger {
     display: none;
   }
@@ -107,7 +114,11 @@
       padding: 6px 14px;
       white-space: nowrap;
 
-      &:hover {
+      &.nav-item-static {
+        cursor: default;
+      }
+
+      &:not(.nav-item-static):hover {
         background-color: $border-color-01;
       }
     }

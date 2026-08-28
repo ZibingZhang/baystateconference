@@ -38,6 +38,74 @@ defaults:
       path: "swimming-diving"
     values:
       nav: swimming-diving
+  - scope:
+      path: "baseball"
+    values:
+      nav: baseball
+  - scope:
+      path: "basketball"
+    values:
+      nav: basketball
+  - scope:
+      path: "cross-country"
+    values:
+      nav: cross-country
+  - scope:
+      path: "field-hockey"
+    values:
+      nav: field-hockey
+  - scope:
+      path: "football"
+    values:
+      nav: football
+  - scope:
+      path: "golf"
+    values:
+      nav: golf
+  - scope:
+      path: "gymnastics"
+    values:
+      nav: gymnastics
+  - scope:
+      path: "hockey"
+    values:
+      nav: hockey
+  - scope:
+      path: "indoor-track"
+    values:
+      nav: indoor-track
+  - scope:
+      path: "lacrosse"
+    values:
+      nav: lacrosse
+  - scope:
+      path: "outdoor-track"
+    values:
+      nav: outdoor-track
+  - scope:
+      path: "rugby"
+    values:
+      nav: rugby
+  - scope:
+      path: "soccer"
+    values:
+      nav: soccer
+  - scope:
+      path: "softball"
+    values:
+      nav: softball
+  - scope:
+      path: "tennis"
+    values:
+      nav: tennis
+  - scope:
+      path: "volleyball"
+    values:
+      nav: volleyball
+  - scope:
+      path: "wrestling"
+    values:
+      nav: wrestling
 
 # Directories (matched against a page's own URL, without leading/trailing
 # slashes) whose folder should start collapsed in the site map's file
