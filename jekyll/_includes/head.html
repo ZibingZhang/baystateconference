@@ -10,7 +10,7 @@
           document.documentElement.setAttribute("data-theme", theme);
         }
         var palette = localStorage.getItem("palette");
-        if (palette === "solarized") {
+        if (palette === "solarized" || palette === "rose-pine") {
           document.documentElement.setAttribute("data-palette", palette);
         }
       } catch (e) {}

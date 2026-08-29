@@ -36,6 +36,7 @@
 
   &:hover {
     background-color: $border-color-02;
+    text-decoration: none;
   }
 
   .material-symbols-outlined {
@@ -737,6 +738,16 @@
   @media screen and (min-width: $on-large) {
     @include relative-font-size(2.25);
   }
+}
+
+// Gives the `100cqw` in _base.scss's single-column table fix something to
+// measure against - scoped to article.post (covers both .post-content and
+// award.html's sibling .award-recipients section) and to :has(table) so
+// pages with no table (and their descendants, e.g. the sticky
+// .file-browser-count on the resources pages) aren't turned into a
+// containing block for no reason.
+article.post:has(table) {
+  container-type: inline-size;
 }
 
 .post-content {
@@ -1502,6 +1513,26 @@ details[open] > summary .directory-caret {
 
   label {
     cursor: pointer;
+  }
+
+  .settings-option-info {
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    margin-left: auto;
+    width: 24px;
+
+    &:hover {
+      background-color: $border-color-02;
+      text-decoration: none;
+    }
+
+    .material-symbols-outlined {
+      color: $brand-color-dimmed;
+      font-size: 16px;
+    }
   }
 }
 

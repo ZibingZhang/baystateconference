@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 @import "skins/solarized-runtime";
+@import "skins/rose-pine-runtime";
 
 // Default color scheme settings
 // These are overridden in classic.css and dark.scss
@@ -423,6 +424,28 @@ $table-border-color: $lm-table-border-color;
   :root[data-palette="solarized"][data-theme="dark"] {
     @include sol-vars-dark;
     @include sol-highlight-dark;
+  }
+
+  // Rosé Pine palette override, layered the same way as Solarized above:
+  // "dawn" is the light variant and "moon" is the dark variant.
+  :root[data-palette="rose-pine"] {
+    @include rp-vars-dawn;
+    @include rp-highlight-dawn;
+
+    @media (prefers-color-scheme: dark) {
+      @include rp-vars-moon;
+      @include rp-highlight-moon;
+    }
+  }
+
+  :root[data-palette="rose-pine"][data-theme="light"] {
+    @include rp-vars-dawn;
+    @include rp-highlight-dawn;
+  }
+
+  :root[data-palette="rose-pine"][data-theme="dark"] {
+    @include rp-vars-moon;
+    @include rp-highlight-moon;
   }
 
   $brand-color: var(--minima-brand-color);

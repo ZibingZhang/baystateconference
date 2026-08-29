@@ -301,5 +301,23 @@ table {
     -webkit-overflow-scrolling: touch;
     display: block;
     overflow-x: auto;
+
+    // Blockifying the table above makes browsers generate an anonymous inner
+    // table box to hold the still-table-row <tr> children, and that box is
+    // sized by shrink-to-fit rather than stretching to fill the container.
+    // For a single-column table (its <td> is then the lone child of its
+    // <tr>) that means the table renders at roughly the width of its longest
+    // cell instead of filling its container (see /about/history's
+    // "Conference as of 1958" table). `width`/`min-width` on `table` itself
+    // can't reach that anonymous box, but `min-width` on the actual <td> can
+    // - using a container query unit here since a percentage would resolve
+    // against the same indeterminate anonymous box (see the `:has(table)`
+    // rule on .post-content in _layout.scss for the container it measures
+    // against). Multi-column tables are unaffected: their cells always have
+    // sibling cells, so :only-child never matches, leaving wide tables (e.g.
+    // the qualifying-standards page) free to overflow and scroll as before.
+    tr > :only-child {
+      min-width: 100cqw;
+    }
   }
 }

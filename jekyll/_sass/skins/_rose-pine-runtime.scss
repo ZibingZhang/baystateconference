@@ -1,0 +1,252 @@
+@charset "utf-8";
+
+// Rosé Pine palette, adapted for runtime switching via a [data-palette]
+// attribute on <html> (see the `:root[data-palette="rose-pine"]` blocks in
+// auto.scss), the same way skins/_solarized-runtime.scss wires up Solarized.
+//
+// "Dawn" is the light variant and "Moon" is the dark variant. Color values
+// are copied from the @rose-pine/palette source
+// (https://github.com/rose-pine/palette), which also backs the official
+// VS Code theme at https://github.com/rose-pine/vscode.
+
+$rp-dawn-base:          #faf4ed;
+$rp-dawn-surface:       #fffaf3;
+$rp-dawn-overlay:       #f2e9e1;
+$rp-dawn-muted:         #9893a5;
+$rp-dawn-subtle:        #797593;
+$rp-dawn-text:          #575279;
+$rp-dawn-love:          #b4637a;
+$rp-dawn-gold:          #ea9d34;
+$rp-dawn-rose:          #d7827e;
+$rp-dawn-pine:          #286983;
+$rp-dawn-foam:          #56949f;
+$rp-dawn-iris:          #907aa9;
+$rp-dawn-highlight-low:  #f4ede8;
+$rp-dawn-highlight-med:  #dfdad9;
+$rp-dawn-highlight-high: #cecacd;
+
+$rp-moon-base:          #232136;
+$rp-moon-surface:       #2a273f;
+$rp-moon-overlay:       #393552;
+$rp-moon-muted:         #6e6a86;
+$rp-moon-subtle:        #908caa;
+$rp-moon-text:          #e0def4;
+$rp-moon-love:          #eb6f92;
+$rp-moon-gold:          #f6c177;
+$rp-moon-rose:          #ea9a97;
+$rp-moon-pine:          #3e8fb0;
+$rp-moon-foam:          #9ccfd8;
+$rp-moon-iris:          #c4a7e7;
+$rp-moon-highlight-low:  #2a283e;
+$rp-moon-highlight-med:  #44415a;
+$rp-moon-highlight-high: #56526e;
+
+@mixin rp-vars-dawn {
+  --minima-background-color: #{$rp-dawn-base};
+
+  --minima-border-color-01: #{$rp-dawn-highlight-low};
+  --minima-border-color-02: #{$rp-dawn-highlight-med};
+  --minima-border-color-03: #{$rp-dawn-text};
+  --minima-brand-color: #{$rp-dawn-muted};
+  --minima-brand-color-dark: #{$rp-dawn-text};
+  --minima-brand-color-dimmed: #{$rp-dawn-subtle};
+  --minima-brand-color-light: #{$rp-dawn-highlight-low};
+  --minima-code-background-color: #{$rp-dawn-overlay};
+
+  --minima-heading-color: #{$rp-dawn-text};
+
+  --minima-link-base-color: #{$rp-dawn-pine};
+  --minima-link-hover-color: #{$rp-dawn-text};
+  --minima-link-visited-color: #{$rp-dawn-iris};
+
+  --minima-site-title-color: #{$rp-dawn-text};
+  --minima-table-border-color: #{$rp-dawn-highlight-high};
+  --minima-table-header-bg-color: #{$rp-dawn-highlight-med};
+  --minima-table-header-border: #{$rp-dawn-highlight-high};
+
+  --minima-table-text-color: #{$rp-dawn-text};
+  --minima-table-zebra-color: #{$rp-dawn-overlay};
+  --minima-text-color: #{$rp-dawn-text};
+}
+
+@mixin rp-vars-moon {
+  --minima-background-color: #{$rp-moon-base};
+
+  --minima-border-color-01: #{$rp-moon-highlight-low};
+  --minima-border-color-02: #{$rp-moon-highlight-med};
+  --minima-border-color-03: #{$rp-moon-text};
+  --minima-brand-color: #{$rp-moon-muted};
+  --minima-brand-color-dark: #{$rp-moon-text};
+  --minima-brand-color-dimmed: #{$rp-moon-subtle};
+  --minima-brand-color-light: #{$rp-moon-highlight-low};
+  --minima-code-background-color: #{$rp-moon-overlay};
+
+  --minima-heading-color: #{$rp-moon-text};
+
+  --minima-link-base-color: #{$rp-moon-pine};
+  --minima-link-hover-color: #{$rp-moon-text};
+  --minima-link-visited-color: #{$rp-moon-iris};
+
+  --minima-site-title-color: #{$rp-moon-text};
+  --minima-table-border-color: #{$rp-moon-highlight-high};
+  --minima-table-header-bg-color: #{$rp-moon-highlight-med};
+  --minima-table-header-border: #{$rp-moon-highlight-high};
+
+  --minima-table-text-color: #{$rp-moon-text};
+  --minima-table-zebra-color: #{$rp-moon-overlay};
+  --minima-text-color: #{$rp-moon-text};
+}
+
+// Syntax-highlighting token colors follow the mapping used by the official
+// Rosé Pine VS Code theme (rose-pine/vscode's tokenColors), so code blocks
+// look the same as they would in a Rosé Pine editor.
+
+@mixin rp-highlight-dawn {
+  .highlight {
+    .err   { background-color: $rp-dawn-love; color: $rp-dawn-base; } // Error
+
+    .c     { color: $rp-dawn-muted } // Comment
+    .c1    { color: $rp-dawn-muted } // Comment.Single
+    .cm    { color: $rp-dawn-muted } // Comment.Multiline
+    .cp    { color: $rp-dawn-muted } // Comment.Preproc
+    .cs    { color: $rp-dawn-muted; font-style: italic } // Comment.Special
+
+    .gd    { color: $rp-dawn-love } // Generic.Deleted
+    .gd .x { color: $rp-dawn-love } // Generic.Deleted.Specific
+    .ge    { color: $rp-dawn-text; font-style: italic } // Generic.Emph
+    .gh    { color: $rp-dawn-subtle } // Generic.Heading
+    .gi    { color: $rp-dawn-foam } // Generic.Inserted
+    .gi .x { color: $rp-dawn-foam } // Generic.Inserted.Specific
+    .go    { color: $rp-dawn-subtle } // Generic.Output
+    .gp    { color: $rp-dawn-subtle } // Generic.Prompt
+    .gr    { color: $rp-dawn-love } // Generic.Error
+    .gs    { color: $rp-dawn-text; font-weight: bold } // Generic.Strong
+    .gt    { color: $rp-dawn-love } // Generic.Traceback
+    .gu    { color: $rp-dawn-subtle } // Generic.Subheading
+
+    .k     { color: $rp-dawn-pine } // Keyword
+    .kc    { color: $rp-dawn-pine } // Keyword.Constant
+    .kd    { color: $rp-dawn-pine } // Keyword.Declaration
+    .kp    { color: $rp-dawn-pine } // Keyword.Pseudo
+    .kr    { color: $rp-dawn-pine } // Keyword.Reserved
+    .kt    { color: $rp-dawn-foam } // Keyword.Type
+
+    .na    { color: $rp-dawn-iris } // Name.Attribute
+    .nb    { color: $rp-dawn-pine } // Name.Builtin
+    .bp    { color: $rp-dawn-subtle } // Name.Builtin.Pseudo
+    .nc    { color: $rp-dawn-foam } // Name.Class
+    .ne    { color: $rp-dawn-love } // Name.Exception
+    .nf    { color: $rp-dawn-love } // Name.Function
+    .ni    { color: $rp-dawn-rose } // Name.Entity
+    .nn    { color: $rp-dawn-foam } // Name.Namespace
+    .no    { color: $rp-dawn-pine } // Name.Constant
+    .nt    { color: $rp-dawn-foam } // Name.Tag
+    .nv    { color: $rp-dawn-rose } // Name.Variable
+    .vc    { color: $rp-dawn-rose } // Name.Variable.Class
+    .vg    { color: $rp-dawn-rose } // Name.Variable.Global
+    .vi    { color: $rp-dawn-rose } // Name.Variable.Instance
+
+    .o     { color: $rp-dawn-subtle } // Operator
+    .ow    { color: $rp-dawn-subtle } // Operator.Word
+
+    .m     { color: $rp-dawn-rose } // Literal.Number
+    .mf    { color: $rp-dawn-rose } // Literal.Number.Float
+    .mh    { color: $rp-dawn-rose } // Literal.Number.Hex
+    .mi    { color: $rp-dawn-rose } // Literal.Number.Integer
+    .il    { color: $rp-dawn-rose } // Literal.Number.Integer.Long
+    .mo    { color: $rp-dawn-rose } // Literal.Number.Oct
+
+    .s     { color: $rp-dawn-gold } // Literal.String
+    .s1    { color: $rp-dawn-gold } // Literal.String.Single
+    .s2    { color: $rp-dawn-gold } // Literal.String.Double
+    .sb    { color: $rp-dawn-gold } // Literal.String.Backtick
+    .sc    { color: $rp-dawn-gold } // Literal.String.Char
+    .sd    { color: $rp-dawn-gold } // Literal.String.Doc
+    .se    { color: $rp-dawn-gold } // Literal.String.Escape
+    .sh    { color: $rp-dawn-gold } // Literal.String.Heredoc
+    .si    { color: $rp-dawn-gold } // Literal.String.Interpol
+    .sr    { color: $rp-dawn-foam } // Literal.String.Regex
+    .ss    { color: $rp-dawn-gold } // Literal.String.Symbol
+    .sx    { color: $rp-dawn-gold } // Literal.String.Other
+
+    .w     { color: $rp-dawn-muted } // Text.Whitespace
+
+    .lineno, .gl { color: $rp-dawn-muted } // Line Number
+    .hll   { background-color: $rp-dawn-highlight-med } // Marked-lines
+  }
+}
+
+@mixin rp-highlight-moon {
+  .highlight {
+    .err   { background-color: $rp-moon-love; color: $rp-moon-base; } // Error
+
+    .c     { color: $rp-moon-muted } // Comment
+    .c1    { color: $rp-moon-muted } // Comment.Single
+    .cm    { color: $rp-moon-muted } // Comment.Multiline
+    .cp    { color: $rp-moon-muted } // Comment.Preproc
+    .cs    { color: $rp-moon-muted; font-style: italic } // Comment.Special
+
+    .gd    { color: $rp-moon-love } // Generic.Deleted
+    .gd .x { color: $rp-moon-love } // Generic.Deleted.Specific
+    .ge    { color: $rp-moon-text; font-style: italic } // Generic.Emph
+    .gh    { color: $rp-moon-subtle } // Generic.Heading
+    .gi    { color: $rp-moon-foam } // Generic.Inserted
+    .gi .x { color: $rp-moon-foam } // Generic.Inserted.Specific
+    .go    { color: $rp-moon-subtle } // Generic.Output
+    .gp    { color: $rp-moon-subtle } // Generic.Prompt
+    .gr    { color: $rp-moon-love } // Generic.Error
+    .gs    { color: $rp-moon-text; font-weight: bold } // Generic.Strong
+    .gt    { color: $rp-moon-love } // Generic.Traceback
+    .gu    { color: $rp-moon-subtle } // Generic.Subheading
+
+    .k     { color: $rp-moon-pine } // Keyword
+    .kc    { color: $rp-moon-pine } // Keyword.Constant
+    .kd    { color: $rp-moon-pine } // Keyword.Declaration
+    .kp    { color: $rp-moon-pine } // Keyword.Pseudo
+    .kr    { color: $rp-moon-pine } // Keyword.Reserved
+    .kt    { color: $rp-moon-foam } // Keyword.Type
+
+    .na    { color: $rp-moon-iris } // Name.Attribute
+    .nb    { color: $rp-moon-pine } // Name.Builtin
+    .bp    { color: $rp-moon-subtle } // Name.Builtin.Pseudo
+    .nc    { color: $rp-moon-foam } // Name.Class
+    .ne    { color: $rp-moon-love } // Name.Exception
+    .nf    { color: $rp-moon-love } // Name.Function
+    .ni    { color: $rp-moon-rose } // Name.Entity
+    .nn    { color: $rp-moon-foam } // Name.Namespace
+    .no    { color: $rp-moon-pine } // Name.Constant
+    .nt    { color: $rp-moon-foam } // Name.Tag
+    .nv    { color: $rp-moon-rose } // Name.Variable
+    .vc    { color: $rp-moon-rose } // Name.Variable.Class
+    .vg    { color: $rp-moon-rose } // Name.Variable.Global
+    .vi    { color: $rp-moon-rose } // Name.Variable.Instance
+
+    .o     { color: $rp-moon-subtle } // Operator
+    .ow    { color: $rp-moon-subtle } // Operator.Word
+
+    .m     { color: $rp-moon-rose } // Literal.Number
+    .mf    { color: $rp-moon-rose } // Literal.Number.Float
+    .mh    { color: $rp-moon-rose } // Literal.Number.Hex
+    .mi    { color: $rp-moon-rose } // Literal.Number.Integer
+    .il    { color: $rp-moon-rose } // Literal.Number.Integer.Long
+    .mo    { color: $rp-moon-rose } // Literal.Number.Oct
+
+    .s     { color: $rp-moon-gold } // Literal.String
+    .s1    { color: $rp-moon-gold } // Literal.String.Single
+    .s2    { color: $rp-moon-gold } // Literal.String.Double
+    .sb    { color: $rp-moon-gold } // Literal.String.Backtick
+    .sc    { color: $rp-moon-gold } // Literal.String.Char
+    .sd    { color: $rp-moon-gold } // Literal.String.Doc
+    .se    { color: $rp-moon-gold } // Literal.String.Escape
+    .sh    { color: $rp-moon-gold } // Literal.String.Heredoc
+    .si    { color: $rp-moon-gold } // Literal.String.Interpol
+    .sr    { color: $rp-moon-foam } // Literal.String.Regex
+    .ss    { color: $rp-moon-gold } // Literal.String.Symbol
+    .sx    { color: $rp-moon-gold } // Literal.String.Other
+
+    .w     { color: $rp-moon-muted } // Text.Whitespace
+
+    .lineno, .gl { color: $rp-moon-muted } // Line Number
+    .hll   { background-color: $rp-moon-highlight-med } // Marked-lines
+  }
+}
