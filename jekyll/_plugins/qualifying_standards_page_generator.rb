@@ -1,25 +1,19 @@
-# Generates one page per School Year/Season pair found in
+# Generates one page per School Year found in
 # _data/swimming-diving/miaa/qualifying-standards.csv
-# (sports/swimming-diving/resources/miaa-qualifying-standards/YYYY-<season>/),
-# so adding a new season's standards to the CSV is enough on its own - no
-# matching page to remember. A season with no rows simply has no page yet;
-# add its first entry and the page appears on the next build.
+# (sports/swimming-diving/resources/miaa-qualifying-standards/YYYY-YYYY/), so
+# adding a new season's standards to the CSV is enough on its own - no
+# matching page to remember. A School Year with no rows simply has no page
+# yet; add its first entry and the page appears on the next build.
 #
-# The page slug/title use a single calendar year rather than the CSV's
-# "YYYY-YYYY" School Year, since a standards page covers one season, not the
-# whole school year: fall standards take the School Year's first year (the
-# meet falls in that calendar year), winter standards take its second year
-# (the meet falls in the following January/February).
-#
-# Each page has one table per Sex (Girls, then Boys), each with one row per
-# Event (in a fixed swim-meet running order) and one column per Division
-# present for that sex that season - in DIVISION_ORDER below - so a season
-# can bring its own set of divisions (e.g. fall's North/South/State vs.
-# winter's North Sectional/South Sectional/Central-West Sectional/Division I
-# State/Division II State) without any plugin changes. Event and Division
-# names are shortened for display via
-# _data/swimming-diving/event-abbreviations.yaml and
-# _data/swimming-diving/division-abbreviations.yaml.
+# Each page has one table per Season/Sex pair (Fall Girls, Fall Boys, Winter
+# Girls, Winter Boys), headed "<Season> — <Sex>", each with one row per Event
+# (in a fixed swim-meet running order) and one column per Division present
+# for that sex that season - in DIVISION_ORDER below - so a season can bring
+# its own set of divisions (e.g. fall's North/South/State vs. winter's North
+# Sectional/South Sectional/Central-West Sectional/Division I State/Division
+# II State) without any plugin changes. Event and Division names are
+# shortened for display via _data/swimming-diving/event-abbreviations.yaml
+# and _data/swimming-diving/division-abbreviations.yaml.
 module QualifyingStandards
   class PageGenerator < Jekyll::Generator
     safe true
@@ -63,61 +57,66 @@ module QualifyingStandards
       event_abbreviations = site.data.dig(*EVENT_ABBREVIATIONS_PATH) || {}
       division_abbreviations = site.data.dig(*DIVISION_ABBREVIATIONS_PATH) || {}
 
-      seasons = entries.map { |entry| [entry["School Year"], entry["Season"]] }.uniq
-      seasons.sort_by! { |school_year, season| [school_year, SEASON_YEAR_INDEX[season] || 0] }
-      seasons.reverse!
+      school_years = entries.map { |entry| entry["School Year"] }.uniq
+      school_years.sort!
+      school_years.reverse!
 
-      seasons.each do |school_year, season|
-        site.pages << build_page(site, entries, event_abbreviations, division_abbreviations, school_year, season)
+      school_years.each do |school_year|
+        site.pages << build_page(site, entries, event_abbreviations, division_abbreviations, school_year)
       end
     end
 
     private
 
-    def build_page(site, entries, event_abbreviations, division_abbreviations, school_year, season)
-      slug = "#{school_year}-#{season}"
-      season_label = SEASON_LABELS[season] || season
-
-      page = Jekyll::PageWithoutAFile.new(site, site.source, DIR, "#{slug}.html")
+    def build_page(site, entries, event_abbreviations, division_abbreviations, school_year)
+      page = Jekyll::PageWithoutAFile.new(site, site.source, DIR, "#{school_year}.html")
       page.content = ""
       page.data.merge!(
         "layout" => "qualifying-standards",
-        "title" => "#{school_year} #{season_label} Qualifying Standards",
-        "permalink" => "/#{DIR}/#{slug}/",
-        "breadcrumb" => "#{school_year} #{season_label}",
-        "groups" => groups_for(entries, event_abbreviations, division_abbreviations, school_year, season)
+        "title" => "#{school_year} Qualifying Standards",
+        "permalink" => "/#{DIR}/#{school_year}/",
+        "breadcrumb" => school_year,
+        "groups" => groups_for(entries, event_abbreviations, division_abbreviations, school_year)
       )
       page
     end
 
-    def groups_for(entries, event_abbreviations, division_abbreviations, school_year, season)
-      rows = entries.select { |entry| entry["School Year"] == school_year && entry["Season"] == season }
+    def groups_for(entries, event_abbreviations, division_abbreviations, school_year)
+      rows = entries.select { |entry| entry["School Year"] == school_year }
 
-      sexes = rows.map { |entry| entry["Sex"] }.uniq
-      sexes.sort_by! { |sex| SEX_ORDER[sex] || 99 }
+      seasons = rows.map { |entry| entry["Season"] }.uniq
+      seasons.sort_by! { |season| SEASON_YEAR_INDEX[season] || 0 }
 
-      sexes.map do |sex|
-        sex_rows = rows.select { |entry| entry["Sex"] == sex }
+      seasons.flat_map do |season|
+        season_rows = rows.select { |entry| entry["Season"] == season }
+        season_label = SEASON_LABELS[season] || season
 
-        divisions = sex_rows.map { |entry| entry["Division"] }.uniq
-        divisions.sort_by! { |division| [DIVISION_ORDER.index(division) || DIVISION_ORDER.size, division] }
+        sexes = season_rows.map { |entry| entry["Sex"] }.uniq
+        sexes.sort_by! { |sex| SEX_ORDER[sex] || 99 }
 
-        events = sex_rows.map { |entry| entry["Event"] }.uniq
-        events.sort_by! { |event| [EVENT_ORDER.index(event) || EVENT_ORDER.size, event] }
+        sexes.map do |sex|
+          sex_rows = season_rows.select { |entry| entry["Sex"] == sex }
 
-        {
-          "heading" => SEX_LABELS[sex] || sex,
-          "columns" => divisions.map { |division| division_abbreviations[division] || division },
-          "rows" => events.map do |event|
-            {
-              "event" => event_abbreviations[event] || event,
-              "values" => divisions.map do |division|
-                match = sex_rows.find { |entry| entry["Division"] == division && entry["Event"] == event }
-                match && match["Qualifying Standard"]
-              end,
-            }
-          end,
-        }
+          divisions = sex_rows.map { |entry| entry["Division"] }.uniq
+          divisions.sort_by! { |division| [DIVISION_ORDER.index(division) || DIVISION_ORDER.size, division] }
+
+          events = sex_rows.map { |entry| entry["Event"] }.uniq
+          events.sort_by! { |event| [EVENT_ORDER.index(event) || EVENT_ORDER.size, event] }
+
+          {
+            "heading" => "#{season_label} — #{SEX_LABELS[sex] || sex}",
+            "columns" => divisions.map { |division| division_abbreviations[division] || division },
+            "rows" => events.map do |event|
+              {
+                "event" => event_abbreviations[event] || event,
+                "values" => divisions.map do |division|
+                  match = sex_rows.find { |entry| entry["Division"] == division && entry["Event"] == event }
+                  match && match["Qualifying Standard"]
+                end,
+              }
+            end,
+          }
+        end
       end
     end
   end
