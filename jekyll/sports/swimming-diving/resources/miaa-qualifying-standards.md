@@ -6,4 +6,4 @@ breadcrumb: MIAA Qualifying Standards
 directory_sort: desc
 ---
 
-{% include directory-listing.html %}
+{% include directory-listing.html searchable=true %}
