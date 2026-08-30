@@ -37,6 +37,7 @@
   school-name: "Framingham High School"
   aliases:
     - "Framingham North High School"
+    - "Framingham South High School"
   team-name: "Flyers"
   logo: "https://assets.scorebooklive.com/uploads/production/school/18397/image/Framingham__MA__Flyers_"
   ad_website: "https://fhs.framingham.k12.ma.us/82682_2"
@@ -67,6 +68,8 @@
   logo: "https://on3static.com/uploads/assets/182/694/694182.png"
   ad_website: "https://www.natickps.org/page/athletics"
   wikipedia: "https://en.wikipedia.org/wiki/Natick_High_School"
+  instagram:
+    athletic-dept: "https://www.instagram.com/natick_athletics/"
   sport:
     swimming-diving:
       instagram:
@@ -110,6 +113,8 @@
   logo: "https://therunhouse.com/cdn/shop/collections/WALPOLE_TW_HAT_LOGO.png?v=1669821516"
   ad_website: "https://sites.google.com/a/walpole.k12.ma.us/athletics/"
   wikipedia: "https://en.wikipedia.org/wiki/Walpole_High_School"
+  instagram:
+    athletic-dept: "https://www.instagram.com/walpolehighadsm/"
   sport:
     swimming-diving:
       pool:
@@ -137,6 +142,8 @@
   logo: "https://www.weymouthfootball.com/_next/image?url=%2Fimages%2Flogo%2Fwildcats-logo-primary.png&w=3840&q=75"
   ad_website: "https://whs.weymouthschools.org/activities/athletics"
   wikipedia: "https://en.wikipedia.org/wiki/Weymouth_High_School"
+  instagram:
+    athletic-dept: "https://www.instagram.com/whs__athletics/"
   sport:
     swimming-diving:
       pool:
