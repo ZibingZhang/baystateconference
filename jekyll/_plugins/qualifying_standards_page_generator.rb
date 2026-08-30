@@ -75,8 +75,7 @@ module QualifyingStandards
     private
 
     def build_page(site, entries, event_abbreviations, division_abbreviations, school_year, season)
-      year = year_label(school_year, season)
-      slug = "#{year}-#{season}"
+      slug = "#{school_year}-#{season}"
       season_label = SEASON_LABELS[season] || season
 
       page = Jekyll::PageWithoutAFile.new(site, site.source, DIR, "#{slug}.html")
@@ -85,15 +84,10 @@ module QualifyingStandards
         "layout" => "qualifying-standards",
         "title" => "#{school_year} #{season_label} Qualifying Standards",
         "permalink" => "/#{DIR}/#{slug}/",
-        "breadcrumb" => "#{year} #{season_label}",
+        "breadcrumb" => "#{school_year} #{season_label}",
         "groups" => groups_for(entries, event_abbreviations, division_abbreviations, school_year, season)
       )
       page
-    end
-
-    def year_label(school_year, season)
-      years = school_year.split("-")
-      years[SEASON_YEAR_INDEX[season] || 0] || years.first
     end
 
     def groups_for(entries, event_abbreviations, division_abbreviations, school_year, season)
