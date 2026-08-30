@@ -1,0 +1,29 @@
+{%- comment -%}
+  Renders one MIAA qualifying standards table (Event rows x Division
+  columns) under a Sex heading, or nothing at all if there are no columns.
+
+  Usage: {% include qualifying-standards-table.html heading="Girls" columns=columns rows=rows %}
+{%- endcomment -%}
+{%- if include.columns and include.columns.size > 0 -%}
+<h2>{{ include.heading }}</h2>
+<table class="nowrap-td">
+  <thead>
+    <tr>
+      <th>Event</th>
+      {%- for column in include.columns -%}
+      <th>{{ column }}</th>
+      {%- endfor -%}
+    </tr>
+  </thead>
+  <tbody>
+    {%- for row in include.rows -%}
+    <tr>
+      <td>{{ row.event }}</td>
+      {%- for value in row.values -%}
+      <td>{{ value }}</td>
+      {%- endfor -%}
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+{%- endif -%}

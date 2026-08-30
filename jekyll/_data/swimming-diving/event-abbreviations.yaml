@@ -1,0 +1,14 @@
+# Maps a full swimming & diving event name to how it should display where
+# space is tight (e.g. the qualifying standards tables). An event with no
+# entry here just displays under its full name.
+200 Medley Relay: 200 Med. Relay
+200 Freestyle: 200 Free
+200 Individual Medley: 200 I.M.
+50 Freestyle: 50 Free
+100 Butterfly: 100 Fly
+100 Freestyle: 100 Free
+500 Freestyle: 500 Free
+200 Freestyle Relay: 200 Free Relay
+100 Backstroke: 100 Back
+100 Breaststroke: 100 Breast
+400 Freestyle Relay: 400 Free Relay
