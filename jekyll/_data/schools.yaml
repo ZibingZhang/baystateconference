@@ -135,6 +135,7 @@
   school-name: "Weymouth High School"
   team-name: "Wildcats"
   logo: "https://www.weymouthfootball.com/_next/image?url=%2Fimages%2Flogo%2Fwildcats-logo-primary.png&w=3840&q=75"
+  ad_website: "https://whs.weymouthschools.org/activities/athletics"
   wikipedia: "https://en.wikipedia.org/wiki/Weymouth_High_School"
   sport:
     swimming-diving:
