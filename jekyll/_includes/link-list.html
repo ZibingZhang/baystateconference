@@ -13,8 +13,15 @@
   long enough to actually need it (e.g. 15 years of BSC All-Stars), which
   adds a search box and an A-Z/Z-A sort toggle, same as the file-browser.
 
+  The sort toggle defaults to A-Z. For a list whose `items` are already
+  built newest-first (e.g. site.data.all_star_years), pass
+  `default_sort="desc"` so the toggle's starting state — and the initial
+  sortItems() pass in link-list-search.js — agree with that order instead
+  of silently flipping it back to A-Z on load.
+
   Usage: {% include link-list.html items=page.links heading="Resources" %}
          {% include link-list.html items=page.links heading="Directory" searchable=true %}
+         {% include link-list.html items=site.data.all_star_years heading="Directory" searchable=true default_sort="desc" %}
 {%- endcomment -%}
 {%- if include.items and include.items.size > 0 -%}
 {%- if include.heading -%}<h2>{{ include.heading }}</h2>{%- endif -%}
@@ -28,7 +35,7 @@
     {%- assign internal_count = internal_count | plus: 1 -%}
   {%- endif -%}
 {%- endfor -%}
-<div class="directory-browser link-list{% if include.searchable %} searchable{% endif %}">
+<div class="directory-browser link-list{% if include.searchable %} searchable{% endif %}"{% if include.default_sort == "desc" %} data-default-sort="desc"{% endif %}>
   {%- if include.searchable -%}
   <div class="file-browser-search">
     <span class="material-symbols-outlined" aria-hidden="true">search</span>

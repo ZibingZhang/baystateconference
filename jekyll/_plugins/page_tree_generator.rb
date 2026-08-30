@@ -15,7 +15,7 @@
 # exposed here so directory-listing.html can label a child the same short way
 # its own breadcrumb trail would.
 #
-# "sort" mirrors a page's own `directory_sort: desc` front matter, letting a
+# "sort" mirrors a page's own `default_sort: desc` front matter, letting a
 # folder of generated children (e.g. school-year pages, newest added last)
 # list newest-first instead of the default ascending-by-segment order -
 # without that flag, alphabetical/numeric segments like "1972-1973" would
@@ -49,7 +49,7 @@ module SiteMap
         node["url"] = page.url
         node["title"] = page.data["title"] || page.url
         node["breadcrumb"] = page.data["breadcrumb"]
-        node["sort"] = page.data["directory_sort"]
+        node["sort"] = page.data["default_sort"]
       end
 
       sort_children!(root)

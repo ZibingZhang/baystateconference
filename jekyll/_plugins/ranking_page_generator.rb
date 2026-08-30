@@ -14,7 +14,7 @@
 #
 # The rankings index pages pick these generated pages up automatically via
 # directory-listing.html (see page_tree_generator.rb), newest-first thanks to
-# their `directory_sort: desc` front matter - so a year appears in the index
+# their `default_sort: desc` front matter - so a year appears in the index
 # the moment its first CSV row does, no matching listing entry to remember.
 module Rankings
   class PageGenerator < Jekyll::Generator
