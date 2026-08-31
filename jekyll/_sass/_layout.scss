@@ -547,6 +547,119 @@
   width: 96px;
 }
 
+.dual-meet-matrix {
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+
+  th,
+  td {
+    padding: 4px 6px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  thead th,
+  tbody th {
+    font-weight: 600;
+  }
+
+  thead th {
+    padding: 0 2px;
+    text-align: center;
+    vertical-align: bottom;
+    width: 46px;
+  }
+
+  thead th:first-child {
+    width: 92px;
+  }
+
+  tbody th {
+    text-align: left;
+  }
+
+  tbody td {
+    font-size: 0.8em;
+  }
+
+  .dual-meet-matrix-vertical-label {
+    display: inline-block;
+    padding: 4px 0;
+    text-align: center;
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
+  }
+
+  .dual-meet-matrix-diagonal {
+    opacity: 0.35;
+  }
+
+  .dual-meet-matrix-tbd {
+    opacity: 0.5;
+  }
+
+  .dual-meet-matrix-win,
+  .dual-meet-matrix-loss,
+  .dual-meet-matrix-tie {
+    font-weight: 600;
+  }
+
+  .dual-meet-matrix-win {
+    background-color: rgba(34, 139, 34, 0.3);
+  }
+
+  .dual-meet-matrix-loss {
+    background-color: rgba(178, 34, 34, 0.3);
+  }
+
+  .dual-meet-matrix-tie {
+    background-color: rgba(128, 128, 128, 0.3);
+  }
+
+  td[data-tooltip] {
+    cursor: help;
+    position: relative;
+
+    &:hover::after,
+    &:focus-visible::after {
+      background-color: #1a1a1a;
+      border-radius: 4px;
+      bottom: 100%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      color: #ffffff;
+      content: attr(data-tooltip);
+      font-weight: normal;
+      left: 50%;
+      margin-bottom: 6px;
+      padding: 6px 10px;
+      pointer-events: none;
+      position: absolute;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    &:focus-visible {
+      outline-offset: 2px;
+    }
+  }
+}
+
+.dual-meet-results {
+  margin-top: $spacing-unit;
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: $spacing-unit * 0.3 0;
+  }
+
+  table {
+    margin-top: $spacing-unit * 0.5;
+  }
+}
+
 .school-logo-placeholder {
   background-color: $border-color-01;
   border-radius: 50%;
