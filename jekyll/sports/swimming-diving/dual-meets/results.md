@@ -16,8 +16,6 @@ internal_links:
 {%- endfor -%}
 {%- assign teams = teams | uniq | sort -%}
 
-## Head-to-Head
-
 <table class="dual-meet-matrix">
   <thead>
     <tr>
