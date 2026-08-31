@@ -20,6 +20,14 @@
 # list newest-first instead of the default ascending-by-segment order -
 # without that flag, alphabetical/numeric segments like "1972-1973" would
 # list oldest-first.
+#
+# A page with `exclude_from_directory: true` in its front matter is skipped
+# entirely, so it never appears in a parent's directory-listing.html nor in
+# the sitewide resources/directory.md tree - for a page meant to be reachable
+# only by direct link (or from within a page that isn't itself part of this
+# tree). This is independent of jekyll-sitemap's own `sitemap: false`, so a
+# page can be hidden from both directories while still appearing in
+# sitemap.xml.
 module SiteMap
   class PageTreeGenerator < Jekyll::Generator
     safe true
@@ -33,6 +41,7 @@ module SiteMap
       site.pages.each do |page|
         next unless page.output_ext == ".html"
         next if page.data["redirect_to"]
+        next if page.data["exclude_from_directory"]
         next if EXCLUDED_URLS.include?(page.url)
 
         segments = page.url.split("/").reject(&:empty?)

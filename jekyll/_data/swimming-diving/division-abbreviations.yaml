@@ -2,7 +2,10 @@
 # display in the tables' column headers. A division with no entry here just
 # displays under its full name.
 North Sectional: North
+Central/South Sectional: C/South
 South Sectional: South
+West Sectional: West
+Western Mass Sectional: W. Mass
 Central/West Sectional: C/West
 Division I State: Div I
 Division II State: Div II
