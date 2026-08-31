@@ -23,7 +23,10 @@ module Awards
         { "title" => en_dash(year), "url" => "/#{DIR}/#{year}/" }
       end
 
-      years.each do |year|
+      years.each_with_index do |year, index|
+        previous_year = years[index + 1]
+        next_year = index.zero? ? nil : years[index - 1]
+
         page = Jekyll::PageWithoutAFile.new(site, site.source, DIR, "#{year}.html")
         page.content = ""
         page.data.merge!(
@@ -31,7 +34,11 @@ module Awards
           "title" => "#{en_dash(year)} All-Stars",
           "permalink" => "/#{DIR}/#{year}/",
           "breadcrumb" => year,
-          "year" => year
+          "year" => year,
+          "previous_url" => previous_year && "/#{DIR}/#{previous_year}/",
+          "previous_title" => previous_year && en_dash(previous_year),
+          "next_url" => next_year && "/#{DIR}/#{next_year}/",
+          "next_title" => next_year && en_dash(next_year)
         )
         site.pages << page
       end

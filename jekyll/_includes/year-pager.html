@@ -1,0 +1,23 @@
+{%- comment -%}
+  Renders Previous/Next links between a generated per-school-year page's
+  neighboring years, e.g. dual meet results, rankings, qualifying standards,
+  and all-star pages. Expects `previous_url`/`previous_title` and
+  `next_url`/`next_title`; either pair may be omitted at either end of the
+  range, in which case that link is simply not rendered.
+{%- endcomment -%}
+{%- if include.previous_url or include.next_url -%}
+  <nav class="year-pager" aria-label="School year navigation">
+    {%- if include.previous_url -%}
+      <a class="year-pager-link year-pager-previous" href="{{ include.previous_url | relative_url }}">
+        <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
+        {{ include.previous_title }}
+      </a>
+    {%- endif -%}
+    {%- if include.next_url -%}
+      <a class="year-pager-link year-pager-next" href="{{ include.next_url | relative_url }}">
+        {{ include.next_title }}
+        <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+      </a>
+    {%- endif -%}
+  </nav>
+{%- endif -%}

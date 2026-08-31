@@ -825,6 +825,27 @@
   text-align: center;
 }
 
+.year-pager {
+  display: flex;
+  gap: $spacing-unit * 0.5;
+  justify-content: center;
+
+  .year-pager-link {
+    align-items: center;
+    color: $text-color;
+    display: inline-flex;
+    gap: 2px;
+
+    &:hover {
+      color: $link-base-color;
+    }
+  }
+
+  .material-symbols-outlined {
+    font-size: 1.25em;
+  }
+}
+
 .countdown-banner {
   display: flex;
   flex-wrap: wrap;

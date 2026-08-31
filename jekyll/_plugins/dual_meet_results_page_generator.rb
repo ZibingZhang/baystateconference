@@ -31,14 +31,16 @@ module DualMeetResults
       entries = site.data.dig(*DATA_PATH) || []
       years = entries.map { |entry| entry["School Year"] }.compact.uniq.sort.reverse
 
-      years.each do |year|
-        site.pages << build_page(site, year, entries)
+      years.each_with_index do |year, index|
+        previous_year = years[index + 1]
+        next_year = index.zero? ? nil : years[index - 1]
+        site.pages << build_page(site, year, entries, previous_year, next_year)
       end
     end
 
     private
 
-    def build_page(site, year, entries)
+    def build_page(site, year, entries, previous_year, next_year)
       page = Jekyll::PageWithoutAFile.new(site, site.source, DIR, "#{year}.html")
       page.content = ""
       page.data.merge!(
@@ -46,7 +48,11 @@ module DualMeetResults
         "title" => "#{en_dash(year)} Dual Meet Results",
         "permalink" => "/#{DIR}/#{year}/",
         "breadcrumb" => en_dash(year),
-        "groups" => groups_for(entries, year)
+        "groups" => groups_for(entries, year),
+        "previous_url" => previous_year && "/#{DIR}/#{previous_year}/",
+        "previous_title" => previous_year && en_dash(previous_year),
+        "next_url" => next_year && "/#{DIR}/#{next_year}/",
+        "next_title" => next_year && en_dash(next_year)
       )
       page
     end

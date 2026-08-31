@@ -61,14 +61,18 @@ module QualifyingStandards
       school_years.sort!
       school_years.reverse!
 
-      school_years.each do |school_year|
-        site.pages << build_page(site, entries, event_abbreviations, division_abbreviations, school_year)
+      school_years.each_with_index do |school_year, index|
+        previous_year = school_years[index + 1]
+        next_year = index.zero? ? nil : school_years[index - 1]
+        site.pages << build_page(
+          site, entries, event_abbreviations, division_abbreviations, school_year, previous_year, next_year
+        )
       end
     end
 
     private
 
-    def build_page(site, entries, event_abbreviations, division_abbreviations, school_year)
+    def build_page(site, entries, event_abbreviations, division_abbreviations, school_year, previous_year, next_year)
       page = Jekyll::PageWithoutAFile.new(site, site.source, DIR, "#{school_year}.html")
       page.content = ""
       page.data.merge!(
@@ -76,7 +80,11 @@ module QualifyingStandards
         "title" => "#{school_year} Qualifying Standards",
         "permalink" => "/#{DIR}/#{school_year}/",
         "breadcrumb" => school_year,
-        "groups" => groups_for(entries, event_abbreviations, division_abbreviations, school_year)
+        "groups" => groups_for(entries, event_abbreviations, division_abbreviations, school_year),
+        "previous_url" => previous_year && "/#{DIR}/#{previous_year}/",
+        "previous_title" => previous_year,
+        "next_url" => next_year && "/#{DIR}/#{next_year}/",
+        "next_title" => next_year
       )
       page
     end

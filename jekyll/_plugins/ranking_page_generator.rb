@@ -53,12 +53,14 @@ module Rankings
       entries = site.data.dig(*source[:data_path]) || []
       years = entries.map { |entry| entry["School Year"] }.compact.uniq.sort.reverse
 
-      years.each do |year|
-        site.pages << build_page(site, source, year, entries)
+      years.each_with_index do |year, index|
+        previous_year = years[index + 1]
+        next_year = index.zero? ? nil : years[index - 1]
+        site.pages << build_page(site, source, year, entries, previous_year, next_year)
       end
     end
 
-    def build_page(site, source, year, entries)
+    def build_page(site, source, year, entries, previous_year, next_year)
       dir = source[:dir]
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "#{year}.html")
       page.content = ""
@@ -67,7 +69,11 @@ module Rankings
         "title" => "#{en_dash(year)} #{source[:title_suffix]}",
         "permalink" => "/#{dir}/#{year}/",
         "breadcrumb" => en_dash(year),
-        "groups" => groups_for(entries, year)
+        "groups" => groups_for(entries, year),
+        "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
+        "previous_title" => previous_year && en_dash(previous_year),
+        "next_url" => next_year && "/#{dir}/#{next_year}/",
+        "next_title" => next_year && en_dash(next_year)
       )
       page
     end

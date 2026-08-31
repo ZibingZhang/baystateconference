@@ -15,6 +15,7 @@ layout: base
 
   <header class="post-header">
     <h1 class="post-title">{{ page.title | escape }}</h1>
+    {%- include year-pager.html previous_url=page.previous_url previous_title=page.previous_title next_url=page.next_url next_title=page.next_title -%}
   </header>
 
   <div class="post-content">
