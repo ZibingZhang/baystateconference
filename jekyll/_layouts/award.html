@@ -11,15 +11,16 @@ layout: base
     {{ content }}
   </div>
 
-  {%- assign path_parts = page.path | split: '/' -%}
+  {%- comment -%}
+    A page using this layout must set `recipients_data` in its front matter
+    to the dot-separated site.data reference for the CSV holding its
+    recipients table, e.g.
+    recipients_data: site.data.swimming-diving.emisca.awards.jack-mcdonald-memorial-award-recipients
+  {%- endcomment -%}
   {%- assign recipients = site.data -%}
-  {%- for part in path_parts -%}
-    {%- if forloop.last -%}
-      {%- assign data_key = part | remove: '.md' | append: '-recipients' -%}
-    {%- else -%}
-      {%- assign data_key = part -%}
-    {%- endif -%}
-    {%- assign recipients = recipients[data_key] -%}
+  {%- assign data_key_parts = page.recipients_data | remove_first: 'site.data.' | split: '.' -%}
+  {%- for part in data_key_parts -%}
+    {%- assign recipients = recipients[part] -%}
   {%- endfor -%}
 
   {%- if recipients and recipients.size > 0 -%}
