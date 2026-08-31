@@ -1,0 +1,24 @@
+---
+layout: base
+---
+{%- comment -%}
+  Renders a single school year's dual meet results, split into one
+  head-to-head matrix + results table per Season/Sex combination that year
+  (e.g. "Girls Fall"). A page using this layout gets its `groups` data
+  precomputed by _plugins/dual_meet_results_page_generator.rb.
+{%- endcomment -%}
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+
+    {%- for group in page.groups -%}
+      {%- include dual-meet-results-group.html heading=group.heading entries=group.entries -%}
+    {%- endfor -%}
+  </div>
+
+</article>

@@ -547,10 +547,44 @@
   width: 96px;
 }
 
+// Wraps .dual-meet-matrix so it can scroll horizontally on narrow screens
+// without its table-layout: fixed columns getting squeezed - the site-wide
+// mobile table rule below (table { display: block; overflow-x: auto }) would
+// otherwise wrap its rows in an anonymous inner table sized by shrink-to-fit,
+// which ignores the matrix's own column widths and compresses them instead
+// of just overflowing.
+.dual-meet-matrix-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+}
+
 .dual-meet-matrix {
   border-collapse: separate;
   border-spacing: 0;
   table-layout: fixed;
+
+  // A definite table width (e.g. 100%) makes table-layout: fixed treat every
+  // <col> width below as a proportion to redistribute rather than a literal
+  // pixel value, silently shrinking columns below what their content needs
+  // Leaving width unset renders the table at the literal sum of its column
+  // widths instead, so .dual-meet-matrix-scroll's overflow-x handles whatever
+  // doesn't fit.
+  //
+  // The first column sizes itself off --dual-meet-first-col-chars (the
+  // longest team name's character count, set inline by
+  // dual-meet-results-group.html) rather than a hardcoded pixel value, so it
+  // stays exactly as wide as it needs to be regardless of which teams are in
+  // the data. `ch` is a rough estimate of a character's width (it's actually
+  // the width of the "0" glyph), and how rough varies by font-size, so the
+  // buffer that squares it with the real rendered text width isn't quite the
+  // same at this size as it is at the mobile override's smaller size below.
+  colgroup col:first-child {
+    width: calc(var(--dual-meet-first-col-chars) * 1ch + 1px);
+  }
+
+  colgroup col:not(:first-child) {
+    width: 66px;
+  }
 
   th,
   td {
@@ -568,11 +602,13 @@
     padding: 0 2px;
     text-align: center;
     vertical-align: bottom;
-    width: 46px;
   }
 
-  thead th:first-child {
-    width: 92px;
+  thead th:first-child,
+  tbody th {
+    left: 0;
+    position: sticky;
+    z-index: 1;
   }
 
   tbody th {
@@ -580,7 +616,8 @@
   }
 
   tbody td {
-    font-size: 0.8em;
+    font-size: 0.7em;
+    padding: 0px;
   }
 
   .dual-meet-matrix-vertical-label {
@@ -589,6 +626,23 @@
     text-align: center;
     transform: rotate(180deg);
     writing-mode: vertical-rl;
+  }
+
+  // Overrides above must come first: this needs to win the cascade whenever
+  // the media query is active, and an equal-specificity rule declared later
+  // in the same selector wins regardless of nesting.
+  @include media-query($on-laptop) {
+    display: table;
+
+    .dual-meet-matrix-vertical-label,
+    tbody th {
+      font-size: 0.75em;
+    }
+
+    colgroup col:first-child {
+      font-size: 0.75em;
+      width: calc(var(--dual-meet-first-col-chars) * 1ch + 6px);
+    }
   }
 
   .dual-meet-matrix-diagonal {

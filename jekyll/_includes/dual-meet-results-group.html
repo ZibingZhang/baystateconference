@@ -1,0 +1,161 @@
+{%- comment -%}
+  Renders one Season/Sex group of dual meet results: a head-to-head matrix
+  followed by a collapsible full results table. Shared by the current
+  dual-meets/results/ page (scoped to the current school year) and the
+  generated per-school-year historical pages (see
+  _plugins/dual_meet_results_page_generator.rb), so both stay in sync.
+
+  A meet's outcome comes from its Team 1/Team 2 Score when both are known,
+  falling back to the Team 1 Result (W/L/T) column for older meets where
+  only the outcome - not the actual score - was recorded.
+
+  Usage: {% include dual-meet-results-group.html heading="Girls Fall" entries=entries %}
+{%- endcomment -%}
+{%- assign meets = include.entries -%}
+{%- if meets and meets.size > 0 -%}
+{%- assign teams = "" | split: "" -%}
+{%- for meet in meets -%}
+  {%- assign teams = teams | push: meet["Team 1"] -%}
+  {%- assign teams = teams | push: meet["Team 2"] -%}
+{%- endfor -%}
+{%- assign teams = teams | uniq | sort -%}
+
+{%- assign team_lengths = "" | split: "" -%}
+{%- for team in teams -%}
+  {%- assign team_lengths = team_lengths | push: team.size -%}
+{%- endfor -%}
+{%- assign team_lengths = team_lengths | sort -%}
+{%- assign longest_team_chars = team_lengths | last -%}
+
+{%- if include.heading -%}
+<h2>{{ include.heading }}</h2>
+{%- endif -%}
+
+<div class="dual-meet-matrix-scroll">
+<table class="dual-meet-matrix" style="--dual-meet-first-col-chars: {{ longest_team_chars }};">
+  <colgroup>
+    <col>
+    {%- for team in teams -%}
+    <col>
+    {%- endfor -%}
+  </colgroup>
+  <thead>
+    <tr>
+      <th></th>
+      {%- for team in teams -%}
+      <th><div class="dual-meet-matrix-vertical-label">{{ team }}</div></th>
+      {%- endfor -%}
+    </tr>
+  </thead>
+  <tbody>
+    {%- for row_team in teams -%}
+    <tr>
+      <th>{{ row_team }}</th>
+      {%- for col_team in teams -%}
+        {%- if row_team == col_team -%}
+        <td class="dual-meet-matrix-diagonal">—</td>
+        {%- else -%}
+          {%- assign match1 = meets | where: "Team 1", row_team | where: "Team 2", col_team -%}
+          {%- assign match2 = meets | where: "Team 1", col_team | where: "Team 2", row_team -%}
+          {%- assign match = match1 | concat: match2 | first -%}
+
+          {%- assign date_display = match["Date"] | date: "%b %-d, %Y" -%}
+          {%- if match["Date"] == nil or match["Date"] == "" -%}
+            {%- assign date_display = "date UNK" -%}
+          {%- endif -%}
+
+          {%- assign location_display = match["Location"] -%}
+          {%- if location_display == nil or location_display == "" -%}
+            {%- assign location_display = "location UNK" -%}
+          {%- endif -%}
+
+          {%- assign has_score = false -%}
+          {%- if match["Team 1 Score"] != nil and match["Team 1 Score"] != "" and match["Team 2 Score"] != nil and match["Team 2 Score"] != "" -%}
+            {%- assign has_score = true -%}
+          {%- endif -%}
+
+          {%- assign team_1_result = match["Team 1 Result"] -%}
+          {%- assign has_result = false -%}
+          {%- if team_1_result != nil and team_1_result != "" -%}
+            {%- assign has_result = true -%}
+          {%- endif -%}
+
+          {%- if has_score -%}
+            {%- if match["Team 1"] == row_team -%}
+              {%- assign row_score = match["Team 1 Score"] -%}
+              {%- assign col_score = match["Team 2 Score"] -%}
+            {%- else -%}
+              {%- assign row_score = match["Team 2 Score"] -%}
+              {%- assign col_score = match["Team 1 Score"] -%}
+            {%- endif -%}
+            {%- assign row_score_num = row_score | plus: 0 -%}
+            {%- assign col_score_num = col_score | plus: 0 -%}
+            {%- capture tooltip -%}{{ row_team }} {{ row_score }} – {{ col_team }} {{ col_score }} · {{ date_display }} @ {{ location_display }}{%- endcapture -%}
+            {%- if row_score_num > col_score_num -%}
+            <td class="dual-meet-matrix-win" tabindex="0" data-tooltip="{{ tooltip | escape }}">{{ row_score }}–{{ col_score }}</td>
+            {%- elsif row_score_num < col_score_num -%}
+            <td class="dual-meet-matrix-loss" tabindex="0" data-tooltip="{{ tooltip | escape }}">{{ row_score }}–{{ col_score }}</td>
+            {%- else -%}
+            <td class="dual-meet-matrix-tie" tabindex="0" data-tooltip="{{ tooltip | escape }}">{{ row_score }}–{{ col_score }}</td>
+            {%- endif -%}
+          {%- elsif has_result -%}
+            {%- if match["Team 1"] == row_team -%}
+              {%- assign row_result = team_1_result -%}
+            {%- elsif team_1_result == "W" -%}
+              {%- assign row_result = "L" -%}
+            {%- elsif team_1_result == "L" -%}
+              {%- assign row_result = "W" -%}
+            {%- else -%}
+              {%- assign row_result = team_1_result -%}
+            {%- endif -%}
+            {%- capture tooltip -%}{{ row_team }} vs {{ col_team }} · {{ date_display }} @ {{ location_display }}{%- endcapture -%}
+            {%- if row_result == "W" -%}
+            <td class="dual-meet-matrix-win" tabindex="0" data-tooltip="{{ tooltip | escape }}">W</td>
+            {%- elsif row_result == "L" -%}
+            <td class="dual-meet-matrix-loss" tabindex="0" data-tooltip="{{ tooltip | escape }}">L</td>
+            {%- else -%}
+            <td class="dual-meet-matrix-tie" tabindex="0" data-tooltip="{{ tooltip | escape }}">T</td>
+            {%- endif -%}
+          {%- else -%}
+            {%- capture tooltip -%}{{ row_team }} vs {{ col_team }} · {{ date_display }} @ {{ location_display }}{%- endcapture -%}
+            <td class="dual-meet-matrix-tbd" tabindex="0" data-tooltip="{{ tooltip | escape }}"></td>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+</div>
+
+<details class="dual-meet-results">
+  <summary>Table&nbsp;View</summary>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Team 1</th>
+        <th>Team 2</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Team 1 Score</th>
+        <th>Team 2 Score</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%- for meet in meets -%}
+      <tr>
+        <td>{{ meet["Team 1"] }}</td>
+        <td>{{ meet["Team 2"] }}</td>
+        <td>{{ meet["Date"] | date: "%b %-d, %Y" }}</td>
+        <td>{{ meet["Location"] }}</td>
+        <td>{{ meet["Team 1 Score"] }}</td>
+        <td>{{ meet["Team 2 Score"] }}</td>
+        <td>{{ meet["Team 1 Result"] }}</td>
+      </tr>
+      {%- endfor -%}
+    </tbody>
+  </table>
+</details>
+{%- endif -%}

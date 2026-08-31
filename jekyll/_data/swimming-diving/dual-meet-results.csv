@@ -1,46 +1,1571 @@
-School Year,Season,Sex,Team 1,Team 2,Date,Location,Team 1 Score,Team 2 Score
-2025-2026,fall,F,Braintree,Brookline,,,,
-2025-2026,fall,F,Braintree,Framingham,,,,
-2025-2026,fall,F,Braintree,Milton,,,,
-2025-2026,fall,F,Braintree,Natick,,,,
-2025-2026,fall,F,Braintree,Needham,2026-09-18,Needham,,
-2025-2026,fall,F,Braintree,Newton North,,,,
-2025-2026,fall,F,Braintree,Walpole,,,,
-2025-2026,fall,F,Braintree,Wellesley,,,,
-2025-2026,fall,F,Braintree,Weymouth,,,,
-2025-2026,fall,F,Brookline,Framingham,,,,
-2025-2026,fall,F,Brookline,Milton,,,,
-2025-2026,fall,F,Brookline,Natick,,,,
-2025-2026,fall,F,Brookline,Needham,2026-10-06,Needham,,
-2025-2026,fall,F,Brookline,Newton North,,,,
-2025-2026,fall,F,Brookline,Walpole,,,,
-2025-2026,fall,F,Brookline,Wellesley,,,,
-2025-2026,fall,F,Brookline,Weymouth,,,,
-2025-2026,fall,F,Framingham,Milton,,,,
-2025-2026,fall,F,Framingham,Natick,,,,
-2025-2026,fall,F,Framingham,Needham,2026-09-01,Needham,,
-2025-2026,fall,F,Framingham,Newton North,,,,
-2025-2026,fall,F,Framingham,Walpole,,,,
-2025-2026,fall,F,Framingham,Wellesley,,,,
-2025-2026,fall,F,Framingham,Weymouth,,,,
-2025-2026,fall,F,Milton,Natick,,,,
-2025-2026,fall,F,Milton,Needham,2026-09-15,Needham,,
-2025-2026,fall,F,Milton,Newton North,,,,
-2025-2026,fall,F,Milton,Walpole,,,,
-2025-2026,fall,F,Milton,Wellesley,,,,
-2025-2026,fall,F,Milton,Weymouth,,,,
-2025-2026,fall,F,Natick,Needham,2026-10-13,Natick,,
-2025-2026,fall,F,Natick,Newton North,,,,
-2025-2026,fall,F,Natick,Walpole,,,,
-2025-2026,fall,F,Natick,Wellesley,,,,
-2025-2026,fall,F,Natick,Weymouth,,,,
-2025-2026,fall,F,Needham,Newton North,2026-10-02,Newton North,,
-2025-2026,fall,F,Needham,Walpole,2026-09-22,Walpole,,
-2025-2026,fall,F,Needham,Wellesley,2026-10-20,Wellesley,,
-2025-2026,fall,F,Needham,Weymouth,2026-10-16,Weymouth,,
-2025-2026,fall,F,Newton North,Walpole,,,,
-2025-2026,fall,F,Newton North,Wellesley,,,,
-2025-2026,fall,F,Newton North,Weymouth,,,,
-2025-2026,fall,F,Walpole,Wellesley,,,,
-2025-2026,fall,F,Walpole,Weymouth,,,,
-2025-2026,fall,F,Wellesley,Weymouth,,,,
+School Year,Season,Sex,Team 1,Team 2,Date,Location,Team 1 Score,Team 2 Score,Team 1 Result
+2026-2027,fall,F,Braintree,Brookline,,,,,
+2026-2027,fall,F,Braintree,Framingham,,,,,
+2026-2027,fall,F,Braintree,Milton,,,,,
+2026-2027,fall,F,Braintree,Natick,,,,,
+2026-2027,fall,F,Braintree,Needham,2026-09-18,Needham,,,
+2026-2027,fall,F,Braintree,Newton North,,,,,
+2026-2027,fall,F,Braintree,Walpole,,,,,
+2026-2027,fall,F,Braintree,Wellesley,,,,,
+2026-2027,fall,F,Braintree,Weymouth,,,,,
+2026-2027,fall,F,Brookline,Framingham,,,,,
+2026-2027,fall,F,Brookline,Milton,,,,,
+2026-2027,fall,F,Brookline,Natick,,,,,
+2026-2027,fall,F,Brookline,Needham,2026-10-06,Needham,,,
+2026-2027,fall,F,Brookline,Newton North,,,,,
+2026-2027,fall,F,Brookline,Walpole,,,,,
+2026-2027,fall,F,Brookline,Wellesley,,,,,
+2026-2027,fall,F,Brookline,Weymouth,,,,,
+2026-2027,fall,F,Framingham,Milton,,,,,
+2026-2027,fall,F,Framingham,Natick,,,,,
+2026-2027,fall,F,Framingham,Needham,2026-09-01,Needham,,,
+2026-2027,fall,F,Framingham,Newton North,,,,,
+2026-2027,fall,F,Framingham,Walpole,,,,,
+2026-2027,fall,F,Framingham,Wellesley,,,,,
+2026-2027,fall,F,Framingham,Weymouth,,,,,
+2026-2027,fall,F,Milton,Natick,,,,,
+2026-2027,fall,F,Milton,Needham,2026-09-15,Needham,,,
+2026-2027,fall,F,Milton,Newton North,,,,,
+2026-2027,fall,F,Milton,Walpole,,,,,
+2026-2027,fall,F,Milton,Wellesley,,,,,
+2026-2027,fall,F,Milton,Weymouth,,,,,
+2026-2027,fall,F,Natick,Needham,2026-10-13,Natick,,,
+2026-2027,fall,F,Natick,Newton North,,,,,
+2026-2027,fall,F,Natick,Walpole,,,,,
+2026-2027,fall,F,Natick,Wellesley,,,,,
+2026-2027,fall,F,Natick,Weymouth,,,,,
+2026-2027,fall,F,Needham,Newton North,2026-10-02,Newton North,,,
+2026-2027,fall,F,Needham,Walpole,2026-09-22,Walpole,,,
+2026-2027,fall,F,Needham,Wellesley,2026-10-20,Wellesley,,,
+2026-2027,fall,F,Needham,Weymouth,2026-10-16,Weymouth,,,
+2026-2027,fall,F,Newton North,Walpole,,,,,
+2026-2027,fall,F,Newton North,Wellesley,,,,,
+2026-2027,fall,F,Newton North,Weymouth,,,,,
+2026-2027,fall,F,Walpole,Wellesley,,,,,
+2026-2027,fall,F,Walpole,Weymouth,,,,,
+2026-2027,fall,F,Wellesley,Weymouth,,,,,
+2025-2026,fall,F,Braintree,Brookline,,,46,102,L
+2025-2026,fall,F,Braintree,Framingham,,,53,85,L
+2025-2026,fall,F,Braintree,Milton,,,46,87,L
+2025-2026,fall,F,Braintree,Natick,,,21,48,L
+2025-2026,fall,F,Braintree,Needham,,,54,85,L
+2025-2026,fall,F,Braintree,Newton North,,,62,95,L
+2025-2026,fall,F,Braintree,Walpole,,,55,98,L
+2025-2026,fall,F,Braintree,Wellesley,,,59,86,L
+2025-2026,fall,F,Braintree,Weymouth,,,63,81,L
+2025-2026,fall,F,Brookline,Framingham,,,95,83,W
+2025-2026,fall,F,Brookline,Milton,,,90,93,L
+2025-2026,fall,F,Brookline,Natick,,,100.5,84.5,W
+2025-2026,fall,F,Brookline,Needham,,,100,79,W
+2025-2026,fall,F,Brookline,Newton North,,,84,95,L
+2025-2026,fall,F,Brookline,Walpole,,,100,57,W
+2025-2026,fall,F,Brookline,Wellesley,,,91,95,L
+2025-2026,fall,F,Brookline,Weymouth,,,95,83,W
+2025-2026,fall,F,Framingham,Milton,,,86,96,L
+2025-2026,fall,F,Framingham,Natick,,,94,83,W
+2025-2026,fall,F,Framingham,Needham,,,98,88,W
+2025-2026,fall,F,Framingham,Newton North,,,85,92,L
+2025-2026,fall,F,Framingham,Walpole,,,83,69,W
+2025-2026,fall,F,Framingham,Wellesley,,,81,103,L
+2025-2026,fall,F,Framingham,Weymouth,,,91,79,W
+2025-2026,fall,F,Milton,Natick,,,92,88,W
+2025-2026,fall,F,Milton,Needham,,,94,87,W
+2025-2026,fall,F,Milton,Newton North,,,88,95,L
+2025-2026,fall,F,Milton,Walpole,,,93,82,W
+2025-2026,fall,F,Milton,Wellesley,,,97,83,W
+2025-2026,fall,F,Milton,Weymouth,,,97,74,W
+2025-2026,fall,F,Natick,Needham,,,86,100,L
+2025-2026,fall,F,Natick,Newton North,,,80,98,L
+2025-2026,fall,F,Natick,Walpole,,,99,54,W
+2025-2026,fall,F,Natick,Wellesley,,,87,93,L
+2025-2026,fall,F,Natick,Weymouth,,,88,76,W
+2025-2026,fall,F,Needham,Newton North,,,81,95,L
+2025-2026,fall,F,Needham,Walpole,,,82,52,W
+2025-2026,fall,F,Needham,Wellesley,,,90,96,L
+2025-2026,fall,F,Needham,Weymouth,,,99,73,W
+2025-2026,fall,F,Newton North,Walpole,,,96,57,W
+2025-2026,fall,F,Newton North,Wellesley,,,96,84,W
+2025-2026,fall,F,Newton North,Weymouth,,,98,72,W
+2025-2026,fall,F,Walpole,Wellesley,,,65,98,L
+2025-2026,fall,F,Walpole,Weymouth,,,85,95,L
+2025-2026,fall,F,Wellesley,Weymouth,,,92,72,W
+2024-2025,fall,F,Braintree,Brookline,,,79,89,L
+2024-2025,fall,F,Braintree,Framingham,,,82,92,L
+2024-2025,fall,F,Braintree,Milton,,,76,97,L
+2024-2025,fall,F,Braintree,Natick,,,83,97,L
+2024-2025,fall,F,Braintree,Needham,,,81,103,L
+2024-2025,fall,F,Braintree,Newton North,,,70,91,L
+2024-2025,fall,F,Braintree,Walpole,,,101,74,W
+2024-2025,fall,F,Braintree,Wellesley,,,74,94,L
+2024-2025,fall,F,Braintree,Weymouth,,,79,89,L
+2024-2025,fall,F,Brookline,Framingham,,,91,84,W
+2024-2025,fall,F,Brookline,Milton,,,85,95,L
+2024-2025,fall,F,Brookline,Natick,,,100,78,W
+2024-2025,fall,F,Brookline,Needham,,,97,89,W
+2024-2025,fall,F,Brookline,Newton North,,,104,82,W
+2024-2025,fall,F,Brookline,Walpole,,,55,35,W
+2024-2025,fall,F,Brookline,Wellesley,,,81,99,L
+2024-2025,fall,F,Brookline,Weymouth,,,98,66,W
+2024-2025,fall,F,Framingham,Milton,,,87,97,L
+2024-2025,fall,F,Framingham,Natick,,,94,89,W
+2024-2025,fall,F,Framingham,Needham,,,85,99,L
+2024-2025,fall,F,Framingham,Newton North,,,88,96,L
+2024-2025,fall,F,Framingham,Walpole,,,67,39,W
+2024-2025,fall,F,Framingham,Wellesley,,,73,99,L
+2024-2025,fall,F,Framingham,Weymouth,,,87,72,W
+2024-2025,fall,F,Milton,Natick,,,91,81,W
+2024-2025,fall,F,Milton,Needham,,,91,94,L
+2024-2025,fall,F,Milton,Newton North,,,97,89,W
+2024-2025,fall,F,Milton,Walpole,,,89,52,W
+2024-2025,fall,F,Milton,Wellesley,,,96,89,W
+2024-2025,fall,F,Milton,Weymouth,,,91,69,W
+2024-2025,fall,F,Natick,Needham,,,83,93,L
+2024-2025,fall,F,Natick,Newton North,,,81,97,L
+2024-2025,fall,F,Natick,Walpole,,,81,50,W
+2024-2025,fall,F,Natick,Wellesley,,,79,93,L
+2024-2025,fall,F,Natick,Weymouth,,,90,85,W
+2024-2025,fall,F,Needham,Newton North,,,98,88,W
+2024-2025,fall,F,Needham,Walpole,,,92,44,W
+2024-2025,fall,F,Needham,Wellesley,,,88,96,L
+2024-2025,fall,F,Needham,Weymouth,,,96,68,W
+2024-2025,fall,F,Newton North,Walpole,,,85,54,W
+2024-2025,fall,F,Newton North,Wellesley,,,86,95,L
+2024-2025,fall,F,Newton North,Weymouth,,,85,74,W
+2024-2025,fall,F,Walpole,Wellesley,,,43,85,L
+2024-2025,fall,F,Walpole,Weymouth,,,78,86,L
+2024-2025,fall,F,Wellesley,Weymouth,,,91,70,W
+2023-2024,fall,F,Braintree,Brookline,,,83,101,L
+2023-2024,fall,F,Braintree,Framingham,,,102,84,W
+2023-2024,fall,F,Braintree,Milton,,,80,106,L
+2023-2024,fall,F,Braintree,Natick,,,92,82,W
+2023-2024,fall,F,Braintree,Needham,,,76,101,L
+2023-2024,fall,F,Braintree,Newton North,,,83,94,L
+2023-2024,fall,F,Braintree,Walpole,,,97,87,W
+2023-2024,fall,F,Braintree,Wellesley,,,86,100,L
+2023-2024,fall,F,Braintree,Weymouth,,,92,64,W
+2023-2024,fall,F,Brookline,Framingham,,,96,81,W
+2023-2024,fall,F,Brookline,Milton,,,80,106,L
+2023-2024,fall,F,Brookline,Natick,,,96,82,W
+2023-2024,fall,F,Brookline,Needham,,,80,101,L
+2023-2024,fall,F,Brookline,Newton North,,,89,97,L
+2023-2024,fall,F,Brookline,Walpole,,,80,50,W
+2023-2024,fall,F,Brookline,Wellesley,,,85,95,L
+2023-2024,fall,F,Brookline,Weymouth,,,98,63,W
+2023-2024,fall,F,Framingham,Milton,,,58,126,L
+2023-2024,fall,F,Framingham,Natick,,,95,85,W
+2023-2024,fall,F,Framingham,Needham,,,81,97,L
+2023-2024,fall,F,Framingham,Newton North,,,81,99,L
+2023-2024,fall,F,Framingham,Walpole,,,86,68,W
+2023-2024,fall,F,Framingham,Wellesley,,,78,100,L
+2023-2024,fall,F,Framingham,Weymouth,,,71,61,W
+2023-2024,fall,F,Milton,Natick,,,97,86,W
+2023-2024,fall,F,Milton,Needham,,,95,91,W
+2023-2024,fall,F,Milton,Newton North,,,99,87,W
+2023-2024,fall,F,Milton,Walpole,,,94,81,W
+2023-2024,fall,F,Milton,Wellesley,,,87,99,L
+2023-2024,fall,F,Milton,Weymouth,,,98,68,W
+2023-2024,fall,F,Natick,Needham,,,78,100,L
+2023-2024,fall,F,Natick,Newton North,,,81,107,L
+2023-2024,fall,F,Natick,Walpole,,,91,56,W
+2023-2024,fall,F,Natick,Wellesley,,,84,96,L
+2023-2024,fall,F,Natick,Weymouth,,,91,69,W
+2023-2024,fall,F,Needham,Newton North,,,99,85,W
+2023-2024,fall,F,Needham,Walpole,,,87,48,W
+2023-2024,fall,F,Needham,Wellesley,,,98,86,W
+2023-2024,fall,F,Needham,Weymouth,,,98,72,W
+2023-2024,fall,F,Newton North,Walpole,,,91,53,W
+2023-2024,fall,F,Newton North,Wellesley,,,83,100,L
+2023-2024,fall,F,Newton North,Weymouth,,,93,83,W
+2023-2024,fall,F,Walpole,Wellesley,,,48,80,L
+2023-2024,fall,F,Walpole,Weymouth,,,91,71,W
+2023-2024,fall,F,Wellesley,Weymouth,,,46,38,W
+2022-2023,fall,F,Braintree,Brookline,,,79,97,L
+2022-2023,fall,F,Braintree,Framingham,,,98,88,W
+2022-2023,fall,F,Braintree,Milton,,,,,
+2022-2023,fall,F,Braintree,Natick,,,98,82,W
+2022-2023,fall,F,Braintree,Needham,,,80,97,L
+2022-2023,fall,F,Braintree,Newton North,,,,,
+2022-2023,fall,F,Braintree,Walpole,,,97,89,W
+2022-2023,fall,F,Braintree,Wellesley,,,81,95,L
+2022-2023,fall,F,Braintree,Weymouth,,,94,78,W
+2022-2023,fall,F,Brookline,Framingham,,,93,85,W
+2022-2023,fall,F,Brookline,Milton,,,104,81,W
+2022-2023,fall,F,Brookline,Natick,,,100,80,W
+2022-2023,fall,F,Brookline,Needham,,,85,99,L
+2022-2023,fall,F,Brookline,Newton North,,,98,86,W
+2022-2023,fall,F,Brookline,Walpole,,,93,76,W
+2022-2023,fall,F,Brookline,Wellesley,,,80,98,L
+2022-2023,fall,F,Brookline,Weymouth,,,,,
+2022-2023,fall,F,Framingham,Milton,,,,,
+2022-2023,fall,F,Framingham,Natick,,,98.5,85.5,W
+2022-2023,fall,F,Framingham,Needham,,,85,95,L
+2022-2023,fall,F,Framingham,Newton North,,,,,
+2022-2023,fall,F,Framingham,Walpole,,,96,76,W
+2022-2023,fall,F,Framingham,Wellesley,,,80,95,L
+2022-2023,fall,F,Framingham,Weymouth,,,,,
+2022-2023,fall,F,Milton,Natick,,,99,82,W
+2022-2023,fall,F,Milton,Needham,,,84,100,L
+2022-2023,fall,F,Milton,Newton North,,,80,104,L
+2022-2023,fall,F,Milton,Walpole,,,100,84,W
+2022-2023,fall,F,Milton,Wellesley,,,64,100,L
+2022-2023,fall,F,Milton,Weymouth,,,,,
+2022-2023,fall,F,Natick,Needham,,,77,90,L
+2022-2023,fall,F,Natick,Newton North,,,84,102,L
+2022-2023,fall,F,Natick,Walpole,,,95,82,W
+2022-2023,fall,F,Natick,Wellesley,,,76,105,L
+2022-2023,fall,F,Natick,Weymouth,,,103,73,W
+2022-2023,fall,F,Needham,Newton North,,,99,85,W
+2022-2023,fall,F,Needham,Walpole,,,97,75,W
+2022-2023,fall,F,Needham,Wellesley,,,82,99,L
+2022-2023,fall,F,Needham,Weymouth,,,85,69,W
+2022-2023,fall,F,Newton North,Walpole,,,93,82,W
+2022-2023,fall,F,Newton North,Wellesley,,,73,101,L
+2022-2023,fall,F,Newton North,Weymouth,,,,,
+2022-2023,fall,F,Walpole,Wellesley,,,75,88,L
+2022-2023,fall,F,Walpole,Weymouth,,,,,
+2022-2023,fall,F,Wellesley,Weymouth,,,87,74,W
+2021-2022,fall,F,Braintree,Brookline,,,,,
+2021-2022,fall,F,Braintree,Framingham,,,88,92,L
+2021-2022,fall,F,Braintree,Milton,,,89,97,L
+2021-2022,fall,F,Braintree,Natick,,,84,94,L
+2021-2022,fall,F,Braintree,Needham,,,82,98,L
+2021-2022,fall,F,Braintree,Newton North,,,,,
+2021-2022,fall,F,Braintree,Walpole,,,89,97,L
+2021-2022,fall,F,Braintree,Wellesley,,,71,101,L
+2021-2022,fall,F,Braintree,Weymouth,,,98,70,W
+2021-2022,fall,F,Brookline,Framingham,,,,,
+2021-2022,fall,F,Brookline,Milton,,,81,105,L
+2021-2022,fall,F,Brookline,Natick,,,95,75,W
+2021-2022,fall,F,Brookline,Needham,,,88,96,L
+2021-2022,fall,F,Brookline,Newton North,,,,,
+2021-2022,fall,F,Brookline,Walpole,,,95,83,W
+2021-2022,fall,F,Brookline,Wellesley,,,81,100,L
+2021-2022,fall,F,Brookline,Weymouth,,,,,
+2021-2022,fall,F,Framingham,Milton,,,94,90,W
+2021-2022,fall,F,Framingham,Natick,,,96,84,W
+2021-2022,fall,F,Framingham,Needham,,,78,94,L
+2021-2022,fall,F,Framingham,Newton North,,,,,
+2021-2022,fall,F,Framingham,Walpole,,,94,86,W
+2021-2022,fall,F,Framingham,Wellesley,,,88,93,L
+2021-2022,fall,F,Framingham,Weymouth,,,,,
+2021-2022,fall,F,Milton,Natick,,,87,78,W
+2021-2022,fall,F,Milton,Needham,,,100,84,W
+2021-2022,fall,F,Milton,Newton North,,,,,
+2021-2022,fall,F,Milton,Walpole,,,107,79,W
+2021-2022,fall,F,Milton,Wellesley,,,64,100,L
+2021-2022,fall,F,Milton,Weymouth,,,79,66,W
+2021-2022,fall,F,Natick,Needham,,,75,98,L
+2021-2022,fall,F,Natick,Newton North,,,85,95,L
+2021-2022,fall,F,Natick,Walpole,,,92,94,L
+2021-2022,fall,F,Natick,Wellesley,,,78,95,L
+2021-2022,fall,F,Natick,Weymouth,,,95,61,W
+2021-2022,fall,F,Needham,Newton North,,,100,84,W
+2021-2022,fall,F,Needham,Walpole,,,99,75,W
+2021-2022,fall,F,Needham,Wellesley,,,85,101,L
+2021-2022,fall,F,Needham,Weymouth,,,102,73,W
+2021-2022,fall,F,Newton North,Walpole,,,101,89,W
+2021-2022,fall,F,Newton North,Wellesley,,,86,90,L
+2021-2022,fall,F,Newton North,Weymouth,,,80,79,W
+2021-2022,fall,F,Walpole,Wellesley,,,79,96,L
+2021-2022,fall,F,Walpole,Weymouth,,,93,73,W
+2021-2022,fall,F,Wellesley,Weymouth,,,129,38,W
+2019-2020,fall,F,Braintree,Brookline,,,79,99,L
+2019-2020,fall,F,Braintree,Framingham,,,84,94,L
+2019-2020,fall,F,Braintree,Milton,,,82,96,L
+2019-2020,fall,F,Braintree,Natick,,,76,100,L
+2019-2020,fall,F,Braintree,Needham,,,81,97,L
+2019-2020,fall,F,Braintree,Newton North,,,76,101,L
+2019-2020,fall,F,Braintree,Walpole,,,88,93,L
+2019-2020,fall,F,Braintree,Wellesley,,,78,96,L
+2019-2020,fall,F,Braintree,Weymouth,,,94,77,W
+2019-2020,fall,F,Brookline,Framingham,,,,,
+2019-2020,fall,F,Brookline,Milton,,,,,
+2019-2020,fall,F,Brookline,Natick,,,94,84,W
+2019-2020,fall,F,Brookline,Needham,,,82,99,L
+2019-2020,fall,F,Brookline,Newton North,,,,,
+2019-2020,fall,F,Brookline,Walpole,,,,,
+2019-2020,fall,F,Brookline,Wellesley,,,,,L
+2019-2020,fall,F,Brookline,Weymouth,,,,,
+2019-2020,fall,F,Framingham,Milton,,,,,
+2019-2020,fall,F,Framingham,Natick,,,94,87,W
+2019-2020,fall,F,Framingham,Needham,,,84,97,L
+2019-2020,fall,F,Framingham,Newton North,,,,,
+2019-2020,fall,F,Framingham,Walpole,,,,,
+2019-2020,fall,F,Framingham,Wellesley,,,,,L
+2019-2020,fall,F,Framingham,Weymouth,,,,,
+2019-2020,fall,F,Milton,Natick,,,113,70,W
+2019-2020,fall,F,Milton,Needham,,,87,96,L
+2019-2020,fall,F,Milton,Newton North,,,,,
+2019-2020,fall,F,Milton,Walpole,,,,,
+2019-2020,fall,F,Milton,Wellesley,,,,,L
+2019-2020,fall,F,Milton,Weymouth,,,,,
+2019-2020,fall,F,Natick,Needham,,,80,101,L
+2019-2020,fall,F,Natick,Newton North,,,85,96,L
+2019-2020,fall,F,Natick,Walpole,,,100,81,W
+2019-2020,fall,F,Natick,Wellesley,,,86,90,L
+2019-2020,fall,F,Natick,Weymouth,,,93,59,W
+2019-2020,fall,F,Needham,Newton North,,,,,W
+2019-2020,fall,F,Needham,Walpole,,,,,W
+2019-2020,fall,F,Needham,Wellesley,,,87,99,L
+2019-2020,fall,F,Needham,Weymouth,,,,,W
+2019-2020,fall,F,Newton North,Walpole,,,,,
+2019-2020,fall,F,Newton North,Wellesley,,,,,L
+2019-2020,fall,F,Newton North,Weymouth,,,,,
+2019-2020,fall,F,Walpole,Wellesley,,,,,L
+2019-2020,fall,F,Walpole,Weymouth,,,,,
+2019-2020,fall,F,Wellesley,Weymouth,,,,,W
+2018-2019,fall,F,Braintree,Brookline,,,78,93,L
+2018-2019,fall,F,Braintree,Framingham,,,84,97,L
+2018-2019,fall,F,Braintree,Milton,,,49,121,L
+2018-2019,fall,F,Braintree,Natick,,,87,101,L
+2018-2019,fall,F,Braintree,Needham,,,79,96,L
+2018-2019,fall,F,Braintree,Newton North,,,84,93,L
+2018-2019,fall,F,Braintree,Walpole,,,82,99,L
+2018-2019,fall,F,Braintree,Wellesley,,,78,103,L
+2018-2019,fall,F,Braintree,Weymouth,,,94,77,W
+2018-2019,fall,F,Brookline,Framingham,,,,,
+2018-2019,fall,F,Brookline,Milton,,,,,
+2018-2019,fall,F,Brookline,Natick,,,,,
+2018-2019,fall,F,Brookline,Needham,,,85,101,L
+2018-2019,fall,F,Brookline,Newton North,,,,,
+2018-2019,fall,F,Brookline,Walpole,,,,,
+2018-2019,fall,F,Brookline,Wellesley,,,,,L
+2018-2019,fall,F,Brookline,Weymouth,,,,,
+2018-2019,fall,F,Framingham,Milton,,,,,
+2018-2019,fall,F,Framingham,Natick,,,,,
+2018-2019,fall,F,Framingham,Needham,,,88,98,L
+2018-2019,fall,F,Framingham,Newton North,,,,,
+2018-2019,fall,F,Framingham,Walpole,,,,,
+2018-2019,fall,F,Framingham,Wellesley,,,,,L
+2018-2019,fall,F,Framingham,Weymouth,,,,,
+2018-2019,fall,F,Milton,Natick,,,,,
+2018-2019,fall,F,Milton,Needham,,,86,95,L
+2018-2019,fall,F,Milton,Newton North,,,,,
+2018-2019,fall,F,Milton,Walpole,,,,,
+2018-2019,fall,F,Milton,Wellesley,,,,,L
+2018-2019,fall,F,Milton,Weymouth,,,,,
+2018-2019,fall,F,Natick,Needham,,,83,98,L
+2018-2019,fall,F,Natick,Newton North,,,,,
+2018-2019,fall,F,Natick,Walpole,,,,,
+2018-2019,fall,F,Natick,Wellesley,,,,,L
+2018-2019,fall,F,Natick,Weymouth,,,,,
+2018-2019,fall,F,Needham,Newton North,,,102,84,W
+2018-2019,fall,F,Needham,Walpole,,,100,74,W
+2018-2019,fall,F,Needham,Wellesley,,,86.5,97.5,L
+2018-2019,fall,F,Needham,Weymouth,,,105,73,W
+2018-2019,fall,F,Newton North,Walpole,,,95,91,W
+2018-2019,fall,F,Newton North,Wellesley,,,,,L
+2018-2019,fall,F,Newton North,Weymouth,,,,,
+2018-2019,fall,F,Walpole,Wellesley,,,,,L
+2018-2019,fall,F,Walpole,Weymouth,,,87,78,W
+2018-2019,fall,F,Wellesley,Weymouth,,,,,W
+2017-2018,fall,F,Braintree,Brookline,,,,,
+2017-2018,fall,F,Braintree,Framingham,,,,,
+2017-2018,fall,F,Braintree,Milton,,,,,
+2017-2018,fall,F,Braintree,Natick,,,,,
+2017-2018,fall,F,Braintree,Needham,,,84,102,L
+2017-2018,fall,F,Braintree,Newton North,,,83,98,L
+2017-2018,fall,F,Braintree,Norwood,,,,,W
+2017-2018,fall,F,Braintree,Walpole,,,114,75,W
+2017-2018,fall,F,Braintree,Wellesley,,,,,L
+2017-2018,fall,F,Braintree,Weymouth,,,,,
+2017-2018,fall,F,Brookline,Framingham,,,,,
+2017-2018,fall,F,Brookline,Milton,,,,,
+2017-2018,fall,F,Brookline,Natick,,,,,
+2017-2018,fall,F,Brookline,Needham,,,98,90,W
+2017-2018,fall,F,Brookline,Newton North,,,86,98,L
+2017-2018,fall,F,Brookline,Norwood,,,,,W
+2017-2018,fall,F,Brookline,Walpole,,,,,
+2017-2018,fall,F,Brookline,Wellesley,,,,,L
+2017-2018,fall,F,Brookline,Weymouth,,,,,
+2017-2018,fall,F,Framingham,Milton,,,,,
+2017-2018,fall,F,Framingham,Natick,,,,,
+2017-2018,fall,F,Framingham,Needham,,,,,W
+2017-2018,fall,F,Framingham,Newton North,,,86,95,L
+2017-2018,fall,F,Framingham,Norwood,,,,,W
+2017-2018,fall,F,Framingham,Walpole,,,96,82,W
+2017-2018,fall,F,Framingham,Wellesley,,,,,L
+2017-2018,fall,F,Framingham,Weymouth,,,,,
+2017-2018,fall,F,Milton,Natick,,,,,
+2017-2018,fall,F,Milton,Needham,,,74,93,L
+2017-2018,fall,F,Milton,Newton North,,,,,
+2017-2018,fall,F,Milton,Norwood,,,,,W
+2017-2018,fall,F,Milton,Walpole,,,80,94,L
+2017-2018,fall,F,Milton,Wellesley,,,,,L
+2017-2018,fall,F,Milton,Weymouth,,,,,
+2017-2018,fall,F,Natick,Needham,,,93,86,W
+2017-2018,fall,F,Natick,Newton North,,,80,106,L
+2017-2018,fall,F,Natick,Norwood,,,,,W
+2017-2018,fall,F,Natick,Walpole,,,,,
+2017-2018,fall,F,Natick,Wellesley,,,,,L
+2017-2018,fall,F,Natick,Weymouth,,,,,
+2017-2018,fall,F,Needham,Newton North,,,,,L
+2017-2018,fall,F,Needham,Norwood,,,102,80,W
+2017-2018,fall,F,Needham,Walpole,,,93,88,W
+2017-2018,fall,F,Needham,Wellesley,,,86,95,L
+2017-2018,fall,F,Needham,Weymouth,,,,,W
+2017-2018,fall,F,Newton North,Norwood,,,98,80,W
+2017-2018,fall,F,Newton North,Walpole,,,89,87,W
+2017-2018,fall,F,Newton North,Wellesley,,,88,93,L
+2017-2018,fall,F,Newton North,Weymouth,,,88,70,W
+2017-2018,fall,F,Norwood,Walpole,,,87,99,L
+2017-2018,fall,F,Norwood,Wellesley,,,,,L
+2017-2018,fall,F,Norwood,Weymouth,,,98,70,W
+2017-2018,fall,F,Walpole,Wellesley,,,84,97,L
+2017-2018,fall,F,Walpole,Weymouth,,,86,76,W
+2017-2018,fall,F,Wellesley,Weymouth,,,,,W
+2016-2017,fall,F,Braintree,Brookline,,,81,103,L
+2016-2017,fall,F,Braintree,Dedham,,,98,74,W
+2016-2017,fall,F,Braintree,Framingham,,,81,97,L
+2016-2017,fall,F,Braintree,Natick,,,81,103,L
+2016-2017,fall,F,Braintree,Needham,,,81,100,L
+2016-2017,fall,F,Braintree,Newton North,,,84,100,L
+2016-2017,fall,F,Braintree,Norwood,,,108,78,W
+2016-2017,fall,F,Braintree,Walpole,,,109,77,W
+2016-2017,fall,F,Braintree,Wellesley,,,87,99,L
+2016-2017,fall,F,Braintree,Weymouth,,,101,55,W
+2016-2017,fall,F,Brookline,Dedham,,,,,
+2016-2017,fall,F,Brookline,Framingham,,,,,
+2016-2017,fall,F,Brookline,Natick,,,,,
+2016-2017,fall,F,Brookline,Needham,,,99,89,W
+2016-2017,fall,F,Brookline,Newton North,,,94,92,W
+2016-2017,fall,F,Brookline,Norwood,,,,,
+2016-2017,fall,F,Brookline,Walpole,,,,,
+2016-2017,fall,F,Brookline,Wellesley,,,,,
+2016-2017,fall,F,Brookline,Weymouth,,,,,
+2016-2017,fall,F,Dedham,Framingham,,,,,
+2016-2017,fall,F,Dedham,Natick,,,,,
+2016-2017,fall,F,Dedham,Needham,,,84,91,L
+2016-2017,fall,F,Dedham,Newton North,,,69,93,L
+2016-2017,fall,F,Dedham,Norwood,,,91,92,L
+2016-2017,fall,F,Dedham,Walpole,,,86,95,L
+2016-2017,fall,F,Dedham,Wellesley,,,83,95,L
+2016-2017,fall,F,Dedham,Weymouth,,,,,
+2016-2017,fall,F,Framingham,Natick,,,,,
+2016-2017,fall,F,Framingham,Needham,,,98,88,W
+2016-2017,fall,F,Framingham,Newton North,,,88,93,L
+2016-2017,fall,F,Framingham,Norwood,,,,,
+2016-2017,fall,F,Framingham,Walpole,,,,,
+2016-2017,fall,F,Framingham,Wellesley,,,97,89,W
+2016-2017,fall,F,Framingham,Weymouth,,,,,
+2016-2017,fall,F,Natick,Needham,,,92,94,L
+2016-2017,fall,F,Natick,Newton North,,,,,
+2016-2017,fall,F,Natick,Norwood,,,,,
+2016-2017,fall,F,Natick,Walpole,,,,,
+2016-2017,fall,F,Natick,Wellesley,,,,,
+2016-2017,fall,F,Natick,Weymouth,,,,,
+2016-2017,fall,F,Needham,Newton North,,,90,98,L
+2016-2017,fall,F,Needham,Norwood,,,96,82,W
+2016-2017,fall,F,Needham,Walpole,,,98,80,W
+2016-2017,fall,F,Needham,Wellesley,,,95,91,W
+2016-2017,fall,F,Needham,Weymouth,,,,,W
+2016-2017,fall,F,Newton North,Norwood,,,92,89,W
+2016-2017,fall,F,Newton North,Walpole,,,97,84,W
+2016-2017,fall,F,Newton North,Wellesley,,,100,86,W
+2016-2017,fall,F,Newton North,Weymouth,,,91,57,W
+2016-2017,fall,F,Norwood,Walpole,,,,,
+2016-2017,fall,F,Norwood,Wellesley,,,,,
+2016-2017,fall,F,Norwood,Weymouth,,,92,66,W
+2016-2017,fall,F,Walpole,Wellesley,,,,,
+2016-2017,fall,F,Walpole,Weymouth,,,,,
+2016-2017,fall,F,Wellesley,Weymouth,,,,,
+2015-2016,fall,F,Braintree,Brookline,,,,,
+2015-2016,fall,F,Braintree,Dedham,,,,,
+2015-2016,fall,F,Braintree,Framingham,,,,,
+2015-2016,fall,F,Braintree,Natick,,,,,
+2015-2016,fall,F,Braintree,Needham,,,78,100,L
+2015-2016,fall,F,Braintree,Newton North,,,,,
+2015-2016,fall,F,Braintree,Norwood,,,102,84,W
+2015-2016,fall,F,Braintree,Walpole,,,,,
+2015-2016,fall,F,Braintree,Wellesley,,,,,
+2015-2016,fall,F,Braintree,Weymouth,,,,,
+2015-2016,fall,F,Brookline,Dedham,,,,,
+2015-2016,fall,F,Brookline,Framingham,,,94,90,L
+2015-2016,fall,F,Brookline,Natick,,,,,
+2015-2016,fall,F,Brookline,Needham,,,,,
+2015-2016,fall,F,Brookline,Newton North,,,,,
+2015-2016,fall,F,Brookline,Norwood,,,,,
+2015-2016,fall,F,Brookline,Walpole,,,,,
+2015-2016,fall,F,Brookline,Wellesley,,,,,
+2015-2016,fall,F,Brookline,Weymouth,,,,,
+2015-2016,fall,F,Dedham,Framingham,,,71,90,L
+2015-2016,fall,F,Dedham,Natick,,,,,
+2015-2016,fall,F,Dedham,Needham,,,76,95,L
+2015-2016,fall,F,Dedham,Newton North,,,,,
+2015-2016,fall,F,Dedham,Norwood,,,,,
+2015-2016,fall,F,Dedham,Walpole,,,,,
+2015-2016,fall,F,Dedham,Wellesley,,,,,
+2015-2016,fall,F,Dedham,Weymouth,,,,,
+2015-2016,fall,F,Framingham,Natick,,,98,86,W
+2015-2016,fall,F,Framingham,Needham,,,84,100,L
+2015-2016,fall,F,Framingham,Newton North,,,,,L
+2015-2016,fall,F,Framingham,Norwood,,,98,84,W
+2015-2016,fall,F,Framingham,Walpole,,,97,84,W
+2015-2016,fall,F,Framingham,Wellesley,,,83,83,T
+2015-2016,fall,F,Framingham,Weymouth,,,,,
+2015-2016,fall,F,Natick,Needham,,,86,98,L
+2015-2016,fall,F,Natick,Newton North,,,76,108,L
+2015-2016,fall,F,Natick,Norwood,,,,,
+2015-2016,fall,F,Natick,Walpole,,,,,
+2015-2016,fall,F,Natick,Wellesley,,,,,
+2015-2016,fall,F,Natick,Weymouth,,,,,
+2015-2016,fall,F,Needham,Newton North,,,89,97,L
+2015-2016,fall,F,Needham,Norwood,,,102,76,W
+2015-2016,fall,F,Needham,Walpole,,,,,W
+2015-2016,fall,F,Needham,Wellesley,,,91,95,L
+2015-2016,fall,F,Needham,Weymouth,,,91,83,W
+2015-2016,fall,F,Newton North,Norwood,,,,,
+2015-2016,fall,F,Newton North,Walpole,,,94,86,W
+2015-2016,fall,F,Newton North,Wellesley,,,,,
+2015-2016,fall,F,Newton North,Weymouth,,,,,
+2015-2016,fall,F,Norwood,Walpole,,,,,
+2015-2016,fall,F,Norwood,Wellesley,,,84,97,L
+2015-2016,fall,F,Norwood,Weymouth,,,,,
+2015-2016,fall,F,Walpole,Wellesley,,,,,
+2015-2016,fall,F,Walpole,Weymouth,,,,,
+2015-2016,fall,F,Wellesley,Weymouth,,,,,
+2014-2015,fall,F,Braintree,Brookline,,,78,99,L
+2014-2015,fall,F,Braintree,Dedham,,,,,
+2014-2015,fall,F,Braintree,Framingham,,,83,95,L
+2014-2015,fall,F,Braintree,Natick,,,,,
+2014-2015,fall,F,Braintree,Needham,,,78,103,L
+2014-2015,fall,F,Braintree,Newton North,,,,,L
+2014-2015,fall,F,Braintree,Norwood,,,,,
+2014-2015,fall,F,Braintree,Walpole,,,,,
+2014-2015,fall,F,Braintree,Wellesley,,,,,L
+2014-2015,fall,F,Braintree,Weymouth,,,90,75,W
+2014-2015,fall,F,Brookline,Dedham,,,99,63,W
+2014-2015,fall,F,Brookline,Framingham,,,83,93,L
+2014-2015,fall,F,Brookline,Natick,,,,,
+2014-2015,fall,F,Brookline,Needham,,,86,95,L
+2014-2015,fall,F,Brookline,Newton North,,,82,96,L
+2014-2015,fall,F,Brookline,Norwood,,,,,
+2014-2015,fall,F,Brookline,Walpole,,,84,100,L
+2014-2015,fall,F,Brookline,Wellesley,,,86,98,L
+2014-2015,fall,F,Brookline,Weymouth,,,,,W
+2014-2015,fall,F,Dedham,Framingham,,,,,
+2014-2015,fall,F,Dedham,Natick,,,,,
+2014-2015,fall,F,Dedham,Needham,,,,,L
+2014-2015,fall,F,Dedham,Newton North,,,,,L
+2014-2015,fall,F,Dedham,Norwood,,,57,98,L
+2014-2015,fall,F,Dedham,Walpole,,,,,
+2014-2015,fall,F,Dedham,Wellesley,,,,,L
+2014-2015,fall,F,Dedham,Weymouth,,,,,
+2014-2015,fall,F,Framingham,Natick,,,,,
+2014-2015,fall,F,Framingham,Needham,,,86,94,L
+2014-2015,fall,F,Framingham,Newton North,,,,,L
+2014-2015,fall,F,Framingham,Norwood,,,,,
+2014-2015,fall,F,Framingham,Walpole,,,,,
+2014-2015,fall,F,Framingham,Wellesley,,,97,84,W
+2014-2015,fall,F,Framingham,Weymouth,,,,,
+2014-2015,fall,F,Natick,Needham,,,87,94,L
+2014-2015,fall,F,Natick,Newton North,,,,,L
+2014-2015,fall,F,Natick,Norwood,,,,,
+2014-2015,fall,F,Natick,Walpole,,,,,
+2014-2015,fall,F,Natick,Wellesley,,,,,
+2014-2015,fall,F,Natick,Weymouth,,,,,
+2014-2015,fall,F,Needham,Newton North,,,82,102,L
+2014-2015,fall,F,Needham,Norwood,,,97,81,W
+2014-2015,fall,F,Needham,Walpole,,,,,W
+2014-2015,fall,F,Needham,Wellesley,,,,,
+2014-2015,fall,F,Needham,Weymouth,,,,,
+2014-2015,fall,F,Newton North,Norwood,,,95,83,W
+2014-2015,fall,F,Newton North,Walpole,,,,,W
+2014-2015,fall,F,Newton North,Wellesley,,,102,82,W
+2014-2015,fall,F,Newton North,Weymouth,,,,,W
+2014-2015,fall,F,Norwood,Walpole,,,82,101,L
+2014-2015,fall,F,Norwood,Wellesley,,,74,103,L
+2014-2015,fall,F,Norwood,Weymouth,,,,,
+2014-2015,fall,F,Walpole,Wellesley,,,,,
+2014-2015,fall,F,Walpole,Weymouth,,,,,
+2014-2015,fall,F,Wellesley,Weymouth,,,,,
+2013-2014,fall,F,Braintree,Brookline,,,,,
+2013-2014,fall,F,Braintree,Dedham,,,,,
+2013-2014,fall,F,Braintree,Framingham,,,,,
+2013-2014,fall,F,Braintree,Natick,,,,,
+2013-2014,fall,F,Braintree,Needham,,,89,96,L
+2013-2014,fall,F,Braintree,Newton North,,,,,L
+2013-2014,fall,F,Braintree,Norwood,,,,,
+2013-2014,fall,F,Braintree,Walpole,,,89,99,L
+2013-2014,fall,F,Braintree,Wellesley,,,,,
+2013-2014,fall,F,Braintree,Weymouth,,,,,
+2013-2014,fall,F,Brookline,Dedham,,,,,
+2013-2014,fall,F,Brookline,Framingham,,,,,
+2013-2014,fall,F,Brookline,Natick,,,,,
+2013-2014,fall,F,Brookline,Needham,,,44,96,L
+2013-2014,fall,F,Brookline,Newton North,,,80,101,L
+2013-2014,fall,F,Brookline,Norwood,,,87,95,L
+2013-2014,fall,F,Brookline,Walpole,,,,,
+2013-2014,fall,F,Brookline,Wellesley,,,84,97,L
+2013-2014,fall,F,Brookline,Weymouth,,,,,
+2013-2014,fall,F,Dedham,Framingham,,,,,
+2013-2014,fall,F,Dedham,Natick,,,,,
+2013-2014,fall,F,Dedham,Needham,,,69,93,L
+2013-2014,fall,F,Dedham,Newton North,,,75,99,L
+2013-2014,fall,F,Dedham,Norwood,,,,,
+2013-2014,fall,F,Dedham,Walpole,,,,,
+2013-2014,fall,F,Dedham,Wellesley,,,,,
+2013-2014,fall,F,Dedham,Weymouth,,,,,
+2013-2014,fall,F,Framingham,Natick,,,,,
+2013-2014,fall,F,Framingham,Needham,,,94,92,W
+2013-2014,fall,F,Framingham,Newton North,,,84,100,L
+2013-2014,fall,F,Framingham,Norwood,,,101,80,W
+2013-2014,fall,F,Framingham,Walpole,,,,,
+2013-2014,fall,F,Framingham,Wellesley,,,100.5,85.5,W
+2013-2014,fall,F,Framingham,Weymouth,,,,,
+2013-2014,fall,F,Natick,Needham,,,97,98,L
+2013-2014,fall,F,Natick,Newton North,,,,,L
+2013-2014,fall,F,Natick,Norwood,,,,,
+2013-2014,fall,F,Natick,Walpole,,,97.5,88.5,W
+2013-2014,fall,F,Natick,Wellesley,,,,,
+2013-2014,fall,F,Natick,Weymouth,,,,,
+2013-2014,fall,F,Needham,Newton North,,,102,84,W
+2013-2014,fall,F,Needham,Norwood,,,100,55,W
+2013-2014,fall,F,Needham,Walpole,,,,,
+2013-2014,fall,F,Needham,Wellesley,,,100,84,W
+2013-2014,fall,F,Needham,Weymouth,,,90,80,W
+2013-2014,fall,F,Newton North,Norwood,,,,,
+2013-2014,fall,F,Newton North,Walpole,,,,,W
+2013-2014,fall,F,Newton North,Wellesley,,,,,W
+2013-2014,fall,F,Newton North,Weymouth,,,,,
+2013-2014,fall,F,Norwood,Walpole,,,92,96,L
+2013-2014,fall,F,Norwood,Wellesley,,,,,
+2013-2014,fall,F,Norwood,Weymouth,,,94,68,W
+2013-2014,fall,F,Walpole,Wellesley,,,,,
+2013-2014,fall,F,Walpole,Weymouth,,,,,
+2013-2014,fall,F,Wellesley,Weymouth,,,,,
+2012-2013,fall,F,Braintree,Brookline,,,,,
+2012-2013,fall,F,Braintree,Dedham,,,,,
+2012-2013,fall,F,Braintree,Framingham,,,,,
+2012-2013,fall,F,Braintree,Natick,,,,,
+2012-2013,fall,F,Braintree,Needham,,,,,L
+2012-2013,fall,F,Braintree,Newton North,,,,,
+2012-2013,fall,F,Braintree,Norwood,,,,,
+2012-2013,fall,F,Braintree,Walpole,,,,,
+2012-2013,fall,F,Braintree,Wellesley,,,,,
+2012-2013,fall,F,Braintree,Weymouth,,,,,
+2012-2013,fall,F,Brookline,Dedham,,,,,
+2012-2013,fall,F,Brookline,Framingham,,,,,
+2012-2013,fall,F,Brookline,Natick,,,,,
+2012-2013,fall,F,Brookline,Needham,,,85,95,L
+2012-2013,fall,F,Brookline,Newton North,,,,,
+2012-2013,fall,F,Brookline,Norwood,,,83,97,L
+2012-2013,fall,F,Brookline,Walpole,,,,,
+2012-2013,fall,F,Brookline,Wellesley,,,,,
+2012-2013,fall,F,Brookline,Weymouth,,,,,
+2012-2013,fall,F,Dedham,Framingham,,,,,
+2012-2013,fall,F,Dedham,Natick,,,,,
+2012-2013,fall,F,Dedham,Needham,,,,,L
+2012-2013,fall,F,Dedham,Newton North,,,,,
+2012-2013,fall,F,Dedham,Norwood,,,,,
+2012-2013,fall,F,Dedham,Walpole,,,,,
+2012-2013,fall,F,Dedham,Wellesley,,,,,
+2012-2013,fall,F,Dedham,Weymouth,,,,,
+2012-2013,fall,F,Framingham,Natick,,,,,
+2012-2013,fall,F,Framingham,Needham,,,,,W
+2012-2013,fall,F,Framingham,Newton North,,,,,
+2012-2013,fall,F,Framingham,Norwood,,,,,
+2012-2013,fall,F,Framingham,Walpole,,,,,
+2012-2013,fall,F,Framingham,Wellesley,,,99,81,W
+2012-2013,fall,F,Framingham,Weymouth,,,,,
+2012-2013,fall,F,Natick,Needham,,,,,
+2012-2013,fall,F,Natick,Newton North,,,,,
+2012-2013,fall,F,Natick,Norwood,,,,,
+2012-2013,fall,F,Natick,Walpole,,,,,
+2012-2013,fall,F,Natick,Wellesley,,,,,
+2012-2013,fall,F,Natick,Weymouth,,,,,
+2012-2013,fall,F,Needham,Newton North,,,,,
+2012-2013,fall,F,Needham,Norwood,,,100,84,W
+2012-2013,fall,F,Needham,Walpole,,,,,
+2012-2013,fall,F,Needham,Wellesley,,,101,85,W
+2012-2013,fall,F,Needham,Weymouth,,,94,74,W
+2012-2013,fall,F,Newton North,Norwood,,,,,
+2012-2013,fall,F,Newton North,Walpole,,,,,
+2012-2013,fall,F,Newton North,Wellesley,,,,,
+2012-2013,fall,F,Newton North,Weymouth,,,,,
+2012-2013,fall,F,Norwood,Walpole,,,,,
+2012-2013,fall,F,Norwood,Wellesley,,,,,
+2012-2013,fall,F,Norwood,Weymouth,,,86,77,W
+2012-2013,fall,F,Walpole,Wellesley,,,,,
+2012-2013,fall,F,Walpole,Weymouth,,,,,
+2012-2013,fall,F,Wellesley,Weymouth,,,,,
+2011-2012,fall,F,Braintree,Brookline,,,95,91,W
+2011-2012,fall,F,Braintree,Dedham,,,,,
+2011-2012,fall,F,Braintree,Framingham,,,,,
+2011-2012,fall,F,Braintree,Natick,,,,,
+2011-2012,fall,F,Braintree,Needham,,,87,94,L
+2011-2012,fall,F,Braintree,Newton North,,,,,
+2011-2012,fall,F,Braintree,Norwood,,,79,107,L
+2011-2012,fall,F,Braintree,Walpole,,,,,
+2011-2012,fall,F,Braintree,Wellesley,,,,,
+2011-2012,fall,F,Braintree,Weymouth,,,100,71,W
+2011-2012,fall,F,Brookline,Dedham,,,,,
+2011-2012,fall,F,Brookline,Framingham,,,,,
+2011-2012,fall,F,Brookline,Natick,,,,,
+2011-2012,fall,F,Brookline,Needham,,,,,
+2011-2012,fall,F,Brookline,Newton North,,,,,
+2011-2012,fall,F,Brookline,Norwood,,,,,
+2011-2012,fall,F,Brookline,Walpole,,,,,
+2011-2012,fall,F,Brookline,Wellesley,,,,,
+2011-2012,fall,F,Brookline,Weymouth,,,,,
+2011-2012,fall,F,Dedham,Framingham,,,,,
+2011-2012,fall,F,Dedham,Natick,,,,,
+2011-2012,fall,F,Dedham,Needham,,,67,105,L
+2011-2012,fall,F,Dedham,Newton North,,,80,96,L
+2011-2012,fall,F,Dedham,Norwood,,,,,
+2011-2012,fall,F,Dedham,Walpole,,,,,
+2011-2012,fall,F,Dedham,Wellesley,,,,,
+2011-2012,fall,F,Dedham,Weymouth,,,,,
+2011-2012,fall,F,Framingham,Natick,,,,,
+2011-2012,fall,F,Framingham,Needham,,,81.6,104.3,L
+2011-2012,fall,F,Framingham,Newton North,,,,,
+2011-2012,fall,F,Framingham,Norwood,,,,,
+2011-2012,fall,F,Framingham,Walpole,,,,,
+2011-2012,fall,F,Framingham,Wellesley,,,,,
+2011-2012,fall,F,Framingham,Weymouth,,,88,79,W
+2011-2012,fall,F,Natick,Needham,,,82,103,L
+2011-2012,fall,F,Natick,Newton North,,,,,
+2011-2012,fall,F,Natick,Norwood,,,,,
+2011-2012,fall,F,Natick,Walpole,,,,,
+2011-2012,fall,F,Natick,Wellesley,,,,,
+2011-2012,fall,F,Natick,Weymouth,,,,,
+2011-2012,fall,F,Needham,Newton North,,,97,89,W
+2011-2012,fall,F,Needham,Norwood,,,,,
+2011-2012,fall,F,Needham,Walpole,,,88,96,L
+2011-2012,fall,F,Needham,Wellesley,,,96,85,W
+2011-2012,fall,F,Needham,Weymouth,,,,,
+2011-2012,fall,F,Newton North,Norwood,,,,,
+2011-2012,fall,F,Newton North,Walpole,,,84,97,L
+2011-2012,fall,F,Newton North,Wellesley,,,97,87,W
+2011-2012,fall,F,Newton North,Weymouth,,,,,
+2011-2012,fall,F,Norwood,Walpole,,,,,
+2011-2012,fall,F,Norwood,Wellesley,,,96,85,W
+2011-2012,fall,F,Norwood,Weymouth,,,,,
+2011-2012,fall,F,Walpole,Wellesley,,,,,
+2011-2012,fall,F,Walpole,Weymouth,,,,,
+2011-2012,fall,F,Wellesley,Weymouth,,,100,70,W
+2010-2011,fall,F,Braintree,Brookline,,,,,
+2010-2011,fall,F,Braintree,Dedham,,,,,
+2010-2011,fall,F,Braintree,Framingham,,,,,
+2010-2011,fall,F,Braintree,Natick,,,,,
+2010-2011,fall,F,Braintree,Needham,,,85,92,L
+2010-2011,fall,F,Braintree,Newton North,,,,,
+2010-2011,fall,F,Braintree,Norwood,,,,,
+2010-2011,fall,F,Braintree,Walpole,,,,,
+2010-2011,fall,F,Braintree,Wellesley,,,,,
+2010-2011,fall,F,Braintree,Weymouth,,,,,
+2010-2011,fall,F,Brookline,Dedham,,,,,
+2010-2011,fall,F,Brookline,Framingham,,,,,
+2010-2011,fall,F,Brookline,Natick,,,,,
+2010-2011,fall,F,Brookline,Needham,,,82,98,L
+2010-2011,fall,F,Brookline,Newton North,,,,,
+2010-2011,fall,F,Brookline,Norwood,,,,,
+2010-2011,fall,F,Brookline,Walpole,,,,,
+2010-2011,fall,F,Brookline,Wellesley,,,,,
+2010-2011,fall,F,Brookline,Weymouth,,,,,
+2010-2011,fall,F,Dedham,Framingham,,,,,
+2010-2011,fall,F,Dedham,Natick,,,,,
+2010-2011,fall,F,Dedham,Needham,,,72,99,L
+2010-2011,fall,F,Dedham,Newton North,,,,,
+2010-2011,fall,F,Dedham,Norwood,,,,,
+2010-2011,fall,F,Dedham,Walpole,,,,,
+2010-2011,fall,F,Dedham,Wellesley,,,,,
+2010-2011,fall,F,Dedham,Weymouth,,,,,
+2010-2011,fall,F,Framingham,Natick,,,97,84,W
+2010-2011,fall,F,Framingham,Needham,,,87,99,L
+2010-2011,fall,F,Framingham,Newton North,,,,,
+2010-2011,fall,F,Framingham,Norwood,,,,,
+2010-2011,fall,F,Framingham,Walpole,,,,,
+2010-2011,fall,F,Framingham,Wellesley,,,,,
+2010-2011,fall,F,Framingham,Weymouth,,,,,
+2010-2011,fall,F,Natick,Needham,,,79,105,L
+2010-2011,fall,F,Natick,Newton North,,,,,
+2010-2011,fall,F,Natick,Norwood,,,,,
+2010-2011,fall,F,Natick,Walpole,,,,,
+2010-2011,fall,F,Natick,Wellesley,,,,,
+2010-2011,fall,F,Natick,Weymouth,,,,,
+2010-2011,fall,F,Needham,Newton North,,,97,87,W
+2010-2011,fall,F,Needham,Norwood,,,100,80,W
+2010-2011,fall,F,Needham,Walpole,,,,,L
+2010-2011,fall,F,Needham,Wellesley,,,,,W
+2010-2011,fall,F,Needham,Weymouth,,,85,75,W
+2010-2011,fall,F,Newton North,Norwood,,,,,
+2010-2011,fall,F,Newton North,Walpole,,,,,
+2010-2011,fall,F,Newton North,Wellesley,,,,,
+2010-2011,fall,F,Newton North,Weymouth,,,,,
+2010-2011,fall,F,Norwood,Walpole,,,,,
+2010-2011,fall,F,Norwood,Wellesley,,,,,
+2010-2011,fall,F,Norwood,Weymouth,,,,,
+2010-2011,fall,F,Walpole,Wellesley,,,,,
+2010-2011,fall,F,Walpole,Weymouth,,,,,
+2010-2011,fall,F,Wellesley,Weymouth,,,,,
+2009-2010,fall,F,Braintree,Brookline,,,87,99,L
+2009-2010,fall,F,Braintree,Dedham,,,,,
+2009-2010,fall,F,Braintree,Framingham,,,,,
+2009-2010,fall,F,Braintree,Natick,,,,,
+2009-2010,fall,F,Braintree,Needham,,,,,
+2009-2010,fall,F,Braintree,Newton North,,,87,96,L
+2009-2010,fall,F,Braintree,Norwood,,,,,
+2009-2010,fall,F,Braintree,Walpole,,,,,
+2009-2010,fall,F,Braintree,Wellesley,,,,,
+2009-2010,fall,F,Braintree,Weymouth,,,97,78.5,W
+2009-2010,fall,F,Brookline,Dedham,,,,,
+2009-2010,fall,F,Brookline,Framingham,,,,,
+2009-2010,fall,F,Brookline,Natick,,,,,
+2009-2010,fall,F,Brookline,Needham,,,,,L
+2009-2010,fall,F,Brookline,Newton North,,,81,100,L
+2009-2010,fall,F,Brookline,Norwood,,,,,
+2009-2010,fall,F,Brookline,Walpole,,,,,
+2009-2010,fall,F,Brookline,Wellesley,,,88,93,L
+2009-2010,fall,F,Brookline,Weymouth,,,118,62,W
+2009-2010,fall,F,Dedham,Framingham,,,,,
+2009-2010,fall,F,Dedham,Natick,,,,,
+2009-2010,fall,F,Dedham,Needham,,,,,
+2009-2010,fall,F,Dedham,Newton North,,,,,
+2009-2010,fall,F,Dedham,Norwood,,,,,
+2009-2010,fall,F,Dedham,Walpole,,,,,
+2009-2010,fall,F,Dedham,Wellesley,,,,,
+2009-2010,fall,F,Dedham,Weymouth,,,,,
+2009-2010,fall,F,Framingham,Natick,,,,,
+2009-2010,fall,F,Framingham,Needham,,,83,100,L
+2009-2010,fall,F,Framingham,Newton North,,,,,
+2009-2010,fall,F,Framingham,Norwood,,,,,
+2009-2010,fall,F,Framingham,Walpole,,,,,
+2009-2010,fall,F,Framingham,Wellesley,,,,,
+2009-2010,fall,F,Framingham,Weymouth,,,,,
+2009-2010,fall,F,Natick,Needham,,,,,W
+2009-2010,fall,F,Natick,Newton North,,,93,93,T
+2009-2010,fall,F,Natick,Norwood,,,,,
+2009-2010,fall,F,Natick,Walpole,,,,,
+2009-2010,fall,F,Natick,Wellesley,,,,,
+2009-2010,fall,F,Natick,Weymouth,,,,,
+2009-2010,fall,F,Needham,Newton North,,,,,
+2009-2010,fall,F,Needham,Norwood,,,,,
+2009-2010,fall,F,Needham,Walpole,,,93,93,T
+2009-2010,fall,F,Needham,Wellesley,,,101,83,W
+2009-2010,fall,F,Needham,Weymouth,,,,,W
+2009-2010,fall,F,Newton North,Norwood,,,92,94,L
+2009-2010,fall,F,Newton North,Walpole,,,,,
+2009-2010,fall,F,Newton North,Wellesley,,,,,
+2009-2010,fall,F,Newton North,Weymouth,,,,,
+2009-2010,fall,F,Norwood,Walpole,,,,,
+2009-2010,fall,F,Norwood,Wellesley,,,,,
+2009-2010,fall,F,Norwood,Weymouth,,,,,
+2009-2010,fall,F,Walpole,Wellesley,,,,,
+2009-2010,fall,F,Walpole,Weymouth,,,,,
+2009-2010,fall,F,Wellesley,Weymouth,,,,,
+2008-2009,fall,F,Braintree,Brookline,,,,,
+2008-2009,fall,F,Braintree,Dedham,,,96,86,W
+2008-2009,fall,F,Braintree,Framingham,,,,,L
+2008-2009,fall,F,Braintree,Natick,,,,,
+2008-2009,fall,F,Braintree,Needham,,,76,96,L
+2008-2009,fall,F,Braintree,Newton North,,,,,
+2008-2009,fall,F,Braintree,Norwood,,,,,
+2008-2009,fall,F,Braintree,Walpole,,,,,
+2008-2009,fall,F,Braintree,Wellesley,,,,,
+2008-2009,fall,F,Braintree,Weymouth,,,,,
+2008-2009,fall,F,Brookline,Dedham,,,,,
+2008-2009,fall,F,Brookline,Framingham,,,,,L
+2008-2009,fall,F,Brookline,Natick,,,101,80,W
+2008-2009,fall,F,Brookline,Needham,,,101,83,W
+2008-2009,fall,F,Brookline,Newton North,,,88,98,L
+2008-2009,fall,F,Brookline,Norwood,,,,,
+2008-2009,fall,F,Brookline,Walpole,,,,,L
+2008-2009,fall,F,Brookline,Wellesley,,,,,W
+2008-2009,fall,F,Brookline,Weymouth,,,,,
+2008-2009,fall,F,Dedham,Framingham,,,,,L
+2008-2009,fall,F,Dedham,Natick,,,,,
+2008-2009,fall,F,Dedham,Needham,,,82,93,L
+2008-2009,fall,F,Dedham,Newton North,,,,,
+2008-2009,fall,F,Dedham,Norwood,,,,,
+2008-2009,fall,F,Dedham,Walpole,,,,,
+2008-2009,fall,F,Dedham,Wellesley,,,,,
+2008-2009,fall,F,Dedham,Weymouth,,,,,
+2008-2009,fall,F,Framingham,Natick,,,,,W
+2008-2009,fall,F,Framingham,Needham,,,97,81,W
+2008-2009,fall,F,Framingham,Newton North,,,,,W
+2008-2009,fall,F,Framingham,Norwood,,,,,W
+2008-2009,fall,F,Framingham,Walpole,,,,,W
+2008-2009,fall,F,Framingham,Wellesley,,,99,79,W
+2008-2009,fall,F,Framingham,Weymouth,,,,,W
+2008-2009,fall,F,Natick,Needham,,,86,95,L
+2008-2009,fall,F,Natick,Newton North,,,,,
+2008-2009,fall,F,Natick,Norwood,,,,,
+2008-2009,fall,F,Natick,Walpole,,,,,
+2008-2009,fall,F,Natick,Wellesley,,,87,96,L
+2008-2009,fall,F,Natick,Weymouth,,,,,
+2008-2009,fall,F,Needham,Newton North,,,103,84,W
+2008-2009,fall,F,Needham,Norwood,,,,,W
+2008-2009,fall,F,Needham,Walpole,,,81,100,L
+2008-2009,fall,F,Needham,Wellesley,,,93,92,W
+2008-2009,fall,F,Needham,Weymouth,,,,,W
+2008-2009,fall,F,Newton North,Norwood,,,,,
+2008-2009,fall,F,Newton North,Walpole,,,,,
+2008-2009,fall,F,Newton North,Wellesley,,,89,96,L
+2008-2009,fall,F,Newton North,Weymouth,,,,,
+2008-2009,fall,F,Norwood,Walpole,,,82,102,L
+2008-2009,fall,F,Norwood,Wellesley,,,88,96,L
+2008-2009,fall,F,Norwood,Weymouth,,,,,
+2008-2009,fall,F,Walpole,Wellesley,,,,,
+2008-2009,fall,F,Walpole,Weymouth,,,,,
+2008-2009,fall,F,Wellesley,Weymouth,,,,,W
+2007-2008,fall,F,Braintree,Brookline,,,,,L
+2007-2008,fall,F,Braintree,Dedham,,,,,L
+2007-2008,fall,F,Braintree,Framingham,,,,,L
+2007-2008,fall,F,Braintree,Natick,,,,,L
+2007-2008,fall,F,Braintree,Needham,,,,,L
+2007-2008,fall,F,Braintree,Newton North,,,,,L
+2007-2008,fall,F,Braintree,Norwood,,,,,L
+2007-2008,fall,F,Braintree,Walpole,,,,,L
+2007-2008,fall,F,Braintree,Wellesley,,,,,L
+2007-2008,fall,F,Braintree,Weymouth,,,,,L
+2007-2008,fall,F,Brookline,Dedham,,,,,
+2007-2008,fall,F,Brookline,Framingham,,,,,L
+2007-2008,fall,F,Brookline,Natick,,,,,
+2007-2008,fall,F,Brookline,Needham,,,105,78,W
+2007-2008,fall,F,Brookline,Newton North,,,,,
+2007-2008,fall,F,Brookline,Norwood,,,,,
+2007-2008,fall,F,Brookline,Walpole,,,,,
+2007-2008,fall,F,Brookline,Wellesley,,,100,87,W
+2007-2008,fall,F,Brookline,Weymouth,,,,,
+2007-2008,fall,F,Dedham,Framingham,,,,,L
+2007-2008,fall,F,Dedham,Natick,,,,,
+2007-2008,fall,F,Dedham,Needham,,,91,95,L
+2007-2008,fall,F,Dedham,Newton North,,,,,
+2007-2008,fall,F,Dedham,Norwood,,,,,
+2007-2008,fall,F,Dedham,Walpole,,,,,
+2007-2008,fall,F,Dedham,Wellesley,,,80,102,L
+2007-2008,fall,F,Dedham,Weymouth,,,,,
+2007-2008,fall,F,Framingham,Natick,,,,,W
+2007-2008,fall,F,Framingham,Needham,,,,,W
+2007-2008,fall,F,Framingham,Newton North,,,,,W
+2007-2008,fall,F,Framingham,Norwood,,,,,W
+2007-2008,fall,F,Framingham,Walpole,,,93,85,W
+2007-2008,fall,F,Framingham,Wellesley,,,94,90,W
+2007-2008,fall,F,Framingham,Weymouth,,,,,W
+2007-2008,fall,F,Natick,Needham,,,,,W
+2007-2008,fall,F,Natick,Newton North,,,,,
+2007-2008,fall,F,Natick,Norwood,,,,,
+2007-2008,fall,F,Natick,Walpole,,,,,
+2007-2008,fall,F,Natick,Wellesley,,,92,84,W
+2007-2008,fall,F,Natick,Weymouth,,,,,
+2007-2008,fall,F,Needham,Newton North,,,96,85,W
+2007-2008,fall,F,Needham,Norwood,,,94,89,W
+2007-2008,fall,F,Needham,Walpole,,,99.5,84.5,W
+2007-2008,fall,F,Needham,Wellesley,,,91,94,L
+2007-2008,fall,F,Needham,Weymouth,,,,,W
+2007-2008,fall,F,Newton North,Norwood,,,,,
+2007-2008,fall,F,Newton North,Walpole,,,,,
+2007-2008,fall,F,Newton North,Wellesley,,,85,101,L
+2007-2008,fall,F,Newton North,Weymouth,,,,,
+2007-2008,fall,F,Norwood,Walpole,,,,,W
+2007-2008,fall,F,Norwood,Wellesley,,,88,97,L
+2007-2008,fall,F,Norwood,Weymouth,,,,,
+2007-2008,fall,F,Walpole,Wellesley,,,98,86,W
+2007-2008,fall,F,Walpole,Weymouth,,,,,
+2007-2008,fall,F,Wellesley,Weymouth,,,97,87,W
+2006-2007,fall,F,Braintree,Brookline,,,,,L
+2006-2007,fall,F,Braintree,Dedham,,,,,L
+2006-2007,fall,F,Braintree,Framingham,,,,,L
+2006-2007,fall,F,Braintree,Natick,,,,,L
+2006-2007,fall,F,Braintree,Needham,,,,,L
+2006-2007,fall,F,Braintree,Newton North,,,,,L
+2006-2007,fall,F,Braintree,Norwood,,,,,L
+2006-2007,fall,F,Braintree,Walpole,,,,,L
+2006-2007,fall,F,Braintree,Wellesley,,,,,L
+2006-2007,fall,F,Braintree,Weymouth,,,,,L
+2006-2007,fall,F,Brookline,Dedham,,,,,
+2006-2007,fall,F,Brookline,Framingham,,,,,L
+2006-2007,fall,F,Brookline,Natick,,,,,
+2006-2007,fall,F,Brookline,Needham,,,,,
+2006-2007,fall,F,Brookline,Newton North,,,,,
+2006-2007,fall,F,Brookline,Norwood,,,,,
+2006-2007,fall,F,Brookline,Walpole,,,,,
+2006-2007,fall,F,Brookline,Wellesley,,,,,
+2006-2007,fall,F,Brookline,Weymouth,,,,,
+2006-2007,fall,F,Dedham,Framingham,,,,,L
+2006-2007,fall,F,Dedham,Natick,,,,,
+2006-2007,fall,F,Dedham,Needham,,,,,
+2006-2007,fall,F,Dedham,Newton North,,,,,
+2006-2007,fall,F,Dedham,Norwood,,,,,
+2006-2007,fall,F,Dedham,Walpole,,,,,
+2006-2007,fall,F,Dedham,Wellesley,,,,,
+2006-2007,fall,F,Dedham,Weymouth,,,,,
+2006-2007,fall,F,Framingham,Natick,,,,,W
+2006-2007,fall,F,Framingham,Needham,,,,,W
+2006-2007,fall,F,Framingham,Newton North,,,,,W
+2006-2007,fall,F,Framingham,Norwood,,,,,W
+2006-2007,fall,F,Framingham,Walpole,,,,,W
+2006-2007,fall,F,Framingham,Wellesley,,,,,W
+2006-2007,fall,F,Framingham,Weymouth,,,,,W
+2006-2007,fall,F,Natick,Needham,,,,,
+2006-2007,fall,F,Natick,Newton North,,,,,
+2006-2007,fall,F,Natick,Norwood,,,,,
+2006-2007,fall,F,Natick,Walpole,,,,,
+2006-2007,fall,F,Natick,Wellesley,,,92,84,W
+2006-2007,fall,F,Natick,Weymouth,,,,,
+2006-2007,fall,F,Needham,Newton North,,,,,
+2006-2007,fall,F,Needham,Norwood,,,,,
+2006-2007,fall,F,Needham,Walpole,,,,,
+2006-2007,fall,F,Needham,Wellesley,,,,,
+2006-2007,fall,F,Needham,Weymouth,,,,,
+2006-2007,fall,F,Newton North,Norwood,,,,,
+2006-2007,fall,F,Newton North,Walpole,,,,,
+2006-2007,fall,F,Newton North,Wellesley,,,,,
+2006-2007,fall,F,Newton North,Weymouth,,,,,
+2006-2007,fall,F,Norwood,Walpole,,,,,
+2006-2007,fall,F,Norwood,Wellesley,,,93,93,T
+2006-2007,fall,F,Norwood,Weymouth,,,,,
+2006-2007,fall,F,Walpole,Wellesley,,,84,99,L
+2006-2007,fall,F,Walpole,Weymouth,,,,,
+2006-2007,fall,F,Wellesley,Weymouth,,,,,
+2005-2006,fall,F,Braintree,Brookline,,,,,L
+2005-2006,fall,F,Braintree,Dedham,,,,,L
+2005-2006,fall,F,Braintree,Framingham,,,,,L
+2005-2006,fall,F,Braintree,Natick,,,,,L
+2005-2006,fall,F,Braintree,Needham,,,,,L
+2005-2006,fall,F,Braintree,Newton North,,,,,L
+2005-2006,fall,F,Braintree,Norwood,,,,,L
+2005-2006,fall,F,Braintree,Walpole,,,,,L
+2005-2006,fall,F,Braintree,Wellesley,,,,,L
+2005-2006,fall,F,Braintree,Weymouth,,,,,L
+2005-2006,fall,F,Brookline,Dedham,,,,,
+2005-2006,fall,F,Brookline,Framingham,,,,,L
+2005-2006,fall,F,Brookline,Natick,,,,,
+2005-2006,fall,F,Brookline,Needham,,,,,
+2005-2006,fall,F,Brookline,Newton North,,,,,
+2005-2006,fall,F,Brookline,Norwood,,,,,
+2005-2006,fall,F,Brookline,Walpole,,,,,
+2005-2006,fall,F,Brookline,Wellesley,,,,,
+2005-2006,fall,F,Brookline,Weymouth,,,,,
+2005-2006,fall,F,Dedham,Framingham,,,,,L
+2005-2006,fall,F,Dedham,Natick,,,,,
+2005-2006,fall,F,Dedham,Needham,,,,,
+2005-2006,fall,F,Dedham,Newton North,,,,,
+2005-2006,fall,F,Dedham,Norwood,,,,,
+2005-2006,fall,F,Dedham,Walpole,,,,,
+2005-2006,fall,F,Dedham,Wellesley,,,,,
+2005-2006,fall,F,Dedham,Weymouth,,,,,
+2005-2006,fall,F,Framingham,Natick,,,,,W
+2005-2006,fall,F,Framingham,Needham,,,,,W
+2005-2006,fall,F,Framingham,Newton North,,,,,W
+2005-2006,fall,F,Framingham,Norwood,,,,,W
+2005-2006,fall,F,Framingham,Walpole,,,,,W
+2005-2006,fall,F,Framingham,Wellesley,,,,,W
+2005-2006,fall,F,Framingham,Weymouth,,,,,W
+2005-2006,fall,F,Natick,Needham,,,,,
+2005-2006,fall,F,Natick,Newton North,,,,,
+2005-2006,fall,F,Natick,Norwood,,,,,
+2005-2006,fall,F,Natick,Walpole,,,,,
+2005-2006,fall,F,Natick,Wellesley,,,,,
+2005-2006,fall,F,Natick,Weymouth,,,,,
+2005-2006,fall,F,Needham,Newton North,,,,,
+2005-2006,fall,F,Needham,Norwood,,,,,
+2005-2006,fall,F,Needham,Walpole,,,,,
+2005-2006,fall,F,Needham,Wellesley,,,,,
+2005-2006,fall,F,Needham,Weymouth,,,,,
+2005-2006,fall,F,Newton North,Norwood,,,,,
+2005-2006,fall,F,Newton North,Walpole,,,,,
+2005-2006,fall,F,Newton North,Wellesley,,,,,
+2005-2006,fall,F,Newton North,Weymouth,,,,,
+2005-2006,fall,F,Norwood,Walpole,,,,,
+2005-2006,fall,F,Norwood,Wellesley,,,,,
+2005-2006,fall,F,Norwood,Weymouth,,,,,
+2005-2006,fall,F,Walpole,Wellesley,,,,,
+2005-2006,fall,F,Walpole,Weymouth,,,,,
+2005-2006,fall,F,Wellesley,Weymouth,,,,,
+2004-2005,fall,F,Braintree,Brookline,,,,,
+2004-2005,fall,F,Braintree,Dedham,,,,,
+2004-2005,fall,F,Braintree,Framingham,,,,,L
+2004-2005,fall,F,Braintree,Natick,,,,,
+2004-2005,fall,F,Braintree,Needham,,,,,
+2004-2005,fall,F,Braintree,Newton North,,,,,
+2004-2005,fall,F,Braintree,Norwood,,,,,
+2004-2005,fall,F,Braintree,Walpole,,,,,
+2004-2005,fall,F,Braintree,Wellesley,,,,,
+2004-2005,fall,F,Braintree,Weymouth,,,,,
+2004-2005,fall,F,Brookline,Dedham,,,,,
+2004-2005,fall,F,Brookline,Framingham,,,,,L
+2004-2005,fall,F,Brookline,Natick,,,,,
+2004-2005,fall,F,Brookline,Needham,,,,,
+2004-2005,fall,F,Brookline,Newton North,,,,,
+2004-2005,fall,F,Brookline,Norwood,,,,,
+2004-2005,fall,F,Brookline,Walpole,,,,,
+2004-2005,fall,F,Brookline,Wellesley,,,,,
+2004-2005,fall,F,Brookline,Weymouth,,,,,
+2004-2005,fall,F,Dedham,Framingham,,,,,L
+2004-2005,fall,F,Dedham,Natick,,,,,
+2004-2005,fall,F,Dedham,Needham,,,,,
+2004-2005,fall,F,Dedham,Newton North,,,,,
+2004-2005,fall,F,Dedham,Norwood,,,,,
+2004-2005,fall,F,Dedham,Walpole,,,,,
+2004-2005,fall,F,Dedham,Wellesley,,,,,
+2004-2005,fall,F,Dedham,Weymouth,,,,,
+2004-2005,fall,F,Framingham,Natick,,,,,W
+2004-2005,fall,F,Framingham,Needham,,,,,W
+2004-2005,fall,F,Framingham,Newton North,,,,,W
+2004-2005,fall,F,Framingham,Norwood,,,,,W
+2004-2005,fall,F,Framingham,Walpole,,,,,W
+2004-2005,fall,F,Framingham,Wellesley,,,,,W
+2004-2005,fall,F,Framingham,Weymouth,,,,,W
+2004-2005,fall,F,Natick,Needham,,,,,
+2004-2005,fall,F,Natick,Newton North,,,,,
+2004-2005,fall,F,Natick,Norwood,,,,,
+2004-2005,fall,F,Natick,Walpole,,,,,
+2004-2005,fall,F,Natick,Wellesley,,,,,
+2004-2005,fall,F,Natick,Weymouth,,,,,
+2004-2005,fall,F,Needham,Newton North,,,,,
+2004-2005,fall,F,Needham,Norwood,,,,,
+2004-2005,fall,F,Needham,Walpole,,,,,
+2004-2005,fall,F,Needham,Wellesley,,,,,
+2004-2005,fall,F,Needham,Weymouth,,,,,
+2004-2005,fall,F,Newton North,Norwood,,,,,
+2004-2005,fall,F,Newton North,Walpole,,,,,
+2004-2005,fall,F,Newton North,Wellesley,,,,,
+2004-2005,fall,F,Newton North,Weymouth,,,,,
+2004-2005,fall,F,Norwood,Walpole,,,,,
+2004-2005,fall,F,Norwood,Wellesley,,,,,
+2004-2005,fall,F,Norwood,Weymouth,,,,,
+2004-2005,fall,F,Walpole,Wellesley,,,,,
+2004-2005,fall,F,Walpole,Weymouth,,,,,
+2004-2005,fall,F,Wellesley,Weymouth,,,,,
+2003-2004,fall,F,Braintree,Brookline,,,,,
+2003-2004,fall,F,Braintree,Dedham,,,,,
+2003-2004,fall,F,Braintree,Framingham,,,,,
+2003-2004,fall,F,Braintree,Natick,,,,,
+2003-2004,fall,F,Braintree,Needham,,,,,L
+2003-2004,fall,F,Braintree,Newton North,,,,,
+2003-2004,fall,F,Braintree,Norwood,,,,,
+2003-2004,fall,F,Braintree,Walpole,,,,,
+2003-2004,fall,F,Braintree,Wellesley,,,,,
+2003-2004,fall,F,Braintree,Weymouth,,,,,
+2003-2004,fall,F,Brookline,Dedham,,,,,
+2003-2004,fall,F,Brookline,Framingham,,,,,
+2003-2004,fall,F,Brookline,Natick,,,,,
+2003-2004,fall,F,Brookline,Needham,,,,,L
+2003-2004,fall,F,Brookline,Newton North,,,,,
+2003-2004,fall,F,Brookline,Norwood,,,,,
+2003-2004,fall,F,Brookline,Walpole,,,,,
+2003-2004,fall,F,Brookline,Wellesley,,,,,
+2003-2004,fall,F,Brookline,Weymouth,,,,,
+2003-2004,fall,F,Dedham,Framingham,,,,,
+2003-2004,fall,F,Dedham,Natick,,,,,
+2003-2004,fall,F,Dedham,Needham,,,,,L
+2003-2004,fall,F,Dedham,Newton North,,,,,
+2003-2004,fall,F,Dedham,Norwood,,,,,
+2003-2004,fall,F,Dedham,Walpole,,,,,
+2003-2004,fall,F,Dedham,Wellesley,,,,,
+2003-2004,fall,F,Dedham,Weymouth,,,,,
+2003-2004,fall,F,Framingham,Natick,,,,,
+2003-2004,fall,F,Framingham,Needham,,,,,L
+2003-2004,fall,F,Framingham,Newton North,,,,,
+2003-2004,fall,F,Framingham,Norwood,,,,,
+2003-2004,fall,F,Framingham,Walpole,,,,,
+2003-2004,fall,F,Framingham,Wellesley,,,,,
+2003-2004,fall,F,Framingham,Weymouth,,,,,
+2003-2004,fall,F,Natick,Needham,,,,,L
+2003-2004,fall,F,Natick,Newton North,,,,,
+2003-2004,fall,F,Natick,Norwood,,,,,
+2003-2004,fall,F,Natick,Walpole,,,,,
+2003-2004,fall,F,Natick,Wellesley,,,,,
+2003-2004,fall,F,Natick,Weymouth,,,,,
+2003-2004,fall,F,Needham,Newton North,,,,,W
+2003-2004,fall,F,Needham,Norwood,,,,,W
+2003-2004,fall,F,Needham,Walpole,,,,,W
+2003-2004,fall,F,Needham,Wellesley,,,,,W
+2003-2004,fall,F,Needham,Weymouth,,,,,W
+2003-2004,fall,F,Newton North,Norwood,,,,,
+2003-2004,fall,F,Newton North,Walpole,,,,,
+2003-2004,fall,F,Newton North,Wellesley,,,,,
+2003-2004,fall,F,Newton North,Weymouth,,,,,
+2003-2004,fall,F,Norwood,Walpole,,,,,
+2003-2004,fall,F,Norwood,Wellesley,,,,,
+2003-2004,fall,F,Norwood,Weymouth,,,,,
+2003-2004,fall,F,Walpole,Wellesley,,,,,
+2003-2004,fall,F,Walpole,Weymouth,,,,,
+2003-2004,fall,F,Wellesley,Weymouth,,,,,
+2002-2003,fall,F,Braintree,Brookline,,,,,
+2002-2003,fall,F,Braintree,Dedham,,,,,
+2002-2003,fall,F,Braintree,Framingham,,,,,
+2002-2003,fall,F,Braintree,Natick,,,,,
+2002-2003,fall,F,Braintree,Needham,,,,,L
+2002-2003,fall,F,Braintree,Newton North,,,,,
+2002-2003,fall,F,Braintree,Norwood,,,,,
+2002-2003,fall,F,Braintree,Walpole,,,,,
+2002-2003,fall,F,Braintree,Wellesley,,,,,
+2002-2003,fall,F,Braintree,Weymouth,,,,,
+2002-2003,fall,F,Brookline,Dedham,,,,,
+2002-2003,fall,F,Brookline,Framingham,,,,,
+2002-2003,fall,F,Brookline,Natick,,,,,
+2002-2003,fall,F,Brookline,Needham,,,,,L
+2002-2003,fall,F,Brookline,Newton North,,,,,
+2002-2003,fall,F,Brookline,Norwood,,,,,
+2002-2003,fall,F,Brookline,Walpole,,,,,
+2002-2003,fall,F,Brookline,Wellesley,,,,,
+2002-2003,fall,F,Brookline,Weymouth,,,,,
+2002-2003,fall,F,Dedham,Framingham,,,,,
+2002-2003,fall,F,Dedham,Natick,,,,,
+2002-2003,fall,F,Dedham,Needham,,,,,L
+2002-2003,fall,F,Dedham,Newton North,,,,,
+2002-2003,fall,F,Dedham,Norwood,,,,,
+2002-2003,fall,F,Dedham,Walpole,,,,,
+2002-2003,fall,F,Dedham,Wellesley,,,,,
+2002-2003,fall,F,Dedham,Weymouth,,,,,
+2002-2003,fall,F,Framingham,Natick,,,,,
+2002-2003,fall,F,Framingham,Needham,,,,,L
+2002-2003,fall,F,Framingham,Newton North,,,,,
+2002-2003,fall,F,Framingham,Norwood,,,,,
+2002-2003,fall,F,Framingham,Walpole,,,,,
+2002-2003,fall,F,Framingham,Wellesley,,,,,
+2002-2003,fall,F,Framingham,Weymouth,,,,,
+2002-2003,fall,F,Natick,Needham,,,,,L
+2002-2003,fall,F,Natick,Newton North,,,,,
+2002-2003,fall,F,Natick,Norwood,,,,,
+2002-2003,fall,F,Natick,Walpole,,,,,
+2002-2003,fall,F,Natick,Wellesley,,,,,
+2002-2003,fall,F,Natick,Weymouth,,,,,
+2002-2003,fall,F,Needham,Newton North,,,,,W
+2002-2003,fall,F,Needham,Norwood,,,,,W
+2002-2003,fall,F,Needham,Walpole,,,,,W
+2002-2003,fall,F,Needham,Wellesley,,,,,W
+2002-2003,fall,F,Needham,Weymouth,,,,,W
+2002-2003,fall,F,Newton North,Norwood,,,,,
+2002-2003,fall,F,Newton North,Walpole,,,,,
+2002-2003,fall,F,Newton North,Wellesley,,,,,
+2002-2003,fall,F,Newton North,Weymouth,,,,,
+2002-2003,fall,F,Norwood,Walpole,,,,,
+2002-2003,fall,F,Norwood,Wellesley,,,,,
+2002-2003,fall,F,Norwood,Weymouth,,,,,
+2002-2003,fall,F,Walpole,Wellesley,,,,,
+2002-2003,fall,F,Walpole,Weymouth,,,,,
+2002-2003,fall,F,Wellesley,Weymouth,,,,,
+2001-2002,fall,F,Braintree,Brookline,,,,,
+2001-2002,fall,F,Braintree,Dedham,,,,,
+2001-2002,fall,F,Braintree,Framingham,,,,,
+2001-2002,fall,F,Braintree,Natick,,,,,
+2001-2002,fall,F,Braintree,Needham,,,,,L
+2001-2002,fall,F,Braintree,Newton North,,,,,
+2001-2002,fall,F,Braintree,Norwood,,,,,
+2001-2002,fall,F,Braintree,Walpole,,,,,
+2001-2002,fall,F,Braintree,Wellesley,,,,,
+2001-2002,fall,F,Braintree,Weymouth,,,,,
+2001-2002,fall,F,Brookline,Dedham,,,,,
+2001-2002,fall,F,Brookline,Framingham,,,,,
+2001-2002,fall,F,Brookline,Natick,,,,,
+2001-2002,fall,F,Brookline,Needham,,,,,L
+2001-2002,fall,F,Brookline,Newton North,,,,,
+2001-2002,fall,F,Brookline,Norwood,,,,,
+2001-2002,fall,F,Brookline,Walpole,,,,,
+2001-2002,fall,F,Brookline,Wellesley,,,,,
+2001-2002,fall,F,Brookline,Weymouth,,,,,
+2001-2002,fall,F,Dedham,Framingham,,,,,
+2001-2002,fall,F,Dedham,Natick,,,,,
+2001-2002,fall,F,Dedham,Needham,,,,,L
+2001-2002,fall,F,Dedham,Newton North,,,,,
+2001-2002,fall,F,Dedham,Norwood,,,,,
+2001-2002,fall,F,Dedham,Walpole,,,,,
+2001-2002,fall,F,Dedham,Wellesley,,,,,
+2001-2002,fall,F,Dedham,Weymouth,,,,,
+2001-2002,fall,F,Framingham,Natick,,,,,
+2001-2002,fall,F,Framingham,Needham,,,,,L
+2001-2002,fall,F,Framingham,Newton North,,,,,
+2001-2002,fall,F,Framingham,Norwood,,,,,
+2001-2002,fall,F,Framingham,Walpole,,,,,
+2001-2002,fall,F,Framingham,Wellesley,,,,,
+2001-2002,fall,F,Framingham,Weymouth,,,,,
+2001-2002,fall,F,Natick,Needham,,,,,L
+2001-2002,fall,F,Natick,Newton North,,,,,
+2001-2002,fall,F,Natick,Norwood,,,,,
+2001-2002,fall,F,Natick,Walpole,,,,,
+2001-2002,fall,F,Natick,Wellesley,,,,,
+2001-2002,fall,F,Natick,Weymouth,,,,,
+2001-2002,fall,F,Needham,Newton North,,,,,W
+2001-2002,fall,F,Needham,Norwood,,,,,W
+2001-2002,fall,F,Needham,Walpole,,,,,W
+2001-2002,fall,F,Needham,Wellesley,,,,,W
+2001-2002,fall,F,Needham,Weymouth,,,,,W
+2001-2002,fall,F,Newton North,Norwood,,,,,
+2001-2002,fall,F,Newton North,Walpole,,,,,
+2001-2002,fall,F,Newton North,Wellesley,,,,,
+2001-2002,fall,F,Newton North,Weymouth,,,,,
+2001-2002,fall,F,Norwood,Walpole,,,,,
+2001-2002,fall,F,Norwood,Wellesley,,,,,
+2001-2002,fall,F,Norwood,Weymouth,,,,,
+2001-2002,fall,F,Walpole,Wellesley,,,,,
+2001-2002,fall,F,Walpole,Weymouth,,,,,
+2001-2002,fall,F,Wellesley,Weymouth,,,,,
+2000-2001,fall,F,Braintree,Brookline,,,,,
+2000-2001,fall,F,Braintree,Dedham,,,,,
+2000-2001,fall,F,Braintree,Framingham,,,,,
+2000-2001,fall,F,Braintree,Natick,,,,,
+2000-2001,fall,F,Braintree,Needham,,,,,L
+2000-2001,fall,F,Braintree,Newton North,,,,,
+2000-2001,fall,F,Braintree,Norwood,,,,,
+2000-2001,fall,F,Braintree,Walpole,,,,,
+2000-2001,fall,F,Braintree,Wellesley,,,,,
+2000-2001,fall,F,Braintree,Weymouth,,,,,
+2000-2001,fall,F,Brookline,Dedham,,,,,
+2000-2001,fall,F,Brookline,Framingham,,,,,
+2000-2001,fall,F,Brookline,Natick,,,,,
+2000-2001,fall,F,Brookline,Needham,,,,,L
+2000-2001,fall,F,Brookline,Newton North,,,,,
+2000-2001,fall,F,Brookline,Norwood,,,,,
+2000-2001,fall,F,Brookline,Walpole,,,,,
+2000-2001,fall,F,Brookline,Wellesley,,,,,
+2000-2001,fall,F,Brookline,Weymouth,,,,,
+2000-2001,fall,F,Dedham,Framingham,,,,,
+2000-2001,fall,F,Dedham,Natick,,,,,
+2000-2001,fall,F,Dedham,Needham,,,,,L
+2000-2001,fall,F,Dedham,Newton North,,,,,
+2000-2001,fall,F,Dedham,Norwood,,,,,
+2000-2001,fall,F,Dedham,Walpole,,,,,
+2000-2001,fall,F,Dedham,Wellesley,,,,,
+2000-2001,fall,F,Dedham,Weymouth,,,,,
+2000-2001,fall,F,Framingham,Natick,,,,,
+2000-2001,fall,F,Framingham,Needham,,,,,L
+2000-2001,fall,F,Framingham,Newton North,,,,,
+2000-2001,fall,F,Framingham,Norwood,,,,,
+2000-2001,fall,F,Framingham,Walpole,,,,,
+2000-2001,fall,F,Framingham,Wellesley,,,,,
+2000-2001,fall,F,Framingham,Weymouth,,,,,
+2000-2001,fall,F,Natick,Needham,,,,,L
+2000-2001,fall,F,Natick,Newton North,,,,,
+2000-2001,fall,F,Natick,Norwood,,,,,
+2000-2001,fall,F,Natick,Walpole,,,,,
+2000-2001,fall,F,Natick,Wellesley,,,,,
+2000-2001,fall,F,Natick,Weymouth,,,,,
+2000-2001,fall,F,Needham,Newton North,,,,,W
+2000-2001,fall,F,Needham,Norwood,,,,,W
+2000-2001,fall,F,Needham,Walpole,,,,,W
+2000-2001,fall,F,Needham,Wellesley,,,,,W
+2000-2001,fall,F,Needham,Weymouth,,,,,W
+2000-2001,fall,F,Newton North,Norwood,,,,,
+2000-2001,fall,F,Newton North,Walpole,,,,,
+2000-2001,fall,F,Newton North,Wellesley,,,,,
+2000-2001,fall,F,Newton North,Weymouth,,,,,
+2000-2001,fall,F,Norwood,Walpole,,,,,
+2000-2001,fall,F,Norwood,Wellesley,,,,,
+2000-2001,fall,F,Norwood,Weymouth,,,,,
+2000-2001,fall,F,Walpole,Wellesley,,,,,
+2000-2001,fall,F,Walpole,Weymouth,,,,,
+2000-2001,fall,F,Wellesley,Weymouth,,,,,
+1999-2000,fall,F,Braintree,Brookline,,,,,
+1999-2000,fall,F,Braintree,Dedham,,,,,
+1999-2000,fall,F,Braintree,Framingham,,,,,
+1999-2000,fall,F,Braintree,Natick,,,,,
+1999-2000,fall,F,Braintree,Needham,,,,,L
+1999-2000,fall,F,Braintree,Newton North,,,,,
+1999-2000,fall,F,Braintree,Norwood,,,,,
+1999-2000,fall,F,Braintree,Walpole,,,,,
+1999-2000,fall,F,Braintree,Wellesley,,,,,
+1999-2000,fall,F,Braintree,Weymouth,,,,,
+1999-2000,fall,F,Brookline,Dedham,,,,,
+1999-2000,fall,F,Brookline,Framingham,,,,,
+1999-2000,fall,F,Brookline,Natick,,,,,
+1999-2000,fall,F,Brookline,Needham,,,,,L
+1999-2000,fall,F,Brookline,Newton North,,,,,
+1999-2000,fall,F,Brookline,Norwood,,,,,
+1999-2000,fall,F,Brookline,Walpole,,,,,
+1999-2000,fall,F,Brookline,Wellesley,,,,,
+1999-2000,fall,F,Brookline,Weymouth,,,,,
+1999-2000,fall,F,Dedham,Framingham,,,,,
+1999-2000,fall,F,Dedham,Natick,,,,,
+1999-2000,fall,F,Dedham,Needham,,,,,L
+1999-2000,fall,F,Dedham,Newton North,,,,,
+1999-2000,fall,F,Dedham,Norwood,,,,,
+1999-2000,fall,F,Dedham,Walpole,,,,,
+1999-2000,fall,F,Dedham,Wellesley,,,,,
+1999-2000,fall,F,Dedham,Weymouth,,,,,
+1999-2000,fall,F,Framingham,Natick,,,,,
+1999-2000,fall,F,Framingham,Needham,,,,,L
+1999-2000,fall,F,Framingham,Newton North,,,,,
+1999-2000,fall,F,Framingham,Norwood,,,,,
+1999-2000,fall,F,Framingham,Walpole,,,,,
+1999-2000,fall,F,Framingham,Wellesley,,,,,
+1999-2000,fall,F,Framingham,Weymouth,,,,,
+1999-2000,fall,F,Natick,Needham,,,,,L
+1999-2000,fall,F,Natick,Newton North,,,,,
+1999-2000,fall,F,Natick,Norwood,,,,,
+1999-2000,fall,F,Natick,Walpole,,,,,
+1999-2000,fall,F,Natick,Wellesley,,,,,
+1999-2000,fall,F,Natick,Weymouth,,,,,
+1999-2000,fall,F,Needham,Newton North,,,,,W
+1999-2000,fall,F,Needham,Norwood,,,,,W
+1999-2000,fall,F,Needham,Walpole,,,,,W
+1999-2000,fall,F,Needham,Wellesley,,,,,W
+1999-2000,fall,F,Needham,Weymouth,,,,,W
+1999-2000,fall,F,Newton North,Norwood,,,,,
+1999-2000,fall,F,Newton North,Walpole,,,,,
+1999-2000,fall,F,Newton North,Wellesley,,,,,
+1999-2000,fall,F,Newton North,Weymouth,,,,,
+1999-2000,fall,F,Norwood,Walpole,,,,,
+1999-2000,fall,F,Norwood,Wellesley,,,,,
+1999-2000,fall,F,Norwood,Weymouth,,,,,
+1999-2000,fall,F,Walpole,Wellesley,,,,,
+1999-2000,fall,F,Walpole,Weymouth,,,,,
+1999-2000,fall,F,Wellesley,Weymouth,,,,,
+1998-1999,fall,F,Braintree,Brookline,,,,,
+1998-1999,fall,F,Braintree,Dedham,,,,,
+1998-1999,fall,F,Braintree,Framingham,,,,,
+1998-1999,fall,F,Braintree,Natick,,,,,
+1998-1999,fall,F,Braintree,Needham,,,,,L
+1998-1999,fall,F,Braintree,Newton North,,,,,
+1998-1999,fall,F,Braintree,Norwood,,,,,
+1998-1999,fall,F,Braintree,Walpole,,,,,
+1998-1999,fall,F,Braintree,Wellesley,,,,,
+1998-1999,fall,F,Braintree,Weymouth,,,,,
+1998-1999,fall,F,Brookline,Dedham,,,,,
+1998-1999,fall,F,Brookline,Framingham,,,,,
+1998-1999,fall,F,Brookline,Natick,,,,,
+1998-1999,fall,F,Brookline,Needham,,,,,L
+1998-1999,fall,F,Brookline,Newton North,,,,,
+1998-1999,fall,F,Brookline,Norwood,,,,,
+1998-1999,fall,F,Brookline,Walpole,,,,,
+1998-1999,fall,F,Brookline,Wellesley,,,,,
+1998-1999,fall,F,Brookline,Weymouth,,,,,
+1998-1999,fall,F,Dedham,Framingham,,,,,
+1998-1999,fall,F,Dedham,Natick,,,,,
+1998-1999,fall,F,Dedham,Needham,,,,,L
+1998-1999,fall,F,Dedham,Newton North,,,,,
+1998-1999,fall,F,Dedham,Norwood,,,,,
+1998-1999,fall,F,Dedham,Walpole,,,,,
+1998-1999,fall,F,Dedham,Wellesley,,,,,
+1998-1999,fall,F,Dedham,Weymouth,,,,,
+1998-1999,fall,F,Framingham,Natick,,,,,
+1998-1999,fall,F,Framingham,Needham,,,,,L
+1998-1999,fall,F,Framingham,Newton North,,,,,
+1998-1999,fall,F,Framingham,Norwood,,,,,
+1998-1999,fall,F,Framingham,Walpole,,,,,
+1998-1999,fall,F,Framingham,Wellesley,,,,,
+1998-1999,fall,F,Framingham,Weymouth,,,,,
+1998-1999,fall,F,Natick,Needham,,,,,L
+1998-1999,fall,F,Natick,Newton North,,,,,
+1998-1999,fall,F,Natick,Norwood,,,,,
+1998-1999,fall,F,Natick,Walpole,,,,,
+1998-1999,fall,F,Natick,Wellesley,,,,,
+1998-1999,fall,F,Natick,Weymouth,,,,,
+1998-1999,fall,F,Needham,Newton North,,,,,W
+1998-1999,fall,F,Needham,Norwood,,,,,W
+1998-1999,fall,F,Needham,Walpole,,,,,W
+1998-1999,fall,F,Needham,Wellesley,,,,,W
+1998-1999,fall,F,Needham,Weymouth,,,,,W
+1998-1999,fall,F,Newton North,Norwood,,,,,
+1998-1999,fall,F,Newton North,Walpole,,,,,
+1998-1999,fall,F,Newton North,Wellesley,,,,,
+1998-1999,fall,F,Newton North,Weymouth,,,,,
+1998-1999,fall,F,Norwood,Walpole,,,,,
+1998-1999,fall,F,Norwood,Wellesley,,,,,
+1998-1999,fall,F,Norwood,Weymouth,,,,,
+1998-1999,fall,F,Walpole,Wellesley,,,,,
+1998-1999,fall,F,Walpole,Weymouth,,,,,
+1998-1999,fall,F,Wellesley,Weymouth,,,,,
+1997-1998,fall,F,Braintree,Brookline,,,,,
+1997-1998,fall,F,Braintree,Dedham,,,,,
+1997-1998,fall,F,Braintree,Framingham,,,,,
+1997-1998,fall,F,Braintree,Natick,,,,,
+1997-1998,fall,F,Braintree,Needham,,,,,L
+1997-1998,fall,F,Braintree,Newton North,,,,,
+1997-1998,fall,F,Braintree,Norwood,,,,,
+1997-1998,fall,F,Braintree,Walpole,,,,,
+1997-1998,fall,F,Braintree,Wellesley,,,,,
+1997-1998,fall,F,Braintree,Weymouth,,,,,
+1997-1998,fall,F,Brookline,Dedham,,,,,
+1997-1998,fall,F,Brookline,Framingham,,,,,
+1997-1998,fall,F,Brookline,Natick,,,,,
+1997-1998,fall,F,Brookline,Needham,,,,,L
+1997-1998,fall,F,Brookline,Newton North,,,,,
+1997-1998,fall,F,Brookline,Norwood,,,,,
+1997-1998,fall,F,Brookline,Walpole,,,,,
+1997-1998,fall,F,Brookline,Wellesley,,,,,
+1997-1998,fall,F,Brookline,Weymouth,,,,,
+1997-1998,fall,F,Dedham,Framingham,,,,,
+1997-1998,fall,F,Dedham,Natick,,,,,
+1997-1998,fall,F,Dedham,Needham,,,,,L
+1997-1998,fall,F,Dedham,Newton North,,,,,
+1997-1998,fall,F,Dedham,Norwood,,,,,
+1997-1998,fall,F,Dedham,Walpole,,,,,
+1997-1998,fall,F,Dedham,Wellesley,,,,,
+1997-1998,fall,F,Dedham,Weymouth,,,,,
+1997-1998,fall,F,Framingham,Natick,,,,,
+1997-1998,fall,F,Framingham,Needham,,,,,L
+1997-1998,fall,F,Framingham,Newton North,,,,,
+1997-1998,fall,F,Framingham,Norwood,,,,,
+1997-1998,fall,F,Framingham,Walpole,,,,,
+1997-1998,fall,F,Framingham,Wellesley,,,,,
+1997-1998,fall,F,Framingham,Weymouth,,,,,
+1997-1998,fall,F,Natick,Needham,,,,,L
+1997-1998,fall,F,Natick,Newton North,,,,,
+1997-1998,fall,F,Natick,Norwood,,,,,
+1997-1998,fall,F,Natick,Walpole,,,,,
+1997-1998,fall,F,Natick,Wellesley,,,,,
+1997-1998,fall,F,Natick,Weymouth,,,,,
+1997-1998,fall,F,Needham,Newton North,,,,,W
+1997-1998,fall,F,Needham,Norwood,,,,,W
+1997-1998,fall,F,Needham,Walpole,,,,,W
+1997-1998,fall,F,Needham,Wellesley,,,,,W
+1997-1998,fall,F,Needham,Weymouth,,,,,W
+1997-1998,fall,F,Newton North,Norwood,,,,,
+1997-1998,fall,F,Newton North,Walpole,,,,,
+1997-1998,fall,F,Newton North,Wellesley,,,,,
+1997-1998,fall,F,Newton North,Weymouth,,,,,
+1997-1998,fall,F,Norwood,Walpole,,,,,
+1997-1998,fall,F,Norwood,Wellesley,,,,,
+1997-1998,fall,F,Norwood,Weymouth,,,,,
+1997-1998,fall,F,Walpole,Wellesley,,,,,
+1997-1998,fall,F,Walpole,Weymouth,,,,,
+1997-1998,fall,F,Wellesley,Weymouth,,,,,
+1996-1997,fall,F,Braintree,Brookline,,,,,
+1996-1997,fall,F,Braintree,Dedham,,,,,
+1996-1997,fall,F,Braintree,Framingham,,,,,
+1996-1997,fall,F,Braintree,Natick,,,,,
+1996-1997,fall,F,Braintree,Needham,,,,,L
+1996-1997,fall,F,Braintree,Newton North,,,,,
+1996-1997,fall,F,Braintree,Norwood,,,,,
+1996-1997,fall,F,Braintree,Walpole,,,,,
+1996-1997,fall,F,Braintree,Wellesley,,,,,
+1996-1997,fall,F,Braintree,Weymouth,,,,,
+1996-1997,fall,F,Brookline,Dedham,,,,,
+1996-1997,fall,F,Brookline,Framingham,,,,,
+1996-1997,fall,F,Brookline,Natick,,,,,
+1996-1997,fall,F,Brookline,Needham,,,,,L
+1996-1997,fall,F,Brookline,Newton North,,,,,
+1996-1997,fall,F,Brookline,Norwood,,,,,
+1996-1997,fall,F,Brookline,Walpole,,,,,
+1996-1997,fall,F,Brookline,Wellesley,,,,,
+1996-1997,fall,F,Brookline,Weymouth,,,,,
+1996-1997,fall,F,Dedham,Framingham,,,,,
+1996-1997,fall,F,Dedham,Natick,,,,,
+1996-1997,fall,F,Dedham,Needham,,,,,L
+1996-1997,fall,F,Dedham,Newton North,,,,,
+1996-1997,fall,F,Dedham,Norwood,,,,,
+1996-1997,fall,F,Dedham,Walpole,,,,,
+1996-1997,fall,F,Dedham,Wellesley,,,,,
+1996-1997,fall,F,Dedham,Weymouth,,,,,
+1996-1997,fall,F,Framingham,Natick,,,,,
+1996-1997,fall,F,Framingham,Needham,,,,,L
+1996-1997,fall,F,Framingham,Newton North,,,,,
+1996-1997,fall,F,Framingham,Norwood,,,,,
+1996-1997,fall,F,Framingham,Walpole,,,,,
+1996-1997,fall,F,Framingham,Wellesley,,,,,
+1996-1997,fall,F,Framingham,Weymouth,,,,,
+1996-1997,fall,F,Natick,Needham,,,,,L
+1996-1997,fall,F,Natick,Newton North,,,,,
+1996-1997,fall,F,Natick,Norwood,,,,,
+1996-1997,fall,F,Natick,Walpole,,,,,
+1996-1997,fall,F,Natick,Wellesley,,,,,
+1996-1997,fall,F,Natick,Weymouth,,,,,
+1996-1997,fall,F,Needham,Newton North,,,,,W
+1996-1997,fall,F,Needham,Norwood,,,,,W
+1996-1997,fall,F,Needham,Walpole,,,,,W
+1996-1997,fall,F,Needham,Wellesley,,,,,W
+1996-1997,fall,F,Needham,Weymouth,,,,,W
+1996-1997,fall,F,Newton North,Norwood,,,,,
+1996-1997,fall,F,Newton North,Walpole,,,,,
+1996-1997,fall,F,Newton North,Wellesley,,,,,
+1996-1997,fall,F,Newton North,Weymouth,,,,,
+1996-1997,fall,F,Norwood,Walpole,,,,,
+1996-1997,fall,F,Norwood,Wellesley,,,,,
+1996-1997,fall,F,Norwood,Weymouth,,,,,
+1996-1997,fall,F,Walpole,Wellesley,,,,,
+1996-1997,fall,F,Walpole,Weymouth,,,,,
+1996-1997,fall,F,Wellesley,Weymouth,,,,,
