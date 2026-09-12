@@ -55,10 +55,6 @@
       - title: NFHS Website
         url: https://www.nfhs.org/sports/basketball
 
-- title: Bocce
-  url: /sports/bocce/
-  icon: gps_fixed
-
 - title: Competitive Cheerleading
   url: /sports/competitive-cheerleading/
   icon: emoji_people
@@ -77,10 +73,6 @@
 - title: Dance
   url: /sports/dance/
   icon: sports_gymnastics
-
-- title: Fencing
-  url: /sports/fencing/
-  icon: swords
 
 - title: Field Hockey
   url: /sports/field-hockey/
@@ -141,6 +133,17 @@
       - title: NFHS Website
         url: https://www.nfhs.org/sports/ice-hockey
 
+- title: Indoor Track & Field
+  url: /sports/indoor-track-and-field/
+  icon: timer
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/track-cross-country
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/track-field
+
 - title: Lacrosse
   url: /sports/lacrosse/
   icon: padel
@@ -153,10 +156,6 @@
         url: https://www.nfhs.org/sports/lacrosse-boys
       - title: NFHS Website (Girls)
         url: https://www.nfhs.org/sports/lacrosse-girls
-
-- title: Rowing/Crew
-  url: /sports/rowing-crew/
-  icon: rowing
 
 - title: Rugby
   url: /sports/rugby/
@@ -229,8 +228,8 @@
       - title: NFHS Website
         url: https://www.nfhs.org/sports/tennis
 
-- title: Track & Field
-  url: /sports/track-and-field/
+- title: Outdoor Track & Field
+  url: /sports/outdoor-track-and-field/
   icon: directions_run
   external_links:
     miaa:

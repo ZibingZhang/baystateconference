@@ -1,0 +1,13 @@
+# Site navigation for the Indoor Track & Field section.
+- title: Home
+  url: /
+
+- title: Schedule
+  url: /sports/indoor-track-and-field/schedule/
+
+- title: Organizations
+  children:
+    - title: MIAA
+      url: /sports/indoor-track-and-field/organizations/miaa/
+    - title: NFHS
+      url: /sports/indoor-track-and-field/organizations/nfhs/

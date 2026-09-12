@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Schedule
-permalink: /sports/fencing/schedule/
+permalink: /sports/indoor-track-and-field/schedule/
 breadcrumb: Schedule
 default_sort: desc
 ---

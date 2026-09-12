@@ -47,10 +47,6 @@ defaults:
     values:
       nav: basketball
   - scope:
-      path: "sports/bocce"
-    values:
-      nav: bocce
-  - scope:
       path: "sports/competitive-cheerleading"
     values:
       nav: competitive-cheerleading
@@ -62,10 +58,6 @@ defaults:
       path: "sports/dance"
     values:
       nav: dance
-  - scope:
-      path: "sports/fencing"
-    values:
-      nav: fencing
   - scope:
       path: "sports/field-hockey"
     values:
@@ -91,13 +83,17 @@ defaults:
     values:
       nav: hockey
   - scope:
+      path: "sports/indoor-track-and-field"
+    values:
+      nav: indoor-track-and-field
+  - scope:
       path: "sports/lacrosse"
     values:
       nav: lacrosse
   - scope:
-      path: "sports/rowing-crew"
+      path: "sports/outdoor-track-and-field"
     values:
-      nav: rowing-crew
+      nav: outdoor-track-and-field
   - scope:
       path: "sports/rugby"
     values:
@@ -126,10 +122,6 @@ defaults:
       path: "sports/tennis"
     values:
       nav: tennis
-  - scope:
-      path: "sports/track-and-field"
-    values:
-      nav: track-and-field
   - scope:
       path: "sports/ultimate-frisbee"
     values:

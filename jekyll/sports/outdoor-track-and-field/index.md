@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Rowing/Crew
-permalink: /sports/rowing-crew/
+title: Outdoor Track & Field
+permalink: /sports/outdoor-track-and-field/
 under_construction: true
 ---
 {% include current-season-link.html %}

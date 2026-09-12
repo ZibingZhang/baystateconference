@@ -103,18 +103,23 @@ YOUTH_LEVEL_RE = re.compile(r"Middle School|\d+(st|nd|rd|th)\b")
 
 # ArbiterLive sport name -> canonical site sport title (jekyll/_data/sports.yaml
 # `title`). Several raw ArbiterLive sports collapse onto one site sport
-# (e.g. Indoor/Outdoor/Adapted Track & Field all become "Track & Field";
-# Lacrosse - Boys/Girls become "Lacrosse", distinguished instead by `sex`).
+# (e.g. Lacrosse - Boys/Girls become "Lacrosse", distinguished instead by
+# `sex`). Indoor/Outdoor Track & Field are kept as separate site sports
+# rather than merged, since they're separate MIAA/BSC-recognized sports in
+# different seasons; "Track & Field - Adapted" is folded into "Outdoor
+# Track & Field" since MIAA runs Adapted Track & Field as a spring sport
+# alongside outdoor track. Sports not in sports.yaml (e.g. Bocce, Fencing,
+# Rowing/Crew) are intentionally left unmapped - normalize_sport() passes
+# them through unchanged, and schedule_page_generator.rb simply never
+# builds a page for them since it only iterates sports.yaml, not this dict.
 SPORT_NORMALIZE = {
     "Baseball": "Baseball",
     "Basketball": "Basketball",
-    "Bocce": "Bocce",
     "Competitive Cheerleading": "Competitive Cheerleading",
     "Cross Country": "Cross Country",
     "Cross Country Skiing": "Cross Country Skiing",
     "Dance": "Dance",
     "Diving": "Swimming & Diving",
-    "Fencing": "Fencing",
     "Field Hockey": "Field Hockey",
     "Flag Football": "Flag Football",
     "Football": "Football",
@@ -123,7 +128,6 @@ SPORT_NORMALIZE = {
     "Hockey": "Hockey",
     "Lacrosse - Boys": "Lacrosse",
     "Lacrosse - Girls": "Lacrosse",
-    "Rowing/Crew": "Rowing/Crew",
     "Rugby": "Rugby",
     "Sailing": "Sailing",
     "Ski": "Ski",
@@ -133,9 +137,9 @@ SPORT_NORMALIZE = {
     "Swimming": "Swimming & Diving",
     "Tennis": "Tennis",
     "Tennis - Team": "Tennis",
-    "Track & Field - Adapted": "Track & Field",
-    "Track & Field - Indoor": "Track & Field",
-    "Track & Field - Outdoor": "Track & Field",
+    "Track & Field - Adapted": "Outdoor Track & Field",
+    "Track & Field - Indoor": "Indoor Track & Field",
+    "Track & Field - Outdoor": "Outdoor Track & Field",
     "Ultimate Frisbee": "Ultimate Frisbee",
     "Volleyball": "Volleyball",
     "Wrestling": "Wrestling",

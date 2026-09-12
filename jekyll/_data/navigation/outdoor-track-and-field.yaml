@@ -1,0 +1,13 @@
+# Site navigation for the Outdoor Track & Field section.
+- title: Home
+  url: /
+
+- title: Schedule
+  url: /sports/outdoor-track-and-field/schedule/
+
+- title: Organizations
+  children:
+    - title: MIAA
+      url: /sports/outdoor-track-and-field/organizations/miaa/
+    - title: NFHS
+      url: /sports/outdoor-track-and-field/organizations/nfhs/
