@@ -55,6 +55,14 @@
       - title: NFHS Website
         url: https://www.nfhs.org/sports/basketball
 
+- title: Bocce
+  url: /sports/bocce/
+  icon: sports
+
+- title: Competitive Cheerleading
+  url: /sports/competitive-cheerleading/
+  icon: sports
+
 - title: Cross Country
   url: /sports/cross-country/
   icon: footprint
@@ -66,6 +74,18 @@
       - title: NFHS Website
         url: https://www.nfhs.org/sports/cross-country
 
+- title: Cross Country Skiing
+  url: /sports/cross-country-skiing/
+  icon: downhill_skiing
+
+- title: Dance
+  url: /sports/dance/
+  icon: sports
+
+- title: Fencing
+  url: /sports/fencing/
+  icon: sports_martial_arts
+
 - title: Field Hockey
   url: /sports/field-hockey/
   icon: sports_hockey
@@ -76,6 +96,10 @@
     nfhs:
       - title: NFHS Website
         url: https://www.nfhs.org/sports/field-hockey
+
+- title: Flag Football
+  url: /sports/flag-football/
+  icon: sports_football
 
 - title: Football
   url: /sports/football/
@@ -121,17 +145,6 @@
       - title: NFHS Website
         url: https://www.nfhs.org/sports/ice-hockey
 
-- title: Indoor Track
-  url: /sports/indoor-track/
-  icon: timer
-  external_links:
-    miaa:
-      - title: MIAA Website
-        url: https://www.miaa.net/track-cross-country
-    nfhs:
-      - title: NFHS Website
-        url: https://www.nfhs.org/sports/track-field
-
 - title: Lacrosse
   url: /sports/lacrosse/
   icon: padel
@@ -145,16 +158,9 @@
       - title: NFHS Website (Girls)
         url: https://www.nfhs.org/sports/lacrosse-girls
 
-- title: Outdoor Track
-  url: /sports/outdoor-track/
-  icon: directions_run
-  external_links:
-    miaa:
-      - title: MIAA Website
-        url: https://www.miaa.net/track-cross-country
-    nfhs:
-      - title: NFHS Website
-        url: https://www.nfhs.org/sports/track-field
+- title: Rowing/Crew
+  url: /sports/rowing-crew/
+  icon: rowing
 
 - title: Rugby
   url: /sports/rugby/
@@ -163,6 +169,14 @@
     miaa:
       - title: MIAA Website
         url: https://www.miaa.net/rugby
+
+- title: Sailing
+  url: /sports/sailing/
+  icon: sailing
+
+- title: Ski
+  url: /sports/ski/
+  icon: downhill_skiing
 
 - title: Soccer
   url: /sports/soccer/
@@ -185,6 +199,10 @@
     nfhs:
       - title: NFHS Website
         url: https://www.nfhs.org/sports/softball
+
+- title: Squash
+  url: /sports/squash/
+  icon: sports_tennis
 
 - title: Swimming & Diving
   url: /sports/swimming-diving/
@@ -214,6 +232,21 @@
     nfhs:
       - title: NFHS Website
         url: https://www.nfhs.org/sports/tennis
+
+- title: Track & Field
+  url: /sports/track-and-field/
+  icon: directions_run
+  external_links:
+    miaa:
+      - title: MIAA Website
+        url: https://www.miaa.net/track-cross-country
+    nfhs:
+      - title: NFHS Website
+        url: https://www.nfhs.org/sports/track-field
+
+- title: Ultimate Frisbee
+  url: /sports/ultimate-frisbee/
+  icon: sports
 
 - title: Volleyball
   url: /sports/volleyball/

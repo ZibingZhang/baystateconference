@@ -1,0 +1,6 @@
+# Site navigation for the Sailing section.
+- title: Home
+  url: /
+
+- title: Schedule
+  url: /sports/sailing/schedule/

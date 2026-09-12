@@ -1,0 +1,6 @@
+# Site navigation for the Cross Country Skiing section.
+- title: Home
+  url: /
+
+- title: Schedule
+  url: /sports/cross-country-skiing/schedule/

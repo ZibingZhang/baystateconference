@@ -47,13 +47,37 @@ defaults:
     values:
       nav: basketball
   - scope:
+      path: "sports/bocce"
+    values:
+      nav: bocce
+  - scope:
+      path: "sports/competitive-cheerleading"
+    values:
+      nav: competitive-cheerleading
+  - scope:
       path: "sports/cross-country"
     values:
       nav: cross-country
   - scope:
+      path: "sports/cross-country-skiing"
+    values:
+      nav: cross-country-skiing
+  - scope:
+      path: "sports/dance"
+    values:
+      nav: dance
+  - scope:
+      path: "sports/fencing"
+    values:
+      nav: fencing
+  - scope:
       path: "sports/field-hockey"
     values:
       nav: field-hockey
+  - scope:
+      path: "sports/flag-football"
+    values:
+      nav: flag-football
   - scope:
       path: "sports/football"
     values:
@@ -71,21 +95,25 @@ defaults:
     values:
       nav: hockey
   - scope:
-      path: "sports/indoor-track"
-    values:
-      nav: indoor-track
-  - scope:
       path: "sports/lacrosse"
     values:
       nav: lacrosse
   - scope:
-      path: "sports/outdoor-track"
+      path: "sports/rowing-crew"
     values:
-      nav: outdoor-track
+      nav: rowing-crew
   - scope:
       path: "sports/rugby"
     values:
       nav: rugby
+  - scope:
+      path: "sports/sailing"
+    values:
+      nav: sailing
+  - scope:
+      path: "sports/ski"
+    values:
+      nav: ski
   - scope:
       path: "sports/soccer"
     values:
@@ -95,9 +123,21 @@ defaults:
     values:
       nav: softball
   - scope:
+      path: "sports/squash"
+    values:
+      nav: squash
+  - scope:
       path: "sports/tennis"
     values:
       nav: tennis
+  - scope:
+      path: "sports/track-and-field"
+    values:
+      nav: track-and-field
+  - scope:
+      path: "sports/ultimate-frisbee"
+    values:
+      nav: ultimate-frisbee
   - scope:
       path: "sports/volleyball"
     values:

@@ -1,0 +1,6 @@
+# Site navigation for the Dance section.
+- title: Home
+  url: /
+
+- title: Schedule
+  url: /sports/dance/schedule/
