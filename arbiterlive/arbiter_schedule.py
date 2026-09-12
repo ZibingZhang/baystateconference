@@ -479,24 +479,40 @@ def parse_games(html: str) -> list[dict]:
     return games
 
 
+# ArbiterLive occasionally hangs for a stretch of consecutive requests
+# (seemingly regardless of which team/page) and then recovers on its own a
+# short while later, rather than actively blocking anything - so a few
+# retries with backoff ride out the bad patch instead of just losing
+# whichever teams happened to be fetched during it.
+MAX_ATTEMPTS = 4
+RETRY_BACKOFF_BASE = 2.0  # seconds; waits base * 2**attempt between tries
+
+
 def fetch_team_games(
     session: requests.Session, team: Team, school_year: str, delay: float
 ) -> tuple[Team, list[dict], Optional[str]]:
     """Fetch one team's schedule for `school_year`. Runs in a worker thread,
     so it returns its result instead of touching shared state directly."""
+    error: Optional[str] = None
     try:
-        school_year_id = get_school_year_option(session, team.team_id, school_year)
-        if school_year_id is None:
-            return team, [], f"no {school_year} option found"
+        for attempt in range(MAX_ATTEMPTS):
+            try:
+                school_year_id = get_school_year_option(session, team.team_id, school_year)
+                if school_year_id is None:
+                    return team, [], f"no {school_year} option found"
 
-        html = fetch_year_html(session, team.team_id, school_year_id)
-        games = parse_games(html)
-    except requests.RequestException as exc:
-        return team, [], str(exc)
+                html = fetch_year_html(session, team.team_id, school_year_id)
+                return team, parse_games(html), None
+            except requests.RequestException as exc:
+                error = str(exc)
+                if attempt < MAX_ATTEMPTS - 1:
+                    wait = RETRY_BACKOFF_BASE * (2 ** attempt)
+                    print(f"    ! {team.school} {team.sport} {team.level}: {error} (retrying in {wait:.0f}s)")
+                    time.sleep(wait)
     finally:
         time.sleep(delay)
 
-    return team, games, None
+    return team, [], error
 
 
 def main() -> None:
