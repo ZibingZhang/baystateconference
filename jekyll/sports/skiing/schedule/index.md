@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Schedule
-permalink: /sports/cross-country-skiing/schedule/
+permalink: /sports/skiing/schedule/
 breadcrumb: Schedule
 default_sort: desc
 ---

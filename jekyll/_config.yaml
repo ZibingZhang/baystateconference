@@ -59,10 +59,6 @@ defaults:
     values:
       nav: cross-country
   - scope:
-      path: "sports/cross-country-skiing"
-    values:
-      nav: cross-country-skiing
-  - scope:
       path: "sports/dance"
     values:
       nav: dance
@@ -111,9 +107,9 @@ defaults:
     values:
       nav: sailing
   - scope:
-      path: "sports/ski"
+      path: "sports/skiing"
     values:
-      nav: ski
+      nav: skiing
   - scope:
       path: "sports/soccer"
     values:

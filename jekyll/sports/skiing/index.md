@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Cross Country Skiing
-permalink: /sports/cross-country-skiing/
+title: Skiing
+permalink: /sports/skiing/
 under_construction: true
 ---
 {% include current-season-link.html %}

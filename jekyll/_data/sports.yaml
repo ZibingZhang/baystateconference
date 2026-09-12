@@ -57,11 +57,11 @@
 
 - title: Bocce
   url: /sports/bocce/
-  icon: sports
+  icon: gps_fixed
 
 - title: Competitive Cheerleading
   url: /sports/competitive-cheerleading/
-  icon: sports
+  icon: emoji_people
 
 - title: Cross Country
   url: /sports/cross-country/
@@ -74,17 +74,13 @@
       - title: NFHS Website
         url: https://www.nfhs.org/sports/cross-country
 
-- title: Cross Country Skiing
-  url: /sports/cross-country-skiing/
-  icon: downhill_skiing
-
 - title: Dance
   url: /sports/dance/
-  icon: sports
+  icon: sports_gymnastics
 
 - title: Fencing
   url: /sports/fencing/
-  icon: sports_martial_arts
+  icon: swords
 
 - title: Field Hockey
   url: /sports/field-hockey/
@@ -174,8 +170,8 @@
   url: /sports/sailing/
   icon: sailing
 
-- title: Ski
-  url: /sports/ski/
+- title: Skiing
+  url: /sports/skiing/
   icon: downhill_skiing
 
 - title: Soccer
@@ -246,7 +242,7 @@
 
 - title: Ultimate Frisbee
   url: /sports/ultimate-frisbee/
-  icon: sports
+  icon: panorama_fish_eye
 
 - title: Volleyball
   url: /sports/volleyball/

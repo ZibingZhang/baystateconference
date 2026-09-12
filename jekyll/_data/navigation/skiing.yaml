@@ -1,0 +1,6 @@
+# Site navigation for the Skiing section.
+- title: Home
+  url: /
+
+- title: Schedule
+  url: /sports/skiing/schedule/
