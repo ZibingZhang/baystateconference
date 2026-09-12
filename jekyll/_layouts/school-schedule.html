@@ -1,0 +1,28 @@
+---
+layout: base
+---
+{%- comment -%}
+  Renders one school's schedule for a single school year, split into one
+  table per Sport. A page using this layout gets its `groups` data
+  precomputed by _plugins/school_schedule_page_generator.rb.
+{%- endcomment -%}
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    {%- include year-pager.html previous_url=page.previous_url previous_title=page.previous_title next_url=page.next_url next_title=page.next_title -%}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+
+    {%- if page.groups.size > 0 -%}
+    <p class="schedule-legend">&#8224; Home game</p>
+    {%- endif -%}
+
+    {%- for group in page.groups -%}
+      {%- include school-schedule-group.html heading=group.heading entries=group.entries -%}
+    {%- endfor -%}
+  </div>
+
+</article>

@@ -60,6 +60,14 @@ layout: base
           </tr>
           {%- endif -%}
 
+          {%- assign school-slug = page.school | slugify -%}
+          {%- if site.data.schools_with_current_season_schedule contains school-slug -%}
+          <tr>
+            <th>Schedule</th>
+            <td><a href="{{ '/schools/' | append: school-slug | append: '/schedule/current-season/' | relative_url }}">Current Season</a></td>
+          </tr>
+          {%- endif -%}
+
           {%- if page.info_extra -%}
           {%- include {{ page.info_extra }} school=school -%}
           {%- endif -%}

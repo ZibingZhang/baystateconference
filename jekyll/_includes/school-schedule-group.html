@@ -1,0 +1,48 @@
+{%- comment -%}
+  Renders one Sport/Sex group of a school's schedule (e.g. "Boys Football"):
+  every resolved game involving this school in that sport/sex, sorted
+  chronologically. Rows are pre-sorted/pre-decorated (reoriented to this
+  school's point of view - "opponent", "home", W/L/T "result" - and given
+  display-formatted "date"/"time" strings) by
+  _plugins/school_schedule_page_generator.rb.
+
+  Usage: {% include school-schedule-group.html heading="Boys Football" entries=entries %}
+{%- endcomment -%}
+{%- assign games = include.entries -%}
+{%- if games and games.size > 0 -%}
+{%- if include.heading -%}
+<h2>{{ include.heading }}</h2>
+{%- endif -%}
+<div class="schedule-table-scroll">
+<table class="schedule-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Level</th>
+      <th>Opponent</th>
+      <th>Location</th>
+      <th>Result</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for game in games -%}
+    <tr>
+      <td>{{ game["date"] }}</td>
+      <td>{{ game["time"] }}</td>
+      <td>{{ game["level"] }}</td>
+      <td>{{ game["opponent"] }}{% if game["home"] %}&#8224;{% endif %}</td>
+      <td>{{ game["location"] }}</td>
+      <td>
+        {%- if game["result"] -%}
+          {{ game["result"] }}{% if game["score"] %} {{ game["score"] }}{% endif %}
+        {%- endif -%}
+      </td>
+      <td>{{ game["game_type"] }}</td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+</div>
+{%- endif -%}
