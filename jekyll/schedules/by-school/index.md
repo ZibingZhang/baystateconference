@@ -15,7 +15,7 @@ Every school's current-season schedule (every sport it fields, together).
     <li class="directory-file">
       <a href="{{ '/schools/' | append: school-slug | append: '/schedule/current-season/' | relative_url }}">
         <span class="material-symbols-outlined" aria-hidden="true">tab</span>
-        <span>{{ school.town }} {{ school.team-name }}</span>
+        <span>{{ school.school-name }}</span>
       </a>
     </li>
     {%- endif -%}
