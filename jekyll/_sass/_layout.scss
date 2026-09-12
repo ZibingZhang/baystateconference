@@ -831,6 +831,21 @@
   }
 }
 
+// Same .sport-card look as .sport-grid, but auto-fit instead of fixed
+// breakpoints - used with a different number of cards depending on the page
+// (3 on the home page, 2 on /schedules/). A fixed repeat(3, 1fr) would leave
+// a gap in /schedules/'s row instead of stretching its 2 cards to fill it;
+// auto-fit only ever creates as many columns as there are cards to fill (up
+// to however many fit at 200px each), so 2 cards get 2 columns and 3 get 3,
+// still collapsing to fewer as the viewport narrows - just not at the exact
+// same pixel breakpoints .sport-grid's hardcoded ones do.
+.home-cards {
+  display: grid;
+  gap: $spacing-unit;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: $spacing-unit;
+}
+
 .sport-card {
   align-items: center;
   background-color: $code-background-color;

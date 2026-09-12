@@ -1,0 +1,17 @@
+{%- comment -%}
+  Renders a small row of icon cards (reuses sport-grid.html's .sport-card/
+  .sport-icon/.sport-name look, just in a 2-column grid sized for a couple
+  of prominent entry points rather than a many-item catalog).
+
+  include.items    required - array of {title, icon, url}
+
+  Usage: {% include home-cards.html items=page.home_cards %}
+{%- endcomment -%}
+<div class="home-cards">
+  {%- for item in include.items -%}
+  <a class="sport-card" href="{{ item.url | relative_url }}">
+    <span class="sport-icon material-symbols-outlined" aria-hidden="true">{{ item.icon }}</span>
+    <p class="sport-name">{{ item.title }}</p>
+  </a>
+  {%- endfor -%}
+</div>

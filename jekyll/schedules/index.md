@@ -2,13 +2,13 @@
 layout: page
 title: Schedules
 permalink: /schedules/
-internal_links:
+home_cards:
   - title: By School
+    icon: school
     url: /schedules/by-school/
   - title: By Sport
+    icon: sports
     url: /schedules/by-sport/
 ---
 
-Every Bay State Conference team's schedule, browsable by school or by sport.
-
-{% include link-list.html heading="Directory" items=page.internal_links %}
+{% include home-cards.html items=page.home_cards %}
