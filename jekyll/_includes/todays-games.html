@@ -9,7 +9,6 @@
 {%- endcomment -%}
 {%- assign today = site.time | date: "%Y-%m-%d" -%}
 {%- assign todays_games = site.data.schedule.games | where: "date", today | where: "level", "Varsity" -%}
-{%- if todays_games and todays_games.size > 0 -%}
 <h2>Today's Varsity Games</h2>
 <p class="schedule-legend">&#8224; Home team</p>
 <div class="schedule-table-scroll">
@@ -24,6 +23,7 @@
     </tr>
   </thead>
   <tbody>
+    {%- if todays_games and todays_games.size > 0 -%}
     {%- for game in todays_games -%}
     <tr>
       <td>{{ game.sex }} {{ game.sport }}</td>
@@ -39,7 +39,11 @@
       <td>{{ game.location }}</td>
     </tr>
     {%- endfor -%}
+    {%- else -%}
+    <tr>
+      <td colspan="5">No varsity games scheduled today.</td>
+    </tr>
+    {%- endif -%}
   </tbody>
 </table>
 </div>
-{%- endif -%}
