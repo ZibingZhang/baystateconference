@@ -11,4 +11,4 @@ home_cards:
     url: /schedules/by-sport/
 ---
 
-{% include home-cards.html items=page.home_cards %}
+{% include cards.html items=page.home_cards %}

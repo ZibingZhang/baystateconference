@@ -452,22 +452,27 @@
   @include relative-font-size(1.75);
 }
 
-.school-grid {
+// Shared by every "grid of link cards" component - the icon-based .cards
+// (see cards.html: home page, /sports/, /schedules/, a school's schedule
+// year sport-picker) and the logo-based .school-grid (see school-grid.html:
+// /schools/, swimming's own per-sport school list) look and lay out the
+// same way, just with different card content (an icon vs. a school logo
+// image), so the grid/box rules themselves are defined once here instead
+// of once per variant.
+//
+// auto-fit rather than a fixed column count means the column count always
+// matches however many cards there are (up to however many fit at 200px
+// each) - a short list (e.g. /schedules/'s 2 cards) fills its row instead
+// of leaving a gap where another column would go, while a long one (e.g.
+// /sports/'s 28) still wraps into as many full rows as it needs.
+%card-grid {
   display: grid;
   gap: $spacing-unit;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   margin-bottom: $spacing-unit;
-
-  @include media-query($on-laptop) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include media-query($on-palm) {
-    grid-template-columns: 1fr;
-  }
 }
 
-.school-card {
+%card-box {
   align-items: center;
   background-color: $code-background-color;
   border: 1px solid $border-color-01;
@@ -475,8 +480,16 @@
   color: inherit;
   display: flex;
   flex-direction: column;
-  padding: $spacing-unit * 0.5;
   text-align: center;
+}
+
+.school-grid {
+  @extend %card-grid;
+}
+
+.school-card {
+  @extend %card-box;
+  padding: $spacing-unit * 0.5;
 
   a {
     color: inherit;
@@ -816,53 +829,26 @@
   visibility: hidden;
 }
 
-.sport-grid {
-  display: grid;
-  gap: $spacing-unit;
-  grid-template-columns: repeat(3, 1fr);
-  margin-bottom: $spacing-unit;
-
-  @include media-query($on-laptop) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include media-query($on-palm) {
-    grid-template-columns: 1fr;
-  }
+// Icon-card variant of %card-grid/%card-box (see cards.html) - used for
+// every "grid of {icon, title, link}" card list on the site (the home page,
+// /sports/, /schedules/, a school's schedule-year sport picker), as opposed
+// to .school-grid's logo-image cards, which share the same box/grid look
+// via the same placeholders but need their own markup (an actual <img>,
+// plus room for a sport-specific extra like swimming's pool location).
+.cards {
+  @extend %card-grid;
 }
 
-// Same .sport-card look as .sport-grid, but auto-fit instead of fixed
-// breakpoints - used with a different number of cards depending on the page
-// (3 on the home page, 2 on /schedules/). A fixed repeat(3, 1fr) would leave
-// a gap in /schedules/'s row instead of stretching its 2 cards to fill it;
-// auto-fit only ever creates as many columns as there are cards to fill (up
-// to however many fit at 200px each), so 2 cards get 2 columns and 3 get 3,
-// still collapsing to fewer as the viewport narrows - just not at the exact
-// same pixel breakpoints .sport-grid's hardcoded ones do.
-.home-cards {
-  display: grid;
-  gap: $spacing-unit;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  margin-bottom: $spacing-unit;
-}
-
-.sport-card {
-  align-items: center;
-  background-color: $code-background-color;
-  border: 1px solid $border-color-01;
-  border-radius: 6px;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
+.card {
+  @extend %card-box;
   padding: $spacing-unit;
-  text-align: center;
   text-decoration: none;
 
   &:visited {
     color: inherit;
   }
 
-  &:hover .sport-name {
+  &:hover .card-name {
     text-decoration: underline;
   }
 }
@@ -872,14 +858,14 @@
 // same-specificity `.material-symbols-outlined { font-size: 24px; }` and,
 // loading later, would otherwise win the cascade and silently clobber the
 // larger size below.
-.sport-icon.material-symbols-outlined {
+.card-icon.material-symbols-outlined {
   color: $brand-color-dimmed;
   font-size: 72px;
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
   margin-bottom: $spacing-unit * 0.3;
 }
 
-.sport-name {
+.card-name {
   font-weight: 600;
 }
 

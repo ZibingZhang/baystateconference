@@ -3,9 +3,15 @@
   page by one data-* attribute already present on each row (see
   schedule-group.html/school-schedule-group.html) - e.g. "school" reads each
   row's data-school, which may hold more than one pipe-separated value
-  (a game's two teams), matched against whichever chip is active. Pairs with
-  assets/js/schedule-filter.js. A group whose rows are all hidden by the
-  active filter hides itself too, rather than showing an empty table.
+  (a game's two teams), matched against whichever chip is active.
+
+  Pairs with assets/js/schedule-filter.js - include that once yourself
+  wherever you call this (not from in here), since a page can use this more
+  than once (e.g. a sport's schedule page filters by both school and level)
+  and every active filter is ANDed together against each row, not just
+  whichever one was clicked most recently. A group whose rows are all
+  hidden by the combined filters hides itself too, rather than showing an
+  empty table.
 
   Only renders when there's more than one distinct value - filtering a
   single-value list down to itself is pointless.
@@ -25,5 +31,4 @@
   <button type="button" class="schedule-filter-chip" data-filter-value="{{ value }}" aria-pressed="false">{{ value }}</button>
   {%- endfor -%}
 </div>
-<script src="{{ '/assets/js/schedule-filter.js' | relative_url }}" defer></script>
 {%- endif -%}

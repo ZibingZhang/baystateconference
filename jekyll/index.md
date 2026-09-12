@@ -16,4 +16,4 @@ home_cards:
 
 {% include todays-games.html %}
 
-{% include home-cards.html items=page.home_cards %}
+{% include cards.html items=page.home_cards %}

@@ -1,0 +1,25 @@
+{%- comment -%}
+  Renders a grid of cards (icon + name + link). Defaults to every sport in
+  _data/sports.yaml linking to that sport's own page - pass `items` to
+  render a different {title, icon, url} list instead, e.g. the home page's
+  Schools/Sports/Schedules entry points, /schedules/'s By School/By Sport,
+  or a school's schedule year page linking each sport it played that year to
+  schools/<school>/schedule/<year>/<sport>/.
+
+  The grid is auto-fit (see .cards in _layout.scss), so the column count
+  always matches however many cards there are (up to however many fit at
+  200px each) - a 2-card list fills its row instead of leaving a gap where
+  a 3rd column would go.
+
+  Usage: {% include cards.html %}
+         {% include cards.html items=page.home_cards %}
+{%- endcomment -%}
+{%- assign cards = include.items | default: site.data.sports -%}
+<div class="cards">
+  {%- for card in cards -%}
+  <a class="card" href="{{ card.url | relative_url }}">
+    <span class="card-icon material-symbols-outlined" aria-hidden="true">{{ card.icon }}</span>
+    <p class="card-name">{{ card.title }}</p>
+  </a>
+  {%- endfor -%}
+</div>

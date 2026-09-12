@@ -2,27 +2,46 @@
 // clicking a chip shows only the .schedule-group rows whose data-<attr>
 // (pipe-separated, since e.g. a game's data-school holds both teams)
 // contains that chip's value, and hides a whole group if none of its rows
-// match. Single-select, like a segmented control - "All" always resets it.
-// Clicking the already-active chip again re-selects "All" instead of just
-// sitting there selected with nothing left to click to get back out of it.
+// match. Single-select per filter, like a segmented control - "All" always
+// resets it, and clicking the already-active chip again re-selects "All"
+// too, rather than just sitting there selected with no way to click back
+// out of it.
+//
+// A page can have more than one .schedule-filter (e.g. a sport's schedule
+// page filters by both school and level) - every active filter is ANDed
+// together against each row, not just whichever one was clicked most
+// recently.
 (function () {
-  document.querySelectorAll(".schedule-filter").forEach(function (filterEl) {
-    var attr = filterEl.getAttribute("data-filter-attr");
-    var chips = filterEl.querySelectorAll(".schedule-filter-chip");
-    var groups = document.querySelectorAll(".schedule-group");
+  var filterEls = Array.prototype.slice.call(document.querySelectorAll(".schedule-filter"));
+  if (filterEls.length === 0) return;
 
-    function apply(value) {
-      groups.forEach(function (group) {
-        var visible = 0;
-        group.querySelectorAll("tbody tr").forEach(function (row) {
+  var groups = document.querySelectorAll(".schedule-group");
+
+  function activeValue(filterEl) {
+    var active = filterEl.querySelector(".schedule-filter-chip.is-active");
+    return active ? active.getAttribute("data-filter-value") : "";
+  }
+
+  function apply() {
+    groups.forEach(function (group) {
+      var visible = 0;
+      group.querySelectorAll("tbody tr").forEach(function (row) {
+        var match = filterEls.every(function (filterEl) {
+          var value = activeValue(filterEl);
+          if (value === "") return true;
+          var attr = filterEl.getAttribute("data-filter-attr");
           var values = (row.getAttribute("data-" + attr) || "").split("|");
-          var match = value === "" || values.indexOf(value) !== -1;
-          row.hidden = !match;
-          if (match) visible += 1;
+          return values.indexOf(value) !== -1;
         });
-        group.hidden = visible === 0;
+        row.hidden = !match;
+        if (match) visible += 1;
       });
-    }
+      group.hidden = visible === 0;
+    });
+  }
+
+  filterEls.forEach(function (filterEl) {
+    var chips = filterEl.querySelectorAll(".schedule-filter-chip");
 
     chips.forEach(function (chip) {
       chip.addEventListener("click", function () {
@@ -36,7 +55,7 @@
         });
         target.classList.add("is-active");
         target.setAttribute("aria-pressed", "true");
-        apply(target.getAttribute("data-filter-value"));
+        apply();
       });
     });
   });

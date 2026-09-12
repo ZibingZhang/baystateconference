@@ -11,9 +11,9 @@
   some sports (golf) score lower-is-better, so winner comes straight from
   the `winner` field instead.
 
-  Wrapped in .schedule-group and each row tagged data-school so
-  schedule-filter.html/schedule-filter.js can filter by school and hide this
-  whole group if none of its rows match.
+  Wrapped in .schedule-group and each row tagged data-school/data-level so
+  schedule-filter.html/schedule-filter.js can filter by school and/or level
+  (ANDed together) and hide this whole group if none of its rows match.
 
   Usage: {% include schedule-group.html heading="Girls" entries=entries %}
 {%- endcomment -%}
@@ -39,7 +39,7 @@
   </thead>
   <tbody>
     {%- for game in games -%}
-    <tr data-school="{{ game["school_filter"] }}">
+    <tr data-school="{{ game["school_filter"] }}" data-level="{{ game["level"] }}">
       <td>{{ game["date"] }}</td>
       <td>{{ game["time"] }}</td>
       <td>{{ game["level"] }}</td>

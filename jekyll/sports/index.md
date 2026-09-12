@@ -4,4 +4,4 @@ title: Sports
 permalink: /sports/
 ---
 
-{% include sport-grid.html %}
+{% include cards.html %}

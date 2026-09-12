@@ -3,7 +3,7 @@ layout: base
 ---
 {%- comment -%}
   Renders one school's schedule year as a grid of sport cards (mirrors
-  sports/index.md's own sport-grid.html), one per sport that school played
+  sports/index.md's own cards.html), one per sport that school played
   that year - drilling into a card lands on that sport's actual games (see
   school-schedule.html). A page using this layout gets its `sport_cards`
   data precomputed by _plugins/school_schedule_page_generator.rb.
@@ -19,7 +19,7 @@ layout: base
     {{ content }}
 
     {%- if page.sport_cards.size > 0 -%}
-    {%- include sport-grid.html items=page.sport_cards -%}
+    {%- include cards.html items=page.sport_cards -%}
     {%- else -%}
     <p>No games found on ArbiterLive yet for this school/season.</p>
     {%- endif -%}

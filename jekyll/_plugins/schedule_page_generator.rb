@@ -103,6 +103,7 @@ module Schedule
         "breadcrumb" => en_dash(year),
         "groups" => groups_for(sport_games, year),
         "schools" => schools_for(sport_games, year, bsc_school_names),
+        "levels" => levels_for(sport_games, year),
         "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
         "previous_title" => previous_year && en_dash(previous_year),
         "next_url" => next_year && "/#{dir}/#{next_year}/",
@@ -142,6 +143,15 @@ module Schedule
       year_games = sport_games.select { |g| g["school_year"] == year }
       teams = (year_games.map { |g| g["team_1"] } + year_games.map { |g| g["team_2"] }).uniq
       (teams & bsc_school_names).sort
+    end
+
+    # Distinct levels (Varsity/Sub-Varsity/...) played this sport/year,
+    # Varsity first then alphabetical - for the "filter by level" control,
+    # only rendered at all (see schedule-filter.html) when there's more
+    # than one.
+    def levels_for(sport_games, year)
+      year_games = sport_games.select { |g| g["school_year"] == year }
+      year_games.map { |g| g["level"] }.uniq.sort_by { |level| [level == "Varsity" ? 0 : 1, level.to_s] }
     end
 
     # arbiter_schedule.py already splits ArbiterLive's date_time into clean
