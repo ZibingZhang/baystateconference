@@ -45,6 +45,7 @@ module Schedule
     def generate(site)
       games = site.data.dig(*DATA_PATH) || []
       sports = site.data["sports"] || []
+      bsc_school_names = (site.data["schools"] || []).map { |s| s["school-name"] }
       current_year = current_school_year
 
       sports.each do |sport|
@@ -58,7 +59,7 @@ module Schedule
         years.each_with_index do |year, index|
           previous_year = years[index + 1]
           next_year = index.zero? ? nil : years[index - 1]
-          site.pages << build_page(site, sport, slug, year, sport_games, previous_year, next_year)
+          site.pages << build_page(site, sport, slug, year, sport_games, bsc_school_names, previous_year, next_year)
         end
 
         site.pages << build_current_season_redirect(site, slug, current_year)
@@ -91,7 +92,7 @@ module Schedule
       page
     end
 
-    def build_page(site, sport, slug, year, sport_games, previous_year, next_year)
+    def build_page(site, sport, slug, year, sport_games, bsc_school_names, previous_year, next_year)
       dir = "sports/#{slug}/schedule"
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "#{year}.html")
       page.content = ""
@@ -101,6 +102,7 @@ module Schedule
         "permalink" => "/#{dir}/#{year}/",
         "breadcrumb" => en_dash(year),
         "groups" => groups_for(sport_games, year),
+        "schools" => schools_for(sport_games, year, bsc_school_names),
         "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
         "previous_title" => previous_year && en_dash(previous_year),
         "next_url" => next_year && "/#{dir}/#{next_year}/",
@@ -130,16 +132,31 @@ module Schedule
       end
     end
 
+    # Distinct Bay State Conference schools (not every opponent - a school
+    # not in _data/schools.yaml, e.g. a non-conference or tournament
+    # "opponent", never becomes a filter option) playing this sport that
+    # year, for the "filter by school" control - only rendered at all (see
+    # schedule-filter.html) when there's more than one, since filtering a
+    # single school's own games down to itself is pointless.
+    def schools_for(sport_games, year, bsc_school_names)
+      year_games = sport_games.select { |g| g["school_year"] == year }
+      teams = (year_games.map { |g| g["team_1"] } + year_games.map { |g| g["team_2"] }).uniq
+      (teams & bsc_school_names).sort
+    end
+
     # arbiter_schedule.py already splits ArbiterLive's date_time into clean
     # ISO 8601 "date"/"time" columns (resolving the actual calendar year,
     # since ArbiterLive's own string has none) - this just reformats them
     # for display and builds a plain string sort key (ISO dates/24-hour
     # times already sort correctly as strings; "TBA" times sort after any
-    # real time since "T" > any digit).
+    # real time since "T" > any digit). Also builds the "school" filter
+    # attribute schedule-filter.html/schedule-filter.js use to show/hide
+    # rows - both team names, since either could be the one a visitor picks.
     def decorate(game)
       game.merge(
         "date" => format_date(game["date"]),
         "time" => format_time(game["time"]),
+        "school_filter" => [game["team_1"], game["team_2"]].compact.join("|"),
         "sort_key" => [game["date"] || "9999-99-99", game["time"] == "TBA" ? "99:99" : (game["time"] || "99:99")]
       )
     end

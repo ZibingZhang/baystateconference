@@ -131,6 +131,7 @@ module SchoolSchedule
         "permalink" => "/#{dir}/",
         "breadcrumb" => sport_title,
         "groups" => groups_for(school_games, year, sport_title, name),
+        "levels" => levels_for(school_games, year, sport_title),
         "previous_url" => previous_year && "/#{base_dir}/#{previous_year}/#{sport_slug}/",
         "previous_title" => previous_year && en_dash(previous_year),
         "next_url" => next_year && "/#{base_dir}/#{next_year}/#{sport_slug}/",
@@ -151,6 +152,16 @@ module SchoolSchedule
         "exclude_from_directory" => true
       )
       page
+    end
+
+    # Distinct levels (Varsity/Sub-Varsity/...) this school/sport/year has
+    # games at, Varsity first then alphabetical - for the "filter by level"
+    # control (see schedule-filter.html) - only rendered at all when there's
+    # more than one, since filtering a single-level list down to itself is
+    # pointless.
+    def levels_for(school_games, year, sport_title)
+      rows = school_games.select { |g| g["school_year"] == year && g["sport"] == sport_title }
+      rows.map { |g| g["level"] }.uniq.sort_by { |level| [level == "Varsity" ? 0 : 1, level.to_s] }
     end
 
     # One group per Sex (e.g. "Boys") within the one sport this page is

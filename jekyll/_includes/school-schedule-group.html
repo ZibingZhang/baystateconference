@@ -1,15 +1,20 @@
 {%- comment -%}
-  Renders one Sport/Sex group of a school's schedule (e.g. "Boys Football"):
+  Renders one Sex group of a school's one-sport schedule (e.g. "Boys"):
   every resolved game involving this school in that sport/sex, sorted
   chronologically. Rows are pre-sorted/pre-decorated (reoriented to this
   school's point of view - "opponent", "home", W/L/T "result" - and given
   display-formatted "date"/"time" strings) by
   _plugins/school_schedule_page_generator.rb.
 
-  Usage: {% include school-schedule-group.html heading="Boys Football" entries=entries %}
+  Wrapped in .schedule-group and each row tagged data-level so
+  schedule-filter.html/schedule-filter.js can filter by level and hide this
+  whole group if none of its rows match.
+
+  Usage: {% include school-schedule-group.html heading="Boys" entries=entries %}
 {%- endcomment -%}
 {%- assign games = include.entries -%}
 {%- if games and games.size > 0 -%}
+<div class="schedule-group">
 {%- if include.heading -%}
 <h2>{{ include.heading }}</h2>
 {%- endif -%}
@@ -28,7 +33,7 @@
   </thead>
   <tbody>
     {%- for game in games -%}
-    <tr>
+    <tr data-level="{{ game["level"] }}">
       <td>{{ game["date"] }}</td>
       <td>{{ game["time"] }}</td>
       <td>{{ game["level"] }}</td>
@@ -44,5 +49,6 @@
     {%- endfor -%}
   </tbody>
 </table>
+</div>
 </div>
 {%- endif -%}

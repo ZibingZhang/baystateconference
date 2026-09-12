@@ -11,10 +11,15 @@
   some sports (golf) score lower-is-better, so winner comes straight from
   the `winner` field instead.
 
+  Wrapped in .schedule-group and each row tagged data-school so
+  schedule-filter.html/schedule-filter.js can filter by school and hide this
+  whole group if none of its rows match.
+
   Usage: {% include schedule-group.html heading="Girls" entries=entries %}
 {%- endcomment -%}
 {%- assign games = include.entries -%}
 {%- if games and games.size > 0 -%}
+<div class="schedule-group">
 {%- if include.heading -%}
 <h2>{{ include.heading }}</h2>
 {%- endif -%}
@@ -34,7 +39,7 @@
   </thead>
   <tbody>
     {%- for game in games -%}
-    <tr>
+    <tr data-school="{{ game["school_filter"] }}">
       <td>{{ game["date"] }}</td>
       <td>{{ game["time"] }}</td>
       <td>{{ game["level"] }}</td>
@@ -53,5 +58,6 @@
     {%- endfor -%}
   </tbody>
 </table>
+</div>
 </div>
 {%- endif -%}

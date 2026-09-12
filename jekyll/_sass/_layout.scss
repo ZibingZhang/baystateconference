@@ -734,6 +734,60 @@
   color: $brand-color-dimmed;
 }
 
+// A row of toggle chips (see schedule-filter.html/schedule-filter.js) that
+// filter every .schedule-group on the page by school or level. Pill shape
+// matches .file-browser-tag's, but unlike that free-text search tag (which
+// only ever has one state - present or removed) these need a genuine
+// active/inactive distinction, since they're a fixed, always-visible set of
+// options rather than committed search terms.
+.schedule-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: $spacing-unit;
+
+  // On a phone-width screen, wrapping a school filter's 10+ chips can run
+  // to 4-5 rows before the schedule itself even starts - scroll horizontally
+  // in one row instead, the same tradeoff .schedule-table-scroll already
+  // makes for wide tables. Left as wrapping (no horizontal scroll needed)
+  // above $on-palm, where the chips comfortably fit two or three to a row.
+  @include media-query($on-palm) {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px; // clears the scrollbar some browsers/OSes always show
+  }
+}
+
+.schedule-filter-chip {
+  background-color: $code-background-color;
+  border: 1px solid $border-color-01;
+  border-radius: 999px;
+  color: $text-color;
+  cursor: pointer;
+  flex-shrink: 0; // keeps chips full-width instead of squishing when the row scrolls (see .schedule-filter)
+  font-family: inherit;
+  padding: 4px 14px;
+  @include relative-font-size(0.85);
+
+  &:hover, &:focus-visible {
+    border-color: $brand-color;
+  }
+
+  &.is-active {
+    background-color: $brand-color;
+    border-color: $brand-color;
+    color: $background-color;
+    font-weight: 600;
+  }
+}
+
+// Hidden by assets/js/schedule-filter.js when every one of its rows is
+// filtered out, so a filter never leaves an empty heading + table behind.
+.schedule-group[hidden] {
+  display: none;
+}
+
 .school-logo-placeholder {
   background-color: $border-color-01;
   border-radius: 50%;

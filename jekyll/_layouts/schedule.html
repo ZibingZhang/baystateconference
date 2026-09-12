@@ -18,6 +18,7 @@ layout: base
 
     {%- if page.groups.size > 0 -%}
     <p class="schedule-legend">* Winner &nbsp; &#8224; Home team</p>
+    {%- include schedule-filter.html attr="school" values=page.schools label="Filter by school" -%}
     {%- else -%}
     <p>No games found on ArbiterLive yet for this sport/season.</p>
     {%- endif -%}

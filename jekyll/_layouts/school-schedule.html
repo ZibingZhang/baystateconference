@@ -20,6 +20,7 @@ layout: base
 
     {%- if page.groups.size > 0 -%}
     <p class="schedule-legend">&#8224; Home game</p>
+    {%- include schedule-filter.html attr="level" values=page.levels label="Filter by level" -%}
     {%- endif -%}
 
     {%- for group in page.groups -%}
