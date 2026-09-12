@@ -21,6 +21,12 @@ layout: base
   <div class="post-content">
     {{ content }}
 
+    {%- assign school-slug = page.school | slugify -%}
+    {%- if site.data.schools_with_current_season_schedule contains school-slug -%}
+    {%- assign schedule-url = "/schools/" | append: school-slug | append: "/schedule/current-season/" -%}
+    {%- include current-season-link.html url=schedule-url -%}
+    {%- endif -%}
+
     {%- assign school = site.data.schools | where: 'town', page.school | first -%}
     {%- if school -%}
     <div class="school-info-card">

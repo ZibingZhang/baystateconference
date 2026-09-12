@@ -1,16 +1,27 @@
 {%- comment -%}
   A styled "Current Season Schedule" link with a calendar icon, styled like
   any other single-item link-list (see link-list.html/directory-listing.html)
-  for visual consistency. No parameters - always points at this page's own
-  schedule/current-season/ (e.g. a sport's /sports/football/ index page
-  links to /sports/football/schedule/current-season/).
+  for visual consistency. Defaults to this page's own schedule/current-season/
+  (e.g. a sport's /sports/football/ index page links to
+  /sports/football/schedule/current-season/) - pass `url` to override that
+  for a page whose own url doesn't match its schedule section's path (e.g.
+  swimming's per-school pages, nested under
+  /sports/swimming-diving/schools/ rather than /schools/<school>/, where
+  school.html passes the school's own /schools/<school>/schedule/current-season/
+  explicitly).
 
   Usage: {% include current-season-link.html %}
+         {% include current-season-link.html url="/schools/braintree/schedule/current-season/" %}
 {%- endcomment -%}
+{%- if include.url -%}
+  {%- assign target = include.url -%}
+{%- else -%}
+  {%- assign target = page.url | append: "schedule/current-season/" -%}
+{%- endif -%}
 <div class="directory-browser link-list">
   <ul class="directory-tree">
     <li class="directory-file">
-      <a href="{{ page.url | append: 'schedule/current-season/' | relative_url }}">
+      <a href="{{ target | relative_url }}">
         <span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>
         <span>Current Season Schedule</span>
       </a>
