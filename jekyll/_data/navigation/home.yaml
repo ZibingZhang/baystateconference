@@ -47,6 +47,14 @@
     - title: Swimming & Diving
       url: /sports/swimming-diving/
 
+- title: Schedules
+  url: /schedules/
+  children:
+    - title: By School
+      url: /schedules/by-school/
+    - title: By Sport
+      url: /schedules/by-sport/
+
 - title: Resources
   url: /resources/
   children:

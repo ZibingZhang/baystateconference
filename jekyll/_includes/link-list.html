@@ -19,6 +19,12 @@
   sortItems() pass in link-list-search.js — agree with that order instead
   of silently flipping it back to A-Z on load.
 
+  Pass `url_suffix` to append the same path onto every item's own url
+  without needing a bespoke items array just to change where they point -
+  e.g. site.data.sports already has {title, url} pairs for each sport's home
+  page; `url_suffix="schedule/current-season/"` reuses that list to link
+  each one's current-season schedule instead.
+
   Usage: {% include link-list.html items=page.links heading="Resources" %}
          {% include link-list.html items=page.links heading="Directory" searchable=true %}
          {% include link-list.html items=site.data.all_star_years heading="Directory" searchable=true default_sort="desc" %}
@@ -54,7 +60,7 @@
         {%- assign is_external = true -%}
       {%- endif -%}
       <li class="directory-file">
-        <a href="{% if is_external %}{{ item.url }}{% else %}{{ item.url | relative_url }}{% endif %}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>
+        <a href="{% if is_external %}{{ item.url }}{{ include.url_suffix }}{% else %}{{ item.url | append: include.url_suffix | relative_url }}{% endif %}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>
           {%- if is_external -%}
           <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
           {%- else -%}

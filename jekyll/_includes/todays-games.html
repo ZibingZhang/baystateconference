@@ -1,0 +1,45 @@
+{%- comment -%}
+  Lists every Varsity-level Bay State Conference game scheduled for today,
+  across every sport. "Today" means the day this site was built (site.time),
+  not the visitor's local day, since this is a static site - see
+  .github/workflows/jekyll.yaml's daily scheduled build (timed after
+  arbiterlive's daily fetch) for how this stays fresh.
+
+  Usage: {% include todays-games.html %}
+{%- endcomment -%}
+{%- assign today = site.time | date: "%Y-%m-%d" -%}
+{%- assign todays_games = site.data.schedule.games | where: "date", today | where: "level", "Varsity" -%}
+{%- if todays_games and todays_games.size > 0 -%}
+<h2>Today's Varsity Games</h2>
+<p class="schedule-legend">&#8224; Home team</p>
+<div class="schedule-table-scroll">
+<table class="schedule-table">
+  <thead>
+    <tr>
+      <th>Sport</th>
+      <th>Time</th>
+      <th>Team 1</th>
+      <th>Team 2</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for game in todays_games -%}
+    <tr>
+      <td>{{ game.sex }} {{ game.sport }}</td>
+      <td>
+        {%- if game.time == "TBA" -%}
+          TBA
+        {%- else -%}
+          {{ game.date | append: "T" | append: game.time | date: "%-I:%M %p" }}
+        {%- endif -%}
+      </td>
+      <td>{{ game.team_1 }}{% if game.home_team == game.team_1 %}&#8224;{% endif %}</td>
+      <td>{{ game.team_2 }}{% if game.home_team == game.team_2 %}&#8224;{% endif %}</td>
+      <td>{{ game.location }}</td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+</div>
+{%- endif -%}

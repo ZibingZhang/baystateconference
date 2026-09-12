@@ -68,6 +68,8 @@ sport_links:
 
 An unofficial website for the Bay State Conference, meant to serve as a resource for athletes, parents, coaches, and officials.
 
+{% include todays-games.html %}
+
 {% include link-list.html heading="Schools" items=page.school_links %}
 
 {% include link-list.html heading="Sports" items=page.sport_links %}
