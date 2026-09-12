@@ -4,4 +4,4 @@ title: Flag Football
 permalink: /sports/flag-football/
 under_construction: true
 ---
-[Current Season Schedule](/sports/flag-football/schedule/current-season/)
+{% include current-season-link.html %}

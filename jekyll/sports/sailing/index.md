@@ -4,4 +4,4 @@ title: Sailing
 permalink: /sports/sailing/
 under_construction: true
 ---
-[Current Season Schedule](/sports/sailing/schedule/current-season/)
+{% include current-season-link.html %}

@@ -4,4 +4,4 @@ title: Squash
 permalink: /sports/squash/
 under_construction: true
 ---
-[Current Season Schedule](/sports/squash/schedule/current-season/)
+{% include current-season-link.html %}

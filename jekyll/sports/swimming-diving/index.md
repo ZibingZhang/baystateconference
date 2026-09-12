@@ -5,4 +5,4 @@
 layout: swimming-diving-home
 title: Swimming & Diving
 ---
-[Current Season Schedule](/sports/swimming-diving/schedule/current-season/)
+{% include current-season-link.html %}

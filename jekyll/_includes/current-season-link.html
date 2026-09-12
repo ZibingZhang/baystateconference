@@ -1,0 +1,19 @@
+{%- comment -%}
+  A styled "Current Season Schedule" link with a calendar icon, styled like
+  any other single-item link-list (see link-list.html/directory-listing.html)
+  for visual consistency. No parameters - always points at this page's own
+  schedule/current-season/ (e.g. a sport's /sports/football/ index page
+  links to /sports/football/schedule/current-season/).
+
+  Usage: {% include current-season-link.html %}
+{%- endcomment -%}
+<div class="directory-browser link-list">
+  <ul class="directory-tree">
+    <li class="directory-file">
+      <a href="{{ page.url | append: 'schedule/current-season/' | relative_url }}">
+        <span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>
+        <span>Current Season Schedule</span>
+      </a>
+    </li>
+  </ul>
+</div>

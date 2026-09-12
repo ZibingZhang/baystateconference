@@ -4,4 +4,4 @@ title: Volleyball
 permalink: /sports/volleyball/
 under_construction: true
 ---
-[Current Season Schedule](/sports/volleyball/schedule/current-season/)
+{% include current-season-link.html %}

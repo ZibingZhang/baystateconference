@@ -4,4 +4,4 @@ title: Ski
 permalink: /sports/ski/
 under_construction: true
 ---
-[Current Season Schedule](/sports/ski/schedule/current-season/)
+{% include current-season-link.html %}
