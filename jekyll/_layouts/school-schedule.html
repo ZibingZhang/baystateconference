@@ -2,9 +2,11 @@
 layout: base
 ---
 {%- comment -%}
-  Renders one school's schedule for a single school year, split into one
-  table per Sport. A page using this layout gets its `groups` data
-  precomputed by _plugins/school_schedule_page_generator.rb.
+  Renders one school's schedule for a single sport/school year (reached by
+  drilling into a sport card on that year's schools/<school>/schedule/<year>/
+  page), split into one table per Sex (e.g. "Boys"). A page using this
+  layout gets its `groups` data precomputed by
+  _plugins/school_schedule_page_generator.rb.
 {%- endcomment -%}
 <article class="post">
 

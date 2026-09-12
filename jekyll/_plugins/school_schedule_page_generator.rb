@@ -1,10 +1,16 @@
-# Generates one page per School/School Year of games
-# (schools/<school-slug>/schedule/<school-year>/) straight from
-# _data/schedule/games.csv - the same source schedule_page_generator.rb
-# builds the per-sport pages from, just filtered/grouped the other way
-# (by Sport within one school, instead of by Sex within one sport across
-# every school). See that file's header comment for the CSV/build details
-# this shares (absence handling, Jul 1 "current season" rollover, etc).
+# Generates, for every School/School Year with at least one game:
+#   schools/<school-slug>/schedule/<school-year>/            - a grid of
+#     sport cards (mirrors sports/index.md's sport-grid.html), one per sport
+#     that school played that year
+#   schools/<school-slug>/schedule/<school-year>/<sport-slug>/ - that one
+#     sport's actual games that year, split into one table per Sex (e.g.
+#     "Boys") - same shape as the per-sport pages schedule_page_generator.rb
+#     builds, just for one school instead of every school in that sport
+#
+# Both are built from _data/schedule/games.csv, the same source
+# schedule_page_generator.rb builds the per-sport pages from - see that
+# file's header comment for the CSV/build details this shares (absence
+# handling, Jul 1 "current season" rollover, etc).
 #
 # Also sets site.data["schools_with_current_season_schedule"] (an array of
 # school slugs) so school.html can link to a school's current-season
@@ -24,6 +30,7 @@ module SchoolSchedule
     def generate(site)
       games = site.data.dig(*DATA_PATH) || []
       schools = site.data["schools"] || []
+      sports = site.data["sports"] || []
       current_year = current_school_year
       current_slugs = []
 
@@ -38,7 +45,13 @@ module SchoolSchedule
         years.each_with_index do |year, index|
           previous_year = years[index + 1]
           next_year = index.zero? ? nil : years[index - 1]
-          site.pages << build_page(site, name, slug, year, school_games, previous_year, next_year)
+          site.pages << build_year_page(site, sports, slug, year, school_games, previous_year, next_year)
+
+          sport_titles_for(school_games, year).each do |sport_title|
+            site.pages << build_sport_page(
+              site, name, sports, slug, sport_title, year, school_games, years, index
+            )
+          end
         end
 
         if years.include?(current_year)
@@ -60,19 +73,67 @@ module SchoolSchedule
       "#{first_year}-#{first_year + 1}"
     end
 
-    def build_page(site, name, slug, year, school_games, previous_year, next_year)
+    def sport_titles_for(school_games, year)
+      school_games.select { |g| g["school_year"] == year }.map { |g| g["sport"] }.uniq
+    end
+
+    # Looks a sport up by title in _data/sports.yaml, so the card grid uses
+    # the exact same icon/url-slug as that sport's own page, rather than
+    # re-deriving a slug from the title (which could disagree - e.g.
+    # "Track & Field" slugifies differently than its actual "track-and-field"
+    # url segment).
+    def sport_data(sports, title)
+      sports.find { |s| s["title"] == title }
+    end
+
+    def build_year_page(site, sports, slug, year, school_games, previous_year, next_year)
       dir = "schools/#{slug}/schedule"
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "#{year}.html")
       page.content = ""
       page.data.merge!(
-        "layout" => "school-schedule",
+        "layout" => "school-schedule-year",
         "title" => "#{en_dash(year)} Schedule",
         "permalink" => "/#{dir}/#{year}/",
         "breadcrumb" => en_dash(year),
-        "groups" => groups_for(school_games, year, name),
+        "sport_cards" => sport_cards_for(sports, school_games, year, dir),
         "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
         "previous_title" => previous_year && en_dash(previous_year),
         "next_url" => next_year && "/#{dir}/#{next_year}/",
+        "next_title" => next_year && en_dash(next_year)
+      )
+      page
+    end
+
+    def sport_cards_for(sports, school_games, year, dir)
+      titles = sport_titles_for(school_games, year)
+
+      sports.select { |sport| titles.include?(sport["title"]) }.map do |sport|
+        slug = sport["url"].to_s.delete_prefix("/sports/").delete_suffix("/")
+        { "title" => sport["title"], "icon" => sport["icon"], "url" => "/#{dir}/#{year}/#{slug}/" }
+      end
+    end
+
+    def build_sport_page(site, name, sports, school_slug, sport_title, year, school_games, years, index)
+      sport_slug = sport_data(sports, sport_title)&.fetch("url", nil)&.delete_prefix("/sports/")&.delete_suffix("/") ||
+        Jekyll::Utils.slugify(sport_title)
+
+      dir = "schools/#{school_slug}/schedule/#{year}/#{sport_slug}"
+
+      previous_year = years[index + 1..].find { |y| sport_titles_for(school_games, y).include?(sport_title) }
+      next_year = years[0...index].reverse.find { |y| sport_titles_for(school_games, y).include?(sport_title) }
+      base_dir = "schools/#{school_slug}/schedule"
+
+      page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
+      page.content = ""
+      page.data.merge!(
+        "layout" => "school-schedule",
+        "title" => "#{en_dash(year)} #{sport_title} Schedule",
+        "permalink" => "/#{dir}/",
+        "breadcrumb" => sport_title,
+        "groups" => groups_for(school_games, year, sport_title, name),
+        "previous_url" => previous_year && "/#{base_dir}/#{previous_year}/#{sport_slug}/",
+        "previous_title" => previous_year && en_dash(previous_year),
+        "next_url" => next_year && "/#{base_dir}/#{next_year}/#{sport_slug}/",
         "next_title" => next_year && en_dash(next_year)
       )
       page
@@ -92,21 +153,23 @@ module SchoolSchedule
       page
     end
 
-    # One group per Sport/Sex combination (e.g. "Boys Football") rather than
-    # per Sport with Sex as its own column - "Boys" and "Football" read as
-    # one team name, not two independent facts worth separate columns.
-    def groups_for(school_games, year, name)
-      year_games = school_games.select { |g| g["school_year"] == year }
+    # One group per Sex (e.g. "Boys") within the one sport this page is
+    # scoped to - the sport itself is implicit from the page/URL, so it's
+    # not repeated in the heading the way the picker page's cards are.
+    def groups_for(school_games, year, sport_title, name)
+      rows = school_games.select do |g|
+        g["school_year"] == year && g["sport"] == sport_title
+      end
 
-      keys = year_games.map { |g| [g["sport"], g["sex"]] }.uniq
-      keys.sort_by! { |sport, sex| [sport.to_s, SEX_ORDER[sex] || 99] }
+      sexes = rows.map { |g| g["sex"] }.uniq
+      sexes.sort_by! { |sex| SEX_ORDER[sex] || 99 }
 
-      keys.map do |sport, sex|
-        rows = year_games.select { |g| g["sport"] == sport && g["sex"] == sex }
-        rows = rows.map { |g| decorate(g, name) }
-        rows.sort_by! { |g| g["sort_key"] }
+      sexes.map do |sex|
+        sex_rows = rows.select { |g| g["sex"] == sex }
+        sex_rows = sex_rows.map { |g| decorate(g, name) }
+        sex_rows.sort_by! { |g| g["sort_key"] }
 
-        { "heading" => [sex, sport].compact.join(" "), "entries" => rows }
+        { "heading" => sex, "entries" => sex_rows }
       end
     end
 
