@@ -6,3 +6,12 @@ _site
 .jekyll-metadata
 scripts
 vendor
+__pycache__
+*.pyc
+.venv
+
+# Daily-fetched ArbiterLive schedule data (see arbiterlive/arbiter_schedule.py).
+# Cached via GitHub Actions between the fetch and build workflows rather than
+# committed - see .github/workflows/fetch-schedule.yaml for how CI produces
+# it, and README.md for how to regenerate it locally.
+/jekyll/_data/schedule/
