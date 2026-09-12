@@ -9,14 +9,36 @@
     {%- assign crumbs = page.url | split: '/' -%}
     {%- assign crumb_path = '' -%}
     {%- assign position = 1 -%}
+    {%- assign tree_nodes = site.data.page_tree -%}
 
     {%- for crumb in crumbs -%}
       {%- unless crumb == '' -%}
         {%- assign crumb_path = crumb_path | append: '/' | append: crumb -%}
         {%- assign position = position | plus: 1 -%}
 
+        {%- comment -%}
+          Look up this ancestor's own node in site.data.page_tree (built by
+          page_tree_generator.rb), so an intermediate segment with its own
+          `breadcrumb:` front matter (e.g. a school-schedule year page,
+          "2026-2027" -> "2026–2027") uses that instead of just humanizing
+          the raw URL segment - the same override the current/last segment
+          already gets below, just for every ancestor instead of only the
+          final one.
+        {%- endcomment -%}
+        {%- assign node = nil -%}
+        {%- for candidate in tree_nodes -%}
+          {%- if candidate.segment == crumb -%}
+            {%- assign node = candidate -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign tree_nodes = node.children -%}
+
         {%- capture label %}{% include url-label.html segment=crumb %}{% endcapture -%}
         {%- assign label = label | strip -%}
+        {%- if node.breadcrumb -%}
+          {%- assign label = node.breadcrumb -%}
+        {%- endif -%}
 
         {%- if forloop.last -%}
           {%- comment -%}
