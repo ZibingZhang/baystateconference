@@ -558,6 +558,7 @@ def main() -> None:
     print(f"\nFetching {args.school_year} schedules for {len(all_teams)} team(s)...")
 
     all_games: list[Game] = []
+    resolved: list[ResolvedGame] = []
     completed = 0
     with ThreadPoolExecutor(max_workers=PARALLEL_REQUESTS) as executor:
         futures = {
@@ -592,10 +593,17 @@ def main() -> None:
                 f"  [{completed}/{len(all_teams)}] {team.school} {team.sport} {team.level}: {len(games)} game(s)"
             )
 
-    print(f"\nResolving game pairs (each Bay State Conference matchup was fetched from both teams)...")
-    resolved = resolve_game_pairs(all_games)
-    print(f"{len(all_games)} team-game rows -> {len(resolved)} resolved games")
+            # Re-resolve and rewrite after every team, not just at the end -
+            # so args.out always reflects everything fetched so far (as best
+            # as it can be resolved with partial data), and a killed/crashed
+            # run still leaves something usable on disk instead of nothing.
+            resolved = write_resolved_csv(all_games, args.out)
 
+    print(f"\n{len(all_games)} team-game rows -> {len(resolved)} resolved games")
+    print(f"Wrote {len(resolved)} game(s) to {args.out}")
+
+
+def write_resolved_csv(games: list[Game], out: str) -> list[ResolvedGame]:
     fieldnames = [
         "school_year",
         "sport",
@@ -612,13 +620,14 @@ def main() -> None:
         "game_type",
     ]
 
-    with open(args.out, "w", newline="") as f:
+    resolved = resolve_game_pairs(games)
+    with open(out, "w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for g in resolved:
             writer.writerow(asdict(g))
 
-    print(f"\nWrote {len(resolved)} game(s) to {args.out}")
+    return resolved
 
 
 if __name__ == "__main__":
