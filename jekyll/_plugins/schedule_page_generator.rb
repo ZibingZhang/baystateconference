@@ -22,10 +22,16 @@
 #
 # Also generates /sports/<slug>/schedule/current-season/, a permanent link
 # that always redirects to whichever year is "current" per the Jul 1
-# rollover (see current_school_year) - only when that year's page actually
-# exists, so it's never a dead link. `exclude_from_directory: true` keeps it
-# out of the directory listing/sitemap (see page_tree_generator.rb) since
-# it's meant to be reached only by direct link, not browsed to.
+# rollover (see current_school_year). Both this and the current year's page
+# always exist for every sport, even one with zero rows in the CSV (e.g. a
+# newer/less common sport ArbiterLive doesn't track for any Bay State
+# Conference school yet) - that year's page just renders with no games and a
+# note instead of 404ing, since sports.yaml is the source of truth for which
+# sports exist, not which ones happen to have data yet. Historical years
+# only get a page when the CSV actually has rows for them, though.
+# `exclude_from_directory: true` keeps the redirect out of the directory
+# listing/sitemap (see page_tree_generator.rb) since it's meant to be
+# reached only by direct link, not browsed to.
 require "date"
 
 module Schedule
@@ -38,17 +44,16 @@ module Schedule
 
     def generate(site)
       games = site.data.dig(*DATA_PATH) || []
-      return if games.empty?
-
       sports = site.data["sports"] || []
       current_year = current_school_year
 
       sports.each do |sport|
         slug = sport["url"].to_s.delete_prefix("/sports/").delete_suffix("/")
         sport_games = games.select { |g| g["sport"] == sport["title"] }
-        next if sport_games.empty?
 
-        years = sport_games.map { |g| g["school_year"] }.compact.uniq.sort.reverse
+        years = sport_games.map { |g| g["school_year"] }.compact.uniq
+        years << current_year unless years.include?(current_year)
+        years.sort!.reverse!
 
         years.each_with_index do |year, index|
           previous_year = years[index + 1]
@@ -56,9 +61,7 @@ module Schedule
           site.pages << build_page(site, sport, slug, year, sport_games, previous_year, next_year)
         end
 
-        if years.include?(current_year)
-          site.pages << build_current_season_redirect(site, slug, current_year)
-        end
+        site.pages << build_current_season_redirect(site, slug, current_year)
       end
     end
 

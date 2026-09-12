@@ -18,6 +18,8 @@ layout: base
 
     {%- if page.groups.size > 0 -%}
     <p class="schedule-legend">* Winner &nbsp; &#8224; Home team</p>
+    {%- else -%}
+    <p>No games found on ArbiterLive yet for this sport/season.</p>
     {%- endif -%}
 
     {%- for group in page.groups -%}
