@@ -1,0 +1,43 @@
+# Fetches every Bay State Conference team's schedule from ArbiterLive once a
+# day and caches the resulting CSV for the Jekyll build workflow to pick up
+# (see .github/workflows/jekyll.yaml, which restores this cache before
+# building) - no scraping happens as part of every site build, just once
+# daily here. To replicate locally: run arbiterlive/arbiter_schedule.py
+# yourself and point --out at jekyll/_data/schedule/games.csv (see
+# README.md), then `bundle exec jekyll build` reads the exact same file
+# either way.
+name: Fetch Schedule Data
+
+on:
+  schedule:
+    - cron: "0 8 * * *" # ~3-4am US Eastern, daily
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: arbiterlive
+        run: pip install -r requirements.txt
+
+      - name: Fetch schedule data
+        working-directory: arbiterlive
+        run: ./arbiter_schedule.py
+
+      - name: Cache schedule data
+        uses: actions/cache/save@v4
+        with:
+          path: jekyll/_data/schedule/games.csv
+          key: schedule-data-${{ github.run_id }}

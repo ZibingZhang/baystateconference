@@ -14,6 +14,14 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Rebuilds/redeploys once a day so the site picks up that day's fetch (see
+  # fetch-schedule.yaml, scheduled for 8:00 UTC) without waiting for an
+  # unrelated content push. Deliberately just a second independent cron
+  # rather than a workflow_run trigger off that workflow - the two are meant
+  # to stay decoupled, this is only timed to usually run after it finishes.
+  schedule:
+    - cron: "45 8 * * *"
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -43,6 +51,19 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
+      # Restores the most recent schedule CSV saved by fetch-schedule.yaml.
+      # No exact key ever matches (that workflow's run id differs from this
+      # one's) so this always falls through to restore-keys, which resolves
+      # to the newest cache entry with that prefix. If no fetch has ever
+      # succeeded yet, this is a no-op and the build just has no schedule
+      # data (schedule_page_generator.rb handles that - see its comment).
+      - name: Restore cached schedule data
+        uses: actions/cache/restore@v4
+        with:
+          path: jekyll/_data/schedule/games.csv
+          key: schedule-data-${{ github.run_id }}
+          restore-keys: |
+            schedule-data-
       - name: Build with Jekyll
         working-directory: jekyll
         # Outputs to the './_site' directory (relative to working-directory) by default
