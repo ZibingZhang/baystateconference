@@ -526,6 +526,14 @@ def main() -> None:
 
     sys.stdout.reconfigure(line_buffering=True)
 
+    # Create the output directory (e.g. jekyll/_data/schedule/ is gitignored,
+    # so it doesn't exist on a fresh checkout in CI) and confirm we can
+    # actually write there *before* spending 10+ minutes fetching everything
+    # - better to fail in the first second than after the whole scrape.
+    out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.touch()
+
     school_names = load_school_names(args.schools_yaml)
     print(f"Loaded {len(school_names)} schools from {args.schools_yaml}")
 
