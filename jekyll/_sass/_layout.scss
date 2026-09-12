@@ -714,6 +714,26 @@
   }
 }
 
+// Wraps .schedule-table so it can scroll horizontally on narrow screens
+// instead of wrapping cells onto multiple lines - see schedule-group.html.
+.schedule-table-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+}
+
+.schedule-table {
+  @include relative-font-size(0.875);
+
+  th, td {
+    white-space: nowrap;
+  }
+}
+
+.schedule-legend {
+  @include relative-font-size(0.9375);
+  color: $brand-color-dimmed;
+}
+
 .school-logo-placeholder {
   background-color: $border-color-01;
   border-radius: 50%;

@@ -1,0 +1,57 @@
+{%- comment -%}
+  Renders one Sex group of a sport's schedule: every resolved Bay State
+  Conference game (see resolve_game_pairs() in arbiter_schedule.py) for that
+  sex, sorted chronologically. Rows are pre-sorted and already carry
+  display-formatted "date"/"time" strings, computed by
+  _plugins/schedule_page_generator.rb (which also resolves the actual
+  calendar year, since ArbiterLive's date_time column has none of its own).
+
+  The winning team's name gets a "*" and the home team's name gets a "†"
+  (see the legend in _layouts/schedule.html) - not inferred from score, since
+  some sports (golf) score lower-is-better, so winner comes straight from
+  the `winner` field instead.
+
+  Usage: {% include schedule-group.html heading="Girls" entries=entries %}
+{%- endcomment -%}
+{%- assign games = include.entries -%}
+{%- if games and games.size > 0 -%}
+{%- if include.heading -%}
+<h2>{{ include.heading }}</h2>
+{%- endif -%}
+<div class="schedule-table-scroll">
+<table class="schedule-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Level</th>
+      <th>Team 1</th>
+      <th>Team 2</th>
+      <th>Location</th>
+      <th>Score</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for game in games -%}
+    <tr>
+      <td>{{ game["date"] }}</td>
+      <td>{{ game["time"] }}</td>
+      <td>{{ game["level"] }}</td>
+      <td>{{ game["team_1"] }}{% if game["winner"] == game["team_1"] %}*{% endif %}{% if game["home_team"] == game["team_1"] %}&#8224;{% endif %}</td>
+      <td>{{ game["team_2"] }}{% if game["winner"] == game["team_2"] %}*{% endif %}{% if game["home_team"] == game["team_2"] %}&#8224;{% endif %}</td>
+      <td>{{ game["location"] }}</td>
+      <td>
+        {%- if game["winner"] == "Tie" -%}
+          {{ game["score"] }} (Tie)
+        {%- else -%}
+          {{ game["score"] }}
+        {%- endif -%}
+      </td>
+      <td>{{ game["game_type"] }}</td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+</div>
+{%- endif -%}

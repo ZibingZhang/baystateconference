@@ -2,6 +2,9 @@
 - title: Home
   url: /
 
+- title: Schedule
+  url: /sports/football/schedule/
+
 - title: Organizations
   children:
     - title: MIAA
