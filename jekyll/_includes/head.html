@@ -16,6 +16,20 @@
       } catch (e) {}
     })();
   </script>
+  {%- comment -%}
+    Paints the right background before the (render-blocking, but still
+    network-fetched) main stylesheet loads, so there's no white flash - most
+    noticeable on a redirect_to page, since that's an extra document load
+    back to back with barely any content of its own to fill the gap.
+    Mirrors the cascade _sass/skins/auto.scss builds from $lm/$dm-background-color.
+  {%- endcomment -%}
+  <style>
+    html { background-color: #fdfdfd; }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) { background-color: #181818; }
+    }
+    html[data-theme="dark"] { background-color: #181818; }
+  </style>
   {%- if page.redirect_to -%}
   {%- assign redirect_url = page.redirect_to | relative_url -%}
   <meta http-equiv="refresh" content="0; url={{ redirect_url }}">
