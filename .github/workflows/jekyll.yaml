@@ -64,6 +64,18 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: championshipentries/package-lock.json
+      - name: Install championship entries dependencies
+        working-directory: championshipentries
+        run: npm ci
+      - name: Build championship entries
+        working-directory: championshipentries
+        run: npm run build
       # Pulls in the CSV published by fetch-schedule.yaml's orphan
       # `schedule-data` branch (a single commit, force-pushed fresh each
       # run - see that workflow). continue-on-error covers the case where
@@ -89,6 +101,10 @@ jobs:
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+      - name: Copy championship entries build into site
+        run: |
+          mkdir -p jekyll/_site/sports/swimming-diving/championship-entries
+          cp -r championshipentries/dist/. jekyll/_site/sports/swimming-diving/championship-entries/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
