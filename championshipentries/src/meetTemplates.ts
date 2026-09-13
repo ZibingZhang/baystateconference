@@ -3,8 +3,8 @@ import { parseEv3, uniqueEventOptions } from './ev3'
 
 export const MEET_TEMPLATES: MeetTemplate[] = [
   {
-    id: 'template-2026-fall-bay-state-conference',
-    name: '2026 Fall Bay State Conference',
+    id: 'template-2025-fall-bay-state-conference',
+    name: '2025 Fall Bay State Conference',
     ev3Url:
       'https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2025-fall-bay-state-conference.ev3',
     genderFilter: 'G',
