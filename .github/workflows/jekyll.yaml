@@ -14,13 +14,22 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-  # Rebuilds/redeploys once a day so the site picks up that day's fetch (see
-  # fetch-schedule.yaml, scheduled for 8:00 UTC) without waiting for an
-  # unrelated content push. Deliberately just a second independent cron
-  # rather than a workflow_run trigger off that workflow - the two are meant
-  # to stay decoupled, this is only timed to usually run after it finishes.
+  # Rebuilds/redeploys as soon as that day's fetch finishes (see
+  # fetch-schedule.yaml), so the site picks up the new schedule data right
+  # away. Gated to only proceed on a successful fetch - see the build job's
+  # `if`.
+  workflow_run:
+    workflows: ["Fetch Schedule Data"]
+    types: [completed]
+
+  # Backstop in case the fetch workflow's run event is ever missed - targets
+  # the same midnight US Eastern time as fetch-schedule.yaml (see the
+  # comment there on the two cron entries approximating the EDT/EST
+  # boundary). Runs a few minutes after so it normally lands after the fetch
+  # completes and just checks out that fresh commit.
   schedule:
-    - cron: "45 8 * * *"
+    - cron: "10 4 * 3-10 *" # midnight EDT, Mar-Oct
+    - cron: "10 5 * 11,12,1,2 *" # midnight EST, Nov-Feb
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -38,6 +47,10 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    # For push/workflow_dispatch/schedule events there's no fetch conclusion
+    # to check, so only the workflow_run event (triggered by Fetch Schedule
+    # Data completing) needs gating - skip it if that fetch failed.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -51,19 +64,25 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
-      # Restores the most recent schedule CSV saved by fetch-schedule.yaml.
-      # No exact key ever matches (that workflow's run id differs from this
-      # one's) so this always falls through to restore-keys, which resolves
-      # to the newest cache entry with that prefix. If no fetch has ever
-      # succeeded yet, this is a no-op and the build just has no schedule
-      # data (schedule_page_generator.rb handles that - see its comment).
-      - name: Restore cached schedule data
-        uses: actions/cache/restore@v4
+      # Pulls in the CSV published by fetch-schedule.yaml's orphan
+      # `schedule-data` branch (a single commit, force-pushed fresh each
+      # run - see that workflow). continue-on-error covers the case where
+      # no fetch has ever succeeded yet and the branch doesn't exist, in
+      # which case the copy step below is skipped and the build just has no
+      # schedule data (schedule_page_generator.rb handles that - see its
+      # comment).
+      - name: Checkout schedule data
+        id: schedule-data
+        continue-on-error: true
+        uses: actions/checkout@v4
         with:
-          path: jekyll/_data/schedule/games.csv
-          key: schedule-data-${{ github.run_id }}
-          restore-keys: |
-            schedule-data-
+          ref: schedule-data
+          path: schedule-data
+      - name: Copy schedule data
+        if: steps.schedule-data.outcome == 'success'
+        run: |
+          mkdir -p jekyll/_data/schedule
+          cp schedule-data/jekyll/_data/schedule/games.csv jekyll/_data/schedule/games.csv
       - name: Build with Jekyll
         working-directory: jekyll
         # Outputs to the './_site' directory (relative to working-directory) by default

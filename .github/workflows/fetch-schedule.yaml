@@ -1,20 +1,27 @@
 # Fetches every Bay State Conference team's schedule from ArbiterLive once a
-# day and caches the resulting CSV for the Jekyll build workflow to pick up
-# (see .github/workflows/jekyll.yaml, which restores this cache before
-# building) - no scraping happens as part of every site build, just once
-# daily here. To replicate locally: run arbiterlive/arbiter_schedule.py
-# yourself and point --out at jekyll/_data/schedule/games.csv (see
-# README.md), then `bundle exec jekyll build` reads the exact same file
-# either way.
+# day and publishes the resulting CSV as the sole commit on an orphan
+# `schedule-data` branch (history-free - each run force-pushes a fresh
+# single commit replacing the last) for the Jekyll build workflow to check
+# out (see .github/workflows/jekyll.yaml, which runs whenever this workflow
+# completes successfully) - no scraping happens as part of every site
+# build, just once daily here. To replicate locally: run
+# arbiterlive/arbiter_schedule.py yourself and point --out at
+# jekyll/_data/schedule/games.csv (see README.md), then
+# `bundle exec jekyll build` reads the exact same file either way.
 name: Fetch Schedule Data
 
 on:
   schedule:
-    - cron: "0 8 * * *" # ~3-4am US Eastern, daily
+    # Targets midnight US Eastern. GitHub Actions cron always runs in UTC
+    # and doesn't shift for daylight saving, so two entries approximate the
+    # EDT/EST boundary (a few days of slop right at the March/November
+    # transition is fine for this).
+    - cron: "0 4 * 3-10 *" # midnight EDT, Mar-Oct
+    - cron: "0 5 * 11,12,1,2 *" # midnight EST, Nov-Feb
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   fetch:
@@ -36,8 +43,21 @@ jobs:
         working-directory: arbiterlive
         run: ./arbiter_schedule.py
 
-      - name: Cache schedule data
-        uses: actions/cache/save@v4
-        with:
-          path: jekyll/_data/schedule/games.csv
-          key: schedule-data-${{ github.run_id }}
+      # Publishes games.csv as the only file in the only commit on
+      # `schedule-data`, force-pushed fresh each run so the branch never
+      # accumulates history. Stash the fetched file outside the repo first
+      # since `git checkout --orphan` + `git rm -rf .` clears the working
+      # tree of everything from master.
+      - name: Publish schedule data to schedule-data branch
+        run: |
+          set -e
+          cp jekyll/_data/schedule/games.csv "$RUNNER_TEMP/games.csv"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan schedule-data
+          git rm -rf . --quiet
+          mkdir -p jekyll/_data/schedule
+          cp "$RUNNER_TEMP/games.csv" jekyll/_data/schedule/games.csv
+          git add -f jekyll/_data/schedule/games.csv
+          git commit -m "Update schedule data"
+          git push origin schedule-data --force
