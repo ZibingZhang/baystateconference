@@ -21,7 +21,7 @@
 title: Bay State Conference
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A website for the Bay State Conference.
+  The go-to place for anything Bay State Conference related.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://baystateconference.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  zibingzhang
