@@ -1,5 +1,4 @@
 import type { AppData, Athlete, Gender } from "../types";
-import { athleteFullName } from "../utils/athleteMatch";
 
 interface AthleteCrud {
   addMany: (items: Omit<Athlete, "id" | "meetId">[]) => void;
@@ -71,13 +70,7 @@ export function useAthleteActions(
       return;
     }
 
-    const athlete = data.athletes.find((a) => a.id === id);
-    const label = athlete ? athleteFullName(athlete) : "";
-    callbacks.showConfirm({
-      title: "Delete Athlete",
-      message: `Delete ${label || "this athlete"}?`,
-      onConfirm: () => athleteCrud.deleteById(id),
-    });
+    athleteCrud.deleteById(id);
   };
 
   const clearAllAthletes = () => {
