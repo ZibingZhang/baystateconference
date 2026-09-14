@@ -36,7 +36,8 @@ function App() {
 
   const { confirmDialog, showConfirm, closeConfirm, infoDialog, showInfo, closeInfo } =
     useDialogState();
-  const { selectedMeetId, setSelectedMeetId, activeTab, setActiveTab } = useMeetUrlState(howToOpen);
+  const { selectedMeetId, setSelectedMeetId, activeTab, setActiveTab, clearTab } =
+    useMeetUrlState(howToOpen);
 
   const athleteCrud = useMeetCrud<Athlete>(history, selectedMeetId, {
     get: (d) => d.athletes,
@@ -77,6 +78,7 @@ function App() {
     const fallbackMeetId = data.meets[0]?.id ?? null;
     if (fallbackMeetId !== selectedMeetId) {
       setSelectedMeetId(fallbackMeetId);
+      clearTab();
     }
   }
 

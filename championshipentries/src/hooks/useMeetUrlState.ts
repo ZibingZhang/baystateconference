@@ -10,10 +10,17 @@ export function useMeetUrlState(howToOpen: boolean) {
   const [selectedMeetId, setSelectedMeetId] = useState<string | null>(() =>
     new URLSearchParams(window.location.search).get("meet"),
   );
-  const [activeTab, setActiveTab] = useState<MeetTab>(() => {
+  const [activeTab, setActiveTabState] = useState<MeetTab>(() => {
     const tab = new URLSearchParams(window.location.search).get("tab");
     return MEET_TABS.includes(tab as MeetTab) ? (tab as MeetTab) : "team";
   });
+  const [tabParamCleared, setTabParamCleared] = useState(false);
+
+  const setActiveTab = (tab: MeetTab) => {
+    setTabParamCleared(false);
+    setActiveTabState(tab);
+  };
+  const clearTab = () => setTabParamCleared(true);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -22,7 +29,7 @@ export function useMeetUrlState(howToOpen: boolean) {
     } else {
       params.delete("meet");
     }
-    if (howToOpen) {
+    if (howToOpen || tabParamCleared) {
       params.delete("tab");
     } else {
       params.set("tab", activeTab);
@@ -33,7 +40,7 @@ export function useMeetUrlState(howToOpen: boolean) {
       "",
       `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`,
     );
-  }, [selectedMeetId, activeTab, howToOpen]);
+  }, [selectedMeetId, activeTab, howToOpen, tabParamCleared]);
 
-  return { selectedMeetId, setSelectedMeetId, activeTab, setActiveTab };
+  return { selectedMeetId, setSelectedMeetId, activeTab, setActiveTab, clearTab };
 }
