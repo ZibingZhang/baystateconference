@@ -44,7 +44,7 @@ const TEMPLATE_READ_ONLY_MESSAGE =
 
 type MeetTab = "team" | "athletes" | "individual" | "relay" | "events";
 
-const MEET_TABS: MeetTab[] = ["team", "athletes", "individual", "relay", "events"];
+const MEET_TABS: MeetTab[] = ["team", "events", "athletes", "individual", "relay"];
 
 const newId = () => crypto.randomUUID();
 
@@ -753,10 +753,10 @@ function App() {
                     sx={{ borderBottom: 1, borderColor: "divider", px: 1 }}
                   >
                     <Tab label="Team" value="team" />
+                    <Tab label="Events" value="events" />
                     <Tab label="Athletes" value="athletes" />
                     <Tab label="Individual Entries" value="individual" />
                     <Tab label="Relay Entries" value="relay" />
-                    <Tab label="Events" value="events" />
                   </Tabs>
                   <Box sx={{ flex: 1, minHeight: 0, p: 2 }}>
                     {activeTab === "team" && (
@@ -837,10 +837,10 @@ function App() {
                 sx={{ borderBottom: 1, borderColor: "divider", px: 1 }}
               >
                 <Tab label="Team" value="team" />
+                <Tab label="Events" value="events" />
                 <Tab label="Athletes" value="athletes" />
                 <Tab label="Individual Entries" value="individual" />
                 <Tab label="Relay Entries" value="relay" />
-                <Tab label="Events" value="events" />
               </Tabs>
               <Box sx={{ flex: 1, minHeight: 0, p: 2 }}>
                 {activeTab === "team" && (
