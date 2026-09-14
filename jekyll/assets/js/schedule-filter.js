@@ -11,6 +11,12 @@
 // page filters by both school and level) - every active filter is ANDed
 // together against each row, not just whichever one was clicked most
 // recently.
+//
+// Each filter's active value is mirrored to a query param named after its
+// data-filter-attr (e.g. ?school=Natick), via replaceState so filtering
+// doesn't spam browser history. On load, params already in the URL (a
+// bookmarked or shared link) are used to pre-select chips before the first
+// apply() - an unrecognized value is just ignored, leaving "All".
 (function () {
   var filterEls = Array.prototype.slice.call(document.querySelectorAll(".schedule-filter"));
   if (filterEls.length === 0) return;
@@ -40,6 +46,43 @@
     });
   }
 
+  function activateChip(filterEl, chip) {
+    filterEl.querySelectorAll(".schedule-filter-chip").forEach(function (c) {
+      c.classList.remove("is-active");
+      c.setAttribute("aria-pressed", "false");
+    });
+    chip.classList.add("is-active");
+    chip.setAttribute("aria-pressed", "true");
+  }
+
+  function syncUrl() {
+    var params = new URLSearchParams(window.location.search);
+    filterEls.forEach(function (filterEl) {
+      var attr = filterEl.getAttribute("data-filter-attr");
+      var value = activeValue(filterEl);
+      if (value === "") {
+        params.delete(attr);
+      } else {
+        params.set(attr, value);
+      }
+    });
+    var query = params.toString();
+    var url = window.location.pathname + (query ? "?" + query : "") + window.location.hash;
+    window.history.replaceState(null, "", url);
+  }
+
+  var initialParams = new URLSearchParams(window.location.search);
+  filterEls.forEach(function (filterEl) {
+    var value = initialParams.get(filterEl.getAttribute("data-filter-attr"));
+    if (!value) return;
+    var chips = Array.prototype.slice.call(filterEl.querySelectorAll(".schedule-filter-chip"));
+    var chip = chips.filter(function (c) {
+      return c.getAttribute("data-filter-value") === value;
+    })[0];
+    if (chip) activateChip(filterEl, chip);
+  });
+  apply();
+
   filterEls.forEach(function (filterEl) {
     var chips = filterEl.querySelectorAll(".schedule-filter-chip");
 
@@ -49,13 +92,9 @@
           ? filterEl.querySelector('.schedule-filter-chip[data-filter-value=""]')
           : chip;
 
-        chips.forEach(function (c) {
-          c.classList.remove("is-active");
-          c.setAttribute("aria-pressed", "false");
-        });
-        target.classList.add("is-active");
-        target.setAttribute("aria-pressed", "true");
+        activateChip(filterEl, target);
         apply();
+        syncUrl();
       });
     });
   });
