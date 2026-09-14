@@ -1,56 +1,60 @@
-import type { Ref, RefCallback } from 'react'
-import { useEffect, useRef, useState } from 'react'
-import Autocomplete from '@mui/material/Autocomplete'
-import TextField from '@mui/material/TextField'
+import type { Ref, RefCallback } from "react";
+import { useEffect, useRef, useState } from "react";
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
 import {
   useGridApiContext,
   type GridRenderEditCellParams,
   type GridSingleSelectColDef,
-} from '@mui/x-data-grid'
-import { filterBySubsequence } from '../subsequenceMatch'
+} from "@mui/x-data-grid";
+import { filterBySubsequence } from "../subsequenceMatch";
 
 function mergeRefs<T>(...refs: Array<Ref<T> | undefined>): RefCallback<T> {
   return (value) => {
     for (const ref of refs) {
-      if (!ref) continue
-      if (typeof ref === 'function') ref(value)
-      else (ref as { current: T | null }).current = value
+      if (!ref) continue;
+      if (typeof ref === "function") ref(value);
+      else (ref as { current: T | null }).current = value;
     }
-  }
+  };
 }
 
 interface FilterableSingleSelectEditCellProps extends GridRenderEditCellParams {
   /** Called when the user commits (Enter/Tab/blur) typed text matching no option. */
-  onInvalidCommit?: () => void
+  onInvalidCommit?: () => void;
 }
 
-function FilterableSingleSelectEditCell({ onInvalidCommit, ...params }: FilterableSingleSelectEditCellProps) {
-  const { id, field, value, colDef, row, hasFocus } = params
-  const apiRef = useGridApiContext()
-  const inputRef = useRef<HTMLInputElement>(null)
-  const singleSelectColDef = colDef.type === 'singleSelect' ? (colDef as GridSingleSelectColDef) : null
+function FilterableSingleSelectEditCell({
+  onInvalidCommit,
+  ...params
+}: FilterableSingleSelectEditCellProps) {
+  const { id, field, value, colDef, row, hasFocus } = params;
+  const apiRef = useGridApiContext();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const singleSelectColDef =
+    colDef.type === "singleSelect" ? (colDef as GridSingleSelectColDef) : null;
 
   const valueOptions =
-    (typeof singleSelectColDef?.valueOptions === 'function'
+    (typeof singleSelectColDef?.valueOptions === "function"
       ? singleSelectColDef.valueOptions({ field, id, row })
-      : singleSelectColDef?.valueOptions) ?? []
+      : singleSelectColDef?.valueOptions) ?? [];
   const selectedOption = singleSelectColDef
     ? (valueOptions.find((option) => singleSelectColDef.getOptionValue(option) === value) ?? null)
-    : null
+    : null;
 
   // Lazy-initialized once from the cell's starting value: this component is
   // remounted fresh each time a cell enters edit mode, so there's no need to
   // keep re-syncing this from props afterward.
   const [inputValue, setInputValue] = useState(() =>
-    selectedOption && singleSelectColDef ? singleSelectColDef.getOptionLabel(selectedOption) : '',
-  )
+    selectedOption && singleSelectColDef ? singleSelectColDef.getOptionLabel(selectedOption) : "",
+  );
   // Mirrors `inputValue` for the cellEditStop listener below, so that
   // listener doesn't need to resubscribe on every keystroke.
-  const inputValueRef = useRef(inputValue)
+  const inputValueRef = useRef(inputValue);
 
   useEffect(() => {
-    if (hasFocus) inputRef.current?.focus()
-  }, [hasFocus])
+    if (hasFocus) inputRef.current?.focus();
+  }, [hasFocus]);
 
   // The grid ends editing (Enter/Tab/Escape/clicking away) via its own
   // `cellEditStop` event whenever the user didn't pick an option through
@@ -60,23 +64,23 @@ function FilterableSingleSelectEditCell({ onInvalidCommit, ...params }: Filterab
   // and Tab isn't handled by Autocomplete at all). Escape means "cancel", not
   // a rejection, so it's excluded.
   useEffect(() => {
-    if (!singleSelectColDef) return
-    return apiRef.current.subscribeEvent('cellEditStop', (stopParams) => {
-      if (stopParams.id !== id || stopParams.field !== field) return
-      if (stopParams.reason === 'escapeKeyDown') return
-      const currentInput = inputValueRef.current
-      if (currentInput === '') return
+    if (!singleSelectColDef) return;
+    return apiRef.current.subscribeEvent("cellEditStop", (stopParams) => {
+      if (stopParams.id !== id || stopParams.field !== field) return;
+      if (stopParams.reason === "escapeKeyDown") return;
+      const currentInput = inputValueRef.current;
+      if (currentInput === "") return;
       const matches = valueOptions.some(
         (option) => singleSelectColDef.getOptionLabel(option) === currentInput,
-      )
-      if (!matches) onInvalidCommit?.()
-    })
+      );
+      if (!matches) onInvalidCommit?.();
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [apiRef, id, field])
+  }, [apiRef, id, field]);
 
-  if (!singleSelectColDef) return null
-  const getOptionLabel = singleSelectColDef.getOptionLabel
-  const getOptionValue = singleSelectColDef.getOptionValue
+  if (!singleSelectColDef) return null;
+  const getOptionLabel = singleSelectColDef.getOptionLabel;
+  const getOptionValue = singleSelectColDef.getOptionValue;
 
   return (
     <Autocomplete
@@ -84,31 +88,33 @@ function FilterableSingleSelectEditCell({ onInvalidCommit, ...params }: Filterab
       value={selectedOption}
       inputValue={inputValue}
       onInputChange={(_event, newInputValue) => {
-        inputValueRef.current = newInputValue
-        setInputValue(newInputValue)
+        inputValueRef.current = newInputValue;
+        setInputValue(newInputValue);
       }}
       getOptionLabel={getOptionLabel}
       getOptionKey={(option) => String(getOptionValue(option))}
       isOptionEqualToValue={(option, val) => getOptionValue(option) === getOptionValue(val)}
-      filterOptions={(options, state) => filterBySubsequence(options, state.inputValue, getOptionLabel)}
+      filterOptions={(options, state) =>
+        filterBySubsequence(options, state.inputValue, getOptionLabel)
+      }
       onChange={(_event, newValue) => {
         apiRef.current.setEditCellValue({
           id,
           field,
-          value: newValue ? getOptionValue(newValue) : '',
-        })
-        apiRef.current.stopCellEditMode({ id, field })
+          value: newValue ? getOptionValue(newValue) : "",
+        });
+        apiRef.current.stopCellEditMode({ id, field });
       }}
       fullWidth
       openOnFocus
       autoHighlight
       size="small"
-      sx={{ height: '100%', '& .MuiInputBase-root': { height: '100%' } }}
+      sx={{ height: "100%", "& .MuiInputBase-root": { height: "100%" } }}
       renderInput={(inputParams) => (
         <TextField
           {...inputParams}
           variant="standard"
-          sx={{ px: 1, height: '100%', display: 'flex', alignItems: 'center' }}
+          sx={{ px: 1, height: "100%", display: "flex", alignItems: "center" }}
           slotProps={{
             ...inputParams.slotProps,
             input: { ...inputParams.slotProps.input, disableUnderline: true },
@@ -120,7 +126,7 @@ function FilterableSingleSelectEditCell({ onInvalidCommit, ...params }: Filterab
         />
       )}
     />
-  )
+  );
 }
 
-export default FilterableSingleSelectEditCell
+export default FilterableSingleSelectEditCell;

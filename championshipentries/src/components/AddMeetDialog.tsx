@@ -1,31 +1,31 @@
-import { useState, type KeyboardEvent } from 'react'
-import Dialog from '@mui/material/Dialog'
-import DialogTitle from '@mui/material/DialogTitle'
-import DialogContent from '@mui/material/DialogContent'
-import DialogActions from '@mui/material/DialogActions'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
+import { useState, type KeyboardEvent } from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 interface AddMeetDialogProps {
-  open: boolean
-  onClose: () => void
-  onCreate: (name: string) => void
+  open: boolean;
+  onClose: () => void;
+  onCreate: (name: string) => void;
 }
 
 function AddMeetDialog({ open, onClose, onCreate }: AddMeetDialogProps) {
-  const [name, setName] = useState('')
+  const [name, setName] = useState("");
 
   const handleCreate = () => {
-    const trimmed = name.trim()
-    if (!trimmed) return
-    onCreate(trimmed)
-    setName('')
-    onClose()
-  }
+    const trimmed = name.trim();
+    if (!trimmed) return;
+    onCreate(trimmed);
+    setName("");
+    onClose();
+  };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === 'Enter') handleCreate()
-  }
+    if (event.key === "Enter") handleCreate();
+  };
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="xs">
@@ -48,7 +48,7 @@ function AddMeetDialog({ open, onClose, onCreate }: AddMeetDialogProps) {
         </Button>
       </DialogActions>
     </Dialog>
-  )
+  );
 }
 
-export default AddMeetDialog
+export default AddMeetDialog;

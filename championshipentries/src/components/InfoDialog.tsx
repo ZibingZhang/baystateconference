@@ -1,15 +1,15 @@
-import Dialog from '@mui/material/Dialog'
-import DialogTitle from '@mui/material/DialogTitle'
-import DialogContent from '@mui/material/DialogContent'
-import DialogContentText from '@mui/material/DialogContentText'
-import DialogActions from '@mui/material/DialogActions'
-import Button from '@mui/material/Button'
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogActions from "@mui/material/DialogActions";
+import Button from "@mui/material/Button";
 
 interface InfoDialogProps {
-  open: boolean
-  title: string
-  message: string
-  onClose: () => void
+  open: boolean;
+  title: string;
+  message: string;
+  onClose: () => void;
 }
 
 function InfoDialog({ open, title, message, onClose }: InfoDialogProps) {
@@ -23,7 +23,7 @@ function InfoDialog({ open, title, message, onClose }: InfoDialogProps) {
         <Button onClick={onClose}>OK</Button>
       </DialogActions>
     </Dialog>
-  )
+  );
 }
 
-export default InfoDialog
+export default InfoDialog;

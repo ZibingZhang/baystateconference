@@ -1,8 +1,8 @@
-import { formatSlashDate } from '../common.ts'
-import type { Ev3Event, Ev3File, Ev3Header } from './types.ts'
+import { formatSlashDate } from "../common.ts";
+import type { Ev3Event, Ev3File, Ev3Header } from "./types.ts";
 
 function dateField(d: Date | undefined): string {
-  return d ? formatSlashDate(d) : ''
+  return d ? formatSlashDate(d) : "";
 }
 
 function serializeHeader(h: Ev3Header): string {
@@ -42,12 +42,12 @@ function serializeHeader(h: Ev3Header): string {
     h.unknown33,
     dateField(h.exportDate),
     h.internalMeetId,
-  ]
-  return fields.join(';')
+  ];
+  return fields.join(";");
 }
 
 function serializeEvent(e: Ev3Event): string {
-  const unknown16to20 = e.unknown16to20.split(';')
+  const unknown16to20 = e.unknown16to20.split(";");
   const fields = [
     e.eventNumber,
     e.displayOrder,
@@ -75,12 +75,12 @@ function serializeEvent(e: Ev3Event): string {
     e.genderSlotA,
     e.genderSlotB,
     String(e.relayLegCount),
-  ]
-  return fields.join(';')
+  ];
+  return fields.join(";");
 }
 
 /** Serialize an Ev3File back to its on-disk text form (CRLF line endings, `*>` terminators). */
 export function writeEv3(file: Ev3File): string {
-  const lines = [serializeHeader(file.header), ...file.events.map(serializeEvent)]
-  return lines.map((l) => l + '*>').join('\r\n') + '\r\n'
+  const lines = [serializeHeader(file.header), ...file.events.map(serializeEvent)];
+  return lines.map((l) => l + "*>").join("\r\n") + "\r\n";
 }

@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import Snackbar from '@mui/material/Snackbar'
-import Alert from '@mui/material/Alert'
-import { normalizeSeedTime } from '../seedTime'
+import { useState } from "react";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+import { normalizeSeedTime } from "../seedTime";
 
 /**
  * Shared `seedTime` row processing for the entries grids: normalizes valid
@@ -14,20 +14,20 @@ import { normalizeSeedTime } from '../seedTime'
  * the user is still typing.
  */
 export function useSeedTimeColumn<R extends { seedTime: string }>() {
-  const [invalidOpen, setInvalidOpen] = useState(false)
+  const [invalidOpen, setInvalidOpen] = useState(false);
   // Bumped on every new error so the Snackbar remounts and replaces any
   // still-open (or closing) instance instead of being a no-op on `open`.
-  const [errorKey, setErrorKey] = useState(0)
+  const [errorKey, setErrorKey] = useState(0);
 
   const processRow = (row: R): R => {
-    const normalized = normalizeSeedTime(row.seedTime)
+    const normalized = normalizeSeedTime(row.seedTime);
     if (normalized === undefined) {
-      setInvalidOpen(true)
-      setErrorKey((k) => k + 1)
-      return { ...row, seedTime: '' }
+      setInvalidOpen(true);
+      setErrorKey((k) => k + 1);
+      return { ...row, seedTime: "" };
     }
-    return { ...row, seedTime: normalized }
-  }
+    return { ...row, seedTime: normalized };
+  };
 
   // No autoHideDuration, and clickaway/escape are ignored: per EU accessibility
   // guidance, this must stay open until the user dismisses it via the X.
@@ -36,16 +36,21 @@ export function useSeedTimeColumn<R extends { seedTime: string }>() {
       key={errorKey}
       open={invalidOpen}
       onClose={(_event, reason) => {
-        if (reason === 'clickaway' || reason === 'escapeKeyDown') return
-        setInvalidOpen(false)
+        if (reason === "clickaway" || reason === "escapeKeyDown") return;
+        setInvalidOpen(false);
       }}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
     >
-      <Alert severity="error" variant="filled" onClose={() => setInvalidOpen(false)} sx={{ width: '100%' }}>
+      <Alert
+        severity="error"
+        variant="filled"
+        onClose={() => setInvalidOpen(false)}
+        sx={{ width: "100%" }}
+      >
         Invalid seed time — must be M:SS.hh or SS.hh. Value was cleared.
       </Alert>
     </Snackbar>
-  )
+  );
 
-  return { processRow, snackbar }
+  return { processRow, snackbar };
 }

@@ -1,25 +1,25 @@
-import { useMemo, useState } from 'react'
-import Dialog from '@mui/material/Dialog'
-import DialogTitle from '@mui/material/DialogTitle'
-import DialogContent from '@mui/material/DialogContent'
-import DialogActions from '@mui/material/DialogActions'
-import Button from '@mui/material/Button'
-import TextField from '@mui/material/TextField'
-import Box from '@mui/material/Box'
-import Divider from '@mui/material/Divider'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import FormGroup from '@mui/material/FormGroup'
-import Checkbox from '@mui/material/Checkbox'
-import type { ImportedEvent } from '../types'
-import { GENDER_NAMES, uniqueEventOptions } from '../ev3'
+import { useMemo, useState } from "react";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
+import Checkbox from "@mui/material/Checkbox";
+import type { ImportedEvent } from "../types";
+import { GENDER_NAMES, uniqueEventOptions } from "../ev3";
 
 interface BulkAddEntriesDialogProps {
-  open: boolean
-  title: string
-  events: ImportedEvent[] | undefined
-  relay: boolean
-  onClose: () => void
-  onAdd: (count: number, eventNames: string[]) => void
+  open: boolean;
+  title: string;
+  events: ImportedEvent[] | undefined;
+  relay: boolean;
+  onClose: () => void;
+  onAdd: (count: number, eventNames: string[]) => void;
 }
 
 function BulkAddEntriesDialog({
@@ -30,51 +30,51 @@ function BulkAddEntriesDialog({
   onClose,
   onAdd,
 }: BulkAddEntriesDialogProps) {
-  const [count, setCount] = useState('')
-  const [selected, setSelected] = useState<Set<string>>(new Set())
+  const [count, setCount] = useState("");
+  const [selected, setSelected] = useState<Set<string>>(new Set());
 
-  const options = useMemo(() => uniqueEventOptions(events ?? [], relay), [events, relay])
+  const options = useMemo(() => uniqueEventOptions(events ?? [], relay), [events, relay]);
 
   const genders = useMemo(() => {
-    const seen = new Set<string>()
-    const list: string[] = []
+    const seen = new Set<string>();
+    const list: string[] = [];
     for (const option of options) {
-      if (seen.has(option.gender)) continue
-      seen.add(option.gender)
-      list.push(option.gender)
+      if (seen.has(option.gender)) continue;
+      seen.add(option.gender);
+      list.push(option.gender);
     }
-    return list
-  }, [options])
+    return list;
+  }, [options]);
 
-  const parsed = Number.parseInt(count, 10)
-  const isValid = Number.isFinite(parsed) && parsed > 0 && selected.size > 0
+  const parsed = Number.parseInt(count, 10);
+  const isValid = Number.isFinite(parsed) && parsed > 0 && selected.size > 0;
 
   const handleClose = () => {
-    setCount('')
-    setSelected(new Set())
-    onClose()
-  }
+    setCount("");
+    setSelected(new Set());
+    onClose();
+  };
 
   const handleSubmit = () => {
-    if (!isValid) return
-    onAdd(parsed, Array.from(selected))
-    handleClose()
-  }
+    if (!isValid) return;
+    onAdd(parsed, Array.from(selected));
+    handleClose();
+  };
 
   const setGroupChecked = (names: string[], checked: boolean) => {
     setSelected((prev) => {
-      const next = new Set(prev)
+      const next = new Set(prev);
       for (const name of names) {
-        if (checked) next.add(name)
-        else next.delete(name)
+        if (checked) next.add(name);
+        else next.delete(name);
       }
-      return next
-    })
-  }
+      return next;
+    });
+  };
 
-  const allNames = options.map((option) => option.name)
-  const allChecked = allNames.length > 0 && allNames.every((name) => selected.has(name))
-  const allIndeterminate = !allChecked && allNames.some((name) => selected.has(name))
+  const allNames = options.map((option) => option.name);
+  const allChecked = allNames.length > 0 && allNames.every((name) => selected.has(name));
+  const allIndeterminate = !allChecked && allNames.some((name) => selected.has(name));
 
   return (
     <Dialog open={open} onClose={handleClose} fullWidth maxWidth="xs">
@@ -89,11 +89,11 @@ function BulkAddEntriesDialog({
           fullWidth
           value={count}
           onChange={(event) => {
-            const digitsOnly = event.target.value.replace(/\D/g, '')
-            setCount(digitsOnly)
+            const digitsOnly = event.target.value.replace(/\D/g, "");
+            setCount(digitsOnly);
           }}
         />
-        <Box sx={{ mt: 2, maxHeight: 320, overflowY: 'auto' }}>
+        <Box sx={{ mt: 2, maxHeight: 320, overflowY: "auto" }}>
           <FormGroup>
             <FormControlLabel
               label="All Events"
@@ -108,9 +108,9 @@ function BulkAddEntriesDialog({
             {genders.map((gender) => {
               const genderNames = options
                 .filter((option) => option.gender === gender)
-                .map((option) => option.name)
-              const checked = genderNames.length > 0 && genderNames.every((n) => selected.has(n))
-              const indeterminate = !checked && genderNames.some((n) => selected.has(n))
+                .map((option) => option.name);
+              const checked = genderNames.length > 0 && genderNames.every((n) => selected.has(n));
+              const indeterminate = !checked && genderNames.some((n) => selected.has(n));
               return (
                 <FormControlLabel
                   key={gender}
@@ -124,7 +124,7 @@ function BulkAddEntriesDialog({
                     />
                   }
                 />
-              )
+              );
             })}
             <Divider sx={{ my: 1 }} />
             {options.map((option) => (
@@ -150,7 +150,7 @@ function BulkAddEntriesDialog({
         </Button>
       </DialogActions>
     </Dialog>
-  )
+  );
 }
 
-export default BulkAddEntriesDialog
+export default BulkAddEntriesDialog;

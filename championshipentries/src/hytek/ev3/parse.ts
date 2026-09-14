@@ -1,18 +1,18 @@
-import { parseSlashDate } from '../common.ts'
-import type { Ev3Event, Ev3File, Ev3Header } from './types.ts'
+import { parseSlashDate } from "../common.ts";
+import type { Ev3Event, Ev3File, Ev3Header } from "./types.ts";
 
 /** Split one EV3 record (with or without a trailing `*>`) into its semicolon-delimited fields. */
 function splitRecord(line: string): string[] {
-  const body = line.endsWith('*>') ? line.slice(0, -2) : line
-  return body.split(';')
+  const body = line.endsWith("*>") ? line.slice(0, -2) : line;
+  return body.split(";");
 }
 
 function field(fields: string[], index1Based: number): string {
-  return fields[index1Based - 1] ?? ''
+  return fields[index1Based - 1] ?? "";
 }
 
 function parseHeaderLine(line: string): Ev3Header {
-  const f = splitRecord(line)
+  const f = splitRecord(line);
   return {
     meetName: field(f, 1),
     facility: field(f, 2),
@@ -49,11 +49,11 @@ function parseHeaderLine(line: string): Ev3Header {
     unknown33: field(f, 33),
     exportDate: parseSlashDate(field(f, 34)),
     internalMeetId: field(f, 35),
-  }
+  };
 }
 
 function parseEventLine(line: string): Ev3Event {
-  const f = splitRecord(line)
+  const f = splitRecord(line);
   return {
     eventNumber: field(f, 1),
     displayOrder: field(f, 2),
@@ -70,7 +70,7 @@ function parseEventLine(line: string): Ev3Event {
     unknown13: field(f, 13),
     flag14: field(f, 14),
     unknown15: field(f, 15),
-    unknown16to20: [16, 17, 18, 19, 20].map((i) => field(f, i)).join(';'),
+    unknown16to20: [16, 17, 18, 19, 20].map((i) => field(f, i)).join(";"),
     qualifyingTime: field(f, 21),
     heatCountEstimate: field(f, 22),
     pairOrder: field(f, 23),
@@ -81,16 +81,16 @@ function parseEventLine(line: string): Ev3Event {
     genderSlotA: field(f, 28),
     genderSlotB: field(f, 29),
     relayLegCount: Number(field(f, 30)) || 0,
-  }
+  };
 }
 
 /** Parse a full EV3 file's text content (already decoded from its `latin1` bytes). */
 export function parseEv3(text: string): Ev3File {
-  const lines = text.split(/\r\n/).filter((l) => l.length > 0)
+  const lines = text.split(/\r\n/).filter((l) => l.length > 0);
   if (lines.length === 0) {
-    throw new Error('Empty EV3 file')
+    throw new Error("Empty EV3 file");
   }
-  const header = parseHeaderLine(lines[0])
-  const events = lines.slice(1).map(parseEventLine)
-  return { header, events }
+  const header = parseHeaderLine(lines[0]);
+  const events = lines.slice(1).map(parseEventLine);
+  return { header, events };
 }
