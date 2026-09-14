@@ -7,18 +7,7 @@ import {
   type GridRenderEditCellParams,
   type GridSingleSelectColDef,
 } from '@mui/x-data-grid'
-
-// Matches `query`'s characters, in order, anywhere within `label` (case-insensitive).
-function isSubsequenceMatch(query: string, label: string): boolean {
-  if (!query) return true
-  const q = query.toLowerCase()
-  const l = label.toLowerCase()
-  let qi = 0
-  for (let li = 0; li < l.length && qi < q.length; li += 1) {
-    if (l[li] === q[qi]) qi += 1
-  }
-  return qi === q.length
-}
+import { filterBySubsequence } from '../subsequenceMatch'
 
 function mergeRefs<T>(...refs: Array<Ref<T> | undefined>): RefCallback<T> {
   return (value) => {
@@ -101,9 +90,7 @@ function FilterableSingleSelectEditCell({ onInvalidCommit, ...params }: Filterab
       getOptionLabel={getOptionLabel}
       getOptionKey={(option) => String(getOptionValue(option))}
       isOptionEqualToValue={(option, val) => getOptionValue(option) === getOptionValue(val)}
-      filterOptions={(options, state) =>
-        options.filter((option) => isSubsequenceMatch(state.inputValue, getOptionLabel(option)))
-      }
+      filterOptions={(options, state) => filterBySubsequence(options, state.inputValue, getOptionLabel)}
       onChange={(_event, newValue) => {
         apiRef.current.setEditCellValue({
           id,

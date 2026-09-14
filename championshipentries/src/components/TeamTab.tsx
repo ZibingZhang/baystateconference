@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField'
 import CircularProgress from '@mui/material/CircularProgress'
 import Typography from '@mui/material/Typography'
 import { fetchHighSchools } from '../highSchools'
+import { filterBySubsequence } from '../subsequenceMatch'
 import type { HighSchool } from '../types'
 
 interface TeamTabProps {
@@ -57,6 +58,9 @@ function TeamTab({ teamCode, onUpdate, readOnly, onReadOnlyAttempt }: TeamTabPro
         onChange={(_, value) => (readOnly ? onReadOnlyAttempt?.() : onUpdate(value?.code ?? ''))}
         getOptionLabel={(option) => (option.school ? `${option.code} - ${option.school}` : option.code)}
         isOptionEqualToValue={(option, value) => option.code === value.code}
+        filterOptions={(options, state) =>
+          filterBySubsequence(options, state.inputValue, (option) => `${option.code} - ${option.school}`)
+        }
         renderInput={(params) => (
           <TextField
             {...params}
