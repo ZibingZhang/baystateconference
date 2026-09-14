@@ -715,6 +715,8 @@ function App() {
                     {activeTab === 'athletes' && (
                       <AthletesGrid
                         athletes={[]}
+                        individualEntries={templateIndividualEntries}
+                        relayEntries={templateRelayEntries}
                         onAdd={() => {}}
                         onBulkAdd={() => {}}
                         onImportCsv={() => {}}
@@ -792,6 +794,8 @@ function App() {
                 {activeTab === 'athletes' && (
                   <AthletesGrid
                     athletes={athletes}
+                    individualEntries={individualEntries}
+                    relayEntries={relayEntries}
                     onAdd={handleAddAthlete}
                     onBulkAdd={handleBulkAddAthletes}
                     onImportCsv={handleImportAthletesCsv}
