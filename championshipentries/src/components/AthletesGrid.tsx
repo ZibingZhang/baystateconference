@@ -176,6 +176,8 @@ function AthletesGrid({
         onDelete={onDelete}
         addLabel="Add Athlete"
         noRowsLabel="No athletes"
+        itemLabelSingular="athlete"
+        itemLabelPlural="athletes"
         readOnly={readOnly}
         onReadOnlyAttempt={onReadOnlyAttempt}
         extraToolbar={

@@ -153,6 +153,8 @@ function RelayEntriesGrid({
         processRow={processSeedTimeRow}
         addLabel="Add Relay"
         noRowsLabel="No entries"
+        itemLabelSingular="entry"
+        itemLabelPlural="entries"
         readOnly={readOnly}
         onReadOnlyAttempt={onReadOnlyAttempt}
         extraToolbar={

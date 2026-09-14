@@ -112,6 +112,8 @@ function IndividualEntriesGrid({
         processRow={processSeedTimeRow}
         addLabel="Add Entry"
         noRowsLabel="No entries"
+        itemLabelSingular="entry"
+        itemLabelPlural="entries"
         readOnly={readOnly}
         onReadOnlyAttempt={onReadOnlyAttempt}
         extraToolbar={

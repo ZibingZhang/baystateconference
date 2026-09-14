@@ -2,6 +2,7 @@ import type { ClipboardEvent, KeyboardEvent, MouseEvent, ReactNode } from "react
 import { useEffect, useMemo, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import AddIcon from "@mui/icons-material/Add";
@@ -167,6 +168,9 @@ interface EditableDataGridProps<T extends { id: string }> {
   onDelete: (id: string) => void;
   addLabel: string;
   noRowsLabel: string;
+  /** Singular/plural nouns for the row-count readout, e.g. "athlete" / "athletes". */
+  itemLabelSingular: string;
+  itemLabelPlural: string;
   extraToolbar?: ReactNode;
   /**
    * Runs once a row edit is committed (Enter/Tab/click away), before onUpdate
@@ -191,6 +195,8 @@ function EditableDataGrid<T extends { id: string }>({
   onDelete,
   addLabel,
   noRowsLabel,
+  itemLabelSingular,
+  itemLabelPlural,
   extraToolbar,
   processRow,
   readOnly,
@@ -726,7 +732,7 @@ function EditableDataGrid<T extends { id: string }>({
 
   return (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
-      <Box sx={{ mb: 1, display: "flex", gap: 1 }}>
+      <Box sx={{ mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
         <Button
           size="small"
           startIcon={<AddIcon />}
@@ -735,6 +741,9 @@ function EditableDataGrid<T extends { id: string }>({
           {addLabel}
         </Button>
         {extraToolbar}
+        <Typography variant="body2" color="text.secondary" sx={{ ml: "auto" }}>
+          {rows.length} {rows.length === 1 ? itemLabelSingular : itemLabelPlural}
+        </Typography>
       </Box>
       <Box
         ref={containerRef}
