@@ -3,19 +3,18 @@ import type { GridColDef } from "@mui/x-data-grid";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import type { Athlete, ImportedEvent, RelayEntry } from "../types";
 import EditableDataGrid from "./EditableDataGrid";
-import GridActionsToolbar from "./GridActionsToolbar";
+import EntryGridToolbar from "./EntryGridToolbar";
 import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
 import { useSeedTimeColumn } from "../hooks/useSeedTimeColumn";
-import { normalizeSeedTime } from "../utils/seedTime";
-import { athleteNameMatchError, findAthleteIdByName } from "../utils/athleteMatch";
 import {
+  buildAthleteCsvColumn,
   buildAthleteNameById,
   buildAthleteOptions,
   buildEventColumn,
-  buildEventNumberByName,
-  matchEventName,
+  buildEventCsvColumn,
+  buildSeedTimeCsvColumn,
 } from "../utils/entryGridShared";
 
 const RELAY_LETTERS = ["A", "B", "C", "D"];
@@ -65,26 +64,9 @@ function RelayEntriesGrid({
   const { processRow: processSeedTimeRow, snackbar: seedTimeSnackbar } =
     useSeedTimeColumn<RelayEntry>();
 
-  const eventNumberByName = useMemo(() => buildEventNumberByName(importedEvents), [importedEvents]);
-
-  const csvColumns: CsvImportColumn[] = useMemo(() => {
-    const legCsvColumn = (key: string, label: string): CsvImportColumn => ({
-      key,
-      label,
-      validate: (value) => athleteNameMatchError(value, athletes),
-      transform: (value) => findAthleteIdByName(value, athletes) ?? "",
-    });
-
-    return [
-      {
-        key: "event",
-        label: "Event",
-        validate: (value) =>
-          matchEventName(value, eventOptions ?? []) !== undefined
-            ? undefined
-            : "Event does not match an imported event name.",
-        transform: (value) => matchEventName(value, eventOptions ?? []) ?? value,
-      },
+  const csvColumns: CsvImportColumn[] = useMemo(
+    () => [
+      buildEventCsvColumn(eventOptions),
       {
         key: "relayLetter",
         label: "Relay",
@@ -94,21 +76,14 @@ function RelayEntriesGrid({
             : `Relay must be one of ${RELAY_LETTERS.join(", ")}.`,
         transform: (value) => value.toUpperCase(),
       },
-      legCsvColumn("leg1AthleteId", "Athlete 1"),
-      legCsvColumn("leg2AthleteId", "Athlete 2"),
-      legCsvColumn("leg3AthleteId", "Athlete 3"),
-      legCsvColumn("leg4AthleteId", "Athlete 4"),
-      {
-        key: "seedTime",
-        label: "Seed Time",
-        validate: (value) =>
-          value === "" || normalizeSeedTime(value) !== undefined
-            ? undefined
-            : "Invalid seed time — must be M:SS.hh or SS.hh.",
-        transform: (value) => normalizeSeedTime(value) ?? "",
-      },
-    ];
-  }, [eventOptions, athletes]);
+      buildAthleteCsvColumn("leg1AthleteId", "Athlete 1", athletes),
+      buildAthleteCsvColumn("leg2AthleteId", "Athlete 2", athletes),
+      buildAthleteCsvColumn("leg3AthleteId", "Athlete 3", athletes),
+      buildAthleteCsvColumn("leg4AthleteId", "Athlete 4", athletes),
+      buildSeedTimeCsvColumn(),
+    ],
+    [eventOptions, athletes],
+  );
 
   const athleteOptions = buildAthleteOptions(athletes);
   const athleteNameById = buildAthleteNameById(athletes);
@@ -126,7 +101,7 @@ function RelayEntriesGrid({
   });
 
   const columns: GridColDef<RelayEntry>[] = [
-    buildEventColumn<RelayEntry>(eventOptions, eventNumberByName),
+    buildEventColumn<RelayEntry>(eventOptions, importedEvents),
     {
       field: "relayLetter",
       headerName: "Relay",
@@ -158,17 +133,15 @@ function RelayEntriesGrid({
         readOnly={readOnly}
         onReadOnlyAttempt={onReadOnlyAttempt}
         extraToolbar={
-          <GridActionsToolbar
+          <EntryGridToolbar
             addLabel="Bulk Add Relays"
             addIcon={<PlaylistAddIcon />}
+            eventOptions={eventOptions}
+            entriesCount={entries.length}
             onAdd={() => setBulkAddOpen(true)}
-            addDisabled={!eventOptions?.length}
             onImportCsv={() => setCsvImportOpen(true)}
-            importDisabled={!eventOptions?.length}
             onExportCsv={() => setCsvExportOpen(true)}
-            exportDisabled={entries.length === 0}
             onClearAll={onClearAll}
-            clearAllDisabled={entries.length === 0}
             readOnly={readOnly}
             onReadOnlyAttempt={onReadOnlyAttempt}
           />

@@ -1,6 +1,8 @@
 import type { GridColDef } from "@mui/x-data-grid";
 import type { Athlete, ImportedEvent } from "../types";
-import { athleteFullName } from "./athleteMatch";
+import { athleteFullName, athleteNameMatchError, findAthleteIdByName } from "./athleteMatch";
+import { normalizeSeedTime } from "./seedTime";
+import type { CsvImportColumn } from "../components/CsvImportDialog";
 
 export const NO_EVENTS_TOOLTIP =
   "Import an EV3 events file on the Events tab before choosing an event.";
@@ -10,9 +12,7 @@ export function matchEventName(value: string, options: string[]): string | undef
   return options.find((option) => option.toLowerCase() === target);
 }
 
-export function buildEventNumberByName(
-  importedEvents: ImportedEvent[] | undefined,
-): Map<string, number> {
+function buildEventNumberByName(importedEvents: ImportedEvent[] | undefined): Map<string, number> {
   const map = new Map<string, number>();
   for (const event of importedEvents ?? []) {
     if (!map.has(event.displayName)) {
@@ -34,8 +34,9 @@ export function buildAthleteNameById(athletes: Athlete[]): Map<string, string> {
 
 export function buildEventColumn<T extends { event: string }>(
   eventOptions: string[] | undefined,
-  eventNumberByName: Map<string, number>,
+  importedEvents: ImportedEvent[] | undefined,
 ): GridColDef<T> {
+  const eventNumberByName = buildEventNumberByName(importedEvents);
   return {
     field: "event",
     headerName: "Event",
@@ -47,5 +48,42 @@ export function buildEventColumn<T extends { event: string }>(
     sortComparator: (v1, v2) =>
       (eventNumberByName.get(v1) ?? Number.MAX_SAFE_INTEGER) -
       (eventNumberByName.get(v2) ?? Number.MAX_SAFE_INTEGER),
+  };
+}
+
+export function buildEventCsvColumn(eventOptions: string[] | undefined): CsvImportColumn {
+  return {
+    key: "event",
+    label: "Event",
+    validate: (value) =>
+      matchEventName(value, eventOptions ?? []) !== undefined
+        ? undefined
+        : "Event does not match an imported event name.",
+    transform: (value) => matchEventName(value, eventOptions ?? []) ?? value,
+  };
+}
+
+export function buildSeedTimeCsvColumn(): CsvImportColumn {
+  return {
+    key: "seedTime",
+    label: "Seed Time",
+    validate: (value) =>
+      value === "" || normalizeSeedTime(value) !== undefined
+        ? undefined
+        : "Invalid seed time — must be M:SS.hh or SS.hh.",
+    transform: (value) => normalizeSeedTime(value) ?? "",
+  };
+}
+
+export function buildAthleteCsvColumn(
+  key: string,
+  label: string,
+  athletes: Athlete[],
+): CsvImportColumn {
+  return {
+    key,
+    label,
+    validate: (value) => athleteNameMatchError(value, athletes),
+    transform: (value) => findAthleteIdByName(value, athletes) ?? "",
   };
 }

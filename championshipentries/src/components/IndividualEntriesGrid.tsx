@@ -3,19 +3,18 @@ import type { GridColDef } from "@mui/x-data-grid";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import type { Athlete, ImportedEvent, IndividualEntry } from "../types";
 import EditableDataGrid from "./EditableDataGrid";
-import GridActionsToolbar from "./GridActionsToolbar";
+import EntryGridToolbar from "./EntryGridToolbar";
 import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
 import { useSeedTimeColumn } from "../hooks/useSeedTimeColumn";
-import { normalizeSeedTime } from "../utils/seedTime";
-import { athleteNameMatchError, findAthleteIdByName } from "../utils/athleteMatch";
 import {
+  buildAthleteCsvColumn,
   buildAthleteNameById,
   buildAthleteOptions,
   buildEventColumn,
-  buildEventNumberByName,
-  matchEventName,
+  buildEventCsvColumn,
+  buildSeedTimeCsvColumn,
 } from "../utils/entryGridShared";
 
 interface IndividualEntriesGridProps {
@@ -53,34 +52,11 @@ function IndividualEntriesGrid({
   const { processRow: processSeedTimeRow, snackbar: seedTimeSnackbar } =
     useSeedTimeColumn<IndividualEntry>();
 
-  const eventNumberByName = useMemo(() => buildEventNumberByName(importedEvents), [importedEvents]);
-
   const csvColumns: CsvImportColumn[] = useMemo(
     () => [
-      {
-        key: "event",
-        label: "Event",
-        validate: (value) =>
-          matchEventName(value, eventOptions ?? []) !== undefined
-            ? undefined
-            : "Event does not match an imported event name.",
-        transform: (value) => matchEventName(value, eventOptions ?? []) ?? value,
-      },
-      {
-        key: "athleteId",
-        label: "Athlete",
-        validate: (value) => athleteNameMatchError(value, athletes),
-        transform: (value) => findAthleteIdByName(value, athletes) ?? "",
-      },
-      {
-        key: "seedTime",
-        label: "Seed Time",
-        validate: (value) =>
-          value === "" || normalizeSeedTime(value) !== undefined
-            ? undefined
-            : "Invalid seed time — must be M:SS.hh or SS.hh.",
-        transform: (value) => normalizeSeedTime(value) ?? "",
-      },
+      buildEventCsvColumn(eventOptions),
+      buildAthleteCsvColumn("athleteId", "Athlete", athletes),
+      buildSeedTimeCsvColumn(),
     ],
     [eventOptions, athletes],
   );
@@ -89,7 +65,7 @@ function IndividualEntriesGrid({
   const athleteNameById = buildAthleteNameById(athletes);
 
   const columns: GridColDef<IndividualEntry>[] = [
-    buildEventColumn<IndividualEntry>(eventOptions, eventNumberByName),
+    buildEventColumn<IndividualEntry>(eventOptions, importedEvents),
     {
       field: "athleteId",
       headerName: "Athlete",
@@ -117,17 +93,15 @@ function IndividualEntriesGrid({
         readOnly={readOnly}
         onReadOnlyAttempt={onReadOnlyAttempt}
         extraToolbar={
-          <GridActionsToolbar
+          <EntryGridToolbar
             addLabel="Bulk Add Entries"
             addIcon={<PlaylistAddIcon />}
+            eventOptions={eventOptions}
+            entriesCount={entries.length}
             onAdd={() => setBulkAddOpen(true)}
-            addDisabled={!eventOptions?.length}
             onImportCsv={() => setCsvImportOpen(true)}
-            importDisabled={!eventOptions?.length}
             onExportCsv={() => setCsvExportOpen(true)}
-            exportDisabled={entries.length === 0}
             onClearAll={onClearAll}
-            clearAllDisabled={entries.length === 0}
             readOnly={readOnly}
             onReadOnlyAttempt={onReadOnlyAttempt}
           />
