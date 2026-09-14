@@ -9,7 +9,7 @@ import Radio from "@mui/material/Radio";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
-import { stringifyDelimited, downloadTextFile } from "../csv";
+import { stringifyDelimited, downloadTextFile } from "../utils/csv";
 
 type Separator = "," | "\t";
 

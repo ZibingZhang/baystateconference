@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MEET_TABS, type MeetTab } from "../meetTabs";
+import { MEET_TABS, type MeetTab } from "../constants/meetTabs";
 
 /**
  * Keeps the selected meet and active tab in sync with the `meet`/`tab` URL

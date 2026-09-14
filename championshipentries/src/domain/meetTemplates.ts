@@ -1,4 +1,4 @@
-import type { Gender, ImportedEvent, IndividualEntry, MeetTemplate, RelayEntry } from "./types";
+import type { Gender, ImportedEvent, IndividualEntry, MeetTemplate, RelayEntry } from "../types";
 import { parseEv3, uniqueEventOptions } from "./ev3";
 
 export const MEET_TEMPLATES: MeetTemplate[] = [

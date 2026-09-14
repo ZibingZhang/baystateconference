@@ -6,7 +6,7 @@ import UploadFileIcon from "@mui/icons-material/UploadFile";
 import ClearIcon from "@mui/icons-material/Clear";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import type { ImportedEvent } from "../types";
-import { parseEv3 } from "../ev3";
+import { parseEv3 } from "../domain/ev3";
 
 interface EventsGridProps {
   fileName: string | undefined;

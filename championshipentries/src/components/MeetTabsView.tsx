@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import type { Athlete, ImportedEvent, IndividualEntry, RelayEntry } from "../types";
-import type { MeetTab } from "../meetTabs";
+import type { MeetTab } from "../constants/meetTabs";
 import AthletesGrid from "./AthletesGrid";
 import IndividualEntriesGrid from "./IndividualEntriesGrid";
 import RelayEntriesGrid from "./RelayEntriesGrid";

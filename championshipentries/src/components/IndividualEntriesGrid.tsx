@@ -8,15 +8,15 @@ import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
 import { useSeedTimeColumn } from "../hooks/useSeedTimeColumn";
-import { normalizeSeedTime } from "../seedTime";
-import { athleteNameMatchError, findAthleteIdByName } from "../athleteMatch";
+import { normalizeSeedTime } from "../utils/seedTime";
+import { athleteNameMatchError, findAthleteIdByName } from "../utils/athleteMatch";
 import {
   buildAthleteNameById,
   buildAthleteOptions,
   buildEventColumn,
   buildEventNumberByName,
   matchEventName,
-} from "../entryGridShared";
+} from "../utils/entryGridShared";
 
 interface IndividualEntriesGridProps {
   entries: IndividualEntry[];

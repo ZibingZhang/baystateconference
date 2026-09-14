@@ -1,7 +1,7 @@
-import type { ImportedEvent } from "./types";
-import { parseEv3 as parseEv3File } from "./hytek/ev3/parse";
-import type { Ev3Event } from "./hytek/ev3/types";
-import { GENDER_AGE_NAMES, STROKE_NAMES, isDivingStroke } from "./hytek/enums";
+import type { ImportedEvent } from "../types";
+import { parseEv3 as parseEv3File } from "../hytek/ev3/parse";
+import type { Ev3Event } from "../hytek/ev3/types";
+import { GENDER_AGE_NAMES, STROKE_NAMES, isDivingStroke } from "../hytek/enums";
 
 const RELAY_STROKE_NAMES: Record<string, string> = {
   A: "Freestyle Relay",

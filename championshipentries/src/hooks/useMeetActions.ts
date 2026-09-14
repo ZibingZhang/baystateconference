@@ -1,5 +1,5 @@
 import type { AppData, Athlete, IndividualEntry, Meet, RelayEntry } from "../types";
-import { newId } from "../id";
+import { newId } from "../utils/id";
 
 interface History {
   update: (updater: (prev: AppData) => AppData) => void;

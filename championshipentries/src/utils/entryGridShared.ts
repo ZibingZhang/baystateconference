@@ -1,5 +1,5 @@
 import type { GridColDef } from "@mui/x-data-grid";
-import type { Athlete, ImportedEvent } from "./types";
+import type { Athlete, ImportedEvent } from "../types";
 import { athleteFullName } from "./athleteMatch";
 
 export const NO_EVENTS_TOOLTIP =

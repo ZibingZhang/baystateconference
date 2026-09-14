@@ -7,7 +7,7 @@ import {
   type GridRenderEditCellParams,
   type GridSingleSelectColDef,
 } from "@mui/x-data-grid";
-import { filterBySubsequence } from "../subsequenceMatch";
+import { filterBySubsequence } from "../utils/subsequenceMatch";
 
 function mergeRefs<T>(...refs: Array<Ref<T> | undefined>): RefCallback<T> {
   return (value) => {

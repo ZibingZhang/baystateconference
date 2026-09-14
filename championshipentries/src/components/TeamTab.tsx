@@ -4,8 +4,8 @@ import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
-import { fetchHighSchools } from "../highSchools";
-import { filterBySubsequence } from "../subsequenceMatch";
+import { fetchHighSchools } from "../domain/highSchools";
+import { filterBySubsequence } from "../utils/subsequenceMatch";
 import type { HighSchool } from "../types";
 
 interface TeamTabProps {

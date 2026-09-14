@@ -1,14 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 import type { AppData, ImportedEvent, IndividualEntry, Meet, RelayEntry } from "../types";
-import { uniqueEventNames } from "../ev3";
+import { uniqueEventNames } from "../domain/ev3";
 import {
   MEET_TEMPLATES,
   buildTemplateIndividualEntries,
   buildTemplateRelayEntries,
   fetchTemplateEvents,
   templateFileName,
-} from "../meetTemplates";
-import { newId } from "../id";
+} from "../domain/meetTemplates";
+import { newId } from "../utils/id";
 
 export const TEMPLATE_READ_ONLY_MESSAGE =
   "This is a template and cannot be edited. Make a copy of it into a new meet first.";

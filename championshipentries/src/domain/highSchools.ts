@@ -1,4 +1,4 @@
-import type { HighSchool } from "./types";
+import type { HighSchool } from "../types";
 
 const HIGH_SCHOOLS_CSV_URL =
   "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/high-schools.csv";

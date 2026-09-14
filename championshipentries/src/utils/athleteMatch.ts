@@ -1,4 +1,4 @@
-import type { Athlete } from "./types";
+import type { Athlete } from "../types";
 
 export function athleteFullName(a: { firstName: string; lastName: string }): string {
   return `${a.firstName} ${a.lastName}`.trim();

@@ -1,5 +1,5 @@
 import type { AppData, Athlete, Gender } from "../types";
-import { athleteFullName } from "../athleteMatch";
+import { athleteFullName } from "../utils/athleteMatch";
 
 interface AthleteCrud {
   addMany: (items: Omit<Athlete, "id" | "meetId">[]) => void;

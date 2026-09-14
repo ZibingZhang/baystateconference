@@ -1,22 +1,22 @@
-import type { Athlete, HighSchool, IndividualEntry, Meet, RelayEntry } from "./types";
+import type { Athlete, HighSchool, IndividualEntry, Meet, RelayEntry } from "../types";
 import { eventDisplayName } from "./ev3";
-import { parseEv3 as parseEv3Full } from "./hytek/ev3/parse.ts";
-import type { Ev3Event, Ev3File } from "./hytek/ev3/types.ts";
-import { parseSwimTime } from "./hytek/common.ts";
+import { parseEv3 as parseEv3Full } from "../hytek/ev3/parse.ts";
+import type { Ev3Event, Ev3File } from "../hytek/ev3/types.ts";
+import { parseSwimTime } from "../hytek/common.ts";
 import {
   genderAgeToGender as toHy3Gender,
   isDivingStroke,
   parseCourse,
   type Stroke,
-} from "./hytek/enums.ts";
-import { writeHy3 } from "./hytek/hy3/write.ts";
+} from "../hytek/enums.ts";
+import { writeHy3 } from "../hytek/hy3/write.ts";
 import type {
   Hy3File,
   Hy3IndividualEntry,
   Hy3RelayEntry,
   Hy3Swimmer,
   Hy3Team,
-} from "./hytek/hy3/types.ts";
+} from "../hytek/hy3/types.ts";
 
 export interface BuildHy3Result {
   fileName: string;

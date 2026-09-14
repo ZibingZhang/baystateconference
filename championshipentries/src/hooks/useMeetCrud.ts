@@ -1,5 +1,5 @@
 import type { AppData } from "../types";
-import { newId } from "../id";
+import { newId } from "../utils/id";
 
 interface MeetCrudConfig<T extends { id: string; meetId: string }> {
   get: (data: AppData) => T[];

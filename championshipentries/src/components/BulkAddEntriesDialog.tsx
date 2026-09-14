@@ -11,7 +11,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import Checkbox from "@mui/material/Checkbox";
 import type { ImportedEvent } from "../types";
-import { uniqueEventOptions } from "../ev3";
+import { uniqueEventOptions } from "../domain/ev3";
 import { GENDER_AGE_NAMES } from "../hytek/enums";
 
 interface BulkAddEntriesDialogProps {

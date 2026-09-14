@@ -1,6 +1,6 @@
 import type { AppData, HighSchool, ImportedEvent } from "../types";
-import { buildHy3File, downloadHy3File } from "../hy3Export";
-import { fetchHighSchools } from "../highSchools";
+import { buildHy3File, downloadHy3File } from "../domain/hy3Export";
+import { fetchHighSchools } from "../domain/highSchools";
 
 interface History {
   update: (updater: (prev: AppData) => AppData) => void;

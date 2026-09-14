@@ -18,7 +18,7 @@ import MenuItem from "@mui/material/MenuItem";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import { parseDelimited } from "../csv";
+import { parseDelimited } from "../utils/csv";
 
 export interface CsvImportColumn {
   key: string;
