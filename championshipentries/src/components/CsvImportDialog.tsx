@@ -12,12 +12,16 @@ import Radio from "@mui/material/Radio";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
+import Checkbox from "@mui/material/Checkbox";
 import InputLabel from "@mui/material/InputLabel";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import TextField from "@mui/material/TextField";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { parseDelimited } from "../utils/csv";
 
 export interface CsvImportColumn {
@@ -40,10 +44,14 @@ interface CsvImportDialogProps {
 type Step = "select" | "map" | "errors";
 type Separator = "," | "\t";
 type Mapping = Record<string, number | "">;
+type Source = "file" | "paste";
 
 function CsvImportDialog({ open, title, columns, onClose, onImport }: CsvImportDialogProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [source, setSource] = useState<Source>("file");
   const [separator, setSeparator] = useState<Separator>(",");
+  const [hasHeader, setHasHeader] = useState(true);
+  const [pastedText, setPastedText] = useState("");
   const [step, setStep] = useState<Step>("select");
   const [fileName, setFileName] = useState("");
   const [headers, setHeaders] = useState<string[]>([]);
@@ -53,7 +61,10 @@ function CsvImportDialog({ open, title, columns, onClose, onImport }: CsvImportD
   const [importErrors, setImportErrors] = useState<string[]>([]);
 
   const reset = () => {
+    setSource("file");
     setStep("select");
+    setHasHeader(true);
+    setPastedText("");
     setFileName("");
     setHeaders([]);
     setDataRows([]);
@@ -67,45 +78,59 @@ function CsvImportDialog({ open, title, columns, onClose, onImport }: CsvImportD
     onClose();
   };
 
+  const processText = (text: string, sourceLabel: string) => {
+    const records = parseDelimited(text, separator);
+    if (records.length === 0) {
+      setSelectError("There is no data to import.");
+      return;
+    }
+    const fileHeaders = hasHeader
+      ? records[0]
+      : records[0].map((_, index) => `Column ${index + 1}`);
+    const rows = hasHeader ? records.slice(1) : records;
+    if (fileHeaders.length < columns.length) {
+      setSelectError(
+        `This data has ${fileHeaders.length} column${fileHeaders.length === 1 ? "" : "s"}, ` +
+          `but at least ${columns.length} are required.`,
+      );
+      return;
+    }
+    const nonBlankRows = rows.filter((row) => row.some((cell) => cell.trim() !== ""));
+    const guessed: Mapping = {};
+    for (const column of columns) {
+      const index = hasHeader
+        ? fileHeaders.findIndex((header) => header.trim().toLowerCase() === column.label.toLowerCase())
+        : -1;
+      guessed[column.key] = index >= 0 ? index : "";
+    }
+    setSelectError(null);
+    setFileName(sourceLabel);
+    setHeaders(fileHeaders);
+    setDataRows(nonBlankRows);
+    setMapping(guessed);
+    setStep("map");
+  };
+
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     event.target.value = "";
     if (!file) return;
     file
       .text()
-      .then((text) => {
-        const records = parseDelimited(text, separator);
-        if (records.length === 0) {
-          setSelectError("The file is empty.");
-          return;
-        }
-        const [fileHeaders, ...rows] = records;
-        if (fileHeaders.length < columns.length) {
-          setSelectError(
-            `This file has ${fileHeaders.length} column${fileHeaders.length === 1 ? "" : "s"}, ` +
-              `but at least ${columns.length} are required.`,
-          );
-          return;
-        }
-        const nonBlankRows = rows.filter((row) => row.some((cell) => cell.trim() !== ""));
-        const guessed: Mapping = {};
-        for (const column of columns) {
-          const index = fileHeaders.findIndex(
-            (header) => header.trim().toLowerCase() === column.label.toLowerCase(),
-          );
-          guessed[column.key] = index >= 0 ? index : "";
-        }
-        setSelectError(null);
-        setFileName(file.name);
-        setHeaders(fileHeaders);
-        setDataRows(nonBlankRows);
-        setMapping(guessed);
-        setStep("map");
-      })
+      .then((text) => processText(text, file.name))
       .catch((err: unknown) => {
         const message = err instanceof Error ? err.message : "Could not read this file.";
         setSelectError(`Failed to read "${file.name}": ${message}`);
       });
+  };
+
+  const handlePasteImport = () => {
+    const trimmed = pastedText.trim();
+    if (!trimmed) {
+      setSelectError("Paste some CSV data first.");
+      return;
+    }
+    processText(trimmed, "Pasted data");
   };
 
   const handleMappingChange = (key: string, event: SelectChangeEvent<number | "">) => {
@@ -132,7 +157,7 @@ function CsvImportDialog({ open, title, columns, onClose, onImport }: CsvImportD
         const raw = (typeof index === "number" ? (row[index] ?? "") : "").trim();
         const error = column.validate(raw);
         if (error) {
-          errors.push(`Row ${rowIndex + 2}, ${column.label}: ${error}`);
+          errors.push(`Row ${rowIndex + (hasHeader ? 2 : 1)}, ${column.label}: ${error}`);
           rowHasError = true;
           continue;
         }
@@ -155,6 +180,20 @@ function CsvImportDialog({ open, title, columns, onClose, onImport }: CsvImportD
       <DialogContent>
         {step === "select" && (
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2, pt: 1 }}>
+            <ToggleButtonGroup
+              exclusive
+              fullWidth
+              value={source}
+              onChange={(_event, value: Source | null) => {
+                if (value) {
+                  setSource(value);
+                  setSelectError(null);
+                }
+              }}
+            >
+              <ToggleButton value="file">Upload File</ToggleButton>
+              <ToggleButton value="paste">Paste CSV</ToggleButton>
+            </ToggleButtonGroup>
             <FormControl>
               <FormLabel sx={{ mb: 1 }}>Separator</FormLabel>
               <RadioGroup
@@ -166,16 +205,44 @@ function CsvImportDialog({ open, title, columns, onClose, onImport }: CsvImportD
                 <FormControlLabel value={"\t"} control={<Radio />} label="Tab" />
               </RadioGroup>
             </FormControl>
-            <Button variant="outlined" onClick={() => fileInputRef.current?.click()}>
-              Choose File
-            </Button>
-            <input
-              ref={fileInputRef}
-              type="file"
-              accept=".csv,.tsv,.txt"
-              hidden
-              onChange={handleFileChange}
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={hasHeader}
+                  onChange={(event) => setHasHeader(event.target.checked)}
+                />
+              }
+              label="First row is a header"
             />
+            {source === "file" ? (
+              <>
+                <Button variant="outlined" onClick={() => fileInputRef.current?.click()}>
+                  Choose File
+                </Button>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept=".csv,.tsv,.txt"
+                  hidden
+                  onChange={handleFileChange}
+                />
+              </>
+            ) : (
+              <>
+                <TextField
+                  multiline
+                  minRows={8}
+                  maxRows={16}
+                  placeholder="Paste CSV data here"
+                  value={pastedText}
+                  onChange={(event) => setPastedText(event.target.value)}
+                  slotProps={{ htmlInput: { style: { fontFamily: "monospace" } } }}
+                />
+                <Button variant="outlined" onClick={handlePasteImport}>
+                  Next
+                </Button>
+              </>
+            )}
             {selectError && <Alert severity="error">{selectError}</Alert>}
           </Box>
         )}
