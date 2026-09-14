@@ -1,8 +1,12 @@
 import type { Athlete } from "./types";
 
+export function athleteFullName(a: { firstName: string; lastName: string }): string {
+  return `${a.firstName} ${a.lastName}`.trim();
+}
+
 function athletesNamed(name: string, athletes: Athlete[]): Athlete[] {
   const target = name.trim().toLowerCase();
-  return athletes.filter((a) => `${a.firstName} ${a.lastName}`.trim().toLowerCase() === target);
+  return athletes.filter((a) => athleteFullName(a).toLowerCase() === target);
 }
 
 /**

@@ -33,11 +33,16 @@ import ConfirmDialog from "./components/ConfirmDialog";
 import InfoDialog from "./components/InfoDialog";
 import MeetTabsView from "./components/MeetTabsView";
 import { MEET_TABS, type MeetTab } from "./meetTabs";
+import { newId } from "./id";
+import { useMeetCrud } from "./useMeetCrud";
+import { athleteFullName } from "./athleteMatch";
 
 const TEMPLATE_READ_ONLY_MESSAGE =
   "This is a template and cannot be edited. Make a copy of it into a new meet first.";
 
-const newId = () => crypto.randomUUID();
+function clearAllConfirmMessage(count: number, singular: string, plural: string): string {
+  return `Delete all ${count} ${count === 1 ? singular : plural}? This cannot be undone.`;
+}
 
 const RELAY_LETTERS = ["A", "B", "C", "D"];
 
@@ -48,6 +53,18 @@ function App() {
   const [selectedMeetId, setSelectedMeetId] = useState<string | null>(() =>
     new URLSearchParams(window.location.search).get("meet"),
   );
+  const athleteCrud = useMeetCrud<Athlete>(history, selectedMeetId, {
+    get: (d) => d.athletes,
+    set: (prev, items) => ({ ...prev, athletes: items }),
+  });
+  const individualEntryCrud = useMeetCrud<IndividualEntry>(history, selectedMeetId, {
+    get: (d) => d.individualEntries,
+    set: (prev, items) => ({ ...prev, individualEntries: items }),
+  });
+  const relayEntryCrud = useMeetCrud<RelayEntry>(history, selectedMeetId, {
+    get: (d) => d.relayEntries,
+    set: (prev, items) => ({ ...prev, relayEntries: items }),
+  });
   const [activeTab, setActiveTab] = useState<MeetTab>(() => {
     const tab = new URLSearchParams(window.location.search).get("tab");
     return MEET_TABS.includes(tab as MeetTab) ? (tab as MeetTab) : "team";
@@ -291,53 +308,31 @@ function App() {
     }));
   };
 
-  const handleAddAthlete = () => {
-    if (!selectedMeetId) return;
-    const athlete: Athlete = {
-      id: newId(),
-      meetId: selectedMeetId,
-      lastName: "",
-      firstName: "",
-      gender: "G",
-      classYear: null,
-    };
-    history.update((prev) => ({ ...prev, athletes: [...prev.athletes, athlete] }));
-  };
+  const blankAthlete = (): Omit<Athlete, "id" | "meetId"> => ({
+    lastName: "",
+    firstName: "",
+    gender: "G",
+    classYear: null,
+  });
 
-  const handleBulkAddAthletes = (count: number) => {
-    if (!selectedMeetId) return;
-    const newAthletes: Athlete[] = Array.from({ length: count }, () => ({
-      id: newId(),
-      meetId: selectedMeetId,
-      lastName: "",
-      firstName: "",
-      gender: "G",
-      classYear: null,
-    }));
-    history.update((prev) => ({ ...prev, athletes: [...prev.athletes, ...newAthletes] }));
-  };
+  const handleAddAthlete = () => athleteCrud.addMany([blankAthlete()]);
+
+  const handleBulkAddAthletes = (count: number) =>
+    athleteCrud.addMany(Array.from({ length: count }, blankAthlete));
 
   const handleImportAthletesCsv = (
     rows: { firstName: string; lastName: string; gender: string; classYear: string }[],
-  ) => {
-    if (!selectedMeetId) return;
-    const newAthletes: Athlete[] = rows.map((row) => ({
-      id: newId(),
-      meetId: selectedMeetId,
-      firstName: row.firstName,
-      lastName: row.lastName,
-      gender: row.gender as Gender,
-      classYear: Number.parseInt(row.classYear, 10),
-    }));
-    history.update((prev) => ({ ...prev, athletes: [...prev.athletes, ...newAthletes] }));
-  };
+  ) =>
+    athleteCrud.addMany(
+      rows.map((row) => ({
+        firstName: row.firstName,
+        lastName: row.lastName,
+        gender: row.gender as Gender,
+        classYear: Number.parseInt(row.classYear, 10),
+      })),
+    );
 
-  const handleUpdateAthlete = (updated: Athlete) => {
-    history.update((prev) => ({
-      ...prev,
-      athletes: prev.athletes.map((a) => (a.id === updated.id ? updated : a)),
-    }));
-  };
+  const handleUpdateAthlete = athleteCrud.update;
 
   const handleDeleteAthlete = (id: string) => {
     const inUse =
@@ -359,13 +354,11 @@ function App() {
     }
 
     const athlete = data.athletes.find((a) => a.id === id);
-    const label = athlete ? `${athlete.firstName} ${athlete.lastName}`.trim() : "";
+    const label = athlete ? athleteFullName(athlete) : "";
     setConfirmDialog({
       title: "Delete Athlete",
       message: `Delete ${label || "this athlete"}?`,
-      onConfirm: () => {
-        history.update((prev) => ({ ...prev, athletes: prev.athletes.filter((a) => a.id !== id) }));
-      },
+      onConfirm: () => athleteCrud.deleteById(id),
     });
   };
 
@@ -383,90 +376,45 @@ function App() {
     });
     const meetAthletes = data.athletes.filter((a) => a.meetId === selectedMeetId);
     if (meetAthletes.length === 0) return;
-    const clearableIds = new Set(
-      meetAthletes.filter((a) => !referencedIds.has(a.id)).map((a) => a.id),
-    );
-    const skippedCount = meetAthletes.length - clearableIds.size;
+    const clearableCount = meetAthletes.filter((a) => !referencedIds.has(a.id)).length;
+    const skippedCount = meetAthletes.length - clearableCount;
 
     setConfirmDialog({
       title: "Clear All Athletes",
       message:
         skippedCount > 0
-          ? `Delete ${clearableIds.size} of ${meetAthletes.length} athletes? ${skippedCount} ` +
+          ? `Delete ${clearableCount} of ${meetAthletes.length} athletes? ${skippedCount} ` +
             `${skippedCount === 1 ? "athlete is" : "athletes are"} still referenced in individual ` +
             "or relay entries and will not be cleared. This cannot be undone."
-          : `Delete all ${meetAthletes.length} ${meetAthletes.length === 1 ? "athlete" : "athletes"}? This cannot be undone.`,
+          : clearAllConfirmMessage(meetAthletes.length, "athlete", "athletes"),
       confirmLabel: "Clear All",
-      onConfirm: () => {
-        history.update((prev) => ({
-          ...prev,
-          athletes: prev.athletes.filter(
-            (a) => !(a.meetId === selectedMeetId && clearableIds.has(a.id)),
-          ),
-        }));
-      },
+      onConfirm: () => athleteCrud.clearForMeet(referencedIds),
     });
   };
 
-  const handleAddIndividualEntry = () => {
-    if (!selectedMeetId) return;
-    const entry: IndividualEntry = {
-      id: newId(),
-      meetId: selectedMeetId,
-      athleteId: "",
-      event: "",
-      seedTime: "",
-    };
-    history.update((prev) => ({ ...prev, individualEntries: [...prev.individualEntries, entry] }));
-  };
+  const blankIndividualEntry = (event = ""): Omit<IndividualEntry, "id" | "meetId"> => ({
+    athleteId: "",
+    event,
+    seedTime: "",
+  });
 
-  const handleUpdateIndividualEntry = (updated: IndividualEntry) => {
-    history.update((prev) => ({
-      ...prev,
-      individualEntries: prev.individualEntries.map((e) => (e.id === updated.id ? updated : e)),
-    }));
-  };
+  const handleAddIndividualEntry = () => individualEntryCrud.addMany([blankIndividualEntry()]);
 
-  const handleDeleteIndividualEntry = (id: string) => {
-    history.update((prev) => ({
-      ...prev,
-      individualEntries: prev.individualEntries.filter((e) => e.id !== id),
-    }));
-  };
+  const handleUpdateIndividualEntry = individualEntryCrud.update;
 
-  const handleBulkAddIndividualEntries = (count: number, eventNames: string[]) => {
-    if (!selectedMeetId) return;
-    const newEntries: IndividualEntry[] = eventNames.flatMap((event) =>
-      Array.from({ length: count }, () => ({
-        id: newId(),
-        meetId: selectedMeetId,
-        athleteId: "",
-        event,
-        seedTime: "",
-      })),
+  const handleDeleteIndividualEntry = individualEntryCrud.deleteById;
+
+  const handleBulkAddIndividualEntries = (count: number, eventNames: string[]) =>
+    individualEntryCrud.addMany(
+      eventNames.flatMap((event) => Array.from({ length: count }, () => blankIndividualEntry(event))),
     );
-    history.update((prev) => ({
-      ...prev,
-      individualEntries: [...prev.individualEntries, ...newEntries],
-    }));
-  };
 
   const handleImportIndividualEntriesCsv = (
     rows: { event: string; athleteId: string; seedTime: string }[],
-  ) => {
-    if (!selectedMeetId) return;
-    const newEntries: IndividualEntry[] = rows.map((row) => ({
-      id: newId(),
-      meetId: selectedMeetId,
-      athleteId: row.athleteId,
-      event: row.event,
-      seedTime: row.seedTime,
-    }));
-    history.update((prev) => ({
-      ...prev,
-      individualEntries: [...prev.individualEntries, ...newEntries],
-    }));
-  };
+  ) =>
+    individualEntryCrud.addMany(
+      rows.map((row) => ({ athleteId: row.athleteId, event: row.event, seedTime: row.seedTime })),
+    );
 
   const handleClearAllIndividualEntries = () => {
     if (!selectedMeetId) return;
@@ -474,64 +422,39 @@ function App() {
     if (count === 0) return;
     setConfirmDialog({
       title: "Clear All Individual Entries",
-      message: `Delete all ${count} individual ${count === 1 ? "entry" : "entries"}? This cannot be undone.`,
+      message: clearAllConfirmMessage(count, "individual entry", "individual entries"),
       confirmLabel: "Clear All",
-      onConfirm: () => {
-        history.update((prev) => ({
-          ...prev,
-          individualEntries: prev.individualEntries.filter((e) => e.meetId !== selectedMeetId),
-        }));
-      },
+      onConfirm: () => individualEntryCrud.clearForMeet(),
     });
   };
 
-  const handleAddRelayEntry = () => {
-    if (!selectedMeetId) return;
-    const entry: RelayEntry = {
-      id: newId(),
-      meetId: selectedMeetId,
-      event: "",
-      relayLetter: "A",
-      leg1AthleteId: "",
-      leg2AthleteId: "",
-      leg3AthleteId: "",
-      leg4AthleteId: "",
-      seedTime: "",
-    };
-    history.update((prev) => ({ ...prev, relayEntries: [...prev.relayEntries, entry] }));
-  };
+  const blankRelayEntry = (
+    event = "",
+    relayLetter = "A",
+  ): Omit<RelayEntry, "id" | "meetId"> => ({
+    event,
+    relayLetter,
+    leg1AthleteId: "",
+    leg2AthleteId: "",
+    leg3AthleteId: "",
+    leg4AthleteId: "",
+    seedTime: "",
+  });
 
-  const handleUpdateRelayEntry = (updated: RelayEntry) => {
-    history.update((prev) => ({
-      ...prev,
-      relayEntries: prev.relayEntries.map((e) => (e.id === updated.id ? updated : e)),
-    }));
-  };
+  const handleAddRelayEntry = () => relayEntryCrud.addMany([blankRelayEntry()]);
 
-  const handleDeleteRelayEntry = (id: string) => {
-    history.update((prev) => ({
-      ...prev,
-      relayEntries: prev.relayEntries.filter((e) => e.id !== id),
-    }));
-  };
+  const handleUpdateRelayEntry = relayEntryCrud.update;
 
-  const handleBulkAddRelayEntries = (count: number, eventNames: string[]) => {
-    if (!selectedMeetId) return;
-    const newEntries: RelayEntry[] = eventNames.flatMap((event) =>
-      Array.from({ length: count }, (_, index) => ({
-        id: newId(),
-        meetId: selectedMeetId,
-        event,
-        relayLetter: RELAY_LETTERS[index % RELAY_LETTERS.length],
-        leg1AthleteId: "",
-        leg2AthleteId: "",
-        leg3AthleteId: "",
-        leg4AthleteId: "",
-        seedTime: "",
-      })),
+  const handleDeleteRelayEntry = relayEntryCrud.deleteById;
+
+  const handleBulkAddRelayEntries = (count: number, eventNames: string[]) =>
+    relayEntryCrud.addMany(
+      eventNames.flatMap((event) =>
+        Array.from({ length: count }, (_, index) =>
+          blankRelayEntry(event, RELAY_LETTERS[index % RELAY_LETTERS.length]),
+        ),
+      ),
     );
-    history.update((prev) => ({ ...prev, relayEntries: [...prev.relayEntries, ...newEntries] }));
-  };
 
   const handleImportRelayEntriesCsv = (
     rows: {
@@ -543,21 +466,18 @@ function App() {
       leg4AthleteId: string;
       seedTime: string;
     }[],
-  ) => {
-    if (!selectedMeetId) return;
-    const newEntries: RelayEntry[] = rows.map((row) => ({
-      id: newId(),
-      meetId: selectedMeetId,
-      event: row.event,
-      relayLetter: row.relayLetter,
-      leg1AthleteId: row.leg1AthleteId,
-      leg2AthleteId: row.leg2AthleteId,
-      leg3AthleteId: row.leg3AthleteId,
-      leg4AthleteId: row.leg4AthleteId,
-      seedTime: row.seedTime,
-    }));
-    history.update((prev) => ({ ...prev, relayEntries: [...prev.relayEntries, ...newEntries] }));
-  };
+  ) =>
+    relayEntryCrud.addMany(
+      rows.map((row) => ({
+        event: row.event,
+        relayLetter: row.relayLetter,
+        leg1AthleteId: row.leg1AthleteId,
+        leg2AthleteId: row.leg2AthleteId,
+        leg3AthleteId: row.leg3AthleteId,
+        leg4AthleteId: row.leg4AthleteId,
+        seedTime: row.seedTime,
+      })),
+    );
 
   const handleClearAllRelayEntries = () => {
     if (!selectedMeetId) return;
@@ -565,14 +485,9 @@ function App() {
     if (count === 0) return;
     setConfirmDialog({
       title: "Clear All Relay Entries",
-      message: `Delete all ${count} relay ${count === 1 ? "entry" : "entries"}? This cannot be undone.`,
+      message: clearAllConfirmMessage(count, "relay entry", "relay entries"),
       confirmLabel: "Clear All",
-      onConfirm: () => {
-        history.update((prev) => ({
-          ...prev,
-          relayEntries: prev.relayEntries.filter((e) => e.meetId !== selectedMeetId),
-        }));
-      },
+      onConfirm: () => relayEntryCrud.clearForMeet(),
     });
   };
 
