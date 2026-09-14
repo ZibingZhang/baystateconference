@@ -1,4 +1,5 @@
-export type { GenderAge as Gender } from "./hytek/enums";
+import type { GenderAge as Gender } from "./hytek/enums";
+export type { Gender };
 
 export interface ImportedEvent {
   eventNumber: number;
