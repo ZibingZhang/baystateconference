@@ -53,14 +53,6 @@ function HeaderWithInfo({ label, tooltip }: { label: string; tooltip: string }) 
   )
 }
 
-function PlainHeader({ label }: { label: string }) {
-  return (
-    <Box component="span" sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-      {label}
-    </Box>
-  )
-}
-
 const columns: GridColDef<AthleteRow>[] = [
   { field: 'firstName', headerName: 'First Name', flex: 1, editable: true },
   { field: 'lastName', headerName: 'Last Name', flex: 1, editable: true },

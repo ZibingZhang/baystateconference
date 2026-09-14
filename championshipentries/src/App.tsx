@@ -64,10 +64,9 @@ function App() {
   } | null>(null)
   const [infoDialog, setInfoDialog] = useState<{ title: string; message: string } | null>(null)
   const [selectedTemplateId, setSelectedTemplateId] = useState<string | null>(null)
-  const [templateData, setTemplateData] = useState<
-    | { status: 'loading' }
-    | { status: 'error'; message: string }
-    | { status: 'ready'; events: ImportedEvent[] }
+  const [templateFetchState, setTemplateFetchState] = useState<
+    | { templateId: string; status: 'error'; message: string }
+    | { templateId: string; status: 'ready'; events: ImportedEvent[] }
     | null
   >(null)
 
@@ -79,21 +78,23 @@ function App() {
   }
 
   const selectedTemplate = MEET_TEMPLATES.find((t) => t.id === selectedTemplateId) ?? null
+  const templateData: { status: 'loading' } | typeof templateFetchState = !selectedTemplate
+    ? null
+    : templateFetchState?.templateId === selectedTemplate.id
+      ? templateFetchState
+      : { status: 'loading' }
 
   useEffect(() => {
-    if (!selectedTemplate) {
-      setTemplateData(null)
-      return
-    }
+    if (!selectedTemplate) return
     let cancelled = false
-    setTemplateData({ status: 'loading' })
     fetchTemplateEvents(selectedTemplate.ev3Url)
       .then(({ events }) => {
-        if (!cancelled) setTemplateData({ status: 'ready', events })
+        if (!cancelled) setTemplateFetchState({ templateId: selectedTemplate.id, status: 'ready', events })
       })
       .catch((err: unknown) => {
         if (!cancelled) {
-          setTemplateData({
+          setTemplateFetchState({
+            templateId: selectedTemplate.id,
             status: 'error',
             message: err instanceof Error ? err.message : 'Failed to load template events.',
           })
