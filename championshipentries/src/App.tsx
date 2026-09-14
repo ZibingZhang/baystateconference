@@ -163,7 +163,10 @@ function App() {
                   onTabChange={setActiveTab}
                   readOnly
                   onReadOnlyAttempt={template.handleReadOnlyAttempt}
+                  meetId={selectedTemplate.id}
+                  meetName={selectedTemplate.name}
                   teamCode={undefined}
+                  importedEventsRaw={undefined}
                   athletes={[]}
                   individualEntries={template.templateIndividualEntries}
                   relayEntries={template.templateRelayEntries}
@@ -178,8 +181,11 @@ function App() {
             <MeetTabsView
               activeTab={activeTab}
               onTabChange={setActiveTab}
+              meetId={selectedMeet.id}
+              meetName={selectedMeet.name}
               teamCode={selectedMeet.teamCode}
               onUpdateTeamCode={meetActions.updateTeamCode}
+              importedEventsRaw={selectedMeet.importedEventsRaw}
               athletes={athletes}
               individualEntries={individualEntries}
               relayEntries={relayEntries}

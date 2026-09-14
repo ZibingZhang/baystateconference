@@ -8,6 +8,7 @@ import IndividualEntriesGrid from "./IndividualEntriesGrid";
 import RelayEntriesGrid from "./RelayEntriesGrid";
 import EventsGrid from "./EventsGrid";
 import TeamTab from "./TeamTab";
+import AdvancedTab from "./AdvancedTab";
 
 const noop = () => {};
 
@@ -17,8 +18,11 @@ interface MeetTabsViewProps {
   readOnly?: boolean;
   onReadOnlyAttempt?: () => void;
 
+  meetId: string;
+  meetName: string;
   teamCode: string | undefined;
   onUpdateTeamCode?: (teamCode: string) => void;
+  importedEventsRaw: string | undefined;
 
   athletes: Athlete[];
   individualEntries: IndividualEntry[];
@@ -73,8 +77,11 @@ function MeetTabsView({
   onTabChange,
   readOnly,
   onReadOnlyAttempt,
+  meetId,
+  meetName,
   teamCode,
   onUpdateTeamCode,
+  importedEventsRaw,
   athletes,
   individualEntries,
   relayEntries,
@@ -116,6 +123,7 @@ function MeetTabsView({
         <Tab label="Athletes" value="athletes" />
         <Tab label="Individual Entries" value="individual" />
         <Tab label="Relay Entries" value="relay" />
+        <Tab label="Advanced" value="advanced" />
       </Tabs>
       <Box sx={{ flex: 1, minHeight: 0, p: 2 }}>
         {activeTab === "team" && (
@@ -171,6 +179,14 @@ function MeetTabsView({
             onClearAll={onClearAllRelayEntries ?? noop}
             readOnly={readOnly}
             onReadOnlyAttempt={onReadOnlyAttempt}
+          />
+        )}
+        {activeTab === "advanced" && (
+          <AdvancedTab
+            meet={{ id: meetId, name: meetName, teamCode, importedEventsRaw }}
+            athletes={athletes}
+            individualEntries={individualEntries}
+            relayEntries={relayEntries}
           />
         )}
         {activeTab === "events" && (
