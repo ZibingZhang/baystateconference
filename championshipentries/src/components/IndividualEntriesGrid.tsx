@@ -7,7 +7,7 @@ import GridActionsToolbar from "./GridActionsToolbar";
 import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
-import { useSeedTimeColumn } from "./useSeedTimeColumn";
+import { useSeedTimeColumn } from "../hooks/useSeedTimeColumn";
 import { normalizeSeedTime } from "../seedTime";
 import { athleteNameMatchError, findAthleteIdByName } from "../athleteMatch";
 import {
@@ -53,10 +53,7 @@ function IndividualEntriesGrid({
   const { processRow: processSeedTimeRow, snackbar: seedTimeSnackbar } =
     useSeedTimeColumn<IndividualEntry>();
 
-  const eventNumberByName = useMemo(
-    () => buildEventNumberByName(importedEvents),
-    [importedEvents],
-  );
+  const eventNumberByName = useMemo(() => buildEventNumberByName(importedEvents), [importedEvents]);
 
   const csvColumns: CsvImportColumn[] = useMemo(
     () => [
