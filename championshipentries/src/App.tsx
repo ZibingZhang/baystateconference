@@ -1,7 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import Box from "@mui/material/Box";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -33,18 +31,11 @@ import AboutDialog from "./components/AboutDialog";
 import HowToPage from "./components/HowToPage";
 import ConfirmDialog from "./components/ConfirmDialog";
 import InfoDialog from "./components/InfoDialog";
-import AthletesGrid from "./components/AthletesGrid";
-import IndividualEntriesGrid from "./components/IndividualEntriesGrid";
-import RelayEntriesGrid from "./components/RelayEntriesGrid";
-import EventsGrid from "./components/EventsGrid";
-import TeamTab from "./components/TeamTab";
+import MeetTabsView from "./components/MeetTabsView";
+import { MEET_TABS, type MeetTab } from "./meetTabs";
 
 const TEMPLATE_READ_ONLY_MESSAGE =
   "This is a template and cannot be edited. Make a copy of it into a new meet first.";
-
-type MeetTab = "team" | "athletes" | "individual" | "relay" | "events";
-
-const MEET_TABS: MeetTab[] = ["team", "events", "athletes", "individual", "relay"];
 
 const newId = () => crypto.randomUUID();
 
@@ -746,158 +737,57 @@ function App() {
                 </Box>
               )}
               {templateData?.status === "ready" && (
-                <>
-                  <Tabs
-                    value={activeTab}
-                    onChange={(_, value: MeetTab) => setActiveTab(value)}
-                    sx={{ borderBottom: 1, borderColor: "divider", px: 1 }}
-                  >
-                    <Tab label="Team" value="team" />
-                    <Tab label="Events" value="events" />
-                    <Tab label="Athletes" value="athletes" />
-                    <Tab label="Individual Entries" value="individual" />
-                    <Tab label="Relay Entries" value="relay" />
-                  </Tabs>
-                  <Box sx={{ flex: 1, minHeight: 0, p: 2 }}>
-                    {activeTab === "team" && (
-                      <TeamTab
-                        teamCode={undefined}
-                        onUpdate={() => {}}
-                        readOnly
-                        onReadOnlyAttempt={handleReadOnlyAttempt}
-                      />
-                    )}
-                    {activeTab === "athletes" && (
-                      <AthletesGrid
-                        athletes={[]}
-                        individualEntries={templateIndividualEntries}
-                        relayEntries={templateRelayEntries}
-                        onAdd={() => {}}
-                        onBulkAdd={() => {}}
-                        onImportCsv={() => {}}
-                        onUpdate={() => {}}
-                        onDelete={() => {}}
-                        onClearAll={() => {}}
-                        readOnly
-                        onReadOnlyAttempt={handleReadOnlyAttempt}
-                      />
-                    )}
-                    {activeTab === "individual" && (
-                      <IndividualEntriesGrid
-                        entries={templateIndividualEntries}
-                        athletes={[]}
-                        eventOptions={templateIndividualEventOptions}
-                        importedEvents={templateEvents}
-                        onAdd={() => {}}
-                        onBulkAdd={() => {}}
-                        onImportCsv={() => {}}
-                        onUpdate={() => {}}
-                        onDelete={() => {}}
-                        onClearAll={() => {}}
-                        readOnly
-                        onReadOnlyAttempt={handleReadOnlyAttempt}
-                      />
-                    )}
-                    {activeTab === "relay" && (
-                      <RelayEntriesGrid
-                        entries={templateRelayEntries}
-                        athletes={[]}
-                        eventOptions={templateRelayEventOptions}
-                        importedEvents={templateEvents}
-                        onAdd={() => {}}
-                        onBulkAdd={() => {}}
-                        onImportCsv={() => {}}
-                        onUpdate={() => {}}
-                        onDelete={() => {}}
-                        onClearAll={() => {}}
-                        readOnly
-                        onReadOnlyAttempt={handleReadOnlyAttempt}
-                      />
-                    )}
-                    {activeTab === "events" && (
-                      <EventsGrid
-                        fileName={templateFileName(selectedTemplate.ev3Url)}
-                        events={templateEvents}
-                        onImport={() => {}}
-                        onImportError={() => {}}
-                        onClear={() => {}}
-                        readOnly
-                        onReadOnlyAttempt={handleReadOnlyAttempt}
-                      />
-                    )}
-                  </Box>
-                </>
+                <MeetTabsView
+                  activeTab={activeTab}
+                  onTabChange={setActiveTab}
+                  readOnly
+                  onReadOnlyAttempt={handleReadOnlyAttempt}
+                  teamCode={undefined}
+                  athletes={[]}
+                  individualEntries={templateIndividualEntries}
+                  relayEntries={templateRelayEntries}
+                  individualEventOptions={templateIndividualEventOptions}
+                  relayEventOptions={templateRelayEventOptions}
+                  importedEvents={templateEvents}
+                  eventsFileName={templateFileName(selectedTemplate.ev3Url)}
+                />
               )}
             </>
           ) : selectedMeet ? (
-            <>
-              <Tabs
-                value={activeTab}
-                onChange={(_, value: MeetTab) => setActiveTab(value)}
-                sx={{ borderBottom: 1, borderColor: "divider", px: 1 }}
-              >
-                <Tab label="Team" value="team" />
-                <Tab label="Events" value="events" />
-                <Tab label="Athletes" value="athletes" />
-                <Tab label="Individual Entries" value="individual" />
-                <Tab label="Relay Entries" value="relay" />
-              </Tabs>
-              <Box sx={{ flex: 1, minHeight: 0, p: 2 }}>
-                {activeTab === "team" && (
-                  <TeamTab teamCode={selectedMeet.teamCode} onUpdate={handleUpdateTeamCode} />
-                )}
-                {activeTab === "athletes" && (
-                  <AthletesGrid
-                    athletes={athletes}
-                    individualEntries={individualEntries}
-                    relayEntries={relayEntries}
-                    onAdd={handleAddAthlete}
-                    onBulkAdd={handleBulkAddAthletes}
-                    onImportCsv={handleImportAthletesCsv}
-                    onUpdate={handleUpdateAthlete}
-                    onDelete={handleDeleteAthlete}
-                    onClearAll={handleClearAllAthletes}
-                  />
-                )}
-                {activeTab === "individual" && (
-                  <IndividualEntriesGrid
-                    entries={individualEntries}
-                    athletes={athletes}
-                    eventOptions={individualEventOptions}
-                    importedEvents={selectedMeet.importedEvents}
-                    onAdd={handleAddIndividualEntry}
-                    onBulkAdd={handleBulkAddIndividualEntries}
-                    onImportCsv={handleImportIndividualEntriesCsv}
-                    onUpdate={handleUpdateIndividualEntry}
-                    onDelete={handleDeleteIndividualEntry}
-                    onClearAll={handleClearAllIndividualEntries}
-                  />
-                )}
-                {activeTab === "relay" && (
-                  <RelayEntriesGrid
-                    entries={relayEntries}
-                    athletes={athletes}
-                    eventOptions={relayEventOptions}
-                    importedEvents={selectedMeet.importedEvents}
-                    onAdd={handleAddRelayEntry}
-                    onBulkAdd={handleBulkAddRelayEntries}
-                    onImportCsv={handleImportRelayEntriesCsv}
-                    onUpdate={handleUpdateRelayEntry}
-                    onDelete={handleDeleteRelayEntry}
-                    onClearAll={handleClearAllRelayEntries}
-                  />
-                )}
-                {activeTab === "events" && (
-                  <EventsGrid
-                    fileName={selectedMeet.importedEventsFileName}
-                    events={selectedMeet.importedEvents}
-                    onImport={handleImportEvents}
-                    onImportError={(message) => setInfoDialog({ title: "Import Failed", message })}
-                    onClear={handleClearImportedEvents}
-                  />
-                )}
-              </Box>
-            </>
+            <MeetTabsView
+              activeTab={activeTab}
+              onTabChange={setActiveTab}
+              teamCode={selectedMeet.teamCode}
+              onUpdateTeamCode={handleUpdateTeamCode}
+              athletes={athletes}
+              individualEntries={individualEntries}
+              relayEntries={relayEntries}
+              onAddAthlete={handleAddAthlete}
+              onBulkAddAthletes={handleBulkAddAthletes}
+              onImportAthletesCsv={handleImportAthletesCsv}
+              onUpdateAthlete={handleUpdateAthlete}
+              onDeleteAthlete={handleDeleteAthlete}
+              onClearAllAthletes={handleClearAllAthletes}
+              individualEventOptions={individualEventOptions}
+              relayEventOptions={relayEventOptions}
+              importedEvents={selectedMeet.importedEvents}
+              onAddIndividualEntry={handleAddIndividualEntry}
+              onBulkAddIndividualEntries={handleBulkAddIndividualEntries}
+              onImportIndividualEntriesCsv={handleImportIndividualEntriesCsv}
+              onUpdateIndividualEntry={handleUpdateIndividualEntry}
+              onDeleteIndividualEntry={handleDeleteIndividualEntry}
+              onClearAllIndividualEntries={handleClearAllIndividualEntries}
+              onAddRelayEntry={handleAddRelayEntry}
+              onBulkAddRelayEntries={handleBulkAddRelayEntries}
+              onImportRelayEntriesCsv={handleImportRelayEntriesCsv}
+              onUpdateRelayEntry={handleUpdateRelayEntry}
+              onDeleteRelayEntry={handleDeleteRelayEntry}
+              onClearAllRelayEntries={handleClearAllRelayEntries}
+              eventsFileName={selectedMeet.importedEventsFileName}
+              onImportEvents={handleImportEvents}
+              onImportEventsError={(message) => setInfoDialog({ title: "Import Failed", message })}
+              onClearImportedEvents={handleClearImportedEvents}
+            />
           ) : (
             <Box
               sx={{
