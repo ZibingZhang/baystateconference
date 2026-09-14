@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
-import type { AppData } from "./types";
+import type { AppData } from "../types";
 
 const MAX_HISTORY = 50;
 
