@@ -61,3 +61,27 @@ export function parseDelimited(text: string, delimiter: string): string[][] {
 
   return rows.filter((r) => !(r.length === 1 && r[0].trim() === ''))
 }
+
+/** Serializes rows to delimited text, quoting fields that contain the delimiter, a quote, or a newline. */
+export function stringifyDelimited(rows: string[][], delimiter: string): string {
+  const escapeField = (field: string) => {
+    if (field.includes(delimiter) || field.includes('"') || field.includes('\n') || field.includes('\r')) {
+      return `"${field.replace(/"/g, '""')}"`
+    }
+    return field
+  }
+  return rows.map((row) => row.map(escapeField).join(delimiter)).join('\r\n')
+}
+
+/** Triggers a browser download of the given text content. */
+export function downloadTextFile(fileName: string, content: string, mimeType: string): void {
+  const blob = new Blob([content], { type: mimeType })
+  const url = URL.createObjectURL(blob)
+  const anchor = document.createElement('a')
+  anchor.href = url
+  anchor.download = fileName
+  document.body.appendChild(anchor)
+  anchor.click()
+  document.body.removeChild(anchor)
+  URL.revokeObjectURL(url)
+}

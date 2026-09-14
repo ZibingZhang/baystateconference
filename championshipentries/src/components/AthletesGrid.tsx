@@ -7,10 +7,12 @@ import DeleteSweepIcon from '@mui/icons-material/DeleteSweep'
 import GroupAddIcon from '@mui/icons-material/GroupAdd'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 import UploadFileIcon from '@mui/icons-material/UploadFile'
+import DownloadIcon from '@mui/icons-material/Download'
 import type { Athlete, IndividualEntry, RelayEntry } from '../types'
 import EditableDataGrid from './EditableDataGrid'
 import BulkAddAthletesDialog from './BulkAddAthletesDialog'
 import CsvImportDialog, { type CsvImportColumn } from './CsvImportDialog'
+import CsvExportDialog from './CsvExportDialog'
 
 interface AthletesGridProps {
   athletes: Athlete[]
@@ -131,6 +133,7 @@ function AthletesGrid({
 }: AthletesGridProps) {
   const [bulkAddOpen, setBulkAddOpen] = useState(false)
   const [csvImportOpen, setCsvImportOpen] = useState(false)
+  const [csvExportOpen, setCsvExportOpen] = useState(false)
 
   const rows = useMemo<AthleteRow[]>(() => {
     const individualCounts = new Map<string, number>()
@@ -187,6 +190,14 @@ function AthletesGrid({
             </Button>
             <Button
               size="small"
+              startIcon={<DownloadIcon />}
+              onClick={() => setCsvExportOpen(true)}
+              disabled={athletes.length === 0}
+            >
+              Export CSV
+            </Button>
+            <Button
+              size="small"
               color="error"
               startIcon={<DeleteSweepIcon />}
               onClick={() => (readOnly ? onReadOnlyAttempt?.() : onClearAll())}
@@ -212,6 +223,19 @@ function AthletesGrid({
             rows as { firstName: string; lastName: string; gender: string; classYear: string }[],
           )
         }
+      />
+      <CsvExportDialog
+        open={csvExportOpen}
+        title="Export Athletes CSV"
+        fileNamePrefix="Athletes"
+        headers={['First Name', 'Last Name', 'Gender', 'Class Year']}
+        rows={athletes.map((athlete) => [
+          athlete.firstName,
+          athlete.lastName,
+          athlete.gender,
+          athlete.classYear === null ? '' : String(athlete.classYear),
+        ])}
+        onClose={() => setCsvExportOpen(false)}
       />
     </>
   )

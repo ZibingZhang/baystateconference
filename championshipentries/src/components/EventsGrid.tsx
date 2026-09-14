@@ -92,6 +92,7 @@ function EventsGrid({
           rows={rows}
           columns={columns}
           density="compact"
+          hideFooter
           disableRowSelectionOnClick
           localeText={{ noRowsLabel: 'No events imported' }}
         />

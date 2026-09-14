@@ -725,6 +725,7 @@ function EditableDataGrid<T extends { id: string }>({
           rows={displayRows}
           columns={allColumns}
           density="compact"
+          hideFooter
           disableRowSelectionOnClick
           sortingMode="server"
           sortModel={sortModel}
