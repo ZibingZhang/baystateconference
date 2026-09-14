@@ -24,6 +24,18 @@ export function parseGenderAge(raw: string): GenderAge | undefined {
   return v === "M" || v === "B" || v === "W" || v === "G" ? v : undefined;
 }
 
+export const GENDER_AGE_NAMES: Record<GenderAge, string> = {
+  B: "Boys",
+  G: "Girls",
+  M: "Mens",
+  W: "Womens",
+};
+
+/** Boys/Men -> M, Girls/Women -> F — the two-letter alphabet HY3 carries in HS exports. */
+export function genderAgeToGender(genderAge: GenderAge | string): Gender {
+  return genderAge === "B" || genderAge === "M" ? "M" : "F";
+}
+
 /** Swimming stroke, or diving board, encoded as a single letter. */
 export type Stroke = "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H";
 
@@ -32,9 +44,9 @@ export const STROKE_NAMES: Record<Stroke, string> = {
   B: "Backstroke",
   C: "Breaststroke",
   D: "Butterfly",
-  E: "Medley",
-  F: "1m Diving",
-  G: "3m Diving",
+  E: "Individual Medley",
+  F: "1-Meter Diving",
+  G: "3-Meter Diving",
   H: "Platform Diving",
 };
 

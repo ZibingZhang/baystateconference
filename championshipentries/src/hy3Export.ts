@@ -1,12 +1,12 @@
-import type { Athlete, Gender, HighSchool, IndividualEntry, Meet, RelayEntry } from "./types";
+import type { Athlete, HighSchool, IndividualEntry, Meet, RelayEntry } from "./types";
 import { eventDisplayName } from "./ev3";
 import { parseEv3 as parseEv3Full } from "./hytek/ev3/parse.ts";
 import type { Ev3Event, Ev3File } from "./hytek/ev3/types.ts";
 import { parseSwimTime } from "./hytek/common.ts";
 import {
+  genderAgeToGender as toHy3Gender,
   isDivingStroke,
   parseCourse,
-  type Gender as Hy3Gender,
   type Stroke,
 } from "./hytek/enums.ts";
 import { writeHy3 } from "./hytek/hy3/write.ts";
@@ -17,11 +17,6 @@ import type {
   Hy3Swimmer,
   Hy3Team,
 } from "./hytek/hy3/types.ts";
-
-/** Boys/Men -> M, Girls/Women -> F. See docs/hytek/hy3-spec.md §4 for why HY3 only ever carries this two-letter alphabet in HS exports. */
-function toHy3Gender(genderAge: Gender | string): Hy3Gender {
-  return genderAge === "B" || genderAge === "M" ? "M" : "F";
-}
 
 export interface BuildHy3Result {
   fileName: string;

@@ -52,8 +52,7 @@ function parseHeaderLine(line: string): Ev3Header {
   };
 }
 
-function parseEventLine(line: string): Ev3Event {
-  const f = splitRecord(line);
+function parseEventLine(f: string[]): Ev3Event {
   return {
     eventNumber: field(f, 1),
     displayOrder: field(f, 2),
@@ -86,11 +85,17 @@ function parseEventLine(line: string): Ev3Event {
 
 /** Parse a full EV3 file's text content (already decoded from its `latin1` bytes). */
 export function parseEv3(text: string): Ev3File {
-  const lines = text.split(/\r\n/).filter((l) => l.length > 0);
+  const lines = text.split(/\r\n|\n/).filter((l) => l.length > 0);
   if (lines.length === 0) {
     throw new Error("Empty EV3 file");
   }
   const header = parseHeaderLine(lines[0]);
-  const events = lines.slice(1).map(parseEventLine);
+  const events = lines.slice(1).map((line, index) => {
+    const f = splitRecord(line);
+    if (f.length < 25) {
+      throw new Error(`Event line ${index + 2} does not look like a valid EV3 event record.`);
+    }
+    return parseEventLine(f);
+  });
   return { header, events };
 }

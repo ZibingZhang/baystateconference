@@ -1,4 +1,4 @@
-export type Gender = "G" | "B" | "W" | "M";
+export type { GenderAge as Gender } from "./hytek/enums";
 
 export interface ImportedEvent {
   eventNumber: number;
@@ -9,7 +9,7 @@ export interface ImportedEvent {
   strokeCode: string;
   scheduledTime: string;
   displayName: string;
-  /** EV3 spec field 27 ("scoring places"), which also matches the number of entries a team may make per event. 0 for diving. See docs/hytek/ev3-spec.md §3. */
+  /** Number of entries a team may make per event, derived from EV3 field 27 (`Ev3Event.scoringPlaces`) — see `ev3.ts`'s `toImportedEvent`. 0 for diving. */
   entryLimit: number;
 }
 

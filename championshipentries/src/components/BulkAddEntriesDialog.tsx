@@ -11,7 +11,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import Checkbox from "@mui/material/Checkbox";
 import type { ImportedEvent } from "../types";
-import { GENDER_NAMES, uniqueEventOptions } from "../ev3";
+import { uniqueEventOptions } from "../ev3";
+import { GENDER_AGE_NAMES } from "../hytek/enums";
 
 interface BulkAddEntriesDialogProps {
   open: boolean;
@@ -115,7 +116,7 @@ function BulkAddEntriesDialog({
                 <FormControlLabel
                   key={gender}
                   sx={{ ml: 2 }}
-                  label={`All ${GENDER_NAMES[gender] ?? gender} Events`}
+                  label={`All ${GENDER_AGE_NAMES[gender as keyof typeof GENDER_AGE_NAMES] ?? gender} Events`}
                   control={
                     <Checkbox
                       checked={checked}
