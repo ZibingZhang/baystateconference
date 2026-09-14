@@ -1,27 +1,24 @@
 import { useMemo, useState } from "react";
 import type { GridColDef } from "@mui/x-data-grid";
-import Button from "@mui/material/Button";
-import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
-import UploadFileIcon from "@mui/icons-material/UploadFile";
-import DownloadIcon from "@mui/icons-material/Download";
 import type { Athlete, ImportedEvent, RelayEntry } from "../types";
 import EditableDataGrid from "./EditableDataGrid";
+import GridActionsToolbar from "./GridActionsToolbar";
 import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
 import { useSeedTimeColumn } from "./useSeedTimeColumn";
 import { normalizeSeedTime } from "../seedTime";
 import { athleteNameMatchError, findAthleteIdByName } from "../athleteMatch";
-
-const NO_EVENTS_TOOLTIP = "Import an EV3 events file on the Events tab before choosing an event.";
+import {
+  buildAthleteNameById,
+  buildAthleteOptions,
+  buildEventColumn,
+  buildEventNumberByName,
+  matchEventName,
+} from "../entryGridShared";
 
 const RELAY_LETTERS = ["A", "B", "C", "D"];
-
-function matchEventName(value: string, options: string[]): string | undefined {
-  const target = value.toLowerCase();
-  return options.find((option) => option.toLowerCase() === target);
-}
 
 interface RelayEntriesGridProps {
   entries: RelayEntry[];
@@ -68,15 +65,10 @@ function RelayEntriesGrid({
   const { processRow: processSeedTimeRow, snackbar: seedTimeSnackbar } =
     useSeedTimeColumn<RelayEntry>();
 
-  const eventNumberByName = useMemo(() => {
-    const map = new Map<string, number>();
-    for (const event of importedEvents ?? []) {
-      if (!map.has(event.displayName)) {
-        map.set(event.displayName, event.eventNumber);
-      }
-    }
-    return map;
-  }, [importedEvents]);
+  const eventNumberByName = useMemo(
+    () => buildEventNumberByName(importedEvents),
+    [importedEvents],
+  );
 
   const csvColumns: CsvImportColumn[] = useMemo(() => {
     const legCsvColumn = (key: string, label: string): CsvImportColumn => ({
@@ -121,16 +113,8 @@ function RelayEntriesGrid({
     ];
   }, [eventOptions, athletes]);
 
-  const athleteOptions = athletes
-    .filter((a) => `${a.firstName} ${a.lastName}`.trim() !== "")
-    .map((a) => ({
-      value: a.id,
-      label: `${a.firstName} ${a.lastName}`.trim(),
-    }));
-
-  const athleteNameById = new Map(
-    athletes.map((a) => [a.id, `${a.firstName} ${a.lastName}`.trim()]),
-  );
+  const athleteOptions = buildAthleteOptions(athletes);
+  const athleteNameById = buildAthleteNameById(athletes);
 
   const legColumn = (
     field: "leg1AthleteId" | "leg2AthleteId" | "leg3AthleteId" | "leg4AthleteId",
@@ -145,18 +129,7 @@ function RelayEntriesGrid({
   });
 
   const columns: GridColDef<RelayEntry>[] = [
-    {
-      field: "event",
-      headerName: "Event",
-      flex: 1,
-      editable: (eventOptions?.length ?? 0) > 0,
-      type: "singleSelect",
-      valueOptions: eventOptions ?? [],
-      description: eventOptions?.length ? undefined : NO_EVENTS_TOOLTIP,
-      sortComparator: (v1, v2) =>
-        (eventNumberByName.get(v1) ?? Number.MAX_SAFE_INTEGER) -
-        (eventNumberByName.get(v2) ?? Number.MAX_SAFE_INTEGER),
-    },
+    buildEventColumn<RelayEntry>(eventOptions, eventNumberByName),
     {
       field: "relayLetter",
       headerName: "Relay",
@@ -186,41 +159,20 @@ function RelayEntriesGrid({
         readOnly={readOnly}
         onReadOnlyAttempt={onReadOnlyAttempt}
         extraToolbar={
-          <>
-            <Button
-              size="small"
-              startIcon={<PlaylistAddIcon />}
-              onClick={() => (readOnly ? onReadOnlyAttempt?.() : setBulkAddOpen(true))}
-              disabled={!readOnly && !eventOptions?.length}
-            >
-              Bulk Add Relays
-            </Button>
-            <Button
-              size="small"
-              startIcon={<UploadFileIcon />}
-              onClick={() => (readOnly ? onReadOnlyAttempt?.() : setCsvImportOpen(true))}
-              disabled={!readOnly && !eventOptions?.length}
-            >
-              Import CSV
-            </Button>
-            <Button
-              size="small"
-              startIcon={<DownloadIcon />}
-              onClick={() => setCsvExportOpen(true)}
-              disabled={entries.length === 0}
-            >
-              Export CSV
-            </Button>
-            <Button
-              size="small"
-              color="error"
-              startIcon={<DeleteSweepIcon />}
-              onClick={() => (readOnly ? onReadOnlyAttempt?.() : onClearAll())}
-              disabled={!readOnly && entries.length === 0}
-            >
-              Clear All
-            </Button>
-          </>
+          <GridActionsToolbar
+            addLabel="Bulk Add Relays"
+            addIcon={<PlaylistAddIcon />}
+            onAdd={() => setBulkAddOpen(true)}
+            addDisabled={!eventOptions?.length}
+            onImportCsv={() => setCsvImportOpen(true)}
+            importDisabled={!eventOptions?.length}
+            onExportCsv={() => setCsvExportOpen(true)}
+            exportDisabled={entries.length === 0}
+            onClearAll={onClearAll}
+            clearAllDisabled={entries.length === 0}
+            readOnly={readOnly}
+            onReadOnlyAttempt={onReadOnlyAttempt}
+          />
         }
       />
       <BulkAddEntriesDialog

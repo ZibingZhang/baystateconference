@@ -1,15 +1,12 @@
 import { useMemo, useState } from "react";
 import type { GridColDef } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import UploadFileIcon from "@mui/icons-material/UploadFile";
-import DownloadIcon from "@mui/icons-material/Download";
 import type { Athlete, IndividualEntry, RelayEntry } from "../types";
 import EditableDataGrid from "./EditableDataGrid";
+import GridActionsToolbar from "./GridActionsToolbar";
 import BulkAddAthletesDialog from "./BulkAddAthletesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
@@ -182,39 +179,18 @@ function AthletesGrid({
         readOnly={readOnly}
         onReadOnlyAttempt={onReadOnlyAttempt}
         extraToolbar={
-          <>
-            <Button
-              size="small"
-              startIcon={<GroupAddIcon />}
-              onClick={() => (readOnly ? onReadOnlyAttempt?.() : setBulkAddOpen(true))}
-            >
-              Bulk Add Athletes
-            </Button>
-            <Button
-              size="small"
-              startIcon={<UploadFileIcon />}
-              onClick={() => (readOnly ? onReadOnlyAttempt?.() : setCsvImportOpen(true))}
-            >
-              Import CSV
-            </Button>
-            <Button
-              size="small"
-              startIcon={<DownloadIcon />}
-              onClick={() => setCsvExportOpen(true)}
-              disabled={athletes.length === 0}
-            >
-              Export CSV
-            </Button>
-            <Button
-              size="small"
-              color="error"
-              startIcon={<DeleteSweepIcon />}
-              onClick={() => (readOnly ? onReadOnlyAttempt?.() : onClearAll())}
-              disabled={!readOnly && athletes.length === 0}
-            >
-              Clear All
-            </Button>
-          </>
+          <GridActionsToolbar
+            addLabel="Bulk Add Athletes"
+            addIcon={<GroupAddIcon />}
+            onAdd={() => setBulkAddOpen(true)}
+            onImportCsv={() => setCsvImportOpen(true)}
+            onExportCsv={() => setCsvExportOpen(true)}
+            exportDisabled={athletes.length === 0}
+            onClearAll={onClearAll}
+            clearAllDisabled={athletes.length === 0}
+            readOnly={readOnly}
+            onReadOnlyAttempt={onReadOnlyAttempt}
+          />
         }
       />
       <BulkAddAthletesDialog
