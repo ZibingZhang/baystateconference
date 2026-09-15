@@ -7,8 +7,8 @@
   _plugins/school_schedule_page_generator.rb.
 
   Wrapped in .schedule-group and each row tagged data-level so
-  schedule-filter.html/schedule-filter.js can filter by level and hide this
-  whole group if none of its rows match.
+  schedule-filter.html/schedule-filter.js can filter by level, showing the
+  trailing .schedule-empty-row in place of the real rows if none match.
 
   Usage: {% include school-schedule-group.html heading="Boys" entries=entries %}
 {%- endcomment -%}
@@ -47,6 +47,9 @@
       <td>{{ game["game_type"] }}</td>
     </tr>
     {%- endfor -%}
+    <tr class="schedule-empty-row" hidden>
+      <td colspan="7">No games match the selected filters.</td>
+    </tr>
   </tbody>
 </table>
 </div>

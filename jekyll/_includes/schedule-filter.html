@@ -10,8 +10,8 @@
   than once (e.g. a sport's schedule page filters by both school and level)
   and every active filter is ANDed together against each row, not just
   whichever one was clicked most recently. A group whose rows are all
-  hidden by the combined filters hides itself too, rather than showing an
-  empty table.
+  hidden by the combined filters shows its .schedule-empty-row (see
+  schedule-group.html) in their place, rather than disappearing.
 
   Only renders when there's more than one distinct value - filtering a
   single-value list down to itself is pointless.

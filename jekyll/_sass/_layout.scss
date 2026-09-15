@@ -795,10 +795,13 @@
   }
 }
 
-// Hidden by assets/js/schedule-filter.js when every one of its rows is
-// filtered out, so a filter never leaves an empty heading + table behind.
-.schedule-group[hidden] {
-  display: none;
+// Revealed by assets/js/schedule-filter.js in place of a .schedule-group's
+// real rows when a filter matches none of them (see schedule-group.html/
+// todays-games.html) - dimmed like .schedule-legend since it's a status
+// message, not data.
+.schedule-empty-row {
+  color: $brand-color-dimmed;
+  text-align: center;
 }
 
 .school-logo-placeholder {

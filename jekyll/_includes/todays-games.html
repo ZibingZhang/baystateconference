@@ -44,6 +44,9 @@
       <td>{{ game.location }}</td>
     </tr>
     {%- endfor -%}
+    <tr class="schedule-empty-row" hidden>
+      <td colspan="5">No games match the selected filters.</td>
+    </tr>
     {%- else -%}
     <tr>
       <td colspan="5">No varsity games scheduled today.</td>

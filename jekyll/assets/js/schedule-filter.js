@@ -1,11 +1,14 @@
 // Wires up .schedule-filter chip rows (see _includes/schedule-filter.html):
 // clicking a chip shows only the .schedule-group rows whose data-<attr>
 // (pipe-separated, since e.g. a game's data-school holds both teams)
-// contains that chip's value, and hides a whole group if none of its rows
-// match. Single-select per filter, like a segmented control - "All" always
-// resets it, and clicking the already-active chip again re-selects "All"
-// too, rather than just sitting there selected with no way to click back
-// out of it.
+// contains that chip's value. A group's own .schedule-empty-row (if it has
+// one) is revealed instead when every real row is filtered out - the group
+// itself is never hidden, since e.g. todays-games.html's heading/chips sit
+// outside its single .schedule-group and would otherwise be left stranded
+// above nothing. Single-select per filter, like a segmented control - "All"
+// always resets it, and clicking the already-active chip again re-selects
+// "All" too, rather than just sitting there selected with no way to click
+// back out of it.
 //
 // A page can have more than one .schedule-filter (e.g. a sport's schedule
 // page filters by both school and level) - every active filter is ANDed
@@ -31,7 +34,7 @@
   function apply() {
     groups.forEach(function (group) {
       var visible = 0;
-      group.querySelectorAll("tbody tr").forEach(function (row) {
+      group.querySelectorAll("tbody tr:not(.schedule-empty-row)").forEach(function (row) {
         var match = filterEls.every(function (filterEl) {
           var value = activeValue(filterEl);
           if (value === "") return true;
@@ -42,7 +45,8 @@
         row.hidden = !match;
         if (match) visible += 1;
       });
-      group.hidden = visible === 0;
+      var emptyRow = group.querySelector(".schedule-empty-row");
+      if (emptyRow) emptyRow.hidden = visible !== 0;
     });
   }
 

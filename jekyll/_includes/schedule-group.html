@@ -13,7 +13,8 @@
 
   Wrapped in .schedule-group and each row tagged data-school/data-level so
   schedule-filter.html/schedule-filter.js can filter by school and/or level
-  (ANDed together) and hide this whole group if none of its rows match.
+  (ANDed together), showing the trailing .schedule-empty-row in place of the
+  real rows if none of them match.
 
   Usage: {% include schedule-group.html heading="Girls" entries=entries %}
 {%- endcomment -%}
@@ -56,6 +57,9 @@
       <td>{{ game["game_type"] }}</td>
     </tr>
     {%- endfor -%}
+    <tr class="schedule-empty-row" hidden>
+      <td colspan="8">No games match the selected filters.</td>
+    </tr>
   </tbody>
 </table>
 </div>
