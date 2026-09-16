@@ -32,12 +32,18 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [addMeetOpen, setAddMeetOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [howToOpen, setHowToOpen] = useState(false);
 
   const { confirmDialog, showConfirm, closeConfirm, infoDialog, showInfo, closeInfo } =
     useDialogState();
-  const { selectedMeetId, setSelectedMeetId, activeTab, setActiveTab, clearTab } =
-    useMeetUrlState(howToOpen);
+  const {
+    selectedMeetId,
+    setSelectedMeetId,
+    activeTab,
+    setActiveTab,
+    clearTab,
+    howToOpen,
+    setHowToOpen,
+  } = useMeetUrlState();
 
   const athleteCrud = useMeetCrud<Athlete>(history, selectedMeetId, {
     get: (d) => d.athletes,

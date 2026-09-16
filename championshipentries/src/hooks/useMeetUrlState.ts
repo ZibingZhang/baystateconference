@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { MEET_TABS, type MeetTab } from "../constants/meetTabs";
 
 /**
- * Keeps the selected meet and active tab in sync with the `meet`/`tab` URL
- * query params, so a link/refresh lands back on the same meet+tab. `tab` is
- * dropped from the URL while the How To page is open since it doesn't apply.
+ * Keeps the selected meet, active tab, and How To page in sync with the
+ * `meet`/`tab`/`view` URL query params, so a link/refresh lands back on the
+ * same place. `view=howto` marks the How To page; `tab` is dropped from the
+ * URL while it's open since it doesn't apply.
  */
-export function useMeetUrlState(howToOpen: boolean) {
+export function useMeetUrlState() {
   const [selectedMeetId, setSelectedMeetId] = useState<string | null>(() =>
     new URLSearchParams(window.location.search).get("meet"),
   );
@@ -15,6 +16,9 @@ export function useMeetUrlState(howToOpen: boolean) {
     return MEET_TABS.includes(tab as MeetTab) ? (tab as MeetTab) : "team";
   });
   const [tabParamCleared, setTabParamCleared] = useState(false);
+  const [howToOpen, setHowToOpen] = useState(
+    () => new URLSearchParams(window.location.search).get("view") === "howto",
+  );
 
   const setActiveTab = (tab: MeetTab) => {
     setTabParamCleared(false);
@@ -29,6 +33,11 @@ export function useMeetUrlState(howToOpen: boolean) {
     } else {
       params.delete("meet");
     }
+    if (howToOpen) {
+      params.set("view", "howto");
+    } else {
+      params.delete("view");
+    }
     if (howToOpen || tabParamCleared) {
       params.delete("tab");
     } else {
@@ -42,5 +51,13 @@ export function useMeetUrlState(howToOpen: boolean) {
     );
   }, [selectedMeetId, activeTab, howToOpen, tabParamCleared]);
 
-  return { selectedMeetId, setSelectedMeetId, activeTab, setActiveTab, clearTab };
+  return {
+    selectedMeetId,
+    setSelectedMeetId,
+    activeTab,
+    setActiveTab,
+    clearTab,
+    howToOpen,
+    setHowToOpen,
+  };
 }
