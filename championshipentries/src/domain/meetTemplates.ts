@@ -9,6 +9,13 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
       "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2025-fall-bay-state-conference.ev3",
     genderFilter: "G",
   },
+  {
+    id: "template-2025-fall-south-sectional",
+    name: "2025 Fall South Sectional Championships",
+    ev3Url:
+      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2025-fall-south-sectional.ev3",
+    genderFilter: "G",
+  },
 ];
 
 // Fallback only for events whose EV3 record doesn't carry a usable entryLimit (see ImportedEvent.entryLimit).

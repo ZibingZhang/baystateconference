@@ -50,7 +50,7 @@ function IndividualEntriesGrid({
   const [csvImportOpen, setCsvImportOpen] = useState(false);
   const [csvExportOpen, setCsvExportOpen] = useState(false);
   const { processRow: processSeedTimeRow, snackbar: seedTimeSnackbar } =
-    useSeedTimeColumn<IndividualEntry>();
+    useSeedTimeColumn<IndividualEntry>(importedEvents);
 
   const csvColumns: CsvImportColumn[] = useMemo(
     () => [

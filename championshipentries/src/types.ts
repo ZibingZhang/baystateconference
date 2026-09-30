@@ -12,6 +12,8 @@ export interface ImportedEvent {
   displayName: string;
   /** Number of entries a team may make per event, derived from EV3 field 27 (`Ev3Event.scoringPlaces`) — see `ev3.ts`'s `toImportedEvent`. 0 for diving. */
   entryLimit: number;
+  /** Raw EV3 field 21 (`Ev3Event.qualifyingTime`), blank if the meet has no standard for this event. See `ev3.ts`'s qualifying-standard helpers for how to interpret this. */
+  qualifyingTime: string;
 }
 
 export interface MeetTemplate {

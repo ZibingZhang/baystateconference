@@ -62,7 +62,7 @@ function RelayEntriesGrid({
   const [csvImportOpen, setCsvImportOpen] = useState(false);
   const [csvExportOpen, setCsvExportOpen] = useState(false);
   const { processRow: processSeedTimeRow, snackbar: seedTimeSnackbar } =
-    useSeedTimeColumn<RelayEntry>();
+    useSeedTimeColumn<RelayEntry>(importedEvents);
 
   const csvColumns: CsvImportColumn[] = useMemo(
     () => [

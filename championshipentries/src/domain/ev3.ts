@@ -2,6 +2,7 @@ import type { ImportedEvent } from "../types";
 import { parseEv3 as parseEv3File } from "../hytek/ev3/parse";
 import type { Ev3Event } from "../hytek/ev3/types";
 import { GENDER_AGE_NAMES, STROKE_NAMES, isDivingStroke } from "../hytek/enums";
+import { parseSwimTime } from "../hytek/common";
 
 const RELAY_STROKE_NAMES: Record<string, string> = {
   A: "Freestyle Relay",
@@ -39,7 +40,59 @@ function toImportedEvent(e: Ev3Event): ImportedEvent {
     displayName: eventDisplayName(relay, e.distance, e.stroke, e.genderAge),
     // EV3 field 27 ("scoring places") reused as the per-team entry cap; see ImportedEvent.entryLimit.
     entryLimit: Number.parseInt(e.scoringPlaces, 10) || 0,
+    qualifyingTime: e.qualifyingTime,
   };
+}
+
+export function isDivingEvent(event: ImportedEvent): boolean {
+  return isDivingStroke(event.strokeCode);
+}
+
+/**
+ * The event's qualifying standard as a comparable number, or undefined if it
+ * has none. For diving events, EV3 field 21 reuses the swim-time `M:SS.hh`
+ * encoding to store a minimum score (e.g. `2:55.00` decodes to a 175.00
+ * score) rather than a time — see docs/hytek/ev3-spec.md §3 field 21.
+ */
+export function qualifyingStandardValue(event: ImportedEvent): number | undefined {
+  if (!event.qualifyingTime) return undefined;
+  const parsed = parseSwimTime(event.qualifyingTime);
+  return typeof parsed === "number" ? parsed : undefined;
+}
+
+/** Display string for the event's qualifying standard, or "" if it has none. */
+export function formatQualifyingStandard(event: ImportedEvent): string {
+  const value = qualifyingStandardValue(event);
+  if (value === undefined) return "";
+  return isDivingEvent(event) ? value.toFixed(2) : event.qualifyingTime;
+}
+
+/**
+ * True if `seedValue` (a time in seconds, or a diving score) fails the
+ * event's qualifying standard — slower than the standard for swimming
+ * events, lower than the standard for diving events.
+ */
+export function violatesQualifyingStandard(event: ImportedEvent, seedValue: number): boolean {
+  const standard = qualifyingStandardValue(event);
+  if (standard === undefined) return false;
+  return isDivingEvent(event) ? seedValue < standard : seedValue > standard;
+}
+
+/** Message shown when a seed time/score is rejected for failing an event's qualifying standard. */
+export function qualifyingViolationMessage(event: ImportedEvent): string {
+  const standard = formatQualifyingStandard(event);
+  return isDivingEvent(event)
+    ? `Score is below the qualifying standard of ${standard} for ${event.displayName}. Value was cleared.`
+    : `Seed time is slower than the qualifying standard of ${standard} for ${event.displayName}. Value was cleared.`;
+}
+
+/** Maps each event's display name to one representative ImportedEvent (for qualifying-standard lookups). */
+export function eventByDisplayName(events: ImportedEvent[]): Map<string, ImportedEvent> {
+  const map = new Map<string, ImportedEvent>();
+  for (const event of events) {
+    if (!map.has(event.displayName)) map.set(event.displayName, event);
+  }
+  return map;
 }
 
 export interface Ev3ParseResult {

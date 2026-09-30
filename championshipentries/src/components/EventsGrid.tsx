@@ -6,7 +6,7 @@ import UploadFileIcon from "@mui/icons-material/UploadFile";
 import ClearIcon from "@mui/icons-material/Clear";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import type { ImportedEvent } from "../types";
-import { parseEv3 } from "../domain/ev3";
+import { formatQualifyingStandard, parseEv3 } from "../domain/ev3";
 
 interface EventsGridProps {
   fileName: string | undefined;
@@ -24,6 +24,12 @@ const columns: GridColDef<ImportedEvent & { id: number }>[] = [
   { field: "gender", headerName: "Gender", width: 90 },
   { field: "round", headerName: "Round", width: 90 },
   { field: "scheduledTime", headerName: "Scheduled Time", width: 140 },
+  {
+    field: "qualifyingStandard",
+    headerName: "Qualifying Standard",
+    width: 160,
+    valueGetter: (_value, row) => formatQualifyingStandard(row),
+  },
 ];
 
 function EventsGrid({
