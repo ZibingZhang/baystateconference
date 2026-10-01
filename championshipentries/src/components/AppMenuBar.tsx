@@ -66,15 +66,12 @@ function AppMenuBar({
   const [resultsAnchorEl, setResultsAnchorEl] = useState<HTMLElement | null>(null);
   const [themeAnchorEl, setThemeAnchorEl] = useState<HTMLElement | null>(null);
   const [paletteAnchorEl, setPaletteAnchorEl] = useState<HTMLElement | null>(null);
-  const [helpAnchorEl, setHelpAnchorEl] = useState<HTMLElement | null>(null);
 
   const openFileMenu = (event: MouseEvent<HTMLElement>) => setFileAnchorEl(event.currentTarget);
   const closeFileMenu = () => setFileAnchorEl(null);
   const openResultsMenu = (event: MouseEvent<HTMLElement>) =>
     setResultsAnchorEl(event.currentTarget);
   const closeResultsMenu = () => setResultsAnchorEl(null);
-  const openHelpMenu = (event: MouseEvent<HTMLElement>) => setHelpAnchorEl(event.currentTarget);
-  const closeHelpMenu = () => setHelpAnchorEl(null);
   const openThemeMenu = (event: MouseEvent<HTMLElement>) => setThemeAnchorEl(event.currentTarget);
   const closeThemeMenu = () => setThemeAnchorEl(null);
   const openPaletteMenu = (event: MouseEvent<HTMLElement>) =>
@@ -167,28 +164,13 @@ function AppMenuBar({
             <OpenInNewIcon fontSize="inherit" sx={{ ml: 1 }} />
           </MenuItem>
         </Menu>
-        <Button color="inherit" size="small" onClick={openHelpMenu}>
-          Help
+        <Button color="inherit" size="small" onClick={onHowTo}>
+          How To
         </Button>
-        <Menu anchorEl={helpAnchorEl} open={Boolean(helpAnchorEl)} onClose={closeHelpMenu}>
-          <MenuItem
-            onClick={() => {
-              onHowTo();
-              closeHelpMenu();
-            }}
-          >
-            How To
-          </MenuItem>
-          <MenuItem
-            onClick={() => {
-              onAbout();
-              closeHelpMenu();
-            }}
-          >
-            About
-          </MenuItem>
-        </Menu>
         <Box sx={{ flexGrow: 1 }} />
+        <Button color="inherit" size="small" onClick={onAbout} sx={{ mr: 1 }}>
+          About
+        </Button>
         <Tooltip title={`Color palette: ${currentPalette.label}`}>
           <IconButton
             size="small"
