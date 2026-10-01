@@ -202,6 +202,7 @@ function MeetTabsView({
           <EventsGrid
             fileName={eventsFileName}
             events={importedEvents}
+            importedEventsRaw={importedEventsRaw}
             onImport={onImportEvents ?? noop}
             onImportError={onImportEventsError ?? noop}
             onClear={onClearImportedEvents ?? noop}

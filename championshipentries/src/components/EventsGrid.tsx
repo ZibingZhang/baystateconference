@@ -1,16 +1,19 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
+import DownloadIcon from "@mui/icons-material/Download";
 import ClearIcon from "@mui/icons-material/Clear";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import type { ImportedEvent } from "../types";
 import { formatQualifyingStandard, parseEv3 } from "../domain/ev3";
+import Ev3ExportDialog from "./Ev3ExportDialog";
 
 interface EventsGridProps {
   fileName: string | undefined;
   events: ImportedEvent[] | undefined;
+  importedEventsRaw: string | undefined;
   onImport: (fileName: string, events: ImportedEvent[], rawText: string) => void;
   onImportError: (message: string) => void;
   onClear: () => void;
@@ -35,6 +38,7 @@ const columns: GridColDef<ImportedEvent & { id: number }>[] = [
 function EventsGrid({
   fileName,
   events,
+  importedEventsRaw,
   onImport,
   onImportError,
   onClear,
@@ -42,6 +46,7 @@ function EventsGrid({
   onReadOnlyAttempt,
 }: EventsGridProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [exportOpen, setExportOpen] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -71,6 +76,14 @@ function EventsGrid({
         >
           Import EV3 File
         </Button>
+        <Button
+          size="small"
+          startIcon={<DownloadIcon />}
+          onClick={() => setExportOpen(true)}
+          disabled={!importedEventsRaw}
+        >
+          Export EV3 File
+        </Button>
         {events && events.length > 0 && (
           <Button
             size="small"
@@ -97,6 +110,12 @@ function EventsGrid({
           localeText={{ noRowsLabel: "No events imported" }}
         />
       </Box>
+      <Ev3ExportDialog
+        open={exportOpen}
+        fileName={fileName || "events.ev3"}
+        content={importedEventsRaw ?? ""}
+        onClose={() => setExportOpen(false)}
+      />
     </Box>
   );
 }
