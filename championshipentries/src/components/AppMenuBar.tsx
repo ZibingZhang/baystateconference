@@ -10,6 +10,12 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import UndoIcon from "@mui/icons-material/Undo";
 import RedoIcon from "@mui/icons-material/Redo";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+
+const SECTIONALS_RESULTS_URL =
+  "https://baystateconference.com/sports/swimming-diving/archive/?path=meet-results/by-meet/sectionals";
+const STATES_RESULTS_URL =
+  "https://baystateconference.com/sports/swimming-diving/archive/?path=meet-results/by-meet/states";
 
 interface AppMenuBarProps {
   onToggleSidebar: () => void;
@@ -37,10 +43,14 @@ function AppMenuBar({
   canRedo,
 }: AppMenuBarProps) {
   const [fileAnchorEl, setFileAnchorEl] = useState<HTMLElement | null>(null);
+  const [resultsAnchorEl, setResultsAnchorEl] = useState<HTMLElement | null>(null);
   const [helpAnchorEl, setHelpAnchorEl] = useState<HTMLElement | null>(null);
 
   const openFileMenu = (event: MouseEvent<HTMLElement>) => setFileAnchorEl(event.currentTarget);
   const closeFileMenu = () => setFileAnchorEl(null);
+  const openResultsMenu = (event: MouseEvent<HTMLElement>) =>
+    setResultsAnchorEl(event.currentTarget);
+  const closeResultsMenu = () => setResultsAnchorEl(null);
   const openHelpMenu = (event: MouseEvent<HTMLElement>) => setHelpAnchorEl(event.currentTarget);
   const closeHelpMenu = () => setHelpAnchorEl(null);
 
@@ -99,6 +109,31 @@ function AppMenuBar({
             }}
           >
             Export to HY3
+          </MenuItem>
+        </Menu>
+        <Button color="inherit" size="small" onClick={openResultsMenu}>
+          Results
+        </Button>
+        <Menu anchorEl={resultsAnchorEl} open={Boolean(resultsAnchorEl)} onClose={closeResultsMenu}>
+          <MenuItem
+            component="a"
+            href={SECTIONALS_RESULTS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeResultsMenu}
+          >
+            Sectionals Results
+            <OpenInNewIcon fontSize="inherit" sx={{ ml: 1 }} />
+          </MenuItem>
+          <MenuItem
+            component="a"
+            href={STATES_RESULTS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeResultsMenu}
+          >
+            States Results
+            <OpenInNewIcon fontSize="inherit" sx={{ ml: 1 }} />
           </MenuItem>
         </Menu>
         <Button color="inherit" size="small" onClick={openHelpMenu}>
