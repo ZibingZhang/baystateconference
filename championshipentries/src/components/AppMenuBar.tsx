@@ -6,8 +6,8 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import NavMenu from "./NavMenu";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import MenuIcon from "@mui/icons-material/Menu";
 import UndoIcon from "@mui/icons-material/Undo";
@@ -120,7 +120,7 @@ function AppMenuBar({
         <Button color="inherit" size="small" onClick={openFileMenu}>
           File
         </Button>
-        <Menu anchorEl={fileAnchorEl} open={Boolean(fileAnchorEl)} onClose={closeFileMenu}>
+        <NavMenu anchorEl={fileAnchorEl} open={Boolean(fileAnchorEl)} onClose={closeFileMenu}>
           <MenuItem
             onClick={() => {
               onNewMeet();
@@ -138,11 +138,15 @@ function AppMenuBar({
           >
             Export to HY3
           </MenuItem>
-        </Menu>
+        </NavMenu>
         <Button color="inherit" size="small" onClick={openResultsMenu}>
           Results
         </Button>
-        <Menu anchorEl={resultsAnchorEl} open={Boolean(resultsAnchorEl)} onClose={closeResultsMenu}>
+        <NavMenu
+          anchorEl={resultsAnchorEl}
+          open={Boolean(resultsAnchorEl)}
+          onClose={closeResultsMenu}
+        >
           <MenuItem
             component="a"
             href={SECTIONALS_RESULTS_URL}
@@ -163,7 +167,7 @@ function AppMenuBar({
             States Results
             <OpenInNewIcon fontSize="inherit" sx={{ ml: 1 }} />
           </MenuItem>
-        </Menu>
+        </NavMenu>
         <Button color="inherit" size="small" onClick={onHowTo}>
           How To
         </Button>
@@ -181,7 +185,11 @@ function AppMenuBar({
             <PaletteIcon fontSize="small" />
           </IconButton>
         </Tooltip>
-        <Menu anchorEl={paletteAnchorEl} open={Boolean(paletteAnchorEl)} onClose={closePaletteMenu}>
+        <NavMenu
+          anchorEl={paletteAnchorEl}
+          open={Boolean(paletteAnchorEl)}
+          onClose={closePaletteMenu}
+        >
           {PALETTE_OPTIONS.map(({ value, label }) => (
             <MenuItem
               key={value}
@@ -195,7 +203,7 @@ function AppMenuBar({
               {palette === value && <CheckIcon fontSize="small" sx={{ ml: 2 }} />}
             </MenuItem>
           ))}
-        </Menu>
+        </NavMenu>
         <Tooltip title={`Theme: ${currentMode.label}`}>
           <IconButton
             size="small"
@@ -206,7 +214,7 @@ function AppMenuBar({
             <CurrentModeIcon fontSize="small" />
           </IconButton>
         </Tooltip>
-        <Menu anchorEl={themeAnchorEl} open={Boolean(themeAnchorEl)} onClose={closeThemeMenu}>
+        <NavMenu anchorEl={themeAnchorEl} open={Boolean(themeAnchorEl)} onClose={closeThemeMenu}>
           {THEME_MODES.map(({ value, label, icon: Icon }) => (
             <MenuItem
               key={value}
@@ -223,7 +231,7 @@ function AppMenuBar({
               {mode === value && <CheckIcon fontSize="small" sx={{ ml: 2 }} />}
             </MenuItem>
           ))}
-        </Menu>
+        </NavMenu>
       </Toolbar>
     </AppBar>
   );
