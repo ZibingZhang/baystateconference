@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
@@ -43,13 +44,15 @@ const components: Components = {
 
 interface MarkdownPageProps {
   markdown: string;
+  children?: ReactNode;
 }
 
-function MarkdownPage({ markdown }: MarkdownPageProps) {
+function MarkdownPage({ markdown, children }: MarkdownPageProps) {
   return (
     <Box sx={{ height: "100%", overflowY: "auto" }}>
       <Box sx={{ p: 3, maxWidth: 720, mx: "auto" }}>
         <ReactMarkdown components={components}>{markdown}</ReactMarkdown>
+        {children}
       </Box>
     </Box>
   );
