@@ -11,7 +11,7 @@ import { MEET_TEMPLATES, templateFileName } from "./domain/meetTemplates";
 import AppMenuBar from "./components/AppMenuBar";
 import MeetSidebar from "./components/MeetSidebar";
 import AddMeetDialog from "./components/AddMeetDialog";
-import AboutDialog from "./components/AboutDialog";
+import AboutPage from "./components/AboutPage";
 import HowToPage from "./components/HowToPage";
 import ConfirmDialog from "./components/ConfirmDialog";
 import InfoDialog from "./components/InfoDialog";
@@ -31,19 +31,11 @@ function App() {
   const history = useHistory(data, setData);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [addMeetOpen, setAddMeetOpen] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
 
   const { confirmDialog, showConfirm, closeConfirm, infoDialog, showInfo, closeInfo } =
     useDialogState();
-  const {
-    selectedMeetId,
-    setSelectedMeetId,
-    activeTab,
-    setActiveTab,
-    clearTab,
-    howToOpen,
-    setHowToOpen,
-  } = useMeetUrlState();
+  const { selectedMeetId, setSelectedMeetId, activeTab, setActiveTab, clearTab, view, setView } =
+    useMeetUrlState();
 
   const athleteCrud = useMeetCrud<Athlete>(history, selectedMeetId, {
     get: (d) => d.athletes,
@@ -58,10 +50,10 @@ function App() {
     set: (prev, items) => ({ ...prev, relayEntries: items }),
   });
 
-  const template = useTemplatePreview(history, { setSelectedMeetId, setHowToOpen, showInfo });
+  const template = useTemplatePreview(history, { setSelectedMeetId, setView, showInfo });
   const meetActions = useMeetActions(data, history, selectedMeetId, {
     setSelectedMeetId,
-    setHowToOpen,
+    setView,
     showConfirm,
   });
   const athleteActions = useAthleteActions(athleteCrud, data, selectedMeetId, {
@@ -80,7 +72,7 @@ function App() {
   const hy3Export = useHy3Export(data, history, selectedMeetId, { showInfo, showConfirm });
   const { selectedTemplateId, selectedTemplate, templateData } = template;
 
-  if (!howToOpen && !selectedTemplateId && !data.meets.some((m) => m.id === selectedMeetId)) {
+  if (!view && !selectedTemplateId && !data.meets.some((m) => m.id === selectedMeetId)) {
     const fallbackMeetId = data.meets[0]?.id ?? null;
     if (fallbackMeetId !== selectedMeetId) {
       setSelectedMeetId(fallbackMeetId);
@@ -110,9 +102,13 @@ function App() {
         onHowTo={() => {
           setSelectedMeetId(null);
           template.clearTemplate();
-          setHowToOpen(true);
+          setView("howto");
         }}
-        onAbout={() => setAboutOpen(true)}
+        onAbout={() => {
+          setSelectedMeetId(null);
+          template.clearTemplate();
+          setView("about");
+        }}
         onUndo={history.undo}
         onRedo={history.redo}
         canUndo={history.canUndo}
@@ -126,7 +122,7 @@ function App() {
           onSelectMeet={(id) => {
             setSelectedMeetId(id);
             template.clearTemplate();
-            setHowToOpen(false);
+            setView(null);
           }}
           onAddMeet={() => setAddMeetOpen(true)}
           onDeleteMeet={meetActions.deleteMeet}
@@ -138,8 +134,10 @@ function App() {
           onCopyTemplate={template.copyTemplateToMeet}
         />
         <Box sx={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-          {howToOpen ? (
+          {view === "howto" ? (
             <HowToPage />
+          ) : view === "about" ? (
+            <AboutPage />
           ) : selectedTemplate ? (
             <>
               <Alert severity="info" sx={{ borderRadius: 0 }}>
@@ -242,7 +240,6 @@ function App() {
         onClose={() => setAddMeetOpen(false)}
         onCreate={meetActions.addMeet}
       />
-      <AboutDialog open={aboutOpen} onClose={() => setAboutOpen(false)} />
       <ConfirmDialog
         open={confirmDialog !== null}
         title={confirmDialog?.title ?? ""}

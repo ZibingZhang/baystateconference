@@ -19,7 +19,7 @@ export function useMeetActions(
   selectedMeetId: string | null,
   callbacks: {
     setSelectedMeetId: (id: string | null) => void;
-    setHowToOpen: (open: boolean) => void;
+    setView: (view: "howto" | "about" | null) => void;
     showConfirm: (dialog: ConfirmDialogState) => void;
   },
 ) {
@@ -27,7 +27,7 @@ export function useMeetActions(
     const meet = { id: newId(), name };
     history.update((prev) => ({ ...prev, meets: [...prev.meets, meet] }));
     callbacks.setSelectedMeetId(meet.id);
-    callbacks.setHowToOpen(false);
+    callbacks.setView(null);
   };
 
   const deleteMeet = (id: string) => {

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { MEET_TABS, type MeetTab } from "../constants/meetTabs";
 
+export type PageView = "howto" | "about" | null;
+
 /**
- * Keeps the selected meet, active tab, and How To page in sync with the
- * `meet`/`tab`/`view` URL query params, so a link/refresh lands back on the
- * same place. `view=howto` marks the How To page; `tab` is dropped from the
- * URL while it's open since it doesn't apply.
+ * Keeps the selected meet, active tab, and How To/About pages in sync with
+ * the `meet`/`tab`/`view` URL query params, so a link/refresh lands back on
+ * the same place. `view=howto` or `view=about` marks a full-page view; `tab`
+ * is dropped from the URL while one is open since it doesn't apply.
  */
 export function useMeetUrlState() {
   const [selectedMeetId, setSelectedMeetId] = useState<string | null>(() =>
@@ -16,9 +18,10 @@ export function useMeetUrlState() {
     return MEET_TABS.includes(tab as MeetTab) ? (tab as MeetTab) : "team";
   });
   const [tabParamCleared, setTabParamCleared] = useState(false);
-  const [howToOpen, setHowToOpen] = useState(
-    () => new URLSearchParams(window.location.search).get("view") === "howto",
-  );
+  const [view, setView] = useState<PageView>(() => {
+    const v = new URLSearchParams(window.location.search).get("view");
+    return v === "howto" || v === "about" ? v : null;
+  });
 
   const setActiveTab = (tab: MeetTab) => {
     setTabParamCleared(false);
@@ -33,12 +36,12 @@ export function useMeetUrlState() {
     } else {
       params.delete("meet");
     }
-    if (howToOpen) {
-      params.set("view", "howto");
+    if (view) {
+      params.set("view", view);
     } else {
       params.delete("view");
     }
-    if (howToOpen || tabParamCleared) {
+    if (view || tabParamCleared) {
       params.delete("tab");
     } else {
       params.set("tab", activeTab);
@@ -49,7 +52,7 @@ export function useMeetUrlState() {
       "",
       `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`,
     );
-  }, [selectedMeetId, activeTab, howToOpen, tabParamCleared]);
+  }, [selectedMeetId, activeTab, view, tabParamCleared]);
 
   return {
     selectedMeetId,
@@ -57,7 +60,7 @@ export function useMeetUrlState() {
     activeTab,
     setActiveTab,
     clearTab,
-    howToOpen,
-    setHowToOpen,
+    view,
+    setView,
   };
 }

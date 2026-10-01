@@ -31,7 +31,7 @@ export function useTemplatePreview(
   history: History,
   callbacks: {
     setSelectedMeetId: (id: string | null) => void;
-    setHowToOpen: (open: boolean) => void;
+    setView: (view: "howto" | "about" | null) => void;
     showInfo: (dialog: { title: string; message: string }) => void;
   },
 ) {
@@ -73,7 +73,7 @@ export function useTemplatePreview(
   const selectTemplate = (id: string) => {
     setSelectedTemplateId(id);
     callbacks.setSelectedMeetId(null);
-    callbacks.setHowToOpen(false);
+    callbacks.setView(null);
   };
 
   const clearTemplate = () => setSelectedTemplateId(null);
