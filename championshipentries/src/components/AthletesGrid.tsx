@@ -23,6 +23,7 @@ interface AthletesGridProps {
   onUpdate: (athlete: Athlete) => void;
   onDelete: (id: string) => void;
   onClearAll: () => void;
+  onReorder: (orderedIds: string[]) => void;
   readOnly?: boolean;
   onReadOnlyAttempt?: () => void;
 }
@@ -132,6 +133,7 @@ function AthletesGrid({
   onUpdate,
   onDelete,
   onClearAll,
+  onReorder,
   readOnly,
   onReadOnlyAttempt,
 }: AthletesGridProps) {
@@ -174,6 +176,7 @@ function AthletesGrid({
           onUpdate(athlete);
         }}
         onDelete={onDelete}
+        onReorder={onReorder}
         addLabel="Add Athlete"
         noRowsLabel="No athletes"
         itemLabelSingular="athlete"

@@ -1,7 +1,13 @@
 import type { MouseEvent as ReactMouseEvent, RefObject } from "react";
 import { useEffect, useRef, useState } from "react";
 import type { GridApi, GridCellParams, GridRowId, MuiEvent } from "@mui/x-data-grid";
-import { cellKey, parseCellKey, selectableFields, type CellRef } from "../utils/dataGridCells";
+import {
+  cellKey,
+  NON_SELECTABLE_FIELDS,
+  parseCellKey,
+  selectableFields,
+  type CellRef,
+} from "../utils/dataGridCells";
 
 /**
  * Owns cell-selection state (click/shift-click/ctrl-click/drag-select) and the
@@ -88,7 +94,7 @@ export function useGridCellSelection<T extends { id: string }>(apiRef: RefObject
     const unsubDown = api.subscribeEvent(
       "cellMouseDown",
       (params: GridCellParams<T>, event: MuiEvent<ReactMouseEvent<HTMLElement>>) => {
-        if (params.field === "actions") return;
+        if (NON_SELECTABLE_FIELDS.has(params.field)) return;
         const cell: CellRef = { id: params.id, field: params.field };
         if (event.shiftKey && anchorRef.current) {
           setSelection(rangeBetween(anchorRef.current, cell));
@@ -112,7 +118,8 @@ export function useGridCellSelection<T extends { id: string }>(apiRef: RefObject
       },
     );
     const unsubOver = api.subscribeEvent("cellMouseOver", (params: GridCellParams<T>) => {
-      if (!draggingRef.current || !anchorRef.current || params.field === "actions") return;
+      if (!draggingRef.current || !anchorRef.current || NON_SELECTABLE_FIELDS.has(params.field))
+        return;
       setSelection(rangeBetween(anchorRef.current, { id: params.id, field: params.field }));
     });
     return () => {

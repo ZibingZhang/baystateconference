@@ -29,6 +29,7 @@ interface IndividualEntriesGridProps {
   onUpdate: (entry: IndividualEntry) => void;
   onDelete: (id: string) => void;
   onClearAll: () => void;
+  onReorder: (orderedIds: string[]) => void;
   readOnly?: boolean;
   onReadOnlyAttempt?: () => void;
 }
@@ -44,6 +45,7 @@ function IndividualEntriesGrid({
   onUpdate,
   onDelete,
   onClearAll,
+  onReorder,
   readOnly,
   onReadOnlyAttempt,
 }: IndividualEntriesGridProps) {
@@ -89,6 +91,7 @@ function IndividualEntriesGrid({
         onAdd={onAdd}
         onUpdate={onUpdate}
         onDelete={onDelete}
+        onReorder={onReorder}
         processRow={processSeedTimeRow}
         addLabel="Add Entry"
         noRowsLabel="No entries"

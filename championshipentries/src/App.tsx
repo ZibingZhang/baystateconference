@@ -201,6 +201,7 @@ function App() {
               onUpdateAthlete={athleteActions.updateAthlete}
               onDeleteAthlete={athleteActions.deleteAthlete}
               onClearAllAthletes={athleteActions.clearAllAthletes}
+              onReorderAthletes={athleteActions.reorderAthletes}
               individualEventOptions={individualEventOptions}
               relayEventOptions={relayEventOptions}
               importedEvents={selectedMeet.importedEvents}
@@ -210,12 +211,14 @@ function App() {
               onUpdateIndividualEntry={individualEntryActions.updateIndividualEntry}
               onDeleteIndividualEntry={individualEntryActions.deleteIndividualEntry}
               onClearAllIndividualEntries={individualEntryActions.clearAllIndividualEntries}
+              onReorderIndividualEntries={individualEntryActions.reorderIndividualEntries}
               onAddRelayEntry={relayEntryActions.addRelayEntry}
               onBulkAddRelayEntries={relayEntryActions.bulkAddRelayEntries}
               onImportRelayEntriesCsv={relayEntryActions.importRelayEntriesCsv}
               onUpdateRelayEntry={relayEntryActions.updateRelayEntry}
               onDeleteRelayEntry={relayEntryActions.deleteRelayEntry}
               onClearAllRelayEntries={relayEntryActions.clearAllRelayEntries}
+              onReorderRelayEntries={relayEntryActions.reorderRelayEntries}
               eventsFileName={selectedMeet.importedEventsFileName}
               onImportEvents={hy3Export.importEvents}
               onImportEventsError={(message) => showInfo({ title: "Import Failed", message })}

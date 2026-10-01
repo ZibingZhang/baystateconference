@@ -5,6 +5,7 @@ interface AthleteCrud {
   update: (athlete: Athlete) => void;
   deleteById: (id: string) => void;
   clearForMeet: (keepIds?: Set<string>) => void;
+  reorder: (orderedIds: string[]) => void;
 }
 
 interface ConfirmDialogState {
@@ -110,5 +111,6 @@ export function useAthleteActions(
     updateAthlete,
     deleteAthlete,
     clearAllAthletes,
+    reorderAthletes: athleteCrud.reorder,
   };
 }

@@ -41,6 +41,7 @@ interface RelayEntriesGridProps {
   onUpdate: (entry: RelayEntry) => void;
   onDelete: (id: string) => void;
   onClearAll: () => void;
+  onReorder: (orderedIds: string[]) => void;
   readOnly?: boolean;
   onReadOnlyAttempt?: () => void;
 }
@@ -56,6 +57,7 @@ function RelayEntriesGrid({
   onUpdate,
   onDelete,
   onClearAll,
+  onReorder,
   readOnly,
   onReadOnlyAttempt,
 }: RelayEntriesGridProps) {
@@ -129,6 +131,7 @@ function RelayEntriesGrid({
         onAdd={onAdd}
         onUpdate={onUpdate}
         onDelete={onDelete}
+        onReorder={onReorder}
         processRow={processSeedTimeRow}
         addLabel="Add Relay"
         noRowsLabel="No entries"

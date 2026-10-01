@@ -5,6 +5,7 @@ interface IndividualEntryCrud {
   update: (entry: IndividualEntry) => void;
   deleteById: (id: string) => void;
   clearForMeet: (keepIds?: Set<string>) => void;
+  reorder: (orderedIds: string[]) => void;
 }
 
 interface ConfirmDialogState {
@@ -68,5 +69,6 @@ export function useIndividualEntryActions(
     bulkAddIndividualEntries,
     importIndividualEntriesCsv,
     clearAllIndividualEntries,
+    reorderIndividualEntries: individualEntryCrud.reorder,
   };
 }

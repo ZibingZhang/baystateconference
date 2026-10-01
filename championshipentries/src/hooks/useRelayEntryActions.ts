@@ -5,6 +5,7 @@ interface RelayEntryCrud {
   update: (entry: RelayEntry) => void;
   deleteById: (id: string) => void;
   clearForMeet: (keepIds?: Set<string>) => void;
+  reorder: (orderedIds: string[]) => void;
 }
 
 interface ConfirmDialogState {
@@ -96,5 +97,6 @@ export function useRelayEntryActions(
     bulkAddRelayEntries,
     importRelayEntriesCsv,
     clearAllRelayEntries,
+    reorderRelayEntries: relayEntryCrud.reorder,
   };
 }

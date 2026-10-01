@@ -1,10 +1,12 @@
-import type { ReactNode } from "react";
-import { useMemo, useRef } from "react";
+import type { PointerEvent as ReactPointerEvent, ReactNode } from "react";
+import { useMemo, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
+import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import {
   DataGrid,
   GridActionsCellItem,
@@ -28,6 +30,13 @@ interface EditableDataGridProps<T extends { id: string }> {
   onAdd: () => void;
   onUpdate: (row: T) => void;
   onDelete: (id: string) => void;
+  /**
+   * When provided, prepends a drag-handle column so rows can be dragged into
+   * a new order. Receives the row ids in their new order. Disabled while a
+   * column sort is active, since dragging a visually-sorted row can't mean
+   * "move it here" in the underlying (unsorted) order.
+   */
+  onReorder?: (orderedIds: string[]) => void;
   addLabel: string;
   noRowsLabel: string;
   /** Singular/plural nouns for the row-count readout, e.g. "athlete" / "athletes". */
@@ -55,6 +64,7 @@ function EditableDataGrid<T extends { id: string }>({
   onAdd,
   onUpdate,
   onDelete,
+  onReorder,
   addLabel,
   noRowsLabel,
   itemLabelSingular,
@@ -126,7 +136,85 @@ function EditableDataGrid<T extends { id: string }>({
     buildRangeGrid,
   });
 
+  const { sortModel, setSortModel, displayRows } = useStableSortedRows<T>(rows, columns);
+  const isSorted = sortModel.some((item) => item.sort);
+  const canReorder = Boolean(onReorder) && !isSorted && !readOnly;
+
+  const [draggingId, setDraggingId] = useState<string | null>(null);
+  const [dragOverRowId, setDragOverRowId] = useState<string | null>(null);
+
+  const rowIdAtPoint = (x: number, y: number): string | null =>
+    (document.elementFromPoint(x, y) as HTMLElement | null)?.closest<HTMLElement>(
+      ".MuiDataGrid-row",
+    )?.dataset.id ?? null;
+
+  const handlePointerDown =
+    (sourceId: string) => (event: ReactPointerEvent<HTMLDivElement>) => {
+      if (!canReorder) {
+        if (readOnly) onReadOnlyAttempt?.();
+        return;
+      }
+      event.preventDefault();
+      setDraggingId(sourceId);
+
+      const onMove = (moveEvent: PointerEvent) => {
+        const targetId = rowIdAtPoint(moveEvent.clientX, moveEvent.clientY);
+        setDragOverRowId(targetId && targetId !== sourceId ? targetId : null);
+      };
+      const onUp = (upEvent: PointerEvent) => {
+        window.removeEventListener("pointermove", onMove);
+        window.removeEventListener("pointerup", onUp);
+        setDraggingId(null);
+        setDragOverRowId(null);
+        const targetId = rowIdAtPoint(upEvent.clientX, upEvent.clientY);
+        if (!onReorder || !targetId || targetId === sourceId) return;
+        const ids = displayRows.map((row) => row.id);
+        const from = ids.indexOf(sourceId);
+        const to = ids.indexOf(targetId);
+        if (from === -1 || to === -1) return;
+        const next = ids.slice();
+        next.splice(from, 1);
+        next.splice(to, 0, sourceId);
+        onReorder(next);
+      };
+      window.addEventListener("pointermove", onMove);
+      window.addEventListener("pointerup", onUp);
+    };
+
+  const reorderColumn: GridColDef<T> | null = onReorder
+    ? {
+        field: "__reorder",
+        headerName: "",
+        width: 40,
+        sortable: false,
+        filterable: false,
+        disableColumnMenu: true,
+        resizable: false,
+        hideable: false,
+        renderCell: (params) => (
+          <Tooltip title={isSorted ? "Clear sorting to drag and drop rows" : ""}>
+            <Box
+              onPointerDown={handlePointerDown(params.id as GridRowId as string)}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                height: "100%",
+                cursor: canReorder ? "grab" : "default",
+                color: canReorder ? "action.active" : "action.disabled",
+                touchAction: "none",
+              }}
+            >
+              <DragIndicatorIcon fontSize="small" />
+            </Box>
+          </Tooltip>
+        ),
+      }
+    : null;
+
   const allColumns: GridColDef<T>[] = [
+    ...(reorderColumn ? [reorderColumn] : []),
     ...columns.map((column) =>
       withSelectIcon(readOnly ? { ...column, editable: false } : column, notifyRejected),
     ),
@@ -146,8 +234,6 @@ function EditableDataGrid<T extends { id: string }>({
       ],
     },
   ];
-
-  const { sortModel, setSortModel, displayRows } = useStableSortedRows<T>(rows, allColumns);
 
   return (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
@@ -198,6 +284,14 @@ function EditableDataGrid<T extends { id: string }>({
           onCellKeyDown={handleCellKeyDown}
           onCellClick={attemptIfReadOnlyField}
           onCellDoubleClick={attemptIfReadOnlyField}
+          getRowClassName={(params) =>
+            [
+              params.id === dragOverRowId ? "drag-over-row" : "",
+              params.id === draggingId ? "dragging-row" : "",
+            ]
+              .filter(Boolean)
+              .join(" ")
+          }
           getCellClassName={(params) =>
             [
               selection.size > 1 && selection.has(cellKey(params.id, params.field))

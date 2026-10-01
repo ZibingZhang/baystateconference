@@ -41,10 +41,13 @@ export function defaultValueComparator(v1: unknown, v2: unknown): number {
 // needing real GridSortCellParams (which require a live rowNode/api).
 export const DUMMY_SORT_CELL_PARAMS = {} as GridSortCellParams;
 
+/** Non-data columns (row actions, drag handle) that cell selection/copy/arrow-nav should skip. */
+export const NON_SELECTABLE_FIELDS = new Set(["actions", "__reorder"]);
+
 export function selectableFields(api: GridApiCommon): string[] {
   return api
     .getAllColumns()
-    .filter((c) => c.field !== "actions")
+    .filter((c) => !NON_SELECTABLE_FIELDS.has(c.field))
     .map((c) => c.field);
 }
 

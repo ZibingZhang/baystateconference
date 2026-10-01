@@ -55,5 +55,19 @@ export function useMeetCrud<T extends { id: string; meetId: string }>(
     );
   };
 
-  return { addMany, update, deleteById, clearForMeet };
+  /** Reorders this meet's items to match `orderedIds`, leaving other meets' items in place. */
+  const reorder = (orderedIds: string[]) => {
+    history.update((prev) => {
+      const items = config.get(prev);
+      const byId = new Map(items.map((item) => [item.id, item]));
+      const reordered = orderedIds.map((id) => byId.get(id)).filter((item): item is T => !!item);
+      let i = 0;
+      return config.set(
+        prev,
+        items.map((item) => (item.meetId === selectedMeetId ? reordered[i++] : item)),
+      );
+    });
+  };
+
+  return { addMany, update, deleteById, clearForMeet, reorder };
 }

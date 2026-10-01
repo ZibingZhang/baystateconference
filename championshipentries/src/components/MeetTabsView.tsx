@@ -35,6 +35,7 @@ interface MeetTabsViewProps {
   onUpdateAthlete?: (athlete: Athlete) => void;
   onDeleteAthlete?: (id: string) => void;
   onClearAllAthletes?: () => void;
+  onReorderAthletes?: (orderedIds: string[]) => void;
 
   individualEventOptions?: string[];
   relayEventOptions?: string[];
@@ -48,6 +49,7 @@ interface MeetTabsViewProps {
   onUpdateIndividualEntry?: (entry: IndividualEntry) => void;
   onDeleteIndividualEntry?: (id: string) => void;
   onClearAllIndividualEntries?: () => void;
+  onReorderIndividualEntries?: (orderedIds: string[]) => void;
 
   onAddRelayEntry?: () => void;
   onBulkAddRelayEntries?: (count: number, eventNames: string[]) => void;
@@ -65,6 +67,7 @@ interface MeetTabsViewProps {
   onUpdateRelayEntry?: (entry: RelayEntry) => void;
   onDeleteRelayEntry?: (id: string) => void;
   onClearAllRelayEntries?: () => void;
+  onReorderRelayEntries?: (orderedIds: string[]) => void;
 
   eventsFileName: string | undefined;
   onImportEvents?: (fileName: string, events: ImportedEvent[], rawText: string) => void;
@@ -91,6 +94,7 @@ function MeetTabsView({
   onUpdateAthlete,
   onDeleteAthlete,
   onClearAllAthletes,
+  onReorderAthletes,
   individualEventOptions,
   relayEventOptions,
   importedEvents,
@@ -100,12 +104,14 @@ function MeetTabsView({
   onUpdateIndividualEntry,
   onDeleteIndividualEntry,
   onClearAllIndividualEntries,
+  onReorderIndividualEntries,
   onAddRelayEntry,
   onBulkAddRelayEntries,
   onImportRelayEntriesCsv,
   onUpdateRelayEntry,
   onDeleteRelayEntry,
   onClearAllRelayEntries,
+  onReorderRelayEntries,
   eventsFileName,
   onImportEvents,
   onImportEventsError,
@@ -145,6 +151,7 @@ function MeetTabsView({
             onUpdate={onUpdateAthlete ?? noop}
             onDelete={onDeleteAthlete ?? noop}
             onClearAll={onClearAllAthletes ?? noop}
+            onReorder={onReorderAthletes ?? noop}
             readOnly={readOnly}
             onReadOnlyAttempt={onReadOnlyAttempt}
           />
@@ -161,6 +168,7 @@ function MeetTabsView({
             onUpdate={onUpdateIndividualEntry ?? noop}
             onDelete={onDeleteIndividualEntry ?? noop}
             onClearAll={onClearAllIndividualEntries ?? noop}
+            onReorder={onReorderIndividualEntries ?? noop}
             readOnly={readOnly}
             onReadOnlyAttempt={onReadOnlyAttempt}
           />
@@ -177,6 +185,7 @@ function MeetTabsView({
             onUpdate={onUpdateRelayEntry ?? noop}
             onDelete={onDeleteRelayEntry ?? noop}
             onClearAll={onClearAllRelayEntries ?? noop}
+            onReorder={onReorderRelayEntries ?? noop}
             readOnly={readOnly}
             onReadOnlyAttempt={onReadOnlyAttempt}
           />

@@ -5,6 +5,8 @@ export function marchingAntsSx(theme: Theme) {
     "& .MuiDataGrid-cell": { userSelect: "none" },
     "& .MuiDataGrid-cell--editing": { userSelect: "text" },
     "& .multi-selected-cell": { backgroundColor: "action.selected" },
+    "& .drag-over-row": { boxShadow: `inset 0 2px 0 0 ${theme.palette.primary.main}` },
+    "& .dragging-row": { opacity: 0.5 },
     "& .copied-cell": { position: "relative" },
     "& .copied-cell::before, & .copied-cell::after": {
       content: '""',
