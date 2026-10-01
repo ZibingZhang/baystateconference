@@ -14,7 +14,13 @@ interface NavMenuProps {
 
 function NavMenu({ anchorEl, open, onClose, children }: NavMenuProps) {
   return (
-    <Popper anchorEl={anchorEl} open={open} placement="bottom-start" transition disablePortal>
+    <Popper
+      anchorEl={anchorEl}
+      open={open}
+      placement="bottom-start"
+      transition
+      sx={{ zIndex: (theme) => theme.zIndex.appBar + 1 }}
+    >
       {({ TransitionProps }) => (
         <Grow {...TransitionProps} style={{ transformOrigin: "top left" }}>
           <Paper>
