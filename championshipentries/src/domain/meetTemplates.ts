@@ -15,6 +15,9 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     ev3Url:
       "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2025-fall-south-sectional.ev3",
     genderFilter: "G",
+    // Sectional rules allow only one (A) relay entry per event, and don't stub individual entries at all.
+    individualEntriesPerEvent: 0,
+    relayEntriesPerEvent: 1,
   },
 ];
 
@@ -46,11 +49,13 @@ export function buildTemplateIndividualEntries(
   events: ImportedEvent[],
   gender: Gender,
   newId: () => string,
+  entriesPerEvent?: number,
 ): IndividualEntry[] {
   return uniqueEventOptions(events, false)
     .filter((option) => option.gender === gender)
     .flatMap((option) => {
-      const count = option.entryLimit > 0 ? option.entryLimit : FALLBACK_ENTRIES_PER_EVENT;
+      const count =
+        entriesPerEvent ?? (option.entryLimit > 0 ? option.entryLimit : FALLBACK_ENTRIES_PER_EVENT);
       return Array.from({ length: count }, () => ({
         id: newId(),
         meetId,
@@ -66,11 +71,13 @@ export function buildTemplateRelayEntries(
   events: ImportedEvent[],
   gender: Gender,
   newId: () => string,
+  entriesPerEvent?: number,
 ): RelayEntry[] {
   return uniqueEventOptions(events, true)
     .filter((option) => option.gender === gender)
     .flatMap((option) => {
-      const count = option.entryLimit > 0 ? option.entryLimit : FALLBACK_ENTRIES_PER_EVENT;
+      const count =
+        entriesPerEvent ?? (option.entryLimit > 0 ? option.entryLimit : FALLBACK_ENTRIES_PER_EVENT);
       return Array.from({ length: count }, (_, index) => ({
         id: newId(),
         meetId,

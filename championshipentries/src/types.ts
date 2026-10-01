@@ -23,6 +23,10 @@ export interface MeetTemplate {
   ev3Url: string;
   /** Only entries for this gender are generated when the template is viewed or copied into a meet. */
   genderFilter: Gender;
+  /** Blank individual entries stubbed per individual event. Omit to use the EV3 entryLimit (falling back to 4). */
+  individualEntriesPerEvent?: number;
+  /** Blank relay entries stubbed per relay event. Omit to use the EV3 entryLimit (falling back to 4). */
+  relayEntriesPerEvent?: number;
 }
 
 export interface Meet {

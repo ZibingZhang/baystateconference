@@ -96,12 +96,14 @@ export function useTemplatePreview(
           events,
           template.genderFilter,
           newId,
+          template.individualEntriesPerEvent,
         );
         const newRelayEntries = buildTemplateRelayEntries(
           newMeetId,
           events,
           template.genderFilter,
           newId,
+          template.relayEntriesPerEvent,
         );
         history.update((prev) => ({
           ...prev,
@@ -128,6 +130,7 @@ export function useTemplatePreview(
       templateEvents,
       selectedTemplate.genderFilter,
       newId,
+      selectedTemplate.individualEntriesPerEvent,
     );
   }, [selectedTemplate, templateEvents]);
   const templateRelayEntries = useMemo<RelayEntry[]>(() => {
@@ -137,6 +140,7 @@ export function useTemplatePreview(
       templateEvents,
       selectedTemplate.genderFilter,
       newId,
+      selectedTemplate.relayEntriesPerEvent,
     );
   }, [selectedTemplate, templateEvents]);
   const templateIndividualEventOptions = templateEvents
