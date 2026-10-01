@@ -241,7 +241,14 @@ function App() {
       <AddMeetDialog
         open={addMeetOpen}
         onClose={() => setAddMeetOpen(false)}
-        onCreate={meetActions.addMeet}
+        onCreate={(name, templateId) => {
+          if (templateId) {
+            template.copyTemplateToMeet(templateId, name);
+          } else {
+            meetActions.addMeet(name);
+          }
+        }}
+        templates={MEET_TEMPLATES}
       />
       <ConfirmDialog
         open={confirmDialog !== null}

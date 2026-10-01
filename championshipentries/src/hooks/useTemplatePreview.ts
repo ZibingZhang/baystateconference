@@ -78,7 +78,7 @@ export function useTemplatePreview(
 
   const clearTemplate = () => setSelectedTemplateId(null);
 
-  const copyTemplateToMeet = (templateId: string) => {
+  const copyTemplateToMeet = (templateId: string, meetName?: string) => {
     const template = MEET_TEMPLATES.find((t) => t.id === templateId);
     if (!template) return;
     fetchTemplateEvents(template.ev3Url)
@@ -86,7 +86,7 @@ export function useTemplatePreview(
         const newMeetId = newId();
         const meet: Meet = {
           id: newMeetId,
-          name: template.name,
+          name: meetName?.trim() || template.name,
           importedEventsFileName: templateFileName(template.ev3Url),
           importedEvents: events,
           importedEventsRaw: rawText,
