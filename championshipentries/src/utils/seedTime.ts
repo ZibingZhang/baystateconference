@@ -28,3 +28,31 @@ export function normalizeSeedTime(raw: string): string | undefined {
 
   return undefined;
 }
+
+// A diving score isn't a time — there's no minutes/seconds/hundredths unit to
+// it, just a decimal score with up to 3 whole-number digits. The decimal part
+// is completed on entry (trailing zeros) if it's short, and rounded to 2
+// digits if it's long, so `129` becomes `129.00`, `45` becomes `45.00`, and
+// `129.996` becomes `130.00`.
+const DIVE_SCORE_RE = /^(\d{1,3})(?:\.(\d*))?$/;
+
+/**
+ * Normalize a user-typed diving score to `\d{1,3}\.\d{2}`, completing the
+ * decimal part if it was short or rounding it if it was long (carrying into
+ * the whole part if that rounds up to 100). Returns undefined if the input
+ * doesn't match that shape (edit should be rejected).
+ */
+export function normalizeDiveScore(raw: string): string | undefined {
+  const value = raw.trim();
+  if (value === "") return "";
+
+  const match = value.match(DIVE_SCORE_RE);
+  if (!match) return undefined;
+
+  const [, whole, decimals] = match;
+  if (!decimals) return `${whole}.00`;
+
+  const hundredths = Math.round(Number(`0.${decimals}`) * 100);
+  if (hundredths === 100) return `${Number(whole) + 1}.00`;
+  return `${whole}.${String(hundredths).padStart(2, "0")}`;
+}

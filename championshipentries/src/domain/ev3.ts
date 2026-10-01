@@ -3,7 +3,7 @@ import { parseEv3 as parseEv3File } from "../hytek/ev3/parse";
 import type { Ev3Event } from "../hytek/ev3/types";
 import { GENDER_AGE_NAMES, STROKE_NAMES, isDivingStroke } from "../hytek/enums";
 import { parseSwimTime } from "../hytek/common";
-import { normalizeSeedTime } from "../utils/seedTime";
+import { normalizeDiveScore, normalizeSeedTime } from "../utils/seedTime";
 
 const RELAY_STROKE_NAMES: Record<string, string> = {
   A: "Freestyle Relay",
@@ -97,6 +97,7 @@ export function eventByDisplayName(events: ImportedEvent[]): Map<string, Importe
 }
 
 export const INVALID_SEED_TIME_FORMAT_MESSAGE = "Invalid seed time — must be M:SS.hh or SS.hh.";
+export const INVALID_DIVE_SCORE_FORMAT_MESSAGE = "Invalid dive score — must look like XXX.XX.";
 
 export interface SeedTimeValidation {
   /** Best-effort normalized value — "" when rejected for a format error. */
@@ -107,16 +108,22 @@ export interface SeedTimeValidation {
 
 /**
  * Validates and normalizes a raw seed-time/score input against `event`'s EV3
- * qualifying standard, if any. Callers decide what rejection means (clearing
- * the value, or keeping an in-progress edit from committing).
+ * qualifying standard, if any. Which shape the raw input is checked against —
+ * `M:SS.hh`/`SS.hh` for swimming, or `SSS.hh` for diving — is picked by the
+ * event's `isDivingEvent` designation. Callers decide what rejection means
+ * (clearing the value, or keeping an in-progress edit from committing).
  */
 export function validateSeedTime(
   raw: string,
   event: ImportedEvent | undefined,
 ): SeedTimeValidation {
-  const normalized = normalizeSeedTime(raw);
+  const diving = event !== undefined && isDivingEvent(event);
+  const normalized = diving ? normalizeDiveScore(raw) : normalizeSeedTime(raw);
   if (normalized === undefined) {
-    return { normalized: "", errorMessage: INVALID_SEED_TIME_FORMAT_MESSAGE };
+    return {
+      normalized: "",
+      errorMessage: diving ? INVALID_DIVE_SCORE_FORMAT_MESSAGE : INVALID_SEED_TIME_FORMAT_MESSAGE,
+    };
   }
   if (normalized !== "" && event) {
     const seedValue = parseSwimTime(normalized);
