@@ -4,7 +4,7 @@ _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
-scripts
+/scripts
 vendor
 __pycache__
 *.pyc

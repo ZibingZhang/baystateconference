@@ -4,8 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "npm run generate:palette-tokens",
     "dev": "vite",
+    "prebuild": "npm run generate:palette-tokens",
     "build": "tsc -b && vite build",
+    "generate:palette-tokens": "node scripts/generate-palette-tokens.mjs",
     "lint": "oxlint",
     "format": "oxfmt",
     "format:check": "oxfmt --check",

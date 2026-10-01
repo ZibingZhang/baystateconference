@@ -1,5 +1,6 @@
 import { useState, type MouseEvent } from "react";
 import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
@@ -7,10 +8,27 @@ import Tooltip from "@mui/material/Tooltip";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
 import MenuIcon from "@mui/icons-material/Menu";
 import UndoIcon from "@mui/icons-material/Undo";
 import RedoIcon from "@mui/icons-material/Redo";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
+import PaletteIcon from "@mui/icons-material/Palette";
+import CheckIcon from "@mui/icons-material/Check";
+import { useColorScheme } from "@mui/material/styles";
+import { usePaletteSetting } from "../theme/PaletteContext";
+import { PALETTE_OPTIONS } from "../theme/palettes";
+
+type ThemeMode = "system" | "light" | "dark";
+
+const THEME_MODES: { value: ThemeMode; label: string; icon: typeof LightModeIcon }[] = [
+  { value: "system", label: "System", icon: SettingsBrightnessIcon },
+  { value: "light", label: "Light", icon: LightModeIcon },
+  { value: "dark", label: "Dark", icon: DarkModeIcon },
+];
 
 const SECTIONALS_RESULTS_URL =
   "https://baystateconference.com/sports/swimming-diving/archive/?path=meet-results/by-meet/sectionals";
@@ -42,8 +60,12 @@ function AppMenuBar({
   canUndo,
   canRedo,
 }: AppMenuBarProps) {
+  const { mode, setMode } = useColorScheme();
+  const { palette, setPalette } = usePaletteSetting();
   const [fileAnchorEl, setFileAnchorEl] = useState<HTMLElement | null>(null);
   const [resultsAnchorEl, setResultsAnchorEl] = useState<HTMLElement | null>(null);
+  const [themeAnchorEl, setThemeAnchorEl] = useState<HTMLElement | null>(null);
+  const [paletteAnchorEl, setPaletteAnchorEl] = useState<HTMLElement | null>(null);
   const [helpAnchorEl, setHelpAnchorEl] = useState<HTMLElement | null>(null);
 
   const openFileMenu = (event: MouseEvent<HTMLElement>) => setFileAnchorEl(event.currentTarget);
@@ -53,6 +75,15 @@ function AppMenuBar({
   const closeResultsMenu = () => setResultsAnchorEl(null);
   const openHelpMenu = (event: MouseEvent<HTMLElement>) => setHelpAnchorEl(event.currentTarget);
   const closeHelpMenu = () => setHelpAnchorEl(null);
+  const openThemeMenu = (event: MouseEvent<HTMLElement>) => setThemeAnchorEl(event.currentTarget);
+  const closeThemeMenu = () => setThemeAnchorEl(null);
+  const openPaletteMenu = (event: MouseEvent<HTMLElement>) =>
+    setPaletteAnchorEl(event.currentTarget);
+  const closePaletteMenu = () => setPaletteAnchorEl(null);
+
+  const currentMode = THEME_MODES.find((m) => m.value === mode) ?? THEME_MODES[0];
+  const CurrentModeIcon = currentMode.icon;
+  const currentPalette = PALETTE_OPTIONS.find((p) => p.value === palette) ?? PALETTE_OPTIONS[0];
 
   return (
     <AppBar position="static" color="default" elevation={1}>
@@ -156,6 +187,60 @@ function AppMenuBar({
           >
             About
           </MenuItem>
+        </Menu>
+        <Box sx={{ flexGrow: 1 }} />
+        <Tooltip title={`Color palette: ${currentPalette.label}`}>
+          <IconButton
+            size="small"
+            onClick={openPaletteMenu}
+            aria-label="Change color palette"
+            color="inherit"
+          >
+            <PaletteIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
+        <Menu anchorEl={paletteAnchorEl} open={Boolean(paletteAnchorEl)} onClose={closePaletteMenu}>
+          {PALETTE_OPTIONS.map(({ value, label }) => (
+            <MenuItem
+              key={value}
+              selected={palette === value}
+              onClick={() => {
+                setPalette(value);
+                closePaletteMenu();
+              }}
+            >
+              {label}
+              {palette === value && <CheckIcon fontSize="small" sx={{ ml: 2 }} />}
+            </MenuItem>
+          ))}
+        </Menu>
+        <Tooltip title={`Theme: ${currentMode.label}`}>
+          <IconButton
+            size="small"
+            onClick={openThemeMenu}
+            aria-label="Change theme"
+            color="inherit"
+          >
+            <CurrentModeIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
+        <Menu anchorEl={themeAnchorEl} open={Boolean(themeAnchorEl)} onClose={closeThemeMenu}>
+          {THEME_MODES.map(({ value, label, icon: Icon }) => (
+            <MenuItem
+              key={value}
+              selected={mode === value}
+              onClick={() => {
+                setMode(value);
+                closeThemeMenu();
+              }}
+            >
+              <ListItemIcon>
+                <Icon fontSize="small" />
+              </ListItemIcon>
+              {label}
+              {mode === value && <CheckIcon fontSize="small" sx={{ ml: 2 }} />}
+            </MenuItem>
+          ))}
         </Menu>
       </Toolbar>
     </AppBar>

@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Generated from the jekyll project's SCSS; see scripts/generate-palette-tokens.mjs
+src/theme/generated/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
