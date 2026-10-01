@@ -73,11 +73,22 @@ export function useGridKeyboardNav<T extends { id: string }>({
   ) => {
     if (readOnly) {
       if (
-        (event.key === "Delete" || event.key === "Backspace" || event.key === "Enter") &&
+        (event.key === "Delete" ||
+          event.key === "Backspace" ||
+          event.key === "Enter" ||
+          event.key === "F2") &&
         editableFields.has(params.field)
       ) {
         onReadOnlyAttempt?.();
       }
+      return;
+    }
+    if (event.key === "F2" && params.cellMode !== "edit") {
+      const api = apiRef.current;
+      if (!api || !params.isEditable) return;
+      event.preventDefault();
+      event.defaultMuiPrevented = true;
+      api.startCellEditMode({ id: params.id, field: params.field });
       return;
     }
     if ((event.key === "Delete" || event.key === "Backspace") && params.cellMode !== "edit") {
