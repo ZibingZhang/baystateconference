@@ -142,6 +142,7 @@ function MeetTabsView({
         )}
         {activeTab === "athletes" && (
           <AthletesGrid
+            meetId={meetId}
             athletes={athletes}
             individualEntries={individualEntries}
             relayEntries={relayEntries}
@@ -158,6 +159,7 @@ function MeetTabsView({
         )}
         {activeTab === "individual" && (
           <IndividualEntriesGrid
+            meetId={meetId}
             entries={individualEntries}
             athletes={athletes}
             eventOptions={individualEventOptions}
@@ -175,6 +177,7 @@ function MeetTabsView({
         )}
         {activeTab === "relay" && (
           <RelayEntriesGrid
+            meetId={meetId}
             entries={relayEntries}
             athletes={athletes}
             eventOptions={relayEventOptions}

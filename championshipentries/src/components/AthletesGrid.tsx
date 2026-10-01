@@ -12,6 +12,7 @@ import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
 
 interface AthletesGridProps {
+  meetId: string;
   athletes: Athlete[];
   individualEntries: IndividualEntry[];
   relayEntries: RelayEntry[];
@@ -124,6 +125,7 @@ const csvColumns: CsvImportColumn[] = [
 ];
 
 function AthletesGrid({
+  meetId,
   athletes,
   individualEntries,
   relayEntries,
@@ -177,6 +179,7 @@ function AthletesGrid({
         }}
         onDelete={onDelete}
         onReorder={onReorder}
+        storageKey={`${meetId}:athletes`}
         addLabel="Add Athlete"
         noRowsLabel="No athletes"
         itemLabelSingular="athlete"

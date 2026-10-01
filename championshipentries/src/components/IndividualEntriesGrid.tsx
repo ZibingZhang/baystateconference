@@ -19,6 +19,7 @@ import {
 } from "../utils/entryGridShared";
 
 interface IndividualEntriesGridProps {
+  meetId: string;
   entries: IndividualEntry[];
   athletes: Athlete[];
   eventOptions?: string[];
@@ -35,6 +36,7 @@ interface IndividualEntriesGridProps {
 }
 
 function IndividualEntriesGrid({
+  meetId,
   entries,
   athletes,
   eventOptions,
@@ -93,6 +95,7 @@ function IndividualEntriesGrid({
         onDelete={onDelete}
         onReorder={onReorder}
         processRow={processSeedTimeRow}
+        storageKey={`${meetId}:individualEntries`}
         addLabel="Add Entry"
         noRowsLabel="No entries"
         itemLabelSingular="entry"

@@ -56,6 +56,8 @@ interface EditableDataGridProps<T extends { id: string }> {
    */
   readOnly?: boolean;
   onReadOnlyAttempt?: () => void;
+  /** When provided, the active sort column/direction persists across page loads. */
+  storageKey?: string;
 }
 
 function EditableDataGrid<T extends { id: string }>({
@@ -73,6 +75,7 @@ function EditableDataGrid<T extends { id: string }>({
   processRow,
   readOnly,
   onReadOnlyAttempt,
+  storageKey,
 }: EditableDataGridProps<T>) {
   const apiRef = useGridApiRef();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -136,7 +139,11 @@ function EditableDataGrid<T extends { id: string }>({
     buildRangeGrid,
   });
 
-  const { sortModel, setSortModel, displayRows } = useStableSortedRows<T>(rows, columns);
+  const { sortModel, setSortModel, displayRows } = useStableSortedRows<T>(
+    rows,
+    columns,
+    storageKey,
+  );
   const isSorted = sortModel.some((item) => item.sort);
   const canReorder = Boolean(onReorder) && !isSorted && !readOnly;
 

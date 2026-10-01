@@ -21,6 +21,7 @@ import {
 const RELAY_LETTERS = ["A", "B", "C", "D"];
 
 interface RelayEntriesGridProps {
+  meetId: string;
   entries: RelayEntry[];
   athletes: Athlete[];
   eventOptions?: string[];
@@ -47,6 +48,7 @@ interface RelayEntriesGridProps {
 }
 
 function RelayEntriesGrid({
+  meetId,
   entries,
   athletes,
   eventOptions,
@@ -133,6 +135,7 @@ function RelayEntriesGrid({
         onDelete={onDelete}
         onReorder={onReorder}
         processRow={processSeedTimeRow}
+        storageKey={`${meetId}:relayEntries`}
         addLabel="Add Relay"
         noRowsLabel="No entries"
         itemLabelSingular="entry"
