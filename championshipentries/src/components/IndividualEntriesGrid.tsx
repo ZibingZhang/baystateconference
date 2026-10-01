@@ -14,6 +14,7 @@ import {
   buildAthleteOptions,
   buildEventColumn,
   buildEventCsvColumn,
+  buildSeedTimeColumn,
   buildSeedTimeCsvColumn,
 } from "../utils/entryGridShared";
 
@@ -49,8 +50,11 @@ function IndividualEntriesGrid({
   const [bulkAddOpen, setBulkAddOpen] = useState(false);
   const [csvImportOpen, setCsvImportOpen] = useState(false);
   const [csvExportOpen, setCsvExportOpen] = useState(false);
-  const { processRow: processSeedTimeRow, snackbar: seedTimeSnackbar } =
-    useSeedTimeColumn<IndividualEntry>(importedEvents);
+  const {
+    processRow: processSeedTimeRow,
+    snackbar: seedTimeSnackbar,
+    notifyBlockedEdit,
+  } = useSeedTimeColumn<IndividualEntry>(importedEvents);
 
   const csvColumns: CsvImportColumn[] = useMemo(
     () => [
@@ -74,7 +78,7 @@ function IndividualEntriesGrid({
       type: "singleSelect",
       valueOptions: athleteOptions,
     },
-    { field: "seedTime", headerName: "Seed Time", flex: 1, editable: true },
+    buildSeedTimeColumn<IndividualEntry>(importedEvents, notifyBlockedEdit),
   ];
 
   return (

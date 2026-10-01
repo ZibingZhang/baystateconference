@@ -14,6 +14,7 @@ import {
   buildAthleteOptions,
   buildEventColumn,
   buildEventCsvColumn,
+  buildSeedTimeColumn,
   buildSeedTimeCsvColumn,
 } from "../utils/entryGridShared";
 
@@ -61,8 +62,11 @@ function RelayEntriesGrid({
   const [bulkAddOpen, setBulkAddOpen] = useState(false);
   const [csvImportOpen, setCsvImportOpen] = useState(false);
   const [csvExportOpen, setCsvExportOpen] = useState(false);
-  const { processRow: processSeedTimeRow, snackbar: seedTimeSnackbar } =
-    useSeedTimeColumn<RelayEntry>(importedEvents);
+  const {
+    processRow: processSeedTimeRow,
+    snackbar: seedTimeSnackbar,
+    notifyBlockedEdit,
+  } = useSeedTimeColumn<RelayEntry>(importedEvents);
 
   const csvColumns: CsvImportColumn[] = useMemo(
     () => [
@@ -114,7 +118,7 @@ function RelayEntriesGrid({
     legColumn("leg2AthleteId", "Athlete 2"),
     legColumn("leg3AthleteId", "Athlete 3"),
     legColumn("leg4AthleteId", "Athlete 4"),
-    { field: "seedTime", headerName: "Seed Time", flex: 1, editable: true },
+    buildSeedTimeColumn<RelayEntry>(importedEvents, notifyBlockedEdit),
   ];
 
   return (

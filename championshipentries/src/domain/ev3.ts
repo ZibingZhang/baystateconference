@@ -3,6 +3,7 @@ import { parseEv3 as parseEv3File } from "../hytek/ev3/parse";
 import type { Ev3Event } from "../hytek/ev3/types";
 import { GENDER_AGE_NAMES, STROKE_NAMES, isDivingStroke } from "../hytek/enums";
 import { parseSwimTime } from "../hytek/common";
+import { normalizeSeedTime } from "../utils/seedTime";
 
 const RELAY_STROKE_NAMES: Record<string, string> = {
   A: "Freestyle Relay",
@@ -78,12 +79,12 @@ export function violatesQualifyingStandard(event: ImportedEvent, seedValue: numb
   return isDivingEvent(event) ? seedValue < standard : seedValue > standard;
 }
 
-/** Message shown when a seed time/score is rejected for failing an event's qualifying standard. */
+/** Message describing why a seed time/score fails an event's qualifying standard. */
 export function qualifyingViolationMessage(event: ImportedEvent): string {
   const standard = formatQualifyingStandard(event);
   return isDivingEvent(event)
-    ? `Score is below the qualifying standard of ${standard} for ${event.displayName}. Value was cleared.`
-    : `Seed time is slower than the qualifying standard of ${standard} for ${event.displayName}. Value was cleared.`;
+    ? `Score is below the qualifying standard of ${standard} for ${event.displayName}.`
+    : `Seed time is slower than the qualifying standard of ${standard} for ${event.displayName}.`;
 }
 
 /** Maps each event's display name to one representative ImportedEvent (for qualifying-standard lookups). */
@@ -93,6 +94,37 @@ export function eventByDisplayName(events: ImportedEvent[]): Map<string, Importe
     if (!map.has(event.displayName)) map.set(event.displayName, event);
   }
   return map;
+}
+
+export const INVALID_SEED_TIME_FORMAT_MESSAGE = "Invalid seed time — must be M:SS.hh or SS.hh.";
+
+export interface SeedTimeValidation {
+  /** Best-effort normalized value — "" when rejected for a format error. */
+  normalized: string;
+  /** Set when `raw` should be rejected; describes why. */
+  errorMessage?: string;
+}
+
+/**
+ * Validates and normalizes a raw seed-time/score input against `event`'s EV3
+ * qualifying standard, if any. Callers decide what rejection means (clearing
+ * the value, or keeping an in-progress edit from committing).
+ */
+export function validateSeedTime(
+  raw: string,
+  event: ImportedEvent | undefined,
+): SeedTimeValidation {
+  const normalized = normalizeSeedTime(raw);
+  if (normalized === undefined) {
+    return { normalized: "", errorMessage: INVALID_SEED_TIME_FORMAT_MESSAGE };
+  }
+  if (normalized !== "" && event) {
+    const seedValue = parseSwimTime(normalized);
+    if (typeof seedValue === "number" && violatesQualifyingStandard(event, seedValue)) {
+      return { normalized, errorMessage: qualifyingViolationMessage(event) };
+    }
+  }
+  return { normalized };
 }
 
 export interface Ev3ParseResult {

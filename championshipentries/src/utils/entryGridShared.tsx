@@ -2,7 +2,9 @@ import type { GridColDef } from "@mui/x-data-grid";
 import type { Athlete, ImportedEvent } from "../types";
 import { athleteFullName, athleteNameMatchError, findAthleteIdByName } from "./athleteMatch";
 import { normalizeSeedTime } from "./seedTime";
+import { eventByDisplayName, validateSeedTime } from "../domain/ev3";
 import type { CsvImportColumn } from "../components/CsvImportDialog";
+import SeedTimeEditCell from "../components/SeedTimeEditCell";
 
 export const NO_EVENTS_TOOLTIP =
   "Import an EV3 events file on the Events tab before choosing an event.";
@@ -60,6 +62,32 @@ export function buildEventCsvColumn(eventOptions: string[] | undefined): CsvImpo
         ? undefined
         : "Event does not match an imported event name.",
     transform: (value) => matchEventName(value, eventOptions ?? []) ?? value,
+  };
+}
+
+/**
+ * Builds the `seedTime` column shared by the entries grids: the cell is kept
+ * in edit mode (via `preProcessEditCellProps`) whenever the current text
+ * fails the format or the event's qualifying standard, instead of letting
+ * Enter/Tab/blur commit it — `onBlockedCommit` is how the caller learns why,
+ * so it can show a banner without the cell losing its place.
+ */
+export function buildSeedTimeColumn<T extends { seedTime: string; event: string }>(
+  importedEvents: ImportedEvent[] | undefined,
+  onBlockedCommit: (message: string, refocus: () => void) => void,
+): GridColDef<T> {
+  const eventsByName = eventByDisplayName(importedEvents ?? []);
+  return {
+    field: "seedTime",
+    headerName: "Seed Time",
+    flex: 1,
+    editable: true,
+    preProcessEditCellProps: (params) => {
+      const event = eventsByName.get((params.row as T).event);
+      const { errorMessage } = validateSeedTime(String(params.props.value ?? ""), event);
+      return { ...params.props, error: Boolean(errorMessage), errorMessage };
+    },
+    renderEditCell: (params) => <SeedTimeEditCell {...params} onBlockedCommit={onBlockedCommit} />,
   };
 }
 
