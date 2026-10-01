@@ -105,6 +105,16 @@ function FilterableSingleSelectEditCell({
         });
         apiRef.current.stopCellEditMode({ id, field });
       }}
+      // Autocomplete's own Escape handling (on the input, bubble phase) only
+      // closes the popup when it's open, and stops the event from reaching
+      // the grid's cell-exit handling. Intercepting here, before that
+      // handler runs, makes Escape always exit the cell immediately.
+      onKeyDownCapture={(event) => {
+        if (event.key === "Escape") {
+          event.stopPropagation();
+          apiRef.current.stopCellEditMode({ id, field, ignoreModifications: true });
+        }
+      }}
       fullWidth
       openOnFocus
       autoHighlight
