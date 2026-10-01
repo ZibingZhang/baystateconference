@@ -99,7 +99,9 @@ function CsvImportDialog({ open, title, columns, onClose, onImport }: CsvImportD
     const guessed: Mapping = {};
     for (const column of columns) {
       const index = hasHeader
-        ? fileHeaders.findIndex((header) => header.trim().toLowerCase() === column.label.toLowerCase())
+        ? fileHeaders.findIndex(
+            (header) => header.trim().toLowerCase() === column.label.toLowerCase(),
+          )
         : -1;
       guessed[column.key] = index >= 0 ? index : "";
     }

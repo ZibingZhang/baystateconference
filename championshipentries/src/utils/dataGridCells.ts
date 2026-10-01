@@ -12,6 +12,25 @@ export interface CellRef {
   field: string;
 }
 
+/**
+ * Wraps `action` so that, while `readOnly`, it redirects to `onReadOnlyAttempt`
+ * instead of running — the `readOnly ? onReadOnlyAttempt?.() : doTheThing()`
+ * idiom repeated across the editable grids' add/delete/paste handlers.
+ */
+export function readOnlyGuard<A extends unknown[]>(
+  readOnly: boolean | undefined,
+  onReadOnlyAttempt: (() => void) | undefined,
+  action: (...args: A) => void,
+): (...args: A) => void {
+  return (...args: A) => {
+    if (readOnly) {
+      onReadOnlyAttempt?.();
+      return;
+    }
+    action(...args);
+  };
+}
+
 export function defaultValueComparator(v1: unknown, v2: unknown): number {
   if (typeof v1 === "number" && typeof v2 === "number") return v1 - v2;
   return String(v1 ?? "").localeCompare(String(v2 ?? ""));

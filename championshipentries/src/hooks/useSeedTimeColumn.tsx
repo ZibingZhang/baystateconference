@@ -1,10 +1,7 @@
-import { useMemo, useRef, useState } from "react";
-import Snackbar from "@mui/material/Snackbar";
-import Alert from "@mui/material/Alert";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
+import { useMemo } from "react";
 import type { ImportedEvent } from "../types";
 import { eventByDisplayName, validateSeedTime } from "../domain/ev3";
+import { useGridAlertBanner } from "./useGridAlertBanner";
 
 /**
  * Shared `seedTime` row processing for the entries grids: normalizes valid
@@ -25,24 +22,8 @@ import { eventByDisplayName, validateSeedTime } from "../domain/ev3";
 export function useSeedTimeColumn<R extends { seedTime: string; event: string }>(
   importedEvents: ImportedEvent[] | undefined,
 ) {
-  const [invalidOpen, setInvalidOpen] = useState(false);
-  const [invalidMessage, setInvalidMessage] = useState("");
-  // Bumped on every new error so the Snackbar remounts and replaces any
-  // still-open (or closing) instance instead of being a no-op on `open`.
-  const [errorKey, setErrorKey] = useState(0);
-  // Set only by notifyBlockedEdit, so dismissing the banner can refocus the
-  // cell that's still mid-edit — unrelated processRow rejections leave this
-  // null, since there's no edit mode to return focus to.
-  const refocusRef = useRef<(() => void) | null>(null);
-
+  const { notify, banner } = useGridAlertBanner();
   const eventsByName = useMemo(() => eventByDisplayName(importedEvents ?? []), [importedEvents]);
-
-  const notify = (message: string, refocus: (() => void) | null) => {
-    refocusRef.current = refocus;
-    setInvalidMessage(message);
-    setInvalidOpen(true);
-    setErrorKey((k) => k + 1);
-  };
 
   const processRow = (row: R): R => {
     const { normalized, errorMessage } = validateSeedTime(
@@ -50,7 +31,7 @@ export function useSeedTimeColumn<R extends { seedTime: string; event: string }>
       eventsByName.get(row.event),
     );
     if (errorMessage) {
-      notify(`${errorMessage} Value was cleared.`, null);
+      notify(`${errorMessage} Value was cleared.`);
       return { ...row, seedTime: "" };
     }
     return { ...row, seedTime: normalized };
@@ -61,54 +42,5 @@ export function useSeedTimeColumn<R extends { seedTime: string; event: string }>
     notify(message, refocus);
   };
 
-  const dismiss = () => {
-    setInvalidOpen(false);
-    refocusRef.current?.();
-    refocusRef.current = null;
-  };
-
-  // No autoHideDuration, and clickaway/escape are ignored: per EU accessibility
-  // guidance, this must stay open until the user dismisses it via the X.
-  const snackbar = (
-    <Snackbar
-      key={errorKey}
-      open={invalidOpen}
-      onClose={(_event, reason) => {
-        if (reason === "clickaway" || reason === "escapeKeyDown") return;
-        dismiss();
-      }}
-      anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-    >
-      <Alert
-        severity="error"
-        variant="filled"
-        sx={{ width: "100%" }}
-        action={
-          // The grid's own "click outside the focused cell" detector
-          // (useGridFocus's handleDocumentClick) listens for `mouseup` on
-          // `document`, not `click` — so stopping propagation has to happen
-          // on mouseUp specifically, before that event ever reaches
-          // document, or it treats this click as a blur and refires the same
-          // validation error before the click even reaches onClick below.
-          // onMouseDown's preventDefault additionally stops the native
-          // focus-steal a click would otherwise cause. Both matter, which is
-          // why this isn't just Alert's built-in onClose button.
-          <IconButton
-            size="small"
-            color="inherit"
-            aria-label="Close"
-            onMouseDown={(e) => e.preventDefault()}
-            onMouseUp={(e) => e.stopPropagation()}
-            onClick={dismiss}
-          >
-            <CloseIcon fontSize="small" />
-          </IconButton>
-        }
-      >
-        {invalidMessage}
-      </Alert>
-    </Snackbar>
-  );
-
-  return { processRow, snackbar, notifyBlockedEdit };
+  return { processRow, snackbar: banner, notifyBlockedEdit };
 }

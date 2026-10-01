@@ -1,22 +1,22 @@
 import type { ReactNode } from "react";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Snackbar from "@mui/material/Snackbar";
-import Alert from "@mui/material/Alert";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {
   DataGrid,
   GridActionsCellItem,
   useGridApiRef,
+  type GridCellParams,
   type GridColDef,
   type GridRowId,
 } from "@mui/x-data-grid";
-import { cellKey } from "../utils/dataGridCells";
+import { cellKey, readOnlyGuard } from "../utils/dataGridCells";
 import withSelectIcon from "./withSelectIcon";
 import { marchingAntsSx } from "./EditableDataGrid.styles";
+import { useGridAlertBanner } from "../hooks/useGridAlertBanner";
 import { useGridCellSelection } from "../hooks/useGridCellSelection";
 import { useGridKeyboardNav } from "../hooks/useGridKeyboardNav";
 import { useGridClipboard } from "../hooks/useGridClipboard";
@@ -66,14 +66,9 @@ function EditableDataGrid<T extends { id: string }>({
 }: EditableDataGridProps<T>) {
   const apiRef = useGridApiRef();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [rejectErrorOpen, setRejectErrorOpen] = useState(false);
-  // Bumped on every rejected input so the Snackbar remounts and replaces any
-  // still-open (or closing) instance instead of being a no-op on `open`.
-  const [rejectErrorKey, setRejectErrorKey] = useState(0);
-  const notifyRejected = () => {
-    setRejectErrorOpen(true);
-    setRejectErrorKey((k) => k + 1);
-  };
+  const { notify: notifyRejectedRaw, banner: rejectedBanner } = useGridAlertBanner();
+  const notifyRejected = () =>
+    notifyRejectedRaw("Value didn't match a valid option and was rejected.");
 
   const {
     selection,
@@ -95,6 +90,10 @@ function EditableDataGrid<T extends { id: string }>({
     () => new Set(columns.filter((c) => c.editable).map((c) => c.field)),
     [columns],
   );
+
+  const attemptIfReadOnlyField = (params: GridCellParams<T>) => {
+    if (readOnly && editableFields.has(params.field)) onReadOnlyAttempt?.();
+  };
 
   const { handleCellKeyDown } = useGridKeyboardNav<T>({
     apiRef,
@@ -140,9 +139,9 @@ function EditableDataGrid<T extends { id: string }>({
           key="delete"
           icon={<DeleteIcon fontSize="small" />}
           label="Delete"
-          onClick={() =>
-            readOnly ? onReadOnlyAttempt?.() : onDelete(params.id as GridRowId as string)
-          }
+          onClick={readOnlyGuard(readOnly, onReadOnlyAttempt, () =>
+            onDelete(params.id as GridRowId as string),
+          )}
         />,
       ],
     },
@@ -156,7 +155,7 @@ function EditableDataGrid<T extends { id: string }>({
         <Button
           size="small"
           startIcon={<AddIcon />}
-          onClick={() => (readOnly ? onReadOnlyAttempt?.() : onAdd())}
+          onClick={readOnlyGuard(readOnly, onReadOnlyAttempt, onAdd)}
         >
           {addLabel}
         </Button>
@@ -197,12 +196,8 @@ function EditableDataGrid<T extends { id: string }>({
           onSortModelChange={setSortModel}
           localeText={{ noRowsLabel }}
           onCellKeyDown={handleCellKeyDown}
-          onCellClick={(params) => {
-            if (readOnly && editableFields.has(params.field)) onReadOnlyAttempt?.();
-          }}
-          onCellDoubleClick={(params) => {
-            if (readOnly && editableFields.has(params.field)) onReadOnlyAttempt?.();
-          }}
+          onCellClick={attemptIfReadOnlyField}
+          onCellDoubleClick={attemptIfReadOnlyField}
           getCellClassName={(params) =>
             [
               selection.size > 1 && selection.has(cellKey(params.id, params.field))
@@ -221,24 +216,7 @@ function EditableDataGrid<T extends { id: string }>({
           }}
         />
       </Box>
-      <Snackbar
-        key={rejectErrorKey}
-        open={rejectErrorOpen}
-        onClose={(_event, reason) => {
-          if (reason === "clickaway" || reason === "escapeKeyDown") return;
-          setRejectErrorOpen(false);
-        }}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-      >
-        <Alert
-          severity="error"
-          variant="filled"
-          onClose={() => setRejectErrorOpen(false)}
-          sx={{ width: "100%" }}
-        >
-          Value didn't match a valid option and was rejected.
-        </Alert>
-      </Snackbar>
+      {rejectedBanner}
     </Box>
   );
 }

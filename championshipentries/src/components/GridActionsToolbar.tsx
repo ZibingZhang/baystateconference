@@ -52,7 +52,12 @@ function GridActionsToolbar({
       >
         Import CSV
       </Button>
-      <Button size="small" startIcon={<DownloadIcon />} onClick={onExportCsv} disabled={exportDisabled}>
+      <Button
+        size="small"
+        startIcon={<DownloadIcon />}
+        onClick={onExportCsv}
+        disabled={exportDisabled}
+      >
         Export CSV
       </Button>
       <Button

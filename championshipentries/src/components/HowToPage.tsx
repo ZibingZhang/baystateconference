@@ -13,7 +13,11 @@ const components: Components = {
       {children}
     </Typography>
   ),
-  h2: ({ children }) => <Typography variant="h6" sx={sectionHeaderSx}>{children}</Typography>,
+  h2: ({ children }) => (
+    <Typography variant="h6" sx={sectionHeaderSx}>
+      {children}
+    </Typography>
+  ),
   p: ({ children }) => (
     <Typography variant="body2" sx={{ mb: 1 }}>
       {children}

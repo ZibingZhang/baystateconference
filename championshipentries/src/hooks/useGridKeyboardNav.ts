@@ -8,6 +8,35 @@ import {
   type CellRef,
 } from "../utils/dataGridCells";
 
+/**
+ * Excel/Sheets-style Ctrl+Arrow target: the block edge in the direction of
+ * `step`, for either a column (`isVertical`, walking `rowIds`) or a row
+ * (walking `fields`) — shared by plain Ctrl+Arrow (collapse to this cell) and
+ * Shift+Ctrl+Arrow (extend the selection to it), which otherwise differ only
+ * in what they do with the result.
+ */
+function blockJumpTarget(
+  api: GridApi,
+  params: { id: GridRowId; field: string },
+  rowIds: GridRowId[],
+  fields: string[],
+  isVertical: boolean,
+  rowIndex: number,
+  colIndex: number,
+  step: number,
+): { rowIndex: number; colIndex: number } {
+  const isEmptyAt = (index: number) => {
+    const value = isVertical
+      ? api.getCellParams(rowIds[index], params.field).value
+      : api.getCellParams(params.id, fields[index]).value;
+    return value === "" || value == null;
+  };
+  return {
+    rowIndex: isVertical ? findBlockEdgeIndex(isEmptyAt, rowIds.length, rowIndex, step) : rowIndex,
+    colIndex: isVertical ? colIndex : findBlockEdgeIndex(isEmptyAt, fields.length, colIndex, step),
+  };
+}
+
 interface UseGridKeyboardNavOptions<T extends { id: string }> {
   apiRef: RefObject<GridApi | null>;
   readOnly?: boolean;
@@ -118,18 +147,16 @@ export function useGridKeyboardNav<T extends { id: string }>({
           // Shift+Ctrl/Cmd+Arrow: jump to the block edge like the plain
           // Ctrl/Cmd+Arrow below, but select every cell between the shift
           // anchor and the landing cell instead of collapsing to it.
-          const isEmptyAt = (index: number) => {
-            const value = isVertical
-              ? api.getCellParams(rowIds[index], params.field).value
-              : api.getCellParams(params.id, fields[index]).value;
-            return value === "" || value == null;
-          };
-          nextRowIndex = isVertical
-            ? findBlockEdgeIndex(isEmptyAt, rowIds.length, rowIndex, step)
-            : rowIndex;
-          nextColIndex = isVertical
-            ? colIndex
-            : findBlockEdgeIndex(isEmptyAt, fields.length, colIndex, step);
+          ({ rowIndex: nextRowIndex, colIndex: nextColIndex } = blockJumpTarget(
+            api,
+            params,
+            rowIds,
+            fields,
+            isVertical,
+            rowIndex,
+            colIndex,
+            step,
+          ));
         } else {
           nextRowIndex = isVertical ? rowIndex + step : rowIndex;
           nextColIndex = isVertical ? colIndex : colIndex + step;
@@ -155,18 +182,16 @@ export function useGridKeyboardNav<T extends { id: string }>({
       if (event.metaKey || event.ctrlKey) {
         event.preventDefault();
         event.defaultMuiPrevented = true;
-        const isEmptyAt = (index: number) => {
-          const value = isVertical
-            ? api.getCellParams(rowIds[index], params.field).value
-            : api.getCellParams(params.id, fields[index]).value;
-          return value === "" || value == null;
-        };
-        const targetRowIndex = isVertical
-          ? findBlockEdgeIndex(isEmptyAt, rowIds.length, rowIndex, step)
-          : rowIndex;
-        const targetColIndex = isVertical
-          ? colIndex
-          : findBlockEdgeIndex(isEmptyAt, fields.length, colIndex, step);
+        const { rowIndex: targetRowIndex, colIndex: targetColIndex } = blockJumpTarget(
+          api,
+          params,
+          rowIds,
+          fields,
+          isVertical,
+          rowIndex,
+          colIndex,
+          step,
+        );
         const targetId = rowIds[targetRowIndex];
         const targetField = fields[targetColIndex];
         anchorRef.current = { id: targetId, field: targetField };
