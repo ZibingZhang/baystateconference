@@ -8,6 +8,7 @@ import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
 import { useSeedTimeColumn } from "../hooks/useSeedTimeColumn";
+import { relayEntryKey } from "../domain/entryKeys";
 import {
   buildAthleteCsvColumn,
   buildAthleteNameById,
@@ -16,6 +17,7 @@ import {
   buildEventCsvColumn,
   buildSeedTimeColumn,
   buildSeedTimeCsvColumn,
+  withDuplicateBadge,
 } from "../utils/entryGridShared";
 
 const RELAY_LETTERS = ["A", "B", "C", "D"];
@@ -109,15 +111,20 @@ function RelayEntriesGrid({
   });
 
   const columns: GridColDef<RelayEntry>[] = [
-    buildEventColumn<RelayEntry>(eventOptions, importedEvents),
-    {
-      field: "relayLetter",
-      headerName: "Relay",
-      width: 90,
-      editable: true,
-      type: "singleSelect",
-      valueOptions: RELAY_LETTERS,
-    },
+    buildEventColumn<RelayEntry>(eventOptions, importedEvents, entries),
+    withDuplicateBadge<RelayEntry>(
+      {
+        field: "relayLetter",
+        headerName: "Relay",
+        width: 110,
+        editable: true,
+        type: "singleSelect",
+        valueOptions: RELAY_LETTERS,
+      },
+      entries,
+      relayEntryKey,
+      (row, count) => `Relay ${row.relayLetter} is entered ${count} times for ${row.event}.`,
+    ),
     legColumn("leg1AthleteId", "Athlete 1"),
     legColumn("leg2AthleteId", "Athlete 2"),
     legColumn("leg3AthleteId", "Athlete 3"),

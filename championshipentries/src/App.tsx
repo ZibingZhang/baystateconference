@@ -15,6 +15,7 @@ import AboutPage from "./components/AboutPage";
 import HowToPage from "./components/HowToPage";
 import ConfirmDialog from "./components/ConfirmDialog";
 import InfoDialog from "./components/InfoDialog";
+import ExportReviewDialog from "./components/ExportReviewDialog";
 import MeetTabsView from "./components/MeetTabsView";
 import { useMeetCrud } from "./hooks/useMeetCrud";
 import { useDialogState } from "./hooks/useDialogState";
@@ -97,7 +98,7 @@ function App() {
       <AppMenuBar
         onToggleSidebar={() => setSidebarOpen((v) => !v)}
         onNewMeet={() => setAddMeetOpen(true)}
-        onExportHy3={hy3Export.exportHy3}
+        onExportHy3={hy3Export.requestExport}
         exportDisabled={!selectedMeet}
         onHowTo={() => {
           setSelectedMeetId(null);
@@ -263,6 +264,11 @@ function App() {
         title={infoDialog?.title ?? ""}
         message={infoDialog?.message ?? ""}
         onClose={closeInfo}
+      />
+      <ExportReviewDialog
+        review={hy3Export.exportReview}
+        onClose={hy3Export.closeExportReview}
+        onConfirm={hy3Export.confirmExport}
       />
     </Box>
   );

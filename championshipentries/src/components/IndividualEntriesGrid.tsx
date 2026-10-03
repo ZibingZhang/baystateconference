@@ -8,6 +8,7 @@ import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
 import { useSeedTimeColumn } from "../hooks/useSeedTimeColumn";
+import { individualEntryKey } from "../domain/entryKeys";
 import {
   buildAthleteCsvColumn,
   buildAthleteNameById,
@@ -16,6 +17,7 @@ import {
   buildEventCsvColumn,
   buildSeedTimeColumn,
   buildSeedTimeCsvColumn,
+  withDuplicateBadge,
 } from "../utils/entryGridShared";
 
 interface IndividualEntriesGridProps {
@@ -73,15 +75,21 @@ function IndividualEntriesGrid({
   const athleteNameById = buildAthleteNameById(athletes);
 
   const columns: GridColDef<IndividualEntry>[] = [
-    buildEventColumn<IndividualEntry>(eventOptions, importedEvents),
-    {
-      field: "athleteId",
-      headerName: "Athlete",
-      flex: 1,
-      editable: true,
-      type: "singleSelect",
-      valueOptions: athleteOptions,
-    },
+    buildEventColumn<IndividualEntry>(eventOptions, importedEvents, entries),
+    withDuplicateBadge<IndividualEntry>(
+      {
+        field: "athleteId",
+        headerName: "Athlete",
+        flex: 1,
+        editable: true,
+        type: "singleSelect",
+        valueOptions: athleteOptions,
+      },
+      entries,
+      individualEntryKey,
+      (row, count) =>
+        `${athleteNameById.get(row.athleteId) ?? "This athlete"} is entered in ${row.event} ${count} times.`,
+    ),
     buildSeedTimeColumn<IndividualEntry>(importedEvents, notifyBlockedEdit),
   ];
 

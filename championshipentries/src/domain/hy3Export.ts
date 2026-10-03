@@ -1,5 +1,13 @@
-import type { Athlete, HighSchool, IndividualEntry, Meet, RelayEntry } from "../types";
+import type {
+  Athlete,
+  HighSchool,
+  ImportedEvent,
+  IndividualEntry,
+  Meet,
+  RelayEntry,
+} from "../types";
 import { eventDisplayName } from "./ev3";
+import { countByKey, individualEntryKey, relayEntryKey } from "./entryKeys";
 import { parseEv3 as parseEv3Full } from "../hytek/ev3/parse.ts";
 import type { Ev3Event, Ev3File } from "../hytek/ev3/types.ts";
 import { parseSwimTime } from "../hytek/common.ts";
@@ -31,6 +39,56 @@ export interface BuildHy3Error {
 
 function sanitizeFileNamePart(value: string): string {
   return value.replace(/[\\/:*?"<>|]/g, "").trim();
+}
+
+/** Team code and an imported EV3 file are the two prerequisites every export (and its preview) needs. */
+function missingExportPrerequisite(meet: Meet): string | undefined {
+  if (!meet.teamCode) return "Set a Team Code on the Team tab before exporting.";
+  if (!meet.importedEventsRaw)
+    return "Import an EV3 events file on the Events tab before exporting.";
+  return undefined;
+}
+
+function findEv3Event(ev3File: Ev3File, displayName: string, relay: boolean): Ev3Event | undefined {
+  return ev3File.events.find(
+    (event) =>
+      (event.entryType === "R") === relay &&
+      eventDisplayName(relay, event.distance, event.stroke, event.genderAge) === displayName,
+  );
+}
+
+/** Why `entry` would be skipped on export, or undefined if it will be included. */
+function individualEntrySkipReason(
+  entry: IndividualEntry,
+  athletes: Athlete[],
+  ev3File: Ev3File,
+): string | undefined {
+  if (!entry.athleteId) return "No athlete selected.";
+  if (!entry.event) return "No event selected.";
+  if (!athletes.some((a) => a.id === entry.athleteId)) return "Athlete not found.";
+  if (!findEv3Event(ev3File, entry.event, false)) return "Event not found in imported EV3 file.";
+  return undefined;
+}
+
+/** Why `entry` would be skipped on export, or undefined if it will be included. */
+function relayEntrySkipReason(
+  entry: RelayEntry,
+  athletes: Athlete[],
+  ev3File: Ev3File,
+): string | undefined {
+  if (!entry.event) return "No event selected.";
+  if (!findEv3Event(ev3File, entry.event, true)) return "Event not found in imported EV3 file.";
+  const legAthleteIds = [
+    entry.leg1AthleteId,
+    entry.leg2AthleteId,
+    entry.leg3AthleteId,
+    entry.leg4AthleteId,
+  ].filter(Boolean);
+  if (legAthleteIds.length === 0) return "No athletes assigned to any leg.";
+  if (!legAthleteIds.every((id) => athletes.some((a) => a.id === id))) {
+    return "One or more legs reference a missing athlete.";
+  }
+  return undefined;
 }
 
 /**
@@ -83,21 +141,16 @@ export function buildHy3File(
       };
     });
 
-  function findEv3Event(displayName: string, relay: boolean): Ev3Event | undefined {
-    return ev3File.events.find(
-      (event) =>
-        (event.entryType === "R") === relay &&
-        eventDisplayName(relay, event.distance, event.stroke, event.genderAge) === displayName,
-    );
-  }
-
   let skippedIndividualEntries = 0;
   const hy3IndividualEntries: Hy3IndividualEntry[] = [];
   for (const entry of individualEntries) {
-    if (!entry.athleteId || !entry.event) continue;
+    if (individualEntrySkipReason(entry, athletes, ev3File)) {
+      skippedIndividualEntries++;
+      continue;
+    }
     const athlete = athletes.find((a) => a.id === entry.athleteId);
     const swimmerMeetId = swimmerMeetIdByAthleteId.get(entry.athleteId);
-    const ev3Event = findEv3Event(entry.event, false);
+    const ev3Event = findEv3Event(ev3File, entry.event, false);
     if (!athlete || swimmerMeetId === undefined || !ev3Event) {
       skippedIndividualEntries++;
       continue;
@@ -123,8 +176,11 @@ export function buildHy3File(
   let skippedRelayEntries = 0;
   const hy3RelayEntries: Hy3RelayEntry[] = [];
   for (const entry of relayEntries) {
-    if (!entry.event) continue;
-    const ev3Event = findEv3Event(entry.event, true);
+    if (relayEntrySkipReason(entry, athletes, ev3File)) {
+      skippedRelayEntries++;
+      continue;
+    }
+    const ev3Event = findEv3Event(ev3File, entry.event, true);
     const legAthleteIds = [
       entry.leg1AthleteId,
       entry.leg2AthleteId,
@@ -201,6 +257,134 @@ export function buildHy3File(
   const fileName = `${sanitizeFileNamePart(teamCode)}-Entries-${sanitizeFileNamePart(meet.name) || "Meet"}.hy3`;
 
   return { fileName, content, skippedIndividualEntries, skippedRelayEntries };
+}
+
+export interface ExportReviewLimitIssue {
+  event: string;
+  count: number;
+  limit: number;
+}
+
+export interface ExportReviewDuplicateIndividual {
+  event: string;
+  athleteName: string;
+  count: number;
+}
+
+export interface ExportReviewDuplicateRelay {
+  event: string;
+  relayLetter: string;
+  count: number;
+}
+
+export interface ExportReviewSkippedEvent {
+  kind: "individual" | "relay";
+  event: string;
+  count: number;
+}
+
+export interface ExportReview {
+  overLimitEvents: ExportReviewLimitIssue[];
+  duplicateIndividualEntries: ExportReviewDuplicateIndividual[];
+  duplicateRelayEntries: ExportReviewDuplicateRelay[];
+  skippedEvents: ExportReviewSkippedEvent[];
+}
+
+/**
+ * Previews what `buildHy3File` would do, without building or downloading
+ * anything — surfaces the same skip reasons, plus over-the-cap events and
+ * duplicate entries, so the user can fix them before export rather than
+ * discovering them in the downloaded file (or later, in Hy-Tek).
+ */
+export function buildExportReview(
+  meet: Meet,
+  athletes: Athlete[],
+  individualEntries: IndividualEntry[],
+  relayEntries: RelayEntry[],
+): ExportReview | BuildHy3Error {
+  const prerequisiteError = missingExportPrerequisite(meet);
+  if (prerequisiteError) {
+    return { error: prerequisiteError };
+  }
+
+  let ev3File: Ev3File;
+  try {
+    ev3File = parseEv3Full(meet.importedEventsRaw as string);
+  } catch (err) {
+    return {
+      error: `Could not re-read the imported EV3 file: ${err instanceof Error ? err.message : String(err)}`,
+    };
+  }
+
+  const athleteNameById = new Map(
+    athletes.map((a) => [a.id, `${a.firstName} ${a.lastName}`.trim()]),
+  );
+  const limitByEvent = new Map(
+    (meet.importedEvents ?? []).map((e: ImportedEvent) => [e.displayName, e.entryLimit]),
+  );
+
+  const overLimitEvents: ExportReviewLimitIssue[] = [];
+  const entryCountsByEvent = [
+    countByKey(individualEntries, (e) => e.event || undefined),
+    countByKey(relayEntries, (e) => e.event || undefined),
+  ];
+  for (const countByEvent of entryCountsByEvent) {
+    for (const [event, count] of countByEvent) {
+      const limit = limitByEvent.get(event) ?? 0;
+      if (limit > 0 && count > limit) overLimitEvents.push({ event, count, limit });
+    }
+  }
+
+  const individualDupCounts = countByKey(individualEntries, individualEntryKey);
+  const seenIndividualDupKeys = new Set<string>();
+  const duplicateIndividualEntries: ExportReviewDuplicateIndividual[] = [];
+  for (const entry of individualEntries) {
+    const key = individualEntryKey(entry);
+    if (!key || seenIndividualDupKeys.has(key)) continue;
+    const count = individualDupCounts.get(key) ?? 0;
+    if (count > 1) {
+      seenIndividualDupKeys.add(key);
+      duplicateIndividualEntries.push({
+        event: entry.event,
+        athleteName: athleteNameById.get(entry.athleteId) ?? "Unknown athlete",
+        count,
+      });
+    }
+  }
+
+  const relayDupCounts = countByKey(relayEntries, relayEntryKey);
+  const seenRelayDupKeys = new Set<string>();
+  const duplicateRelayEntries: ExportReviewDuplicateRelay[] = [];
+  for (const entry of relayEntries) {
+    const key = relayEntryKey(entry);
+    if (!key || seenRelayDupKeys.has(key)) continue;
+    const count = relayDupCounts.get(key) ?? 0;
+    if (count > 1) {
+      seenRelayDupKeys.add(key);
+      duplicateRelayEntries.push({ event: entry.event, relayLetter: entry.relayLetter, count });
+    }
+  }
+
+  const skippedCountByKey = new Map<string, ExportReviewSkippedEvent>();
+  const recordSkip = (kind: "individual" | "relay", event: string) => {
+    const key = `${kind}|${event}`;
+    const existing = skippedCountByKey.get(key);
+    if (existing) existing.count++;
+    else skippedCountByKey.set(key, { kind, event, count: 1 });
+  };
+  for (const entry of individualEntries) {
+    if (individualEntrySkipReason(entry, athletes, ev3File)) {
+      recordSkip("individual", entry.event || "(no event)");
+    }
+  }
+  for (const entry of relayEntries) {
+    if (relayEntrySkipReason(entry, athletes, ev3File)) {
+      recordSkip("relay", entry.event || "(no event)");
+    }
+  }
+  const skippedEvents = [...skippedCountByKey.values()];
+
+  return { overLimitEvents, duplicateIndividualEntries, duplicateRelayEntries, skippedEvents };
 }
 
 /** Trigger a browser download of the given HY3 file content. */

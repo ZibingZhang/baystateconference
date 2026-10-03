@@ -1,5 +1,11 @@
+import { useState } from "react";
 import type { AppData, HighSchool, ImportedEvent } from "../types";
-import { buildHy3File, downloadHy3File } from "../domain/hy3Export";
+import {
+  buildExportReview,
+  buildHy3File,
+  downloadHy3File,
+  type ExportReview,
+} from "../domain/hy3Export";
 import { fetchHighSchools } from "../domain/highSchools";
 
 interface History {
@@ -23,6 +29,8 @@ export function useHy3Export(
     showConfirm: (dialog: ConfirmDialogState) => void;
   },
 ) {
+  const [exportReview, setExportReview] = useState<ExportReview | null>(null);
+
   const importEvents = (fileName: string, events: ImportedEvent[], rawText: string) => {
     if (!selectedMeetId) return;
     history.update((prev) => ({
@@ -68,7 +76,27 @@ export function useHy3Export(
     });
   };
 
-  const exportHy3 = () => {
+  /** Opens the pre-export review panel, or an error dialog if export isn't possible at all yet. */
+  const requestExport = () => {
+    const meet = data.meets.find((m) => m.id === selectedMeetId);
+    if (!meet) return;
+    const meetAthletes = data.athletes.filter((a) => a.meetId === meet.id);
+    const meetIndividualEntries = data.individualEntries.filter((e) => e.meetId === meet.id);
+    const meetRelayEntries = data.relayEntries.filter((e) => e.meetId === meet.id);
+
+    const review = buildExportReview(meet, meetAthletes, meetIndividualEntries, meetRelayEntries);
+    if ("error" in review) {
+      callbacks.showInfo({ title: "Cannot Export", message: review.error });
+      return;
+    }
+    setExportReview(review);
+  };
+
+  const closeExportReview = () => setExportReview(null);
+
+  /** Builds and downloads the HY3 file after the user has confirmed the review panel. */
+  const confirmExport = () => {
+    setExportReview(null);
     const meet = data.meets.find((m) => m.id === selectedMeetId);
     if (!meet) return;
     const meetAthletes = data.athletes.filter((a) => a.meetId === meet.id);
@@ -88,17 +116,6 @@ export function useHy3Export(
         return;
       }
       downloadHy3File(result.fileName, result.content);
-      const skippedTotal = result.skippedIndividualEntries + result.skippedRelayEntries;
-      if (skippedTotal > 0) {
-        callbacks.showInfo({
-          title: "Exported with Skipped Entries",
-          message:
-            `${result.fileName} was downloaded, but ${skippedTotal} ` +
-            `${skippedTotal === 1 ? "entry was" : "entries were"} skipped because its athlete or ` +
-            "event could not be matched (missing athlete, incomplete relay leg, or event not found " +
-            "in the imported EV3 file).",
-        });
-      }
     };
 
     if (!meet.teamCode) {
@@ -110,5 +127,12 @@ export function useHy3Export(
       .catch(() => build(undefined));
   };
 
-  return { importEvents, clearImportedEvents, exportHy3 };
+  return {
+    importEvents,
+    clearImportedEvents,
+    requestExport,
+    exportReview,
+    closeExportReview,
+    confirmExport,
+  };
 }
