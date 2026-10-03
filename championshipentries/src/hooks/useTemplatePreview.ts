@@ -19,7 +19,7 @@ interface History {
 
 type TemplateFetchState =
   | { templateId: string; status: "error"; message: string }
-  | { templateId: string; status: "ready"; events: ImportedEvent[] }
+  | { templateId: string; status: "ready"; events: ImportedEvent[]; rawText: string }
   | null;
 
 /**
@@ -49,9 +49,14 @@ export function useTemplatePreview(
     if (!selectedTemplate) return;
     let cancelled = false;
     fetchTemplateEvents(selectedTemplate.ev3Url)
-      .then(({ events }) => {
+      .then(({ events, rawText }) => {
         if (!cancelled)
-          setTemplateFetchState({ templateId: selectedTemplate.id, status: "ready", events });
+          setTemplateFetchState({
+            templateId: selectedTemplate.id,
+            status: "ready",
+            events,
+            rawText,
+          });
       })
       .catch((err: unknown) => {
         if (!cancelled) {

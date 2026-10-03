@@ -173,7 +173,7 @@ function App() {
                   meetId={selectedTemplate.id}
                   meetName={selectedTemplate.name}
                   teamCode={undefined}
-                  importedEventsRaw={undefined}
+                  importedEventsRaw={templateData.rawText}
                   athletes={[]}
                   individualEntries={template.templateIndividualEntries}
                   relayEntries={template.templateRelayEntries}
