@@ -140,7 +140,7 @@ function App() {
             <AboutPage />
           ) : selectedTemplate ? (
             <>
-              <Alert severity="info" sx={{ borderRadius: 0 }}>
+              <Alert severity="info" variant="filled" sx={{ borderRadius: 0 }}>
                 {TEMPLATE_READ_ONLY_MESSAGE}
               </Alert>
               {templateData?.status === "loading" && (
