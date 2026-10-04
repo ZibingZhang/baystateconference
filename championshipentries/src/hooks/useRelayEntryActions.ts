@@ -21,7 +21,7 @@ function clearAllConfirmMessage(count: number, singular: string, plural: string)
   return `Delete all ${count} ${count === 1 ? singular : plural}? This cannot be undone.`;
 }
 
-function blankRelayEntry(event = "", relayLetter = "A"): Omit<RelayEntry, "id" | "meetId"> {
+function blankRelayEntry(event = 0, relayLetter = "A"): Omit<RelayEntry, "id" | "meetId"> {
   return {
     event,
     relayLetter,
@@ -46,9 +46,9 @@ export function useRelayEntryActions(
 
   const deleteRelayEntry = relayEntryCrud.deleteById;
 
-  const bulkAddRelayEntries = (count: number, eventNames: string[]) =>
+  const bulkAddRelayEntries = (count: number, eventNumbers: number[]) =>
     relayEntryCrud.addMany(
-      eventNames.flatMap((event) =>
+      eventNumbers.flatMap((event) =>
         Array.from({ length: count }, (_, index) =>
           blankRelayEntry(event, RELAY_LETTERS[index % RELAY_LETTERS.length]),
         ),
@@ -68,7 +68,7 @@ export function useRelayEntryActions(
   ) =>
     relayEntryCrud.addMany(
       rows.map((row) => ({
-        event: row.event,
+        event: Number.parseInt(row.event, 10) || 0,
         relayLetter: row.relayLetter,
         leg1AthleteId: row.leg1AthleteId,
         leg2AthleteId: row.leg2AthleteId,

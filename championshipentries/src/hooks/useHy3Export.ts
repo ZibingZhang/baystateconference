@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { AppData, HighSchool, ImportedEvent } from "../types";
+import type { AppData, HighSchool } from "../types";
 import {
   buildExportReview,
   buildHy3File,
@@ -31,7 +31,7 @@ export function useHy3Export(
 ) {
   const [exportReview, setExportReview] = useState<ExportReview | null>(null);
 
-  const importEvents = (fileName: string, events: ImportedEvent[], rawText: string) => {
+  const importEvents = (fileName: string, rawText: string) => {
     if (!selectedMeetId) return;
     history.update((prev) => ({
       ...prev,
@@ -40,7 +40,6 @@ export function useHy3Export(
           ? {
               ...m,
               importedEventsFileName: fileName,
-              importedEvents: events,
               importedEventsRaw: rawText,
             }
           : m,
@@ -66,7 +65,6 @@ export function useHy3Export(
               ? {
                   ...m,
                   importedEventsFileName: undefined,
-                  importedEvents: undefined,
                   importedEventsRaw: undefined,
                 }
               : m,

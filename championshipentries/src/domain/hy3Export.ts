@@ -1,5 +1,5 @@
 import type { Athlete, HighSchool, IndividualEntry, Meet, RelayEntry } from "../types";
-import { eventDisplayName } from "./ev3";
+import { eventDisplayName, parseEv3EventNumber } from "./ev3";
 import { countByKey, individualEntryKey, relayEntryKey } from "./entryKeys";
 import { parseEv3 as parseEv3Full } from "../hytek/ev3/parse.ts";
 import type { Ev3Event, Ev3File } from "../hytek/ev3/types.ts";
@@ -42,12 +42,25 @@ function missingExportPrerequisite(meet: Meet): string | undefined {
   return undefined;
 }
 
-function findEv3Event(ev3File: Ev3File, displayName: string, relay: boolean): Ev3Event | undefined {
+function findEv3Event(ev3File: Ev3File, eventNumber: number, relay: boolean): Ev3Event | undefined {
   return ev3File.events.find(
-    (event) =>
-      (event.entryType === "R") === relay &&
-      eventDisplayName(relay, event.distance, event.stroke, event.genderAge) === displayName,
+    (event) => (event.entryType === "R") === relay && parseEv3EventNumber(event) === eventNumber,
   );
+}
+
+/** Maps each EV3 event number to a human-readable display name, for review/skip messages. */
+function eventNumberToName(ev3File: Ev3File): Map<number, string> {
+  const map = new Map<number, string>();
+  for (const event of ev3File.events) {
+    const num = parseEv3EventNumber(event);
+    if (!map.has(num)) {
+      map.set(
+        num,
+        eventDisplayName(event.entryType === "R", event.distance, event.stroke, event.genderAge),
+      );
+    }
+  }
+  return map;
 }
 
 /** Why `entry` would be skipped on export, or undefined if it will be included. */
@@ -312,9 +325,12 @@ export function buildExportReview(
   const athleteNameById = new Map(
     athletes.map((a) => [a.id, `${a.firstName} ${a.lastName}`.trim()]),
   );
+  const eventNameByNumber = eventNumberToName(ev3File);
+  const eventName = (eventNumber: number) =>
+    eventNameByNumber.get(eventNumber) ?? "(unknown event)";
 
   const overLimitEvents: ExportReviewLimitIssue[] = [];
-  const entryCountsByEvent: [Map<string, number>, number][] = [
+  const entryCountsByEvent: [Map<number, number>, number][] = [
     [
       countByKey(individualEntries, (e) => e.event || undefined),
       meet.individualEventEntryLimit ?? 0,
@@ -323,7 +339,8 @@ export function buildExportReview(
   ];
   for (const [countByEvent, limit] of entryCountsByEvent) {
     for (const [event, count] of countByEvent) {
-      if (limit > 0 && count > limit) overLimitEvents.push({ event, count, limit });
+      if (limit > 0 && count > limit)
+        overLimitEvents.push({ event: eventName(event), count, limit });
     }
   }
 
@@ -337,7 +354,7 @@ export function buildExportReview(
     if (count > 1) {
       seenIndividualDupKeys.add(key);
       duplicateIndividualEntries.push({
-        event: entry.event,
+        event: eventName(entry.event),
         athleteName: athleteNameById.get(entry.athleteId) ?? "Unknown athlete",
         count,
       });
@@ -353,7 +370,11 @@ export function buildExportReview(
     const count = relayDupCounts.get(key) ?? 0;
     if (count > 1) {
       seenRelayDupKeys.add(key);
-      duplicateRelayEntries.push({ event: entry.event, relayLetter: entry.relayLetter, count });
+      duplicateRelayEntries.push({
+        event: eventName(entry.event),
+        relayLetter: entry.relayLetter,
+        count,
+      });
     }
   }
 
@@ -366,12 +387,12 @@ export function buildExportReview(
   };
   for (const entry of individualEntries) {
     if (individualEntrySkipReason(entry, athletes, ev3File)) {
-      recordSkip("individual", entry.event || "(no event)");
+      recordSkip("individual", entry.event ? eventName(entry.event) : "(no event)");
     }
   }
   for (const entry of relayEntries) {
     if (relayEntrySkipReason(entry, athletes, ev3File)) {
-      recordSkip("relay", entry.event || "(no event)");
+      recordSkip("relay", entry.event ? eventName(entry.event) : "(no event)");
     }
   }
   const skippedEvents = [...skippedCountByKey.values()];

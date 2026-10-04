@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
@@ -6,7 +6,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useAppData } from "./storage";
 import { useHistory } from "./hooks/useHistory";
 import type { Athlete, IndividualEntry, RelayEntry } from "./types";
-import { uniqueEventNames } from "./domain/ev3";
+import { parseEv3, uniqueEventOptions } from "./domain/ev3";
 import { MEET_TEMPLATES, templateFileName } from "./domain/meetTemplates";
 import AppMenuBar from "./components/AppMenuBar";
 import MeetSidebar from "./components/MeetSidebar";
@@ -88,12 +88,15 @@ function App() {
   const relayEntries = data.relayEntries.filter((e) => e.meetId === selectedMeetId);
 
   const selectedMeet = data.meets.find((m) => m.id === selectedMeetId) ?? null;
-  const individualEventOptions = selectedMeet?.importedEvents
-    ? uniqueEventNames(selectedMeet.importedEvents, false)
+  const importedEvents = useMemo(
+    () =>
+      selectedMeet?.importedEventsRaw ? parseEv3(selectedMeet.importedEventsRaw).events : undefined,
+    [selectedMeet],
+  );
+  const individualEventOptions = importedEvents
+    ? uniqueEventOptions(importedEvents, false)
     : undefined;
-  const relayEventOptions = selectedMeet?.importedEvents
-    ? uniqueEventNames(selectedMeet.importedEvents, true)
-    : undefined;
+  const relayEventOptions = importedEvents ? uniqueEventOptions(importedEvents, true) : undefined;
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
@@ -211,7 +214,7 @@ function App() {
               onReorderAthletes={athleteActions.reorderAthletes}
               individualEventOptions={individualEventOptions}
               relayEventOptions={relayEventOptions}
-              importedEvents={selectedMeet.importedEvents}
+              importedEvents={importedEvents}
               athleteEventLimits={selectedMeet}
               onUpdateEventLimits={meetActions.updateEventLimits}
               eventEntryLimits={selectedMeet}

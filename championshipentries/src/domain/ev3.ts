@@ -28,10 +28,15 @@ export function eventDisplayName(
   return `${genderName} ${distance} ${strokeName}`;
 }
 
+/** Parses an Ev3Event's raw `eventNumber` field into the integer FK the app uses everywhere else. */
+export function parseEv3EventNumber(e: Pick<Ev3Event, "eventNumber">): number {
+  return Number.parseInt(e.eventNumber, 10) || 0;
+}
+
 function toImportedEvent(e: Ev3Event): ImportedEvent {
   const relay = e.entryType === "R";
   return {
-    eventNumber: Number.parseInt(e.eventNumber, 10) || 0,
+    eventNumber: parseEv3EventNumber(e),
     round: e.round,
     relay,
     gender: e.genderAge,
@@ -85,11 +90,11 @@ export function qualifyingViolationMessage(event: ImportedEvent): string {
     : `Seed time is slower than the qualifying standard of ${standard} for ${event.displayName}.`;
 }
 
-/** Maps each event's display name to one representative ImportedEvent (for qualifying-standard lookups). */
-export function eventByDisplayName(events: ImportedEvent[]): Map<string, ImportedEvent> {
-  const map = new Map<string, ImportedEvent>();
+/** Maps each event's eventNumber (the entries grids' stable FK) to its ImportedEvent. */
+export function eventByNumber(events: ImportedEvent[]): Map<number, ImportedEvent> {
+  const map = new Map<number, ImportedEvent>();
   for (const event of events) {
-    if (!map.has(event.displayName)) map.set(event.displayName, event);
+    if (!map.has(event.eventNumber)) map.set(event.eventNumber, event);
   }
   return map;
 }
@@ -142,11 +147,9 @@ export function parseEv3(text: string): Ev3ParseResult {
   return { meetName: file.header.meetName, events: file.events.map(toImportedEvent) };
 }
 
-export function uniqueEventNames(events: ImportedEvent[], relay: boolean): string[] {
-  return uniqueEventOptions(events, relay).map((option) => option.name);
-}
-
 export interface EventOption {
+  /** The representative ImportedEvent's eventNumber — the entries grids' stable FK for this option. */
+  eventNumber: number;
   name: string;
   gender: string;
 }
@@ -158,7 +161,7 @@ export function uniqueEventOptions(events: ImportedEvent[], relay: boolean): Eve
     if (event.relay !== relay) continue;
     if (seen.has(event.displayName)) continue;
     seen.add(event.displayName);
-    options.push({ name: event.displayName, gender: event.gender });
+    options.push({ eventNumber: event.eventNumber, name: event.displayName, gender: event.gender });
   }
   return options;
 }

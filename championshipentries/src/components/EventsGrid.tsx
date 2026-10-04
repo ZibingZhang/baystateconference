@@ -7,14 +7,15 @@ import DownloadIcon from "@mui/icons-material/Download";
 import ClearIcon from "@mui/icons-material/Clear";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import type { ImportedEvent } from "../types";
-import { formatQualifyingStandard, parseEv3 } from "../domain/ev3";
+import { formatQualifyingStandard } from "../domain/ev3";
+import { parseEv3 as parseEv3File } from "../hytek/ev3/parse";
 import Ev3ExportDialog from "./Ev3ExportDialog";
 
 interface EventsGridProps {
   fileName: string | undefined;
   events: ImportedEvent[] | undefined;
   importedEventsRaw: string | undefined;
-  onImport: (fileName: string, events: ImportedEvent[], rawText: string) => void;
+  onImport: (fileName: string, rawText: string) => void;
   onImportError: (message: string) => void;
   onClear: () => void;
   readOnly?: boolean;
@@ -55,8 +56,8 @@ function EventsGrid({
     file
       .text()
       .then((text) => {
-        const result = parseEv3(text);
-        onImport(file.name, result.events, text);
+        parseEv3File(text);
+        onImport(file.name, text);
       })
       .catch((err: unknown) => {
         const message = err instanceof Error ? err.message : "Could not read this file.";

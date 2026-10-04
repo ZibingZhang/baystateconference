@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import type { ImportedEvent } from "../types";
-import { eventByDisplayName, validateSeedTime } from "../domain/ev3";
+import { eventByNumber, validateSeedTime } from "../domain/ev3";
 import { useGridAlertBanner } from "./useGridAlertBanner";
 
 /**
@@ -19,16 +19,16 @@ import { useGridAlertBanner } from "./useGridAlertBanner";
  * the cell in edit mode until the value is valid, and calls
  * `notifyBlockedEdit` to show the same banner without losing the edit.
  */
-export function useSeedTimeColumn<R extends { seedTime: string; event: string }>(
+export function useSeedTimeColumn<R extends { seedTime: string; event: number }>(
   importedEvents: ImportedEvent[] | undefined,
 ) {
   const { notify, banner } = useGridAlertBanner();
-  const eventsByName = useMemo(() => eventByDisplayName(importedEvents ?? []), [importedEvents]);
+  const eventsByNumber = useMemo(() => eventByNumber(importedEvents ?? []), [importedEvents]);
 
   const processRow = (row: R): R => {
     const { normalized, errorMessage } = validateSeedTime(
       row.seedTime,
-      eventsByName.get(row.event),
+      eventsByNumber.get(row.event),
     );
     if (errorMessage) {
       notify(`${errorMessage} Value was cleared.`);

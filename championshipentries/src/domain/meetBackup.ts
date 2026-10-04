@@ -44,6 +44,44 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
+function isValidAthlete(value: unknown): value is Athlete {
+  return (
+    isRecord(value) &&
+    typeof value.id === "string" &&
+    typeof value.meetId === "string" &&
+    typeof value.lastName === "string" &&
+    typeof value.firstName === "string" &&
+    typeof value.gender === "string" &&
+    (typeof value.classYear === "number" || value.classYear === null)
+  );
+}
+
+function isValidIndividualEntry(value: unknown): value is IndividualEntry {
+  return (
+    isRecord(value) &&
+    typeof value.id === "string" &&
+    typeof value.meetId === "string" &&
+    typeof value.athleteId === "string" &&
+    typeof value.event === "number" &&
+    typeof value.seedTime === "string"
+  );
+}
+
+function isValidRelayEntry(value: unknown): value is RelayEntry {
+  return (
+    isRecord(value) &&
+    typeof value.id === "string" &&
+    typeof value.meetId === "string" &&
+    typeof value.event === "number" &&
+    typeof value.relayLetter === "string" &&
+    typeof value.leg1AthleteId === "string" &&
+    typeof value.leg2AthleteId === "string" &&
+    typeof value.leg3AthleteId === "string" &&
+    typeof value.leg4AthleteId === "string" &&
+    typeof value.seedTime === "string"
+  );
+}
+
 /** Parses and structurally validates a `.meet.json` backup file's text. */
 export function parseMeetBackup(raw: string): MeetBackup | MeetBackupError {
   let parsed: unknown;
@@ -66,12 +104,23 @@ export function parseMeetBackup(raw: string): MeetBackup | MeetBackupError {
   ) {
     return { error: "This file is not a meet backup — it's missing athletes or entries." };
   }
+  if (!athletes.every(isValidAthlete)) {
+    return { error: "This file is not a meet backup — it has a malformed athlete record." };
+  }
+  if (!individualEntries.every(isValidIndividualEntry)) {
+    return {
+      error: "This file is not a meet backup — it has a malformed individual entry record.",
+    };
+  }
+  if (!relayEntries.every(isValidRelayEntry)) {
+    return { error: "This file is not a meet backup — it has a malformed relay entry record." };
+  }
   return {
     version: typeof parsed.version === "number" ? parsed.version : BACKUP_VERSION,
     exportedAt: typeof parsed.exportedAt === "string" ? parsed.exportedAt : "",
     meet: meet as unknown as Meet,
-    athletes: athletes as Athlete[],
-    individualEntries: individualEntries as IndividualEntry[],
-    relayEntries: relayEntries as RelayEntry[],
+    athletes,
+    individualEntries,
+    relayEntries,
   };
 }

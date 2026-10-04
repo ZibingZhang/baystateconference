@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { AppData, ImportedEvent, IndividualEntry, Meet, RelayEntry } from "../types";
-import { uniqueEventNames } from "../domain/ev3";
+import { uniqueEventOptions } from "../domain/ev3";
 import {
   MEET_TEMPLATES,
   buildTemplateIndividualEntries,
@@ -93,7 +93,6 @@ export function useTemplatePreview(
           id: newMeetId,
           name: meetName?.trim() || template.name,
           importedEventsFileName: templateFileName(template.ev3Url),
-          importedEvents: events,
           importedEventsRaw: rawText,
           maxIndividualEventsPerAthlete: template.maxIndividualEventsPerAthlete,
           maxRelayEventsPerAthlete: template.maxRelayEventsPerAthlete,
@@ -154,10 +153,10 @@ export function useTemplatePreview(
     );
   }, [selectedTemplate, templateEvents]);
   const templateIndividualEventOptions = templateEvents
-    ? uniqueEventNames(templateEvents, false)
+    ? uniqueEventOptions(templateEvents, false)
     : undefined;
   const templateRelayEventOptions = templateEvents
-    ? uniqueEventNames(templateEvents, true)
+    ? uniqueEventOptions(templateEvents, true)
     : undefined;
 
   return {

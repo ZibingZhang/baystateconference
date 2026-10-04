@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
+import type { EventOption } from "../domain/ev3";
 import GridActionsToolbar from "./GridActionsToolbar";
 
 interface EntryGridToolbarProps {
   addLabel: string;
   addIcon: ReactNode;
-  eventOptions: string[] | undefined;
+  eventOptions: EventOption[] | undefined;
   entriesCount: number;
   onAdd: () => void;
   onImportCsv: () => void;

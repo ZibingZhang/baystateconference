@@ -9,6 +9,7 @@ import type {
   IndividualEntry,
   RelayEntry,
 } from "../types";
+import type { EventOption } from "../domain/ev3";
 import {
   isAdvancedSubTab,
   topLevelTabFor,
@@ -50,8 +51,8 @@ interface MeetTabsViewProps {
   onClearAllAthletes?: () => void;
   onReorderAthletes?: (orderedIds: string[]) => void;
 
-  individualEventOptions?: string[];
-  relayEventOptions?: string[];
+  individualEventOptions?: EventOption[];
+  relayEventOptions?: EventOption[];
   importedEvents: ImportedEvent[] | undefined;
   athleteEventLimits?: Partial<AthleteEventLimits>;
   onUpdateEventLimits?: (limits: Partial<AthleteEventLimits>) => void;
@@ -59,7 +60,7 @@ interface MeetTabsViewProps {
   onUpdateEventEntryLimits?: (limits: Partial<EventEntryLimits>) => void;
 
   onAddIndividualEntry?: () => void;
-  onBulkAddIndividualEntries?: (count: number, eventNames: string[]) => void;
+  onBulkAddIndividualEntries?: (count: number, eventNumbers: number[]) => void;
   onImportIndividualEntriesCsv?: (
     rows: { event: string; athleteId: string; seedTime: string }[],
   ) => void;
@@ -69,7 +70,7 @@ interface MeetTabsViewProps {
   onReorderIndividualEntries?: (orderedIds: string[]) => void;
 
   onAddRelayEntry?: () => void;
-  onBulkAddRelayEntries?: (count: number, eventNames: string[]) => void;
+  onBulkAddRelayEntries?: (count: number, eventNumbers: number[]) => void;
   onImportRelayEntriesCsv?: (
     rows: {
       event: string;
@@ -87,7 +88,7 @@ interface MeetTabsViewProps {
   onReorderRelayEntries?: (orderedIds: string[]) => void;
 
   eventsFileName: string | undefined;
-  onImportEvents?: (fileName: string, events: ImportedEvent[], rawText: string) => void;
+  onImportEvents?: (fileName: string, rawText: string) => void;
   onImportEventsError?: (message: string) => void;
   onClearImportedEvents?: () => void;
 }

@@ -8,6 +8,7 @@ import type {
   IndividualEntry,
   RelayEntry,
 } from "../types";
+import type { EventOption } from "../domain/ev3";
 import EditableDataGrid from "./EditableDataGrid";
 import EntryGridToolbar from "./EntryGridToolbar";
 import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
@@ -36,10 +37,10 @@ interface IndividualEntriesGridProps {
   relayEntries: RelayEntry[];
   athleteEventLimits?: Partial<AthleteEventLimits>;
   entryLimit?: number;
-  eventOptions?: string[];
+  eventOptions?: EventOption[];
   importedEvents?: ImportedEvent[];
   onAdd: () => void;
-  onBulkAdd: (count: number, eventNames: string[]) => void;
+  onBulkAdd: (count: number, eventNumbers: number[]) => void;
   onImportCsv: (rows: { event: string; athleteId: string; seedTime: string }[]) => void;
   onUpdate: (entry: IndividualEntry) => void;
   onDelete: (id: string) => void;
@@ -94,9 +95,12 @@ function IndividualEntriesGrid({
     relayEntries,
     athleteEventLimits,
   );
+  const eventNameByNumber = new Map(
+    (importedEvents ?? []).map((e) => [e.eventNumber, e.displayName]),
+  );
 
   const columns: GridColDef<IndividualEntry>[] = [
-    buildEventColumn<IndividualEntry>(eventOptions, importedEvents, entries, entryLimit),
+    buildEventColumn<IndividualEntry>(eventOptions, entries, entryLimit),
     withCellBadges<IndividualEntry>(
       {
         field: "athleteId",
@@ -111,7 +115,7 @@ function IndividualEntriesGrid({
           entries,
           individualEntryKey,
           (row, count) =>
-            `${athleteNameById.get(row.athleteId) ?? "This athlete"} is entered in ${row.event} ${count} times`,
+            `${athleteNameById.get(row.athleteId) ?? "This athlete"} is entered in ${eventNameByNumber.get(row.event) ?? "this event"} ${count} times`,
         ),
         athleteOverLimitBadgeProvider(["athleteId"], athleteOverLimitDetailById),
       ],
@@ -174,7 +178,7 @@ function IndividualEntriesGrid({
         fileNamePrefix="Individual Entries"
         headers={["Event", "Athlete", "Seed Time"]}
         rows={entries.map((entry) => [
-          entry.event,
+          eventNameByNumber.get(entry.event) ?? "",
           athleteNameById.get(entry.athleteId) ?? "",
           entry.seedTime,
         ])}

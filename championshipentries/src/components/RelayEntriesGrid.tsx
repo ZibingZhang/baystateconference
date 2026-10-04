@@ -8,6 +8,7 @@ import type {
   IndividualEntry,
   RelayEntry,
 } from "../types";
+import type { EventOption } from "../domain/ev3";
 import EditableDataGrid from "./EditableDataGrid";
 import EntryGridToolbar from "./EntryGridToolbar";
 import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
@@ -38,10 +39,10 @@ interface RelayEntriesGridProps {
   individualEntries: IndividualEntry[];
   athleteEventLimits?: Partial<AthleteEventLimits>;
   entryLimit?: number;
-  eventOptions?: string[];
+  eventOptions?: EventOption[];
   importedEvents?: ImportedEvent[];
   onAdd: () => void;
-  onBulkAdd: (count: number, eventNames: string[]) => void;
+  onBulkAdd: (count: number, eventNumbers: number[]) => void;
   onImportCsv: (
     rows: {
       event: string;
@@ -118,6 +119,9 @@ function RelayEntriesGrid({
     entries,
     athleteEventLimits,
   );
+  const eventNameByNumber = new Map(
+    (importedEvents ?? []).map((e) => [e.eventNumber, e.displayName]),
+  );
 
   const legColumn = (
     field: "leg1AthleteId" | "leg2AthleteId" | "leg3AthleteId" | "leg4AthleteId",
@@ -136,7 +140,7 @@ function RelayEntriesGrid({
     );
 
   const columns: GridColDef<RelayEntry>[] = [
-    buildEventColumn<RelayEntry>(eventOptions, importedEvents, entries, entryLimit),
+    buildEventColumn<RelayEntry>(eventOptions, entries, entryLimit),
     withCellBadges<RelayEntry>(
       {
         field: "relayLetter",
@@ -150,7 +154,8 @@ function RelayEntriesGrid({
         duplicateBadgeProvider(
           entries,
           relayEntryKey,
-          (row, count) => `Relay ${row.relayLetter} is entered ${count} times for ${row.event}`,
+          (row, count) =>
+            `Relay ${row.relayLetter} is entered ${count} times for ${eventNameByNumber.get(row.event) ?? "this event"}`,
         ),
       ],
     ),
@@ -234,7 +239,7 @@ function RelayEntriesGrid({
           "Seed Time",
         ]}
         rows={entries.map((entry) => [
-          entry.event,
+          eventNameByNumber.get(entry.event) ?? "",
           entry.relayLetter,
           athleteNameById.get(entry.leg1AthleteId) ?? "",
           athleteNameById.get(entry.leg2AthleteId) ?? "",

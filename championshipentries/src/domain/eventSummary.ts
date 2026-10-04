@@ -48,12 +48,6 @@ export function buildEventSummary(
   const individualEntryLimit = eventEntryLimits?.individualEventEntryLimit ?? 0;
   const relayEntryLimit = eventEntryLimits?.relayEventEntryLimit ?? 0;
   const athleteNameById = new Map(athletes.map((a) => [a.id, athleteFullName(a)]));
-  const eventNumberByName = new Map<string, number>();
-  for (const event of importedEvents) {
-    if (!eventNumberByName.has(event.displayName)) {
-      eventNumberByName.set(event.displayName, event.eventNumber);
-    }
-  }
 
   const individualDupCounts = countByKey(individualEntries, individualEntryKey);
   const relayDupCounts = countByKey(relayEntries, relayEntryKey);
@@ -68,7 +62,7 @@ export function buildEventSummary(
   const individualGroups: EventSummaryGroup[] = uniqueEventOptions(importedEvents, false).map(
     (option) => {
       const entries: EventSummaryEntry[] = individualEntries
-        .filter((e) => e.event === option.name)
+        .filter((e) => e.event === option.eventNumber)
         .map((e) => {
           const warnings: string[] = [];
           if ((individualDupCounts.get(individualEntryKey(e) ?? "") ?? 0) > 1) {
@@ -84,7 +78,7 @@ export function buildEventSummary(
           };
         });
       return {
-        eventNumber: eventNumberByName.get(option.name) ?? 0,
+        eventNumber: option.eventNumber,
         displayName: option.name,
         relay: false,
         entryLimit: individualEntryLimit,
@@ -97,7 +91,7 @@ export function buildEventSummary(
   const relayGroups: EventSummaryGroup[] = uniqueEventOptions(importedEvents, true).map(
     (option) => {
       const entries: EventSummaryEntry[] = relayEntries
-        .filter((e) => e.event === option.name)
+        .filter((e) => e.event === option.eventNumber)
         .map((e) => {
           const legAthleteIds = [
             e.leg1AthleteId,
@@ -125,7 +119,7 @@ export function buildEventSummary(
           };
         });
       return {
-        eventNumber: eventNumberByName.get(option.name) ?? 0,
+        eventNumber: option.eventNumber,
         displayName: option.name,
         relay: true,
         entryLimit: relayEntryLimit,

@@ -19,7 +19,7 @@ function clearAllConfirmMessage(count: number, singular: string, plural: string)
   return `Delete all ${count} ${count === 1 ? singular : plural}? This cannot be undone.`;
 }
 
-function blankIndividualEntry(event = ""): Omit<IndividualEntry, "id" | "meetId"> {
+function blankIndividualEntry(event = 0): Omit<IndividualEntry, "id" | "meetId"> {
   return { athleteId: "", event, seedTime: "" };
 }
 
@@ -36,9 +36,9 @@ export function useIndividualEntryActions(
 
   const deleteIndividualEntry = individualEntryCrud.deleteById;
 
-  const bulkAddIndividualEntries = (count: number, eventNames: string[]) =>
+  const bulkAddIndividualEntries = (count: number, eventNumbers: number[]) =>
     individualEntryCrud.addMany(
-      eventNames.flatMap((event) =>
+      eventNumbers.flatMap((event) =>
         Array.from({ length: count }, () => blankIndividualEntry(event)),
       ),
     );
@@ -47,7 +47,11 @@ export function useIndividualEntryActions(
     rows: { event: string; athleteId: string; seedTime: string }[],
   ) =>
     individualEntryCrud.addMany(
-      rows.map((row) => ({ athleteId: row.athleteId, event: row.event, seedTime: row.seedTime })),
+      rows.map((row) => ({
+        athleteId: row.athleteId,
+        event: Number.parseInt(row.event, 10) || 0,
+        seedTime: row.seedTime,
+      })),
     );
 
   const clearAllIndividualEntries = () => {

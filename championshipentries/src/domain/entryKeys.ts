@@ -1,11 +1,8 @@
 import type { IndividualEntry, RelayEntry } from "../types";
 
 /** Counts rows by a key, skipping rows whose key is undefined (e.g. not yet filled in). */
-export function countByKey<T>(
-  rows: T[],
-  keyFn: (row: T) => string | undefined,
-): Map<string, number> {
-  const map = new Map<string, number>();
+export function countByKey<T, K>(rows: T[], keyFn: (row: T) => K | undefined): Map<K, number> {
+  const map = new Map<K, number>();
   for (const row of rows) {
     const key = keyFn(row);
     if (key === undefined) continue;

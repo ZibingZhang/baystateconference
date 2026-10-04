@@ -56,8 +56,13 @@ export interface Meet extends Partial<AthleteEventLimits>, Partial<EventEntryLim
   name: string;
   teamCode?: string;
   importedEventsFileName?: string;
-  importedEvents?: ImportedEvent[];
-  /** Raw text of the imported EV3 file, kept so Export to HY3 can re-parse full event detail (age ranges, stroke, relay-vs-individual) that ImportedEvent doesn't carry. */
+  /**
+   * Raw text of the imported EV3 file. This is the sole source of truth for
+   * a meet's events — both the lightweight `ImportedEvent[]` summaries the UI
+   * uses (see `domain/ev3.ts`'s `parseImportedEvents`) and the full event
+   * detail (age ranges, stroke, relay-vs-individual) that Export to HY3 needs
+   * are derived from it on demand rather than stored separately.
+   */
   importedEventsRaw?: string;
 }
 
@@ -81,14 +86,16 @@ export interface IndividualEntry {
   id: string;
   meetId: string;
   athleteId: string;
-  event: string;
+  /** The event's EV3 eventNumber (ImportedEvent.eventNumber), or 0 if no event is selected. */
+  event: number;
   seedTime: string;
 }
 
 export interface RelayEntry {
   id: string;
   meetId: string;
-  event: string;
+  /** The event's EV3 eventNumber (ImportedEvent.eventNumber), or 0 if no event is selected. */
+  event: number;
   relayLetter: string;
   leg1AthleteId: string;
   leg2AthleteId: string;

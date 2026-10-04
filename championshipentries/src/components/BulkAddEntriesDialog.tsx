@@ -20,7 +20,7 @@ interface BulkAddEntriesDialogProps {
   events: ImportedEvent[] | undefined;
   relay: boolean;
   onClose: () => void;
-  onAdd: (count: number, eventNames: string[]) => void;
+  onAdd: (count: number, eventNumbers: number[]) => void;
 }
 
 function BulkAddEntriesDialog({
@@ -58,7 +58,10 @@ function BulkAddEntriesDialog({
 
   const handleSubmit = () => {
     if (!isValid) return;
-    onAdd(parsed, Array.from(selected));
+    const eventNumbers = options
+      .filter((option) => selected.has(option.name))
+      .map((option) => option.eventNumber);
+    onAdd(parsed, eventNumbers);
     handleClose();
   };
 

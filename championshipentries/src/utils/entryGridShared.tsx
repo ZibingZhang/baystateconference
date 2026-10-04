@@ -7,7 +7,7 @@ import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import type { Athlete, ImportedEvent } from "../types";
 import { athleteFullName, athleteNameMatchError, findAthleteIdByName } from "./athleteMatch";
 import { normalizeSeedTime } from "./seedTime";
-import { eventByDisplayName, validateSeedTime } from "../domain/ev3";
+import { eventByNumber, validateSeedTime, type EventOption } from "../domain/ev3";
 import { countByKey } from "../domain/entryKeys";
 import type { CsvImportColumn } from "../components/CsvImportDialog";
 import SeedTimeEditCell from "../components/SeedTimeEditCell";
@@ -15,19 +15,9 @@ import SeedTimeEditCell from "../components/SeedTimeEditCell";
 export const NO_EVENTS_TOOLTIP =
   "Import an EV3 events file on the Events tab before choosing an event.";
 
-export function matchEventName(value: string, options: string[]): string | undefined {
+export function matchEventOption(value: string, options: EventOption[]): EventOption | undefined {
   const target = value.toLowerCase();
-  return options.find((option) => option.toLowerCase() === target);
-}
-
-function buildEventNumberByName(importedEvents: ImportedEvent[] | undefined): Map<string, number> {
-  const map = new Map<string, number>();
-  for (const event of importedEvents ?? []) {
-    if (!map.has(event.displayName)) {
-      map.set(event.displayName, event.eventNumber);
-    }
-  }
-  return map;
+  return options.find((option) => option.name.toLowerCase() === target);
 }
 
 export function buildAthleteOptions(athletes: Athlete[]): { value: string; label: string }[] {
@@ -76,13 +66,11 @@ function renderSelectCellValue(value: string, editable: boolean, badge?: ReactNo
  * for duplicate entries and per-athlete event limits, so an over-limit
  * event is visible without needing to check the meet's actual roster.
  */
-export function buildEventColumn<T extends { event: string }>(
-  eventOptions: string[] | undefined,
-  importedEvents: ImportedEvent[] | undefined,
+export function buildEventColumn<T extends { event: number }>(
+  eventOptions: EventOption[] | undefined,
   rows?: T[],
   entryLimit?: number,
 ): GridColDef<T> {
-  const eventNumberByName = buildEventNumberByName(importedEvents);
   const countByEvent = countByKey(rows ?? [], (row) => row.event || undefined);
   const limit = entryLimit ?? 0;
   const editable = (eventOptions?.length ?? 0) > 0;
@@ -92,21 +80,20 @@ export function buildEventColumn<T extends { event: string }>(
     flex: 1,
     editable,
     type: "singleSelect",
-    valueOptions: eventOptions ?? [],
+    valueOptions: (eventOptions ?? []).map((o) => ({ value: o.eventNumber, label: o.name })),
     description: eventOptions?.length ? undefined : NO_EVENTS_TOOLTIP,
     sortComparator: (v1, v2) =>
-      (eventNumberByName.get(v1) ?? Number.MAX_SAFE_INTEGER) -
-      (eventNumberByName.get(v2) ?? Number.MAX_SAFE_INTEGER),
+      ((v1 as number) || Number.MAX_SAFE_INTEGER) - ((v2 as number) || Number.MAX_SAFE_INTEGER),
     renderCell: (params) => {
-      const value = params.formattedValue as string;
-      const count = countByEvent.get(value) ?? 0;
+      const label = params.formattedValue as string;
+      const count = countByEvent.get(params.row.event) ?? 0;
       const overLimit = limit > 0 && count > limit;
       const badge = overLimit ? (
         <Tooltip title={`${count} entries exceeds the limit of ${limit} for this event`}>
           <WarningAmberIcon fontSize="small" sx={{ color: "error.main" }} />
         </Tooltip>
       ) : undefined;
-      return renderSelectCellValue(value, editable, badge);
+      return renderSelectCellValue(label, editable, badge);
     },
   };
 }
@@ -181,15 +168,15 @@ export function athleteOverLimitBadgeProvider<T>(
   };
 }
 
-export function buildEventCsvColumn(eventOptions: string[] | undefined): CsvImportColumn {
+export function buildEventCsvColumn(eventOptions: EventOption[] | undefined): CsvImportColumn {
   return {
     key: "event",
     label: "Event",
     validate: (value) =>
-      matchEventName(value, eventOptions ?? []) !== undefined
+      matchEventOption(value, eventOptions ?? []) !== undefined
         ? undefined
         : "Event does not match an imported event name.",
-    transform: (value) => matchEventName(value, eventOptions ?? []) ?? value,
+    transform: (value) => String(matchEventOption(value, eventOptions ?? [])?.eventNumber ?? ""),
   };
 }
 
@@ -200,18 +187,18 @@ export function buildEventCsvColumn(eventOptions: string[] | undefined): CsvImpo
  * Enter/Tab/blur commit it — `onBlockedCommit` is how the caller learns why,
  * so it can show a banner without the cell losing its place.
  */
-export function buildSeedTimeColumn<T extends { seedTime: string; event: string }>(
+export function buildSeedTimeColumn<T extends { seedTime: string; event: number }>(
   importedEvents: ImportedEvent[] | undefined,
   onBlockedCommit: (message: string, refocus: () => void) => void,
 ): GridColDef<T> {
-  const eventsByName = eventByDisplayName(importedEvents ?? []);
+  const eventsByNumber = eventByNumber(importedEvents ?? []);
   return {
     field: "seedTime",
     headerName: "Seed Time",
     flex: 1,
     editable: true,
     preProcessEditCellProps: (params) => {
-      const event = eventsByName.get((params.row as T).event);
+      const event = eventsByNumber.get((params.row as T).event);
       const { errorMessage } = validateSeedTime(String(params.props.value ?? ""), event);
       return { ...params.props, error: Boolean(errorMessage), errorMessage };
     },

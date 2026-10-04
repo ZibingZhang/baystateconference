@@ -69,7 +69,7 @@ export function buildTemplateIndividualEntries(
         id: newId(),
         meetId,
         athleteId: "",
-        event: option.name,
+        event: option.eventNumber,
         seedTime: "",
       })),
     );
@@ -88,7 +88,7 @@ export function buildTemplateRelayEntries(
       Array.from({ length: entriesPerEvent }, (_, index) => ({
         id: newId(),
         meetId,
-        event: option.name,
+        event: option.eventNumber,
         relayLetter: RELAY_LETTERS[index % RELAY_LETTERS.length],
         leg1AthleteId: "",
         leg2AthleteId: "",
