@@ -2,6 +2,8 @@
 
 A website for the Bay State Conference, a Massachusetts high school athletic conference. Built with [Jekyll](https://jekyllrb.com/) and deployed to GitHub Pages by `.github/workflows/jekyll.yaml`.
 
+See `CLAUDE.md` for repo layout and AI-assistant operating notes.
+
 ## Local development
 
 ```
