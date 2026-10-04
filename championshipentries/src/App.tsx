@@ -26,6 +26,7 @@ import { useAthleteActions } from "./hooks/useAthleteActions";
 import { useIndividualEntryActions } from "./hooks/useIndividualEntryActions";
 import { useRelayEntryActions } from "./hooks/useRelayEntryActions";
 import { useHy3Export } from "./hooks/useHy3Export";
+import { useMeetBackup } from "./hooks/useMeetBackup";
 
 function App() {
   const [data, setData] = useAppData();
@@ -71,6 +72,7 @@ function App() {
     showConfirm,
   });
   const hy3Export = useHy3Export(data, history, selectedMeetId, { showInfo, showConfirm });
+  const meetBackup = useMeetBackup(data, history, { setSelectedMeetId, showInfo });
   const { selectedTemplateId, selectedTemplate, templateData } = template;
 
   if (!view && !selectedTemplateId && !data.meets.some((m) => m.id === selectedMeetId)) {
@@ -129,6 +131,8 @@ function App() {
           onDeleteMeet={meetActions.deleteMeet}
           onCopyMeet={meetActions.copyMeet}
           onRenameMeet={meetActions.renameMeet}
+          onExportMeet={meetBackup.exportMeet}
+          onImportMeetFile={meetBackup.importMeetFile}
           templates={MEET_TEMPLATES}
           selectedTemplateId={selectedTemplateId}
           onSelectTemplate={template.selectTemplate}
