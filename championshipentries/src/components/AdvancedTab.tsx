@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import CircularProgress from "@mui/material/CircularProgress";
 import type {
   Athlete,
   AthleteEventLimits,
@@ -12,13 +9,14 @@ import type {
   Meet,
   RelayEntry,
 } from "../types";
-import { buildHy3File } from "../domain/hy3Export";
-import { fetchHighSchools } from "../domain/highSchools";
+import type { AdvancedSubTab } from "../constants/meetTabs";
+import Ev3Tab from "./Ev3Tab";
+import Hy3Tab from "./Hy3Tab";
 import SettingsTab from "./SettingsTab";
 
-type AdvancedSubTab = "ev3" | "hy3" | "settings";
-
 interface AdvancedTabProps {
+  subTab: AdvancedSubTab;
+  onSubTabChange: (tab: AdvancedSubTab) => void;
   meet: Meet;
   athletes: Athlete[];
   individualEntries: IndividualEntry[];
@@ -31,29 +29,9 @@ interface AdvancedTabProps {
   onReadOnlyAttempt?: () => void;
 }
 
-function CodeView({ text }: { text: string }) {
-  return (
-    <Box
-      component="pre"
-      sx={{
-        flex: 1,
-        minHeight: 0,
-        m: 0,
-        p: 1.5,
-        overflow: "auto",
-        fontFamily: "monospace",
-        fontSize: 12,
-        bgcolor: "action.hover",
-        borderRadius: 1,
-        whiteSpace: "pre",
-      }}
-    >
-      {text}
-    </Box>
-  );
-}
-
 function AdvancedTab({
+  subTab,
+  onSubTabChange,
   meet,
   athletes,
   individualEntries,
@@ -65,49 +43,11 @@ function AdvancedTab({
   readOnly,
   onReadOnlyAttempt,
 }: AdvancedTabProps) {
-  const [subTab, setSubTab] = useState<AdvancedSubTab>("ev3");
-  const [hy3Content, setHy3Content] = useState<string | null>(null);
-  const [hy3Error, setHy3Error] = useState<string | null>(null);
-  const [hy3Loading, setHy3Loading] = useState(true);
-
-  useEffect(() => {
-    let cancelled = false;
-    setHy3Loading(true);
-    setHy3Error(null);
-    setHy3Content(null);
-
-    const build = (highSchool: Parameters<typeof buildHy3File>[4]) => {
-      if (cancelled) return;
-      const result = buildHy3File(meet, athletes, individualEntries, relayEntries, highSchool);
-      if ("error" in result) {
-        setHy3Error(result.error);
-      } else {
-        setHy3Content(result.content);
-      }
-      setHy3Loading(false);
-    };
-
-    if (!meet.teamCode) {
-      build(undefined);
-      return;
-    }
-    fetchHighSchools()
-      .then((highSchools) => build(highSchools.find((h) => h.code === meet.teamCode)))
-      .catch(() => build(undefined));
-
-    return () => {
-      cancelled = true;
-    };
-    // Deliberately built once per visit to this tab (meet.id), not on every
-    // athlete/entry edit made while the tab is not showing.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [meet.id]);
-
   return (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <Tabs
         value={subTab}
-        onChange={(_, value: AdvancedSubTab) => setSubTab(value)}
+        onChange={(_, value: AdvancedSubTab) => onSubTabChange(value)}
         sx={{ borderBottom: 1, borderColor: "divider", minHeight: 36, mb: 1 }}
       >
         <Tab label="EV3 File" value="ev3" sx={{ minHeight: 36 }} />
@@ -115,27 +55,19 @@ function AdvancedTab({
         <Tab label="Settings" value="settings" sx={{ minHeight: 36 }} />
       </Tabs>
       <Box sx={{ flex: 1, minHeight: 0, display: "flex" }}>
-        {subTab === "ev3" &&
-          (meet.importedEventsRaw ? (
-            <CodeView text={meet.importedEventsRaw} />
-          ) : (
-            <Typography color="text.secondary" sx={{ p: 1 }}>
-              No EV3 file has been imported for this meet yet. Import one on the Events tab.
-            </Typography>
-          ))}
-        {subTab === "hy3" &&
-          (hy3Loading ? (
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1, p: 1 }}>
-              <CircularProgress size={18} />
-              <Typography color="text.secondary">Generating HY3 preview...</Typography>
-            </Box>
-          ) : hy3Error ? (
-            <Typography color="text.secondary" sx={{ p: 1 }}>
-              {hy3Error}
-            </Typography>
-          ) : (
-            <CodeView text={hy3Content ?? ""} />
-          ))}
+        {/* EV3/HY3 stay mounted while switching sub-tabs so the HY3 preview
+            isn't rebuilt every time you flip to Settings and back. */}
+        <Box sx={{ display: subTab === "ev3" ? "flex" : "none", flex: 1, minHeight: 0 }}>
+          <Ev3Tab importedEventsRaw={meet.importedEventsRaw} />
+        </Box>
+        <Box sx={{ display: subTab === "hy3" ? "flex" : "none", flex: 1, minHeight: 0 }}>
+          <Hy3Tab
+            meet={meet}
+            athletes={athletes}
+            individualEntries={individualEntries}
+            relayEntries={relayEntries}
+          />
+        </Box>
         {subTab === "settings" && (
           <Box sx={{ p: 1 }}>
             <SettingsTab

@@ -9,7 +9,12 @@ import type {
   IndividualEntry,
   RelayEntry,
 } from "../types";
-import type { MeetTab } from "../constants/meetTabs";
+import {
+  isAdvancedSubTab,
+  topLevelTabFor,
+  type MeetTab,
+  type TopLevelMeetTab,
+} from "../constants/meetTabs";
 import AthletesGrid from "./AthletesGrid";
 import IndividualEntriesGrid from "./IndividualEntriesGrid";
 import RelayEntriesGrid from "./RelayEntriesGrid";
@@ -133,11 +138,22 @@ function MeetTabsView({
   onImportEventsError,
   onClearImportedEvents,
 }: MeetTabsViewProps) {
+  const topLevelTab = topLevelTabFor(activeTab);
+  const handleTopLevelTabChange = (_: unknown, value: TopLevelMeetTab) => {
+    if (value === "advanced") {
+      if (!isAdvancedSubTab(activeTab)) {
+        onTabChange("ev3");
+      }
+      return;
+    }
+    onTabChange(value);
+  };
+
   return (
     <>
       <Tabs
-        value={activeTab}
-        onChange={(_, value: MeetTab) => onTabChange(value)}
+        value={topLevelTab}
+        onChange={handleTopLevelTabChange}
         sx={{ borderBottom: 1, borderColor: "divider", px: 1 }}
       >
         <Tab label="Team" value="team" />
@@ -226,8 +242,10 @@ function MeetTabsView({
             eventEntryLimits={eventEntryLimits}
           />
         )}
-        {activeTab === "advanced" && (
+        {isAdvancedSubTab(activeTab) && (
           <AdvancedTab
+            subTab={activeTab}
+            onSubTabChange={onTabChange}
             meet={{ id: meetId, name: meetName, teamCode, importedEventsRaw }}
             athletes={athletes}
             individualEntries={individualEntries}
