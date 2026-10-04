@@ -2,19 +2,26 @@
 
 Reverse-engineered from real Hy-Tek Meet Manager exports and cross-checked against the [SwimComm/hytek-parser](https://github.com/SwimComm/hytek-parser) HY3 field definitions, since EV3 and HY3 share the same underlying Hy-Tek data model (gender/stroke/course codes, event numbering).
 
-**There is no public Hy-Tek specification for EV3.** Every field below was derived by diffing three real files byte-for-byte. Fields are marked:
+**There is no public Hy-Tek specification for EV3.**
+Every field below was derived by diffing three real files byte-for-byte.
+Fields are marked:
 - ✅ **Confirmed** — value pattern leaves no reasonable ambiguity, usually because it matches a known HY3 enum or is cross-validated against the paired HY3 output file.
-- ⚠️ **Inferred** — a plausible, evidence-backed guess. Good enough to round-trip, but semantics could be subtly wrong.
-- ❓ **Unknown** — value observed and stable, meaning not determined. A parser should preserve it opaquely (round-trip it verbatim) rather than interpret it.
+- ⚠️ **Inferred** — a plausible, evidence-backed guess.
+  Good enough to round-trip, but semantics could be subtly wrong.
+- ❓ **Unknown** — value observed and stable, meaning not determined.
+  A parser should preserve it opaquely (round-trip it verbatim) rather than interpret it.
 
 ## 1. Container format
 
 - **Encoding**: ASCII / Windows-1252 (no multi-byte characters observed; treat as `latin1` to be safe against stray high bytes, same as HY3).
 - **Line ending**: CRLF (`\r\n`), confirmed via `file` and hex dump.
 - **Record separator**: none needed — one record per line.
-- **Field separator**: semicolon (`;`). Fields are **not** fixed-width and **not** quoted — a literal `;` inside a text field would break parsing (not observed in samples, but no escaping mechanism exists either, so treat as a real risk with e.g. meet names).
-- **Record terminator**: every line ends with the literal 2-byte sequence `*>` immediately before the CRLF. This is a plain terminator, **not a checksum** — unlike HY3, EV3 records carry no checksum at all (no fixed width to protect via checksum).
-- **No record-type prefix.** Every line is positional: line 1 is always the meet-header record; every subsequent line is an event record. There is nothing analogous to HY3's `A1`/`B1`/`E1` two-letter codes.
+- **Field separator**: semicolon (`;`).
+  Fields are **not** fixed-width and **not** quoted — a literal `;` inside a text field would break parsing (not observed in samples, but no escaping mechanism exists either, so treat as a real risk with e.g. meet names).
+- **Record terminator**: every line ends with the literal 2-byte sequence `*>` immediately before the CRLF.
+  This is a plain terminator, **not a checksum** — unlike HY3, EV3 records carry no checksum at all (no fixed width to protect via checksum).
+- **No record-type prefix.** Every line is positional: line 1 is always the meet-header record; every subsequent line is an event record.
+  There is nothing analogous to HY3's `A1`/`B1`/`E1` two-letter codes.
 - **File-level structure**:
   ```
   <meet header line>*>\r\n
@@ -139,12 +146,14 @@ One line per scheduled event. Sample (girls 200 medley relay, from the Bay State
 
 ### Cross-file consistency actually observed
 
-- Fields 27–29 are **entirely determined** by (a) whether the event is diving, and (b) the event's gender code (field 6) — they are not independent per-event data, just a per-meet template stamped onto every line. A parser does not need to trust their values; it can safely recompute them from fields 6 and 10 if round-tripping through a system that regenerates EV3, but **should preserve them verbatim when merely relaying the file**, since their true source-of-truth semantics aren't fully confirmed.
+- Fields 27–29 are **entirely determined** by (a) whether the event is diving, and (b) the event's gender code (field 6) — they are not independent per-event data, just a per-meet template stamped onto every line.
+  A parser does not need to trust their values; it can safely recompute them from fields 6 and 10 if round-tripping through a system that regenerates EV3, but **should preserve them verbatim when merely relaying the file**, since their true source-of-truth semantics aren't fully confirmed.
 - Diving events (`F`/`G`/`H` stroke) consistently zero out fields 22–30's "scoring/lane" template (`27,28,29,30` all `0`), and repurpose field 11 for dive count instead of fee.
 
 ## 4. Known limitation vs. real-world Meet Manager
 
-Only 3 sample files (1 dual meet, 2 MIAA sectionals, all high-school swimming, all single-day, all SCY) were available to reverse this spec. Fields marked ❓ **Unknown** should be:
+Only 3 sample files (1 dual meet, 2 MIAA sectionals, all high-school swimming, all single-day, all SCY) were available to reverse this spec.
+Fields marked ❓ **Unknown** should be:
 1. Parsed and stored opaquely (not discarded) so a round-trip write reproduces the original file byte-for-byte for those columns.
 2. Never relied upon for business logic in the entries pipeline.
 
@@ -152,4 +161,6 @@ If a wider corpus becomes available (multi-day meets, LCM/SCM courses, club meet
 
 ## 5. Relationship to HY3 (summary)
 
-EV3 is the **input** to the meet-entry workflow: the conference host exports it from Meet Manager and distributes it to member schools. Each school imports the EV3 into their own Meet Manager, adds their swimmers' entries (drawing on each swimmer's historical best times to auto-seed), and exports a **HY3** file back to the host, who imports it to merge entries across all schools. See [hy3-spec.md §12](hy3-spec.md#12-relationship-to-ev3) for the full mapping table (event number identity, stroke/gender/course code reuse, the diving distance↔dive-count fold, and the course/meet-type code echoed into `B2`).
+EV3 is the **input** to the meet-entry workflow: the conference host exports it from Meet Manager and distributes it to member schools.
+Each school imports the EV3 into their own Meet Manager, adds their swimmers' entries (drawing on each swimmer's historical best times to auto-seed), and exports a **HY3** file back to the host, who imports it to merge entries across all schools.
+See [hy3-spec.md §12](hy3-spec.md#12-relationship-to-ev3) for the full mapping table (event number identity, stroke/gender/course code reuse, the diving distance↔dive-count fold, and the course/meet-type code echoed into `B2`).

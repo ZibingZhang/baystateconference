@@ -11,7 +11,8 @@ Reach out to {% include obfuscated-email.html email="zibing_zhang@needham.k12.ma
 
 ## What we're missing
 
-Below is a running list of known gaps in the archive, based what's already on file against the expected pattern for each era of MIAA's divisional structure. If you have any of these, please get in touch.
+Below is a running list of known gaps in the archive, based what's already on file against the expected pattern for each era of MIAA's divisional structure.
+If you have any of these, please get in touch.
 
 ### Full-year gaps (MIAA)
 

@@ -4,19 +4,25 @@ Derived primarily from the [SwimComm/hytek-parser](https://github.com/SwimComm/h
 
 Confidence markers used throughout:
 - ✅ **Confirmed** — matches the reference library **and** was independently re-derived from our real sample bytes.
-- 📚 **From reference library, unverified here** — our samples are *entries* files (pre-meet) and contain no result data, so record types that only appear in *results* exports (`E2`, `F2`, `G1`, `H1`, `H2`) could not be independently re-checked against real bytes. Treat these as reliable (they come from a well-tested library) but not double-verified.
-- ⚠️ **Observed anomaly** — our real data disagrees with, or falls outside, the reference library's documented column range. Called out explicitly.
+- 📚 **From reference library, unverified here** — our samples are *entries* files (pre-meet) and contain no result data, so record types that only appear in *results* exports (`E2`, `F2`, `G1`, `H1`, `H2`) could not be independently re-checked against real bytes.
+  Treat these as reliable (they come from a well-tested library) but not double-verified.
+- ⚠️ **Observed anomaly** — our real data disagrees with, or falls outside, the reference library's documented column range.
+  Called out explicitly.
 - ❓ **Unknown** — byte range observed but meaning not determined.
 
 ## 1. Container format
 
-- **Encoding**: ASCII / Windows-1252. Use `latin1` when reading in JS to safely pass through any stray high bytes without throwing.
+- **Encoding**: ASCII / Windows-1252.
+  Use `latin1` when reading in JS to safely pass through any stray high bytes without throwing.
 - **Line ending**: CRLF (`\r\n`) — confirmed via hex dump of real files.
 - **Record length**: every record is **exactly 130 bytes** before the CRLF: **128 bytes of fixed-width content**, followed by a **2-byte decimal checksum**. Confirmed on all 135 records across both sample files — no exceptions, regardless of record type.
-- **Columns are 1-indexed** throughout this document (matching how Hy-Tek's own tooling and the reference library describe them) and **inclusive** on both ends. A field described as "cols 4–8" is 5 characters wide.
-- **Field padding**: text fields are left-justified and space-padded to width; numeric ID fields are right-justified and space-padded (e.g. a swimmer meet-id of `1` in a 5-wide column renders as `    1`). Fields that don't apply to a given record are left as spaces, not omitted — the column position is what identifies a field, there is no delimiter.
+- **Columns are 1-indexed** throughout this document (matching how Hy-Tek's own tooling and the reference library describe them) and **inclusive** on both ends.
+  A field described as "cols 4–8" is 5 characters wide.
+- **Field padding**: text fields are left-justified and space-padded to width; numeric ID fields are right-justified and space-padded (e.g. a swimmer meet-id of `1` in a 5-wide column renders as `    1`).
+  Fields that don't apply to a given record are left as spaces, not omitted — the column position is what identifies a field, there is no delimiter.
 - **No `*>` terminator** (unlike EV3) — the checksum's presence at a fixed offset is what marks record end.
-- **No record framing/escaping** — a record is entirely positional. Two-character record-type codes appear at columns 1–2 of every record and determine how to interpret the remaining 126 content bytes.
+- **No record framing/escaping** — a record is entirely positional.
+  Two-character record-type codes appear at columns 1–2 of every record and determine how to interpret the remaining 126 content bytes.
 
 ### Extraction helper (used throughout this spec, matches the reference library's `extract()`)
 
@@ -30,7 +36,8 @@ function extract(line, start1Based, length) {
 
 ## 2. Checksum algorithm (reverse-engineered and verified)
 
-The public reference library explicitly does **not** implement checksum validation (`raise NotImplementedError`). This section is derived independently and **verified to match all 135 real records** across both sample files with zero mismatches, so it can be trusted for both validating and writing HY3 files.
+The public reference library explicitly does **not** implement checksum validation (`raise NotImplementedError`).
+This section is derived independently and **verified to match all 135 real records** across both sample files with zero mismatches, so it can be trusted for both validating and writing HY3 files.
 
 Given the 128-byte content of a record (**before** appending the 2-digit checksum):
 
@@ -39,7 +46,8 @@ Given the 128-byte content of a record (**before** appending the 2-digit checksu
 3. `total = sumEven + sumOdd`
 4. `divided = Math.floor(total / 21)`
 5. `raw = divided + 205`
-6. Take `raw mod 100` → a 2-digit number (zero-padded, e.g. `07`). The checksum's **first character is the ones digit, second character is the tens digit** — i.e. the two digits are written in **reverse** order versus normal decimal notation.
+6. Take `raw mod 100` → a 2-digit number (zero-padded, e.g. `07`).
+   The checksum's **first character is the ones digit, second character is the tens digit** — i.e. the two digits are written in **reverse** order versus normal decimal notation.
 
 ```js
 function hy3Checksum(body /* exactly 128 chars */) {
@@ -92,12 +100,17 @@ B2                          meet info, secondary                   (exactly 1)
 Notes derived from the real sample file (single team, 26 swimmers, 20 individual entries, 6 relay legs across 3 relay events):
 
 - **Grouping is by swimmer, not by event.** All `D1`/`E1` records for one team are emitted together, swimmers in roughly alphabetical order by last name; a swimmer's `E1` line(s) immediately follow their own `D1` line.
-- **Relay-only swimmers still get a standalone `D1` line** with no `E1` lines following it — their participation is declared later, once, via the `F3` roster line under each relay they actually swim. In the sample file, 5 of 26 `D1` swimmers (Huffenus, Kraft, O'Brien, Richmond, Saranathan) have no individual `E1` entries and appear only in `F3` legs.
+- **Relay-only swimmers still get a standalone `D1` line** with no `E1` lines following it — their participation is declared later, once, via the `F3` roster line under each relay they actually swim.
+  In the sample file, 5 of 26 `D1` swimmers (Huffenus, Kraft, O'Brien, Richmond, Saranathan) have no individual `E1` entries and appear only in `F3` legs.
 - **`E1` never repeats for a given (swimmer, event) pair** — even if that swimmer's entry is later updated (e.g. seed time changes), Meet Manager holds one `E1` per entry and appends result rounds (`E2`) after it, not new `E1`s.
-- **`F1`/`F3` are always paired** — every `F1` (a relay entry: which team, which letter — `A`/`B`/`C`... — for which event) is immediately followed by exactly one `F3` (the roster of swimmers who actually swam that relay, up to 8 legs for multi-leg medley/relay formats). All `F1`/`F3` pairs in the sample appear at the **end of the file**, after every team's `D1`/`E1` block, ordered event-number-then-letter (event 1 letters A/B/C, then event 17 letters A/B/C, then event 23 letters A/B/C).
-- **Multi-team ordering** (C-block repeating per team) is inferred from the reference library's design — it tracks a stateful "last team" pointer that `D1` records attach to — but our real samples contain only one team each, so this could not be independently confirmed byte-for-byte. If you obtain a genuinely multi-team merged HY3 (e.g. a host's consolidated entries file across all conference schools), verify this ordering before relying on it.
-- **`Z0` was never observed** in either real sample — both files end immediately after the last `F3` record, no trailing sentinel. The reference library treats `Z0` as optional and synthesizes one internally if missing, purely so its parsing loop has a defined stop condition; **do not require `Z0` on read, and it's optional to emit on write** (omitting it matches what Meet Manager itself produces).
-- **`E2`/`F2`/`G1`/`H1`/`H2` never appear in an entries-only export** (they describe swim *results* — times, places, splits, DQs). They will appear when parsing a **results** HY3 (post-meet, e.g. exported for a `.hy3` results-import step or scored-meet backup), which is out of scope for the meet-entries workflow but documented below (§7.2, §8.2, §9–10) since the same file extension and grammar cover both use cases.
+- **`F1`/`F3` are always paired** — every `F1` (a relay entry: which team, which letter — `A`/`B`/`C`... — for which event) is immediately followed by exactly one `F3` (the roster of swimmers who actually swam that relay, up to 8 legs for multi-leg medley/relay formats).
+  All `F1`/`F3` pairs in the sample appear at the **end of the file**, after every team's `D1`/`E1` block, ordered event-number-then-letter (event 1 letters A/B/C, then event 17 letters A/B/C, then event 23 letters A/B/C).
+- **Multi-team ordering** (C-block repeating per team) is inferred from the reference library's design — it tracks a stateful "last team" pointer that `D1` records attach to — but our real samples contain only one team each, so this could not be independently confirmed byte-for-byte.
+  If you obtain a genuinely multi-team merged HY3 (e.g. a host's consolidated entries file across all conference schools), verify this ordering before relying on it.
+- **`Z0` was never observed** in either real sample — both files end immediately after the last `F3` record, no trailing sentinel.
+  The reference library treats `Z0` as optional and synthesizes one internally if missing, purely so its parsing loop has a defined stop condition; **do not require `Z0` on read, and it's optional to emit on write** (omitting it matches what Meet Manager itself produces).
+- **`E2`/`F2`/`G1`/`H1`/`H2` never appear in an entries-only export** (they describe swim *results* — times, places, splits, DQs).
+  They will appear when parsing a **results** HY3 (post-meet, e.g. exported for a `.hy3` results-import step or scored-meet backup), which is out of scope for the meet-entries workflow but documented below (§7.2, §8.2, §9–10) since the same file extension and grammar cover both use cases.
 
 ## 4. Shared value encodings
 
@@ -216,7 +229,8 @@ Real sample: `C3                                                                
 
 ### 6.4 `C4` — Unknown per-team/per-file record ❓
 
-**Not present in the reference library at all** — `parse_hy3` logs `Invalid line code: C4` and skips it when this exact real file is run through it. Observed once in our sample, immediately after `C3` and before the first `D1`:
+**Not present in the reference library at all** — `parse_hy3` logs `Invalid line code: C4` and skips it when this exact real file is run through it.
+Observed once in our sample, immediately after `C3` and before the first `D1`:
 
 ```
 C4Kate Curtin
@@ -227,7 +241,9 @@ C4Kate Curtin
 | Record code | 1–2 | `C4` |
 | Free text | 3–128 | `Kate Curtin` left-justified, rest blank. |
 
-⚠️ Best guess only: given `C1` already carries two contact-name slots (meet contact + a secondary), `C4` plausibly holds the team's **head coach name** (a distinct role from the meet-entry contact). Only one team was present in our sample, so it's also unconfirmed whether `C4` is emitted once per team or once per file. A JS parser should recognize this record type (rather than erroring or silently dropping it like the reference library does) and preserve its raw text, without asserting strong semantics on it.
+⚠️ Best guess only: given `C1` already carries two contact-name slots (meet contact + a secondary), `C4` plausibly holds the team's **head coach name** (a distinct role from the meet-entry contact).
+Only one team was present in our sample, so it's also unconfirmed whether `C4` is emitted once per team or once per file.
+A JS parser should recognize this record type (rather than erroring or silently dropping it like the reference library does) and preserve its raw text, without asserting strong semantics on it.
 
 ## 7. Swimmer & individual-event records
 
