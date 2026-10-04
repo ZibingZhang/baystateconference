@@ -153,14 +153,16 @@ function MeetSidebar({
             key={template.id}
             disablePadding
             secondaryAction={
-              <IconButton
-                edge="end"
-                size="small"
-                aria-label="Copy template into a new meet"
-                onClick={() => onCopyTemplate(template.id)}
-              >
-                <ContentCopyIcon fontSize="small" />
-              </IconButton>
+              <Tooltip title="Copy template into a new meet">
+                <IconButton
+                  edge="end"
+                  size="small"
+                  aria-label="Copy template into a new meet"
+                  onClick={() => onCopyTemplate(template.id)}
+                >
+                  <ContentCopyIcon fontSize="small" />
+                </IconButton>
+              </Tooltip>
             }
           >
             <ListItemButton
@@ -210,9 +212,11 @@ function MeetSidebar({
             hidden
             onChange={handleImportFileChange}
           />
-          <IconButton size="small" onClick={onAddMeet} aria-label="Add meet">
-            <AddIcon fontSize="small" />
-          </IconButton>
+          <Tooltip title="Add meet">
+            <IconButton size="small" onClick={onAddMeet} aria-label="Add meet">
+              <AddIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
         </Box>
       </Box>
       <Divider />
@@ -225,30 +229,36 @@ function MeetSidebar({
               secondaryAction={
                 editingId === meet.id ? null : (
                   <Box sx={{ display: "flex" }}>
-                    <IconButton
-                      edge="end"
-                      size="small"
-                      aria-label="Copy meet"
-                      onClick={() => onCopyMeet(meet.id)}
-                    >
-                      <ContentCopyIcon fontSize="small" />
-                    </IconButton>
-                    <IconButton
-                      edge="end"
-                      size="small"
-                      aria-label="Export meet"
-                      onClick={() => onExportMeet(meet.id)}
-                    >
-                      <FileDownloadIcon fontSize="small" />
-                    </IconButton>
-                    <IconButton
-                      edge="end"
-                      size="small"
-                      aria-label="Delete meet"
-                      onClick={() => onDeleteMeet(meet.id)}
-                    >
-                      <DeleteIcon fontSize="small" />
-                    </IconButton>
+                    <Tooltip title="Copy meet">
+                      <IconButton
+                        edge="end"
+                        size="small"
+                        aria-label="Copy meet"
+                        onClick={() => onCopyMeet(meet.id)}
+                      >
+                        <ContentCopyIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Export meet">
+                      <IconButton
+                        edge="end"
+                        size="small"
+                        aria-label="Export meet"
+                        onClick={() => onExportMeet(meet.id)}
+                      >
+                        <FileDownloadIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Delete meet">
+                      <IconButton
+                        edge="end"
+                        size="small"
+                        aria-label="Delete meet"
+                        onClick={() => onDeleteMeet(meet.id)}
+                      >
+                        <DeleteIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
                   </Box>
                 )
               }
