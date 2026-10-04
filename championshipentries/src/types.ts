@@ -16,20 +16,30 @@ export interface ImportedEvent {
   qualifyingTime: string;
 }
 
-export interface MeetTemplate {
+/** Per-athlete entry-count limits for a meet, enforced only as a warning (see `domain/eventSummary.ts`) rather than a hard block. */
+export interface AthleteEventLimits {
+  /** Max number of individual events a single athlete may be entered in at this meet. */
+  maxIndividualEventsPerAthlete: number;
+  /** Max number of relay events a single athlete may be entered in at this meet. */
+  maxRelayEventsPerAthlete: number;
+  /** Max number of events (individual + relay combined) a single athlete may be entered in at this meet. */
+  maxTotalEventsPerAthlete: number;
+}
+
+export interface MeetTemplate extends AthleteEventLimits {
   id: string;
   name: string;
   /** Raw GitHub URL of the EV3 events file this template loads events/entries from. */
   ev3Url: string;
   /** Only entries for this gender are generated when the template is viewed or copied into a meet. */
   genderFilter: Gender;
-  /** Blank individual entries stubbed per individual event. Omit to use the EV3 entryLimit (falling back to 4). */
-  individualEntriesPerEvent?: number;
-  /** Blank relay entries stubbed per relay event. Omit to use the EV3 entryLimit (falling back to 4). */
-  relayEntriesPerEvent?: number;
+  /** Blank individual entries stubbed per individual event. Unrelated to ImportedEvent.entryLimit (the EV3-derived per-team cap) — this is purely how many rows the template pre-fills. */
+  individualEntryStubsPerEvent: number;
+  /** Blank relay entries stubbed per relay event. Unrelated to ImportedEvent.entryLimit (the EV3-derived per-team cap) — this is purely how many rows the template pre-fills. */
+  relayEntryStubsPerEvent: number;
 }
 
-export interface Meet {
+export interface Meet extends Partial<AthleteEventLimits> {
   id: string;
   name: string;
   teamCode?: string;

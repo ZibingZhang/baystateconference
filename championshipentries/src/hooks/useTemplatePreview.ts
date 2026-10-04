@@ -95,20 +95,23 @@ export function useTemplatePreview(
           importedEventsFileName: templateFileName(template.ev3Url),
           importedEvents: events,
           importedEventsRaw: rawText,
+          maxIndividualEventsPerAthlete: template.maxIndividualEventsPerAthlete,
+          maxRelayEventsPerAthlete: template.maxRelayEventsPerAthlete,
+          maxTotalEventsPerAthlete: template.maxTotalEventsPerAthlete,
         };
         const newIndividualEntries = buildTemplateIndividualEntries(
           newMeetId,
           events,
           template.genderFilter,
           newId,
-          template.individualEntriesPerEvent,
+          template.individualEntryStubsPerEvent,
         );
         const newRelayEntries = buildTemplateRelayEntries(
           newMeetId,
           events,
           template.genderFilter,
           newId,
-          template.relayEntriesPerEvent,
+          template.relayEntryStubsPerEvent,
         );
         history.update((prev) => ({
           ...prev,
@@ -135,7 +138,7 @@ export function useTemplatePreview(
       templateEvents,
       selectedTemplate.genderFilter,
       newId,
-      selectedTemplate.individualEntriesPerEvent,
+      selectedTemplate.individualEntryStubsPerEvent,
     );
   }, [selectedTemplate, templateEvents]);
   const templateRelayEntries = useMemo<RelayEntry[]>(() => {
@@ -145,7 +148,7 @@ export function useTemplatePreview(
       templateEvents,
       selectedTemplate.genderFilter,
       newId,
-      selectedTemplate.relayEntriesPerEvent,
+      selectedTemplate.relayEntryStubsPerEvent,
     );
   }, [selectedTemplate, templateEvents]);
   const templateIndividualEventOptions = templateEvents

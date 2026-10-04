@@ -185,6 +185,7 @@ function App() {
                   relayEventOptions={template.templateRelayEventOptions}
                   importedEvents={templateData.events}
                   eventsFileName={templateFileName(selectedTemplate.ev3Url)}
+                  athleteEventLimits={selectedTemplate}
                 />
               )}
             </>
@@ -210,6 +211,7 @@ function App() {
               individualEventOptions={individualEventOptions}
               relayEventOptions={relayEventOptions}
               importedEvents={selectedMeet.importedEvents}
+              athleteEventLimits={selectedMeet}
               onAddIndividualEntry={individualEntryActions.addIndividualEntry}
               onBulkAddIndividualEntries={individualEntryActions.bulkAddIndividualEntries}
               onImportIndividualEntriesCsv={individualEntryActions.importIndividualEntriesCsv}

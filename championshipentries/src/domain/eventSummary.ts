@@ -1,14 +1,22 @@
-import type { Athlete, ImportedEvent, IndividualEntry, RelayEntry } from "../types";
+import type {
+  Athlete,
+  AthleteEventLimits,
+  ImportedEvent,
+  IndividualEntry,
+  RelayEntry,
+} from "../types";
 import { uniqueEventOptions } from "./ev3";
 import { countByKey, individualEntryKey, relayEntryKey } from "./entryKeys";
 import { athleteFullName } from "../utils/athleteMatch";
+import { buildAthleteOverLimitDetailById } from "./athleteEventLimits";
 
 export interface EventSummaryEntry {
   key: string;
   label: string;
   detail?: string;
   seedTime: string;
-  duplicate: boolean;
+  /** Reasons this entry is flagged — a duplicate entry and/or an athlete over one of the meet's per-athlete event-count limits. Distinct from EventSummaryGroup.overLimit, which is the per-event team cap. Empty when the entry is clean. */
+  warnings: string[];
 }
 
 export interface EventSummaryGroup {
@@ -33,6 +41,7 @@ export function buildEventSummary(
   athletes: Athlete[],
   individualEntries: IndividualEntry[],
   relayEntries: RelayEntry[],
+  athleteEventLimits?: Partial<AthleteEventLimits>,
 ): EventSummaryGroup[] {
   const athleteNameById = new Map(athletes.map((a) => [a.id, athleteFullName(a)]));
   const eventNumberByName = new Map<string, number>();
@@ -45,16 +54,31 @@ export function buildEventSummary(
   const individualDupCounts = countByKey(individualEntries, individualEntryKey);
   const relayDupCounts = countByKey(relayEntries, relayEntryKey);
 
+  const athleteOverLimitDetailById = buildAthleteOverLimitDetailById(
+    athletes,
+    individualEntries,
+    relayEntries,
+    athleteEventLimits,
+  );
+
   const individualGroups: EventSummaryGroup[] = uniqueEventOptions(importedEvents, false).map(
     (option) => {
       const entries: EventSummaryEntry[] = individualEntries
         .filter((e) => e.event === option.name)
-        .map((e) => ({
-          key: e.id,
-          label: athleteNameById.get(e.athleteId) || "(no athlete)",
-          seedTime: e.seedTime,
-          duplicate: (individualDupCounts.get(individualEntryKey(e) ?? "") ?? 0) > 1,
-        }));
+        .map((e) => {
+          const warnings: string[] = [];
+          if ((individualDupCounts.get(individualEntryKey(e) ?? "") ?? 0) > 1) {
+            warnings.push("Duplicate entry");
+          }
+          const overLimitDetail = athleteOverLimitDetailById.get(e.athleteId);
+          if (overLimitDetail) warnings.push(overLimitDetail);
+          return {
+            key: e.id,
+            label: athleteNameById.get(e.athleteId) || "(no athlete)",
+            seedTime: e.seedTime,
+            warnings,
+          };
+        });
       return {
         eventNumber: eventNumberByName.get(option.name) ?? 0,
         displayName: option.name,
@@ -71,15 +95,29 @@ export function buildEventSummary(
       const entries: EventSummaryEntry[] = relayEntries
         .filter((e) => e.event === option.name)
         .map((e) => {
-          const legNames = [e.leg1AthleteId, e.leg2AthleteId, e.leg3AthleteId, e.leg4AthleteId].map(
-            (athleteId) => (athleteId ? athleteNameById.get(athleteId) || "(unknown)" : "—"),
+          const legAthleteIds = [
+            e.leg1AthleteId,
+            e.leg2AthleteId,
+            e.leg3AthleteId,
+            e.leg4AthleteId,
+          ];
+          const legNames = legAthleteIds.map((athleteId) =>
+            athleteId ? athleteNameById.get(athleteId) || "(unknown)" : "—",
           );
+          const legOverLimitDetails = legAthleteIds
+            .map((athleteId) => (athleteId ? athleteOverLimitDetailById.get(athleteId) : undefined))
+            .filter((detail): detail is string => detail !== undefined);
+          const warnings: string[] = [];
+          if ((relayDupCounts.get(relayEntryKey(e) ?? "") ?? 0) > 1) {
+            warnings.push("Duplicate entry");
+          }
+          warnings.push(...legOverLimitDetails);
           return {
             key: e.id,
             label: `Relay ${e.relayLetter || "?"}`,
             detail: legNames.join(", "),
             seedTime: e.seedTime,
-            duplicate: (relayDupCounts.get(relayEntryKey(e) ?? "") ?? 0) > 1,
+            warnings,
           };
         });
       return {

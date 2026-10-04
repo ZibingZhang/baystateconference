@@ -1,6 +1,12 @@
 import type { Gender, ImportedEvent, IndividualEntry, MeetTemplate, RelayEntry } from "../types";
 import { parseEv3, uniqueEventOptions } from "./ev3";
 
+const HIGH_SCHOOL_EVENT_LIMITS = {
+  maxIndividualEventsPerAthlete: 2,
+  maxRelayEventsPerAthlete: 3,
+  maxTotalEventsPerAthlete: 4,
+};
+
 export const MEET_TEMPLATES: MeetTemplate[] = [
   {
     id: "template-2025-fall-bay-state-conference",
@@ -8,6 +14,9 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     ev3Url:
       "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2025-fall-bay-state-conference.ev3",
     genderFilter: "G",
+    individualEntryStubsPerEvent: 4,
+    relayEntryStubsPerEvent: 4,
+    ...HIGH_SCHOOL_EVENT_LIMITS,
   },
   {
     id: "template-2025-fall-south-sectional",
@@ -15,14 +24,12 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     ev3Url:
       "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2025-fall-south-sectional.ev3",
     genderFilter: "G",
-    // Sectional rules allow only one (A) relay entry per event, and don't stub individual entries at all.
-    individualEntriesPerEvent: 0,
-    relayEntriesPerEvent: 1,
+    individualEntryStubsPerEvent: 0,
+    relayEntryStubsPerEvent: 1,
+    ...HIGH_SCHOOL_EVENT_LIMITS,
   },
 ];
 
-// Fallback only for events whose EV3 record doesn't carry a usable entryLimit (see ImportedEvent.entryLimit).
-const FALLBACK_ENTRIES_PER_EVENT = 4;
 const RELAY_LETTERS = ["A", "B", "C", "D"];
 
 export interface TemplateEvents {
@@ -49,21 +56,19 @@ export function buildTemplateIndividualEntries(
   events: ImportedEvent[],
   gender: Gender,
   newId: () => string,
-  entriesPerEvent?: number,
+  entriesPerEvent: number,
 ): IndividualEntry[] {
   return uniqueEventOptions(events, false)
     .filter((option) => option.gender === gender)
-    .flatMap((option) => {
-      const count =
-        entriesPerEvent ?? (option.entryLimit > 0 ? option.entryLimit : FALLBACK_ENTRIES_PER_EVENT);
-      return Array.from({ length: count }, () => ({
+    .flatMap((option) =>
+      Array.from({ length: entriesPerEvent }, () => ({
         id: newId(),
         meetId,
         athleteId: "",
         event: option.name,
         seedTime: "",
-      }));
-    });
+      })),
+    );
 }
 
 export function buildTemplateRelayEntries(
@@ -71,14 +76,12 @@ export function buildTemplateRelayEntries(
   events: ImportedEvent[],
   gender: Gender,
   newId: () => string,
-  entriesPerEvent?: number,
+  entriesPerEvent: number,
 ): RelayEntry[] {
   return uniqueEventOptions(events, true)
     .filter((option) => option.gender === gender)
-    .flatMap((option) => {
-      const count =
-        entriesPerEvent ?? (option.entryLimit > 0 ? option.entryLimit : FALLBACK_ENTRIES_PER_EVENT);
-      return Array.from({ length: count }, (_, index) => ({
+    .flatMap((option) =>
+      Array.from({ length: entriesPerEvent }, (_, index) => ({
         id: newId(),
         meetId,
         event: option.name,
@@ -88,6 +91,6 @@ export function buildTemplateRelayEntries(
         leg3AthleteId: "",
         leg4AthleteId: "",
         seedTime: "",
-      }));
-    });
+      })),
+    );
 }

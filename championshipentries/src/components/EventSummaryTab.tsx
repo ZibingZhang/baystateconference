@@ -4,14 +4,22 @@ import Typography from "@mui/material/Typography";
 import Chip from "@mui/material/Chip";
 import Tooltip from "@mui/material/Tooltip";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
-import type { Athlete, ImportedEvent, IndividualEntry, RelayEntry } from "../types";
+import type {
+  Athlete,
+  AthleteEventLimits,
+  ImportedEvent,
+  IndividualEntry,
+  RelayEntry,
+} from "../types";
 import { buildEventSummary } from "../domain/eventSummary";
+import { warningTooltip } from "../utils/entryGridShared";
 
 interface EventSummaryTabProps {
   importedEvents: ImportedEvent[] | undefined;
   athletes: Athlete[];
   individualEntries: IndividualEntry[];
   relayEntries: RelayEntry[];
+  athleteEventLimits?: Partial<AthleteEventLimits>;
 }
 
 function EventSummaryTab({
@@ -19,10 +27,18 @@ function EventSummaryTab({
   athletes,
   individualEntries,
   relayEntries,
+  athleteEventLimits,
 }: EventSummaryTabProps) {
   const groups = useMemo(
-    () => buildEventSummary(importedEvents ?? [], athletes, individualEntries, relayEntries),
-    [importedEvents, athletes, individualEntries, relayEntries],
+    () =>
+      buildEventSummary(
+        importedEvents ?? [],
+        athletes,
+        individualEntries,
+        relayEntries,
+        athleteEventLimits,
+      ),
+    [importedEvents, athletes, individualEntries, relayEntries, athleteEventLimits],
   );
 
   if (!importedEvents || importedEvents.length === 0) {
@@ -96,8 +112,8 @@ function EventSummaryTab({
                     {entry.detail ? ` — ${entry.detail}` : ""}
                     {entry.seedTime ? ` (${entry.seedTime})` : ""}
                   </Typography>
-                  {entry.duplicate && (
-                    <Tooltip title="Duplicate entry">
+                  {entry.warnings.length > 0 && (
+                    <Tooltip title={warningTooltip(entry.warnings)}>
                       <WarningAmberIcon fontSize="small" sx={{ color: "error.main" }} />
                     </Tooltip>
                   )}

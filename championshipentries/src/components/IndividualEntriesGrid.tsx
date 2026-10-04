@@ -1,7 +1,13 @@
 import { useMemo, useState } from "react";
 import type { GridColDef } from "@mui/x-data-grid";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
-import type { Athlete, ImportedEvent, IndividualEntry } from "../types";
+import type {
+  Athlete,
+  AthleteEventLimits,
+  ImportedEvent,
+  IndividualEntry,
+  RelayEntry,
+} from "../types";
 import EditableDataGrid from "./EditableDataGrid";
 import EntryGridToolbar from "./EntryGridToolbar";
 import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
@@ -9,7 +15,9 @@ import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
 import { useSeedTimeColumn } from "../hooks/useSeedTimeColumn";
 import { individualEntryKey } from "../domain/entryKeys";
+import { buildAthleteOverLimitDetailById } from "../domain/athleteEventLimits";
 import {
+  athleteOverLimitBadgeProvider,
   buildAthleteCsvColumn,
   buildAthleteNameById,
   buildAthleteOptions,
@@ -17,13 +25,16 @@ import {
   buildEventCsvColumn,
   buildSeedTimeColumn,
   buildSeedTimeCsvColumn,
-  withDuplicateBadge,
+  duplicateBadgeProvider,
+  withCellBadges,
 } from "../utils/entryGridShared";
 
 interface IndividualEntriesGridProps {
   meetId: string;
   entries: IndividualEntry[];
   athletes: Athlete[];
+  relayEntries: RelayEntry[];
+  athleteEventLimits?: Partial<AthleteEventLimits>;
   eventOptions?: string[];
   importedEvents?: ImportedEvent[];
   onAdd: () => void;
@@ -41,6 +52,8 @@ function IndividualEntriesGrid({
   meetId,
   entries,
   athletes,
+  relayEntries,
+  athleteEventLimits,
   eventOptions,
   importedEvents,
   onAdd,
@@ -73,10 +86,16 @@ function IndividualEntriesGrid({
 
   const athleteOptions = buildAthleteOptions(athletes);
   const athleteNameById = buildAthleteNameById(athletes);
+  const athleteOverLimitDetailById = buildAthleteOverLimitDetailById(
+    athletes,
+    entries,
+    relayEntries,
+    athleteEventLimits,
+  );
 
   const columns: GridColDef<IndividualEntry>[] = [
     buildEventColumn<IndividualEntry>(eventOptions, importedEvents, entries),
-    withDuplicateBadge<IndividualEntry>(
+    withCellBadges<IndividualEntry>(
       {
         field: "athleteId",
         headerName: "Athlete",
@@ -85,10 +104,15 @@ function IndividualEntriesGrid({
         type: "singleSelect",
         valueOptions: athleteOptions,
       },
-      entries,
-      individualEntryKey,
-      (row, count) =>
-        `${athleteNameById.get(row.athleteId) ?? "This athlete"} is entered in ${row.event} ${count} times.`,
+      [
+        duplicateBadgeProvider(
+          entries,
+          individualEntryKey,
+          (row, count) =>
+            `${athleteNameById.get(row.athleteId) ?? "This athlete"} is entered in ${row.event} ${count} times`,
+        ),
+        athleteOverLimitBadgeProvider(["athleteId"], athleteOverLimitDetailById),
+      ],
     ),
     buildSeedTimeColumn<IndividualEntry>(importedEvents, notifyBlockedEdit),
   ];

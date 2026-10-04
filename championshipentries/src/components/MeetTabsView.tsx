@@ -1,7 +1,13 @@
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import type { Athlete, ImportedEvent, IndividualEntry, RelayEntry } from "../types";
+import type {
+  Athlete,
+  AthleteEventLimits,
+  ImportedEvent,
+  IndividualEntry,
+  RelayEntry,
+} from "../types";
 import type { MeetTab } from "../constants/meetTabs";
 import AthletesGrid from "./AthletesGrid";
 import IndividualEntriesGrid from "./IndividualEntriesGrid";
@@ -41,6 +47,7 @@ interface MeetTabsViewProps {
   individualEventOptions?: string[];
   relayEventOptions?: string[];
   importedEvents: ImportedEvent[] | undefined;
+  athleteEventLimits?: Partial<AthleteEventLimits>;
 
   onAddIndividualEntry?: () => void;
   onBulkAddIndividualEntries?: (count: number, eventNames: string[]) => void;
@@ -99,6 +106,7 @@ function MeetTabsView({
   individualEventOptions,
   relayEventOptions,
   importedEvents,
+  athleteEventLimits,
   onAddIndividualEntry,
   onBulkAddIndividualEntries,
   onImportIndividualEntriesCsv,
@@ -164,6 +172,8 @@ function MeetTabsView({
             meetId={meetId}
             entries={individualEntries}
             athletes={athletes}
+            relayEntries={relayEntries}
+            athleteEventLimits={athleteEventLimits}
             eventOptions={individualEventOptions}
             importedEvents={importedEvents}
             onAdd={onAddIndividualEntry ?? noop}
@@ -182,6 +192,8 @@ function MeetTabsView({
             meetId={meetId}
             entries={relayEntries}
             athletes={athletes}
+            individualEntries={individualEntries}
+            athleteEventLimits={athleteEventLimits}
             eventOptions={relayEventOptions}
             importedEvents={importedEvents}
             onAdd={onAddRelayEntry ?? noop}
@@ -201,6 +213,7 @@ function MeetTabsView({
             athletes={athletes}
             individualEntries={individualEntries}
             relayEntries={relayEntries}
+            athleteEventLimits={athleteEventLimits}
           />
         )}
         {activeTab === "advanced" && (

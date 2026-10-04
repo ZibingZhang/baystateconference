@@ -41,7 +41,7 @@ export function buildAthleteNameById(athletes: Athlete[]): Map<string, string> {
   return new Map(athletes.map((a) => [a.id, athleteFullName(a)]));
 }
 
-/** Renders a singleSelect cell's text with an optional trailing badge and the dropdown arrow, mirroring `withSelectIcon`'s layout. */
+/** Renders a singleSelect cell's text with optional trailing badges and the dropdown arrow, mirroring `withSelectIcon`'s layout. */
 function renderSelectCellValue(value: string, editable: boolean, badge?: ReactNode) {
   return (
     <Box
@@ -115,33 +115,73 @@ export function buildEventColumn<T extends { event: string }>(
   };
 }
 
+/** Renders one or more warning messages as a single tooltip: plain text for one, a bulleted list for several. */
+export function warningTooltip(messages: string[]): ReactNode {
+  if (messages.length <= 1) return messages[0];
+  return (
+    <Box component="ul" sx={{ m: 0, pl: 2 }}>
+      {messages.map((message, i) => (
+        <li key={i}>{message}</li>
+      ))}
+    </Box>
+  );
+}
+
 /**
- * Wraps a singleSelect column so it shows a red warning icon when its row's
- * `keyFn` value repeats among `rows` — e.g. the same athlete entered twice in
- * the same event, or the same relay letter used twice in the same event.
+ * Wraps a singleSelect column so it shows a single warning icon when any
+ * badge provider flags the row — e.g. a duplicate entry and an over-limit
+ * athlete on the same cell are consolidated into one icon, hovering lists
+ * both reasons.
  */
-export function withDuplicateBadge<T extends { id: string }>(
+export function withCellBadges<T extends { id: string }>(
   column: GridColDef<T>,
-  rows: T[],
-  keyFn: (row: T) => string | undefined,
-  tooltip: (row: T, count: number) => string,
+  badgeProviders: Array<(row: T) => string | undefined>,
 ): GridColDef<T> {
-  const countByDupKey = countByKey(rows, keyFn);
   const editable = Boolean(column.editable);
   return {
     ...column,
     renderCell: (params) => {
-      const key = keyFn(params.row);
-      const count = key !== undefined ? (countByDupKey.get(key) ?? 0) : 0;
       const value = params.formattedValue as string;
+      const messages = badgeProviders
+        .map((provider) => provider(params.row))
+        .filter((message): message is string => message !== undefined);
       const badge =
-        count > 1 ? (
-          <Tooltip title={tooltip(params.row, count)}>
+        messages.length > 0 ? (
+          <Tooltip title={warningTooltip(messages)}>
             <WarningAmberIcon fontSize="small" sx={{ color: "error.main" }} />
           </Tooltip>
         ) : undefined;
       return renderSelectCellValue(value, editable, badge);
     },
+  };
+}
+
+/** Badge provider flagging a row whose `keyFn` value repeats among `rows` — e.g. the same athlete entered twice in the same event, or the same relay letter used twice in the same event. */
+export function duplicateBadgeProvider<T>(
+  rows: T[],
+  keyFn: (row: T) => string | undefined,
+  message: (row: T, count: number) => string,
+): (row: T) => string | undefined {
+  const countByDupKey = countByKey(rows, keyFn);
+  return (row) => {
+    const key = keyFn(row);
+    const count = key !== undefined ? (countByDupKey.get(key) ?? 0) : 0;
+    return count > 1 ? message(row, count) : undefined;
+  };
+}
+
+/** Badge provider flagging a row whose athlete id (one or more fields, for relay legs) is over one of the meet's per-athlete event limits. */
+export function athleteOverLimitBadgeProvider<T>(
+  athleteIdFields: (keyof T)[],
+  overLimitDetailByAthleteId: Map<string, string>,
+): (row: T) => string | undefined {
+  return (row) => {
+    const details = athleteIdFields
+      .map((field) => row[field] as unknown as string)
+      .filter(Boolean)
+      .map((athleteId) => overLimitDetailByAthleteId.get(athleteId))
+      .filter((detail): detail is string => detail !== undefined);
+    return details.length > 0 ? details.join("; ") : undefined;
   };
 }
 

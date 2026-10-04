@@ -1,7 +1,13 @@
 import { useMemo, useState } from "react";
 import type { GridColDef } from "@mui/x-data-grid";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
-import type { Athlete, ImportedEvent, RelayEntry } from "../types";
+import type {
+  Athlete,
+  AthleteEventLimits,
+  ImportedEvent,
+  IndividualEntry,
+  RelayEntry,
+} from "../types";
 import EditableDataGrid from "./EditableDataGrid";
 import EntryGridToolbar from "./EntryGridToolbar";
 import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
@@ -9,7 +15,9 @@ import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
 import { useSeedTimeColumn } from "../hooks/useSeedTimeColumn";
 import { relayEntryKey } from "../domain/entryKeys";
+import { buildAthleteOverLimitDetailById } from "../domain/athleteEventLimits";
 import {
+  athleteOverLimitBadgeProvider,
   buildAthleteCsvColumn,
   buildAthleteNameById,
   buildAthleteOptions,
@@ -17,7 +25,8 @@ import {
   buildEventCsvColumn,
   buildSeedTimeColumn,
   buildSeedTimeCsvColumn,
-  withDuplicateBadge,
+  duplicateBadgeProvider,
+  withCellBadges,
 } from "../utils/entryGridShared";
 
 const RELAY_LETTERS = ["A", "B", "C", "D"];
@@ -26,6 +35,8 @@ interface RelayEntriesGridProps {
   meetId: string;
   entries: RelayEntry[];
   athletes: Athlete[];
+  individualEntries: IndividualEntry[];
+  athleteEventLimits?: Partial<AthleteEventLimits>;
   eventOptions?: string[];
   importedEvents?: ImportedEvent[];
   onAdd: () => void;
@@ -53,6 +64,8 @@ function RelayEntriesGrid({
   meetId,
   entries,
   athletes,
+  individualEntries,
+  athleteEventLimits,
   eventOptions,
   importedEvents,
   onAdd,
@@ -97,22 +110,32 @@ function RelayEntriesGrid({
 
   const athleteOptions = buildAthleteOptions(athletes);
   const athleteNameById = buildAthleteNameById(athletes);
+  const athleteOverLimitDetailById = buildAthleteOverLimitDetailById(
+    athletes,
+    individualEntries,
+    entries,
+    athleteEventLimits,
+  );
 
   const legColumn = (
     field: "leg1AthleteId" | "leg2AthleteId" | "leg3AthleteId" | "leg4AthleteId",
     headerName: string,
-  ): GridColDef<RelayEntry> => ({
-    field,
-    headerName,
-    flex: 1,
-    editable: true,
-    type: "singleSelect",
-    valueOptions: athleteOptions,
-  });
+  ): GridColDef<RelayEntry> =>
+    withCellBadges<RelayEntry>(
+      {
+        field,
+        headerName,
+        flex: 1,
+        editable: true,
+        type: "singleSelect",
+        valueOptions: athleteOptions,
+      },
+      [athleteOverLimitBadgeProvider([field], athleteOverLimitDetailById)],
+    );
 
   const columns: GridColDef<RelayEntry>[] = [
     buildEventColumn<RelayEntry>(eventOptions, importedEvents, entries),
-    withDuplicateBadge<RelayEntry>(
+    withCellBadges<RelayEntry>(
       {
         field: "relayLetter",
         headerName: "Relay",
@@ -121,9 +144,13 @@ function RelayEntriesGrid({
         type: "singleSelect",
         valueOptions: RELAY_LETTERS,
       },
-      entries,
-      relayEntryKey,
-      (row, count) => `Relay ${row.relayLetter} is entered ${count} times for ${row.event}.`,
+      [
+        duplicateBadgeProvider(
+          entries,
+          relayEntryKey,
+          (row, count) => `Relay ${row.relayLetter} is entered ${count} times for ${row.event}`,
+        ),
+      ],
     ),
     legColumn("leg1AthleteId", "Athlete 1"),
     legColumn("leg2AthleteId", "Athlete 2"),
