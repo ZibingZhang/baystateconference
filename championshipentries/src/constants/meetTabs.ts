@@ -1,4 +1,11 @@
-export type MeetTab = "team" | "events" | "athletes" | "individual" | "relay" | "advanced";
+export type MeetTab =
+  | "team"
+  | "events"
+  | "athletes"
+  | "individual"
+  | "relay"
+  | "summary"
+  | "advanced";
 
 export const MEET_TABS: MeetTab[] = [
   "team",
@@ -6,5 +13,6 @@ export const MEET_TABS: MeetTab[] = [
   "athletes",
   "individual",
   "relay",
+  "summary",
   "advanced",
 ];

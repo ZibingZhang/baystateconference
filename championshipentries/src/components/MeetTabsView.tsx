@@ -8,6 +8,7 @@ import IndividualEntriesGrid from "./IndividualEntriesGrid";
 import RelayEntriesGrid from "./RelayEntriesGrid";
 import EventsGrid from "./EventsGrid";
 import TeamTab from "./TeamTab";
+import EventSummaryTab from "./EventSummaryTab";
 import AdvancedTab from "./AdvancedTab";
 
 const noop = () => {};
@@ -129,6 +130,7 @@ function MeetTabsView({
         <Tab label="Athletes" value="athletes" />
         <Tab label="Individual Entries" value="individual" />
         <Tab label="Relay Entries" value="relay" />
+        <Tab label="By Event" value="summary" />
         <Tab label="Advanced" value="advanced" />
       </Tabs>
       <Box sx={{ flex: 1, minHeight: 0, p: 2 }}>
@@ -191,6 +193,14 @@ function MeetTabsView({
             onReorder={onReorderRelayEntries ?? noop}
             readOnly={readOnly}
             onReadOnlyAttempt={onReadOnlyAttempt}
+          />
+        )}
+        {activeTab === "summary" && (
+          <EventSummaryTab
+            importedEvents={importedEvents}
+            athletes={athletes}
+            individualEntries={individualEntries}
+            relayEntries={relayEntries}
           />
         )}
         {activeTab === "advanced" && (
