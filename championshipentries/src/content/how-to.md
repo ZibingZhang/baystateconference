@@ -14,7 +14,7 @@ On the **Team** tab, search for your school in the Team Code field. This code is
 
 ## 3. Import the event list
 
-On the **Events** tab, click **Import EV3 File** and choose the .ev3 file for the meet (exported from Hy-Tek Meet Manager). This is what supplies the event choices used everywhere else in the app — you'll generally want to do this before adding entries. **Clear Import** removes the imported list; existing entries aren't deleted, but you won't be able to add new ones with valid event names until you re-import.
+On the **Events** tab, click **Import EV3 File** and choose the .ev3 file for the meet (exported from Hy-Tek Meet Manager). This is what supplies the event choices used everywhere else in the app — you'll generally want to do this before adding entries. **Export EV3 File** downloads (or copies) the imported file's text again, and **Clear Import** removes the imported list; existing entries aren't deleted, but you won't be able to add new ones with valid event names until you re-import.
 
 ## 4. Add athletes
 
@@ -35,7 +35,9 @@ The **Relay Entries** tab works the same as Individual Entries, with a **Relay**
 
 ## 7. Review and export
 
-The **Advanced** tab shows the raw imported EV3 text and a live preview of the HY3 file that would be generated, useful for double-checking before you export. When you're ready, use **File → Export to HY3** (needs a team code and an imported EV3 file) to download a .hy3 entries file you can bring into Hy-Tek Meet Manager. Any entry whose athlete or event can't be matched (a missing athlete, an incomplete relay leg, or an event not found in the imported file) is skipped, and you'll be told how many were skipped after the download.
+The **By Event** tab groups entries by event instead of by type, so you can see at a glance which events are empty, over their entry limit, or have duplicate/over-limit entries flagged. The **Advanced** tab shows the raw imported EV3 text and a live preview of the HY3 file that would be generated, useful for double-checking before you export; its **Settings** sub-tab lets you set optional per-athlete limits (max individual events, max relay events, max total events) that generate warnings across the entry grids and the By Event tab when exceeded.
+
+When you're ready, use **File → Export to HY3** (needs a team code and an imported EV3 file). A review panel opens first, flagging events over their entry limit, duplicate individual/relay entries, and entries that will be skipped (a missing athlete, an incomplete relay leg, or an event not found in the imported file) — skipped entries are left out of the file, while duplicates and over-limit entries are exported as-is. Fix what you want to fix, then click **Export** (or **Export Anyway**) to download the .hy3 entries file you can bring into Hy-Tek Meet Manager.
 
 ## Editing tips
 
@@ -56,4 +58,4 @@ The sidebar lists every meet you've created. Click a meet to switch to it, doubl
 
 ## Data & privacy
 
-All meets, athletes, and entries are stored only in this browser's local storage — nothing is sent to a server. That also means clearing your browser's site data will erase everything, so use Export CSV (or Export to HY3) to keep a backup of anything important.
+All meets, athletes, and entries are stored only in this browser's local storage — nothing is sent to a server. That also means clearing your browser's site data will erase everything, so keep a backup of anything important: a meet's **Export meet** icon in the sidebar saves it as a JSON file (meet, athletes, and all entries together), and **Import meet from JSON** loads that file back in as a new meet — on this browser or another device entirely. Export CSV (or Export to HY3) works too, for just the roster or HY3 file.
