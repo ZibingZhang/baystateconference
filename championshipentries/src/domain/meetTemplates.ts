@@ -16,6 +16,8 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     genderFilter: "G",
     individualEntryStubsPerEvent: 4,
     relayEntryStubsPerEvent: 4,
+    individualEventEntryLimit: 4,
+    relayEventEntryLimit: 4,
     ...HIGH_SCHOOL_EVENT_LIMITS,
   },
   {
@@ -26,6 +28,8 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     genderFilter: "G",
     individualEntryStubsPerEvent: 0,
     relayEntryStubsPerEvent: 1,
+    individualEventEntryLimit: 4,
+    relayEventEntryLimit: 1,
     ...HIGH_SCHOOL_EVENT_LIMITS,
   },
 ];

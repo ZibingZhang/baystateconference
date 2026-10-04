@@ -186,6 +186,7 @@ function App() {
                   importedEvents={templateData.events}
                   eventsFileName={templateFileName(selectedTemplate.ev3Url)}
                   athleteEventLimits={selectedTemplate}
+                  eventEntryLimits={selectedTemplate}
                 />
               )}
             </>
@@ -213,6 +214,8 @@ function App() {
               importedEvents={selectedMeet.importedEvents}
               athleteEventLimits={selectedMeet}
               onUpdateEventLimits={meetActions.updateEventLimits}
+              eventEntryLimits={selectedMeet}
+              onUpdateEventEntryLimits={meetActions.updateEventEntryLimits}
               onAddIndividualEntry={individualEntryActions.addIndividualEntry}
               onBulkAddIndividualEntries={individualEntryActions.bulkAddIndividualEntries}
               onImportIndividualEntriesCsv={individualEntryActions.importIndividualEntriesCsv}

@@ -2,6 +2,7 @@ import type {
   AppData,
   Athlete,
   AthleteEventLimits,
+  EventEntryLimits,
   IndividualEntry,
   Meet,
   RelayEntry,
@@ -123,5 +124,21 @@ export function useMeetActions(
     }));
   };
 
-  return { addMeet, deleteMeet, copyMeet, renameMeet, updateTeamCode, updateEventLimits };
+  const updateEventEntryLimits = (limits: Partial<EventEntryLimits>) => {
+    if (!selectedMeetId) return;
+    history.update((prev) => ({
+      ...prev,
+      meets: prev.meets.map((m) => (m.id === selectedMeetId ? { ...m, ...limits } : m)),
+    }));
+  };
+
+  return {
+    addMeet,
+    deleteMeet,
+    copyMeet,
+    renameMeet,
+    updateTeamCode,
+    updateEventLimits,
+    updateEventEntryLimits,
+  };
 }

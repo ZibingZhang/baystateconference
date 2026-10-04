@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import type { GridColDef } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
 import Tooltip from "@mui/material/Tooltip";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
@@ -71,18 +70,21 @@ function renderSelectCellValue(value: string, editable: boolean, badge?: ReactNo
 
 /**
  * Event column shared by the entries grids. When `rows` is supplied, flags
- * events whose entry count exceeds the imported EV3 entryLimit (the per-team
- * cap) with a red count chip, so an over-limit event is visible without
- * needing to check the meet's actual roster.
+ * events whose entry count exceeds the meet's per-event entry limit (a
+ * meet-wide setting, not something read from the EV3 file — see
+ * `EventEntryLimits`) with a hazard icon, matching the warning style used
+ * for duplicate entries and per-athlete event limits, so an over-limit
+ * event is visible without needing to check the meet's actual roster.
  */
 export function buildEventColumn<T extends { event: string }>(
   eventOptions: string[] | undefined,
   importedEvents: ImportedEvent[] | undefined,
   rows?: T[],
+  entryLimit?: number,
 ): GridColDef<T> {
   const eventNumberByName = buildEventNumberByName(importedEvents);
-  const eventsByName = eventByDisplayName(importedEvents ?? []);
   const countByEvent = countByKey(rows ?? [], (row) => row.event || undefined);
+  const limit = entryLimit ?? 0;
   const editable = (eventOptions?.length ?? 0) > 0;
   return {
     field: "event",
@@ -98,16 +100,10 @@ export function buildEventColumn<T extends { event: string }>(
     renderCell: (params) => {
       const value = params.formattedValue as string;
       const count = countByEvent.get(value) ?? 0;
-      const limit = eventsByName.get(value)?.entryLimit ?? 0;
       const overLimit = limit > 0 && count > limit;
       const badge = overLimit ? (
         <Tooltip title={`${count} entries exceeds the limit of ${limit} for this event`}>
-          <Chip
-            label={count}
-            size="small"
-            color="error"
-            sx={{ height: 18, "& .MuiChip-label": { px: 0.75 } }}
-          />
+          <WarningAmberIcon fontSize="small" sx={{ color: "error.main" }} />
         </Tooltip>
       ) : undefined;
       return renderSelectCellValue(value, editable, badge);

@@ -39,8 +39,6 @@ function toImportedEvent(e: Ev3Event): ImportedEvent {
     strokeCode: e.stroke,
     scheduledTime: e.startTime,
     displayName: eventDisplayName(relay, e.distance, e.stroke, e.genderAge),
-    // EV3 field 27 ("scoring places") reused as the per-team entry cap; see ImportedEvent.entryLimit.
-    entryLimit: Number.parseInt(e.scoringPlaces, 10) || 0,
     qualifyingTime: e.qualifyingTime,
   };
 }
@@ -151,7 +149,6 @@ export function uniqueEventNames(events: ImportedEvent[], relay: boolean): strin
 export interface EventOption {
   name: string;
   gender: string;
-  entryLimit: number;
 }
 
 export function uniqueEventOptions(events: ImportedEvent[], relay: boolean): EventOption[] {
@@ -161,7 +158,7 @@ export function uniqueEventOptions(events: ImportedEvent[], relay: boolean): Eve
     if (event.relay !== relay) continue;
     if (seen.has(event.displayName)) continue;
     seen.add(event.displayName);
-    options.push({ name: event.displayName, gender: event.gender, entryLimit: event.entryLimit });
+    options.push({ name: event.displayName, gender: event.gender });
   }
   return options;
 }

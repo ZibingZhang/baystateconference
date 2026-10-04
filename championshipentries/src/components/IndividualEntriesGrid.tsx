@@ -35,6 +35,7 @@ interface IndividualEntriesGridProps {
   athletes: Athlete[];
   relayEntries: RelayEntry[];
   athleteEventLimits?: Partial<AthleteEventLimits>;
+  entryLimit?: number;
   eventOptions?: string[];
   importedEvents?: ImportedEvent[];
   onAdd: () => void;
@@ -54,6 +55,7 @@ function IndividualEntriesGrid({
   athletes,
   relayEntries,
   athleteEventLimits,
+  entryLimit,
   eventOptions,
   importedEvents,
   onAdd,
@@ -94,7 +96,7 @@ function IndividualEntriesGrid({
   );
 
   const columns: GridColDef<IndividualEntry>[] = [
-    buildEventColumn<IndividualEntry>(eventOptions, importedEvents, entries),
+    buildEventColumn<IndividualEntry>(eventOptions, importedEvents, entries, entryLimit),
     withCellBadges<IndividualEntry>(
       {
         field: "athleteId",

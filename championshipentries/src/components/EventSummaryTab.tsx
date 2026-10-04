@@ -7,6 +7,7 @@ import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import type {
   Athlete,
   AthleteEventLimits,
+  EventEntryLimits,
   ImportedEvent,
   IndividualEntry,
   RelayEntry,
@@ -20,6 +21,7 @@ interface EventSummaryTabProps {
   individualEntries: IndividualEntry[];
   relayEntries: RelayEntry[];
   athleteEventLimits?: Partial<AthleteEventLimits>;
+  eventEntryLimits?: Partial<EventEntryLimits>;
 }
 
 function EventSummaryTab({
@@ -28,6 +30,7 @@ function EventSummaryTab({
   individualEntries,
   relayEntries,
   athleteEventLimits,
+  eventEntryLimits,
 }: EventSummaryTabProps) {
   const groups = useMemo(
     () =>
@@ -37,8 +40,16 @@ function EventSummaryTab({
         individualEntries,
         relayEntries,
         athleteEventLimits,
+        eventEntryLimits,
       ),
-    [importedEvents, athletes, individualEntries, relayEntries, athleteEventLimits],
+    [
+      importedEvents,
+      athletes,
+      individualEntries,
+      relayEntries,
+      athleteEventLimits,
+      eventEntryLimits,
+    ],
   );
 
   if (!importedEvents || importedEvents.length === 0) {

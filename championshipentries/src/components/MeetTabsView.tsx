@@ -4,6 +4,7 @@ import Tab from "@mui/material/Tab";
 import type {
   Athlete,
   AthleteEventLimits,
+  EventEntryLimits,
   ImportedEvent,
   IndividualEntry,
   RelayEntry,
@@ -49,6 +50,8 @@ interface MeetTabsViewProps {
   importedEvents: ImportedEvent[] | undefined;
   athleteEventLimits?: Partial<AthleteEventLimits>;
   onUpdateEventLimits?: (limits: Partial<AthleteEventLimits>) => void;
+  eventEntryLimits?: Partial<EventEntryLimits>;
+  onUpdateEventEntryLimits?: (limits: Partial<EventEntryLimits>) => void;
 
   onAddIndividualEntry?: () => void;
   onBulkAddIndividualEntries?: (count: number, eventNames: string[]) => void;
@@ -109,6 +112,8 @@ function MeetTabsView({
   importedEvents,
   athleteEventLimits,
   onUpdateEventLimits,
+  eventEntryLimits,
+  onUpdateEventEntryLimits,
   onAddIndividualEntry,
   onBulkAddIndividualEntries,
   onImportIndividualEntriesCsv,
@@ -176,6 +181,7 @@ function MeetTabsView({
             athletes={athletes}
             relayEntries={relayEntries}
             athleteEventLimits={athleteEventLimits}
+            entryLimit={eventEntryLimits?.individualEventEntryLimit}
             eventOptions={individualEventOptions}
             importedEvents={importedEvents}
             onAdd={onAddIndividualEntry ?? noop}
@@ -196,6 +202,7 @@ function MeetTabsView({
             athletes={athletes}
             individualEntries={individualEntries}
             athleteEventLimits={athleteEventLimits}
+            entryLimit={eventEntryLimits?.relayEventEntryLimit}
             eventOptions={relayEventOptions}
             importedEvents={importedEvents}
             onAdd={onAddRelayEntry ?? noop}
@@ -216,6 +223,7 @@ function MeetTabsView({
             individualEntries={individualEntries}
             relayEntries={relayEntries}
             athleteEventLimits={athleteEventLimits}
+            eventEntryLimits={eventEntryLimits}
           />
         )}
         {activeTab === "advanced" && (
@@ -226,6 +234,8 @@ function MeetTabsView({
             relayEntries={relayEntries}
             athleteEventLimits={athleteEventLimits}
             onUpdateEventLimits={onUpdateEventLimits}
+            eventEntryLimits={eventEntryLimits}
+            onUpdateEventEntryLimits={onUpdateEventEntryLimits}
             readOnly={readOnly}
             onReadOnlyAttempt={onReadOnlyAttempt}
           />

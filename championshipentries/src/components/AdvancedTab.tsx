@@ -4,7 +4,14 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
-import type { Athlete, AthleteEventLimits, IndividualEntry, Meet, RelayEntry } from "../types";
+import type {
+  Athlete,
+  AthleteEventLimits,
+  EventEntryLimits,
+  IndividualEntry,
+  Meet,
+  RelayEntry,
+} from "../types";
 import { buildHy3File } from "../domain/hy3Export";
 import { fetchHighSchools } from "../domain/highSchools";
 import SettingsTab from "./SettingsTab";
@@ -18,6 +25,8 @@ interface AdvancedTabProps {
   relayEntries: RelayEntry[];
   athleteEventLimits?: Partial<AthleteEventLimits>;
   onUpdateEventLimits?: (limits: Partial<AthleteEventLimits>) => void;
+  eventEntryLimits?: Partial<EventEntryLimits>;
+  onUpdateEventEntryLimits?: (limits: Partial<EventEntryLimits>) => void;
   readOnly?: boolean;
   onReadOnlyAttempt?: () => void;
 }
@@ -51,6 +60,8 @@ function AdvancedTab({
   relayEntries,
   athleteEventLimits,
   onUpdateEventLimits,
+  eventEntryLimits,
+  onUpdateEventEntryLimits,
   readOnly,
   onReadOnlyAttempt,
 }: AdvancedTabProps) {
@@ -130,6 +141,8 @@ function AdvancedTab({
             <SettingsTab
               athleteEventLimits={athleteEventLimits}
               onUpdate={onUpdateEventLimits}
+              eventEntryLimits={eventEntryLimits}
+              onUpdateEventEntryLimits={onUpdateEventEntryLimits}
               readOnly={readOnly}
               onReadOnlyAttempt={onReadOnlyAttempt}
             />

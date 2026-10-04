@@ -1,6 +1,7 @@
 import type {
   Athlete,
   AthleteEventLimits,
+  EventEntryLimits,
   ImportedEvent,
   IndividualEntry,
   RelayEntry,
@@ -42,7 +43,10 @@ export function buildEventSummary(
   individualEntries: IndividualEntry[],
   relayEntries: RelayEntry[],
   athleteEventLimits?: Partial<AthleteEventLimits>,
+  eventEntryLimits?: Partial<EventEntryLimits>,
 ): EventSummaryGroup[] {
+  const individualEntryLimit = eventEntryLimits?.individualEventEntryLimit ?? 0;
+  const relayEntryLimit = eventEntryLimits?.relayEventEntryLimit ?? 0;
   const athleteNameById = new Map(athletes.map((a) => [a.id, athleteFullName(a)]));
   const eventNumberByName = new Map<string, number>();
   for (const event of importedEvents) {
@@ -83,8 +87,8 @@ export function buildEventSummary(
         eventNumber: eventNumberByName.get(option.name) ?? 0,
         displayName: option.name,
         relay: false,
-        entryLimit: option.entryLimit,
-        overLimit: option.entryLimit > 0 && entries.length > option.entryLimit,
+        entryLimit: individualEntryLimit,
+        overLimit: individualEntryLimit > 0 && entries.length > individualEntryLimit,
         entries,
       };
     },
@@ -124,8 +128,8 @@ export function buildEventSummary(
         eventNumber: eventNumberByName.get(option.name) ?? 0,
         displayName: option.name,
         relay: true,
-        entryLimit: option.entryLimit,
-        overLimit: option.entryLimit > 0 && entries.length > option.entryLimit,
+        entryLimit: relayEntryLimit,
+        overLimit: relayEntryLimit > 0 && entries.length > relayEntryLimit,
         entries,
       };
     },

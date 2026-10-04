@@ -37,6 +37,7 @@ interface RelayEntriesGridProps {
   athletes: Athlete[];
   individualEntries: IndividualEntry[];
   athleteEventLimits?: Partial<AthleteEventLimits>;
+  entryLimit?: number;
   eventOptions?: string[];
   importedEvents?: ImportedEvent[];
   onAdd: () => void;
@@ -66,6 +67,7 @@ function RelayEntriesGrid({
   athletes,
   individualEntries,
   athleteEventLimits,
+  entryLimit,
   eventOptions,
   importedEvents,
   onAdd,
@@ -134,7 +136,7 @@ function RelayEntriesGrid({
     );
 
   const columns: GridColDef<RelayEntry>[] = [
-    buildEventColumn<RelayEntry>(eventOptions, importedEvents, entries),
+    buildEventColumn<RelayEntry>(eventOptions, importedEvents, entries, entryLimit),
     withCellBadges<RelayEntry>(
       {
         field: "relayLetter",

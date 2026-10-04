@@ -1,11 +1,4 @@
-import type {
-  Athlete,
-  HighSchool,
-  ImportedEvent,
-  IndividualEntry,
-  Meet,
-  RelayEntry,
-} from "../types";
+import type { Athlete, HighSchool, IndividualEntry, Meet, RelayEntry } from "../types";
 import { eventDisplayName } from "./ev3";
 import { countByKey, individualEntryKey, relayEntryKey } from "./entryKeys";
 import { parseEv3 as parseEv3Full } from "../hytek/ev3/parse.ts";
@@ -319,18 +312,17 @@ export function buildExportReview(
   const athleteNameById = new Map(
     athletes.map((a) => [a.id, `${a.firstName} ${a.lastName}`.trim()]),
   );
-  const limitByEvent = new Map(
-    (meet.importedEvents ?? []).map((e: ImportedEvent) => [e.displayName, e.entryLimit]),
-  );
 
   const overLimitEvents: ExportReviewLimitIssue[] = [];
-  const entryCountsByEvent = [
-    countByKey(individualEntries, (e) => e.event || undefined),
-    countByKey(relayEntries, (e) => e.event || undefined),
+  const entryCountsByEvent: [Map<string, number>, number][] = [
+    [
+      countByKey(individualEntries, (e) => e.event || undefined),
+      meet.individualEventEntryLimit ?? 0,
+    ],
+    [countByKey(relayEntries, (e) => e.event || undefined), meet.relayEventEntryLimit ?? 0],
   ];
-  for (const countByEvent of entryCountsByEvent) {
+  for (const [countByEvent, limit] of entryCountsByEvent) {
     for (const [event, count] of countByEvent) {
-      const limit = limitByEvent.get(event) ?? 0;
       if (limit > 0 && count > limit) overLimitEvents.push({ event, count, limit });
     }
   }

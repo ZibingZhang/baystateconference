@@ -10,8 +10,6 @@ export interface ImportedEvent {
   strokeCode: string;
   scheduledTime: string;
   displayName: string;
-  /** Number of entries a team may make per event, derived from EV3 field 27 (`Ev3Event.scoringPlaces`) — see `ev3.ts`'s `toImportedEvent`. 0 for diving. */
-  entryLimit: number;
   /** Raw EV3 field 21 (`Ev3Event.qualifyingTime`), blank if the meet has no standard for this event. See `ev3.ts`'s qualifying-standard helpers for how to interpret this. */
   qualifyingTime: string;
 }
@@ -26,20 +24,34 @@ export interface AthleteEventLimits {
   maxTotalEventsPerAthlete: number;
 }
 
-export interface MeetTemplate extends AthleteEventLimits {
+/**
+ * Per-event entry-count limits for a meet (how many entries a team may make
+ * in a single event), enforced only as a warning (see `domain/eventSummary.ts`
+ * and `domain/hy3Export.ts`) rather than a hard block. This is a meet-wide
+ * policy set by the coach/host, not something the EV3 file carries — EV3 has
+ * no field for it (see docs/hytek/ev3-spec.md).
+ */
+export interface EventEntryLimits {
+  /** Max number of entries a team may make in a single individual event. */
+  individualEventEntryLimit: number;
+  /** Max number of entries a team may make in a single relay event. */
+  relayEventEntryLimit: number;
+}
+
+export interface MeetTemplate extends AthleteEventLimits, EventEntryLimits {
   id: string;
   name: string;
   /** Raw GitHub URL of the EV3 events file this template loads events/entries from. */
   ev3Url: string;
   /** Only entries for this gender are generated when the template is viewed or copied into a meet. */
   genderFilter: Gender;
-  /** Blank individual entries stubbed per individual event. Unrelated to ImportedEvent.entryLimit (the EV3-derived per-team cap) — this is purely how many rows the template pre-fills. */
+  /** Blank individual entries stubbed per individual event. Unrelated to EventEntryLimits — this is purely how many rows the template pre-fills. */
   individualEntryStubsPerEvent: number;
-  /** Blank relay entries stubbed per relay event. Unrelated to ImportedEvent.entryLimit (the EV3-derived per-team cap) — this is purely how many rows the template pre-fills. */
+  /** Blank relay entries stubbed per relay event. Unrelated to EventEntryLimits — this is purely how many rows the template pre-fills. */
   relayEntryStubsPerEvent: number;
 }
 
-export interface Meet extends Partial<AthleteEventLimits> {
+export interface Meet extends Partial<AthleteEventLimits>, Partial<EventEntryLimits> {
   id: string;
   name: string;
   teamCode?: string;

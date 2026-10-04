@@ -98,6 +98,8 @@ export function useTemplatePreview(
           maxIndividualEventsPerAthlete: template.maxIndividualEventsPerAthlete,
           maxRelayEventsPerAthlete: template.maxRelayEventsPerAthlete,
           maxTotalEventsPerAthlete: template.maxTotalEventsPerAthlete,
+          individualEventEntryLimit: template.individualEventEntryLimit,
+          relayEventEntryLimit: template.relayEventEntryLimit,
         };
         const newIndividualEntries = buildTemplateIndividualEntries(
           newMeetId,

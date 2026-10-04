@@ -33,13 +33,6 @@ const columns: GridColDef<ImportedEvent & { id: number }>[] = [
     width: 160,
     valueGetter: (_value, row) => formatQualifyingStandard(row),
   },
-  {
-    field: "entryLimit",
-    headerName: "Entry Limit",
-    width: 100,
-    type: "number",
-    valueGetter: (_value, row) => (row.entryLimit > 0 ? row.entryLimit : undefined),
-  },
 ];
 
 function EventsGrid({
