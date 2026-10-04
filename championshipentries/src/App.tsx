@@ -212,6 +212,7 @@ function App() {
               relayEventOptions={relayEventOptions}
               importedEvents={selectedMeet.importedEvents}
               athleteEventLimits={selectedMeet}
+              onUpdateEventLimits={meetActions.updateEventLimits}
               onAddIndividualEntry={individualEntryActions.addIndividualEntry}
               onBulkAddIndividualEntries={individualEntryActions.bulkAddIndividualEntries}
               onImportIndividualEntriesCsv={individualEntryActions.importIndividualEntriesCsv}

@@ -4,17 +4,22 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
-import type { Athlete, IndividualEntry, Meet, RelayEntry } from "../types";
+import type { Athlete, AthleteEventLimits, IndividualEntry, Meet, RelayEntry } from "../types";
 import { buildHy3File } from "../domain/hy3Export";
 import { fetchHighSchools } from "../domain/highSchools";
+import SettingsTab from "./SettingsTab";
 
-type AdvancedSubTab = "ev3" | "hy3";
+type AdvancedSubTab = "ev3" | "hy3" | "settings";
 
 interface AdvancedTabProps {
   meet: Meet;
   athletes: Athlete[];
   individualEntries: IndividualEntry[];
   relayEntries: RelayEntry[];
+  athleteEventLimits?: Partial<AthleteEventLimits>;
+  onUpdateEventLimits?: (limits: Partial<AthleteEventLimits>) => void;
+  readOnly?: boolean;
+  onReadOnlyAttempt?: () => void;
 }
 
 function CodeView({ text }: { text: string }) {
@@ -39,7 +44,16 @@ function CodeView({ text }: { text: string }) {
   );
 }
 
-function AdvancedTab({ meet, athletes, individualEntries, relayEntries }: AdvancedTabProps) {
+function AdvancedTab({
+  meet,
+  athletes,
+  individualEntries,
+  relayEntries,
+  athleteEventLimits,
+  onUpdateEventLimits,
+  readOnly,
+  onReadOnlyAttempt,
+}: AdvancedTabProps) {
   const [subTab, setSubTab] = useState<AdvancedSubTab>("ev3");
   const [hy3Content, setHy3Content] = useState<string | null>(null);
   const [hy3Error, setHy3Error] = useState<string | null>(null);
@@ -87,6 +101,7 @@ function AdvancedTab({ meet, athletes, individualEntries, relayEntries }: Advanc
       >
         <Tab label="EV3 File" value="ev3" sx={{ minHeight: 36 }} />
         <Tab label="HY3 Preview" value="hy3" sx={{ minHeight: 36 }} />
+        <Tab label="Settings" value="settings" sx={{ minHeight: 36 }} />
       </Tabs>
       <Box sx={{ flex: 1, minHeight: 0, display: "flex" }}>
         {subTab === "ev3" &&
@@ -110,6 +125,16 @@ function AdvancedTab({ meet, athletes, individualEntries, relayEntries }: Advanc
           ) : (
             <CodeView text={hy3Content ?? ""} />
           ))}
+        {subTab === "settings" && (
+          <Box sx={{ p: 1 }}>
+            <SettingsTab
+              athleteEventLimits={athleteEventLimits}
+              onUpdate={onUpdateEventLimits}
+              readOnly={readOnly}
+              onReadOnlyAttempt={onReadOnlyAttempt}
+            />
+          </Box>
+        )}
       </Box>
     </Box>
   );

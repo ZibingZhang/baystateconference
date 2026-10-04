@@ -1,4 +1,11 @@
-import type { AppData, Athlete, IndividualEntry, Meet, RelayEntry } from "../types";
+import type {
+  AppData,
+  Athlete,
+  AthleteEventLimits,
+  IndividualEntry,
+  Meet,
+  RelayEntry,
+} from "../types";
 import { newId } from "../utils/id";
 
 interface History {
@@ -108,5 +115,13 @@ export function useMeetActions(
     }));
   };
 
-  return { addMeet, deleteMeet, copyMeet, renameMeet, updateTeamCode };
+  const updateEventLimits = (limits: Partial<AthleteEventLimits>) => {
+    if (!selectedMeetId) return;
+    history.update((prev) => ({
+      ...prev,
+      meets: prev.meets.map((m) => (m.id === selectedMeetId ? { ...m, ...limits } : m)),
+    }));
+  };
+
+  return { addMeet, deleteMeet, copyMeet, renameMeet, updateTeamCode, updateEventLimits };
 }

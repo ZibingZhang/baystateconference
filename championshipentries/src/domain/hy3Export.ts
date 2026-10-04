@@ -41,7 +41,7 @@ function sanitizeFileNamePart(value: string): string {
   return value.replace(/[\\/:*?"<>|]/g, "").trim();
 }
 
-/** Team code and an imported EV3 file are the two prerequisites every export (and its preview) needs. */
+/** Team code and an imported EV3 file are the two prerequisites a real (downloadable) export needs. */
 function missingExportPrerequisite(meet: Meet): string | undefined {
   if (!meet.teamCode) return "Set a Team Code on the Team tab before exporting.";
   if (!meet.importedEventsRaw)
@@ -93,9 +93,12 @@ function relayEntrySkipReason(
 
 /**
  * Build a HY3 "entries" file for a meet from the app's own data model plus the
- * EV3 file that was imported for it. Requires a team code and an imported EV3
- * file — both surface as a `BuildHy3Error` rather than throwing, since they're
- * ordinary "not ready yet" states a user can fix from the UI.
+ * EV3 file that was imported for it. Requires an imported EV3 file, surfaced
+ * as a `BuildHy3Error` rather than thrown, since it's an ordinary "not ready
+ * yet" state a user can fix from the UI. The team code is not required here —
+ * callers that need a real, submittable export (as opposed to a preview)
+ * enforce that separately (see `missingExportPrerequisite`) — so a missing
+ * team code just leaves the team fields blank.
  */
 export function buildHy3File(
   meet: Meet,
@@ -104,9 +107,6 @@ export function buildHy3File(
   relayEntries: RelayEntry[],
   highSchool: HighSchool | undefined,
 ): BuildHy3Result | BuildHy3Error {
-  if (!meet.teamCode) {
-    return { error: "Set a Team Code on the Team tab before exporting." };
-  }
   if (!meet.importedEventsRaw) {
     return { error: "Import an EV3 events file on the Events tab before exporting." };
   }
@@ -120,7 +120,7 @@ export function buildHy3File(
     };
   }
 
-  const teamCode = meet.teamCode;
+  const teamCode = meet.teamCode ?? "";
   const teamName = highSchool?.school || teamCode;
   const teamShortName = highSchool?.town || teamName;
   const course = parseCourse(ev3File.header.courseTypeCode.charAt(0)) ?? "Y";

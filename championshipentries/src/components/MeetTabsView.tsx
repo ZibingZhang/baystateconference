@@ -48,6 +48,7 @@ interface MeetTabsViewProps {
   relayEventOptions?: string[];
   importedEvents: ImportedEvent[] | undefined;
   athleteEventLimits?: Partial<AthleteEventLimits>;
+  onUpdateEventLimits?: (limits: Partial<AthleteEventLimits>) => void;
 
   onAddIndividualEntry?: () => void;
   onBulkAddIndividualEntries?: (count: number, eventNames: string[]) => void;
@@ -107,6 +108,7 @@ function MeetTabsView({
   relayEventOptions,
   importedEvents,
   athleteEventLimits,
+  onUpdateEventLimits,
   onAddIndividualEntry,
   onBulkAddIndividualEntries,
   onImportIndividualEntriesCsv,
@@ -222,6 +224,10 @@ function MeetTabsView({
             athletes={athletes}
             individualEntries={individualEntries}
             relayEntries={relayEntries}
+            athleteEventLimits={athleteEventLimits}
+            onUpdateEventLimits={onUpdateEventLimits}
+            readOnly={readOnly}
+            onReadOnlyAttempt={onReadOnlyAttempt}
           />
         )}
         {activeTab === "events" && (
