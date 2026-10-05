@@ -244,7 +244,17 @@ function EditableDataGrid<T extends { id: string }>({
 
   return (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
-      <Box sx={{ mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
+      <Box
+        sx={{
+          mb: 1,
+          display: "flex",
+          alignItems: "center",
+          gap: 1,
+          flexWrap: "nowrap",
+          overflowX: "auto",
+          "& > *": { flexShrink: 0 },
+        }}
+      >
         <Button
           size="small"
           startIcon={<AddIcon />}

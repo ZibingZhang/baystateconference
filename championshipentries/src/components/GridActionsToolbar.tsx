@@ -4,6 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import GroupsIcon from "@mui/icons-material/Groups";
@@ -71,10 +72,11 @@ function GridActionsToolbar({
       <Button
         size="small"
         startIcon={<UploadFileIcon />}
+        endIcon={onImportFromMeet && <ArrowDropDownIcon />}
         onClick={handleImportClick}
         disabled={!readOnly && importDisabled}
       >
-        Import
+        {onImportFromMeet ? "Import" : "Import CSV"}
       </Button>
       {onImportFromMeet && (
         <Menu
