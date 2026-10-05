@@ -39,6 +39,8 @@ interface MeetTabsViewProps {
   importedEventsRaw: string | undefined;
 
   athletes: Athlete[];
+  allAthletes: Athlete[];
+  otherMeets: { id: string; name: string }[];
   individualEntries: IndividualEntry[];
   relayEntries: RelayEntry[];
   onAddAthlete?: () => void;
@@ -46,6 +48,7 @@ interface MeetTabsViewProps {
   onImportAthletesCsv?: (
     rows: { firstName: string; lastName: string; gender: string; classYear: string }[],
   ) => void;
+  onImportAthletesFromMeet?: (sourceMeetId: string, athleteIds: string[]) => void;
   onUpdateAthlete?: (athlete: Athlete) => void;
   onDeleteAthlete?: (id: string) => void;
   onClearAllAthletes?: () => void;
@@ -104,11 +107,14 @@ function MeetTabsView({
   onUpdateTeamCode,
   importedEventsRaw,
   athletes,
+  allAthletes,
+  otherMeets,
   individualEntries,
   relayEntries,
   onAddAthlete,
   onBulkAddAthletes,
   onImportAthletesCsv,
+  onImportAthletesFromMeet,
   onUpdateAthlete,
   onDeleteAthlete,
   onClearAllAthletes,
@@ -178,11 +184,14 @@ function MeetTabsView({
           <AthletesGrid
             meetId={meetId}
             athletes={athletes}
+            allAthletes={allAthletes}
+            otherMeets={otherMeets}
             individualEntries={individualEntries}
             relayEntries={relayEntries}
             onAdd={onAddAthlete ?? noop}
             onBulkAdd={onBulkAddAthletes ?? noop}
             onImportCsv={onImportAthletesCsv ?? noop}
+            onImportFromMeet={onImportAthletesFromMeet ?? noop}
             onUpdate={onUpdateAthlete ?? noop}
             onDelete={onDeleteAthlete ?? noop}
             onClearAll={onClearAllAthletes ?? noop}

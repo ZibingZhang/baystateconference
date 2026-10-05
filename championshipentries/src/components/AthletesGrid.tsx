@@ -10,10 +10,13 @@ import GridActionsToolbar from "./GridActionsToolbar";
 import BulkAddAthletesDialog from "./BulkAddAthletesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
+import ImportAthletesFromMeetDialog from "./ImportAthletesFromMeetDialog";
 
 interface AthletesGridProps {
   meetId: string;
   athletes: Athlete[];
+  allAthletes: Athlete[];
+  otherMeets: { id: string; name: string }[];
   individualEntries: IndividualEntry[];
   relayEntries: RelayEntry[];
   onAdd: () => void;
@@ -21,6 +24,7 @@ interface AthletesGridProps {
   onImportCsv: (
     rows: { firstName: string; lastName: string; gender: string; classYear: string }[],
   ) => void;
+  onImportFromMeet: (sourceMeetId: string, athleteIds: string[]) => void;
   onUpdate: (athlete: Athlete) => void;
   onDelete: (id: string) => void;
   onClearAll: () => void;
@@ -127,11 +131,14 @@ const csvColumns: CsvImportColumn[] = [
 function AthletesGrid({
   meetId,
   athletes,
+  allAthletes,
+  otherMeets,
   individualEntries,
   relayEntries,
   onAdd,
   onBulkAdd,
   onImportCsv,
+  onImportFromMeet,
   onUpdate,
   onDelete,
   onClearAll,
@@ -142,6 +149,7 @@ function AthletesGrid({
   const [bulkAddOpen, setBulkAddOpen] = useState(false);
   const [csvImportOpen, setCsvImportOpen] = useState(false);
   const [csvExportOpen, setCsvExportOpen] = useState(false);
+  const [importFromMeetOpen, setImportFromMeetOpen] = useState(false);
 
   const rows = useMemo<AthleteRow[]>(() => {
     const individualCounts = new Map<string, number>();
@@ -192,6 +200,8 @@ function AthletesGrid({
             addIcon={<GroupAddIcon />}
             onAdd={() => setBulkAddOpen(true)}
             onImportCsv={() => setCsvImportOpen(true)}
+            onImportFromMeet={() => setImportFromMeetOpen(true)}
+            importFromMeetDisabled={otherMeets.length === 0}
             onExportCsv={() => setCsvExportOpen(true)}
             exportDisabled={athletes.length === 0}
             onClearAll={onClearAll}
@@ -216,6 +226,13 @@ function AthletesGrid({
             rows as { firstName: string; lastName: string; gender: string; classYear: string }[],
           )
         }
+      />
+      <ImportAthletesFromMeetDialog
+        open={importFromMeetOpen}
+        onClose={() => setImportFromMeetOpen(false)}
+        meets={otherMeets}
+        athletes={allAthletes}
+        onImport={onImportFromMeet}
       />
       <CsvExportDialog
         open={csvExportOpen}

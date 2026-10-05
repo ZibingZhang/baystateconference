@@ -50,6 +50,20 @@ export function useAthleteActions(
       })),
     );
 
+  const importAthletesFromMeet = (sourceMeetId: string, athleteIds: string[]) => {
+    const idSet = new Set(athleteIds);
+    const toImport = data.athletes.filter((a) => a.meetId === sourceMeetId && idSet.has(a.id));
+    if (toImport.length === 0) return;
+    athleteCrud.addMany(
+      toImport.map(({ firstName, lastName, gender, classYear }) => ({
+        firstName,
+        lastName,
+        gender,
+        classYear,
+      })),
+    );
+  };
+
   const updateAthlete = athleteCrud.update;
 
   const deleteAthlete = (id: string) => {
@@ -108,6 +122,7 @@ export function useAthleteActions(
     addAthlete,
     bulkAddAthletes,
     importAthletesCsv,
+    importAthletesFromMeet,
     updateAthlete,
     deleteAthlete,
     clearAllAthletes,

@@ -88,6 +88,9 @@ function App() {
   const relayEntries = data.relayEntries.filter((e) => e.meetId === selectedMeetId);
 
   const selectedMeet = data.meets.find((m) => m.id === selectedMeetId) ?? null;
+  const otherMeets = data.meets
+    .filter((m) => m.id !== selectedMeetId)
+    .map((m) => ({ id: m.id, name: m.name }));
   const importedEvents = useMemo(
     () =>
       selectedMeet?.importedEventsRaw ? parseEv3(selectedMeet.importedEventsRaw).events : undefined,
@@ -182,6 +185,8 @@ function App() {
                   teamCode={undefined}
                   importedEventsRaw={templateData.rawText}
                   athletes={[]}
+                  allAthletes={[]}
+                  otherMeets={[]}
                   individualEntries={template.templateIndividualEntries}
                   relayEntries={template.templateRelayEntries}
                   individualEventOptions={template.templateIndividualEventOptions}
@@ -203,11 +208,14 @@ function App() {
               onUpdateTeamCode={meetActions.updateTeamCode}
               importedEventsRaw={selectedMeet.importedEventsRaw}
               athletes={athletes}
+              allAthletes={data.athletes}
+              otherMeets={otherMeets}
               individualEntries={individualEntries}
               relayEntries={relayEntries}
               onAddAthlete={athleteActions.addAthlete}
               onBulkAddAthletes={athleteActions.bulkAddAthletes}
               onImportAthletesCsv={athleteActions.importAthletesCsv}
+              onImportAthletesFromMeet={athleteActions.importAthletesFromMeet}
               onUpdateAthlete={athleteActions.updateAthlete}
               onDeleteAthlete={athleteActions.deleteAthlete}
               onClearAllAthletes={athleteActions.clearAllAthletes}

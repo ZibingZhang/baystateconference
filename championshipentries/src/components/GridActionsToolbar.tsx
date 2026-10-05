@@ -1,7 +1,12 @@
-import type { ReactNode } from "react";
+import { useState, type MouseEvent, type ReactNode } from "react";
 import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
+import GroupsIcon from "@mui/icons-material/Groups";
 import DownloadIcon from "@mui/icons-material/Download";
 
 interface GridActionsToolbarProps {
@@ -11,6 +16,9 @@ interface GridActionsToolbarProps {
   addDisabled?: boolean;
   onImportCsv: () => void;
   importDisabled?: boolean;
+  /** When provided, the Import button opens a menu offering CSV import or this handler instead of importing CSV directly. */
+  onImportFromMeet?: () => void;
+  importFromMeetDisabled?: boolean;
   onExportCsv: () => void;
   exportDisabled: boolean;
   onClearAll: () => void;
@@ -26,6 +34,8 @@ function GridActionsToolbar({
   addDisabled,
   onImportCsv,
   importDisabled,
+  onImportFromMeet,
+  importFromMeetDisabled,
   onExportCsv,
   exportDisabled,
   onClearAll,
@@ -33,7 +43,21 @@ function GridActionsToolbar({
   readOnly,
   onReadOnlyAttempt,
 }: GridActionsToolbarProps) {
+  const [importMenuAnchor, setImportMenuAnchor] = useState<HTMLElement | null>(null);
   const gated = (fn: () => void) => () => (readOnly ? onReadOnlyAttempt?.() : fn());
+
+  const handleImportClick = (event: MouseEvent<HTMLButtonElement>) => {
+    if (readOnly) {
+      onReadOnlyAttempt?.();
+      return;
+    }
+    if (onImportFromMeet) {
+      setImportMenuAnchor(event.currentTarget);
+    } else {
+      onImportCsv();
+    }
+  };
+
   return (
     <>
       <Button
@@ -47,11 +71,42 @@ function GridActionsToolbar({
       <Button
         size="small"
         startIcon={<UploadFileIcon />}
-        onClick={gated(onImportCsv)}
+        onClick={handleImportClick}
         disabled={!readOnly && importDisabled}
       >
-        Import CSV
+        Import
       </Button>
+      {onImportFromMeet && (
+        <Menu
+          anchorEl={importMenuAnchor}
+          open={importMenuAnchor !== null}
+          onClose={() => setImportMenuAnchor(null)}
+        >
+          <MenuItem
+            onClick={() => {
+              setImportMenuAnchor(null);
+              onImportCsv();
+            }}
+          >
+            <ListItemIcon>
+              <UploadFileIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>From CSV</ListItemText>
+          </MenuItem>
+          <MenuItem
+            disabled={importFromMeetDisabled}
+            onClick={() => {
+              setImportMenuAnchor(null);
+              onImportFromMeet();
+            }}
+          >
+            <ListItemIcon>
+              <GroupsIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>From Another Meet</ListItemText>
+          </MenuItem>
+        </Menu>
+      )}
       <Button
         size="small"
         startIcon={<DownloadIcon />}
