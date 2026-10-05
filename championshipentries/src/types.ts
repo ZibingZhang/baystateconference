@@ -59,9 +59,9 @@ export interface Meet extends Partial<AthleteEventLimits>, Partial<EventEntryLim
   /**
    * Raw text of the imported EV3 file. This is the sole source of truth for
    * a meet's events — both the lightweight `ImportedEvent[]` summaries the UI
-   * uses (see `domain/ev3.ts`'s `parseImportedEvents`) and the full event
-   * detail (age ranges, stroke, relay-vs-individual) that Export to HY3 needs
-   * are derived from it on demand rather than stored separately.
+   * uses (see `domain/ev3.ts`'s `parseEv3`) and the full event detail (age
+   * ranges, stroke, relay-vs-individual) that Export to HY3 needs are derived
+   * from it on demand rather than stored separately.
    */
   importedEventsRaw?: string;
 }
