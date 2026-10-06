@@ -104,7 +104,7 @@ export function parseAppDataBackup(raw: string): AppDataBackup | AppDataBackupEr
   if (!athletes.every(isValidAthlete)) {
     return { error: "This file is not a data backup — it has a malformed athlete record." };
   }
-  const meetsById = new Map(meets.map((m) => [m.id, m as Record<string, unknown>]));
+  const meetsById = new Map(meets.map((m) => [m.id, m as unknown as Record<string, unknown>]));
   const migratedIndividualEntries = migrateLegacyEventNames(
     individualEntries,
     meetsById,
