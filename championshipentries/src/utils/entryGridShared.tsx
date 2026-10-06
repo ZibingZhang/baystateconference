@@ -168,6 +168,18 @@ export function athleteOverLimitBadgeProvider<T>(
   };
 }
 
+/** Badge provider flagging a relay leg cell per `buildRelayAthleteWarningDetail`'s "entryId|athleteId" detail map. */
+export function relayAthleteWarningBadgeProvider<T extends { id: string }>(
+  athleteIdField: keyof T,
+  detailByEntryAndAthlete: Map<string, string>,
+): (row: T) => string | undefined {
+  return (row) => {
+    const athleteId = row[athleteIdField] as unknown as string;
+    if (!athleteId) return undefined;
+    return detailByEntryAndAthlete.get(`${row.id}|${athleteId}`);
+  };
+}
+
 export function buildEventCsvColumn(eventOptions: EventOption[] | undefined): CsvImportColumn {
   return {
     key: "event",

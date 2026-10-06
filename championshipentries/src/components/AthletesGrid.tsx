@@ -5,7 +5,8 @@ import Tooltip from "@mui/material/Tooltip";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
-import type { Athlete, IndividualEntry, RelayEntry } from "../types";
+import type { Athlete, AthleteEventLimits, IndividualEntry, RelayEntry } from "../types";
+import type { AthleteOverLimitCategories } from "../domain/athleteEventLimits";
 import EditableDataGrid from "./EditableDataGrid";
 import GridActionsToolbar from "./GridActionsToolbar";
 import BulkAddAthletesDialog from "./BulkAddAthletesDialog";
@@ -14,6 +15,7 @@ import CsvExportDialog from "./CsvExportDialog";
 import ImportAthletesFromMeetDialog from "./ImportAthletesFromMeetDialog";
 import { athleteNameYearKey } from "../utils/athleteMatch";
 import { duplicateBadgeProvider } from "../utils/entryGridShared";
+import { buildAthleteOverLimitCategoriesById } from "../domain/athleteEventLimits";
 
 interface AthletesGridProps {
   meetId: string;
@@ -22,6 +24,7 @@ interface AthletesGridProps {
   otherMeets: { id: string; name: string }[];
   individualEntries: IndividualEntry[];
   relayEntries: RelayEntry[];
+  athleteEventLimits?: Partial<AthleteEventLimits>;
   onAdd: () => void;
   onBulkAdd: (count: number) => void;
   onImportCsv: (
@@ -69,6 +72,29 @@ function HeaderWithInfo({ label, tooltip }: { label: string; tooltip: string }) 
 const SAME_NAME_AND_YEAR_TOOLTIP =
   "Another athlete has the same name and class year — verify these aren't duplicates";
 
+function renderCountCell(value: number, overLimitDetail: string | undefined) {
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        width: "100%",
+        height: "100%",
+        overflow: "hidden",
+        gap: 0.5,
+      }}
+    >
+      <Box component="span">{value}</Box>
+      {overLimitDetail && (
+        <Tooltip title={overLimitDetail}>
+          <WarningAmberIcon fontSize="small" sx={{ color: "error.main", flexShrink: 0 }} />
+        </Tooltip>
+      )}
+    </Box>
+  );
+}
+
 /**
  * `nameYearBadge` is recomputed fresh from the current athlete list on every
  * render (see the `useMemo` in the component) rather than being baked into
@@ -79,6 +105,7 @@ const SAME_NAME_AND_YEAR_TOOLTIP =
  */
 function buildColumns(
   nameYearBadge: (row: Athlete) => string | undefined,
+  overLimitCategoriesById: Map<string, AthleteOverLimitCategories>,
 ): GridColDef<AthleteRow>[] {
   return [
     { field: "firstName", headerName: "First Name", flex: 1, editable: true },
@@ -136,12 +163,19 @@ function buildColumns(
       headerName: "Individual Events",
       width: 130,
       type: "number",
+      renderCell: (params) =>
+        renderCountCell(
+          params.value as number,
+          overLimitCategoriesById.get(params.row.id)?.individual,
+        ),
     },
     {
       field: "relayEventCount",
       headerName: "Relay Events",
       width: 120,
       type: "number",
+      renderCell: (params) =>
+        renderCountCell(params.value as number, overLimitCategoriesById.get(params.row.id)?.relay),
     },
   ];
 }
@@ -183,6 +217,7 @@ function AthletesGrid({
   otherMeets,
   individualEntries,
   relayEntries,
+  athleteEventLimits,
   onAdd,
   onBulkAdd,
   onImportCsv,
@@ -222,12 +257,24 @@ function AthletesGrid({
     }));
   }, [athletes, individualEntries, relayEntries]);
 
+  const athleteOverLimitCategoriesById = useMemo(
+    () =>
+      buildAthleteOverLimitCategoriesById(
+        athletes,
+        individualEntries,
+        relayEntries,
+        athleteEventLimits,
+      ),
+    [athletes, individualEntries, relayEntries, athleteEventLimits],
+  );
+
   const columns = useMemo(
     () =>
       buildColumns(
         duplicateBadgeProvider(athletes, athleteNameYearKey, () => SAME_NAME_AND_YEAR_TOOLTIP),
+        athleteOverLimitCategoriesById,
       ),
-    [athletes],
+    [athletes, athleteOverLimitCategoriesById],
   );
 
   return (

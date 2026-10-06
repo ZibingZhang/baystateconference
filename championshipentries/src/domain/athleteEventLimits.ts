@@ -33,40 +33,79 @@ function countAthleteEvents(
   return counts;
 }
 
-/** Describes why an athlete is over one of the meet's per-athlete event limits, or undefined if they aren't. */
-function describeOverLimit(
+/** Which of an athlete's over-limit categories a violation applies to, each holding the same human-readable reason — a total-limit violation sets both, an individual- or relay-only violation sets just the one it applies to. */
+export interface AthleteOverLimitCategories {
+  individual?: string;
+  relay?: string;
+}
+
+/** Describes why an athlete is over one or more of the meet's per-athlete event limits, split by which count(s) the violation applies to. Empty if they aren't over any limit. */
+function describeOverLimitCategories(
   athleteName: string,
   count: AthleteEventCount,
   limits: Partial<AthleteEventLimits> | undefined,
-): string | undefined {
-  if (!limits) return undefined;
+): AthleteOverLimitCategories {
+  if (!limits) return {};
   const total = count.individual + count.relay;
-  const violations: string[] = [];
-  if (
+  const individualViolation =
     limits.maxIndividualEventsPerAthlete !== undefined &&
-    count.individual > limits.maxIndividualEventsPerAthlete
-  ) {
+    count.individual > limits.maxIndividualEventsPerAthlete;
+  const relayViolation =
+    limits.maxRelayEventsPerAthlete !== undefined && count.relay > limits.maxRelayEventsPerAthlete;
+  const totalViolation =
+    limits.maxTotalEventsPerAthlete !== undefined && total > limits.maxTotalEventsPerAthlete;
+
+  const violations: string[] = [];
+  if (individualViolation) {
     violations.push(
       `${count.individual} individual events (max ${limits.maxIndividualEventsPerAthlete})`,
     );
   }
-  if (
-    limits.maxRelayEventsPerAthlete !== undefined &&
-    count.relay > limits.maxRelayEventsPerAthlete
-  ) {
+  if (relayViolation) {
     violations.push(`${count.relay} relay events (max ${limits.maxRelayEventsPerAthlete})`);
   }
-  if (limits.maxTotalEventsPerAthlete !== undefined && total > limits.maxTotalEventsPerAthlete) {
+  if (totalViolation) {
     violations.push(`${total} total events (max ${limits.maxTotalEventsPerAthlete})`);
   }
-  if (violations.length === 0) return undefined;
-  return `${athleteName} is entered in ${violations.join(", ")}`;
+  if (violations.length === 0) return {};
+
+  const message = `${athleteName} is entered in ${violations.join(", ")}`;
+  const categories: AthleteOverLimitCategories = {};
+  if (individualViolation || totalViolation) categories.individual = message;
+  if (relayViolation || totalViolation) categories.relay = message;
+  return categories;
+}
+
+/**
+ * Maps each over-limit athlete's id to their violated categories (individual
+ * and/or relay), for flagging only the count column(s) a violation actually
+ * applies to (e.g. the Athletes roster's Individual/Relay Events columns).
+ * Athletes within the limits are absent from the map.
+ */
+export function buildAthleteOverLimitCategoriesById(
+  athletes: Athlete[],
+  individualEntries: IndividualEntry[],
+  relayEntries: RelayEntry[],
+  limits: Partial<AthleteEventLimits> | undefined,
+): Map<string, AthleteOverLimitCategories> {
+  const counts = countAthleteEvents(individualEntries, relayEntries);
+  const result = new Map<string, AthleteOverLimitCategories>();
+  for (const athlete of athletes) {
+    const categories = describeOverLimitCategories(
+      athleteFullName(athlete),
+      counts.get(athlete.id) ?? { individual: 0, relay: 0 },
+      limits,
+    );
+    if (categories.individual || categories.relay) result.set(athlete.id, categories);
+  }
+  return result;
 }
 
 /**
  * Maps each over-limit athlete's id to a human-readable reason, for flagging
- * their entries wherever athletes are shown (By Event summary, entry grids).
- * Athletes within the limits are absent from the map.
+ * their entries wherever athletes are shown as a single combined badge
+ * (By Event summary, entry grids). Athletes within the limits are absent
+ * from the map.
  */
 export function buildAthleteOverLimitDetailById(
   athletes: Athlete[],
@@ -74,15 +113,14 @@ export function buildAthleteOverLimitDetailById(
   relayEntries: RelayEntry[],
   limits: Partial<AthleteEventLimits> | undefined,
 ): Map<string, string> {
-  const counts = countAthleteEvents(individualEntries, relayEntries);
   const result = new Map<string, string>();
-  for (const athlete of athletes) {
-    const detail = describeOverLimit(
-      athleteFullName(athlete),
-      counts.get(athlete.id) ?? { individual: 0, relay: 0 },
-      limits,
-    );
-    if (detail !== undefined) result.set(athlete.id, detail);
+  for (const [athleteId, categories] of buildAthleteOverLimitCategoriesById(
+    athletes,
+    individualEntries,
+    relayEntries,
+    limits,
+  )) {
+    result.set(athleteId, (categories.individual ?? categories.relay) as string);
   }
   return result;
 }

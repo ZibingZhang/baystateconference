@@ -10,6 +10,7 @@ import { uniqueEventOptions } from "./ev3";
 import { countByKey, individualEntryKey, relayEntryKey } from "./entryKeys";
 import { athleteFullName } from "../utils/athleteMatch";
 import { buildAthleteOverLimitDetailById } from "./athleteEventLimits";
+import { buildRelayCrossEventDetail, buildRelaySelfDuplicateDetail } from "./relayAthleteWarnings";
 
 export interface EventSummaryEntry {
   key: string;
@@ -59,6 +60,16 @@ export function buildEventSummary(
     athleteEventLimits,
   );
 
+  const relayEventNameByNumber = new Map(
+    uniqueEventOptions(importedEvents, true).map((option) => [option.eventNumber, option.name]),
+  );
+  const relaySelfDuplicateDetail = buildRelaySelfDuplicateDetail(relayEntries, athleteNameById);
+  const relayCrossEventDetail = buildRelayCrossEventDetail(
+    relayEntries,
+    athleteNameById,
+    relayEventNameByNumber,
+  );
+
   const individualGroups: EventSummaryGroup[] = uniqueEventOptions(importedEvents, false).map(
     (option) => {
       const entries: EventSummaryEntry[] = individualEntries
@@ -105,11 +116,22 @@ export function buildEventSummary(
           const legOverLimitDetails = legAthleteIds
             .map((athleteId) => (athleteId ? athleteOverLimitDetailById.get(athleteId) : undefined))
             .filter((detail): detail is string => detail !== undefined);
+          const relayAthleteIds = Array.from(new Set(legAthleteIds.filter(Boolean)));
+          const legSelfDuplicateWarnings = relayAthleteIds
+            .map((athleteId) => relaySelfDuplicateDetail.get(`${e.id}|${athleteId}`))
+            .filter((detail): detail is string => detail !== undefined);
+          const legCrossEventWarnings = relayAthleteIds
+            .map((athleteId) => relayCrossEventDetail.get(`${e.id}|${athleteId}`))
+            .filter((detail): detail is string => detail !== undefined);
           const warnings: string[] = [];
           if ((relayDupCounts.get(relayEntryKey(e) ?? "") ?? 0) > 1) {
             warnings.push("Duplicate entry");
           }
-          warnings.push(...legOverLimitDetails);
+          warnings.push(
+            ...legSelfDuplicateWarnings,
+            ...legCrossEventWarnings,
+            ...legOverLimitDetails,
+          );
           return {
             key: e.id,
             label: `Relay ${e.relayLetter || "?"}`,

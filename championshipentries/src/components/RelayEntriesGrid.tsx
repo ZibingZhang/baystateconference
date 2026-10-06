@@ -19,6 +19,10 @@ import { useSeedTimeColumn } from "../hooks/useSeedTimeColumn";
 import { relayEntryKey } from "../domain/entryKeys";
 import { buildAthleteOverLimitDetailById } from "../domain/athleteEventLimits";
 import {
+  buildRelayCrossEventDetail,
+  buildRelaySelfDuplicateDetail,
+} from "../domain/relayAthleteWarnings";
+import {
   athleteOverLimitBadgeProvider,
   buildAthleteCsvColumn,
   buildAthleteNameById,
@@ -28,6 +32,7 @@ import {
   buildSeedTimeColumn,
   buildSeedTimeCsvColumn,
   duplicateBadgeProvider,
+  relayAthleteWarningBadgeProvider,
   withCellBadges,
 } from "../utils/entryGridShared";
 
@@ -140,6 +145,12 @@ function RelayEntriesGrid({
   const eventNameByNumber = new Map(
     (importedEvents ?? []).map((e) => [e.eventNumber, e.displayName]),
   );
+  const relaySelfDuplicateDetail = buildRelaySelfDuplicateDetail(entries, athleteNameById);
+  const relayCrossEventDetail = buildRelayCrossEventDetail(
+    entries,
+    athleteNameById,
+    eventNameByNumber,
+  );
 
   const legColumn = (
     field: "leg1AthleteId" | "leg2AthleteId" | "leg3AthleteId" | "leg4AthleteId",
@@ -154,7 +165,11 @@ function RelayEntriesGrid({
         type: "singleSelect",
         valueOptions: athleteOptions,
       },
-      [athleteOverLimitBadgeProvider([field], athleteOverLimitDetailById)],
+      [
+        athleteOverLimitBadgeProvider([field], athleteOverLimitDetailById),
+        relayAthleteWarningBadgeProvider(field, relaySelfDuplicateDetail),
+        relayAthleteWarningBadgeProvider(field, relayCrossEventDetail),
+      ],
     );
 
   const columns: GridColDef<RelayEntry>[] = [
