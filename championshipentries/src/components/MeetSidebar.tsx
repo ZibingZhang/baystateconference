@@ -168,8 +168,24 @@ function MeetSidebar({
             <ListItemButton
               selected={template.id === selectedTemplateId}
               onClick={() => onSelectTemplate(template.id)}
+              // style (not sx) to out-specificity MUI's own secondaryAction padding-right rule
+              style={{ paddingRight: 40 }}
             >
-              <ListItemText primary={template.name} />
+              <ListItemText
+                primary={template.name}
+                slotProps={{
+                  primary: {
+                    title: template.name,
+                    sx: {
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    },
+                  },
+                }}
+                sx={{ minWidth: 0 }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -280,8 +296,24 @@ function MeetSidebar({
                   selected={meet.id === selectedMeetId}
                   onClick={() => onSelectMeet(meet.id)}
                   onDoubleClick={() => startEditing(meet)}
+                  // style (not sx) to out-specificity MUI's own secondaryAction padding-right rule
+                  style={{ paddingRight: 88 }}
                 >
-                  <ListItemText primary={meet.name} />
+                  <ListItemText
+                    primary={meet.name}
+                    slotProps={{
+                      primary: {
+                        title: meet.name,
+                        sx: {
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        },
+                      },
+                    }}
+                    sx={{ minWidth: 0 }}
+                  />
                 </ListItemButton>
               )}
             </ListItem>
