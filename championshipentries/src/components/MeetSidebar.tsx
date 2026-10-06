@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import type { ChangeEvent, KeyboardEvent } from "react";
+import { useEffect, useState } from "react";
+import type { KeyboardEvent } from "react";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -13,7 +13,6 @@ import Tooltip from "@mui/material/Tooltip";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import UploadFileIcon from "@mui/icons-material/UploadFile";
 import type { Meet, MeetTemplate } from "../types";
 
 const DEFAULT_SIDEBAR_WIDTH = 240;
@@ -29,7 +28,6 @@ interface MeetSidebarProps {
   onAddMeet: () => void;
   onDeleteMeet: (id: string) => void;
   onRenameMeet: (id: string, name: string) => void;
-  onImportMeetFile: (file: File) => void;
   templates: MeetTemplate[];
   selectedTemplateId: string | null;
   onSelectTemplate: (id: string) => void;
@@ -44,7 +42,6 @@ function MeetSidebar({
   onAddMeet,
   onDeleteMeet,
   onRenameMeet,
-  onImportMeetFile,
   templates,
   selectedTemplateId,
   onSelectTemplate,
@@ -52,13 +49,6 @@ function MeetSidebar({
 }: MeetSidebarProps) {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editValue, setEditValue] = useState("");
-  const importFileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleImportFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    event.target.value = "";
-    if (file) onImportMeetFile(file);
-  };
   const [width, setWidth] = useState(() => {
     const saved = Number(localStorage.getItem(SIDEBAR_WIDTH_STORAGE_KEY));
     return saved >= MIN_SIDEBAR_WIDTH && saved <= MAX_SIDEBAR_WIDTH ? saved : DEFAULT_SIDEBAR_WIDTH;
@@ -206,29 +196,11 @@ function MeetSidebar({
         <Typography variant="overline" color="text.secondary">
           Meets
         </Typography>
-        <Box sx={{ display: "flex" }}>
-          <Tooltip title="Import meet from JSON">
-            <IconButton
-              size="small"
-              onClick={() => importFileInputRef.current?.click()}
-              aria-label="Import meet"
-            >
-              <UploadFileIcon fontSize="small" />
-            </IconButton>
-          </Tooltip>
-          <input
-            ref={importFileInputRef}
-            type="file"
-            accept=".json"
-            hidden
-            onChange={handleImportFileChange}
-          />
-          <Tooltip title="Add meet">
-            <IconButton size="small" onClick={onAddMeet} aria-label="Add meet">
-              <AddIcon fontSize="small" />
-            </IconButton>
-          </Tooltip>
-        </Box>
+        <Tooltip title="Add meet">
+          <IconButton size="small" onClick={onAddMeet} aria-label="Add meet">
+            <AddIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
       </Box>
       <Divider />
       <Box sx={{ width, flex: 1, overflowY: "auto" }}>

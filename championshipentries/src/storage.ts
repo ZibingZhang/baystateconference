@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { AppData } from "./types";
+import { isRecord, migrateLegacyEventNames } from "./domain/legacyEventMigration";
 
 const STORAGE_KEY = "championshipentries:data";
 
@@ -19,9 +20,20 @@ const emptyData: AppData = {
 
 /** Brings a parsed localStorage blob of any past version up to the current `AppData` shape. */
 function migrate(parsed: Record<string, unknown>): AppData {
-  // No prior versions exist yet; this just strips the version tag.
+  // No version jump has happened yet; this strips the version tag and
+  // resolves any pre-versioning data left over from the event-name era
+  // (see `domain/legacyEventMigration.ts`).
   const { version: _version, ...data } = parsed;
-  return { ...emptyData, ...data };
+  const meets = Array.isArray(data.meets) ? data.meets.filter(isRecord) : [];
+  const meetsById = new Map(
+    meets.filter((m) => typeof m.id === "string").map((m) => [m.id as string, m]),
+  );
+  return {
+    ...emptyData,
+    ...data,
+    individualEntries: migrateLegacyEventNames(data.individualEntries, meetsById),
+    relayEntries: migrateLegacyEventNames(data.relayEntries, meetsById),
+  } as AppData;
 }
 
 function loadData(): AppData {

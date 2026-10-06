@@ -1,4 +1,4 @@
-import { useState, type MouseEvent } from "react";
+import { useRef, useState, type ChangeEvent, type MouseEvent } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -41,9 +41,12 @@ interface AppMenuBarProps {
   onNewMeet: () => void;
   onRenameMeet: () => void;
   onCopyMeet: () => void;
+  onImportMeetFile: (file: File) => void;
   onExportMeetBackup: () => void;
   onDeleteMeet: () => void;
   onExportHy3: () => void;
+  onExportAllData: () => void;
+  onImportAllDataFile: (file: File) => void;
   hasSelectedMeet: boolean;
   onHowTo: () => void;
   onAbout: () => void;
@@ -58,9 +61,12 @@ function AppMenuBar({
   onNewMeet,
   onRenameMeet,
   onCopyMeet,
+  onImportMeetFile,
   onExportMeetBackup,
   onDeleteMeet,
   onExportHy3,
+  onExportAllData,
+  onImportAllDataFile,
   hasSelectedMeet,
   onHowTo,
   onAbout,
@@ -75,6 +81,19 @@ function AppMenuBar({
   const [resultsAnchorEl, setResultsAnchorEl] = useState<HTMLElement | null>(null);
   const [themeAnchorEl, setThemeAnchorEl] = useState<HTMLElement | null>(null);
   const [paletteAnchorEl, setPaletteAnchorEl] = useState<HTMLElement | null>(null);
+  const importMeetFileInputRef = useRef<HTMLInputElement>(null);
+  const importAllDataFileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleImportMeetFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (file) onImportMeetFile(file);
+  };
+  const handleImportAllDataFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (file) onImportAllDataFile(file);
+  };
 
   const openFileMenu = (event: MouseEvent<HTMLElement>) => setFileAnchorEl(event.currentTarget);
   const closeFileMenu = () => setFileAnchorEl(null);
@@ -129,6 +148,20 @@ function AppMenuBar({
         <Button color="inherit" size="small" onClick={openFileMenu}>
           File
         </Button>
+        <input
+          ref={importMeetFileInputRef}
+          type="file"
+          accept=".json"
+          hidden
+          onChange={handleImportMeetFileChange}
+        />
+        <input
+          ref={importAllDataFileInputRef}
+          type="file"
+          accept=".json"
+          hidden
+          onChange={handleImportAllDataFileChange}
+        />
         <NavMenu anchorEl={fileAnchorEl} open={Boolean(fileAnchorEl)} onClose={closeFileMenu}>
           <MenuItem
             onClick={() => {
@@ -158,6 +191,14 @@ function AppMenuBar({
           </MenuItem>
           <Divider />
           <MenuItem
+            onClick={() => {
+              importMeetFileInputRef.current?.click();
+              closeFileMenu();
+            }}
+          >
+            Import Meet
+          </MenuItem>
+          <MenuItem
             disabled={!hasSelectedMeet}
             onClick={() => {
               onExportMeetBackup();
@@ -174,6 +215,23 @@ function AppMenuBar({
             }}
           >
             Export to HY3
+          </MenuItem>
+          <Divider />
+          <MenuItem
+            onClick={() => {
+              onExportAllData();
+              closeFileMenu();
+            }}
+          >
+            Export All Data
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              importAllDataFileInputRef.current?.click();
+              closeFileMenu();
+            }}
+          >
+            Import All Data
           </MenuItem>
           <Divider />
           <MenuItem

@@ -1,48 +1,43 @@
-import type { Athlete, IndividualEntry, Meet, RelayEntry } from "../types";
+import type { AppData, Athlete, IndividualEntry, Meet, RelayEntry } from "../types";
 import { migrateLegacyEventNames } from "./legacyEventMigration";
 
 const BACKUP_VERSION = 1;
 
-export interface MeetBackup {
+export interface AppDataBackup {
   version: number;
   exportedAt: string;
-  meet: Meet;
+  meets: Meet[];
   athletes: Athlete[];
   individualEntries: IndividualEntry[];
   relayEntries: RelayEntry[];
 }
 
-export interface MeetBackupError {
+export interface AppDataBackupError {
   error: string;
 }
 
-function sanitizeFileNamePart(value: string): string {
-  return value.replace(/[\\/:*?"<>|]/g, "").trim();
-}
-
-/** Bundles one meet plus all of its athletes and entries into a self-contained, re-importable backup. */
-export function buildMeetBackup(
-  meet: Meet,
-  athletes: Athlete[],
-  individualEntries: IndividualEntry[],
-  relayEntries: RelayEntry[],
-): MeetBackup {
+/** Bundles every meet, athlete, and entry in the app into a single re-importable backup. */
+export function buildAppDataBackup(data: AppData): AppDataBackup {
   return {
     version: BACKUP_VERSION,
     exportedAt: new Date().toISOString(),
-    meet,
-    athletes,
-    individualEntries,
-    relayEntries,
+    meets: data.meets,
+    athletes: data.athletes,
+    individualEntries: data.individualEntries,
+    relayEntries: data.relayEntries,
   };
 }
 
-export function meetBackupFileName(meetName: string): string {
-  return `${sanitizeFileNamePart(meetName) || "Meet"}.meet.json`;
+export function appDataBackupFileName(): string {
+  return `ChampionshipEntries-backup-${new Date().toISOString().slice(0, 10)}.json`;
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function isValidMeet(value: unknown): value is Meet {
+  return isRecord(value) && typeof value.id === "string" && typeof value.name === "string";
 }
 
 function isValidAthlete(value: unknown): value is Athlete {
@@ -83,8 +78,8 @@ function isValidRelayEntry(value: unknown): value is RelayEntry {
   );
 }
 
-/** Parses and structurally validates a `.meet.json` backup file's text. */
-export function parseMeetBackup(raw: string): MeetBackup | MeetBackupError {
+/** Parses and structurally validates a full-data backup file's text. */
+export function parseAppDataBackup(raw: string): AppDataBackup | AppDataBackupError {
   let parsed: unknown;
   try {
     parsed = JSON.parse(raw);
@@ -92,23 +87,24 @@ export function parseMeetBackup(raw: string): MeetBackup | MeetBackupError {
     return { error: "This file is not valid JSON." };
   }
   if (!isRecord(parsed)) {
-    return { error: "This file is not a meet backup." };
+    return { error: "This file is not a data backup." };
   }
-  const { meet, athletes, individualEntries, relayEntries } = parsed;
-  if (!isRecord(meet) || typeof meet.id !== "string" || typeof meet.name !== "string") {
-    return { error: "This file is not a meet backup — it's missing the meet itself." };
-  }
+  const { meets, athletes, individualEntries, relayEntries } = parsed;
   if (
+    !Array.isArray(meets) ||
     !Array.isArray(athletes) ||
     !Array.isArray(individualEntries) ||
     !Array.isArray(relayEntries)
   ) {
-    return { error: "This file is not a meet backup — it's missing athletes or entries." };
+    return { error: "This file is not a data backup — it's missing meets, athletes, or entries." };
+  }
+  if (!meets.every(isValidMeet)) {
+    return { error: "This file is not a data backup — it has a malformed meet record." };
   }
   if (!athletes.every(isValidAthlete)) {
-    return { error: "This file is not a meet backup — it has a malformed athlete record." };
+    return { error: "This file is not a data backup — it has a malformed athlete record." };
   }
-  const meetsById = new Map([[meet.id, meet]]);
+  const meetsById = new Map(meets.map((m) => [m.id, m as Record<string, unknown>]));
   const migratedIndividualEntries = migrateLegacyEventNames(
     individualEntries,
     meetsById,
@@ -116,16 +112,16 @@ export function parseMeetBackup(raw: string): MeetBackup | MeetBackupError {
   const migratedRelayEntries = migrateLegacyEventNames(relayEntries, meetsById) as unknown[];
   if (!migratedIndividualEntries.every(isValidIndividualEntry)) {
     return {
-      error: "This file is not a meet backup — it has a malformed individual entry record.",
+      error: "This file is not a data backup — it has a malformed individual entry record.",
     };
   }
   if (!migratedRelayEntries.every(isValidRelayEntry)) {
-    return { error: "This file is not a meet backup — it has a malformed relay entry record." };
+    return { error: "This file is not a data backup — it has a malformed relay entry record." };
   }
   return {
     version: typeof parsed.version === "number" ? parsed.version : BACKUP_VERSION,
     exportedAt: typeof parsed.exportedAt === "string" ? parsed.exportedAt : "",
-    meet: meet as unknown as Meet,
+    meets,
     athletes,
     individualEntries: migratedIndividualEntries,
     relayEntries: migratedRelayEntries,

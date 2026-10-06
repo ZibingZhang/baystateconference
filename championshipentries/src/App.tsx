@@ -12,6 +12,7 @@ import AppMenuBar from "./components/AppMenuBar";
 import MeetSidebar from "./components/MeetSidebar";
 import AddMeetDialog from "./components/AddMeetDialog";
 import RenameMeetDialog from "./components/RenameMeetDialog";
+import ImportDuplicateMeetsDialog from "./components/ImportDuplicateMeetsDialog";
 import AboutPage from "./components/AboutPage";
 import HowToPage from "./components/HowToPage";
 import ConfirmDialog from "./components/ConfirmDialog";
@@ -28,6 +29,7 @@ import { useIndividualEntryActions } from "./hooks/useIndividualEntryActions";
 import { useRelayEntryActions } from "./hooks/useRelayEntryActions";
 import { useHy3Export } from "./hooks/useHy3Export";
 import { useMeetBackup } from "./hooks/useMeetBackup";
+import { useAppDataBackup } from "./hooks/useAppDataBackup";
 
 function App() {
   const [data, setData] = useAppData();
@@ -75,6 +77,7 @@ function App() {
   });
   const hy3Export = useHy3Export(data, history, selectedMeetId, { showInfo, showConfirm });
   const meetBackup = useMeetBackup(data, history, { setSelectedMeetId, showInfo });
+  const appDataBackup = useAppDataBackup(data, history, { showInfo });
   const { selectedTemplateId, selectedTemplate, templateData } = template;
 
   if (!view && !selectedTemplateId && !data.meets.some((m) => m.id === selectedMeetId)) {
@@ -110,9 +113,12 @@ function App() {
         onNewMeet={() => setAddMeetOpen(true)}
         onRenameMeet={() => setRenameMeetOpen(true)}
         onCopyMeet={() => selectedMeet && meetActions.copyMeet(selectedMeet.id)}
+        onImportMeetFile={meetBackup.importMeetFile}
         onExportMeetBackup={() => selectedMeet && meetBackup.exportMeet(selectedMeet.id)}
         onDeleteMeet={() => selectedMeet && meetActions.deleteMeet(selectedMeet.id)}
         onExportHy3={hy3Export.requestExport}
+        onExportAllData={appDataBackup.exportAllData}
+        onImportAllDataFile={appDataBackup.importAllDataFile}
         hasSelectedMeet={Boolean(selectedMeet)}
         onHowTo={() => {
           setSelectedMeetId(null);
@@ -142,7 +148,6 @@ function App() {
           onAddMeet={() => setAddMeetOpen(true)}
           onDeleteMeet={meetActions.deleteMeet}
           onRenameMeet={meetActions.renameMeet}
-          onImportMeetFile={meetBackup.importMeetFile}
           templates={MEET_TEMPLATES}
           selectedTemplateId={selectedTemplateId}
           onSelectTemplate={template.selectTemplate}
@@ -285,6 +290,13 @@ function App() {
           if (selectedMeet) meetActions.renameMeet(selectedMeet.id, name);
           setRenameMeetOpen(false);
         }}
+      />
+      <ImportDuplicateMeetsDialog
+        open={appDataBackup.duplicates.length > 0}
+        duplicates={appDataBackup.duplicates}
+        onChangeResolution={appDataBackup.setDuplicateResolution}
+        onApply={appDataBackup.applyDuplicateResolutions}
+        onCancel={appDataBackup.cancelDuplicateResolutions}
       />
       <ConfirmDialog
         open={confirmDialog !== null}
