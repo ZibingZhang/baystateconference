@@ -165,3 +165,22 @@ export function uniqueEventOptions(events: ImportedEvent[], relay: boolean): Eve
   }
   return options;
 }
+
+/**
+ * Maps an event number from one meet's imported events to the matching
+ * event (by display name) in another meet's imported events — event
+ * numbers are only stable FKs within a single meet's EV3 file, so importing
+ * entries across meets needs a name-based lookup, same as CSV import
+ * (`matchEventOption`). Returns 0 (no event selected) if the destination
+ * meet has no matching event.
+ */
+export function matchEventAcrossMeets(
+  sourceEventNumber: number,
+  sourceEvents: ImportedEvent[],
+  destEvents: ImportedEvent[],
+): number {
+  if (!sourceEventNumber) return 0;
+  const displayName = sourceEvents.find((e) => e.eventNumber === sourceEventNumber)?.displayName;
+  if (!displayName) return 0;
+  return destEvents.find((e) => e.displayName === displayName)?.eventNumber ?? 0;
+}

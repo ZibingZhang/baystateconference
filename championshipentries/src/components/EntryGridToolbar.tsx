@@ -9,6 +9,8 @@ interface EntryGridToolbarProps {
   entriesCount: number;
   onAdd: () => void;
   onImportCsv: () => void;
+  onImportFromMeet?: () => void;
+  importFromMeetDisabled?: boolean;
   onExportCsv: () => void;
   onClearAll: () => void;
   readOnly?: boolean;
@@ -27,6 +29,8 @@ function EntryGridToolbar({
   entriesCount,
   onAdd,
   onImportCsv,
+  onImportFromMeet,
+  importFromMeetDisabled,
   onExportCsv,
   onClearAll,
   readOnly,
@@ -40,6 +44,8 @@ function EntryGridToolbar({
       addDisabled={!eventOptions?.length}
       onImportCsv={onImportCsv}
       importDisabled={!eventOptions?.length}
+      onImportFromMeet={onImportFromMeet}
+      importFromMeetDisabled={importFromMeetDisabled}
       onExportCsv={onExportCsv}
       exportDisabled={entriesCount === 0}
       onClearAll={onClearAll}

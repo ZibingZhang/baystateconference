@@ -40,9 +40,11 @@ interface MeetTabsViewProps {
 
   athletes: Athlete[];
   allAthletes: Athlete[];
-  otherMeets: { id: string; name: string }[];
+  otherMeets: { id: string; name: string; importedEventsRaw?: string }[];
   individualEntries: IndividualEntry[];
+  allIndividualEntries: IndividualEntry[];
   relayEntries: RelayEntry[];
+  allRelayEntries: RelayEntry[];
   onAddAthlete?: () => void;
   onBulkAddAthletes?: (count: number) => void;
   onImportAthletesCsv?: (
@@ -67,6 +69,7 @@ interface MeetTabsViewProps {
   onImportIndividualEntriesCsv?: (
     rows: { event: string; athleteId: string; seedTime: string }[],
   ) => void;
+  onImportIndividualEntriesFromMeet?: (sourceMeetId: string, entryIds: string[]) => void;
   onUpdateIndividualEntry?: (entry: IndividualEntry) => void;
   onDeleteIndividualEntry?: (id: string) => void;
   onClearAllIndividualEntries?: () => void;
@@ -85,6 +88,7 @@ interface MeetTabsViewProps {
       seedTime: string;
     }[],
   ) => void;
+  onImportRelayEntriesFromMeet?: (sourceMeetId: string, entryIds: string[]) => void;
   onUpdateRelayEntry?: (entry: RelayEntry) => void;
   onDeleteRelayEntry?: (id: string) => void;
   onClearAllRelayEntries?: () => void;
@@ -110,7 +114,9 @@ function MeetTabsView({
   allAthletes,
   otherMeets,
   individualEntries,
+  allIndividualEntries,
   relayEntries,
+  allRelayEntries,
   onAddAthlete,
   onBulkAddAthletes,
   onImportAthletesCsv,
@@ -129,6 +135,7 @@ function MeetTabsView({
   onAddIndividualEntry,
   onBulkAddIndividualEntries,
   onImportIndividualEntriesCsv,
+  onImportIndividualEntriesFromMeet,
   onUpdateIndividualEntry,
   onDeleteIndividualEntry,
   onClearAllIndividualEntries,
@@ -136,6 +143,7 @@ function MeetTabsView({
   onAddRelayEntry,
   onBulkAddRelayEntries,
   onImportRelayEntriesCsv,
+  onImportRelayEntriesFromMeet,
   onUpdateRelayEntry,
   onDeleteRelayEntry,
   onClearAllRelayEntries,
@@ -208,6 +216,9 @@ function MeetTabsView({
             meetId={meetId}
             entries={individualEntries}
             athletes={athletes}
+            allAthletes={allAthletes}
+            otherMeets={otherMeets}
+            allIndividualEntries={allIndividualEntries}
             relayEntries={relayEntries}
             athleteEventLimits={athleteEventLimits}
             entryLimit={eventEntryLimits?.individualEventEntryLimit}
@@ -216,6 +227,7 @@ function MeetTabsView({
             onAdd={onAddIndividualEntry ?? noop}
             onBulkAdd={onBulkAddIndividualEntries ?? noop}
             onImportCsv={onImportIndividualEntriesCsv ?? noop}
+            onImportFromMeet={onImportIndividualEntriesFromMeet ?? noop}
             onUpdate={onUpdateIndividualEntry ?? noop}
             onDelete={onDeleteIndividualEntry ?? noop}
             onClearAll={onClearAllIndividualEntries ?? noop}
@@ -229,6 +241,9 @@ function MeetTabsView({
             meetId={meetId}
             entries={relayEntries}
             athletes={athletes}
+            allAthletes={allAthletes}
+            otherMeets={otherMeets}
+            allRelayEntries={allRelayEntries}
             individualEntries={individualEntries}
             athleteEventLimits={athleteEventLimits}
             entryLimit={eventEntryLimits?.relayEventEntryLimit}
@@ -237,6 +252,7 @@ function MeetTabsView({
             onAdd={onAddRelayEntry ?? noop}
             onBulkAdd={onBulkAddRelayEntries ?? noop}
             onImportCsv={onImportRelayEntriesCsv ?? noop}
+            onImportFromMeet={onImportRelayEntriesFromMeet ?? noop}
             onUpdate={onUpdateRelayEntry ?? noop}
             onDelete={onDeleteRelayEntry ?? noop}
             onClearAll={onClearAllRelayEntries ?? noop}

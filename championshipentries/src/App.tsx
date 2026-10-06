@@ -70,9 +70,10 @@ function App() {
     individualEntryCrud,
     data,
     selectedMeetId,
+    history,
     { showConfirm },
   );
-  const relayEntryActions = useRelayEntryActions(relayEntryCrud, data, selectedMeetId, {
+  const relayEntryActions = useRelayEntryActions(relayEntryCrud, data, selectedMeetId, history, {
     showConfirm,
   });
   const hy3Export = useHy3Export(data, history, selectedMeetId, { showInfo, showConfirm });
@@ -95,7 +96,7 @@ function App() {
   const selectedMeet = data.meets.find((m) => m.id === selectedMeetId) ?? null;
   const otherMeets = data.meets
     .filter((m) => m.id !== selectedMeetId)
-    .map((m) => ({ id: m.id, name: m.name }));
+    .map((m) => ({ id: m.id, name: m.name, importedEventsRaw: m.importedEventsRaw }));
   const importedEvents = useMemo(
     () =>
       selectedMeet?.importedEventsRaw ? parseEv3(selectedMeet.importedEventsRaw).events : undefined,
@@ -199,7 +200,9 @@ function App() {
                   allAthletes={[]}
                   otherMeets={[]}
                   individualEntries={template.templateIndividualEntries}
+                  allIndividualEntries={template.templateIndividualEntries}
                   relayEntries={template.templateRelayEntries}
+                  allRelayEntries={template.templateRelayEntries}
                   individualEventOptions={template.templateIndividualEventOptions}
                   relayEventOptions={template.templateRelayEventOptions}
                   importedEvents={templateData.events}
@@ -222,7 +225,9 @@ function App() {
               allAthletes={data.athletes}
               otherMeets={otherMeets}
               individualEntries={individualEntries}
+              allIndividualEntries={data.individualEntries}
               relayEntries={relayEntries}
+              allRelayEntries={data.relayEntries}
               onAddAthlete={athleteActions.addAthlete}
               onBulkAddAthletes={athleteActions.bulkAddAthletes}
               onImportAthletesCsv={athleteActions.importAthletesCsv}
@@ -241,6 +246,9 @@ function App() {
               onAddIndividualEntry={individualEntryActions.addIndividualEntry}
               onBulkAddIndividualEntries={individualEntryActions.bulkAddIndividualEntries}
               onImportIndividualEntriesCsv={individualEntryActions.importIndividualEntriesCsv}
+              onImportIndividualEntriesFromMeet={
+                individualEntryActions.importIndividualEntriesFromMeet
+              }
               onUpdateIndividualEntry={individualEntryActions.updateIndividualEntry}
               onDeleteIndividualEntry={individualEntryActions.deleteIndividualEntry}
               onClearAllIndividualEntries={individualEntryActions.clearAllIndividualEntries}
@@ -248,6 +256,7 @@ function App() {
               onAddRelayEntry={relayEntryActions.addRelayEntry}
               onBulkAddRelayEntries={relayEntryActions.bulkAddRelayEntries}
               onImportRelayEntriesCsv={relayEntryActions.importRelayEntriesCsv}
+              onImportRelayEntriesFromMeet={relayEntryActions.importRelayEntriesFromMeet}
               onUpdateRelayEntry={relayEntryActions.updateRelayEntry}
               onDeleteRelayEntry={relayEntryActions.deleteRelayEntry}
               onClearAllRelayEntries={relayEntryActions.clearAllRelayEntries}

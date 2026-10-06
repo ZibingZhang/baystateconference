@@ -1,4 +1,7 @@
 import type { AppData, IndividualEntry } from "../types";
+import { matchEventAcrossMeets, parseEv3 } from "../domain/ev3";
+import { resolveOrCopyAthletesForImport } from "../utils/athleteMatch";
+import { newId } from "../utils/id";
 
 interface IndividualEntryCrud {
   addMany: (items: Omit<IndividualEntry, "id" | "meetId">[]) => void;
@@ -6,6 +9,10 @@ interface IndividualEntryCrud {
   deleteById: (id: string) => void;
   clearForMeet: (keepIds?: Set<string>) => void;
   reorder: (orderedIds: string[]) => void;
+}
+
+interface History {
+  update: (updater: (prev: AppData) => AppData) => void;
 }
 
 interface ConfirmDialogState {
@@ -28,6 +35,7 @@ export function useIndividualEntryActions(
   individualEntryCrud: IndividualEntryCrud,
   data: AppData,
   selectedMeetId: string | null,
+  history: History,
   callbacks: { showConfirm: (dialog: ConfirmDialogState) => void },
 ) {
   const addIndividualEntry = () => individualEntryCrud.addMany([blankIndividualEntry()]);
@@ -54,6 +62,44 @@ export function useIndividualEntryActions(
       })),
     );
 
+  const importIndividualEntriesFromMeet = (sourceMeetId: string, entryIds: string[]) => {
+    if (!selectedMeetId) return;
+    const idSet = new Set(entryIds);
+    const toImport = data.individualEntries.filter(
+      (e) => e.meetId === sourceMeetId && idSet.has(e.id),
+    );
+    if (toImport.length === 0) return;
+
+    const sourceMeet = data.meets.find((m) => m.id === sourceMeetId);
+    const destMeet = data.meets.find((m) => m.id === selectedMeetId);
+    const sourceEvents = sourceMeet?.importedEventsRaw
+      ? parseEv3(sourceMeet.importedEventsRaw).events
+      : [];
+    const destEvents = destMeet?.importedEventsRaw
+      ? parseEv3(destMeet.importedEventsRaw).events
+      : [];
+
+    const { idMap, newAthletes } = resolveOrCopyAthletesForImport(
+      toImport.map((e) => e.athleteId),
+      data.athletes,
+      selectedMeetId,
+    );
+
+    const newEntries: IndividualEntry[] = toImport.map((e) => ({
+      id: newId(),
+      meetId: selectedMeetId,
+      athleteId: idMap.get(e.athleteId) ?? e.athleteId,
+      event: matchEventAcrossMeets(e.event, sourceEvents, destEvents),
+      seedTime: e.seedTime,
+    }));
+
+    history.update((prev) => ({
+      ...prev,
+      athletes: [...prev.athletes, ...newAthletes],
+      individualEntries: [...prev.individualEntries, ...newEntries],
+    }));
+  };
+
   const clearAllIndividualEntries = () => {
     if (!selectedMeetId) return;
     const count = data.individualEntries.filter((e) => e.meetId === selectedMeetId).length;
@@ -72,6 +118,7 @@ export function useIndividualEntryActions(
     deleteIndividualEntry,
     bulkAddIndividualEntries,
     importIndividualEntriesCsv,
+    importIndividualEntriesFromMeet,
     clearAllIndividualEntries,
     reorderIndividualEntries: individualEntryCrud.reorder,
   };

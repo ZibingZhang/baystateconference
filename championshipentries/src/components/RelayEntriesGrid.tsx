@@ -14,6 +14,7 @@ import EntryGridToolbar from "./EntryGridToolbar";
 import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
+import ImportEntriesFromMeetDialog, { type EntryLabelContext } from "./ImportEntriesFromMeetDialog";
 import { useSeedTimeColumn } from "../hooks/useSeedTimeColumn";
 import { relayEntryKey } from "../domain/entryKeys";
 import { buildAthleteOverLimitDetailById } from "../domain/athleteEventLimits";
@@ -32,10 +33,21 @@ import {
 
 const RELAY_LETTERS = ["A", "B", "C", "D"];
 
+const describeRelayEntry = (entry: RelayEntry, ctx: EntryLabelContext): string => {
+  const legs = [entry.leg1AthleteId, entry.leg2AthleteId, entry.leg3AthleteId, entry.leg4AthleteId]
+    .filter(Boolean)
+    .map((id) => ctx.athleteNameById.get(id) ?? "Unknown Athlete");
+  const eventName = ctx.eventNameByNumber.get(entry.event) ?? "No Event";
+  return `${eventName} ${entry.relayLetter}${legs.length ? ` — ${legs.join(", ")}` : ""}`;
+};
+
 interface RelayEntriesGridProps {
   meetId: string;
   entries: RelayEntry[];
   athletes: Athlete[];
+  allAthletes: Athlete[];
+  otherMeets: { id: string; name: string; importedEventsRaw?: string }[];
+  allRelayEntries: RelayEntry[];
   individualEntries: IndividualEntry[];
   athleteEventLimits?: Partial<AthleteEventLimits>;
   entryLimit?: number;
@@ -54,6 +66,7 @@ interface RelayEntriesGridProps {
       seedTime: string;
     }[],
   ) => void;
+  onImportFromMeet: (sourceMeetId: string, entryIds: string[]) => void;
   onUpdate: (entry: RelayEntry) => void;
   onDelete: (id: string) => void;
   onClearAll: () => void;
@@ -66,6 +79,9 @@ function RelayEntriesGrid({
   meetId,
   entries,
   athletes,
+  allAthletes,
+  otherMeets,
+  allRelayEntries,
   individualEntries,
   athleteEventLimits,
   entryLimit,
@@ -74,6 +90,7 @@ function RelayEntriesGrid({
   onAdd,
   onBulkAdd,
   onImportCsv,
+  onImportFromMeet,
   onUpdate,
   onDelete,
   onClearAll,
@@ -84,6 +101,7 @@ function RelayEntriesGrid({
   const [bulkAddOpen, setBulkAddOpen] = useState(false);
   const [csvImportOpen, setCsvImportOpen] = useState(false);
   const [csvExportOpen, setCsvExportOpen] = useState(false);
+  const [importFromMeetOpen, setImportFromMeetOpen] = useState(false);
   const {
     processRow: processSeedTimeRow,
     snackbar: seedTimeSnackbar,
@@ -191,6 +209,8 @@ function RelayEntriesGrid({
             entriesCount={entries.length}
             onAdd={() => setBulkAddOpen(true)}
             onImportCsv={() => setCsvImportOpen(true)}
+            onImportFromMeet={() => setImportFromMeetOpen(true)}
+            importFromMeetDisabled={otherMeets.length === 0}
             onExportCsv={() => setCsvExportOpen(true)}
             onClearAll={onClearAll}
             readOnly={readOnly}
@@ -224,6 +244,18 @@ function RelayEntriesGrid({
             }[],
           )
         }
+      />
+      <ImportEntriesFromMeetDialog
+        open={importFromMeetOpen}
+        onClose={() => setImportFromMeetOpen(false)}
+        title="Import Relay Entries from Another Meet"
+        selectAllLabel="All Relay Entries"
+        noEntriesLabel="This meet has no relay entries."
+        meets={otherMeets}
+        athletes={allAthletes}
+        entries={allRelayEntries}
+        describeEntry={describeRelayEntry}
+        onImport={onImportFromMeet}
       />
       <CsvExportDialog
         open={csvExportOpen}

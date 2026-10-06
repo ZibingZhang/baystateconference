@@ -14,6 +14,7 @@ import EntryGridToolbar from "./EntryGridToolbar";
 import BulkAddEntriesDialog from "./BulkAddEntriesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
+import ImportEntriesFromMeetDialog, { type EntryLabelContext } from "./ImportEntriesFromMeetDialog";
 import { useSeedTimeColumn } from "../hooks/useSeedTimeColumn";
 import { individualEntryKey } from "../domain/entryKeys";
 import { buildAthleteOverLimitDetailById } from "../domain/athleteEventLimits";
@@ -30,10 +31,18 @@ import {
   withCellBadges,
 } from "../utils/entryGridShared";
 
+const describeIndividualEntry = (entry: IndividualEntry, ctx: EntryLabelContext): string =>
+  `${ctx.eventNameByNumber.get(entry.event) ?? "No Event"} — ${
+    ctx.athleteNameById.get(entry.athleteId) ?? "Unknown Athlete"
+  }`;
+
 interface IndividualEntriesGridProps {
   meetId: string;
   entries: IndividualEntry[];
   athletes: Athlete[];
+  allAthletes: Athlete[];
+  otherMeets: { id: string; name: string; importedEventsRaw?: string }[];
+  allIndividualEntries: IndividualEntry[];
   relayEntries: RelayEntry[];
   athleteEventLimits?: Partial<AthleteEventLimits>;
   entryLimit?: number;
@@ -42,6 +51,7 @@ interface IndividualEntriesGridProps {
   onAdd: () => void;
   onBulkAdd: (count: number, eventNumbers: number[]) => void;
   onImportCsv: (rows: { event: string; athleteId: string; seedTime: string }[]) => void;
+  onImportFromMeet: (sourceMeetId: string, entryIds: string[]) => void;
   onUpdate: (entry: IndividualEntry) => void;
   onDelete: (id: string) => void;
   onClearAll: () => void;
@@ -54,6 +64,9 @@ function IndividualEntriesGrid({
   meetId,
   entries,
   athletes,
+  allAthletes,
+  otherMeets,
+  allIndividualEntries,
   relayEntries,
   athleteEventLimits,
   entryLimit,
@@ -62,6 +75,7 @@ function IndividualEntriesGrid({
   onAdd,
   onBulkAdd,
   onImportCsv,
+  onImportFromMeet,
   onUpdate,
   onDelete,
   onClearAll,
@@ -72,6 +86,7 @@ function IndividualEntriesGrid({
   const [bulkAddOpen, setBulkAddOpen] = useState(false);
   const [csvImportOpen, setCsvImportOpen] = useState(false);
   const [csvExportOpen, setCsvExportOpen] = useState(false);
+  const [importFromMeetOpen, setImportFromMeetOpen] = useState(false);
   const {
     processRow: processSeedTimeRow,
     snackbar: seedTimeSnackbar,
@@ -148,6 +163,8 @@ function IndividualEntriesGrid({
             entriesCount={entries.length}
             onAdd={() => setBulkAddOpen(true)}
             onImportCsv={() => setCsvImportOpen(true)}
+            onImportFromMeet={() => setImportFromMeetOpen(true)}
+            importFromMeetDisabled={otherMeets.length === 0}
             onExportCsv={() => setCsvExportOpen(true)}
             onClearAll={onClearAll}
             readOnly={readOnly}
@@ -171,6 +188,18 @@ function IndividualEntriesGrid({
         onImport={(rows) =>
           onImportCsv(rows as { event: string; athleteId: string; seedTime: string }[])
         }
+      />
+      <ImportEntriesFromMeetDialog
+        open={importFromMeetOpen}
+        onClose={() => setImportFromMeetOpen(false)}
+        title="Import Individual Entries from Another Meet"
+        selectAllLabel="All Individual Entries"
+        noEntriesLabel="This meet has no individual entries."
+        meets={otherMeets}
+        athletes={allAthletes}
+        entries={allIndividualEntries}
+        describeEntry={describeIndividualEntry}
+        onImport={onImportFromMeet}
       />
       <CsvExportDialog
         open={csvExportOpen}

@@ -1,4 +1,7 @@
 import type { AppData, RelayEntry } from "../types";
+import { matchEventAcrossMeets, parseEv3 } from "../domain/ev3";
+import { resolveOrCopyAthletesForImport } from "../utils/athleteMatch";
+import { newId } from "../utils/id";
 
 interface RelayEntryCrud {
   addMany: (items: Omit<RelayEntry, "id" | "meetId">[]) => void;
@@ -6,6 +9,10 @@ interface RelayEntryCrud {
   deleteById: (id: string) => void;
   clearForMeet: (keepIds?: Set<string>) => void;
   reorder: (orderedIds: string[]) => void;
+}
+
+interface History {
+  update: (updater: (prev: AppData) => AppData) => void;
 }
 
 interface ConfirmDialogState {
@@ -38,6 +45,7 @@ export function useRelayEntryActions(
   relayEntryCrud: RelayEntryCrud,
   data: AppData,
   selectedMeetId: string | null,
+  history: History,
   callbacks: { showConfirm: (dialog: ConfirmDialogState) => void },
 ) {
   const addRelayEntry = () => relayEntryCrud.addMany([blankRelayEntry()]);
@@ -78,6 +86,54 @@ export function useRelayEntryActions(
       })),
     );
 
+  const importRelayEntriesFromMeet = (sourceMeetId: string, entryIds: string[]) => {
+    if (!selectedMeetId) return;
+    const idSet = new Set(entryIds);
+    const toImport = data.relayEntries.filter((e) => e.meetId === sourceMeetId && idSet.has(e.id));
+    if (toImport.length === 0) return;
+
+    const sourceMeet = data.meets.find((m) => m.id === sourceMeetId);
+    const destMeet = data.meets.find((m) => m.id === selectedMeetId);
+    const sourceEvents = sourceMeet?.importedEventsRaw
+      ? parseEv3(sourceMeet.importedEventsRaw).events
+      : [];
+    const destEvents = destMeet?.importedEventsRaw
+      ? parseEv3(destMeet.importedEventsRaw).events
+      : [];
+
+    const sourceAthleteIds = toImport.flatMap((e) => [
+      e.leg1AthleteId,
+      e.leg2AthleteId,
+      e.leg3AthleteId,
+      e.leg4AthleteId,
+    ]);
+    const { idMap, newAthletes } = resolveOrCopyAthletesForImport(
+      sourceAthleteIds,
+      data.athletes,
+      selectedMeetId,
+    );
+    const remap = (athleteId: string) =>
+      athleteId ? (idMap.get(athleteId) ?? athleteId) : athleteId;
+
+    const newEntries: RelayEntry[] = toImport.map((e) => ({
+      id: newId(),
+      meetId: selectedMeetId,
+      event: matchEventAcrossMeets(e.event, sourceEvents, destEvents),
+      relayLetter: e.relayLetter,
+      leg1AthleteId: remap(e.leg1AthleteId),
+      leg2AthleteId: remap(e.leg2AthleteId),
+      leg3AthleteId: remap(e.leg3AthleteId),
+      leg4AthleteId: remap(e.leg4AthleteId),
+      seedTime: e.seedTime,
+    }));
+
+    history.update((prev) => ({
+      ...prev,
+      athletes: [...prev.athletes, ...newAthletes],
+      relayEntries: [...prev.relayEntries, ...newEntries],
+    }));
+  };
+
   const clearAllRelayEntries = () => {
     if (!selectedMeetId) return;
     const count = data.relayEntries.filter((e) => e.meetId === selectedMeetId).length;
@@ -96,6 +152,7 @@ export function useRelayEntryActions(
     deleteRelayEntry,
     bulkAddRelayEntries,
     importRelayEntriesCsv,
+    importRelayEntriesFromMeet,
     clearAllRelayEntries,
     reorderRelayEntries: relayEntryCrud.reorder,
   };
