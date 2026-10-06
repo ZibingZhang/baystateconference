@@ -19,6 +19,12 @@ export function findAthleteIdByName(name: string, athletes: Athlete[]): string |
   return matches.length === 1 ? matches[0].id : undefined;
 }
 
+/** Key identifying "this name and class year" — two athletes sharing it are an unlikely but possible same-name coincidence worth flagging. */
+export function athleteNameYearKey(a: Athlete): string | undefined {
+  const name = athleteFullName(a).toLowerCase();
+  return name !== "" && a.classYear !== null ? `${name}|${a.classYear}` : undefined;
+}
+
 export function athleteNameMatchError(name: string, athletes: Athlete[]): string | undefined {
   const target = name.trim();
   if (target === "") return "Athlete name is required.";

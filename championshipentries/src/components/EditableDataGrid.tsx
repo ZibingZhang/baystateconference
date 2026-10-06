@@ -155,38 +155,37 @@ function EditableDataGrid<T extends { id: string }>({
       ".MuiDataGrid-row",
     )?.dataset.id ?? null;
 
-  const handlePointerDown =
-    (sourceId: string) => (event: ReactPointerEvent<HTMLDivElement>) => {
-      if (!canReorder) {
-        if (readOnly) onReadOnlyAttempt?.();
-        return;
-      }
-      event.preventDefault();
-      setDraggingId(sourceId);
+  const handlePointerDown = (sourceId: string) => (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!canReorder) {
+      if (readOnly) onReadOnlyAttempt?.();
+      return;
+    }
+    event.preventDefault();
+    setDraggingId(sourceId);
 
-      const onMove = (moveEvent: PointerEvent) => {
-        const targetId = rowIdAtPoint(moveEvent.clientX, moveEvent.clientY);
-        setDragOverRowId(targetId && targetId !== sourceId ? targetId : null);
-      };
-      const onUp = (upEvent: PointerEvent) => {
-        window.removeEventListener("pointermove", onMove);
-        window.removeEventListener("pointerup", onUp);
-        setDraggingId(null);
-        setDragOverRowId(null);
-        const targetId = rowIdAtPoint(upEvent.clientX, upEvent.clientY);
-        if (!onReorder || !targetId || targetId === sourceId) return;
-        const ids = displayRows.map((row) => row.id);
-        const from = ids.indexOf(sourceId);
-        const to = ids.indexOf(targetId);
-        if (from === -1 || to === -1) return;
-        const next = ids.slice();
-        next.splice(from, 1);
-        next.splice(to, 0, sourceId);
-        onReorder(next);
-      };
-      window.addEventListener("pointermove", onMove);
-      window.addEventListener("pointerup", onUp);
+    const onMove = (moveEvent: PointerEvent) => {
+      const targetId = rowIdAtPoint(moveEvent.clientX, moveEvent.clientY);
+      setDragOverRowId(targetId && targetId !== sourceId ? targetId : null);
     };
+    const onUp = (upEvent: PointerEvent) => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      setDraggingId(null);
+      setDragOverRowId(null);
+      const targetId = rowIdAtPoint(upEvent.clientX, upEvent.clientY);
+      if (!onReorder || !targetId || targetId === sourceId) return;
+      const ids = displayRows.map((row) => row.id);
+      const from = ids.indexOf(sourceId);
+      const to = ids.indexOf(targetId);
+      if (from === -1 || to === -1) return;
+      const next = ids.slice();
+      next.splice(from, 1);
+      next.splice(to, 0, sourceId);
+      onReorder(next);
+    };
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+  };
 
   const reorderColumn: GridColDef<T> | null = onReorder
     ? {

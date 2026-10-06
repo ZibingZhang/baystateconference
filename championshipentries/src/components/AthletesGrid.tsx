@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Tooltip from "@mui/material/Tooltip";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import type { Athlete, IndividualEntry, RelayEntry } from "../types";
 import EditableDataGrid from "./EditableDataGrid";
 import GridActionsToolbar from "./GridActionsToolbar";
@@ -11,6 +12,8 @@ import BulkAddAthletesDialog from "./BulkAddAthletesDialog";
 import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
 import ImportAthletesFromMeetDialog from "./ImportAthletesFromMeetDialog";
+import { athleteNameYearKey } from "../utils/athleteMatch";
+import { duplicateBadgeProvider } from "../utils/entryGridShared";
 
 interface AthletesGridProps {
   meetId: string;
@@ -63,40 +66,85 @@ function HeaderWithInfo({ label, tooltip }: { label: string; tooltip: string }) 
   );
 }
 
-const columns: GridColDef<AthleteRow>[] = [
-  { field: "firstName", headerName: "First Name", flex: 1, editable: true },
-  { field: "lastName", headerName: "Last Name", flex: 1, editable: true },
-  {
-    field: "gender",
-    headerName: "Gender",
-    width: 100,
-    editable: true,
-    type: "singleSelect",
-    valueOptions: GENDERS,
-    renderHeader: () => <HeaderWithInfo label="Gender" tooltip={GENDER_TOOLTIP} />,
-  },
-  {
-    field: "classYear",
-    headerName: "Class Year",
-    width: 120,
-    editable: true,
-    type: "singleSelect",
-    valueOptions: CLASS_YEARS,
-    renderHeader: () => <HeaderWithInfo label="Class Year" tooltip={CLASS_YEAR_TOOLTIP} />,
-  },
-  {
-    field: "individualEventCount",
-    headerName: "Individual Events",
-    width: 130,
-    type: "number",
-  },
-  {
-    field: "relayEventCount",
-    headerName: "Relay Events",
-    width: 120,
-    type: "number",
-  },
-];
+const SAME_NAME_AND_YEAR_TOOLTIP =
+  "Another athlete has the same name and class year — verify these aren't duplicates";
+
+/**
+ * `nameYearBadge` is recomputed fresh from the current athlete list on every
+ * render (see the `useMemo` in the component) rather than being baked into
+ * each row as a stored field — a stored field would go stale the moment a
+ * row is edited, since the grid's `processRowUpdate` echoes back the rest of
+ * the previous row data verbatim alongside the one field that actually
+ * changed.
+ */
+function buildColumns(
+  nameYearBadge: (row: Athlete) => string | undefined,
+): GridColDef<AthleteRow>[] {
+  return [
+    { field: "firstName", headerName: "First Name", flex: 1, editable: true },
+    {
+      field: "lastName",
+      headerName: "Last Name",
+      flex: 1,
+      editable: true,
+      renderCell: (params) => (
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
+            height: "100%",
+            overflow: "hidden",
+            gap: 0.5,
+          }}
+        >
+          <Box
+            component="span"
+            sx={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}
+          >
+            {params.value as string}
+          </Box>
+          {nameYearBadge(params.row) && (
+            <Tooltip title={SAME_NAME_AND_YEAR_TOOLTIP}>
+              <WarningAmberIcon fontSize="small" sx={{ color: "warning.main", flexShrink: 0 }} />
+            </Tooltip>
+          )}
+        </Box>
+      ),
+    },
+    {
+      field: "gender",
+      headerName: "Gender",
+      width: 100,
+      editable: true,
+      type: "singleSelect",
+      valueOptions: GENDERS,
+      renderHeader: () => <HeaderWithInfo label="Gender" tooltip={GENDER_TOOLTIP} />,
+    },
+    {
+      field: "classYear",
+      headerName: "Class Year",
+      width: 120,
+      editable: true,
+      type: "singleSelect",
+      valueOptions: CLASS_YEARS,
+      renderHeader: () => <HeaderWithInfo label="Class Year" tooltip={CLASS_YEAR_TOOLTIP} />,
+    },
+    {
+      field: "individualEventCount",
+      headerName: "Individual Events",
+      width: 130,
+      type: "number",
+    },
+    {
+      field: "relayEventCount",
+      headerName: "Relay Events",
+      width: 120,
+      type: "number",
+    },
+  ];
+}
 
 const csvColumns: CsvImportColumn[] = [
   {
@@ -173,6 +221,14 @@ function AthletesGrid({
       relayEventCount: relayCounts.get(athlete.id) ?? 0,
     }));
   }, [athletes, individualEntries, relayEntries]);
+
+  const columns = useMemo(
+    () =>
+      buildColumns(
+        duplicateBadgeProvider(athletes, athleteNameYearKey, () => SAME_NAME_AND_YEAR_TOOLTIP),
+      ),
+    [athletes],
+  );
 
   return (
     <>
