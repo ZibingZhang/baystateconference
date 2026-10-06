@@ -47,7 +47,9 @@ interface AppMenuBarProps {
   onExportHy3: () => void;
   onExportAllData: () => void;
   onImportAllDataFile: (file: File) => void;
+  onCopyTemplate: () => void;
   hasSelectedMeet: boolean;
+  hasSelectedTemplate: boolean;
   onHowTo: () => void;
   onAbout: () => void;
   onUndo: () => void;
@@ -67,7 +69,9 @@ function AppMenuBar({
   onExportHy3,
   onExportAllData,
   onImportAllDataFile,
+  onCopyTemplate,
   hasSelectedMeet,
+  hasSelectedTemplate,
   onHowTo,
   onAbout,
   onUndo,
@@ -171,24 +175,36 @@ function AppMenuBar({
           >
             New Meet
           </MenuItem>
-          <MenuItem
-            disabled={!hasSelectedMeet}
-            onClick={() => {
-              onRenameMeet();
-              closeFileMenu();
-            }}
-          >
-            Rename Meet
-          </MenuItem>
-          <MenuItem
-            disabled={!hasSelectedMeet}
-            onClick={() => {
-              onCopyMeet();
-              closeFileMenu();
-            }}
-          >
-            Copy Meet
-          </MenuItem>
+          {hasSelectedMeet && (
+            <MenuItem
+              onClick={() => {
+                onRenameMeet();
+                closeFileMenu();
+              }}
+            >
+              Rename Meet
+            </MenuItem>
+          )}
+          {hasSelectedMeet && (
+            <MenuItem
+              onClick={() => {
+                onCopyMeet();
+                closeFileMenu();
+              }}
+            >
+              Copy Meet
+            </MenuItem>
+          )}
+          {hasSelectedTemplate && (
+            <MenuItem
+              onClick={() => {
+                onCopyTemplate();
+                closeFileMenu();
+              }}
+            >
+              Copy Template
+            </MenuItem>
+          )}
           <Divider />
           <MenuItem
             onClick={() => {
@@ -198,24 +214,26 @@ function AppMenuBar({
           >
             Import Meet
           </MenuItem>
-          <MenuItem
-            disabled={!hasSelectedMeet}
-            onClick={() => {
-              onExportMeetBackup();
-              closeFileMenu();
-            }}
-          >
-            Export Meet Backup
-          </MenuItem>
-          <MenuItem
-            disabled={!hasSelectedMeet}
-            onClick={() => {
-              onExportHy3();
-              closeFileMenu();
-            }}
-          >
-            Export to HY3
-          </MenuItem>
+          {hasSelectedMeet && (
+            <MenuItem
+              onClick={() => {
+                onExportMeetBackup();
+                closeFileMenu();
+              }}
+            >
+              Export Meet Backup
+            </MenuItem>
+          )}
+          {hasSelectedMeet && (
+            <MenuItem
+              onClick={() => {
+                onExportHy3();
+                closeFileMenu();
+              }}
+            >
+              Export to HY3
+            </MenuItem>
+          )}
           <Divider />
           <MenuItem
             onClick={() => {
@@ -233,16 +251,17 @@ function AppMenuBar({
           >
             Import All Data
           </MenuItem>
-          <Divider />
-          <MenuItem
-            disabled={!hasSelectedMeet}
-            onClick={() => {
-              onDeleteMeet();
-              closeFileMenu();
-            }}
-          >
-            Delete Meet
-          </MenuItem>
+          {hasSelectedMeet && <Divider />}
+          {hasSelectedMeet && (
+            <MenuItem
+              onClick={() => {
+                onDeleteMeet();
+                closeFileMenu();
+              }}
+            >
+              Delete Meet
+            </MenuItem>
+          )}
         </NavMenu>
         <Button color="inherit" size="small" onClick={openResultsMenu}>
           Results

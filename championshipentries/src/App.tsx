@@ -119,7 +119,9 @@ function App() {
         onExportHy3={hy3Export.requestExport}
         onExportAllData={appDataBackup.exportAllData}
         onImportAllDataFile={appDataBackup.importAllDataFile}
+        onCopyTemplate={() => selectedTemplateId && template.copyTemplateToMeet(selectedTemplateId)}
         hasSelectedMeet={Boolean(selectedMeet)}
+        hasSelectedTemplate={Boolean(selectedTemplateId)}
         onHowTo={() => {
           setSelectedMeetId(null);
           template.clearTemplate();
