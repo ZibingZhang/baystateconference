@@ -12,9 +12,7 @@ import TextField from "@mui/material/TextField";
 import Tooltip from "@mui/material/Tooltip";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import type { Meet, MeetTemplate } from "../types";
 
@@ -30,9 +28,7 @@ interface MeetSidebarProps {
   onSelectMeet: (id: string) => void;
   onAddMeet: () => void;
   onDeleteMeet: (id: string) => void;
-  onCopyMeet: (id: string) => void;
   onRenameMeet: (id: string, name: string) => void;
-  onExportMeet: (id: string) => void;
   onImportMeetFile: (file: File) => void;
   templates: MeetTemplate[];
   selectedTemplateId: string | null;
@@ -47,9 +43,7 @@ function MeetSidebar({
   onSelectMeet,
   onAddMeet,
   onDeleteMeet,
-  onCopyMeet,
   onRenameMeet,
-  onExportMeet,
   onImportMeetFile,
   templates,
   selectedTemplateId,
@@ -245,48 +239,16 @@ function MeetSidebar({
               disablePadding
               secondaryAction={
                 editingId === meet.id ? null : (
-                  <Box sx={{ display: "flex" }}>
-                    <Tooltip title="Rename meet">
-                      <IconButton
-                        edge="end"
-                        size="small"
-                        aria-label="Rename meet"
-                        onClick={() => startEditing(meet)}
-                      >
-                        <EditIcon fontSize="small" />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Copy meet">
-                      <IconButton
-                        edge="end"
-                        size="small"
-                        aria-label="Copy meet"
-                        onClick={() => onCopyMeet(meet.id)}
-                      >
-                        <ContentCopyIcon fontSize="small" />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Export meet">
-                      <IconButton
-                        edge="end"
-                        size="small"
-                        aria-label="Export meet"
-                        onClick={() => onExportMeet(meet.id)}
-                      >
-                        <FileDownloadIcon fontSize="small" />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Delete meet">
-                      <IconButton
-                        edge="end"
-                        size="small"
-                        aria-label="Delete meet"
-                        onClick={() => onDeleteMeet(meet.id)}
-                      >
-                        <DeleteIcon fontSize="small" />
-                      </IconButton>
-                    </Tooltip>
-                  </Box>
+                  <Tooltip title="Delete meet">
+                    <IconButton
+                      edge="end"
+                      size="small"
+                      aria-label="Delete meet"
+                      onClick={() => onDeleteMeet(meet.id)}
+                    >
+                      <DeleteIcon fontSize="small" />
+                    </IconButton>
+                  </Tooltip>
                 )
               }
             >
@@ -308,7 +270,7 @@ function MeetSidebar({
                   onClick={() => onSelectMeet(meet.id)}
                   onDoubleClick={() => startEditing(meet)}
                   // style (not sx) to out-specificity MUI's own secondaryAction padding-right rule
-                  style={{ paddingRight: 116 }}
+                  style={{ paddingRight: 40 }}
                 >
                   <ListItemText
                     primary={meet.name}

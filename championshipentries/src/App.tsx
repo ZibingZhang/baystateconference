@@ -11,6 +11,7 @@ import { MEET_TEMPLATES, templateFileName } from "./domain/meetTemplates";
 import AppMenuBar from "./components/AppMenuBar";
 import MeetSidebar from "./components/MeetSidebar";
 import AddMeetDialog from "./components/AddMeetDialog";
+import RenameMeetDialog from "./components/RenameMeetDialog";
 import AboutPage from "./components/AboutPage";
 import HowToPage from "./components/HowToPage";
 import ConfirmDialog from "./components/ConfirmDialog";
@@ -33,6 +34,7 @@ function App() {
   const history = useHistory(data, setData);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [addMeetOpen, setAddMeetOpen] = useState(false);
+  const [renameMeetOpen, setRenameMeetOpen] = useState(false);
 
   const { confirmDialog, showConfirm, closeConfirm, infoDialog, showInfo, closeInfo } =
     useDialogState();
@@ -106,8 +108,12 @@ function App() {
       <AppMenuBar
         onToggleSidebar={() => setSidebarOpen((v) => !v)}
         onNewMeet={() => setAddMeetOpen(true)}
+        onRenameMeet={() => setRenameMeetOpen(true)}
+        onCopyMeet={() => selectedMeet && meetActions.copyMeet(selectedMeet.id)}
+        onExportMeetBackup={() => selectedMeet && meetBackup.exportMeet(selectedMeet.id)}
+        onDeleteMeet={() => selectedMeet && meetActions.deleteMeet(selectedMeet.id)}
         onExportHy3={hy3Export.requestExport}
-        exportDisabled={!selectedMeet}
+        hasSelectedMeet={Boolean(selectedMeet)}
         onHowTo={() => {
           setSelectedMeetId(null);
           template.clearTemplate();
@@ -135,9 +141,7 @@ function App() {
           }}
           onAddMeet={() => setAddMeetOpen(true)}
           onDeleteMeet={meetActions.deleteMeet}
-          onCopyMeet={meetActions.copyMeet}
           onRenameMeet={meetActions.renameMeet}
-          onExportMeet={meetBackup.exportMeet}
           onImportMeetFile={meetBackup.importMeetFile}
           templates={MEET_TEMPLATES}
           selectedTemplateId={selectedTemplateId}
@@ -271,6 +275,16 @@ function App() {
           }
         }}
         templates={MEET_TEMPLATES}
+      />
+      <RenameMeetDialog
+        key={renameMeetOpen ? selectedMeet?.id : "closed"}
+        open={renameMeetOpen}
+        initialName={selectedMeet?.name ?? ""}
+        onClose={() => setRenameMeetOpen(false)}
+        onRename={(name) => {
+          if (selectedMeet) meetActions.renameMeet(selectedMeet.id, name);
+          setRenameMeetOpen(false);
+        }}
       />
       <ConfirmDialog
         open={confirmDialog !== null}

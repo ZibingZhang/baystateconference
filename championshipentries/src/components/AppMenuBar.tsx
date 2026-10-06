@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import Divider from "@mui/material/Divider";
 import NavMenu from "./NavMenu";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -38,8 +39,12 @@ const STATES_RESULTS_URL =
 interface AppMenuBarProps {
   onToggleSidebar: () => void;
   onNewMeet: () => void;
+  onRenameMeet: () => void;
+  onCopyMeet: () => void;
+  onExportMeetBackup: () => void;
+  onDeleteMeet: () => void;
   onExportHy3: () => void;
-  exportDisabled: boolean;
+  hasSelectedMeet: boolean;
   onHowTo: () => void;
   onAbout: () => void;
   onUndo: () => void;
@@ -51,8 +56,12 @@ interface AppMenuBarProps {
 function AppMenuBar({
   onToggleSidebar,
   onNewMeet,
+  onRenameMeet,
+  onCopyMeet,
+  onExportMeetBackup,
+  onDeleteMeet,
   onExportHy3,
-  exportDisabled,
+  hasSelectedMeet,
   onHowTo,
   onAbout,
   onUndo,
@@ -130,13 +139,51 @@ function AppMenuBar({
             New Meet
           </MenuItem>
           <MenuItem
-            disabled={exportDisabled}
+            disabled={!hasSelectedMeet}
+            onClick={() => {
+              onRenameMeet();
+              closeFileMenu();
+            }}
+          >
+            Rename Meet
+          </MenuItem>
+          <MenuItem
+            disabled={!hasSelectedMeet}
+            onClick={() => {
+              onCopyMeet();
+              closeFileMenu();
+            }}
+          >
+            Copy Meet
+          </MenuItem>
+          <Divider />
+          <MenuItem
+            disabled={!hasSelectedMeet}
+            onClick={() => {
+              onExportMeetBackup();
+              closeFileMenu();
+            }}
+          >
+            Export Meet Backup
+          </MenuItem>
+          <MenuItem
+            disabled={!hasSelectedMeet}
             onClick={() => {
               onExportHy3();
               closeFileMenu();
             }}
           >
             Export to HY3
+          </MenuItem>
+          <Divider />
+          <MenuItem
+            disabled={!hasSelectedMeet}
+            onClick={() => {
+              onDeleteMeet();
+              closeFileMenu();
+            }}
+          >
+            Delete Meet
           </MenuItem>
         </NavMenu>
         <Button color="inherit" size="small" onClick={openResultsMenu}>
