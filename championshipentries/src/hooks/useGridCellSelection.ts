@@ -26,6 +26,10 @@ export function useGridCellSelection<T extends { id: string }>(apiRef: RefObject
   // reused across consecutive Shift+Arrow presses so they keep extending.
   const shiftAnchorRef = useRef<CellRef | null>(null);
   const draggingRef = useRef(false);
+  // Cells staged by a pending Ctrl+X: left in place (just marked, like copiedCells)
+  // until a paste actually lands elsewhere, at which point they're cleared — so a
+  // cut that's never pasted (Escape, switching away) leaves the source untouched.
+  const cutSourceRef = useRef<Set<string> | null>(null);
 
   useEffect(() => {
     selectionRef.current = selection;
@@ -168,6 +172,7 @@ export function useGridCellSelection<T extends { id: string }>(apiRef: RefObject
     setCopiedCells,
     anchorRef,
     shiftAnchorRef,
+    cutSourceRef,
     rangeBetween,
     buildRangeGrid,
     copiedCellSides,

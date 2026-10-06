@@ -49,6 +49,7 @@ interface UseGridKeyboardNavOptions<T extends { id: string }> {
   setSelection: (next: Set<string>) => void;
   anchorRef: RefObject<CellRef | null>;
   shiftAnchorRef: RefObject<CellRef | null>;
+  cutSourceRef: RefObject<Set<string> | null>;
   rangeBetween: (a: CellRef, b: CellRef) => Set<string>;
 }
 
@@ -65,6 +66,7 @@ export function useGridKeyboardNav<T extends { id: string }>({
   setSelection,
   anchorRef,
   shiftAnchorRef,
+  cutSourceRef,
   rangeBetween,
 }: UseGridKeyboardNavOptions<T>) {
   const handleCellKeyDown = (
@@ -125,6 +127,7 @@ export function useGridKeyboardNav<T extends { id: string }>({
       setSelection(new Set());
       anchorRef.current = null;
       shiftAnchorRef.current = null;
+      cutSourceRef.current = null;
       return;
     }
     const isArrowKey =

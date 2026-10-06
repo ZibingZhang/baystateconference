@@ -23,14 +23,15 @@ interface UseGridClipboardOptions<T extends { id: string }> {
   setSelection: (next: Set<string>) => void;
   setCopiedCells: (next: Set<string>) => void;
   anchorRef: RefObject<CellRef | null>;
+  cutSourceRef: RefObject<Set<string> | null>;
   buildRangeGrid: (
     cells: Set<string>,
   ) => { grid: string[][]; rowIds: GridRowId[]; fields: string[] } | null;
 }
 
 /**
- * Owns clipboard copy/paste: the Firefox-selection workaround for native
- * copy, and TSV paste parsing (single-value broadcast to a multi-selection,
+ * Owns clipboard copy/cut/paste: the Firefox-selection workaround for native
+ * copy/cut, and TSV paste parsing (single-value broadcast to a multi-selection,
  * or a rectangular block anchored at the current cell).
  */
 export function useGridClipboard<T extends { id: string }>({
@@ -46,6 +47,7 @@ export function useGridClipboard<T extends { id: string }>({
   setSelection,
   setCopiedCells,
   anchorRef,
+  cutSourceRef,
   buildRangeGrid,
 }: UseGridClipboardOptions<T>) {
   const hiddenTextareaRef = useRef<HTMLTextAreaElement>(null);
@@ -72,12 +74,16 @@ export function useGridClipboard<T extends { id: string }>({
         event.stopPropagation();
         return;
       }
-      if (key === "c") {
-        // Firefox only fires the native 'copy' event when real text is selected
-        // (Chrome fires it on the shortcut regardless). Cell text isn't selectable
-        // (see user-select: none below), so give the browser something real to
-        // copy: a hidden textarea holding the range's TSV, selected right before
-        // the browser's own copy action runs.
+      if (key === "c" || key === "x") {
+        if (key === "x" && readOnly) {
+          onReadOnlyAttempt?.();
+          return;
+        }
+        // Firefox only fires the native 'copy'/'cut' event when real text is
+        // selected (Chrome fires it on the shortcut regardless). Cell text isn't
+        // selectable (see user-select: none below), so give the browser something
+        // real to copy/cut: a hidden textarea holding the range's TSV, selected
+        // right before the browser's own copy/cut action runs.
         const range = buildRangeGrid(selectionRef.current);
         const textarea = hiddenTextareaRef.current;
         if (!range || !textarea) return;
@@ -104,6 +110,25 @@ export function useGridClipboard<T extends { id: string }>({
     const next = new Set<string>();
     range.rowIds.forEach((id) => range.fields.forEach((field) => next.add(cellKey(id, field))));
     setCopiedCells(next);
+    // A plain copy supersedes any not-yet-pasted cut — its source stays put for good.
+    cutSourceRef.current = null;
+    preCopyFocusRef.current?.focus();
+    preCopyFocusRef.current = null;
+  };
+
+  const handleCut = () => {
+    // Mirrors handleCopy (the clipboard write already happened natively via
+    // the hidden textarea) but, Excel/Sheets-style, doesn't clear the source
+    // yet — it's left marked (reusing the copiedCells marching ants) and only
+    // actually cleared once a paste lands (see handlePaste), so a cut that's
+    // never pasted — Escape, switching away — leaves the data untouched.
+    const range = pendingCopyRangeRef.current;
+    if (!range) return;
+    pendingCopyRangeRef.current = null;
+    const next = new Set<string>();
+    range.rowIds.forEach((id) => range.fields.forEach((field) => next.add(cellKey(id, field))));
+    setCopiedCells(next);
+    cutSourceRef.current = next;
     preCopyFocusRef.current?.focus();
     preCopyFocusRef.current = null;
   };
@@ -164,10 +189,28 @@ export function useGridClipboard<T extends { id: string }>({
       });
     }
 
+    // Completing a pending cut: clear its source cells now that the data has
+    // landed elsewhere (skip any that this same paste just wrote into, so a
+    // cut pasted back over part of its own source doesn't erase the result).
+    const cutSource = cutSourceRef.current;
+    if (cutSource) {
+      cutSourceRef.current = null;
+      setCopiedCells(new Set());
+      cutSource.forEach((key) => {
+        if (pastedKeys.has(key)) return;
+        const { id, field } = parseCellKey(key);
+        const cellParams = api.getCellParams(id, field);
+        if (!api.isCellEditable(cellParams)) return;
+        if (cellParams.value === "" || cellParams.value == null) return;
+        const row = byRow.get(id) ?? { ...cellParams.row };
+        byRow.set(id, { ...row, [field]: "" });
+      });
+    }
+
     byRow.forEach((row) => onUpdate(processRow ? processRow(row) : row));
     if (pastedKeys.size > 0) setSelection(pastedKeys);
     if (hadRejection) notifyRejected();
   };
 
-  return { handleCopy, handlePaste, hiddenTextareaRef };
+  return { handleCopy, handleCut, handlePaste, hiddenTextareaRef };
 }

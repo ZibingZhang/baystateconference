@@ -92,6 +92,7 @@ function EditableDataGrid<T extends { id: string }>({
     setCopiedCells,
     anchorRef,
     shiftAnchorRef,
+    cutSourceRef,
     rangeBetween,
     buildRangeGrid,
     copiedCellSides,
@@ -121,10 +122,11 @@ function EditableDataGrid<T extends { id: string }>({
     setSelection,
     anchorRef,
     shiftAnchorRef,
+    cutSourceRef,
     rangeBetween,
   });
 
-  const { handleCopy, handlePaste, hiddenTextareaRef } = useGridClipboard<T>({
+  const { handleCopy, handleCut, handlePaste, hiddenTextareaRef } = useGridClipboard<T>({
     apiRef,
     containerRef,
     readOnly,
@@ -137,6 +139,7 @@ function EditableDataGrid<T extends { id: string }>({
     setSelection,
     setCopiedCells,
     anchorRef,
+    cutSourceRef,
     buildRangeGrid,
   });
 
@@ -267,13 +270,13 @@ function EditableDataGrid<T extends { id: string }>({
         ref={containerRef}
         sx={{ flex: 1, minHeight: 0 }}
         onCopy={handleCopy}
+        onCut={handleCut}
         onPaste={handlePaste}
       >
         <Box
           component="textarea"
           ref={hiddenTextareaRef}
           tabIndex={-1}
-          readOnly
           sx={{
             position: "fixed",
             top: "-1000px",
