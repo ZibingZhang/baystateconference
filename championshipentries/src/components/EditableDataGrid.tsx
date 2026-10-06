@@ -17,6 +17,7 @@ import {
 } from "@mui/x-data-grid";
 import { cellKey, readOnlyGuard } from "../utils/dataGridCells";
 import withSelectIcon from "./withSelectIcon";
+import ScrollableToolbar from "./ScrollableToolbar";
 import { marchingAntsSx } from "./EditableDataGrid.styles";
 import { useGridAlertBanner } from "../hooks/useGridAlertBanner";
 import { useGridCellSelection } from "../hooks/useGridCellSelection";
@@ -243,26 +244,22 @@ function EditableDataGrid<T extends { id: string }>({
 
   return (
     <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
-      <Box
-        sx={{
-          mb: 1,
-          display: "flex",
-          alignItems: "center",
-          gap: 1,
-          flexWrap: "nowrap",
-          overflowX: "auto",
-          "& > *": { flexShrink: 0 },
-        }}
-      >
-        <Button
-          size="small"
-          startIcon={<AddIcon />}
-          onClick={readOnlyGuard(readOnly, onReadOnlyAttempt, onAdd)}
+      <Box sx={{ mb: 1, display: "flex", alignItems: "center", gap: 1 }}>
+        <ScrollableToolbar>
+          <Button
+            size="small"
+            startIcon={<AddIcon />}
+            onClick={readOnlyGuard(readOnly, onReadOnlyAttempt, onAdd)}
+          >
+            {addLabel}
+          </Button>
+          {extraToolbar}
+        </ScrollableToolbar>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{ ml: "auto", flexShrink: 0, whiteSpace: "nowrap" }}
         >
-          {addLabel}
-        </Button>
-        {extraToolbar}
-        <Typography variant="body2" color="text.secondary" sx={{ ml: "auto" }}>
           {rows.length} {rows.length === 1 ? itemLabelSingular : itemLabelPlural}
         </Typography>
       </Box>

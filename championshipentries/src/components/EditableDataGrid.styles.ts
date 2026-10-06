@@ -2,6 +2,41 @@ import type { Theme } from "@mui/material/styles";
 
 export function marchingAntsSx(theme: Theme) {
   return {
+    // DataGrid renders its own synthetic scrollbar thumb (`.MuiDataGrid-scrollbar`,
+    // absolutely positioned over the grid) and deliberately hides the native
+    // scrollbar on the actual scrolling pane (`.MuiDataGrid-virtualScroller`) so
+    // only the synthetic one shows — style that one, not virtualScroller, or the
+    // native scrollbar comes back as a second, misaligned thumb alongside it.
+    "& .MuiDataGrid-scrollbar": {
+      scrollbarWidth: "thin",
+      scrollbarColor: `${theme.palette.action.disabled} transparent`,
+    },
+    "& .MuiDataGrid-scrollbar::-webkit-scrollbar": {
+      width: 10,
+      height: 10,
+    },
+    "& .MuiDataGrid-scrollbar::-webkit-scrollbar-track": {
+      backgroundColor: "transparent",
+    },
+    "& .MuiDataGrid-scrollbar::-webkit-scrollbar-thumb": {
+      backgroundColor: theme.palette.action.disabled,
+      borderRadius: 8,
+      border: "2px solid transparent",
+      backgroundClip: "content-box",
+    },
+    "& .MuiDataGrid-scrollbar::-webkit-scrollbar-thumb:hover": {
+      backgroundColor: theme.palette.action.active,
+    },
+    // The filler square where the vertical and horizontal scrollbars meet
+    // (`ScrollbarCorner` in MUI's source — it carries no `MuiDataGrid-*`
+    // class to target, so this is the only selector that reaches it) is just
+    // an empty spacer, but `overflow: scroll` makes the browser paint a
+    // native scrollbar corner there regardless — a plain white square that
+    // ignores the theme. It's aria-hidden and non-interactive, so hiding its
+    // overflow instead just leaves blank space, matching the grid behind it.
+    "& div[aria-hidden='true']:not(.MuiDataGrid-scrollbar)": {
+      overflow: "hidden",
+    },
     "& .MuiDataGrid-cell": { userSelect: "none" },
     "& .MuiDataGrid-cell--editing": { userSelect: "text" },
     "& .multi-selected-cell": { backgroundColor: "action.selected" },

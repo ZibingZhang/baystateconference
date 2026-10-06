@@ -161,6 +161,9 @@ function MeetTabsView({
       <Tabs
         value={topLevelTab}
         onChange={handleTopLevelTabChange}
+        variant="scrollable"
+        scrollButtons="auto"
+        allowScrollButtonsMobile
         sx={{ borderBottom: 1, borderColor: "divider", px: 1 }}
       >
         <Tab label="Team" value="team" />

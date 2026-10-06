@@ -48,6 +48,9 @@ function AdvancedTab({
       <Tabs
         value={subTab}
         onChange={(_, value: AdvancedSubTab) => onSubTabChange(value)}
+        variant="scrollable"
+        scrollButtons="auto"
+        allowScrollButtonsMobile
         sx={{ borderBottom: 1, borderColor: "divider", minHeight: 36, mb: 1 }}
       >
         <Tab label="EV3 File" value="ev3" sx={{ minHeight: 36 }} />
