@@ -12,6 +12,7 @@ import TextField from "@mui/material/TextField";
 import Tooltip from "@mui/material/Tooltip";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
@@ -245,6 +246,16 @@ function MeetSidebar({
               secondaryAction={
                 editingId === meet.id ? null : (
                   <Box sx={{ display: "flex" }}>
+                    <Tooltip title="Rename meet">
+                      <IconButton
+                        edge="end"
+                        size="small"
+                        aria-label="Rename meet"
+                        onClick={() => startEditing(meet)}
+                      >
+                        <EditIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
                     <Tooltip title="Copy meet">
                       <IconButton
                         edge="end"
@@ -297,7 +308,7 @@ function MeetSidebar({
                   onClick={() => onSelectMeet(meet.id)}
                   onDoubleClick={() => startEditing(meet)}
                   // style (not sx) to out-specificity MUI's own secondaryAction padding-right rule
-                  style={{ paddingRight: 88 }}
+                  style={{ paddingRight: 116 }}
                 >
                   <ListItemText
                     primary={meet.name}
