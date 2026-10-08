@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { KeyboardEvent } from "react";
 import Box from "@mui/material/Box";
+import Collapse from "@mui/material/Collapse";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -13,12 +14,16 @@ import Tooltip from "@mui/material/Tooltip";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import type { Meet, MeetTemplate } from "../types";
 
 const DEFAULT_SIDEBAR_WIDTH = 240;
 const MIN_SIDEBAR_WIDTH = 160;
 const MAX_SIDEBAR_WIDTH = 480;
 const SIDEBAR_WIDTH_STORAGE_KEY = "meetSidebarWidth";
+const TEMPLATES_COLLAPSED_STORAGE_KEY = "meetSidebarTemplatesCollapsed";
+const MEETS_COLLAPSED_STORAGE_KEY = "meetSidebarMeetsCollapsed";
 
 interface MeetSidebarProps {
   open: boolean;
@@ -54,10 +59,24 @@ function MeetSidebar({
     return saved >= MIN_SIDEBAR_WIDTH && saved <= MAX_SIDEBAR_WIDTH ? saved : DEFAULT_SIDEBAR_WIDTH;
   });
   const [isResizing, setIsResizing] = useState(false);
+  const [templatesCollapsed, setTemplatesCollapsed] = useState(
+    () => localStorage.getItem(TEMPLATES_COLLAPSED_STORAGE_KEY) === "true",
+  );
+  const [meetsCollapsed, setMeetsCollapsed] = useState(
+    () => localStorage.getItem(MEETS_COLLAPSED_STORAGE_KEY) === "true",
+  );
 
   useEffect(() => {
     localStorage.setItem(SIDEBAR_WIDTH_STORAGE_KEY, String(width));
   }, [width]);
+
+  useEffect(() => {
+    localStorage.setItem(TEMPLATES_COLLAPSED_STORAGE_KEY, String(templatesCollapsed));
+  }, [templatesCollapsed]);
+
+  useEffect(() => {
+    localStorage.setItem(MEETS_COLLAPSED_STORAGE_KEY, String(meetsCollapsed));
+  }, [meetsCollapsed]);
 
   useEffect(() => {
     if (!isResizing) return;
@@ -125,63 +144,80 @@ function MeetSidebar({
           justifyContent: "space-between",
           px: 1.5,
           py: 1,
+          cursor: "pointer",
         }}
+        onClick={() => setTemplatesCollapsed((prev) => !prev)}
       >
-        <Typography variant="overline" color="text.secondary">
-          Meet Templates
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <IconButton
+            size="small"
+            aria-label={templatesCollapsed ? "Expand meet templates" : "Collapse meet templates"}
+            sx={{ mr: 0.5 }}
+          >
+            {templatesCollapsed ? (
+              <ChevronRightIcon fontSize="small" />
+            ) : (
+              <ExpandMoreIcon fontSize="small" />
+            )}
+          </IconButton>
+          <Typography variant="overline" color="text.secondary">
+            Meet Templates
+          </Typography>
+        </Box>
       </Box>
       <Divider />
-      <List sx={{ width, py: 0 }}>
-        {templates.map((template) => (
-          <ListItem
-            key={template.id}
-            disablePadding
-            secondaryAction={
-              <Tooltip title="Copy template into a new meet">
-                <IconButton
-                  edge="end"
-                  size="small"
-                  aria-label="Copy template into a new meet"
-                  onClick={() => onCopyTemplate(template.id)}
-                >
-                  <ContentCopyIcon fontSize="small" />
-                </IconButton>
-              </Tooltip>
-            }
-          >
-            <ListItemButton
-              selected={template.id === selectedTemplateId}
-              onClick={() => onSelectTemplate(template.id)}
-              // style (not sx) to out-specificity MUI's own secondaryAction padding-right rule
-              style={{ paddingRight: 40 }}
+      <Collapse in={!templatesCollapsed}>
+        <List sx={{ width, py: 0 }}>
+          {templates.map((template) => (
+            <ListItem
+              key={template.id}
+              disablePadding
+              secondaryAction={
+                <Tooltip title="Copy template into a new meet">
+                  <IconButton
+                    edge="end"
+                    size="small"
+                    aria-label="Copy template into a new meet"
+                    onClick={() => onCopyTemplate(template.id)}
+                  >
+                    <ContentCopyIcon fontSize="small" />
+                  </IconButton>
+                </Tooltip>
+              }
             >
-              <ListItemText
-                primary={template.name}
-                slotProps={{
-                  primary: {
-                    title: template.name,
-                    sx: {
-                      display: "-webkit-box",
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: "vertical",
-                      overflow: "hidden",
+              <ListItemButton
+                selected={template.id === selectedTemplateId}
+                onClick={() => onSelectTemplate(template.id)}
+                // style (not sx) to out-specificity MUI's own secondaryAction padding-right rule
+                style={{ paddingRight: 40 }}
+              >
+                <ListItemText
+                  primary={template.name}
+                  slotProps={{
+                    primary: {
+                      title: template.name,
+                      sx: {
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                      },
                     },
-                  },
-                }}
-                sx={{ minWidth: 0 }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-        {templates.length === 0 && (
-          <Box sx={{ px: 2, py: 1 }}>
-            <Typography variant="body2" color="text.secondary">
-              No templates yet
-            </Typography>
-          </Box>
-        )}
-      </List>
+                  }}
+                  sx={{ minWidth: 0 }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+          {templates.length === 0 && (
+            <Box sx={{ px: 2, py: 1 }}>
+              <Typography variant="body2" color="text.secondary">
+                No templates yet
+              </Typography>
+            </Box>
+          )}
+        </List>
+      </Collapse>
       <Divider />
       <Box
         sx={{
@@ -191,86 +227,110 @@ function MeetSidebar({
           justifyContent: "space-between",
           px: 1.5,
           py: 1,
+          cursor: "pointer",
         }}
+        onClick={() => setMeetsCollapsed((prev) => !prev)}
       >
-        <Typography variant="overline" color="text.secondary">
-          Meets
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <IconButton
+            size="small"
+            aria-label={meetsCollapsed ? "Expand meets" : "Collapse meets"}
+            sx={{ mr: 0.5 }}
+          >
+            {meetsCollapsed ? (
+              <ChevronRightIcon fontSize="small" />
+            ) : (
+              <ExpandMoreIcon fontSize="small" />
+            )}
+          </IconButton>
+          <Typography variant="overline" color="text.secondary">
+            Meets
+          </Typography>
+        </Box>
         <Tooltip title="Add meet">
-          <IconButton size="small" onClick={onAddMeet} aria-label="Add meet">
+          <IconButton
+            size="small"
+            onClick={(e) => {
+              e.stopPropagation();
+              onAddMeet();
+            }}
+            aria-label="Add meet"
+          >
             <AddIcon fontSize="small" />
           </IconButton>
         </Tooltip>
       </Box>
       <Divider />
-      <Box sx={{ width, flex: 1, overflowY: "auto" }}>
-        <List sx={{ py: 0 }}>
-          {meets.map((meet) => (
-            <ListItem
-              key={meet.id}
-              disablePadding
-              secondaryAction={
-                editingId === meet.id ? null : (
-                  <Tooltip title="Delete meet">
-                    <IconButton
-                      edge="end"
+      <Box sx={{ width, flex: meetsCollapsed ? "0 0 auto" : 1, overflowY: "auto" }}>
+        <Collapse in={!meetsCollapsed}>
+          <List sx={{ py: 0 }}>
+            {meets.map((meet) => (
+              <ListItem
+                key={meet.id}
+                disablePadding
+                secondaryAction={
+                  editingId === meet.id ? null : (
+                    <Tooltip title="Delete meet">
+                      <IconButton
+                        edge="end"
+                        size="small"
+                        aria-label="Delete meet"
+                        onClick={() => onDeleteMeet(meet.id)}
+                      >
+                        <DeleteIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
+                  )
+                }
+              >
+                {editingId === meet.id ? (
+                  <Box sx={{ flex: 1, px: 2, py: 0.5 }}>
+                    <TextField
+                      autoFocus
                       size="small"
-                      aria-label="Delete meet"
-                      onClick={() => onDeleteMeet(meet.id)}
-                    >
-                      <DeleteIcon fontSize="small" />
-                    </IconButton>
-                  </Tooltip>
-                )
-              }
-            >
-              {editingId === meet.id ? (
-                <Box sx={{ flex: 1, px: 2, py: 0.5 }}>
-                  <TextField
-                    autoFocus
-                    size="small"
-                    fullWidth
-                    value={editValue}
-                    onChange={(e) => setEditValue(e.target.value)}
-                    onBlur={commitEdit}
-                    onKeyDown={handleEditKeyDown}
-                  />
-                </Box>
-              ) : (
-                <ListItemButton
-                  selected={meet.id === selectedMeetId}
-                  onClick={() => onSelectMeet(meet.id)}
-                  onDoubleClick={() => startEditing(meet)}
-                  // style (not sx) to out-specificity MUI's own secondaryAction padding-right rule
-                  style={{ paddingRight: 40 }}
-                >
-                  <ListItemText
-                    primary={meet.name}
-                    slotProps={{
-                      primary: {
-                        title: meet.name,
-                        sx: {
-                          display: "-webkit-box",
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
+                      fullWidth
+                      value={editValue}
+                      onChange={(e) => setEditValue(e.target.value)}
+                      onBlur={commitEdit}
+                      onKeyDown={handleEditKeyDown}
+                    />
+                  </Box>
+                ) : (
+                  <ListItemButton
+                    selected={meet.id === selectedMeetId}
+                    onClick={() => onSelectMeet(meet.id)}
+                    onDoubleClick={() => startEditing(meet)}
+                    // style (not sx) to out-specificity MUI's own secondaryAction padding-right rule
+                    style={{ paddingRight: 40 }}
+                  >
+                    <ListItemText
+                      primary={meet.name}
+                      slotProps={{
+                        primary: {
+                          title: meet.name,
+                          sx: {
+                            display: "-webkit-box",
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                          },
                         },
-                      },
-                    }}
-                    sx={{ minWidth: 0 }}
-                  />
-                </ListItemButton>
-              )}
-            </ListItem>
-          ))}
-          {meets.length === 0 && (
-            <Box sx={{ px: 2, py: 1 }}>
-              <Typography variant="body2" color="text.secondary">
-                No meets yet
-              </Typography>
-            </Box>
-          )}
-        </List>
+                      }}
+                      sx={{ minWidth: 0 }}
+                    />
+                  </ListItemButton>
+                )}
+              </ListItem>
+            ))}
+            {meets.length === 0 && (
+              <Box sx={{ px: 2, py: 1 }}>
+                <Typography variant="body2" color="text.secondary">
+                  No meets yet
+                </Typography>
+              </Box>
+            )}
+          </List>
+        </Collapse>
       </Box>
       {open && (
         <Box
