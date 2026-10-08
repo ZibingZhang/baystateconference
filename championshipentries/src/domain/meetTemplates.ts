@@ -9,22 +9,34 @@ const HIGH_SCHOOL_EVENT_LIMITS = {
 
 export const MEET_TEMPLATES: MeetTemplate[] = [
   {
-    id: "template-2025-fall-bay-state-conference",
-    name: "2025 Fall Bay State Conference",
+    id: "template-2026-fall-north-sectional",
+    name: "2026 Fall North Sectional Championships",
     ev3Url:
-      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2025-fall-bay-state-conference.ev3",
+      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2026-fall-north-sectional.ev3",
     genderFilter: "G",
-    individualEntryStubsPerEvent: 4,
-    relayEntryStubsPerEvent: 4,
+    individualEntryStubsPerEvent: 0,
+    relayEntryStubsPerEvent: 1,
     individualEventEntryLimit: 4,
-    relayEventEntryLimit: 4,
+    relayEventEntryLimit: 1,
     ...HIGH_SCHOOL_EVENT_LIMITS,
   },
   {
-    id: "template-2025-fall-south-sectional",
-    name: "2025 Fall South Sectional Championships",
+    id: "template-2026-fall-south-sectional",
+    name: "2026 Fall South Sectional Championships",
     ev3Url:
-      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2025-fall-south-sectional.ev3",
+      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2026-fall-south-sectional.ev3",
+    genderFilter: "G",
+    individualEntryStubsPerEvent: 0,
+    relayEntryStubsPerEvent: 1,
+    individualEventEntryLimit: 4,
+    relayEventEntryLimit: 1,
+    ...HIGH_SCHOOL_EVENT_LIMITS,
+  },
+  {
+    id: "template-2026-fall-state",
+    name: "2026 Fall State Championships",
+    ev3Url:
+      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2026-fall-state.ev3",
     genderFilter: "G",
     individualEntryStubsPerEvent: 0,
     relayEntryStubsPerEvent: 1,
