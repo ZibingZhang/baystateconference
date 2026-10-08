@@ -13,6 +13,19 @@ function encodePathSegments(path) {
     .join("/");
 }
 
+// Percent-encodes a value for safe use as one application/x-www-form-urlencoded
+// query value, leaving "/" and "=" literal - both are safe there (that format
+// only splits a query string on "&", then each pair on its own first "=", so
+// neither can be mistaken for a delimiter). Used instead of
+// URLSearchParams.toString() for the link to /resources/external-file/,
+// whose `url` value is itself built from repeated "key=value" segments
+// (e.g. "organization=miaa/year=2024-2025/season=fall/...") - fully
+// percent-encoding those roughly triples their length for no parsing
+// benefit. Mirrors the query_encode Liquid filter (_plugins/query_encode_filter.rb).
+function encodeQueryValue(value) {
+  return encodeURIComponent(value).replace(/%2F/g, "/").replace(/%3D/g, "=");
+}
+
 function slugify(name) {
   return name.trim().toLowerCase().replace(/\s+/g, "-");
 }
@@ -406,6 +419,7 @@ function initFileBrowser(browser) {
   const pageUrl = browser.dataset.pageUrl || "/";
   const baseurl = browser.dataset.baseurl || "";
   const s3BucketRoot = browser.dataset.s3BucketRoot || "";
+  const externalFileUrl = browser.dataset.externalFileUrl || "";
 
   let rootFiles = [];
   let currentPath = [];
@@ -542,9 +556,7 @@ function initFileBrowser(browser) {
         });
       } else if (item.s3Path) {
         icon.textContent = fileIconName(item.name);
-        a.href = `${s3BucketRoot.replace(/\/+$/, "")}/${encodePathSegments(item.s3Path)}`;
-        a.target = "_blank";
-        a.rel = "noopener";
+        a.href = `${externalFileUrl}?url=${encodeQueryValue(item.s3Path)}&name=${encodeQueryValue(item.name)}`;
       } else if (item.externalUrl) {
         icon.textContent = "open_in_new";
         a.href = item.externalUrl;

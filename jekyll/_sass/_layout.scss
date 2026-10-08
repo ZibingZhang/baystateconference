@@ -1541,6 +1541,92 @@ article.post:has(table) {
   }
 }
 
+.external-file-viewer {
+  border: 1px solid $border-color-01;
+  border-radius: 6px;
+  margin-bottom: $spacing-unit;
+}
+
+.external-file-toolbar {
+  align-items: center;
+  background-color: $code-background-color;
+  border-bottom: 1px solid $border-color-01;
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  gap: $spacing-unit * 0.5;
+  justify-content: space-between;
+  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+}
+
+.external-file-name {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.external-file-actions {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: $spacing-unit * 0.4;
+}
+
+.external-file-copy-btn {
+  align-items: center;
+  background: none;
+  border: none;
+  color: $brand-color-dimmed;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+
+  &:hover,
+  &:focus-visible,
+  &.is-copied {
+    color: $text-color;
+  }
+
+  &:focus-visible {
+    box-shadow: inset 0 0 0 2px $brand-color-dimmed;
+    outline: none;
+  }
+
+  .material-symbols-outlined {
+    @include relative-font-size(1.1);
+  }
+}
+
+.external-file-open-link {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 4px;
+  @include relative-font-size(0.9);
+
+  .material-symbols-outlined {
+    @include relative-font-size(1.1);
+  }
+}
+
+.external-file-frame {
+  border: none;
+  display: block;
+  height: 80vh;
+  width: 100%;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.external-file-error {
+  color: $brand-color-dimmed;
+  margin: 0;
+  padding: $spacing-unit;
+  text-align: center;
+}
+
 .comments-disabled-message {
   font-weight: 300;
   text-align: center;

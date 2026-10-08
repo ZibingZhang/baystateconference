@@ -4,7 +4,7 @@ title: History
 permalink: /about/history/
 ---
 
-[^1]: [Bay State Conference Constitution and By-Laws]({{ site.s3_bucket_root }}/organization=miaa/league=bay-state-conference/league-documents/constitution-2026-06.pdf)
+[^1]: [Bay State Conference Constitution and By-Laws]({{ '/resources/external-file/' | relative_url }}?url={{ "organization=miaa/league=bay-state-conference/league-documents/constitution-2026-06.pdf" | query_encode }}&name={{ "Bay State Conference Constitution and By-Laws" | query_encode }})
 
 The [Bay State Conference](https://en.wikipedia.org/wiki/Bay_State_Conference) was established in 1958 and included ten charter member schools.
 In the fall of 1990, the conference expanded to 12 schools with the additions of Brookline and Newton North, and split into two divisions.

@@ -1,0 +1,36 @@
+{%- comment -%}
+  Previews a document hosted on site.s3_bucket_root without sending the
+  visitor's browser bar straight to that domain - a bookmarked/shared link
+  to this page keeps working even if the CDN root changes later, since the
+  root is resolved from site.s3_bucket_root at render time rather than baked
+  into the link itself. The file's path (relative to that root) comes in via
+  the `url` query param, e.g. /resources/external-file/?url=organization%3Dmiaa%2F...&name=Constitution
+
+  Some file types (anything other than a PDF, basically) won't render in the
+  iframe at all - browsers just show a blank frame or try to download it -
+  so "Open in new tab" is always shown front and center rather than as a
+  fallback the visitor has to go hunting for.
+{%- endcomment -%}
+<div class="external-file-viewer" data-s3-bucket-root="{{ site.s3_bucket_root }}">
+  <div class="external-file-toolbar">
+    <span class="external-file-name"></span>
+    <div class="external-file-actions">
+      <button type="button" class="external-file-copy-btn" aria-label="Copy link" title="Copy link">
+        <span class="material-symbols-outlined" aria-hidden="true">link</span>
+      </button>
+      <a class="external-file-open-link" target="_blank" rel="noopener">
+        <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+        Open in new tab
+      </a>
+    </div>
+  </div>
+  <div class="external-file-loading loading-indicator">
+    <span class="material-symbols-outlined icon-spin" aria-hidden="true">progress_activity</span>
+    <span>Loading file&hellip;</span>
+  </div>
+  <iframe class="external-file-frame" title="External file preview" hidden></iframe>
+  <p class="external-file-error" hidden>No file was specified.</p>
+</div>
+
+<script src="{{ '/assets/js/copy-link.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/external-file-viewer.js' | relative_url }}" defer></script>

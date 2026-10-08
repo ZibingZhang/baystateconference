@@ -4,6 +4,13 @@
   and open in a new tab; internal links get the page icon used elsewhere for
   pages, so it's obvious at a glance whether a click leaves the site.
 
+  An item can carry `path` instead of `url` for a document hosted on
+  site.s3_bucket_root (e.g. a league PDF) - it's routed through
+  /resources/external-file/ (see external-file-viewer.html) rather than
+  linked straight at the CDN, so a bookmarked/shared link to it keeps
+  working even if the CDN root changes later. These count as internal since
+  the click never leaves this site.
+
   No default heading — callers say what their own list actually is
   ("Resources", "Awards", ...) rather than everything being lumped under one
   word that doesn't always fit.
@@ -35,10 +42,10 @@
 {%- assign external_count = 0 -%}
 {%- for item in include.items -%}
   {%- assign url_prefix = item.url | slice: 0, 4 | downcase -%}
-  {%- if url_prefix == "http" -%}
-    {%- assign external_count = external_count | plus: 1 -%}
-  {%- else -%}
+  {%- if item.path or url_prefix != "http" -%}
     {%- assign internal_count = internal_count | plus: 1 -%}
+  {%- else -%}
+    {%- assign external_count = external_count | plus: 1 -%}
   {%- endif -%}
 {%- endfor -%}
 <div class="directory-browser link-list{% if include.searchable %} searchable{% endif %}"{% if include.default_sort == "desc" %} data-default-sort="desc"{% endif %}>
@@ -56,11 +63,11 @@
     {%- for item in include.items -%}
       {%- assign url_prefix = item.url | slice: 0, 4 | downcase -%}
       {%- assign is_external = false -%}
-      {%- if url_prefix == "http" -%}
+      {%- if item.path == nil and url_prefix == "http" -%}
         {%- assign is_external = true -%}
       {%- endif -%}
       <li class="directory-file">
-        <a href="{% if is_external %}{{ item.url }}{{ include.url_suffix }}{% else %}{{ item.url | append: include.url_suffix | relative_url }}{% endif %}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>
+        <a href="{% if item.path %}{{ '/resources/external-file/' | relative_url }}?url={{ item.path | query_encode }}&name={{ item.title | query_encode }}{% elsif is_external %}{{ item.url }}{{ include.url_suffix }}{% else %}{{ item.url | append: include.url_suffix | relative_url }}{% endif %}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>
           {%- if is_external -%}
           <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
           {%- else -%}

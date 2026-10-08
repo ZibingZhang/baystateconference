@@ -27,8 +27,10 @@ url: "https://baystateconference.com" # the base hostname & protocol for your si
 github_username:  zibingzhang
 
 # Root URL of the S3/CloudFront bucket that hosts externally-linked documents
-# (e.g. meet result PDFs). File-browser externalUrl paths are resolved against
-# this root, so it doesn't need to be repeated in every data file.
+# (e.g. meet result PDFs). File-browser s3Path paths, and any `path` passed
+# to _includes/link-list.html or /resources/external-file/, are resolved
+# against this root, so it doesn't need to be repeated in every data file -
+# and can be changed here in one place if the CDN root itself ever changes.
 s3_bucket_root: "https://dly214yt7lp83.cloudfront.net"
 
 # Which named nav bar (a key under _data/navigation/) each page's header uses.
