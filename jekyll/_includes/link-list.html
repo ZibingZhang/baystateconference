@@ -67,7 +67,7 @@
         {%- assign is_external = true -%}
       {%- endif -%}
       <li class="directory-file">
-        <a href="{% if item.path %}{{ '/resources/external-file/' | relative_url }}?url={{ item.path | query_encode }}&name={{ item.title | query_encode }}{% elsif is_external %}{{ item.url }}{{ include.url_suffix }}{% else %}{{ item.url | append: include.url_suffix | relative_url }}{% endif %}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>
+        <a href="{% if item.path %}{{ '/resources/external-file/' | relative_url }}?url={{ item.path | url_encode }}&name={{ item.title | url_encode }}{% elsif is_external %}{{ item.url }}{{ include.url_suffix }}{% else %}{{ item.url | append: include.url_suffix | relative_url }}{% endif %}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>
           {%- if is_external -%}
           <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
           {%- else -%}
