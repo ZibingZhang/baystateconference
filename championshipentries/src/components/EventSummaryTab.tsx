@@ -84,7 +84,7 @@ function EventSummaryTab({
             <Tooltip
               title={
                 group.overLimit
-                  ? `${group.entries.length} entries exceeds the limit of ${group.entryLimit} for this event`
+                  ? `${group.entryCount} entries exceeds the limit of ${group.entryLimit} for this event`
                   : ""
               }
               disableHoverListener={!group.overLimit}
@@ -92,14 +92,12 @@ function EventSummaryTab({
               <Chip
                 label={
                   group.entryLimit > 0
-                    ? `${group.entries.length} / ${group.entryLimit}`
-                    : group.entries.length
+                    ? `${group.entryCount} / ${group.entryLimit}`
+                    : group.entryCount
                 }
                 size="small"
-                color={
-                  group.overLimit ? "error" : group.entries.length === 0 ? "default" : "primary"
-                }
-                variant={group.entries.length === 0 ? "outlined" : "filled"}
+                color={group.overLimit ? "error" : group.entryCount === 0 ? "default" : "primary"}
+                variant={group.entryCount === 0 ? "outlined" : "filled"}
               />
             </Tooltip>
           </Box>

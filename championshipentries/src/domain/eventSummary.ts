@@ -19,6 +19,8 @@ export interface EventSummaryEntry {
   seedTime: string;
   /** Reasons this entry is flagged — a duplicate entry and/or an athlete over one of the meet's per-athlete event-count limits. Distinct from EventSummaryGroup.overLimit, which is the per-event team cap. Empty when the entry is clean. */
   warnings: string[];
+  /** Mirrors the export's skip logic (no athlete selected, or a relay with no leg/an unresolvable leg) — still listed here, but excluded from EventSummaryGroup.entryCount since it wouldn't appear in the exported file. */
+  skipped: boolean;
 }
 
 export interface EventSummaryGroup {
@@ -28,6 +30,8 @@ export interface EventSummaryGroup {
   entryLimit: number;
   overLimit: boolean;
   entries: EventSummaryEntry[];
+  /** Count of entries.length minus skipped entries — what export would actually produce for this event. Used for the displayed count and the overLimit check instead of entries.length. */
+  entryCount: number;
 }
 
 /**
@@ -75,7 +79,9 @@ export function buildEventSummary(
       const entries: EventSummaryEntry[] = individualEntries
         .filter((e) => e.event === option.eventNumber)
         .map((e) => {
+          const skipped = !e.athleteId || !athletes.some((a) => a.id === e.athleteId);
           const warnings: string[] = [];
+          if (skipped) warnings.push("No athlete selected — this entry will be skipped on export.");
           if ((individualDupCounts.get(individualEntryKey(e) ?? "") ?? 0) > 1) {
             warnings.push("Duplicate entry");
           }
@@ -86,15 +92,18 @@ export function buildEventSummary(
             label: athleteNameById.get(e.athleteId) || "(no athlete)",
             seedTime: e.seedTime,
             warnings,
+            skipped,
           };
         });
+      const entryCount = entries.filter((e) => !e.skipped).length;
       return {
         eventNumber: option.eventNumber,
         displayName: option.name,
         relay: false,
         entryLimit: individualEntryLimit,
-        overLimit: individualEntryLimit > 0 && entries.length > individualEntryLimit,
+        overLimit: individualEntryLimit > 0 && entryCount > individualEntryLimit,
         entries,
+        entryCount,
       };
     },
   );
@@ -117,6 +126,9 @@ export function buildEventSummary(
             .map((athleteId) => (athleteId ? athleteOverLimitDetailById.get(athleteId) : undefined))
             .filter((detail): detail is string => detail !== undefined);
           const relayAthleteIds = Array.from(new Set(legAthleteIds.filter(Boolean)));
+          const skipped =
+            relayAthleteIds.length === 0 ||
+            !relayAthleteIds.every((athleteId) => athletes.some((a) => a.id === athleteId));
           const legSelfDuplicateWarnings = relayAthleteIds
             .map((athleteId) => relaySelfDuplicateDetail.get(`${e.id}|${athleteId}`))
             .filter((detail): detail is string => detail !== undefined);
@@ -124,6 +136,13 @@ export function buildEventSummary(
             .map((athleteId) => relayCrossEventDetail.get(`${e.id}|${athleteId}`))
             .filter((detail): detail is string => detail !== undefined);
           const warnings: string[] = [];
+          if (skipped) {
+            warnings.push(
+              relayAthleteIds.length === 0
+                ? "No athletes assigned to any leg — this entry will be skipped on export."
+                : "One or more legs reference a missing athlete — this entry will be skipped on export.",
+            );
+          }
           if ((relayDupCounts.get(relayEntryKey(e) ?? "") ?? 0) > 1) {
             warnings.push("Duplicate entry");
           }
@@ -138,15 +157,18 @@ export function buildEventSummary(
             detail: legNames.join(", "),
             seedTime: e.seedTime,
             warnings,
+            skipped,
           };
         });
+      const entryCount = entries.filter((e) => !e.skipped).length;
       return {
         eventNumber: option.eventNumber,
         displayName: option.name,
         relay: true,
         entryLimit: relayEntryLimit,
-        overLimit: relayEntryLimit > 0 && entries.length > relayEntryLimit,
+        overLimit: relayEntryLimit > 0 && entryCount > relayEntryLimit,
         entries,
+        entryCount,
       };
     },
   );
