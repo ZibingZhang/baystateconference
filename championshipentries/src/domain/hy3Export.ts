@@ -128,7 +128,6 @@ export function buildHy3File(
 
   const teamCode = meet.teamCode ?? "";
   const teamName = highSchool?.school || teamCode;
-  const teamShortName = highSchool?.town || teamName;
   const course = parseCourse(ev3File.header.courseTypeCode.charAt(0)) ?? "Y";
 
   const swimmerMeetIdByAthleteId = new Map<string, number>();
@@ -227,9 +226,10 @@ export function buildHy3File(
   const team: Hy3Team = {
     code: teamCode,
     name: teamName,
-    shortName: teamShortName,
+    // Real Meet Manager output mirrors the team code here, not the town —
+    // see hy3-spec.md §6.1.
+    shortName: teamCode,
     classification: "HS",
-    city: highSchool?.town,
     state: "MA",
     country: "USA",
     swimmers,
