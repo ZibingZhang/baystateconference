@@ -39,6 +39,8 @@ function extract(line, start1Based, length) {
 The public reference library explicitly does **not** implement checksum validation (`raise NotImplementedError`).
 This section is derived independently and **verified to match all 135 real records** across both sample files with zero mismatches, so it can be trusted for both validating and writing HY3 files.
 
+The algorithm matches the one described for SDIF (the related Hytek interchange format) in a [2011 SDIF forum post](https://groups.google.com/g/sdif-forum/c/60WpYBNa8FE), which independently corroborates the derivation below.
+
 Given the 128-byte content of a record (**before** appending the 2-digit checksum):
 
 1. `sumEven` = sum of the character codes at 0-based indices `0, 2, 4, ..., 126` (the 64 "even" positions).

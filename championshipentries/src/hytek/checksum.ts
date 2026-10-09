@@ -5,6 +5,8 @@
  * independent sample files (100% match, zero mismatches) — see
  * docs/hytek/hy3-spec.md §2 for the full derivation. The public reference
  * implementation (SwimComm/hytek-parser) does not implement this at all.
+ * Matches the SDIF checksum described at
+ * https://groups.google.com/g/sdif-forum/c/60WpYBNa8FE.
  */
 
 /** Compute the 2-character checksum for a 128-character HY3 record body. */
