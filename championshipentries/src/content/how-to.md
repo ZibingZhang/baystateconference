@@ -4,24 +4,27 @@ ChampionshipEntries builds a championship meet's entries: a roster of athletes, 
 Everything below happens inside one meet at a time, and all of your data is saved only in this browser — nothing is uploaded anywhere.
 See **Managing meets** and **Data & privacy** at the bottom for more on that.
 
+---
+
 ## 1. Create a meet
 
-Click the **+** next to "Meets" in the sidebar, or use **File → New Meet**, then give it a name.
-The new meet opens with empty Team, Events, Athletes, Individual Entries, and Relay Entries tabs.
+Click a template under **Meet Templates** in the sidebar (e.g. "2026 Fall State Championships") to preview a ready-made template with its events and entries already stubbed.
+A template is read-only — click its copy icon (or use **File → Copy Template**) to turn it into your own editable meet.
+Copying a template automatically imports its EV3 event file and stubs a certain number individual and relay entries as a starting point.
 
-Alternatively, click a template under **Meet Templates** in the sidebar (e.g. "2025 Fall Bay State Conference") to preview a ready-made example with its events and entries already filled in.
-A template is read-only — click its copy icon to turn it into your own editable meet, prefilled with one entry per athlete slot for every event.
+Alternatively, click the **+** next to "Meets" in the sidebar, or use **File → New Meet**, then give it a name.
+The new meet opens with empty Team, Events, Athletes, Individual Entries, and Relay Entries tabs.
 
 ## 2. Set the team
 
 On the **Team** tab, search for your school in the Team Code field.
-This code is required before you can export a HY3 file.
 
 ## 3. Import the event list
 
+If you started from a meet template, this is already done for you — the template's EV3 file is imported automatically when you copy it.
+
 On the **Events** tab, click **Import EV3 File** and choose the .ev3 file for the meet (exported from Hy-Tek Meet Manager).
 This is what supplies the event choices used everywhere else in the app — you'll generally want to do this before adding entries.
-**Export EV3 File** downloads (or copies) the imported file's text again, and **Clear Import** removes the imported list; existing entries aren't deleted, but you won't be able to add new ones with valid event names until you re-import.
 
 ## 4. Add athletes
 
@@ -31,27 +34,25 @@ You can:
 - **Add Athlete** — add one blank row and fill it in.
 - **Bulk Add Athletes** — add several blank rows at once.
 - **Import CSV** — upload a file or paste spreadsheet data, then map its columns to First Name, Last Name, Gender, and Class Year.
-- **Export CSV** — download or copy the current roster.
+- **Import from Another Meet** — copy athletes from another meet you're working on.
 
 ## 5. Add individual entries
 
 On the **Individual Entries** tab, each row is one athlete's entry in one event: pick the **Event** (from the imported EV3 file), the **Athlete**, and an optional **Seed Time** as `M:SS.hh` or `SS.hh` (e.g. `2:15.30` or `58.21`) — leave it blank for no seed time.
-Add rows one at a time, or use **Bulk Add Entries** to create a set number of blank entries for one or more events at once (checkboxes let you select by gender group or all events).
-Import/Export CSV work the same way as on the Athletes tab.
 
 ## 6. Add relay entries
 
-The **Relay Entries** tab works the same as Individual Entries, with a **Relay** letter (A–D) and up to four athletes for the relay's legs instead of a single athlete.
+The **Relay Entries** tab works the same as Individual Entries, with a **Relay** letter (A–D).
 
 ## 7. Review and export
 
 The **By Event** tab groups entries by event instead of by type, so you can see at a glance which events are empty, over their entry limit, or have duplicate/over-limit entries flagged.
-The **Advanced** tab holds three sub-tabs: **EV3 File** shows the raw imported EV3 text, **HY3 Preview** shows a live preview of the HY3 file that would be generated (useful for double-checking before you export), and **Settings** lets you set optional per-athlete limits (max individual events, max relay events, max total events) as well as per-event entry limits (max entries per individual event, max entries per relay event) — these generate warnings across the entry grids and the By Event tab when exceeded.
-The per-event limits are a meet-wide policy you set yourself (or that come pre-filled from a meet template); they are not read from the imported EV3 file, which has no such field.
 
 When you're ready, use **File → Export to HY3** (needs a team code and an imported EV3 file).
 A review panel opens first, flagging events over their entry limit, duplicate individual/relay entries, and entries that will be skipped (a missing athlete, an incomplete relay leg, or an event not found in the imported file) — skipped entries are left out of the file, while duplicates and over-limit entries are exported as-is.
 Fix what you want to fix, then click **Export** (or **Export Anyway**) to download the .hy3 entries file you can bring into Hy-Tek Meet Manager.
+
+---
 
 ## Editing tips
 
@@ -67,13 +68,14 @@ The Athletes, Individual Entries, and Relay Entries grids behave like a spreadsh
 ## Managing meets
 
 The sidebar lists every meet you've created.
-Click a meet to switch to it, double-click its name to rename it, use the copy icon to duplicate it (including its athletes and entries) as a starting point for a similar meet, and the delete icon to remove it.
-The current meet and tab are also reflected in the page URL, so you can bookmark or share a link back to a specific meet and tab.
-
----
+Click a meet to switch to it, double-click its name to rename it, and use the delete icon to remove it.
+**File → Copy Meet** duplicates the current meet (including its athletes and entries) as a starting point for a similar meet.
+The current meet and tab are also reflected in the page URL, so you can bookmark it.
 
 ## Data & privacy
 
 All meets, athletes, and entries are stored only in this browser's local storage — nothing is sent to a server.
-That also means clearing your browser's site data will erase everything, so keep a backup of anything important: a meet's **Export meet** icon in the sidebar saves it as a JSON file (meet, athletes, and all entries together), and **Import meet from JSON** loads that file back in as a new meet — on this browser or another device entirely.
+That also means clearing your browser's site data will erase everything, so keep a backup of anything important.
+**File → Export Meet Backup** saves the current meet (team, athletes, and all entries) as a JSON file, and **File → Import Meet** loads that file back in as a new meet — on this browser or another device entirely.
+**File → Export All Data** does the same for every meet at once, and **File → Import All Data** loads a full backup back in; if any meets collide by id with ones you already have, you'll be asked whether to keep or replace each one.
 Export CSV (or Export to HY3) works too, for just the roster or HY3 file.
