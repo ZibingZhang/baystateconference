@@ -9,6 +9,18 @@ const HIGH_SCHOOL_EVENT_LIMITS = {
 
 export const MEET_TEMPLATES: MeetTemplate[] = [
   {
+    id: "template-2026-fall-bay-state-conference",
+    name: "2026 Fall Bay State Conference",
+    ev3Url:
+      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2026-fall-bay-state-conference.ev3",
+    genderFilter: "G",
+    individualEntryStubsPerEvent: 0,
+    relayEntryStubsPerEvent: 1,
+    individualEventEntryLimit: 4,
+    relayEventEntryLimit: 1,
+    ...HIGH_SCHOOL_EVENT_LIMITS,
+  },
+  {
     id: "template-2026-fall-north-sectional",
     name: "2026 Fall North Sectional Championships",
     ev3Url:
