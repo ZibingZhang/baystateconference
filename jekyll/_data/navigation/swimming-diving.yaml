@@ -52,6 +52,8 @@
 - title: Resources
   url: /sports/swimming-diving/resources/
   children:
+    - title: Championship Entries
+      url: /sports/swimming-diving/championship-entries/
     - title: MIAA Qualifying Standards
       url: /sports/swimming-diving/resources/miaa-qualifying-standards/
     - title: NFHS Rule Changes
