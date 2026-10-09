@@ -8,6 +8,9 @@ permalink: /resources/directory/
   <div class="file-browser-search">
     <span class="material-symbols-outlined" aria-hidden="true">search</span>
     <input type="text" class="file-browser-search-input" placeholder="Search files and pages…" aria-label="Search files and pages">
+    <button type="button" class="directory-expand-toggle" aria-pressed="false" aria-label="Expand all" title="Expand all">
+      <span class="material-symbols-outlined" aria-hidden="true">unfold_more</span>
+    </button>
   </div>
   {%- include directory-tree.html nodes=site.data.page_tree -%}
 </div>

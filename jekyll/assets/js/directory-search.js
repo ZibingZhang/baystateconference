@@ -31,12 +31,44 @@ function filterDirectoryList(list, query) {
   return anyVisible;
 }
 
+// Toggles every folder in the tree open or closed at once. Tracks its own
+// expanded/collapsed state rather than reading it back from the DOM, so a
+// single click always moves every folder uniformly even if individual
+// <details> were left in a mixed state by hand or by a search filter.
+function initDirectoryExpandToggle(tree, button) {
+  if (!tree || !button) return;
+
+  let expanded = false;
+
+  function update() {
+    const icon = button.querySelector(".material-symbols-outlined");
+    const label = expanded ? "Collapse all" : "Expand all";
+    icon.textContent = expanded ? "unfold_less" : "unfold_more";
+    button.setAttribute("aria-label", label);
+    button.title = label;
+    button.setAttribute("aria-pressed", String(expanded));
+  }
+
+  button.addEventListener("click", () => {
+    expanded = !expanded;
+    tree.querySelectorAll("details").forEach((details) => {
+      details.open = expanded;
+    });
+    update();
+  });
+
+  update();
+}
+
 function initDirectorySearch() {
   const browser = document.querySelector(".directory-browser");
   const input = browser ? browser.querySelector(".file-browser-search-input") : null;
   const tree = browser ? browser.querySelector(":scope > .directory-tree") : null;
+  const expandToggle = browser ? browser.querySelector(".directory-expand-toggle") : null;
 
   if (!input || !tree) return;
+
+  initDirectoryExpandToggle(tree, expandToggle);
 
   const initialQuery = parseSearchQueryFromLocation();
   if (initialQuery) {

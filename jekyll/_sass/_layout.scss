@@ -1721,6 +1721,22 @@ article.post:has(table) {
   }
 }
 
+.directory-expand-toggle {
+  align-items: center;
+  background: none;
+  border: none;
+  color: $brand-color-dimmed;
+  cursor: pointer;
+  display: flex;
+  flex: 0 0 auto;
+  padding: 0;
+
+  &:hover,
+  &:focus-visible {
+    color: $text-color;
+  }
+}
+
 .directory-caret {
   border-bottom: 5px solid transparent;
   border-left: 6px solid $text-color;
