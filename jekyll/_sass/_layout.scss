@@ -1653,6 +1653,10 @@ article.post:has(table) {
   display: flex;
   position: relative; // anchors the overlaid .file-browser-copy-btn, on link-list rows
 
+  &[hidden] {
+    display: none;
+  }
+
   &:last-child {
     border-bottom: none;
   }
