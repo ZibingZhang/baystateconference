@@ -400,6 +400,7 @@ function initFileBrowser(browser) {
   const countEl = browser.querySelector(".file-browser-count");
   const selectToggle = browser.querySelector(".file-browser-select-toggle");
   const selectBar = browser.querySelector(".file-browser-select-bar");
+  const selectAllBtn = browser.querySelector(".file-browser-select-all");
   const selectCountEl = browser.querySelector(".file-browser-select-count");
   const downloadBtn = browser.querySelector(".file-browser-select-download");
   const zipStatusEl = browser.querySelector(".file-browser-zip-status");
@@ -440,6 +441,10 @@ function initFileBrowser(browser) {
   // ZIP traversal simple.
   let isSelecting = false;
   let selectedKeys = new Set();
+  // The files rendered by the most recent renderList() call, in display
+  // order — what "Select All"/"Deselect All" act on, so they match whatever
+  // the current folder/search/filter is actually showing.
+  let lastDisplayedFiles = [];
 
   const tagFilter = createTagFilter({
     input,
@@ -535,6 +540,8 @@ function initFileBrowser(browser) {
     list.innerHTML = "";
     itemElements = [];
     itemFolderPaths = [];
+    lastDisplayedFiles = files;
+    updateSelectAllButton(files);
 
     files.forEach((item) => {
       const li = document.createElement("li");
@@ -784,6 +791,30 @@ function initFileBrowser(browser) {
     downloadBtn.disabled = uniqueCount === 0;
   }
 
+  // Folders and real files can be selected; external/internal links can't
+  // (same rule computeCheckboxState uses to disable their checkbox).
+  function selectableDisplayedItems(files) {
+    return files.filter((item) => Array.isArray(item.files) || item.s3Path);
+  }
+
+  // True once every selectable row currently on screen is checked — drives
+  // whether the button reads "Select All" or "Deselect All".
+  function allDisplayedSelected(files) {
+    const selectable = selectableDisplayedItems(files);
+    if (selectable.length === 0) return false;
+    return selectable.every((item) => {
+      const itemPath = [...currentPath, item.name];
+      return computeCheckboxState(item, itemPath, selectedKeys).checked;
+    });
+  }
+
+  function updateSelectAllButton(files) {
+    if (!selectAllBtn) return;
+    const hasSelectable = selectableDisplayedItems(files).length > 0;
+    selectAllBtn.disabled = !hasSelectable;
+    selectAllBtn.textContent = hasSelectable && allDisplayedSelected(files) ? "Deselect All" : "Select All";
+  }
+
   function showZipStatus(message) {
     if (!zipStatusEl) return;
     zipStatusEl.textContent = message;
@@ -863,6 +894,20 @@ function initFileBrowser(browser) {
       if (!isSelecting) {
         selectedKeys.clear();
         hideZipStatus();
+      }
+      updateSelectionSummary();
+      refreshList();
+    });
+  }
+
+  if (selectAllBtn) {
+    selectAllBtn.addEventListener("click", () => {
+      const selectAll = !allDisplayedSelected(lastDisplayedFiles);
+      for (const item of selectableDisplayedItems(lastDisplayedFiles)) {
+        const itemPath = [...currentPath, item.name];
+        const state = computeCheckboxState(item, itemPath, selectedKeys);
+        if (state.disabled) continue;
+        setSelected(itemPath, selectAll);
       }
       updateSelectionSummary();
       refreshList();

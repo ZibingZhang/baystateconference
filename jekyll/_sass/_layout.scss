@@ -1285,6 +1285,27 @@ article.post:has(table) {
   }
 }
 
+.file-browser-select-all {
+  background: none;
+  border: 1px solid $border-color-01;
+  border-radius: 4px;
+  color: $text-color;
+  cursor: pointer;
+  flex: 0 0 auto;
+  padding: $spacing-unit * 0.3 $spacing-unit * 0.6;
+  @include relative-font-size(0.85);
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    background-color: $border-color-01;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.4;
+  }
+}
+
 .file-browser-select-count {
   color: $brand-color-dimmed;
   flex: 1 1 auto;
