@@ -18,14 +18,14 @@
 {%- assign sport_slug = url_segments[2] -%}
 {%- assign sport_url = "/" | append: url_segments[1] | append: "/" | append: sport_slug | append: "/" -%}
 {%- assign sport = site.data.sports | where: "url", sport_url | first -%}
-{%- assign resources = include.external_links | default: sport.external_links.miaa -%}
-{%- assign directory = include.internal_links | default: sport.internal_links.miaa -%}
+{%- assign empty_array = "" | split: "" -%}
+{%- assign resources = include.external_links | default: sport.external_links.miaa | default: empty_array -%}
+{%- assign directory = include.internal_links | default: sport.internal_links.miaa | default: empty_array -%}
 
 [^1]: <https://en.wikipedia.org/wiki/Massachusetts_Interscholastic_Athletic_Association>
 
 The __Massachusetts Interscholastic Athletic Association (MIAA)__ is the governing body for interscholastic sports among public and most private secondary schools in Massachusetts.
 Member schools are grouped into leagues and conferences, like the Bay State Conference, which handle regular-season scheduling, while the MIAA oversees postseason tournament play statewide.[^1]
 
-{% include link-list.html heading="Resources" items=resources %}
-
-{% include link-list.html heading="See Also" items=directory %}
+{% assign combined_resources = resources | concat: directory %}
+{% include link-list.html heading="Resources" items=combined_resources %}

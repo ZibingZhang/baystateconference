@@ -24,6 +24,5 @@ Schedule:
 
 {% include directory-listing.html %}
 
-{% include link-list.html heading="See Also" items=page.internal_links %}
-
-{% include link-list.html heading="Resources" items=page.external_links %}
+{% assign resources = page.internal_links | concat: page.external_links %}
+{% include link-list.html heading="Resources" items=resources %}

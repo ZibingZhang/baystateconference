@@ -18,14 +18,14 @@
 {%- assign sport_slug = url_segments[2] -%}
 {%- assign sport_url = "/" | append: url_segments[1] | append: "/" | append: sport_slug | append: "/" -%}
 {%- assign sport = site.data.sports | where: "url", sport_url | first -%}
-{%- assign resources = include.external_links | default: sport.external_links.nfhs -%}
-{%- assign directory = include.internal_links | default: sport.internal_links.nfhs -%}
+{%- assign empty_array = "" | split: "" -%}
+{%- assign resources = include.external_links | default: sport.external_links.nfhs | default: empty_array -%}
+{%- assign directory = include.internal_links | default: sport.internal_links.nfhs | default: empty_array -%}
 
 [^1]: <https://en.wikipedia.org/wiki/National_Federation_of_State_High_School_Associations>
 
 The __National Federation of State High School Associations (NFHS)__ is the national governing body that writes the playing rules for high school sports and activities across the United States.
 Its membership is made up of the individual state athletic associations, such as the MIAA.[^1]
 
-{% include link-list.html heading="Resources" items=resources %}
-
-{% include link-list.html heading="See Also" items=directory %}
+{% assign combined_resources = resources | concat: directory %}
+{% include link-list.html heading="Resources" items=combined_resources %}
