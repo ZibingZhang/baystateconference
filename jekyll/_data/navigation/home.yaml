@@ -58,6 +58,8 @@
 - title: Resources
   url: /resources/
   children:
+    - title: Archive
+      url: /resources/archive/
     - title: Directory
       url: /resources/directory/
     - title: Documents

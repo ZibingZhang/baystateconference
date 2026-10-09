@@ -407,6 +407,11 @@ function initFileBrowser(browser) {
   const baseurl = browser.dataset.baseurl || "";
   const s3BucketRoot = browser.dataset.s3BucketRoot || "";
   const externalFileUrl = browser.dataset.externalFileUrl || "";
+  // Most file browsers default to alphabetical-by-name, so the toggle is
+  // "engaged" from the start. A browser can opt into data-default-sort="none"
+  // to show the JSON's own file order (e.g. the resources archive, which is
+  // generated sorted by s3Path) until the user actually clicks the toggle.
+  let sortEngaged = browser.dataset.defaultSort !== "none";
 
   let rootFiles = [];
   let currentPath = [];
@@ -441,7 +446,10 @@ function initFileBrowser(browser) {
       updateUrlForCurrentState();
     },
   });
-  const sortState = createSortToggle(sortToggle, refreshList);
+  const sortState = createSortToggle(sortToggle, () => {
+    sortEngaged = true;
+    refreshList();
+  });
   initPopoverToggle(shortcutsToggle, shortcutsPopover);
 
   // The shortcuts popover's markup defaults to "Ctrl"; swap in "⌘" on Mac so
@@ -454,6 +462,7 @@ function initFileBrowser(browser) {
   }
 
   function sortFiles(files) {
+    if (!sortEngaged) return files;
     const sorted = [...files].sort((a, b) => a.name.localeCompare(b.name));
     if (sortState.descending) sorted.reverse();
     return sorted;

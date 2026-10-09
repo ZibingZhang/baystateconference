@@ -3,6 +3,8 @@ layout: page
 title: Resources
 permalink: /resources/
 internal_links:
+  - title: Archive
+    url: /resources/archive/
   - title: Directory
     url: /resources/directory/
   - title: Documents
