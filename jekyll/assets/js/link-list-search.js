@@ -7,6 +7,9 @@ function initLinkListSearch(container) {
 
   if (!input || !list) return;
 
+  const initialQuery = parseSearchQueryFromLocation();
+  if (initialQuery) input.value = initialQuery;
+
   const tagFilter = createTagFilter({ input, tagsList, onChange: applyFilter });
   const sortState = createSortToggle(
     sortToggle,
@@ -43,9 +46,13 @@ function initLinkListSearch(container) {
     if (empty) empty.hidden = visibleCount > 0;
   }
 
-  input.addEventListener("input", applyFilter);
+  input.addEventListener("input", () => {
+    applyFilter();
+    syncSearchQueryToUrl(input.value.trim());
+  });
 
   sortItems();
+  applyFilter();
 }
 
 function initLinkListSearches() {

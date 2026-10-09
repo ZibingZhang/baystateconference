@@ -45,6 +45,9 @@ function parseTagsFromLocation() {
   return decodeTagsParam(params.get("tags"));
 }
 
+// parseSearchQueryFromLocation (the "q" param) is defined in
+// search-controls.js, shared with link-list-search.js and directory-search.js.
+
 function findFilesAtPath(rootFiles, pathNames) {
   let current = rootFiles;
 
@@ -468,20 +471,23 @@ function initFileBrowser(browser) {
     return sorted;
   }
 
-  function pageHrefForPath(pathNames, tags = []) {
+  function pageHrefForPath(pathNames, tags = [], query = "") {
     const pageHref = joinPath(baseurl, pageUrl);
     const href = `/${pageHref}/`.replace(/\/+/g, "/");
     const params = [];
     if (pathNames.length > 0) params.push(`path=${encodePathNames(pathNames)}`);
     if (tags.length > 0) params.push(`tags=${encodeTagsParam(tags)}`);
+    if (query.length > 0) params.push(`q=${encodeURIComponent(query)}`);
     return params.length > 0 ? `${href}?${params.join("&")}` : href;
   }
 
-  // Rewrites the current entry's query string to match currentPath and the
-  // committed tag filters, without adding a browser-history entry, so the
-  // address bar always reflects a URL that reproduces the same view.
+  // Rewrites the current entry's query string to match currentPath, the
+  // committed tag filters, and whatever's typed in the search box, without
+  // adding a browser-history entry, so the address bar always reflects a URL
+  // that reproduces the same view (and a refresh doesn't drop the search).
   function updateUrlForCurrentState() {
-    window.history.replaceState(null, "", pageHrefForPath(currentPath, tagFilter.tags));
+    const query = input ? input.value.trim() : "";
+    window.history.replaceState(null, "", pageHrefForPath(currentPath, tagFilter.tags, query));
   }
 
   function currentSortedFiles() {
@@ -789,9 +795,9 @@ function initFileBrowser(browser) {
     zipStatusEl.hidden = true;
   }
 
-  function applyPath(pathNames, tags = []) {
+  function applyPath(pathNames, tags = [], query = "") {
     currentPath = pathNames;
-    if (input) input.value = "";
+    if (input) input.value = query;
     tagFilter.set(tags);
     sortState.setDescending(folderDefaultDescending(rootFiles, pathNames));
     refreshList();
@@ -839,7 +845,12 @@ function initFileBrowser(browser) {
     if (focusAfterNav && input) input.focus();
   }
 
-  if (input) input.addEventListener("input", refreshList);
+  if (input) {
+    input.addEventListener("input", () => {
+      refreshList();
+      updateUrlForCurrentState();
+    });
+  }
 
   if (backBtn) backBtn.addEventListener("click", () => goBack());
   if (forwardBtn) forwardBtn.addEventListener("click", () => goForward());
@@ -912,7 +923,7 @@ function initFileBrowser(browser) {
       list.hidden = false;
 
       const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
-      applyPath(resolved.path, parseTagsFromLocation());
+      applyPath(resolved.path, parseTagsFromLocation(), parseSearchQueryFromLocation());
       navHistory = resolved.path.map((_, index) => resolved.path.slice(0, index));
       navHistory.push(resolved.path);
       navIndex = navHistory.length - 1;
@@ -920,7 +931,7 @@ function initFileBrowser(browser) {
 
       window.addEventListener("popstate", () => {
         const popResolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
-        applyPath(popResolved.path, parseTagsFromLocation());
+        applyPath(popResolved.path, parseTagsFromLocation(), parseSearchQueryFromLocation());
         recordHistory(popResolved.path);
       });
     })

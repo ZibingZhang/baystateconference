@@ -13,4 +13,5 @@ permalink: /resources/directory/
 </div>
 
 <script src="{{ '/assets/js/fuzzy-score.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/search-controls.js' | relative_url }}" defer></script>
 <script src="{{ '/assets/js/directory-search.js' | relative_url }}" defer></script>

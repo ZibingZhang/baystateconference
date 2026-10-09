@@ -1,6 +1,19 @@
-// Shared search-bar controls used by both file-browser.js and
-// link-list-search.js, so a feature added to one search bar (tag chips,
-// sort toggle) is available to the other for free.
+function parseSearchQueryFromLocation() {
+  return new URLSearchParams(window.location.search).get("q") || "";
+}
+
+// Mirrors a search box's free-text query to the "q" URL param via
+// replaceState (so typing doesn't spam browser history), preserving any
+// other params already on the URL. The file browser folds this into its own
+// pageHrefForPath instead, since it has path/tags state to combine with the
+// query in one URL, but every other search box can just call this directly.
+function syncSearchQueryToUrl(query) {
+  const params = new URLSearchParams(window.location.search);
+  if (query) params.set("q", query);
+  else params.delete("q");
+  const qs = params.toString();
+  window.history.replaceState(null, "", window.location.pathname + (qs ? `?${qs}` : "") + window.location.hash);
+}
 
 // Manages the set of committed filter tags for a search bar: rendering the
 // chip list, adding a tag from the input on Enter, and removing one on

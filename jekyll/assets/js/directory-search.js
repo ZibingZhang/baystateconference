@@ -38,8 +38,15 @@ function initDirectorySearch() {
 
   if (!input || !tree) return;
 
+  const initialQuery = parseSearchQueryFromLocation();
+  if (initialQuery) {
+    input.value = initialQuery;
+    filterDirectoryList(tree, initialQuery.trim().toLowerCase());
+  }
+
   input.addEventListener("input", () => {
     filterDirectoryList(tree, input.value.trim().toLowerCase());
+    syncSearchQueryToUrl(input.value.trim());
   });
 }
 
