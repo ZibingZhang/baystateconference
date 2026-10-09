@@ -3,6 +3,13 @@ import { MEET_TABS, type MeetTab } from "../constants/meetTabs";
 
 export type PageView = "howto" | "about" | null;
 
+/** The meet/tab/view combination that makes up one "page" of the app, for undo/redo navigation. */
+export interface Page {
+  meetId: string | null;
+  tab: MeetTab;
+  view: PageView;
+}
+
 /**
  * Keeps the selected meet, active tab, and How To/About pages in sync with
  * the `meet`/`tab`/`view` URL query params, so a link/refresh lands back on

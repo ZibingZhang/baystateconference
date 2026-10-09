@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
@@ -22,6 +22,7 @@ import MeetTabsView from "./components/MeetTabsView";
 import { useMeetCrud } from "./hooks/useMeetCrud";
 import { useDialogState } from "./hooks/useDialogState";
 import { useMeetUrlState } from "./hooks/useMeetUrlState";
+import type { Page } from "./hooks/useMeetUrlState";
 import { useTemplatePreview, TEMPLATE_READ_ONLY_MESSAGE } from "./hooks/useTemplatePreview";
 import { useMeetActions } from "./hooks/useMeetActions";
 import { useAthleteActions } from "./hooks/useAthleteActions";
@@ -33,7 +34,6 @@ import { useAppDataBackup } from "./hooks/useAppDataBackup";
 
 function App() {
   const [data, setData] = useAppData();
-  const history = useHistory(data, setData);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [addMeetOpen, setAddMeetOpen] = useState(false);
   const [renameMeetOpen, setRenameMeetOpen] = useState(false);
@@ -42,6 +42,16 @@ function App() {
     useDialogState();
   const { selectedMeetId, setSelectedMeetId, activeTab, setActiveTab, clearTab, view, setView } =
     useMeetUrlState();
+
+  // `setPage` needs `template.clearTemplate` (so undo/redo navigating onto a
+  // real meet page also drops an open template preview), but `template` is
+  // constructed from `history` below — so the setter is threaded through a
+  // ref, refreshed every render, to break the circularity.
+  const setPageRef = useRef<(page: Page) => void>(() => {});
+  const history = useHistory(data, setData, {
+    get: () => ({ meetId: selectedMeetId, tab: activeTab, view }),
+    set: (page) => setPageRef.current(page),
+  });
 
   const athleteCrud = useMeetCrud<Athlete>(history, selectedMeetId, {
     get: (d) => d.athletes,
@@ -80,6 +90,15 @@ function App() {
   const meetBackup = useMeetBackup(data, history, { setSelectedMeetId, showInfo });
   const appDataBackup = useAppDataBackup(data, history, { showInfo });
   const { selectedTemplateId, selectedTemplate, templateData } = template;
+
+  useEffect(() => {
+    setPageRef.current = (page) => {
+      template.clearTemplate();
+      setSelectedMeetId(page.view ? null : page.meetId);
+      setActiveTab(page.tab);
+      setView(page.view);
+    };
+  });
 
   if (!view && !selectedTemplateId && !data.meets.some((m) => m.id === selectedMeetId)) {
     const fallbackMeetId = data.meets[0]?.id ?? null;

@@ -1,12 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import type { AppData } from "../types";
+import type { Page } from "./useMeetUrlState";
 
 const MAX_HISTORY = 50;
 
 interface HistoryEntry {
   before: AppData;
   after: AppData;
+  page: Page;
+}
+
+interface PageNav {
+  get: () => Page;
+  set: (page: Page) => void;
 }
 
 /**
@@ -16,8 +23,15 @@ interface HistoryEntry {
  * step; calls made in the same synchronous burst (e.g. every row touched by
  * one paste) are batched into a single undo step via a microtask flush.
  * Capped at MAX_HISTORY steps so memory doesn't grow unbounded.
+ *
+ * Each step also remembers the page (meet/tab/view) that was active when it
+ * was made, so undoing/redoing navigates back to that page.
  */
-export function useHistory(data: AppData, setData: Dispatch<SetStateAction<AppData>>) {
+export function useHistory(
+  data: AppData,
+  setData: Dispatch<SetStateAction<AppData>>,
+  page: PageNav,
+) {
   const [past, setPast] = useState<HistoryEntry[]>([]);
   const [future, setFuture] = useState<HistoryEntry[]>([]);
   // Mirrors what `data` will be once React commits, updated synchronously
@@ -29,13 +43,22 @@ export function useHistory(data: AppData, setData: Dispatch<SetStateAction<AppDa
     dataRef.current = data;
   }, [data]);
 
+  const pageRef = useRef(page);
+  useEffect(() => {
+    pageRef.current = page;
+  });
+
   const pendingBeforeRef = useRef<AppData | null>(null);
   const pendingAfterRef = useRef<AppData | null>(null);
+  const pendingPageRef = useRef<Page | null>(null);
   const flushScheduledRef = useRef(false);
 
   function recordChange(before: AppData, after: AppData) {
     if (before === after) return;
-    if (pendingBeforeRef.current === null) pendingBeforeRef.current = before;
+    if (pendingBeforeRef.current === null) {
+      pendingBeforeRef.current = before;
+      pendingPageRef.current = pageRef.current.get();
+    }
     pendingAfterRef.current = after;
     if (flushScheduledRef.current) return;
     flushScheduledRef.current = true;
@@ -43,11 +66,13 @@ export function useHistory(data: AppData, setData: Dispatch<SetStateAction<AppDa
       flushScheduledRef.current = false;
       const entryBefore = pendingBeforeRef.current;
       const entryAfter = pendingAfterRef.current;
+      const entryPage = pendingPageRef.current;
       pendingBeforeRef.current = null;
       pendingAfterRef.current = null;
+      pendingPageRef.current = null;
       if (entryBefore === null || entryAfter === null || entryBefore === entryAfter) return;
       setPast((prev) => {
-        const next = [...prev, { before: entryBefore, after: entryAfter }];
+        const next = [...prev, { before: entryBefore, after: entryAfter, page: entryPage! }];
         return next.length > MAX_HISTORY ? next.slice(next.length - MAX_HISTORY) : next;
       });
       setFuture([]);
@@ -67,6 +92,7 @@ export function useHistory(data: AppData, setData: Dispatch<SetStateAction<AppDa
     const entry = past[past.length - 1];
     dataRef.current = entry.before;
     setData(entry.before);
+    pageRef.current.set(entry.page);
     setPast(past.slice(0, -1));
     setFuture([...future, entry]);
   }
@@ -76,6 +102,7 @@ export function useHistory(data: AppData, setData: Dispatch<SetStateAction<AppDa
     const entry = future[future.length - 1];
     dataRef.current = entry.after;
     setData(entry.after);
+    pageRef.current.set(entry.page);
     setFuture(future.slice(0, -1));
     setPast([...past, entry]);
   }
