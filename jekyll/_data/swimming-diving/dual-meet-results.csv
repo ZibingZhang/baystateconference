@@ -1,49 +1,49 @@
 School Year,Season,Sex,Team 1,Team 2,Date,Location,Team 1 Score,Team 2 Score,Team 1 Result
-2026-2027,fall,F,Braintree,Brookline,,,,,
-2026-2027,fall,F,Braintree,Framingham,,,,,
-2026-2027,fall,F,Braintree,Milton,,,,,
-2026-2027,fall,F,Braintree,Natick,,,,,
-2026-2027,fall,F,Braintree,Needham,2026-09-18,Needham,,,
-2026-2027,fall,F,Braintree,Newton North,,,,,
-2026-2027,fall,F,Braintree,Walpole,,,,,
-2026-2027,fall,F,Braintree,Wellesley,,,,,
-2026-2027,fall,F,Braintree,Weymouth,,,,,
-2026-2027,fall,F,Brookline,Framingham,,,,,
-2026-2027,fall,F,Brookline,Milton,,,,,
-2026-2027,fall,F,Brookline,Natick,,,,,
+2026-2027,fall,F,Braintree,Brookline,2026-10-09,Braintree,,,
+2026-2027,fall,F,Braintree,Framingham,2026-10-03,Framingham,73,89,L
+2026-2027,fall,F,Braintree,Milton,2026-10-20,Braintree,,,
+2026-2027,fall,F,Braintree,Natick,2026-09-24,Braintree,67,82,L
+2026-2027,fall,F,Braintree,Needham,2026-09-18,Needham,61,100,L
+2026-2027,fall,F,Braintree,Newton North,2026-09-29,Braintree,57,96,L
+2026-2027,fall,F,Braintree,Walpole,2026-09-15,Braintree,71,97,L
+2026-2027,fall,F,Braintree,Wellesley,2026-10-16,Wellesley,,,
+2026-2027,fall,F,Braintree,Weymouth,2026-10-13,Weymouth,,,
+2026-2027,fall,F,Brookline,Framingham,2026-10-13,Brookline,,,
+2026-2027,fall,F,Brookline,Milton,2026-09-17,Brookline,85,96,L
+2026-2027,fall,F,Brookline,Natick,2026-09-29,Brookline,97,84,W
 2026-2027,fall,F,Brookline,Needham,2026-10-06,Needham,,,
-2026-2027,fall,F,Brookline,Newton North,,,,,
-2026-2027,fall,F,Brookline,Walpole,,,,,
-2026-2027,fall,F,Brookline,Wellesley,,,,,
+2026-2027,fall,F,Brookline,Newton North,2026-10-20,Brookline,,,
+2026-2027,fall,F,Brookline,Walpole,2026-10-02,Brookline,75,36,W
+2026-2027,fall,F,Brookline,Wellesley,2026-09-25,Brookline,87,93,L
 2026-2027,fall,F,Brookline,Weymouth,,,,,
-2026-2027,fall,F,Framingham,Milton,,,,,
-2026-2027,fall,F,Framingham,Natick,,,,,
-2026-2027,fall,F,Framingham,Needham,2026-09-01,Needham,,,
-2026-2027,fall,F,Framingham,Newton North,,,,,
-2026-2027,fall,F,Framingham,Walpole,,,,,
-2026-2027,fall,F,Framingham,Wellesley,,,,,
-2026-2027,fall,F,Framingham,Weymouth,,,,,
-2026-2027,fall,F,Milton,Natick,,,,,
-2026-2027,fall,F,Milton,Needham,2026-09-15,Needham,,,
-2026-2027,fall,F,Milton,Newton North,,,,,
-2026-2027,fall,F,Milton,Walpole,,,,,
-2026-2027,fall,F,Milton,Wellesley,,,,,
-2026-2027,fall,F,Milton,Weymouth,,,,,
-2026-2027,fall,F,Natick,Needham,2026-10-13,Natick,,,
-2026-2027,fall,F,Natick,Newton North,,,,,
-2026-2027,fall,F,Natick,Walpole,,,,,
-2026-2027,fall,F,Natick,Wellesley,,,,,
-2026-2027,fall,F,Natick,Weymouth,,,,,
-2026-2027,fall,F,Needham,Newton North,2026-10-02,Newton North,,,
-2026-2027,fall,F,Needham,Walpole,2026-09-22,Walpole,,,
-2026-2027,fall,F,Needham,Wellesley,2026-10-20,Wellesley,,,
+2026-2027,fall,F,Framingham,Milton,2026-09-25,Milton,93,90,W
+2026-2027,fall,F,Framingham,Natick,2026-10-16,Framingham,,,
+2026-2027,fall,F,Framingham,Needham,2026-09-08,Needham,95,83,W
+2026-2027,fall,F,Framingham,Newton North,2026-10-06,Newton North,,,
+2026-2027,fall,F,Framingham,Walpole,2026-09-19,Framingham,63,47,W
+2026-2027,fall,F,Framingham,Wellesley,2026-10-08,Wellesley,93,90,W
+2026-2027,fall,F,Framingham,Weymouth,2026-09-29,Weymouth,95,75,W
+2026-2027,fall,F,Milton,Natick,2026-10-02,Milton,105,73,W
+2026-2027,fall,F,Milton,Needham,2026-09-15,Needham,95,85,W
+2026-2027,fall,F,Milton,Newton North,2026-09-09,Milton,101,81,W
+2026-2027,fall,F,Milton,Walpole,2026-10-16,Milton,,,
+2026-2027,fall,F,Milton,Wellesley,2026-09-29,Wellesley,101,84,W
+2026-2027,fall,F,Milton,Weymouth,2026-10-09,Weymouth,,,
+2026-2027,fall,F,Natick,Needham,2026-10-13,Needham,,,
+2026-2027,fall,F,Natick,Newton North,2026-10-09,Newton North,,,
+2026-2027,fall,F,Natick,Walpole,2026-10-06,Walpole,91,45,W
+2026-2027,fall,F,Natick,Wellesley,2026-09-18,Wellesley,83,102,L
+2026-2027,fall,F,Natick,Weymouth,2026-09-25,Natick,96,79,W
+2026-2027,fall,F,Needham,Newton North,2026-10-02,Newton North,82,96,L
+2026-2027,fall,F,Needham,Walpole,2026-09-22,Walpole,96,40,W
+2026-2027,fall,F,Needham,Wellesley,,,,,
 2026-2027,fall,F,Needham,Weymouth,2026-10-16,Weymouth,,,
-2026-2027,fall,F,Newton North,Walpole,,,,,
-2026-2027,fall,F,Newton North,Wellesley,,,,,
-2026-2027,fall,F,Newton North,Weymouth,,,,,
-2026-2027,fall,F,Walpole,Wellesley,,,,,
+2026-2027,fall,F,Newton North,Walpole,2026-09-25,Walpole,92,49,W
+2026-2027,fall,F,Newton North,Wellesley,2026-10-13,Newton North,,,
+2026-2027,fall,F,Newton North,Weymouth,2026-09-18,Newton North,86,74,W
+2026-2027,fall,F,Walpole,Wellesley,2026-09-09,Wellesley,46,74,L
 2026-2027,fall,F,Walpole,Weymouth,,,,,
-2026-2027,fall,F,Wellesley,Weymouth,,,,,
+2026-2027,fall,F,Wellesley,Weymouth,2026-10-06,Wellesley,88,72,W
 2025-2026,fall,F,Braintree,Brookline,,,46,102,L
 2025-2026,fall,F,Braintree,Framingham,,,53,85,L
 2025-2026,fall,F,Braintree,Milton,,,46,87,L
