@@ -1076,18 +1076,6 @@ article.post:has(table) {
   animation: icon-spin 2s infinite linear;
 }
 
-.calendar-embed {
-  max-width: 100%;
-  position: relative;
-
-  iframe {
-    display: block;
-    height: 600px;
-    max-width: 800px;
-    width: 100%;
-  }
-}
-
 .calendar-loading {
   align-items: center;
   background-color: $background-color;
