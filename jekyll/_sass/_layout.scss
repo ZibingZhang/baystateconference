@@ -1161,6 +1161,34 @@ article.post:has(table) {
   }
 }
 
+.file-browser-tag-picker {
+  flex: 0 0 auto;
+}
+
+// Opens .file-browser-tag-picker-popover — same treatment as the other
+// icon toggles here, plus an "is-active" state (set by file-browser.js
+// whenever at least one tag is checked) so the filter is visible even with
+// the popover closed.
+.file-browser-tag-picker-toggle {
+  align-items: center;
+  background: none;
+  border: none;
+  color: $brand-color-dimmed;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+
+  &:hover,
+  &:focus-visible,
+  &.is-active {
+    color: $text-color;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
 .file-browser-shortcuts-toggle {
   align-items: center;
   background: none;
@@ -1216,6 +1244,55 @@ article.post:has(table) {
     border-radius: 4px;
     padding: 1px 6px;
     @include relative-font-size(0.8);
+  }
+}
+
+// A scrollable checklist of every distinct tag in the current folder,
+// opened from .file-browser-tag-picker-toggle — same positioning/background
+// treatment as .file-browser-shortcuts-popover above, anchored to the same
+// .file-browser-search ancestor (not its own .file-browser-tag-picker
+// wrapper) so it's right-justified flush with the file-browser box itself,
+// regardless of where the tag button sits among the other icons — plus
+// height-capped with its own scrollbar since a folder can have 70+ distinct
+// tags.
+.file-browser-tag-picker-popover {
+  background-color: $background-color;
+  border: 1px solid $border-color-01;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-top: 6px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding: $spacing-unit * 0.4 $spacing-unit * 0.6;
+  position: absolute;
+  right: $spacing-unit * 0.5;
+  top: 100%;
+  z-index: 10;
+  @include relative-font-size(0.85);
+}
+
+.file-browser-tag-picker-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.file-browser-tag-picker-item {
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  padding: 4px 6px;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $code-background-color;
+  }
+
+  input {
+    cursor: pointer;
+    flex: 0 0 auto;
   }
 }
 

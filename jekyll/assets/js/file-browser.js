@@ -392,6 +392,9 @@ function initFileBrowser(browser) {
   const loading = browser.querySelector(".file-browser-loading");
   const input = browser.querySelector(".file-browser-search-input");
   const tagsList = browser.querySelector(".file-browser-tags");
+  const tagPickerToggle = browser.querySelector(".file-browser-tag-picker-toggle");
+  const tagPickerPopover = browser.querySelector(".file-browser-tag-picker-popover");
+  const tagPickerList = browser.querySelector(".file-browser-tag-picker-list");
   const sortToggle = browser.querySelector(".file-browser-sort-toggle");
   const shortcutsToggle = browser.querySelector(".file-browser-shortcuts-toggle");
   const shortcutsPopover = browser.querySelector(".file-browser-shortcuts-popover");
@@ -446,6 +449,13 @@ function initFileBrowser(browser) {
   // the current folder/search/filter is actually showing.
   let lastDisplayedFiles = [];
 
+  // Tags checked in the tag-picker popover (distinct from tagFilter's
+  // committed free-text search chips above) — real metadata filters against
+  // each item's own `tags` array, ANDed with each other and with whatever
+  // the search box/chips already show. Reset whenever the current folder
+  // changes, same as tagFilter and the search query.
+  let selectedTags = new Set();
+
   const tagFilter = createTagFilter({
     input,
     tagsList,
@@ -458,6 +468,7 @@ function initFileBrowser(browser) {
     sortEngaged = true;
     refreshList();
   });
+  initPopoverToggle(tagPickerToggle, tagPickerPopover);
   initPopoverToggle(shortcutsToggle, shortcutsPopover);
 
   // The shortcuts popover's markup defaults to "Ctrl"; swap in "⌘" on Mac so
@@ -476,43 +487,105 @@ function initFileBrowser(browser) {
     return sorted;
   }
 
-  function pageHrefForPath(pathNames, tags = [], query = "") {
+  // `pickerTags` uses its own "tag" param (singular), distinct from the
+  // search chips' "tags" param — the two filters are independent and can
+  // both be present on the same URL.
+  function pageHrefForPath(pathNames, tags = [], query = "", pickerTags = []) {
     const pageHref = joinPath(baseurl, pageUrl);
     const href = `/${pageHref}/`.replace(/\/+/g, "/");
     const params = [];
     if (pathNames.length > 0) params.push(`path=${encodePathNames(pathNames)}`);
     if (tags.length > 0) params.push(`tags=${encodeTagsParam(tags)}`);
+    if (pickerTags.length > 0) params.push(`tag=${encodeTagsParam(pickerTags)}`);
     if (query.length > 0) params.push(`q=${encodeURIComponent(query)}`);
     return params.length > 0 ? `${href}?${params.join("&")}` : href;
   }
 
+  function parsePickerTagsFromLocation() {
+    const params = new URLSearchParams(window.location.search);
+    return decodeTagsParam(params.get("tag"));
+  }
+
   // Rewrites the current entry's query string to match currentPath, the
-  // committed tag filters, and whatever's typed in the search box, without
-  // adding a browser-history entry, so the address bar always reflects a URL
-  // that reproduces the same view (and a refresh doesn't drop the search).
+  // committed tag filters, the tag picker's checked tags, and whatever's
+  // typed in the search box, without adding a browser-history entry, so the
+  // address bar always reflects a URL that reproduces the same view (and a
+  // refresh doesn't drop the search).
   function updateUrlForCurrentState() {
     const query = input ? input.value.trim() : "";
-    window.history.replaceState(null, "", pageHrefForPath(currentPath, tagFilter.tags, query));
+    window.history.replaceState(null, "", pageHrefForPath(currentPath, tagFilter.tags, query, [...selectedTags]));
   }
 
   function currentSortedFiles() {
     return sortFiles(findFilesAtPath(rootFiles, currentPath));
   }
 
+  // Distinct tags among the current folder's own items (not recursive into
+  // subfolders, matching tagFilter's own folder-scoped behavior), sorted
+  // alphabetically for a stable picker order.
+  function distinctTagsAtPath(pathNames) {
+    const tags = new Set();
+    findFilesAtPath(rootFiles, pathNames).forEach((file) => {
+      if (Array.isArray(file.tags)) file.tags.forEach((tag) => tags.add(tag));
+    });
+    return [...tags].sort();
+  }
+
+  // Re-renders the tag-picker popover's checklist for the current folder.
+  // The toggle button itself stays hidden entirely when the folder has no
+  // tagged items (e.g. every folder outside EZStream today), rather than
+  // offering an empty, useless popover.
+  function renderTagPicker(pathNames) {
+    if (!tagPickerToggle || !tagPickerPopover || !tagPickerList) return;
+    const tags = distinctTagsAtPath(pathNames);
+    tagPickerToggle.hidden = tags.length === 0;
+    tagPickerToggle.classList.toggle("is-active", selectedTags.size > 0);
+    tagPickerList.innerHTML = "";
+
+    tags.forEach((tag) => {
+      const li = document.createElement("li");
+      const label = document.createElement("label");
+      label.className = "file-browser-tag-picker-item";
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = selectedTags.has(tag);
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) selectedTags.add(tag);
+        else selectedTags.delete(tag);
+        tagPickerToggle.classList.toggle("is-active", selectedTags.size > 0);
+        refreshList();
+        updateUrlForCurrentState();
+      });
+
+      label.append(checkbox, document.createTextNode(tag));
+      li.appendChild(label);
+      tagPickerList.appendChild(li);
+    });
+  }
+
   // Re-derives what should be on screen from (rootFiles, currentPath, sort
   // direction, filter tags, search query) and re-renders it — the single
   // place that decides display order, so fuzzy-match ranking and the A-Z/Z-A
-  // toggle compose instead of fighting over the list.
+  // toggle compose instead of fighting over the list. The tag picker's
+  // checked tags are applied first, as a real-metadata AND filter, completely
+  // independent of (and unchanged by) the fuzzy free-text chip/search logic
+  // below — see distinctTagsAtPath/renderTagPicker above.
   function refreshList() {
     const queries = activeQueries(tagFilter, input);
-    const files = currentSortedFiles();
+    const files =
+      selectedTags.size === 0
+        ? currentSortedFiles()
+        : currentSortedFiles().filter(
+            (file) => Array.isArray(file.tags) && [...selectedTags].every((tag) => file.tags.includes(tag))
+          );
 
     let displayed;
     let emptyMessage;
 
     if (queries.length === 0) {
       displayed = files;
-      emptyMessage = "This folder is empty.";
+      emptyMessage = selectedTags.size > 0 ? "No files match the selected tags." : "This folder is empty.";
     } else {
       displayed = files
         .map((file) => {
@@ -826,11 +899,13 @@ function initFileBrowser(browser) {
     zipStatusEl.hidden = true;
   }
 
-  function applyPath(pathNames, tags = [], query = "") {
+  function applyPath(pathNames, tags = [], query = "", pickerTags = []) {
     currentPath = pathNames;
     if (input) input.value = query;
     tagFilter.set(tags);
+    selectedTags = new Set(pickerTags);
     sortState.setDescending(folderDefaultDescending(rootFiles, pathNames));
+    renderTagPicker(pathNames);
     refreshList();
     updateBreadcrumbs(pathNames);
     updateCount(pathNames);
@@ -968,7 +1043,7 @@ function initFileBrowser(browser) {
       list.hidden = false;
 
       const resolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
-      applyPath(resolved.path, parseTagsFromLocation(), parseSearchQueryFromLocation());
+      applyPath(resolved.path, parseTagsFromLocation(), parseSearchQueryFromLocation(), parsePickerTagsFromLocation());
       navHistory = resolved.path.map((_, index) => resolved.path.slice(0, index));
       navHistory.push(resolved.path);
       navIndex = navHistory.length - 1;
@@ -976,7 +1051,12 @@ function initFileBrowser(browser) {
 
       window.addEventListener("popstate", () => {
         const popResolved = resolvePathSlugs(rootFiles, parseSlugsFromLocation());
-        applyPath(popResolved.path, parseTagsFromLocation(), parseSearchQueryFromLocation());
+        applyPath(
+          popResolved.path,
+          parseTagsFromLocation(),
+          parseSearchQueryFromLocation(),
+          parsePickerTagsFromLocation()
+        );
         recordHistory(popResolved.path);
       });
     })
