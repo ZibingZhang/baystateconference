@@ -1,9 +1,78 @@
 <header class="site-header">
 
   <div class="wrapper">
-    <a class="settings-link" href="{{ '/settings/' | relative_url }}" aria-label="Appearance settings">
-      <span class="material-symbols-outlined" aria-hidden="true">settings</span>
-    </a>
+    <div class="appearance-controls">
+      <div class="appearance-menu">
+        <button
+          type="button"
+          class="appearance-trigger"
+          id="palette-menu-trigger"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="palette-menu"
+          aria-label="Change color palette"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">palette</span>
+        </button>
+        <ul class="appearance-menu-list" id="palette-menu" role="menu" aria-labelledby="palette-menu-trigger" hidden>
+          <li role="none">
+            <button type="button" role="menuitemradio" class="appearance-menu-item" data-palette-value="classic">
+              <span class="appearance-menu-item-label">Classic</span>
+              <span class="material-symbols-outlined appearance-menu-check" aria-hidden="true">check</span>
+            </button>
+          </li>
+          <li role="none">
+            <button type="button" role="menuitemradio" class="appearance-menu-item" data-palette-value="solarized">
+              <span class="appearance-menu-item-label">Solarized</span>
+              <span class="material-symbols-outlined appearance-menu-check" aria-hidden="true">check</span>
+            </button>
+          </li>
+          <li role="none">
+            <button type="button" role="menuitemradio" class="appearance-menu-item" data-palette-value="rose-pine">
+              <span class="appearance-menu-item-label">Rosé Pine</span>
+              <span class="material-symbols-outlined appearance-menu-check" aria-hidden="true">check</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="appearance-menu">
+        <button
+          type="button"
+          class="appearance-trigger"
+          id="theme-menu-trigger"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="theme-menu"
+          aria-label="Change theme"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true" id="theme-menu-trigger-icon">brightness_auto</span>
+        </button>
+        <ul class="appearance-menu-list" id="theme-menu" role="menu" aria-labelledby="theme-menu-trigger" hidden>
+          <li role="none">
+            <button type="button" role="menuitemradio" class="appearance-menu-item" data-theme-value="system">
+              <span class="material-symbols-outlined appearance-menu-item-icon" aria-hidden="true">brightness_auto</span>
+              <span class="appearance-menu-item-label">System</span>
+              <span class="material-symbols-outlined appearance-menu-check" aria-hidden="true">check</span>
+            </button>
+          </li>
+          <li role="none">
+            <button type="button" role="menuitemradio" class="appearance-menu-item" data-theme-value="light">
+              <span class="material-symbols-outlined appearance-menu-item-icon" aria-hidden="true">light_mode</span>
+              <span class="appearance-menu-item-label">Light</span>
+              <span class="material-symbols-outlined appearance-menu-check" aria-hidden="true">check</span>
+            </button>
+          </li>
+          <li role="none">
+            <button type="button" role="menuitemradio" class="appearance-menu-item" data-theme-value="dark">
+              <span class="material-symbols-outlined appearance-menu-item-icon" aria-hidden="true">dark_mode</span>
+              <span class="appearance-menu-item-label">Dark</span>
+              <span class="material-symbols-outlined appearance-menu-check" aria-hidden="true">check</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
@@ -25,3 +94,5 @@
     {%- endunless %}
   </div>
 </header>
+
+<script src="{{ '/assets/js/appearance-menu.js' | relative_url }}" defer></script>

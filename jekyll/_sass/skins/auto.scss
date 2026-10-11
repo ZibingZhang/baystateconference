@@ -401,7 +401,7 @@ $table-border-color: $lm-table-border-color;
 
   // Solarized palette override, layered the same way as the light/dark
   // theme override above: a [data-palette="solarized"] attribute (set via
-  // JS + localStorage on the settings page) activates it, following system
+  // JS + localStorage via the header's appearance menu) activates it, following system
   // preference on its own; pairing it with [data-theme] on the same element
   // (two attribute selectors on :root) outranks both this and the plain
   // [data-theme] blocks above, so an explicit light/dark choice still wins

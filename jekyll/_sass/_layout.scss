@@ -18,30 +18,97 @@
   }
 }
 
-.settings-link {
-  align-items: center;
-  border: 1px solid $border-color-01;
-  border-radius: 50%;
+.appearance-controls {
   display: flex;
-  height: 36px;
-  justify-content: center;
+  gap: 4px;
   position: absolute;
   right: $spacing-unit;
   top: $spacing-unit * 0.5;
-  width: 36px;
 
   @media screen and (max-width: $on-medium) {
     right: $spacing-unit * 0.6;
   }
+}
+
+.appearance-menu {
+  position: relative;
+}
+
+.appearance-trigger {
+  align-items: center;
+  background: none;
+  border: 1px solid $border-color-01;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+  padding: 0;
+  width: 36px;
 
   &:hover {
     background-color: $border-color-02;
-    text-decoration: none;
   }
 
   .material-symbols-outlined {
     color: $brand-color-dimmed;
     font-size: 20px;
+  }
+}
+
+.appearance-menu-list {
+  background-color: $background-color;
+  border: 1px solid $border-color-01;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  list-style: none;
+  margin: 4px 0 0;
+  min-width: 170px;
+  padding: 5px 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 1;
+
+  li {
+    margin: 0;
+  }
+}
+
+.appearance-menu-item {
+  align-items: center;
+  background: none;
+  border: none;
+  color: $text-color;
+  cursor: pointer;
+  display: flex;
+  font-size: $small-font-size;
+  gap: 10px;
+  padding: 6px 14px;
+  text-align: left;
+  width: 100%;
+
+  &:hover {
+    background-color: $border-color-01;
+  }
+
+  .appearance-menu-item-icon {
+    color: $brand-color-dimmed;
+    font-size: 18px;
+  }
+
+  .appearance-menu-item-label {
+    flex: 1;
+  }
+
+  .appearance-menu-check {
+    color: $brand-color-dimmed;
+    font-size: 18px;
+    visibility: hidden;
+  }
+
+  &.is-selected .appearance-menu-check {
+    visibility: visible;
   }
 }
 
@@ -1944,57 +2011,6 @@ details[open] > summary .directory-caret {
     &:checked::after { border-color: $border-color-03 }
   }
 }
-
-/**
- * Settings page
- */
-.settings-page {
-  fieldset {
-    border: 1px solid $border-color-01;
-    border-radius: 6px;
-    margin: 0 0 $spacing-unit * 0.75;
-    padding: $spacing-unit * 0.5 $spacing-unit * 0.75;
-  }
-
-  legend {
-    color: $heading-color;
-    font-weight: 600;
-    padding: 0 6px;
-  }
-
-  .settings-option {
-    align-items: center;
-    display: flex;
-    gap: 8px;
-    padding: 6px 0;
-  }
-
-  label {
-    cursor: pointer;
-  }
-
-  .settings-option-info {
-    align-items: center;
-    border-radius: 50%;
-    display: flex;
-    height: 24px;
-    justify-content: center;
-    margin-left: auto;
-    width: 24px;
-
-    &:hover {
-      background-color: $border-color-02;
-      text-decoration: none;
-    }
-
-    .material-symbols-outlined {
-      color: $brand-color-dimmed;
-      font-size: 16px;
-    }
-  }
-}
-
-
 
 /**
  * Grid helpers

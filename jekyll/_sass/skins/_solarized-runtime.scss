@@ -1,12 +1,12 @@
 @charset "utf-8";
 
-// Solarized palette, adapted for runtime switching via a [data-palette]
-// attribute on <html> (see the `:root[data-palette="solarized"]` blocks in
-// auto.scss). Color values are copied from skins/solarized.scss, which
-// picks its palette at build time via Sass `@if`; this file instead exposes
-// both the light and dark variants as mixins so both can ship in the same
-// stylesheet and be toggled at runtime, same as the classic lm-/dm- split
-// above it in auto.scss.
+// Solarized palette (https://ethanschoonover.com/solarized/), adapted for
+// runtime switching via a [data-palette] attribute on <html> (see the
+// `:root[data-palette="solarized"]` blocks in auto.scss). Color values are
+// copied from skins/solarized.scss, which picks its palette at build time
+// via Sass `@if`; this file instead exposes both the light and dark variants
+// as mixins so both can ship in the same stylesheet and be toggled at
+// runtime, same as the classic lm-/dm- split above it in auto.scss.
 
 $sol-base03:   #002b36;
 $sol-base02:   #073642;

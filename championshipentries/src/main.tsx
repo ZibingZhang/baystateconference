@@ -14,8 +14,8 @@ import App from "./App.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <InitColorSchemeScript defaultMode="system" />
-    <ThemeProvider theme={theme} defaultMode="system">
+    <InitColorSchemeScript defaultMode="system" modeStorageKey="theme" />
+    <ThemeProvider theme={theme} defaultMode="system" modeStorageKey="theme">
       <PaletteContextProvider>
         <CssBaseline />
         <App />
