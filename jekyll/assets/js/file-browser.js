@@ -171,6 +171,20 @@ function formatFileCountSummary(counts) {
   return parts.join(", ");
 }
 
+// Same per-type breakdown as formatFileCountSummary, but each part reads
+// "X of Y" so a search/tag filter still shows how many of each file type
+// survived it, instead of collapsing the breakdown into a single total.
+function formatFilteredCountSummary(totalCounts, filteredCounts) {
+  const parts = Object.entries(totalCounts.extensions)
+    .sort((a, b) => b[1] - a[1])
+    .map(([ext, total]) => `${filteredCounts.extensions[ext] || 0} of ${pluralize(total, ext)}`);
+
+  if (totalCounts.internal > 0) parts.push(`${filteredCounts.internal} of ${totalCounts.internal} internal`);
+  if (totalCounts.external > 0) parts.push(`${filteredCounts.external} of ${totalCounts.external} external`);
+
+  return parts.join(", ");
+}
+
 // U+0001 as separator (never appears in real file/folder names) so that
 // e.g. ["A", "BC"] and ["AB", "C"] can't collide into the same key.
 const KEY_SEP = "\u0001";
@@ -607,6 +621,8 @@ function initFileBrowser(browser) {
       empty.textContent = emptyMessage;
       empty.hidden = displayed.length > 0;
     }
+
+    updateCount(currentPath, displayed, selectedTags.size > 0 || queries.length > 0);
   }
 
   function renderList(files) {
@@ -838,9 +854,18 @@ function initFileBrowser(browser) {
     currentCrumb.hidden = true;
   }
 
-  function updateCount(pathNames) {
+  // Unfiltered, shows the usual per-extension breakdown of the whole folder
+  // subtree. Once a search query or tag filter narrows what's displayed,
+  // each part switches to "X of Y" so the breakdown by type is still visible
+  // while showing how much it shrank. `displayedFiles` gets the same
+  // recursive, dedup-by-target counting as the unfiltered total, so a
+  // matched folder's nested files are still counted correctly.
+  function updateCount(pathNames, displayedFiles, isFiltered) {
     if (!countEl) return;
-    const summary = formatFileCountSummary(countFilesByType(findFilesAtPath(rootFiles, pathNames)));
+    const totalCounts = countFilesByType(findFilesAtPath(rootFiles, pathNames));
+    const summary = isFiltered
+      ? formatFilteredCountSummary(totalCounts, countFilesByType(displayedFiles))
+      : formatFileCountSummary(totalCounts);
     countEl.textContent = summary;
     countEl.hidden = !summary;
   }
@@ -908,7 +933,6 @@ function initFileBrowser(browser) {
     renderTagPicker(pathNames);
     refreshList();
     updateBreadcrumbs(pathNames);
-    updateCount(pathNames);
   }
 
   function updateNavButtons() {
