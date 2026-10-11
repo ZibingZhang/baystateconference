@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Schedule
-permalink: /sports/hockey/schedule/
+permalink: /sports/ice-hockey/schedule/
 breadcrumb: Schedule
 default_sort: desc
 ---

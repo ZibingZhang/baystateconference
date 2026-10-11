@@ -122,8 +122,8 @@
       - title: NFHS Website
         url: https://www.nfhs.org/sports/gymnastics
 
-- title: Hockey
-  url: /sports/hockey/
+- title: Ice Hockey
+  url: /sports/ice-hockey/
   icon: sports_hockey
   external_links:
     miaa:

@@ -81,9 +81,9 @@ defaults:
     values:
       nav: gymnastics
   - scope:
-      path: "sports/hockey"
+      path: "sports/ice-hockey"
     values:
-      nav: hockey
+      nav: ice-hockey
   - scope:
       path: "sports/indoor-track-and-field"
     values:

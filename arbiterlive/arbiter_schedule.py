@@ -125,7 +125,7 @@ SPORT_NORMALIZE = {
     "Football": "Football",
     "Golf": "Golf",
     "Gymnastics": "Gymnastics",
-    "Hockey": "Hockey",
+    "Hockey": "Ice Hockey",
     "Lacrosse - Boys": "Lacrosse",
     "Lacrosse - Girls": "Lacrosse",
     "Rugby": "Rugby",

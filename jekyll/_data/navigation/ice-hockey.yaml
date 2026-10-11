@@ -1,0 +1,13 @@
+# Site navigation for the Ice Hockey section.
+- title: Home
+  url: /
+
+- title: Schedule
+  url: /sports/ice-hockey/schedule/
+
+- title: Organizations
+  children:
+    - title: MIAA
+      url: /sports/ice-hockey/organizations/miaa/
+    - title: NFHS
+      url: /sports/ice-hockey/organizations/nfhs/
