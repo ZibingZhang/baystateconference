@@ -430,7 +430,7 @@
       {
         "name": "2007 Individual Wrestling - All State Qualifiers.txt",
         "s3Path": "organization=miaa/archive=ezstream/732.txt",
-        "tags": ["wrestling", "state-tournament"]
+        "tags": ["all-state", "state-tournament", "wrestling"]
       },
       {
         "name": "2007 Individual Wrestling - Division 2 Place Winners.txt",
@@ -440,12 +440,12 @@
       {
         "name": "2007 Boys All-State Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/734.txt",
-        "tags": ["indoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "indoor-track-and-field", "performance-list"]
       },
       {
         "name": "2007 Girls All-State Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/735.txt",
-        "tags": ["indoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "indoor-track-and-field", "performance-list"]
       },
       {
         "name": "2007 Boys Division 1 State Swimming Psych Sheet.txt",
@@ -455,7 +455,7 @@
       {
         "name": "2007 Individual Wrestling - All State Matchups.txt",
         "s3Path": "organization=miaa/archive=ezstream/737.txt",
-        "tags": ["wrestling", "state-tournament"]
+        "tags": ["all-state", "state-tournament", "wrestling"]
       },
       {
         "name": "2007 Girls Division 1 State Swimming Psych Sheet.txt",
@@ -495,12 +495,12 @@
       {
         "name": "2007 Boys All-State Indoor Track Championship Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/770.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["all-state", "indoor-track-and-field", "results"]
       },
       {
         "name": "2007 Girls All-State Indoor Track Championship Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/771.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["all-state", "indoor-track-and-field", "results"]
       },
       {
         "name": "2007 Girls Gymnastics North Sectional Results.txt",
@@ -520,12 +520,12 @@
       {
         "name": "2007 Individual Wrestling All-State Match Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/780.txt",
-        "tags": ["wrestling", "state-tournament", "results"]
+        "tags": ["all-state", "results", "state-tournament", "wrestling"]
       },
       {
         "name": "2007 Individual Wrestling All-State Place Winners.txt",
         "s3Path": "organization=miaa/archive=ezstream/781.txt",
-        "tags": ["wrestling", "state-tournament", "results"]
+        "tags": ["all-state", "results", "state-tournament", "wrestling"]
       },
       {
         "name": "2007 Boys Division 2 State Swimming Results.txt",
@@ -805,7 +805,7 @@
       {
         "name": "2007 Outdoor Track All-State Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/1074.txt",
-        "tags": ["outdoor-track-and-field", "performance-list", "state-tournament"]
+        "tags": ["all-state", "outdoor-track-and-field", "performance-list", "state-tournament"]
       },
       {
         "name": "2007 Softball Tournament Brackets.txt",
@@ -830,7 +830,7 @@
       {
         "name": "2007 Outdoor Track All State Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/1092.txt",
-        "tags": ["outdoor-track-and-field", "results", "state-tournament"]
+        "tags": ["all-state", "outdoor-track-and-field", "results", "state-tournament"]
       },
       {
         "name": "New England Outdoor Track - Massachusetts Performance List.txt",
@@ -1080,12 +1080,12 @@
       {
         "name": "2008 Indoor Track - Girls State Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/2313.txt",
-        "tags": ["indoor-track-and-field", "performance-list", "state-tournament"]
+        "tags": ["all-state", "indoor-track-and-field", "performance-list", "state-tournament"]
       },
       {
         "name": "2008 Indoor Track - Boys State Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/2314.txt",
-        "tags": ["indoor-track-and-field", "performance-list", "state-tournament"]
+        "tags": ["all-state", "indoor-track-and-field", "performance-list", "state-tournament"]
       },
       {
         "name": "2008 Boys North Swim Results.txt",
@@ -1110,12 +1110,12 @@
       {
         "name": "2008 All-State Individual Wrestling - First Round Matchups.txt",
         "s3Path": "organization=miaa/archive=ezstream/2319.txt",
-        "tags": ["wrestling", "state-tournament"]
+        "tags": ["all-state", "state-tournament", "wrestling"]
       },
       {
         "name": "2008 All-State Individual Wrestling Tournament Information.txt",
         "s3Path": "organization=miaa/archive=ezstream/2320.txt",
-        "tags": ["wrestling", "state-tournament"]
+        "tags": ["all-state", "state-tournament", "wrestling"]
       },
       {
         "name": "2008 Boys Division 1 State Swimming and Diving Psych Sheet.txt",
@@ -1205,12 +1205,12 @@
       {
         "name": "2008 Boys State Indoor Track Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/2432.txt",
-        "tags": ["indoor-track-and-field", "results", "state-tournament"]
+        "tags": ["all-state", "indoor-track-and-field", "results", "state-tournament"]
       },
       {
         "name": "2008 Girls State Indoor Track Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/2434.txt",
-        "tags": ["indoor-track-and-field", "results", "state-tournament"]
+        "tags": ["all-state", "indoor-track-and-field", "results", "state-tournament"]
       },
       {
         "name": "2008 Alpine Ski Results.txt",
@@ -1220,12 +1220,12 @@
       {
         "name": "2008 All-State Individual Wrestling - Results by Round.txt",
         "s3Path": "organization=miaa/archive=ezstream/2439.txt",
-        "tags": ["wrestling", "state-tournament", "results"]
+        "tags": ["all-state", "results", "state-tournament", "wrestling"]
       },
       {
         "name": "2008 All-State Individual Wrestling - Place Winners.txt",
         "s3Path": "organization=miaa/archive=ezstream/2441.txt",
-        "tags": ["wrestling", "state-tournament", "results"]
+        "tags": ["all-state", "results", "state-tournament", "wrestling"]
       },
       {
         "name": "2008 Nordic Ski Tournament Results.txt",
@@ -2205,7 +2205,7 @@
       {
         "name": "Spring 2009 Tournament Schedule.txt",
         "s3Path": "organization=miaa/archive=ezstream/5602.txt",
-        "tags": ["baseball", "schedule", "tournament"]
+        "tags": ["multi-sport", "schedule", "tournament"]
       },
       {
         "name": "2009 Boys and Girls Lacrosse Brackets.txt",
@@ -2855,12 +2855,12 @@
       {
         "name": "2010 MIAA All-State Wrestling Timetable.txt",
         "s3Path": "organization=miaa/archive=ezstream/6191.txt",
-        "tags": ["wrestling", "schedule"]
+        "tags": ["all-state", "schedule", "wrestling"]
       },
       {
         "name": "2010 All-State Wrestling Pairings.txt",
         "s3Path": "organization=miaa/archive=ezstream/6192.txt",
-        "tags": ["wrestling", "pairings"]
+        "tags": ["all-state", "pairings", "wrestling"]
       },
       {
         "name": "2010 MIAA State Individual Wrestling - Division 3 Placewinners.txt",
@@ -2895,7 +2895,7 @@
       {
         "name": "2010 MIAA Indoor Track - All State Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/6199.txt",
-        "tags": ["indoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "indoor-track-and-field", "performance-list"]
       },
       {
         "name": "2010 MIAA South Girls Gymnastics Results.txt",
@@ -2910,12 +2910,12 @@
       {
         "name": "2010 MIAA Indoor Track - All State Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/6203.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["all-state", "indoor-track-and-field", "results"]
       },
       {
         "name": "2010 All-State Wrestling Place Winners.txt",
         "s3Path": "organization=miaa/archive=ezstream/6205.txt",
-        "tags": ["wrestling", "placewinners"]
+        "tags": ["all-state", "placewinners", "wrestling"]
       },
       {
         "name": "2010 MIAA Nordic Ski - Boys Results.txt",
@@ -3100,7 +3100,7 @@
       {
         "name": "2010 Outdoor Track All State Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/6297.txt",
-        "tags": ["outdoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "outdoor-track-and-field", "performance-list"]
       },
       {
         "name": "2010 MIAA Girls Team Golf Results.txt",
@@ -3115,7 +3115,7 @@
       {
         "name": "2010 Outdoor Track All State Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/6301.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["all-state", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2010 State Individual Tennis Tournament.txt",
@@ -3310,12 +3310,12 @@
       {
         "name": "2010 MIAA Boys Cross Country Track - State Roster.txt",
         "s3Path": "organization=miaa/archive=ezstream/6393.txt",
-        "tags": ["cross-country", "roster"]
+        "tags": ["all-state", "cross-country", "roster"]
       },
       {
         "name": "2010 MIAA Girls Cross Country Track - State Roster s.txt",
         "s3Path": "organization=miaa/archive=ezstream/6394.txt",
-        "tags": ["cross-country", "roster"]
+        "tags": ["all-state", "cross-country", "roster"]
       },
       {
         "name": "2010 MIAA Fall Girls Swimming and Diving - State Division 1 Psych Sheet.txt",
@@ -3355,7 +3355,7 @@
       {
         "name": "2010 Football.txt",
         "s3Path": "organization=miaa/archive=ezstream/6408.txt",
-        "tags": ["football", "results"]
+        "tags": ["championship", "football", "results"]
       },
       {
         "name": "2011 Team Sectional Wrestling.txt",
@@ -3440,7 +3440,7 @@
       {
         "name": "2011 Individual Wrestling Information.txt",
         "s3Path": "organization=miaa/archive=ezstream/6446.txt",
-        "tags": ["wrestling", "schedule"]
+        "tags": ["all-state", "schedule", "wrestling"]
       },
       {
         "name": "2011 Boys Division 1 State Swimming and Diving Psych Sheet.txt",
@@ -3535,12 +3535,12 @@
       {
         "name": "2011 Boys All State Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/6468.txt",
-        "tags": ["indoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "indoor-track-and-field", "performance-list"]
       },
       {
         "name": "2011 Girls All State Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/6469.txt",
-        "tags": ["indoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "indoor-track-and-field", "performance-list"]
       },
       {
         "name": "2011 Alpine Ski Results.txt",
@@ -3580,12 +3580,12 @@
       {
         "name": "2011 Boys All State Indoor Track Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/6480.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["all-state", "indoor-track-and-field", "results"]
       },
       {
         "name": "2011 Girls All-State Indoor Track Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/6481.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["all-state", "indoor-track-and-field", "results"]
       },
       {
         "name": "2011 Girls State Team Gymnastics Results.txt",
@@ -3595,17 +3595,17 @@
       {
         "name": "2011 All-State Individual Wrestling Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/6483.txt",
-        "tags": ["wrestling", "placewinners"]
+        "tags": ["all-state", "placewinners", "wrestling"]
       },
       {
         "name": "INDOOR TRACK CHAMPIONSHIP RECORDS.txt",
         "s3Path": "organization=miaa/archive=ezstream/6484.txt",
-        "tags": ["indoor-track-and-field", "records"]
+        "tags": ["all-state", "championship", "indoor-track-and-field", "records"]
       },
       {
         "name": "OUTDOOR TRACK TOURNAMENT RECORDS.txt",
         "s3Path": "organization=miaa/archive=ezstream/6486.txt",
-        "tags": ["outdoor-track-and-field", "records"]
+        "tags": ["all-state", "championship", "outdoor-track-and-field", "records"]
       },
       {
         "name": "Recruiting Education Foundation Inc Webinar.txt",
@@ -3745,7 +3745,7 @@
       {
         "name": "2011 All-State Outdoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/6554.txt",
-        "tags": ["outdoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "outdoor-track-and-field", "performance-list"]
       },
       {
         "name": "2011 Softball Tournament Brackets.txt",
@@ -3775,7 +3775,7 @@
       {
         "name": "2011 All State Outdoor Track Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/6567.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["all-state", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2011 State Individual Tennis Information.txt",
@@ -4005,7 +4005,7 @@
       {
         "name": "2011 All State Cross Country Divisional Team Lists.txt",
         "s3Path": "organization=miaa/archive=ezstream/6690.txt",
-        "tags": ["cross-country", "roster"]
+        "tags": ["all-state", "cross-country", "roster"]
       },
       {
         "name": "2011 Fall Girls Swimming and Diving - Division 1 Psych Sheet.txt",
@@ -4020,12 +4020,12 @@
       {
         "name": "2011 Boys State Cross Country Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/6697.txt",
-        "tags": ["cross-country", "results"]
+        "tags": ["all-state", "cross-country", "results"]
       },
       {
         "name": "2011 Girls State Cross Country Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/6698.txt",
-        "tags": ["cross-country", "results"]
+        "tags": ["all-state", "cross-country", "results"]
       },
       {
         "name": "2011 Fall Girls Swimming and Division - State Division 1 Results.txt",
@@ -4040,12 +4040,12 @@
       {
         "name": "2011 Football Playoff Information.txt",
         "s3Path": "organization=miaa/archive=ezstream/6702.txt",
-        "tags": ["football", "results"]
+        "tags": ["football", "playoffs", "results"]
       },
       {
         "name": "2011 Football Superbowl Information.txt",
         "s3Path": "organization=miaa/archive=ezstream/6712.txt",
-        "tags": ["football", "results"]
+        "tags": ["championship", "football", "results"]
       },
       {
         "name": "2012 Wrestling Information.txt",
@@ -4455,12 +4455,12 @@
       {
         "name": "2012 Boys Outdoor Track & Field All-State Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/6914.txt",
-        "tags": ["outdoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "outdoor-track-and-field", "performance-list"]
       },
       {
         "name": "2012 Girls Outdoor Track & Field All-State Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/6915.txt",
-        "tags": ["outdoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "outdoor-track-and-field", "performance-list"]
       },
       {
         "name": "2012 Team Tennis Brackets - Boys and Girls.txt",
@@ -4485,12 +4485,12 @@
       {
         "name": "2012 Boys Outdoor Track & Field All-State Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/6924.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["all-state", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2012 Girls Outdoor Track & Field All-State Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/6925.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["all-state", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2012 State Individual Tennis Information.txt",
@@ -4815,7 +4815,7 @@
       {
         "name": "2012 All State Cross Country Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7031.txt",
-        "tags": ["cross-country", "results"]
+        "tags": ["all-state", "cross-country", "results"]
       },
       {
         "name": "2012 Fall State Swimming and Diving Results.txt",
@@ -4935,7 +4935,7 @@
       {
         "name": "Wrestling Sectional Placewinners and Divisional Tournament Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7102.txt",
-        "tags": ["wrestling", "brackets"]
+        "tags": ["brackets", "placewinners", "sectional", "wrestling"]
       },
       {
         "name": "2013 Boys Gymnastics Results.txt",
@@ -4970,12 +4970,12 @@
       {
         "name": "2013 All-State Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7109.txt",
-        "tags": ["indoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "indoor-track-and-field", "performance-list"]
       },
       {
         "name": "2013 Alpine Ski - Run Order.txt",
         "s3Path": "organization=miaa/archive=ezstream/7111.txt",
-        "tags": ["logistics", "skiing"]
+        "tags": ["run-order", "skiing"]
       },
       {
         "name": "2013 Basketball Brackets.txt",
@@ -5000,12 +5000,12 @@
       {
         "name": "2013 Individual Wrestling - All-State Placewinners.txt",
         "s3Path": "organization=miaa/archive=ezstream/7116.txt",
-        "tags": ["wrestling", "results"]
+        "tags": ["all-state", "placewinners", "wrestling"]
       },
       {
         "name": "2013 All-State Indoor Track Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7118.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["all-state", "indoor-track-and-field", "results"]
       },
       {
         "name": "2013 New England Track Meet Performance List.txt",
@@ -5015,7 +5015,7 @@
       {
         "name": "Individual Wrestling 2013 - State Divisional Placewinners.txt",
         "s3Path": "organization=miaa/archive=ezstream/7120.txt",
-        "tags": ["wrestling", "results"]
+        "tags": ["divisional", "placewinners", "wrestling"]
       },
       {
         "name": "2013 Girls Team Gymnastics - State Seeding.txt",
@@ -5255,12 +5255,12 @@
       {
         "name": "2013 All-State Track Performance List - Girls.txt",
         "s3Path": "organization=miaa/archive=ezstream/7205.txt",
-        "tags": ["outdoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "outdoor-track-and-field", "performance-list"]
       },
       {
         "name": "2013 All-State Track Performance List - Boys.txt",
         "s3Path": "organization=miaa/archive=ezstream/7206.txt",
-        "tags": ["outdoor-track-and-field", "performance-list"]
+        "tags": ["all-state", "outdoor-track-and-field", "performance-list"]
       },
       {
         "name": "2013 Boys and Girls Team Tennis Brackets.txt",
@@ -5275,12 +5275,12 @@
       {
         "name": "2013 All-State Outdoor Track - Boys Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7210.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["all-state", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2013 All-State Outdoor Track -Girls Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7211.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["all-state", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2013 Girls Golf Team State Championship Results.txt",
@@ -5500,7 +5500,7 @@
       {
         "name": "2013 State Cross Country Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7291.txt",
-        "tags": ["cross-country", "results"]
+        "tags": ["all-state", "cross-country", "results"]
       },
       {
         "name": "2013 State Swimming & Diving - Division 1 Results.txt",
@@ -6975,7 +6975,7 @@
       {
         "name": "Fall 2015 Cross Country Overview.txt",
         "s3Path": "organization=miaa/archive=ezstream/7714.txt",
-        "tags": ["awards", "cross-country", "overview", "results", "tournament"]
+        "tags": ["cross-country", "overview", "results", "tournament"]
       },
       {
         "name": "2015 Cross Country - Western Mass Division 1 Roster.txt",
@@ -7055,107 +7055,107 @@
       {
         "name": "All State Cross Country Tournament Information & Rosters.txt",
         "s3Path": "organization=miaa/archive=ezstream/7730.txt",
-        "tags": ["awards", "cross-country", "tournament"]
+        "tags": ["all-state", "cross-country", "roster", "tournament"]
       },
       {
         "name": "Division 1 Boys All State Cross Country Roster.txt",
         "s3Path": "organization=miaa/archive=ezstream/7731.txt",
-        "tags": ["awards", "cross-country", "roster"]
+        "tags": ["all-state", "cross-country", "roster"]
       },
       {
         "name": "Division 2 Boys All State Cross Country Roster.txt",
         "s3Path": "organization=miaa/archive=ezstream/7732.txt",
-        "tags": ["awards", "cross-country", "roster"]
+        "tags": ["all-state", "cross-country", "roster"]
       },
       {
         "name": "Division 1 Girls All State Cross Country Roster.txt",
         "s3Path": "organization=miaa/archive=ezstream/7733.txt",
-        "tags": ["awards", "cross-country", "roster"]
+        "tags": ["all-state", "cross-country", "roster"]
       },
       {
         "name": "Division 2 Girls All State Cross Country Roster.txt",
         "s3Path": "organization=miaa/archive=ezstream/7734.txt",
-        "tags": ["awards", "cross-country", "roster"]
+        "tags": ["all-state", "cross-country", "roster"]
       },
       {
         "name": "2015 Fall State Division 1 Swimming and Diving Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/7735.txt",
-        "tags": ["awards", "psych-sheet", "swimming-diving", "tournament"]
+        "tags": ["all-state", "psych-sheet", "swimming-diving", "tournament"]
       },
       {
         "name": "2015 Fall State Division 2 Swimming and Diving Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/7736.txt",
-        "tags": ["awards", "psych-sheet", "swimming-diving", "tournament"]
+        "tags": ["all-state", "psych-sheet", "swimming-diving", "tournament"]
       },
       {
         "name": "2015 State Cross Country - Division 1 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7737.txt",
-        "tags": ["awards", "cross-country", "results", "tournament"]
+        "tags": ["cross-country", "results", "tournament"]
       },
       {
         "name": "2015 State Cross Country - Division 2 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7738.txt",
-        "tags": ["awards", "cross-country", "results"]
+        "tags": ["cross-country", "results"]
       },
       {
         "name": "2015 Division 1 Fall State Swimming and Diving Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7739.txt",
-        "tags": ["awards", "results", "swimming-diving", "tournament"]
+        "tags": ["all-state", "results", "swimming-diving", "tournament"]
       },
       {
         "name": "2015 Division 2 Fall State Swimming and Diving Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7740.txt",
-        "tags": ["awards", "results", "swimming-diving", "tournament"]
+        "tags": ["all-state", "results", "swimming-diving", "tournament"]
       },
       {
         "name": "2016 MIAA Boys Nordic State Championship Race.txt",
         "s3Path": "organization=miaa/archive=ezstream/7747.txt",
-        "tags": ["roster", "skiing", "tournament"]
+        "tags": ["championship", "roster", "skiing", "tournament"]
       },
       {
         "name": "2016 MIAA Girls Nordic State Championship Race.txt",
         "s3Path": "organization=miaa/archive=ezstream/7748.txt",
-        "tags": ["roster", "skiing", "tournament"]
+        "tags": ["championship", "roster", "skiing", "tournament"]
       },
       {
         "name": "2016 Basketball Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7749.txt",
-        "tags": ["basketball"]
+        "tags": ["basketball", "brackets"]
       },
       {
         "name": "2016 Boys and Girls Ice Hockey Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7750.txt",
-        "tags": ["ice-hockey", "tournament"]
+        "tags": ["brackets", "ice-hockey", "tournament"]
       },
       {
         "name": "2016 Indoor Track Performance Lists and Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7751.txt",
-        "tags": ["awards", "indoor-track-and-field", "results"]
+        "tags": ["indoor-track-and-field", "performance-list", "results"]
       },
       {
         "name": "2016 Division 1 Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7752.txt",
-        "tags": ["indoor-track-and-field", "tournament"]
+        "tags": ["indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 Division 2 Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7753.txt",
-        "tags": ["indoor-track-and-field", "tournament"]
+        "tags": ["indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 Division 3 Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7754.txt",
-        "tags": ["indoor-track-and-field", "tournament"]
+        "tags": ["indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 Division 4 Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7755.txt",
-        "tags": ["indoor-track-and-field", "tournament"]
+        "tags": ["indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 Division 5 Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7756.txt",
-        "tags": ["indoor-track-and-field", "tournament"]
+        "tags": ["indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 Winter North Boys Swim Psych Sheet.txt",
@@ -7210,7 +7210,7 @@
       {
         "name": "2016 Wrestling Sectional, Divisional State and All-State Tournament Brackets and Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7767.txt",
-        "tags": ["awards", "results", "schedule", "tournament", "wrestling"]
+        "tags": ["all-state", "brackets", "divisional", "results", "schedule", "sectional", "tournament", "wrestling"]
       },
       {
         "name": "2016 Division 3 Indoor Track Results.txt",
@@ -7270,7 +7270,7 @@
       {
         "name": "2016 All-State Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7779.txt",
-        "tags": ["awards", "indoor-track-and-field", "tournament"]
+        "tags": ["all-state", "indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 Winter Girls State Division 1 Psych Sheet.txt",
@@ -7295,7 +7295,7 @@
       {
         "name": "2016 Alpine Ski Run Orders-Girls & Boys.txt",
         "s3Path": "organization=miaa/archive=ezstream/7784.txt",
-        "tags": ["awards", "registration-form", "skiing", "tournament"]
+        "tags": ["registration-form", "run-order", "skiing", "tournament"]
       },
       {
         "name": "2016 Division 2 Girls State Swimming and Diving Results.txt",
@@ -7320,7 +7320,7 @@
       {
         "name": "2016 All-State Indoor Track Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7790.txt",
-        "tags": ["awards", "indoor-track-and-field", "results", "tournament"]
+        "tags": ["all-state", "indoor-track-and-field", "results", "tournament"]
       },
       {
         "name": "2016 Girls North Gymnastics Results.txt",
@@ -7340,7 +7340,7 @@
       {
         "name": "2016 Girls State Gymnastics Championship Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7795.txt",
-        "tags": ["gymnastics", "results", "tournament"]
+        "tags": ["championship", "gymnastics", "results", "tournament"]
       },
       {
         "name": "2016 Boys South Individual Tennis.txt",
@@ -7400,57 +7400,57 @@
       {
         "name": "2016 Pentathalon - Performance Lists.txt",
         "s3Path": "organization=miaa/archive=ezstream/7819.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 East GIRLS Division 4 Outdoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7820.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 East Division 2 Outdoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7821.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 Outdoor Track Tournament Overview.txt",
         "s3Path": "organization=miaa/archive=ezstream/7822.txt",
-        "tags": ["awards", "outdoor-track-and-field", "overview", "results", "tournament"]
+        "tags": ["outdoor-track-and-field", "overview", "results", "tournament"]
       },
       {
         "name": "2016 East Division 1 Outdoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7823.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 Central/West Division 2 Outdoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7824.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 Central/West Division 1 Outdoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7825.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 East Division 3 Outdoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7826.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 Boys Volleyball Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7827.txt",
-        "tags": ["tournament", "volleyball"]
+        "tags": ["brackets", "tournament", "volleyball"]
       },
       {
         "name": "2016 Outdoor Track - Division 1 Unified Track Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7828.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["outdoor-track-and-field", "results", "unified-sports"]
       },
       {
         "name": "2016 Outdoor Track - Division 2 Unified Track Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7829.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["outdoor-track-and-field", "results", "unified-sports"]
       },
       {
         "name": "2016 Outdoor Track - Dates & Order of Events.txt",
@@ -7460,7 +7460,7 @@
       {
         "name": "2016 East BOYS Division 4 Outdoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7831.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "Milesplit Live Stream of Eastern Mass Division 2 and Division 4.txt",
@@ -7540,7 +7540,7 @@
       {
         "name": "2016 Boys and Girls Lacrosse Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7848.txt",
-        "tags": ["lacrosse"]
+        "tags": ["brackets", "lacrosse"]
       },
       {
         "name": "2016 Outdoor Track - Central/West Division 1 Boys Results.txt",
@@ -7550,22 +7550,22 @@
       {
         "name": "2016 Baseball Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7851.txt",
-        "tags": ["baseball", "tournament"]
+        "tags": ["baseball", "brackets", "tournament"]
       },
       {
         "name": "2016 All State Outdoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7852.txt",
-        "tags": ["awards", "outdoor-track-and-field", "tournament"]
+        "tags": ["all-state", "outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2016 Team Tennis Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7853.txt",
-        "tags": ["tennis"]
+        "tags": ["brackets", "tennis"]
       },
       {
         "name": "2016 Softball Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7854.txt",
-        "tags": ["softball", "tournament"]
+        "tags": ["brackets", "softball", "tournament"]
       },
       {
         "name": "2016 Girls South Golf Tournament Results.txt",
@@ -7580,17 +7580,17 @@
       {
         "name": "2016 Girls State Golf - Tee Assignments.txt",
         "s3Path": "organization=miaa/archive=ezstream/7857.txt",
-        "tags": ["golf"]
+        "tags": ["golf", "tee-assignments"]
       },
       {
         "name": "2016 All-State Pentathlon Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7859.txt",
-        "tags": ["awards", "outdoor-track-and-field", "results", "tournament"]
+        "tags": ["all-state", "outdoor-track-and-field", "results", "tournament"]
       },
       {
         "name": "2016 All-State Outdoor Track Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7860.txt",
-        "tags": ["awards", "outdoor-track-and-field", "results", "tournament"]
+        "tags": ["all-state", "outdoor-track-and-field", "results", "tournament"]
       },
       {
         "name": "2016 Girls State Golf Tournament Results.txt",
@@ -7680,57 +7680,57 @@
       {
         "name": "2016 MIAA DIV I GOLF STATE CHAMPIONSHIPS.txt",
         "s3Path": "organization=miaa/archive=ezstream/7887.txt",
-        "tags": ["golf", "tournament"]
+        "tags": ["championship", "golf", "tournament"]
       },
       {
         "name": "2016 MIAA DIV II GOLF STATE CHAMPIONSHIPS.txt",
         "s3Path": "organization=miaa/archive=ezstream/7888.txt",
-        "tags": ["golf", "tournament"]
+        "tags": ["championship", "golf", "tournament"]
       },
       {
         "name": "2016 MIAA DIV III GOLF STATE CHAMPIONSHIPS.txt",
         "s3Path": "organization=miaa/archive=ezstream/7889.txt",
-        "tags": ["golf", "tournament"]
+        "tags": ["championship", "golf", "tournament"]
       },
       {
         "name": "2016 Field Hockey Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7891.txt",
-        "tags": ["field-hockey", "tournament"]
+        "tags": ["brackets", "field-hockey", "tournament"]
       },
       {
         "name": "2016 MIAA DIV I GOLF STATE CHAMPIONSHIPS RESULTS.txt",
         "s3Path": "organization=miaa/archive=ezstream/7892.txt",
-        "tags": ["golf", "results", "tournament"]
+        "tags": ["championship", "golf", "results", "tournament"]
       },
       {
         "name": "2016 MIAA DIV II GOLF STATE CHAMPIONSHIPS RESULTS.txt",
         "s3Path": "organization=miaa/archive=ezstream/7893.txt",
-        "tags": ["golf", "results", "tournament"]
+        "tags": ["championship", "golf", "results", "tournament"]
       },
       {
         "name": "2016 Girls Volleyball Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7894.txt",
-        "tags": ["tournament", "volleyball"]
+        "tags": ["brackets", "tournament", "volleyball"]
       },
       {
         "name": "2016 MIAA DIV III GOLF STATE CHAMPIONSHIPS RESULTS.txt",
         "s3Path": "organization=miaa/archive=ezstream/7895.txt",
-        "tags": ["golf", "results", "tournament"]
+        "tags": ["championship", "golf", "results", "tournament"]
       },
       {
         "name": "2016 Soccer Tournament Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7896.txt",
-        "tags": ["soccer", "tournament"]
+        "tags": ["brackets", "soccer", "tournament"]
       },
       {
         "name": "2016 Fall Swimming - South Sectional Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/7897.txt",
-        "tags": ["psych-sheet", "swimming-diving", "tournament"]
+        "tags": ["psych-sheet", "sectional", "swimming-diving", "tournament"]
       },
       {
         "name": "2016 Fall Swimming - North Sectional Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/7898.txt",
-        "tags": ["psych-sheet", "swimming-diving", "tournament"]
+        "tags": ["psych-sheet", "sectional", "swimming-diving", "tournament"]
       },
       {
         "name": "2016 Fall Swimming and Diving Overview.txt",
@@ -7755,12 +7755,12 @@
       {
         "name": "2016 Western Mass Boys Cross Country Rosters.txt",
         "s3Path": "organization=miaa/archive=ezstream/7903.txt",
-        "tags": ["cross-country"]
+        "tags": ["cross-country", "roster"]
       },
       {
         "name": "2016 Western Mass Girls Cross Country Rosters.txt",
         "s3Path": "organization=miaa/archive=ezstream/7904.txt",
-        "tags": ["cross-country"]
+        "tags": ["cross-country", "roster"]
       },
       {
         "name": "2016 Western Mass Girls Gymnastics Tournament.txt",
@@ -7850,7 +7850,7 @@
       {
         "name": "2016 Fall Swimming and Diving - State Division 1 Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/7925.txt",
-        "tags": ["awards", "psych-sheet", "swimming-diving", "tournament"]
+        "tags": ["psych-sheet", "swimming-diving", "tournament"]
       },
       {
         "name": "2016 Fall Swimming and Diving - State Division 2 Psych Sheet.txt",
@@ -7860,17 +7860,17 @@
       {
         "name": "2016 State Cross Country - Division 1 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7927.txt",
-        "tags": ["awards", "cross-country", "results"]
+        "tags": ["cross-country", "results"]
       },
       {
         "name": "2016 State Cross Country - Division 2 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7928.txt",
-        "tags": ["awards", "cross-country", "results"]
+        "tags": ["cross-country", "results"]
       },
       {
         "name": "2016 Fall Swimming and Division - State Division 1 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7929.txt",
-        "tags": ["awards", "results", "swimming-diving", "tournament"]
+        "tags": ["results", "swimming-diving", "tournament"]
       },
       {
         "name": "2016 Fall Swimming and Division - State Division 2 Results.txt",
@@ -7910,7 +7910,7 @@
       {
         "name": "2017 Wrestling Sectional, Divisional State and All-State Tournament Information, Brackets & Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7942.txt",
-        "tags": ["awards", "results", "schedule", "tournament", "wrestling"]
+        "tags": ["all-state", "brackets", "divisional", "results", "schedule", "sectional", "tournament", "wrestling"]
       },
       {
         "name": "Winter 2017 Boys West Swimming and Diving Psych Sheet.txt",
@@ -7945,32 +7945,32 @@
       {
         "name": "2017 Indoor Track - Division 1 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7950.txt",
-        "tags": ["indoor-track-and-field", "tournament"]
+        "tags": ["indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2017 Indoor Track - Performance Lists and Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7951.txt",
-        "tags": ["awards", "indoor-track-and-field", "results"]
+        "tags": ["indoor-track-and-field", "performance-list", "results"]
       },
       {
         "name": "2017 Indoor Track - Division 3 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7952.txt",
-        "tags": ["indoor-track-and-field", "tournament"]
+        "tags": ["indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2017 Indoor Track - Division 2 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7953.txt",
-        "tags": ["indoor-track-and-field", "tournament"]
+        "tags": ["indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2017 Indoor Track - Division 5 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7954.txt",
-        "tags": ["indoor-track-and-field", "tournament"]
+        "tags": ["indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2017 Indoor Track - Division 4 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7955.txt",
-        "tags": ["indoor-track-and-field", "tournament"]
+        "tags": ["indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "Winter 2017 Girls State Division 1 Swimming and Diving Psych Sheet.txt",
@@ -8000,12 +8000,12 @@
       {
         "name": "2017 Girls Winter Gymnastics - North Seeding.txt",
         "s3Path": "organization=miaa/archive=ezstream/7961.txt",
-        "tags": ["gymnastics"]
+        "tags": ["gymnastics", "seeding"]
       },
       {
         "name": "2017 Girls Winter Gymnastics - South Seeding.txt",
         "s3Path": "organization=miaa/archive=ezstream/7962.txt",
-        "tags": ["gymnastics"]
+        "tags": ["gymnastics", "seeding"]
       },
       {
         "name": "2017 Girls Winter Gymnastics Information.txt",
@@ -8055,7 +8055,7 @@
       {
         "name": "2017 Indoor Track - All State Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/7972.txt",
-        "tags": ["awards", "indoor-track-and-field", "tournament"]
+        "tags": ["all-state", "indoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "Winter 2017 Boys State Gymnastics Results.txt",
@@ -8065,22 +8065,22 @@
       {
         "name": "2017 Basketball Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7974.txt",
-        "tags": ["basketball"]
+        "tags": ["basketball", "brackets"]
       },
       {
         "name": "2017 Ice Hockey Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/7975.txt",
-        "tags": ["ice-hockey", "schedule", "tournament"]
+        "tags": ["brackets", "ice-hockey", "schedule", "tournament"]
       },
       {
         "name": "2017 All-State Indoor Track Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/7976.txt",
-        "tags": ["awards", "indoor-track-and-field", "results", "tournament"]
+        "tags": ["all-state", "indoor-track-and-field", "results", "tournament"]
       },
       {
         "name": "2017 Alpine Ski Run Orders-Girls & Boys.txt",
         "s3Path": "organization=miaa/archive=ezstream/7979.txt",
-        "tags": ["awards", "registration-form", "results", "skiing", "tournament"]
+        "tags": ["registration-form", "results", "run-order", "skiing", "tournament"]
       },
       {
         "name": "2017 Nordic Ski Tournament Results.txt",
@@ -8155,7 +8155,7 @@
       {
         "name": "2017 MIAA Girls' Golf - South Sectional Information.txt",
         "s3Path": "organization=miaa/archive=ezstream/7999.txt",
-        "tags": ["golf", "rules", "tournament"]
+        "tags": ["golf", "rules", "sectional", "tournament"]
       },
       {
         "name": "2017 Outdoor Track: Dates, Locations, Order of Events & approximate event start time.txt",
@@ -8165,22 +8165,22 @@
       {
         "name": "OUTDOOR TRACK OVERVIEW including PENTATHLON.txt",
         "s3Path": "organization=miaa/archive=ezstream/8001.txt",
-        "tags": ["awards", "outdoor-track-and-field", "overview", "results", "tournament"]
+        "tags": ["outdoor-track-and-field", "overview", "results", "tournament"]
       },
       {
         "name": "2017 Outdoor Track - Divisional Pentathlon Entries.txt",
         "s3Path": "organization=miaa/archive=ezstream/8002.txt",
-        "tags": ["outdoor-track-and-field"]
+        "tags": ["divisional", "entries", "outdoor-track-and-field"]
       },
       {
         "name": "2017 Boys Volleyball Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/8003.txt",
-        "tags": ["tournament", "volleyball"]
+        "tags": ["brackets", "tournament", "volleyball"]
       },
       {
         "name": "Outdoor Track - Central/West Division 1 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8004.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2017 Girls Golf - State Tournament.txt",
@@ -8195,32 +8195,32 @@
       {
         "name": "Outdoor Track - East Division 2 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8007.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "Outdoor Track - East Division 4 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8008.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "Outdoor Track - Central/West Division 2 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8009.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "Outdoor Track - East Division 3 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8010.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "Outdoor Track - East Division 1  Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8011.txt",
-        "tags": ["outdoor-track-and-field", "tournament"]
+        "tags": ["outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2017 MIAA Girls' Golf -  N/C/W Sectional.txt",
         "s3Path": "organization=miaa/archive=ezstream/8012.txt",
-        "tags": ["golf"]
+        "tags": ["golf", "sectional"]
       },
       {
         "name": "2017 MIAA Girls' Golf N/C/W Tournament Information.txt",
@@ -8300,17 +8300,17 @@
       {
         "name": "2017 Baseball Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/8028.txt",
-        "tags": ["baseball", "tournament"]
+        "tags": ["baseball", "brackets", "tournament"]
       },
       {
         "name": "2017 All State Outdoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8029.txt",
-        "tags": ["awards", "outdoor-track-and-field", "tournament"]
+        "tags": ["all-state", "outdoor-track-and-field", "performance-list", "tournament"]
       },
       {
         "name": "2017 Team Tennis Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/8030.txt",
-        "tags": ["tennis"]
+        "tags": ["brackets", "tennis"]
       },
       {
         "name": "2017 Softball Brackets.txt",
@@ -8325,7 +8325,7 @@
       {
         "name": "2017 Girls Golf - North/Central/West Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8033.txt",
-        "tags": ["championship", "golf", "qualifying", "results", "state-tournament", "tournament"]
+        "tags": ["golf", "qualifying", "results", "sectional", "tournament"]
       },
       {
         "name": "2017 Girls Golf - South Results.txt",
@@ -8455,12 +8455,12 @@
       {
         "name": "2017 Fall North Swimming & Diving Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8062.txt",
-        "tags": ["qualifying", "results", "sectional", "state-tournament", "swimming-diving"]
+        "tags": ["qualifying", "results", "sectional", "swimming-diving"]
       },
       {
         "name": "2017 Fall South Swimming and Diving Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8063.txt",
-        "tags": ["qualifying", "results", "sectional", "state-tournament", "swimming-diving"]
+        "tags": ["qualifying", "results", "sectional", "swimming-diving"]
       },
       {
         "name": "2017 MIAA East Boys Division 1 Cross Country Results.txt",
@@ -8595,7 +8595,7 @@
       {
         "name": "2018 Boys Central/West Winter Swim Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8090.txt",
-        "tags": ["psych-sheet", "qualifying", "swimming-diving"]
+        "tags": ["psych-sheet", "qualifying", "sectional", "swimming-diving"]
       },
       {
         "name": "2018 Girls North Winter Swim Psych Sheet.txt",
@@ -8605,12 +8605,12 @@
       {
         "name": "2018 Girls South Winter Swim Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8092.txt",
-        "tags": ["psych-sheet", "qualifying", "swimming-diving"]
+        "tags": ["psych-sheet", "qualifying", "sectional", "swimming-diving"]
       },
       {
         "name": "2018 Girls Central/West Winter Swim Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8093.txt",
-        "tags": ["psych-sheet", "qualifying", "swimming-diving"]
+        "tags": ["psych-sheet", "qualifying", "sectional", "swimming-diving"]
       },
       {
         "name": "2018 WINTER SWIM TOURNAMENT INFORMATION.txt",
@@ -8625,57 +8625,57 @@
       {
         "name": "2018 Winter South Girls Swimming & Diving Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8100.txt",
-        "tags": ["qualifying", "results", "state-tournament", "swimming-diving"]
+        "tags": ["qualifying", "results", "sectional", "swimming-diving"]
       },
       {
         "name": "2018 Winter North Girls Swimming and Diving Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8101.txt",
-        "tags": ["qualifying", "results", "sectional", "state-tournament", "swimming-diving"]
+        "tags": ["qualifying", "results", "sectional", "swimming-diving"]
       },
       {
         "name": "2018 Winter North Boys Swimming and Diving Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8102.txt",
-        "tags": ["results", "sectional", "state-tournament", "swimming-diving"]
+        "tags": ["results", "sectional", "swimming-diving"]
       },
       {
         "name": "2018 Winter South Boys Swimming & Diving Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8103.txt",
-        "tags": ["results", "sectional", "state-tournament", "swimming-diving"]
+        "tags": ["results", "sectional", "swimming-diving"]
       },
       {
         "name": "2018 Winter Central/West Boys Swimming & Diving Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8104.txt",
-        "tags": ["results", "swimming-diving"]
+        "tags": ["results", "sectional", "swimming-diving"]
       },
       {
         "name": "2018 Winter Central/West Girls Swimming & Diving Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8105.txt",
-        "tags": ["results", "swimming-diving"]
+        "tags": ["results", "sectional", "swimming-diving"]
       },
       {
         "name": "2018 Indoor Track - Division 1 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8106.txt",
-        "tags": ["indoor-track-and-field"]
+        "tags": ["divisional", "indoor-track-and-field"]
       },
       {
         "name": "2018 Indoor Track - Division 4 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8107.txt",
-        "tags": ["championship", "entries", "indoor-track-and-field"]
+        "tags": ["championship", "divisional", "entries", "indoor-track-and-field"]
       },
       {
         "name": "2018 Indoor Track - Division 2 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8108.txt",
-        "tags": ["indoor-track-and-field"]
+        "tags": ["divisional", "indoor-track-and-field"]
       },
       {
         "name": "2018 Indoor Track - Division 5 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8109.txt",
-        "tags": ["indoor-track-and-field"]
+        "tags": ["divisional", "indoor-track-and-field"]
       },
       {
         "name": "2018 Indoor Track - Division 3 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8110.txt",
-        "tags": ["entries", "indoor-track-and-field"]
+        "tags": ["divisional", "entries", "indoor-track-and-field"]
       },
       {
         "name": "2018 Indoor Track Performance Lists & Results.txt",
@@ -8710,27 +8710,27 @@
       {
         "name": "2018 Indoor Track - Division 4 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8117.txt",
-        "tags": ["championship", "indoor-track-and-field", "results"]
+        "tags": ["championship", "divisional", "indoor-track-and-field", "results"]
       },
       {
         "name": "2018 Indoor Track - Division 3 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8118.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["divisional", "indoor-track-and-field", "results"]
       },
       {
         "name": "2018 Indoor Track - Division 2 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8119.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["divisional", "indoor-track-and-field", "results"]
       },
       {
         "name": "2018 Indoor Track - Division 1 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8120.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["divisional", "indoor-track-and-field", "results"]
       },
       {
         "name": "2018 Indoor Track - Division 5 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8121.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["divisional", "indoor-track-and-field", "results"]
       },
       {
         "name": "2018 Girls Gymnastics Sectional Meets.txt",
@@ -8795,7 +8795,7 @@
       {
         "name": "2018 MIAA Nordic Ski Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8134.txt",
-        "tags": ["awards", "championship", "results", "schedule", "skiing", "state-tournament", "tournament"]
+        "tags": ["championship", "results", "schedule", "skiing", "state-tournament", "tournament"]
       },
       {
         "name": "2018 Indoor Track - New England Meet qualifiers from MA.txt",
@@ -8825,7 +8825,7 @@
       {
         "name": "2018 North Boys Individual Tennis.txt",
         "s3Path": "organization=miaa/archive=ezstream/8146.txt",
-        "tags": ["brackets", "tennis"]
+        "tags": ["brackets", "tennis", "tournament"]
       },
       {
         "name": "2018 Individual Tennis Tournaments.txt",
@@ -8835,37 +8835,37 @@
       {
         "name": "2018 South Boys Individual Tennis.txt",
         "s3Path": "organization=miaa/archive=ezstream/8149.txt",
-        "tags": ["brackets", "tennis"]
+        "tags": ["brackets", "tennis", "tournament"]
       },
       {
         "name": "2018 Central Boys Individual Tennis.txt",
         "s3Path": "organization=miaa/archive=ezstream/8150.txt",
-        "tags": ["brackets", "tennis"]
+        "tags": ["brackets", "tennis", "tournament"]
       },
       {
         "name": "2018 West Boys Individual Tennis.txt",
         "s3Path": "organization=miaa/archive=ezstream/8151.txt",
-        "tags": ["brackets", "tennis"]
+        "tags": ["brackets", "tennis", "tournament"]
       },
       {
         "name": "2018 North Girls Individual Tennis.txt",
         "s3Path": "organization=miaa/archive=ezstream/8152.txt",
-        "tags": ["brackets", "tennis"]
+        "tags": ["brackets", "tennis", "tournament"]
       },
       {
         "name": "2018 South Girls Individual Tennis.txt",
         "s3Path": "organization=miaa/archive=ezstream/8153.txt",
-        "tags": ["brackets", "tennis"]
+        "tags": ["brackets", "tennis", "tournament"]
       },
       {
         "name": "2018 Central Girls Individual Tennis.txt",
         "s3Path": "organization=miaa/archive=ezstream/8154.txt",
-        "tags": ["brackets", "tennis"]
+        "tags": ["brackets", "tennis", "tournament"]
       },
       {
         "name": "2018 West Girls Individual Tennis.txt",
         "s3Path": "organization=miaa/archive=ezstream/8155.txt",
-        "tags": ["brackets", "tennis"]
+        "tags": ["brackets", "tennis", "tournament"]
       },
       {
         "name": "2018 Outdoor Track - All Divisional Pentathlon Entries.txt",
@@ -8880,32 +8880,32 @@
       {
         "name": "2018 MIAA Outdoor Track - East Division 4 Performance List & Parking Information.txt",
         "s3Path": "organization=miaa/archive=ezstream/8159.txt",
-        "tags": ["championship", "outdoor-track-and-field"]
+        "tags": ["championship", "divisional", "outdoor-track-and-field"]
       },
       {
         "name": "2018 MIAA Outdoor Track - East Division 2 Performance List & Parking Information.txt",
         "s3Path": "organization=miaa/archive=ezstream/8160.txt",
-        "tags": ["championship", "outdoor-track-and-field"]
+        "tags": ["championship", "divisional", "outdoor-track-and-field"]
       },
       {
         "name": "2018 MIAA Outdoor Track - East Division 1 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8161.txt",
-        "tags": ["entries", "outdoor-track-and-field"]
+        "tags": ["divisional", "entries", "outdoor-track-and-field"]
       },
       {
         "name": "2018 MIAA Outdoor Track - East Division 3 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8162.txt",
-        "tags": ["entries", "outdoor-track-and-field"]
+        "tags": ["divisional", "entries", "outdoor-track-and-field"]
       },
       {
         "name": "2018 MIAA Outdoor Track - Central/West Division 1 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8163.txt",
-        "tags": ["championship", "entries", "outdoor-track-and-field", "qualifying", "state-tournament"]
+        "tags": ["championship", "divisional", "entries", "outdoor-track-and-field", "qualifying", "state-tournament"]
       },
       {
         "name": "2018 MIAA Outdoor Track - Central/West Division 2 Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8164.txt",
-        "tags": ["championship", "outdoor-track-and-field", "qualifying", "state-tournament"]
+        "tags": ["championship", "divisional", "outdoor-track-and-field", "qualifying", "state-tournament"]
       },
       {
         "name": "2018 Outdoor Track - All Divisional Pentathlon & Girls Pole Vault Results.txt",
@@ -8915,32 +8915,32 @@
       {
         "name": "2018 MIAA Outdoor Track - Central/West Division 1 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8166.txt",
-        "tags": ["championship", "outdoor-track-and-field", "qualifying", "results", "state-tournament"]
+        "tags": ["championship", "divisional", "outdoor-track-and-field", "qualifying", "results", "state-tournament"]
       },
       {
         "name": "2018 MIAA Outdoor Track - Central/West Division 2 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8167.txt",
-        "tags": ["championship", "outdoor-track-and-field", "qualifying", "results", "state-tournament"]
+        "tags": ["championship", "divisional", "outdoor-track-and-field", "qualifying", "results", "state-tournament"]
       },
       {
         "name": "2018 MIAA Outdoor Track - East Division 3 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8168.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2018 MIAA Outdoor Track - East Division 4 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8169.txt",
-        "tags": ["championship", "outdoor-track-and-field", "results"]
+        "tags": ["championship", "divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2018 MIAA Outdoor Track - East Division 1 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8170.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2018 MIAA Outdoor Track - East Division 2 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8171.txt",
-        "tags": ["championship", "outdoor-track-and-field", "results"]
+        "tags": ["championship", "divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2018 MIAA Boys All-State Outdoor Track Meet.txt",
@@ -9045,7 +9045,7 @@
       {
         "name": "Fall 2018 Cross Country Track OVERVIEW.txt",
         "s3Path": "organization=miaa/archive=ezstream/8196.txt",
-        "tags": ["awards", "cross-country", "divisional", "overview", "roster", "schedule", "state-tournament"]
+        "tags": ["cross-country", "divisional", "overview", "roster", "schedule", "state-tournament"]
       },
       {
         "name": "Fall 2018 MIAA Central MA Boys Cross Country Rosters.txt",
@@ -9285,27 +9285,27 @@
       {
         "name": "2019 Division 2 Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8250.txt",
-        "tags": ["indoor-track-and-field"]
+        "tags": ["divisional", "indoor-track-and-field"]
       },
       {
         "name": "2019 Division 4 Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8251.txt",
-        "tags": ["championship", "indoor-track-and-field"]
+        "tags": ["championship", "divisional", "indoor-track-and-field"]
       },
       {
         "name": "2019 Division 1 Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8252.txt",
-        "tags": ["indoor-track-and-field"]
+        "tags": ["divisional", "indoor-track-and-field"]
       },
       {
         "name": "2019 Division 3 Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8253.txt",
-        "tags": ["indoor-track-and-field"]
+        "tags": ["divisional", "indoor-track-and-field"]
       },
       {
         "name": "2019 Division 5 Indoor Track Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8254.txt",
-        "tags": ["indoor-track-and-field"]
+        "tags": ["divisional", "indoor-track-and-field"]
       },
       {
         "name": "Winter 2019 Boy's State Div 1 Swimming & Diving - Psych Sheets.txt",
@@ -9330,12 +9330,12 @@
       {
         "name": "2019 MIAA Indoor Track - Division 5 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8262.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["divisional", "indoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Indoor Track - Division 1 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8263.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["divisional", "indoor-track-and-field", "results"]
       },
       {
         "name": "2019 Girls Gymnastics Sectional Tournaments.txt",
@@ -9345,17 +9345,17 @@
       {
         "name": "2019 MIAA Indoor Track - Division 2 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8265.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["divisional", "indoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Indoor Track - Division 3 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8267.txt",
-        "tags": ["indoor-track-and-field", "results"]
+        "tags": ["divisional", "indoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Indoor Track - Division 4 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8268.txt",
-        "tags": ["championship", "indoor-track-and-field", "results"]
+        "tags": ["championship", "divisional", "indoor-track-and-field", "results"]
       },
       {
         "name": "Winter 2019 Girls State Division 1 Swimming and Diving Results.txt",
@@ -9405,7 +9405,7 @@
       {
         "name": "2019 MIAA Nordic State Championship.txt",
         "s3Path": "organization=miaa/archive=ezstream/8278.txt",
-        "tags": ["awards", "championship", "schedule", "skiing", "state-tournament", "tournament"]
+        "tags": ["championship", "schedule", "skiing", "state-tournament", "tournament"]
       },
       {
         "name": "2019 Girls Gymnastics State Tournament.txt",
@@ -9520,7 +9520,7 @@
       {
         "name": "2019 MIAA Outdoor Track - C/W D1 Pentathlon & Boys Pole Vault Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8307.txt",
-        "tags": ["outdoor-track-and-field", "results", "state-tournament"]
+        "tags": ["divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Outdoor Track - C/W D2 Pentathlon Results.txt",
@@ -9530,52 +9530,52 @@
       {
         "name": "2019 MIAA Outdoor Track - East D1 Pentathlon & Boys Pole Vault Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8309.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Outdoor Track - East D4 Pentathlon & Boys Pole Vault Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8310.txt",
-        "tags": ["championship", "outdoor-track-and-field", "results"]
+        "tags": ["championship", "divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Outdoor Track - East D2 Pentathlon & Boys Pole Vault Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8311.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Outdoor Track - East D3 Pentathlon & Boys Pole Vault Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8312.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Outdoor Track - East D1 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8313.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Outdoor Track - East D2 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8314.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Outdoor Track - East D3 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8315.txt",
-        "tags": ["outdoor-track-and-field", "results"]
+        "tags": ["divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Outdoor Track - East D4 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8316.txt",
-        "tags": ["championship", "outdoor-track-and-field", "results"]
+        "tags": ["championship", "divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Outdoor Track - C/W D1 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8317.txt",
-        "tags": ["outdoor-track-and-field", "results", "state-tournament"]
+        "tags": ["divisional", "outdoor-track-and-field", "results"]
       },
       {
         "name": "2019 MIAA Outdoor Track - C/W D2 Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8318.txt",
-        "tags": ["championship", "outdoor-track-and-field", "qualifying", "results", "state-tournament"]
+        "tags": ["championship", "divisional", "outdoor-track-and-field", "qualifying", "results"]
       },
       {
         "name": "2019 MIAA Outdoor Track - All-State Meet.txt",
@@ -9725,7 +9725,7 @@
       {
         "name": "Fall 2019 Division 1 State Swimming and Diving Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8352.txt",
-        "tags": ["all-state", "championship", "psych-sheet", "swimming-diving"]
+        "tags": ["championship", "psych-sheet", "swimming-diving"]
       },
       {
         "name": "Fall 2019 Division 2 State Swimming and Diving Psych Sheet.txt",
@@ -9745,7 +9745,7 @@
       {
         "name": "Fall 2019 Division 1 State Swimming & Diving Championship Results - Events 1-13.txt",
         "s3Path": "organization=miaa/archive=ezstream/8356.txt",
-        "tags": ["all-state", "championship", "results", "swimming-diving"]
+        "tags": ["championship", "results", "swimming-diving"]
       },
       {
         "name": "Fall 2019 Division 2 State Swimming and Diving Championship Results - Events 1-13.txt",
@@ -9755,17 +9755,17 @@
       {
         "name": "2020 Wrestling Sectional, Divisional, All-State & Girls Tournament Information, Brackets & Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8360.txt",
-        "tags": ["all-state", "brackets", "results", "sectional", "tournament-info", "wrestling"]
+        "tags": ["all-state", "brackets", "divisional", "results", "sectional", "tournament-info", "wrestling"]
       },
       {
         "name": "MIAA Winter 2020 Boys North Swim Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8361.txt",
-        "tags": ["psych-sheet", "sectional", "swimming-diving"]
+        "tags": ["championship", "psych-sheet", "sectional", "swimming-diving"]
       },
       {
         "name": "MIAA Winter 2020 Boys South Swim Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8362.txt",
-        "tags": ["psych-sheet", "sectional", "swimming-diving"]
+        "tags": ["championship", "psych-sheet", "sectional", "swimming-diving"]
       },
       {
         "name": "MIAA Winter 2020 Girls North Swim Psych Sheet.txt",
@@ -9795,7 +9795,7 @@
       {
         "name": "Winter 2019-20 Girls South Sectional Swim Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8371.txt",
-        "tags": ["results", "sectional", "swimming-diving"]
+        "tags": ["championship", "results", "sectional", "swimming-diving"]
       },
       {
         "name": "Winter 2019-20 Girls North Sectional Swim Results.txt",
@@ -9805,12 +9805,12 @@
       {
         "name": "Winter 2019-20 Boys South Sectional Swim Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8373.txt",
-        "tags": ["results", "sectional", "swimming-diving"]
+        "tags": ["championship", "results", "sectional", "swimming-diving"]
       },
       {
         "name": "Winter 2019-20 Boys North Sectional Swim Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8374.txt",
-        "tags": ["results", "sectional", "swimming-diving"]
+        "tags": ["championship", "results", "sectional", "swimming-diving"]
       },
       {
         "name": "MIAA 2020 Indoor Track - Division 4.txt",
@@ -9840,12 +9840,12 @@
       {
         "name": "MIAA 2020 Indoor Track - Division 2.txt",
         "s3Path": "organization=miaa/archive=ezstream/8380.txt",
-        "tags": ["indoor-track-and-field", "performance-list"]
+        "tags": ["championship", "indoor-track-and-field", "performance-list"]
       },
       {
         "name": "Winter 2020 Boys Division 1 State Swim/Dive Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8381.txt",
-        "tags": ["psych-sheet", "swimming-diving"]
+        "tags": ["championship", "psych-sheet", "swimming-diving"]
       },
       {
         "name": "Winter 2020 Boys Division 2 State Swim/Dive Psych Sheet.txt",
@@ -9855,7 +9855,7 @@
       {
         "name": "Winter 2020 Girls Division 1 State Swim/Dive Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8383.txt",
-        "tags": ["psych-sheet", "swimming-diving"]
+        "tags": ["championship", "psych-sheet", "swimming-diving"]
       },
       {
         "name": "Winter 2020 Girls Division 2 State Swim/Dive Psych Sheet.txt",
@@ -9875,7 +9875,7 @@
       {
         "name": "2020 Girls & Boys Gymnastics Tournament Information.txt",
         "s3Path": "organization=miaa/archive=ezstream/8387.txt",
-        "tags": ["gymnastics", "results", "sectional", "tournament-info"]
+        "tags": ["gymnastics", "results", "sectional", "state-tournament", "tournament-info"]
       },
       {
         "name": "MIAA 2020 Indoor Track - Division 2 Results.txt",
@@ -9905,7 +9905,7 @@
       {
         "name": "Winter 2020 Ice Hockey Tournament Information.txt",
         "s3Path": "organization=miaa/archive=ezstream/8393.txt",
-        "tags": ["brackets", "ice-hockey", "sectional", "tournament-info"]
+        "tags": ["brackets", "ice-hockey", "sectional", "state-tournament", "tournament-info"]
       },
       {
         "name": "Winter 2020 Basketball Tournament Information.txt",
@@ -9920,12 +9920,12 @@
       {
         "name": "Winter 2020 Nordic Ski Tournament Information.txt",
         "s3Path": "organization=miaa/archive=ezstream/8396.txt",
-        "tags": ["awards", "championship", "results", "skiing", "tournament-info"]
+        "tags": ["championship", "results", "skiing", "tournament-info"]
       },
       {
         "name": "2020 Alpine Ski Information.txt",
         "s3Path": "organization=miaa/archive=ezstream/8397.txt",
-        "tags": ["awards", "results", "skiing", "tournament-info"]
+        "tags": ["results", "skiing", "tournament-info"]
       },
       {
         "name": "2020 Alpine Ski Girls Race Results.txt",
@@ -9960,7 +9960,7 @@
       {
         "name": "2021 MIAA Outdoor Track - North D2 Pentathlon & Sectional Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8412.txt",
-        "tags": ["outdoor-track-and-field", "performance-list", "sectional"]
+        "tags": ["championship", "outdoor-track-and-field", "performance-list", "sectional"]
       },
       {
         "name": "2021 MIAA Outdoor Track - South D1 Pentathlon & Sectional  Performance List.txt",
@@ -9975,12 +9975,12 @@
       {
         "name": "2021 Baseball Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/8415.txt",
-        "tags": ["baseball", "brackets", "sectional"]
+        "tags": ["baseball", "brackets", "sectional", "state-tournament"]
       },
       {
         "name": "2021 Wrestling Dual Meet Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8416.txt",
-        "tags": ["brackets", "sectional", "wrestling"]
+        "tags": ["brackets", "sectional", "state-tournament", "wrestling"]
       },
       {
         "name": "2021 Rugby Tournament Brackets.txt",
@@ -9990,12 +9990,12 @@
       {
         "name": "2021 Softball Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/8419.txt",
-        "tags": ["brackets", "sectional", "softball"]
+        "tags": ["brackets", "sectional", "softball", "state-tournament"]
       },
       {
         "name": "2021 Boys and Girls Lacrosse Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/8420.txt",
-        "tags": ["brackets", "lacrosse", "sectional"]
+        "tags": ["brackets", "lacrosse", "sectional", "state-tournament"]
       },
       {
         "name": "2021 Boys Volleyball Brackets.txt",
@@ -10005,7 +10005,7 @@
       {
         "name": "2021 Team Tennis Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/8422.txt",
-        "tags": ["brackets", "sectional", "tennis"]
+        "tags": ["brackets", "sectional", "state-tournament", "tennis"]
       },
       {
         "name": "MIAA Outdoor Track South D2 Sectional Results.txt",
@@ -10075,7 +10075,7 @@
       {
         "name": "Fall 2019 Division 1 State Swimming & Diving Results - Events 15-24 & Team Scores & Rankings.txt",
         "s3Path": "organization=miaa/archive=ezstream/8438.txt",
-        "tags": ["all-state", "championship", "results", "swimming-diving"]
+        "tags": ["championship", "results", "swimming-diving"]
       },
       {
         "name": "Fall 2019 North Sectional Swimming & Diving Results - Events 12-21.txt",
@@ -10120,7 +10120,7 @@
       {
         "name": "Fall 2021 Swimming & Diving - OVERVIEW PAGE.txt",
         "s3Path": "organization=miaa/archive=ezstream/8447.txt",
-        "tags": ["overview", "psych-sheet", "results", "sectional", "swimming-diving", "tournament-info"]
+        "tags": ["overview", "psych-sheet", "results", "sectional", "state-tournament", "swimming-diving", "tournament-info"]
       },
       {
         "name": "Fall 2021 Soccer Brackets.txt",
@@ -10135,7 +10135,7 @@
       {
         "name": "Fall 2021 Swimming & Diving - OVERVIEW PAGE.txt",
         "s3Path": "organization=miaa/archive=ezstream/8450.txt",
-        "tags": ["championship", "overview", "psych-sheet", "results", "sectional", "swimming-diving", "tournament-info"]
+        "tags": ["championship", "overview", "psych-sheet", "results", "sectional", "state-tournament", "swimming-diving", "tournament-info"]
       },
       {
         "name": "Fall 2021 North Sectional Swimming & Diving Results.txt",
@@ -10150,7 +10150,7 @@
       {
         "name": "Fall 2021 State Division 1 Swimming Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8454.txt",
-        "tags": ["all-state", "championship", "psych-sheet", "swimming-diving"]
+        "tags": ["championship", "psych-sheet", "swimming-diving"]
       },
       {
         "name": "Fall 2021 State Division 2 Swimming Psych Sheet.txt",
@@ -10165,12 +10165,12 @@
       {
         "name": "2021 Cross Country - OVERVIEW PAGE.txt",
         "s3Path": "organization=miaa/archive=ezstream/8457.txt",
-        "tags": ["all-state", "cross-country", "overview", "results"]
+        "tags": ["all-state", "cross-country", "divisional", "overview", "results", "roster"]
       },
       {
         "name": "Fall 2021 STATE Division 1 Swimming & Diving Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8458.txt",
-        "tags": ["all-state", "championship", "results", "swimming-diving"]
+        "tags": ["championship", "results", "swimming-diving"]
       },
       {
         "name": "Fall 2021 STATE Division 2 Swimming & Diving Results.txt",
@@ -10180,37 +10180,37 @@
       {
         "name": "Winter 2021-22 Girls Central West Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8460.txt",
-        "tags": ["psych-sheet"]
+        "tags": ["championship", "psych-sheet", "sectional", "swimming-diving"]
       },
       {
         "name": "Winter 2021-22 Boys Central/West Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8461.txt",
-        "tags": ["psych-sheet"]
+        "tags": ["psych-sheet", "sectional", "swimming-diving"]
       },
       {
         "name": "Winter 2021-22 Girls North Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8462.txt",
-        "tags": ["championship", "psych-sheet", "sectional"]
+        "tags": ["championship", "psych-sheet", "sectional", "swimming-diving"]
       },
       {
         "name": "Winter 2021-22 Girls South Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8463.txt",
-        "tags": ["psych-sheet"]
+        "tags": ["psych-sheet", "sectional", "swimming-diving"]
       },
       {
         "name": "Winter 2021-22 Boys North Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8464.txt",
-        "tags": ["psych-sheet", "sectional"]
+        "tags": ["psych-sheet", "sectional", "swimming-diving"]
       },
       {
         "name": "Winter 2021-22 Boys South Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8465.txt",
-        "tags": ["psych-sheet", "sectional"]
+        "tags": ["psych-sheet", "sectional", "swimming-diving"]
       },
       {
         "name": "Winter 2021-22 Swim Tournament Overview.txt",
         "s3Path": "organization=miaa/archive=ezstream/8466.txt",
-        "tags": ["form", "overview", "results", "swimming-diving", "tournament-info"]
+        "tags": ["form", "overview", "results", "state-tournament", "swimming-diving", "tournament-info"]
       },
       {
         "name": "Winter 2021-22 Indoor Track Tournament Overview.txt",
@@ -10265,12 +10265,12 @@
       {
         "name": "Winter 2021-2022 Boys Central West Sectional Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8480.txt",
-        "tags": ["results", "sectional"]
+        "tags": ["results", "sectional", "swimming-diving"]
       },
       {
         "name": "Winter 2021-22 Girls Central/West Sectional Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8481.txt",
-        "tags": ["results", "sectional"]
+        "tags": ["results", "sectional", "swimming-diving"]
       },
       {
         "name": "MIAA Division 1 Indoor Track & Field Performance List.txt",
@@ -10445,7 +10445,7 @@
       {
         "name": "2022 Wrestling Sectional, Divisional, All-State & Girls Tournament Information, Brackets & Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8523.txt",
-        "tags": ["all-state", "brackets", "results", "schedule", "sectional", "tournament-info", "wrestling"]
+        "tags": ["all-state", "brackets", "divisional", "results", "schedule", "sectional", "tournament-info", "wrestling"]
       },
       {
         "name": "Spring Golf Tournament 2022.txt",
@@ -10475,7 +10475,7 @@
       {
         "name": "2022 MIAA Division 5 Pentathlon Performance List.txt",
         "s3Path": "organization=miaa/archive=ezstream/8531.txt",
-        "tags": ["performance-list", "results"]
+        "tags": ["championship", "outdoor-track-and-field", "performance-list", "results"]
       },
       {
         "name": "2022 MIAA Division 6 Pentathlon Performance List.txt",
@@ -10620,7 +10620,7 @@
       {
         "name": "2022 MIAA Baseball Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8562.txt",
-        "tags": ["all-state", "baseball", "brackets"]
+        "tags": ["baseball", "brackets"]
       },
       {
         "name": "2022 MIAA Softball Tournament.txt",
@@ -10670,7 +10670,7 @@
       {
         "name": "Fall 2022 Swim Tournament Overview.txt",
         "s3Path": "organization=miaa/archive=ezstream/8576.txt",
-        "tags": ["form", "overview", "results", "sectional", "swimming-diving", "tournament-info"]
+        "tags": ["form", "overview", "results", "sectional", "state-tournament", "swimming-diving", "tournament-info"]
       },
       {
         "name": "Fall 2022 South Sectional Swimming & Diving Psych Sheet.txt",
@@ -10710,7 +10710,7 @@
       {
         "name": "2023 Wrestling Sectional, Divisional, All-State & Girls Tournament Information, Brackets & Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8595.txt",
-        "tags": ["all-state", "brackets", "championship", "results", "sectional", "tournament-info", "wrestling"]
+        "tags": ["all-state", "brackets", "championship", "divisional", "results", "sectional", "tournament-info", "wrestling"]
       },
       {
         "name": "2023 MIAA Indoor Track Overview Page.txt",
@@ -10765,7 +10765,7 @@
       {
         "name": "2023 Nordic Ski Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8607.txt",
-        "tags": ["awards", "championship", "skiing"]
+        "tags": ["championship", "skiing"]
       },
       {
         "name": "2023 Boys Swim & Dive Central/West Results.txt",
@@ -10805,22 +10805,22 @@
       {
         "name": "2023 Boys Division 1 Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8615.txt",
-        "tags": ["psych-sheet"]
+        "tags": ["psych-sheet", "swimming-diving"]
       },
       {
         "name": "2023 Boys Division 2 Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8616.txt",
-        "tags": ["psych-sheet"]
+        "tags": ["psych-sheet", "swimming-diving"]
       },
       {
         "name": "2023 Girls Division 1 Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8617.txt",
-        "tags": ["psych-sheet"]
+        "tags": ["psych-sheet", "swimming-diving"]
       },
       {
         "name": "2023 Girls Division 2 Psych Sheet.txt",
         "s3Path": "organization=miaa/archive=ezstream/8618.txt",
-        "tags": ["psych-sheet"]
+        "tags": ["psych-sheet", "swimming-diving"]
       },
       {
         "name": "2023 Alpine Ski Tournament Information.txt",
@@ -10880,7 +10880,7 @@
       {
         "name": "2023 MIAA Baseball Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8643.txt",
-        "tags": ["all-state", "baseball", "brackets", "rankings"]
+        "tags": ["baseball", "brackets", "rankings"]
       },
       {
         "name": "2023 MIAA Outdoor Track Overview Page.txt",
@@ -10895,22 +10895,22 @@
       {
         "name": "2023 Boys Volleyball State Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8649.txt",
-        "tags": ["all-state", "brackets", "rankings", "volleyball"]
+        "tags": ["brackets", "rankings", "volleyball"]
       },
       {
         "name": "2023 Softball Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8650.txt",
-        "tags": ["all-state", "brackets", "softball"]
+        "tags": ["brackets", "softball"]
       },
       {
         "name": "2023 MIAA Baseball Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8651.txt",
-        "tags": ["all-state", "baseball", "brackets", "rankings"]
+        "tags": ["baseball", "brackets", "rankings"]
       },
       {
         "name": "2023 MIAA Baseball Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8652.txt",
-        "tags": ["all-state", "baseball", "brackets", "championship", "rankings"]
+        "tags": ["baseball", "brackets", "championship", "rankings"]
       },
       {
         "name": "2023 Boys & Girls Lacrosse State Tournament.txt",
@@ -10935,7 +10935,7 @@
       {
         "name": "Fall 2023 Volleyball Tournament Brackets.txt",
         "s3Path": "organization=miaa/archive=ezstream/8666.txt",
-        "tags": ["all-state", "brackets", "rankings", "volleyball"]
+        "tags": ["brackets", "rankings", "volleyball"]
       },
       {
         "name": "2023 Fall Golf Tournament.txt",
@@ -10990,17 +10990,17 @@
       {
         "name": "2024 Wrestling Sectional, Divisional, All-State & Girls Tournament Information, Brackets & Results.txt",
         "s3Path": "organization=miaa/archive=ezstream/8678.txt",
-        "tags": ["all-state", "brackets", "results", "schedule", "sectional", "tournament-info", "wrestling"]
+        "tags": ["all-state", "brackets", "divisional", "results", "schedule", "sectional", "tournament-info", "wrestling"]
       },
       {
         "name": "2024 Wrestling Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8679.txt",
-        "tags": ["all-state", "results", "sectional", "tournament-info", "wrestling"]
+        "tags": ["all-state", "divisional", "results", "sectional", "tournament-info", "wrestling"]
       },
       {
         "name": "2024 Nordic Ski Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8688.txt",
-        "tags": ["awards", "championship", "skiing"]
+        "tags": ["championship", "skiing"]
       },
       {
         "name": "2024 Alpine Ski Tournament.txt",
@@ -11030,7 +11030,7 @@
       {
         "name": "2024 MIAA Baseball Tournament.txt",
         "s3Path": "organization=miaa/archive=ezstream/8706.txt",
-        "tags": ["all-state", "baseball", "championship"]
+        "tags": ["baseball", "championship"]
       },
       {
         "name": "2024 MIAA Spring Golf Tournament.txt",
