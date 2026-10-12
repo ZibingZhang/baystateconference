@@ -6,63 +6,35 @@
       <meta itemprop="position" content="1" />
     </li>
 
-    {%- assign crumbs = page.url | split: '/' -%}
-    {%- assign crumb_path = '' -%}
+    {%- comment -%}
+      page.breadcrumb_ancestors/breadcrumb_current_label/
+      breadcrumb_current_matched_acronym are precomputed by
+      _plugins/page_tree_generator.rb (one Ruby pass per build) instead of
+      walking site.data.page_tree in Liquid on every render.
+    {%- endcomment -%}
     {%- assign position = 1 -%}
-    {%- assign tree_nodes = site.data.page_tree -%}
-
-    {%- for crumb in crumbs -%}
-      {%- unless crumb == '' -%}
-        {%- assign crumb_path = crumb_path | append: '/' | append: crumb -%}
-        {%- assign position = position | plus: 1 -%}
-
-        {%- comment -%}
-          Look up this ancestor's own node in site.data.page_tree (built by
-          page_tree_generator.rb), so an intermediate segment with its own
-          `breadcrumb:` front matter (e.g. a school-schedule year page,
-          "2026-2027" -> "2026–2027") uses that instead of just humanizing
-          the raw URL segment - the same override the current/last segment
-          already gets below, just for every ancestor instead of only the
-          final one.
-        {%- endcomment -%}
-        {%- assign node = nil -%}
-        {%- for candidate in tree_nodes -%}
-          {%- if candidate.segment == crumb -%}
-            {%- assign node = candidate -%}
-            {%- break -%}
-          {%- endif -%}
-        {%- endfor -%}
-        {%- assign tree_nodes = node.children -%}
-
-        {%- capture label %}{% include url-label.html segment=crumb %}{% endcapture -%}
-        {%- assign label = label | strip -%}
-        {%- if node.breadcrumb -%}
-          {%- assign label = node.breadcrumb -%}
-        {%- endif -%}
-
-        {%- if forloop.last -%}
-          {%- comment -%}
-            A page's front matter can set `breadcrumb: NFHS` to override the
-            crumb shown here without changing page.title. Absent that, an
-            acronym match (e.g. the "nfhs" in the URL) is preferred over the
-            full page title, which falls back only when neither applies.
-          {%- endcomment -%}
-          {%- if page.breadcrumb -%}
-            {%- assign current_label = page.breadcrumb -%}
-          {%- elsif matched_acronym -%}
-            {%- assign current_label = label -%}
-          {%- else -%}
-            {%- assign current_label = page.title -%}
-          {%- endif -%}
-        <li id="breadcrumb-current" data-href="{{ page.url | relative_url }}" class="current" aria-current="page">{{ current_label | escape }}</li>
-        {%- else -%}
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a href="{{ crumb_path | append: '/' | relative_url }}" itemprop="item"><span itemprop="name">{{ label }}</span></a>
-          <meta itemprop="position" content="{{ position }}" />
-        </li>
-        {%- endif -%}
-      {%- endunless -%}
+    {%- for ancestor in page.breadcrumb_ancestors -%}
+      {%- assign position = position | plus: 1 -%}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="{{ ancestor.path | append: '/' | relative_url }}" itemprop="item"><span itemprop="name">{{ ancestor.label }}</span></a>
+      <meta itemprop="position" content="{{ position }}" />
+    </li>
     {%- endfor -%}
+
+    {%- comment -%}
+      A page's front matter can set `breadcrumb: NFHS` to override the crumb
+      shown here without changing page.title. Absent that, an acronym match
+      (e.g. the "nfhs" in the URL) is preferred over the full page title,
+      which falls back only when neither applies.
+    {%- endcomment -%}
+    {%- if page.breadcrumb -%}
+      {%- assign current_label = page.breadcrumb -%}
+    {%- elsif page.breadcrumb_current_matched_acronym -%}
+      {%- assign current_label = page.breadcrumb_current_label -%}
+    {%- else -%}
+      {%- assign current_label = page.title -%}
+    {%- endif -%}
+    <li id="breadcrumb-current" data-href="{{ page.url | relative_url }}" class="current" aria-current="page">{{ current_label | escape }}</li>
   </ol>
 </nav>
 {%- endunless -%}
