@@ -1,0 +1,21 @@
+{%- comment -%}
+  Renders a sport's custom school data (schools.yaml's `sport.<slug>` map)
+  as extra <tr> rows on a school page, generically - so adding a sport-
+  specific fact to a school just means adding a key under
+  `sport.<slug>` in schools.yaml, no bespoke include file needed. See
+  sport-info-row.html for the per-key rendering rules.
+
+  Expects `include.data` - the hash to render, e.g. `school.sport.baseball`.
+  Skips a `sections` key, if present - that's reserved for grouped facts
+  rendered separately by sport-info-sections.html.
+
+  Usage: {% assign sport_data = school.sport[page.sport_slug] %}
+         {% include sport-info-rows.html data=sport_data %}
+{%- endcomment -%}
+{%- for entry in include.data -%}
+  {%- assign entry_key = entry[0] -%}
+  {%- assign entry_value = entry[1] -%}
+  {%- unless entry_key == 'sections' -%}
+  {%- include sport-info-row.html label=entry_key value=entry_value -%}
+  {%- endunless -%}
+{%- endfor -%}

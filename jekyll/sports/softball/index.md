@@ -1,7 +1,6 @@
 ---
-layout: page
+layout: sport-home
 title: Softball
 permalink: /sports/softball/
-under_construction: true
 ---
 {% include current-season-link.html %}

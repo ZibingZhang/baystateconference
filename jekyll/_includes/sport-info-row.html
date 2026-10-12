@@ -1,0 +1,73 @@
+{%- comment -%}
+  Renders one <tr> (or one per entry, for a nested hash) for a single
+  key/value pair from a sport's data - see sport-info-rows.html, which
+  calls this once per top-level key. Value shapes:
+    - a plain string: rendered as text, or as a link if it looks like a URL
+      (an instagram.com URL renders as "@<username>", matching the
+      A.D. Instagram row above; any other URL renders as its domain)
+    - a hash with `name` plus `url` or `google-maps`: one link row, with
+      the key as the label and `name` as the link text (e.g. a venue)
+    - any other hash with more than one entry: one row per entry, labeled
+      "<key> (<sub-key>)" (e.g. per-team Instagram handles) - recurses one
+      level deep, no further
+    - any other hash with exactly one entry: rendered as that one entry,
+      labeled by the outer key alone (no redundant "(<sub-key>)" suffix)
+
+  include.label      the key, humanized for display unless raw_label is set
+                      (dashes/underscores -> spaces, each word capitalized)
+  include.value       the value to render
+  include.raw_label  internal - true once label is already display-ready
+                      (composed by the one-level-deep case below), so it's
+                      used as-is instead of being re-humanized
+  include.depth       internal - caps recursion at one level of nesting
+{%- endcomment -%}
+{%- if include.raw_label -%}
+  {%- assign display_label = include.label -%}
+{%- else -%}
+  {%- assign words = include.label | replace: '-', ' ' | replace: '_', ' ' | split: ' ' -%}
+  {%- capture display_label %}{% for word in words %}{{ word | capitalize }} {% endfor %}{% endcapture -%}
+  {%- assign display_label = display_label | strip -%}
+{%- endif -%}
+{%- assign value_json = include.value | jsonify -%}
+
+{%- if value_json contains '{' -%}
+  {%- assign link_url = include.value.url | default: include.value['google-maps'] -%}
+  {%- if include.value.name and link_url -%}
+<tr>
+  <th>{{ display_label }}</th>
+  <td><a href="{{ link_url }}" target="_blank" rel="noopener">{{ include.value.name }}</a></td>
+</tr>
+  {%- elsif include.depth != 1 -%}
+    {%- assign entry_count = include.value.size -%}
+    {%- for sub_entry in include.value -%}
+      {%- assign sub_key = sub_entry[0] -%}
+      {%- assign sub_value = sub_entry[1] -%}
+      {%- if entry_count == 1 -%}
+        {%- assign row_label = display_label -%}
+      {%- else -%}
+        {%- assign sub_words = sub_key | replace: '-', ' ' | replace: '_', ' ' | split: ' ' -%}
+        {%- capture sub_label %}{% for word in sub_words %}{{ word | capitalize }} {% endfor %}{% endcapture -%}
+        {%- assign sub_label = sub_label | strip -%}
+        {%- assign row_label = display_label | append: ' (' | append: sub_label | append: ')' -%}
+      {%- endif -%}
+      {%- include sport-info-row.html label=row_label value=sub_value raw_label=true depth=1 -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- else -%}
+  {%- assign text = include.value | strip -%}
+  {%- if text != '' -%}
+<tr>
+  <th>{{ display_label }}</th>
+  <td>
+    {%- if text contains 'instagram.com' -%}
+    {%- assign username = text | split: '/' | slice: 3 | first -%}
+    <a href="{{ text }}" target="_blank" rel="noopener me">@{{ username }}</a>
+    {%- elsif text contains '://' -%}
+    <a href="{{ text }}" target="_blank" rel="noopener">{{ text | remove_first: 'https://' | remove_first: 'http://' | split: '/' | first }}</a>
+    {%- else -%}
+    {{ text }}
+    {%- endif -%}
+  </td>
+</tr>
+  {%- endif -%}
+{%- endif -%}

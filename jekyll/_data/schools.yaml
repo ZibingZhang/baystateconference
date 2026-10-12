@@ -17,6 +17,9 @@
         google-maps: "https://maps.app.goo.gl/Mw2f2v3KDZrFxWjL6"
       instagram:
         team: "https://www.instagram.com/braintreeswim.dive/"
+      sections:
+        Girls: {}
+        Boys: {}
 - town: "Brookline"
   school-name: "Brookline High School"
   team-name: "Warriors"
@@ -30,9 +33,11 @@
       pool:
         name: "Evelyn Kirrane Aquatics Center"
         google-maps: "https://maps.app.goo.gl/pCPv2QDVBMyvoAq28"
-      instagram:
-        girls-team: "https://www.instagram.com/brooklineswimanddive/"
-        boys-team: "https://www.instagram.com/brookline_swim.dive/"
+      sections:
+        Girls:
+          instagram: "https://www.instagram.com/brooklineswimanddive/"
+        Boys:
+          instagram: "https://www.instagram.com/brookline_swim.dive/"
 - town: "Framingham"
   school-name: "Framingham High School"
   aliases:
@@ -46,9 +51,11 @@
     athletic-dept: "https://www.instagram.com/framinghamflyerathletics/"
   sport:
     swimming-diving:
-      instagram:
-        girls-team: "https://www.instagram.com/fhsgirlsswimanddive/"
-        boys-team: "https://www.instagram.com/fhs_boys.swim.and.dive/"
+      sections:
+        Girls:
+          instagram: "https://www.instagram.com/fhsgirlsswimanddive/"
+        Boys:
+          instagram: "https://www.instagram.com/fhs_boys.swim.and.dive/"
 - town: "Milton"
   school-name: "Milton High School"
   team-name: "Wildcats"
@@ -62,6 +69,9 @@
         google-maps: "https://maps.app.goo.gl/Mw2f2v3KDZrFxWjL6"
       instagram:
         team: "https://www.instagram.com/miltonhighswim/"
+      sections:
+        Girls: {}
+        Boys: {}
 - town: "Natick"
   school-name: "Natick High School"
   team-name: "Redhawks"
@@ -72,9 +82,11 @@
     athletic-dept: "https://www.instagram.com/natick_athletics/"
   sport:
     swimming-diving:
-      instagram:
-        girls-team: "https://www.instagram.com/redhawksswimdive/"
-        boys-team: "https://www.instagram.com/naticksnd/"
+      sections:
+        Girls:
+          instagram: "https://www.instagram.com/redhawksswimdive/"
+        Boys:
+          instagram: "https://www.instagram.com/naticksnd/"
 - town: "Needham"
   school-name: "Needham High School"
   team-name: "Rockets"
@@ -88,9 +100,11 @@
       pool:
         name: "Babson University"
         google-maps: "https://maps.app.goo.gl/dAnkX6coezFPeA7C9"
-      instagram:
-        girls-team: "https://www.instagram.com/needhamgirlsswive/"
-        boys-team: "https://www.instagram.com/nhsboysswive/"
+      sections:
+        Girls:
+          instagram: "https://www.instagram.com/needhamgirlsswive/"
+        Boys:
+          instagram: "https://www.instagram.com/nhsboysswive/"
 - town: "Newton North"
   school-name: "Newton North High School"
   team-name: "Tigers"
@@ -104,9 +118,11 @@
       pool:
         name: "Newton North High School"
         google-maps: "https://maps.app.goo.gl/kXVhiLcxruDabcEv7"
-      instagram:
-        girls-team: "https://www.instagram.com/nnhsswimanddive/"
-        boys-team: "https://www.instagram.com/nnhsboysswimanddive/"
+      sections:
+        Girls:
+          instagram: "https://www.instagram.com/nnhsswimanddive/"
+        Boys:
+          instagram: "https://www.instagram.com/nnhsboysswimanddive/"
 - town: "Walpole"
   school-name: "Walpole High School"
   team-name: "Timberwolves"
@@ -122,6 +138,9 @@
         google-maps: "https://maps.app.goo.gl/K9pZb3uG86tMhgEg7"
       instagram:
         team: "https://www.instagram.com/whs.swive/"
+      sections:
+        Girls: {}
+        Boys: {}
 - town: "Wellesley"
   school-name: "Wellesley High School"
   team-name: "Raiders"
@@ -133,9 +152,11 @@
       pool:
         name: "Boston Sports Institute"
         google-maps: "https://maps.app.goo.gl/K9pZb3uG86tMhgEg7"
-      instagram:
-        girls-team: "https://www.instagram.com/raidersgswimanddive/"
-        boys-team: "https://www.instagram.com/whsboysswimanddive/"
+      sections:
+        Girls:
+          instagram: "https://www.instagram.com/raidersgswimanddive/"
+        Boys:
+          instagram: "https://www.instagram.com/whsboysswimanddive/"
 - town: "Weymouth"
   school-name: "Weymouth High School"
   team-name: "Wildcats"
@@ -149,3 +170,6 @@
       pool:
         name: "William A. Connell Swimming Pool & Skating Rink"
         google-maps: "https://maps.app.goo.gl/YxxcKpqRG5SC5XyUA"
+      sections:
+        Girls: {}
+        Boys: {}

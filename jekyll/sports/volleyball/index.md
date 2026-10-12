@@ -1,7 +1,6 @@
 ---
-layout: page
+layout: sport-home
 title: Volleyball
 permalink: /sports/volleyball/
-under_construction: true
 ---
 {% include current-season-link.html %}

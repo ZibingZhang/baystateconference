@@ -4,12 +4,23 @@ layout: base
 {%- comment -%}
   Renders a single school's page: a card with its logo and a 2-column info
   table, built from its entry in _data/schools.yaml. Sport-agnostic - a page
-  wanting to add information into `info_extra` in its front matter to the path of
-  a partial, rendered as extra <tr> rows with `school` as the current
-  record. See swimming-diving-school-extra.html for an example partial.
+  can set `sport_slug` in its front matter to also render that school's
+  `sport.<sport_slug>` data generically:
+    - any ungrouped key (see sport-info-rows.html) - so a plain sport-
+      specific fact just needs a key in schools.yaml, no partial to write
+    - a `sections` key (see sport-info-sections.html) - named groups of
+      facts (e.g. "Girls"/"Boys"), each rendered under its own header row
+  A page whose section needs something schools.yaml can't express (e.g.
+  swimming's historical win counts, which come from results data rather
+  than a plain schools.yaml value) can additionally set `section_extra` to
+  the path of a partial appending more rows to a given section - see
+  swimming-diving-school-section-extra.html. `info_extra` remains as a
+  fallback for anything ungrouped and not expressible via schools.yaml
+  either, rendered as further extra <tr> rows after everything else.
 
   A page using this layout needs `school: "Braintree"` in its front matter
   to match against the `town` field in schools.yaml, and may optionally set
+  `sport_slug: "baseball"`, `section_extra: "some-partial.html"`, and/or
   `info_extra: "some-partial.html"`.
 {%- endcomment -%}
 <article class="post">
@@ -64,6 +75,16 @@ layout: base
             <th>Wiki Page</th>
             <td><a href="{{ school.wikipedia }}" target="_blank" rel="noopener">{{ wiki_title }}</a></td>
           </tr>
+          {%- endif -%}
+
+          {%- if page.sport_slug -%}
+          {%- assign sport_data = school.sport[page.sport_slug] -%}
+          {%- if sport_data -%}
+          {%- include sport-info-rows.html data=sport_data -%}
+          {%- if sport_data.sections -%}
+          {%- include sport-info-sections.html sections=sport_data.sections school=school section_extra=page.section_extra -%}
+          {%- endif -%}
+          {%- endif -%}
           {%- endif -%}
 
           {%- if page.info_extra -%}

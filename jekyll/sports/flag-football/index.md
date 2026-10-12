@@ -1,7 +1,6 @@
 ---
-layout: page
+layout: sport-home
 title: Flag Football
 permalink: /sports/flag-football/
-under_construction: true
 ---
 {% include current-season-link.html %}

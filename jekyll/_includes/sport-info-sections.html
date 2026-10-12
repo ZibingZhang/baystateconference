@@ -1,0 +1,38 @@
+{%- comment -%}
+  Renders each named section under a sport's `sections` map (schools.yaml's
+  `sport.<slug>.sections`) as a `<tr class="school-info-section">` header
+  followed by that section's own facts (same value shapes as
+  sport-info-rows.html, which this reuses), then - if the page set
+  `section_extra` - that partial's rendered output for the same section
+  name, so a sport needing computed facts (e.g. swim's historical win
+  counts, which come from results data rather than a plain schools.yaml
+  value) can append rows to a section without a bespoke renderer for the
+  whole table. A section with nothing to show (no static facts and no
+  section_extra output) is skipped entirely, so declaring a section with
+  no facts yet (schools.yaml's `sections: { Girls: {} }`) - just to give
+  section_extra somewhere to add rows - doesn't render an empty header.
+
+  include.sections       the `sections` hash to render, e.g.
+                          `school.sport.swimming-diving.sections`
+  include.school         passed through to section_extra
+  include.section_extra  optional - path to a partial given `school` and
+                          `section` (the current section name)
+{%- endcomment -%}
+{%- for entry in include.sections -%}
+  {%- assign section_name = entry[0] -%}
+  {%- assign section_data = entry[1] -%}
+  {%- capture section_rows %}{% include sport-info-rows.html data=section_data %}{% endcapture -%}
+  {%- assign section_rows = section_rows | strip -%}
+  {%- assign extra_rows = "" -%}
+  {%- if include.section_extra -%}
+    {%- capture extra_rows %}{% include {{ include.section_extra }} school=include.school section=section_name %}{% endcapture -%}
+    {%- assign extra_rows = extra_rows | strip -%}
+  {%- endif -%}
+  {%- if section_rows != "" or extra_rows != "" -%}
+<tr class="school-info-section">
+  <th colspan="2">{{ section_name }}</th>
+</tr>
+{{ section_rows }}
+{{ extra_rows }}
+  {%- endif -%}
+{%- endfor -%}
