@@ -11,118 +11,57 @@
   ("Girls" or "Boys" - any other section name renders nothing, since wins
   data doesn't apply to it).
 
+  The win years themselves (`school.swim_wins`) are precomputed by
+  _plugins/swimming_diving_school_wins_generator.rb - this used to scan the
+  BSC/sectional/state rankings CSVs with Liquid `where_exp` on every render;
+  that generator does it once in Ruby instead.
+
   BSC wins are split by Season since, unlike the MIAA sectional/state
   results, the BSC has fielded separate Boys Fall and Boys Winter
   championships across its history (Girls has only ever raced in the
   fall).
 {%- endcomment -%}
 {%- if include.section == "Girls" or include.section == "Boys" -%}
-{%- assign school = include.school -%}
 {%- assign sex = "F" -%}
 {%- if include.section == "Boys" -%}
 {%- assign sex = "M" -%}
 {%- endif -%}
+{%- assign wins = include.school.swim_wins[sex] -%}
 
-{%- comment -%}
-  Matches sectionals/states results against the school's town, its formal
-  name, and any further aliases (most schools have none, since
-  `school-name` alone already covers "<town> High School").
-{%- endcomment -%}
-{%- assign school_names = "" | split: "" -%}
-{%- assign school_names = school_names | push: school.town -%}
-{%- assign school_names = school_names | push: school.school-name -%}
-{%- if school.aliases -%}
-  {%- for alias in school.aliases -%}
-    {%- assign school_names = school_names | push: alias -%}
-  {%- endfor -%}
-{%- endif -%}
-
-{%- assign bsc = site.data.swimming-diving.bsc.rankings -%}
-{%- assign sectionals = site.data.swimming-diving.miaa.rankings.sectionals -%}
-{%- assign states = site.data.swimming-diving.miaa.rankings.states -%}
-
-{%- comment -%}
-  Displayed as a single year rather than the full school-year range: fall
-  results show the range's first year, winter results show its second
-  year.
-{%- endcomment -%}
 {%- if sex == "F" -%}
-  {%- assign bsc_wins = bsc | where_exp: 'row', 'row.Sex == "F" and row.Season == "fall" and row.Place == "1" and school_names contains row.School' -%}
-  {%- assign bsc_years = "" | split: "" -%}
-  {%- for row in bsc_wins -%}
-    {%- assign school_year_parts = row['School Year'] | split: '-' -%}
-    {%- assign bsc_years = bsc_years | push: school_year_parts[0] -%}
-  {%- endfor -%}
-  {%- assign bsc_years = bsc_years | uniq | sort | reverse -%}
-  {%- if bsc_years.size > 0 -%}
+  {%- if wins.bsc.size > 0 -%}
 <tr>
   <th>BSC Wins</th>
-  <td>{{ bsc_years | join: ', ' }}</td>
+  <td>{{ wins.bsc | join: ', ' }}</td>
 </tr>
   {%- endif -%}
 {%- else -%}
-  {%- assign bsc_fall_wins = bsc | where_exp: 'row', 'row.Sex == "M" and row.Season == "fall" and row.Place == "1" and school_names contains row.School' -%}
-  {%- assign bsc_fall_years = "" | split: "" -%}
-  {%- for row in bsc_fall_wins -%}
-    {%- assign school_year_parts = row['School Year'] | split: '-' -%}
-    {%- assign bsc_fall_years = bsc_fall_years | push: school_year_parts[0] -%}
-  {%- endfor -%}
-  {%- assign bsc_fall_years = bsc_fall_years | uniq | sort | reverse -%}
-  {%- if bsc_fall_years.size > 0 -%}
+  {%- if wins.bsc_fall.size > 0 -%}
 <tr>
   <th>BSC Wins (Fall)</th>
-  <td>{{ bsc_fall_years | join: ', ' }}</td>
+  <td>{{ wins.bsc_fall | join: ', ' }}</td>
 </tr>
   {%- endif -%}
 
-  {%- assign bsc_winter_wins = bsc | where_exp: 'row', 'row.Sex == "M" and row.Season == "winter" and row.Place == "1" and school_names contains row.School' -%}
-  {%- assign bsc_winter_years = "" | split: "" -%}
-  {%- for row in bsc_winter_wins -%}
-    {%- assign school_year_parts = row['School Year'] | split: '-' -%}
-    {%- assign bsc_winter_years = bsc_winter_years | push: school_year_parts[1] -%}
-  {%- endfor -%}
-  {%- assign bsc_winter_years = bsc_winter_years | uniq | sort | reverse -%}
-  {%- if bsc_winter_years.size > 0 -%}
+  {%- if wins.bsc_winter.size > 0 -%}
 <tr>
   <th>BSC Wins (Winter)</th>
-  <td>{{ bsc_winter_years | join: ', ' }}</td>
+  <td>{{ wins.bsc_winter | join: ', ' }}</td>
 </tr>
   {%- endif -%}
 {%- endif -%}
 
-{%- assign sectional_wins = sectionals | where_exp: 'row', 'row.Sex == sex and row.Place == "1" and school_names contains row.School' -%}
-{%- assign sectional_years = "" | split: "" -%}
-{%- for row in sectional_wins -%}
-  {%- assign school_year_parts = row['School Year'] | split: '-' -%}
-  {%- if row.Season == 'fall' -%}
-    {%- assign sectional_years = sectional_years | push: school_year_parts[0] -%}
-  {%- else -%}
-    {%- assign sectional_years = sectional_years | push: school_year_parts[1] -%}
-  {%- endif -%}
-{%- endfor -%}
-{%- assign sectional_years = sectional_years | uniq | sort | reverse -%}
-{%- if sectional_years.size > 0 -%}
+{%- if wins.sectional.size > 0 -%}
 <tr>
   <th>Sectional Wins</th>
-  <td>{{ sectional_years | join: ', ' }}</td>
+  <td>{{ wins.sectional | join: ', ' }}</td>
 </tr>
 {%- endif -%}
 
-{%- assign state_wins = states | where_exp: 'row', 'row.Sex == sex and row.Place == "1" and school_names contains row.School' -%}
-{%- assign state_years = "" | split: "" -%}
-{%- for row in state_wins -%}
-  {%- assign school_year_parts = row['School Year'] | split: '-' -%}
-  {%- if row.Season == 'fall' -%}
-    {%- assign state_years = state_years | push: school_year_parts[0] -%}
-  {%- else -%}
-    {%- assign state_years = state_years | push: school_year_parts[1] -%}
-  {%- endif -%}
-{%- endfor -%}
-{%- assign state_years = state_years | uniq | sort | reverse -%}
-{%- if state_years.size > 0 -%}
+{%- if wins.state.size > 0 -%}
 <tr>
   <th>State Wins</th>
-  <td>{{ state_years | join: ', ' }}</td>
+  <td>{{ wins.state | join: ', ' }}</td>
 </tr>
 {%- endif -%}
 {%- endif -%}

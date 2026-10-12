@@ -38,11 +38,11 @@ layout: base
     {%- include current-season-link.html url=schedule-url -%}
     {%- endif -%}
 
-    {%- assign school = site.data.schools | where: 'town', page.school | first -%}
+    {%- assign school = page.school_info -%}
     {%- if school -%}
     <div class="school-info-card">
       {%- if school.logo -%}
-      <img class="school-logo" src="{{ school.logo }}" alt="{{ page.title | escape }} logo" loading="lazy">
+      <img class="school-logo" src="{{ school.logo | relative_url }}" alt="{{ page.title | escape }} logo" loading="lazy">
       {%- endif -%}
 
       <table class="school-info-table">
