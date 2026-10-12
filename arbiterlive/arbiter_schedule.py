@@ -273,6 +273,16 @@ def split_date_time(date_time: str, school_year: str) -> tuple[Optional[str], Op
     return iso_date, f"{hour:02d}:{minute:02d}"
 
 
+def extract_date(date_time: str) -> Optional[str]:
+    """Pulls just the "Sat Jan 2" weekday/month/day prefix off ArbiterLive's
+    "Sat Jan 2 1:30 PM" date_time string, discarding the time-of-day - used
+    by resolve_game_pairs() to pair up mirrored rows that disagree only on
+    what time the game starts. Returns None if date_time doesn't even match
+    that prefix (e.g. a bare "TBA")."""
+    m = DATE_TIME_RE.match(date_time or "")
+    return f"{m['wday']} {m['mon']} {m['day']}" if m else None
+
+
 def resolve_game_pairs(games: list[Game]) -> list[ResolvedGame]:
     """Each game between two Bay State Conference teams shows up twice in
     `games` - once from each school's own ArbiterLive schedule, as mirror
@@ -291,19 +301,51 @@ def resolve_game_pairs(games: list[Game]) -> list[ResolvedGame]:
     game at the same time) that happen to collapse into the same bucket.
     The tradeoff: a few genuine pairs stay unmerged (shown as two rows)
     rather than ever risk merging the wrong two games together.
+
+    Matching is tried in two passes. The first requires an exact match on
+    the raw scraped `date_time` string, which also correctly keeps a
+    genuine doubleheader (same two teams, same level, same day, two
+    different times) as two separate merged games, since both schools'
+    schedules agree on both times. Rows that don't find a mirror this way
+    are retried in a second pass matching on date only (still scoped to the
+    same sport/school_year/sex/raw level/opponent pair, so this still can't
+    cross-pair two different concurrent games) - this catches the case
+    where the two schools simply disagree on the exact start time for what
+    is really the same game (e.g. one posts "7:00 PM", the other "7:30 PM").
+    When a pair is found this way, the merged row's time comes from the
+    home team's listing, since the host's own posting is the most
+    authoritative source for their venue's actual start time (falling back
+    to the away team's time if the home side's is "TBA").
     """
-    groups: dict[tuple, list[Game]] = {}
-    for g in games:
-        key = (g.sport, g.school_year, g.sex, g.level, g.date_time, frozenset([g.school, g.opponent or ""]))
-        groups.setdefault(key, []).append(g)
+
+    def is_mirror(a: Game, b: Game) -> bool:
+        return a.school == b.opponent and b.school == a.opponent
+
+    def group_by(games: list[Game], date_only: bool) -> dict[tuple, list[Game]]:
+        groups: dict[tuple, list[Game]] = {}
+        for g in games:
+            date_key = (extract_date(g.date_time) or g.date_time) if date_only else g.date_time
+            key = (g.sport, g.school_year, g.sex, g.level, date_key, frozenset([g.school, g.opponent or ""]))
+            groups.setdefault(key, []).append(g)
+        return groups
 
     resolved: list[ResolvedGame] = []
-    for group in groups.values():
-        if len(group) == 2 and group[0].school == group[1].opponent and group[1].school == group[0].opponent:
+    leftover: list[Game] = []
+    for group in group_by(games, date_only=False).values():
+        if len(group) == 2 and is_mirror(group[0], group[1]):
             resolved.append(merge_game(group[0], group[1]))
         else:
-            resolved.extend(merge_game(g, None) for g in group)
+            leftover.extend(group)
 
+    still_leftover: list[Game] = []
+    for group in group_by(leftover, date_only=True).values():
+        if len(group) == 2 and is_mirror(group[0], group[1]):
+            home, away = group if group[0].home_away == "Home" else (group[1], group[0])
+            resolved.append(merge_game(home, away))
+        else:
+            still_leftover.extend(group)
+
+    resolved.extend(merge_game(g, None) for g in still_leftover)
     return resolved
 
 
