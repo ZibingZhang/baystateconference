@@ -7,6 +7,7 @@ import { useAppData } from "./storage";
 import { useHistory } from "./hooks/useHistory";
 import type { Athlete, IndividualEntry, RelayEntry } from "./types";
 import { parseEv3, uniqueEventOptions } from "./domain/ev3";
+import { buildPsychSheet, printPsychSheet } from "./domain/psychSheet";
 import { MEET_TEMPLATES, templateFileName } from "./domain/meetTemplates";
 import AppMenuBar from "./components/AppMenuBar";
 import MeetSidebar from "./components/MeetSidebar";
@@ -126,6 +127,19 @@ function App() {
     : undefined;
   const relayEventOptions = importedEvents ? uniqueEventOptions(importedEvents, true) : undefined;
 
+  const handlePrintPsychSheet = () => {
+    if (!selectedMeet) return;
+    if (!importedEvents || importedEvents.length === 0) {
+      showInfo({
+        title: "Cannot Print",
+        message: "Import an EV3 events file on the Events tab before printing heat/psych sheets.",
+      });
+      return;
+    }
+    const groups = buildPsychSheet(importedEvents, athletes, individualEntries, relayEntries);
+    printPsychSheet(selectedMeet.name, groups);
+  };
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", height: "100%" }}>
       <AppMenuBar
@@ -137,6 +151,7 @@ function App() {
         onExportMeetBackup={() => selectedMeet && meetBackup.exportMeet(selectedMeet.id)}
         onDeleteMeet={() => selectedMeet && meetActions.deleteMeet(selectedMeet.id)}
         onExportHy3={hy3Export.requestExport}
+        onPrintPsychSheet={handlePrintPsychSheet}
         onExportAllData={appDataBackup.exportAllData}
         onImportAllDataFile={appDataBackup.importAllDataFile}
         onCopyTemplate={() => selectedTemplateId && template.copyTemplateToMeet(selectedTemplateId)}

@@ -45,6 +45,7 @@ interface AppMenuBarProps {
   onExportMeetBackup: () => void;
   onDeleteMeet: () => void;
   onExportHy3: () => void;
+  onPrintPsychSheet: () => void;
   onExportAllData: () => void;
   onImportAllDataFile: (file: File) => void;
   onCopyTemplate: () => void;
@@ -67,6 +68,7 @@ function AppMenuBar({
   onExportMeetBackup,
   onDeleteMeet,
   onExportHy3,
+  onPrintPsychSheet,
   onExportAllData,
   onImportAllDataFile,
   onCopyTemplate,
@@ -232,6 +234,16 @@ function AppMenuBar({
               }}
             >
               Export to HY3
+            </MenuItem>
+          )}
+          {hasSelectedMeet && (
+            <MenuItem
+              onClick={() => {
+                onPrintPsychSheet();
+                closeFileMenu();
+              }}
+            >
+              Print Psych Sheets
             </MenuItem>
           )}
           <Divider />
