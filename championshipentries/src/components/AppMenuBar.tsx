@@ -11,6 +11,7 @@ import Divider from "@mui/material/Divider";
 import NavMenu from "./NavMenu";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import MenuIcon from "@mui/icons-material/Menu";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import UndoIcon from "@mui/icons-material/Undo";
 import RedoIcon from "@mui/icons-material/Redo";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
@@ -31,10 +32,10 @@ const THEME_MODES: { value: ThemeMode; label: string; icon: typeof LightModeIcon
   { value: "dark", label: "Dark", icon: DarkModeIcon },
 ];
 
-const SECTIONALS_RESULTS_URL =
-  "https://baystateconference.com/sports/swimming-diving/archive/?path=meet-results/by-meet/sectionals";
-const STATES_RESULTS_URL =
-  "https://baystateconference.com/sports/swimming-diving/archive/?path=meet-results/by-meet/states";
+const BASE_URL = "https://baystateconference.com/sports/swimming-diving/";
+const SECTIONALS_RESULTS_URL = `${BASE_URL}archive/?path=meet-results/by-meet/sectionals`;
+const STATES_RESULTS_URL = `${BASE_URL}archive/?path=meet-results/by-meet/states`;
+const SWIMMING_DIVING_HUB_URL = BASE_URL;
 
 interface AppMenuBarProps {
   onToggleSidebar: () => void;
@@ -128,6 +129,17 @@ function AppMenuBar({
         >
           <MenuIcon fontSize="small" />
         </IconButton>
+        <Tooltip title="Back to Swimming & Diving">
+          <IconButton
+            size="small"
+            component="a"
+            href={SWIMMING_DIVING_HUB_URL}
+            sx={{ mr: 1 }}
+            aria-label="Back to Swimming & Diving"
+          >
+            <ArrowBackIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
         <Typography variant="subtitle1" sx={{ fontWeight: 700, mr: 3 }}>
           ChampionshipEntries
         </Typography>
