@@ -15,9 +15,9 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
       "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/events/2026-fall-bay-state-conference.ev3",
     genderFilter: "G",
     individualEntryStubsPerEvent: 4,
-    relayEntryStubsPerEvent: 4,
+    relayEntryStubsPerEvent: 3,
     individualEventEntryLimit: 4,
-    relayEventEntryLimit: 4,
+    relayEventEntryLimit: 3,
     ...HIGH_SCHOOL_EVENT_LIMITS,
   },
   {
