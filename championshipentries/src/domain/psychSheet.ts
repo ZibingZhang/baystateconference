@@ -177,7 +177,7 @@ export function buildPsychSheetHtml(meetName: string, groups: PsychSheetGroup[])
 <html>
 <head>
 <meta charset="utf-8" />
-<title>${escapeHtml(meetName)} — Heat/Psych Sheet</title>
+<title>${escapeHtml(meetName)} — Psych Sheet</title>
 <style>
   :root { color-scheme: light; }
   body {
@@ -210,7 +210,7 @@ export function buildPsychSheetHtml(meetName: string, groups: PsychSheetGroup[])
 </head>
 <body>
   <header>
-    <h1>${escapeHtml(meetName)} — Heat / Psych Sheet</h1>
+    <h1>${escapeHtml(meetName)} — Psych Sheet</h1>
     <p>Printed ${escapeHtml(printedAt)}</p>
   </header>
   ${sections}

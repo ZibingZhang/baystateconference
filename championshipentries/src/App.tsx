@@ -19,6 +19,7 @@ import HowToPage from "./components/HowToPage";
 import ConfirmDialog from "./components/ConfirmDialog";
 import InfoDialog from "./components/InfoDialog";
 import ExportReviewDialog from "./components/ExportReviewDialog";
+import PrintPsychSheetDialog from "./components/PrintPsychSheetDialog";
 import MeetTabsView from "./components/MeetTabsView";
 import { useMeetCrud } from "./hooks/useMeetCrud";
 import { useDialogState } from "./hooks/useDialogState";
@@ -38,6 +39,7 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [addMeetOpen, setAddMeetOpen] = useState(false);
   const [renameMeetOpen, setRenameMeetOpen] = useState(false);
+  const [printPsychSheetOpen, setPrintPsychSheetOpen] = useState(false);
 
   const { confirmDialog, showConfirm, closeConfirm, infoDialog, showInfo, closeInfo } =
     useDialogState();
@@ -132,11 +134,18 @@ function App() {
     if (!importedEvents || importedEvents.length === 0) {
       showInfo({
         title: "Cannot Print",
-        message: "Import an EV3 events file on the Events tab before printing heat/psych sheets.",
+        message: "Import an EV3 events file on the Events tab before printing psych sheets.",
       });
       return;
     }
-    const groups = buildPsychSheet(importedEvents, athletes, individualEntries, relayEntries);
+    setPrintPsychSheetOpen(true);
+  };
+
+  const handleConfirmPrintPsychSheet = (hideEmptyEvents: boolean) => {
+    if (!selectedMeet || !importedEvents) return;
+    const groups = buildPsychSheet(importedEvents, athletes, individualEntries, relayEntries).filter(
+      (g) => !hideEmptyEvents || g.entries.length > 0,
+    );
     printPsychSheet(selectedMeet.name, groups);
   };
 
@@ -335,6 +344,11 @@ function App() {
           if (selectedMeet) meetActions.renameMeet(selectedMeet.id, name);
           setRenameMeetOpen(false);
         }}
+      />
+      <PrintPsychSheetDialog
+        open={printPsychSheetOpen}
+        onClose={() => setPrintPsychSheetOpen(false)}
+        onPrint={handleConfirmPrintPsychSheet}
       />
       <ImportDuplicateMeetsDialog
         open={appDataBackup.duplicates.length > 0}

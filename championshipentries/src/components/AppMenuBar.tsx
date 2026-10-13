@@ -255,7 +255,7 @@ function AppMenuBar({
                 closeFileMenu();
               }}
             >
-              Print Psych Sheets
+              Print Psych Sheet
             </MenuItem>
           )}
           <Divider />
