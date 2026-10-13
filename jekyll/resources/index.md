@@ -9,6 +9,8 @@ internal_links:
     url: /resources/directory/
   - title: Documents
     url: /resources/documents/
+  - title: Tools
+    url: /resources/tools/
 ---
 
 {% include link-list.html heading="Directory" items=page.internal_links %}
