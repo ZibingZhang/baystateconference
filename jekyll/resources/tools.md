@@ -3,7 +3,7 @@ layout: page
 title: Tools
 permalink: /resources/tools/
 tool_links:
-  - title: Championship Entries
+  - title: Swimming & Diving Championship Entries
     url: /sports/swimming-diving/championship-entries/
 ---
 
