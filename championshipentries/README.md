@@ -1,33 +1,26 @@
-# React + TypeScript + Vite
+# Championship Entries
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A React/Vite/MUI web app for coaches entering swim meet rosters and exporting them to Hytek EV3/HY3 formats.
+All state lives in the browser's `localStorage` (see `src/storage.ts`) — there is no backend.
 
-Currently, two official plugins are available:
+## Running locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances.
-To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```sh
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+This starts the Vite dev server with hot module reloading, available at the URL printed in the terminal (typically `http://localhost:5173`).
+
+## Other commands
+
+- `npm run build` — type-check (`tsc -b`) and produce a production build with Vite
+- `npx tsc --noEmit` — type-check only, without building
+- `npm run lint` — lint with oxlint
+- `npm run format` / `npm run format:check` — format (or check formatting) with oxfmt
+- `npm run preview` — preview a production build locally
+
+## Related
+
+- `docs/hytek/` (repo root) — reference docs for the Hytek EV3/HY3 file formats this app reads/writes
+- `resources/miaa/` (repo root) — MIAA data (imported EV3 event files, high-schools list) consumed by this app
