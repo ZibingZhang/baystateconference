@@ -78,7 +78,7 @@ function renderCountCell(value: number, overLimitDetail: string | undefined) {
       sx={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: "center",
         width: "100%",
         height: "100%",
         overflow: "hidden",
@@ -163,6 +163,8 @@ function buildColumns(
       headerName: "Individual Events",
       width: 130,
       type: "number",
+      align: "center",
+      headerAlign: "center",
       renderCell: (params) =>
         renderCountCell(
           params.value as number,
@@ -174,6 +176,8 @@ function buildColumns(
       headerName: "Relay Events",
       width: 120,
       type: "number",
+      align: "center",
+      headerAlign: "center",
       renderCell: (params) =>
         renderCountCell(params.value as number, overLimitCategoriesById.get(params.row.id)?.relay),
     },
