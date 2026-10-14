@@ -235,7 +235,7 @@ function AppMenuBar({
                 closeFileMenu();
               }}
             >
-              Export Meet Backup
+              Export Meet
             </MenuItem>
           )}
           {hasSelectedMeet && (
