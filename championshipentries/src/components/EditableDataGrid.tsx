@@ -13,11 +13,13 @@ import {
   useGridApiRef,
   type GridCellParams,
   type GridColDef,
+  type GridFilterModel,
   type GridRowId,
 } from "@mui/x-data-grid";
 import { cellKey, readOnlyGuard } from "../utils/dataGridCells";
 import withSelectIcon from "./withSelectIcon";
 import ScrollableToolbar from "./ScrollableToolbar";
+import GridSearchField from "./GridSearchField";
 import { marchingAntsSx } from "./EditableDataGrid.styles";
 import { useGridAlertBanner } from "../hooks/useGridAlertBanner";
 import { useGridCellSelection } from "../hooks/useGridCellSelection";
@@ -154,6 +156,15 @@ function EditableDataGrid<T extends { id: string }>({
   const [draggingId, setDraggingId] = useState<string | null>(null);
   const [dragOverRowId, setDragOverRowId] = useState<string | null>(null);
 
+  const [searchValue, setSearchValue] = useState("");
+  const filterModel: GridFilterModel = useMemo(
+    () => ({
+      items: [],
+      quickFilterValues: searchValue.trim() ? searchValue.trim().split(/\s+/) : [],
+    }),
+    [searchValue],
+  );
+
   const rowIdAtPoint = (x: number, y: number): string | null =>
     (document.elementFromPoint(x, y) as HTMLElement | null)?.closest<HTMLElement>(
       ".MuiDataGrid-row",
@@ -258,6 +269,7 @@ function EditableDataGrid<T extends { id: string }>({
           </Button>
           {extraToolbar}
         </ScrollableToolbar>
+        <GridSearchField value={searchValue} onChange={setSearchValue} />
         <Typography
           variant="body2"
           color="text.secondary"
@@ -296,6 +308,7 @@ function EditableDataGrid<T extends { id: string }>({
           sortingMode="server"
           sortModel={sortModel}
           onSortModelChange={setSortModel}
+          filterModel={filterModel}
           localeText={{ noRowsLabel }}
           onCellKeyDown={handleCellKeyDown}
           onCellClick={attemptIfReadOnlyField}

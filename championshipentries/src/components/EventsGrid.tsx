@@ -5,11 +5,12 @@ import Typography from "@mui/material/Typography";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import DownloadIcon from "@mui/icons-material/Download";
 import ClearIcon from "@mui/icons-material/Clear";
-import { DataGrid, type GridColDef } from "@mui/x-data-grid";
+import { DataGrid, type GridColDef, type GridFilterModel } from "@mui/x-data-grid";
 import type { ImportedEvent } from "../types";
 import { formatQualifyingStandard } from "../domain/ev3";
 import { parseEv3 as parseEv3File } from "../hytek/ev3/parse";
 import Ev3ExportDialog from "./Ev3ExportDialog";
+import GridSearchField from "./GridSearchField";
 
 interface EventsGridProps {
   fileName: string | undefined;
@@ -48,6 +49,11 @@ function EventsGrid({
 }: EventsGridProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [exportOpen, setExportOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const filterModel: GridFilterModel = {
+    items: [],
+    quickFilterValues: searchValue.trim() ? searchValue.trim().split(/\s+/) : [],
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -100,6 +106,7 @@ function EventsGrid({
             Imported from {fileName}
           </Typography>
         )}
+        <GridSearchField value={searchValue} onChange={setSearchValue} sx={{ ml: "auto" }} />
       </Box>
       <Box sx={{ flex: 1, minHeight: 0 }}>
         <DataGrid
@@ -108,6 +115,7 @@ function EventsGrid({
           density="compact"
           hideFooter
           disableRowSelectionOnClick
+          filterModel={filterModel}
           localeText={{ noRowsLabel: "No events imported" }}
         />
       </Box>
