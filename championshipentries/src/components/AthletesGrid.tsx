@@ -5,8 +5,15 @@ import Tooltip from "@mui/material/Tooltip";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
-import type { Athlete, AthleteEventLimits, IndividualEntry, RelayEntry } from "../types";
+import type {
+  Athlete,
+  AthleteEventLimits,
+  ImportedEvent,
+  IndividualEntry,
+  RelayEntry,
+} from "../types";
 import type { AthleteOverLimitCategories } from "../domain/athleteEventLimits";
+import { eventByNumber } from "../domain/ev3";
 import EditableDataGrid from "./EditableDataGrid";
 import GridActionsToolbar from "./GridActionsToolbar";
 import BulkAddAthletesDialog from "./BulkAddAthletesDialog";
@@ -14,7 +21,7 @@ import CsvImportDialog, { type CsvImportColumn } from "./CsvImportDialog";
 import CsvExportDialog from "./CsvExportDialog";
 import ImportAthletesFromMeetDialog from "./ImportAthletesFromMeetDialog";
 import { athleteNameYearKey } from "../utils/athleteMatch";
-import { duplicateBadgeProvider } from "../utils/entryGridShared";
+import { duplicateBadgeProvider, warningTooltip } from "../utils/entryGridShared";
 import { buildAthleteOverLimitCategoriesById } from "../domain/athleteEventLimits";
 
 interface AthletesGridProps {
@@ -24,6 +31,7 @@ interface AthletesGridProps {
   otherMeets: { id: string; name: string }[];
   individualEntries: IndividualEntry[];
   relayEntries: RelayEntry[];
+  importedEvents?: ImportedEvent[];
   athleteEventLimits?: Partial<AthleteEventLimits>;
   onAdd: () => void;
   onBulkAdd: (count: number) => void;
@@ -72,7 +80,8 @@ function HeaderWithInfo({ label, tooltip }: { label: string; tooltip: string }) 
 const SAME_NAME_AND_YEAR_TOOLTIP =
   "Another athlete has the same name and class year — verify these aren't duplicates";
 
-function renderCountCell(value: number, overLimitDetail: string | undefined) {
+function renderCountCell(value: number, overLimitDetail: string | undefined, eventNames: string[]) {
+  const countNode = <Box component="span">{value}</Box>;
   return (
     <Box
       sx={{
@@ -85,7 +94,11 @@ function renderCountCell(value: number, overLimitDetail: string | undefined) {
         gap: 0.5,
       }}
     >
-      <Box component="span">{value}</Box>
+      {eventNames.length > 0 ? (
+        <Tooltip title={warningTooltip(eventNames)}>{countNode}</Tooltip>
+      ) : (
+        countNode
+      )}
       {overLimitDetail && (
         <Tooltip title={overLimitDetail}>
           <WarningAmberIcon fontSize="small" sx={{ color: "error.main", flexShrink: 0 }} />
@@ -106,6 +119,8 @@ function renderCountCell(value: number, overLimitDetail: string | undefined) {
 function buildColumns(
   nameYearBadge: (row: Athlete) => string | undefined,
   overLimitCategoriesById: Map<string, AthleteOverLimitCategories>,
+  individualEventNamesById: Map<string, string[]>,
+  relayEventNamesById: Map<string, string[]>,
 ): GridColDef<AthleteRow>[] {
   return [
     { field: "firstName", headerName: "First Name", flex: 1, editable: true },
@@ -169,6 +184,7 @@ function buildColumns(
         renderCountCell(
           params.value as number,
           overLimitCategoriesById.get(params.row.id)?.individual,
+          individualEventNamesById.get(params.row.id) ?? [],
         ),
     },
     {
@@ -179,7 +195,11 @@ function buildColumns(
       align: "center",
       headerAlign: "center",
       renderCell: (params) =>
-        renderCountCell(params.value as number, overLimitCategoriesById.get(params.row.id)?.relay),
+        renderCountCell(
+          params.value as number,
+          overLimitCategoriesById.get(params.row.id)?.relay,
+          relayEventNamesById.get(params.row.id) ?? [],
+        ),
     },
   ];
 }
@@ -221,6 +241,7 @@ function AthletesGrid({
   otherMeets,
   individualEntries,
   relayEntries,
+  importedEvents,
   athleteEventLimits,
   onAdd,
   onBulkAdd,
@@ -261,6 +282,30 @@ function AthletesGrid({
     }));
   }, [athletes, individualEntries, relayEntries]);
 
+  const { individualEventNamesById, relayEventNamesById } = useMemo(() => {
+    const eventsByNumber = eventByNumber(importedEvents ?? []);
+    const individualNames = new Map<string, string[]>();
+    for (const entry of individualEntries) {
+      const name = eventsByNumber.get(entry.event)?.displayName ?? "Unknown Event";
+      individualNames.set(entry.athleteId, [...(individualNames.get(entry.athleteId) ?? []), name]);
+    }
+    const relayNames = new Map<string, string[]>();
+    for (const entry of relayEntries) {
+      const name = `${eventsByNumber.get(entry.event)?.displayName ?? "Unknown Event"} ${entry.relayLetter}`;
+      const legAthleteIds = new Set(
+        [entry.leg1AthleteId, entry.leg2AthleteId, entry.leg3AthleteId, entry.leg4AthleteId].filter(
+          Boolean,
+        ),
+      );
+      for (const athleteId of legAthleteIds) {
+        relayNames.set(athleteId, [...(relayNames.get(athleteId) ?? []), name]);
+      }
+    }
+    for (const names of individualNames.values()) names.sort();
+    for (const names of relayNames.values()) names.sort();
+    return { individualEventNamesById: individualNames, relayEventNamesById: relayNames };
+  }, [importedEvents, individualEntries, relayEntries]);
+
   const athleteOverLimitCategoriesById = useMemo(
     () =>
       buildAthleteOverLimitCategoriesById(
@@ -277,8 +322,10 @@ function AthletesGrid({
       buildColumns(
         duplicateBadgeProvider(athletes, athleteNameYearKey, () => SAME_NAME_AND_YEAR_TOOLTIP),
         athleteOverLimitCategoriesById,
+        individualEventNamesById,
+        relayEventNamesById,
       ),
-    [athletes, athleteOverLimitCategoriesById],
+    [athletes, athleteOverLimitCategoriesById, individualEventNamesById, relayEventNamesById],
   );
 
   return (

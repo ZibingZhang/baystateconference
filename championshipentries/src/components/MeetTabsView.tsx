@@ -199,6 +199,7 @@ function MeetTabsView({
             otherMeets={otherMeets}
             individualEntries={individualEntries}
             relayEntries={relayEntries}
+            importedEvents={importedEvents}
             athleteEventLimits={athleteEventLimits}
             onAdd={onAddAthlete ?? noop}
             onBulkAdd={onBulkAddAthletes ?? noop}
