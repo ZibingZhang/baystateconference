@@ -16,6 +16,26 @@
                 {
                   "name": "2026-2027 Winter Qualifying Standards.pdf",
                   "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=winter/qualifying-standards.pdf"
+                },
+                {
+                  "name": "2024-2025 Winter Qualifying Standards.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/qualifying-standards.pdf"
+                },
+                {
+                  "name": "2025-2026 Fall Sectionals Qualifying Times.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/qualifying-times-sectionals.pdf"
+                },
+                {
+                  "name": "2025-2026 Fall State Qualifying Times.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/qualifying-times-states.pdf"
+                },
+                {
+                  "name": "2025-2026 Winter Boys Qualifying Times.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/qualifying-times-boys.pdf"
+                },
+                {
+                  "name": "2025-2026 Winter Girls Qualifying Times.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/qualifying-times-girls.pdf"
                 }
               ]
             },
@@ -29,6 +49,519 @@
                 {
                   "name": "2026-2027 Winter Format.pdf",
                   "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=winter/format.pdf"
+                },
+                {
+                  "name": "2003-2004 Fall Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/format.pdf"
+                },
+                {
+                  "name": "2004-2005 Fall Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/format.pdf"
+                },
+                {
+                  "name": "2021-2022 Winter Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2021-2022/season=winter/format.pdf"
+                },
+                {
+                  "name": "2022-2023 Fall Format (Draft).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/format-draft.pdf"
+                },
+                {
+                  "name": "2022-2023 Winter Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/format.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/format.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Format (Draft).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/format-draft.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/format.pdf"
+                },
+                {
+                  "name": "2024-2025 Winter Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/format.pdf"
+                },
+                {
+                  "name": "2025-2026 Fall Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/format.pdf"
+                },
+                {
+                  "name": "2025-2026 Winter Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/format.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Schedules",
+              "files": [
+                {
+                  "name": "2003-2004 Fall Girls State Schedule.html",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/schedule-states-girls.html"
+                },
+                {
+                  "name": "2004-2005 Fall Girls Sectionals Schedule.html",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/schedule-sectionals-girls.html"
+                },
+                {
+                  "name": "2022-2023 Fall Girls & Boys Sectionals Schedule.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/schedule-sectionals-girls-boys.pdf"
+                },
+                {
+                  "name": "2022-2023 Fall Girls & Boys State Schedule.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/schedule-states-girls-boys.pdf"
+                },
+                {
+                  "name": "2022-2023 Winter Girls & Boys Sectionals Schedule (Draft).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/schedule-sectionals-girls-boys-draft.pdf"
+                },
+                {
+                  "name": "2022-2023 Winter Boys State Schedule.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/schedule-states-boys.pdf"
+                },
+                {
+                  "name": "2022-2023 Winter Girls State Schedule.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/schedule-states-girls.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Girls & Boys Sectionals Schedule.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/schedule-sectionals-girls-boys.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Logistics",
+              "files": [
+                {
+                  "name": "2022-2023 Winter Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/logistics.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Girls & Boys Sectionals Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/logistics-sectionals-girls-boys.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Girls & Boys State Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/logistics-states-girls-boys.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls & Boys Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/logistics-girls-boys.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls & Boys State Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/logistics-states-girls-boys.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys Sectionals Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/logistics-sectionals-girls-boys.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys State Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/logistics-states-girls-boys.pdf"
+                },
+                {
+                  "name": "2024-2025 Winter Sectionals Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/logistics-sectionals.pdf"
+                },
+                {
+                  "name": "2024-2025 Winter State Finals Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/logistics-state-finals.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Administrative",
+              "files": [
+                {
+                  "name": "2003-2004 Fall Girls State Administrative.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/administrative-states-girls.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Reference",
+              "files": [
+                {
+                  "name": "2025-2026 Fall School Abbreviations.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/school-abbreviations.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Psych Sheets",
+              "files": [
+                {
+                  "name": "2003-2004 Fall Girls State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/girls-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "2004-2005 Fall Girls North Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "2004-2005 Fall Girls South Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "2022-2023 Fall Girls Bay State Conference Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2022-2023/season=fall/girls-conference-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Girls & Boys Division 1 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-division-1-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Girls & Boys Division 2 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-division-2-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Girls & Boys North Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-north-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Girls & Boys South Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-south-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Boys Central West Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-central-west-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Boys Division 1 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-division-1-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Boys Division 2 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-division-2-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Boys North Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-north-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Boys South Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-south-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls Central West Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-central-west-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls Division 1 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-division-1-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls Division 2 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-division-2-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls North Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-north-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls South Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-south-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys Division 1 State Psych Sheet (By Event).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-1-state-psych-sheet-by-event.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys Division 1 State Psych Sheet (By School).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-1-state-psych-sheet-by-school.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys Division 2 State Psych Sheet (By Event).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-2-state-psych-sheet-by-event.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys Division 2 State Psych Sheet (By School).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-2-state-psych-sheet-by-school.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys North Sectional Psych Sheet (By Event).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-north-sectional-psych-sheet-by-event.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys North Sectional Psych Sheet (By School).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-north-sectional-psych-sheet-by-school.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys South Sectional Psych Sheet (By Event).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-south-sectional-psych-sheet-by-event.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys South Sectional Psych Sheet (By School).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-south-sectional-psych-sheet-by-school.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Programs",
+              "files": [
+                {
+                  "name": "2022-2023 Fall Girls & Boys Division 1 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/girls-boys-division-1-state-program.pdf"
+                },
+                {
+                  "name": "2022-2023 Fall Girls & Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/girls-boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "2022-2023 Winter Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "2022-2023 Winter Girls & Boys Central West Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-boys-central-west-sectional-program.pdf"
+                },
+                {
+                  "name": "2022-2023 Winter Girls North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-north-sectional-program.pdf"
+                },
+                {
+                  "name": "2022-2023 Winter Girls South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-south-sectional-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Girls & Boys North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-north-sectional-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Girls & Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Boys Central West Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-central-west-sectional-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Boys Division 1 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-division-1-state-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Boys Division 2 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-division-2-state-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Boys North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-north-sectional-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls Central West Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-central-west-sectional-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls Division 1 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-division-1-state-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls Division 2 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-division-2-state-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-north-sectional-program.pdf"
+                },
+                {
+                  "name": "2023-2024 Winter Girls South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-south-sectional-program.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys Division 1 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-1-state-program.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys Division 2 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-2-state-program.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-north-sectional-program.pdf"
+                },
+                {
+                  "name": "2024-2025 Fall Girls & Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "2024-2025 Winter Boys North/South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/boys-north-south-sectional-program.pdf"
+                },
+                {
+                  "name": "2024-2025 Winter Boys State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/boys-state-program.pdf"
+                },
+                {
+                  "name": "2024-2025 Winter Girls & Boys Central West Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/girls-boys-central-west-sectional-program.pdf"
+                },
+                {
+                  "name": "2024-2025 Winter Girls North/South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/girls-north-south-sectional-program.pdf"
+                },
+                {
+                  "name": "2024-2025 Winter Girls State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/girls-state-program.pdf"
+                },
+                {
+                  "name": "2025-2026 Fall Girls & Boys Division 1 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-division-1-state-program.pdf"
+                },
+                {
+                  "name": "2025-2026 Fall Girls & Boys Division 2 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-division-2-state-program.pdf"
+                },
+                {
+                  "name": "2025-2026 Fall Girls & Boys North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-north-sectional-program.pdf"
+                },
+                {
+                  "name": "2025-2026 Fall Girls & Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-south-sectional-program.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Athletes",
+              "files": [
+                {
+                  "name": "2003-2004 Fall Girls State Athletes.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/girls-state-athletes.pdf"
+                },
+                {
+                  "name": "2003-2004 Fall Girls State Athletes by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/girls-state-athletes-by-team.pdf"
+                },
+                {
+                  "name": "2004-2005 Fall Girls North Sectional Athletes.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-athletes.pdf"
+                },
+                {
+                  "name": "2004-2005 Fall Girls North Sectional Athletes by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-athletes-by-team.pdf"
+                },
+                {
+                  "name": "2004-2005 Fall Girls South Sectional Athletes.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-athletes.pdf"
+                },
+                {
+                  "name": "2004-2005 Fall Girls South Sectional Athletes by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-athletes-by-team.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Entries",
+              "files": [
+                {
+                  "name": "2003-2004 Fall Girls State Entries by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/girls-state-entries-by-team.pdf"
+                },
+                {
+                  "name": "2004-2005 Fall Girls North Sectional Entries by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-entries-by-team.pdf"
+                },
+                {
+                  "name": "2004-2005 Fall Girls South Sectional Entries by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-entries-by-team.pdf"
+                }
+              ]
+            },
+            {
+              "name": "List of Teams",
+              "files": [
+                {
+                  "name": "2003-2004 Fall Girls State List of Teams.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/girls-state-list-of-teams.pdf"
+                },
+                {
+                  "name": "2004-2005 Fall Girls North Sectional List of Teams.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-list-of-teams.pdf"
+                },
+                {
+                  "name": "2004-2005 Fall Girls South Sectional List of Teams.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-list-of-teams.pdf"
+                }
+              ]
+            },
+            {
+              "name": "All-Stars",
+              "files": [
+                {
+                  "name": "2013-2014 Winter Boys Bay State Conference All-Stars.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2013-2014/season=winter/boys-conference-all-stars.pdf"
+                },
+                {
+                  "name": "2023-2024 Fall Girls & Boys Bay State Conference All-Stars.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2023-2024/season=fall/girls-boys-conference-all-stars.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Team Scores",
+              "files": [
+                {
+                  "name": "2014-2015 Fall Girls & Boys Bay State Conference Team Scores.html",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2014-2015/season=fall/girls-boys-conference-team-scores.html"
+                },
+                {
+                  "name": "2015-2016 Fall Girls & Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-team-scores.pdf"
+                },
+                {
+                  "name": "2016-2017 Fall Girls & Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2016-2017/season=fall/girls-boys-conference-team-scores.pdf"
+                },
+                {
+                  "name": "2017-2018 Fall Girls & Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2017-2018/season=fall/girls-boys-conference-team-scores.pdf"
+                },
+                {
+                  "name": "2018-2019 Fall Girls & Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2018-2019/season=fall/girls-boys-conference-team-scores.pdf"
+                },
+                {
+                  "name": "2019-2020 Fall Girls & Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2019-2020/season=fall/girls-boys-conference-team-scores.pdf"
+                },
+                {
+                  "name": "2021-2022 Fall Girls Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2021-2022/season=fall/girls-conference-team-scores.pdf"
+                },
+                {
+                  "name": "2022-2023 Winter Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2022-2023/season=winter/boys-conference-team-scores.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Heat Sheets",
+              "files": [
+                {
+                  "name": "2023-2024 Fall Girls & Boys Bay State Conference Heat Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2023-2024/season=fall/girls-boys-conference-heat-sheet.pdf"
+                },
+                {
+                  "name": "2025-2026 Fall Girls & Boys Bay State Conference Heat Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2025-2026/season=fall/girls-boys-conference-heat-sheet.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Diving Entries",
+              "files": [
+                {
+                  "name": "2025-2026 Fall Girls & Boys Bay State Conference Diving Entries.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2025-2026/season=fall/girls-boys-conference-diving-entries.pdf"
                 }
               ]
             }
@@ -37,6 +570,544 @@
         {
           "name": "By School Year",
           "files": [
+            {
+              "name": "2003-2004",
+              "files": [
+                {
+                  "name": "Fall Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/format.pdf"
+                },
+                {
+                  "name": "Fall Girls State Administrative.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/administrative-states-girls.pdf"
+                },
+                {
+                  "name": "Fall Girls State Athletes by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/girls-state-athletes-by-team.pdf"
+                },
+                {
+                  "name": "Fall Girls State Athletes.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/girls-state-athletes.pdf"
+                },
+                {
+                  "name": "Fall Girls State Entries by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/girls-state-entries-by-team.pdf"
+                },
+                {
+                  "name": "Fall Girls State List of Teams.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/girls-state-list-of-teams.pdf"
+                },
+                {
+                  "name": "Fall Girls State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/girls-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "Fall Girls State Schedule.html",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2003-2004/season=fall/schedule-states-girls.html"
+                }
+              ]
+            },
+            {
+              "name": "2004-2005",
+              "files": [
+                {
+                  "name": "Fall Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/format.pdf"
+                },
+                {
+                  "name": "Fall Girls North Sectional Athletes by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-athletes-by-team.pdf"
+                },
+                {
+                  "name": "Fall Girls North Sectional Athletes.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-athletes.pdf"
+                },
+                {
+                  "name": "Fall Girls North Sectional Entries by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-entries-by-team.pdf"
+                },
+                {
+                  "name": "Fall Girls North Sectional List of Teams.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-list-of-teams.pdf"
+                },
+                {
+                  "name": "Fall Girls North Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "Fall Girls Sectionals Schedule.html",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/schedule-sectionals-girls.html"
+                },
+                {
+                  "name": "Fall Girls South Sectional Athletes by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-athletes-by-team.pdf"
+                },
+                {
+                  "name": "Fall Girls South Sectional Athletes.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-athletes.pdf"
+                },
+                {
+                  "name": "Fall Girls South Sectional Entries by Team.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-entries-by-team.pdf"
+                },
+                {
+                  "name": "Fall Girls South Sectional List of Teams.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-list-of-teams.pdf"
+                },
+                {
+                  "name": "Fall Girls South Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-psych-sheet.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2013-2014",
+              "files": [
+                {
+                  "name": "Winter Boys Bay State Conference All-Stars.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2013-2014/season=winter/boys-conference-all-stars.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2014-2015",
+              "files": [
+                {
+                  "name": "Fall Girls & Boys Bay State Conference Team Scores.html",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2014-2015/season=fall/girls-boys-conference-team-scores.html"
+                }
+              ]
+            },
+            {
+              "name": "2015-2016",
+              "files": [
+                {
+                  "name": "Fall Girls & Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-team-scores.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2016-2017",
+              "files": [
+                {
+                  "name": "Fall Girls & Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2016-2017/season=fall/girls-boys-conference-team-scores.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2017-2018",
+              "files": [
+                {
+                  "name": "Fall Girls & Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2017-2018/season=fall/girls-boys-conference-team-scores.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2018-2019",
+              "files": [
+                {
+                  "name": "Fall Girls & Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2018-2019/season=fall/girls-boys-conference-team-scores.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2019-2020",
+              "files": [
+                {
+                  "name": "Fall Girls & Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2019-2020/season=fall/girls-boys-conference-team-scores.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2021-2022",
+              "files": [
+                {
+                  "name": "Fall Girls Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2021-2022/season=fall/girls-conference-team-scores.pdf"
+                },
+                {
+                  "name": "Winter Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2021-2022/season=winter/format.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2022-2023",
+              "files": [
+                {
+                  "name": "Fall Format (Draft).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/format-draft.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Division 1 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/girls-boys-division-1-state-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Sectionals Schedule.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/schedule-sectionals-girls-boys.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/girls-boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys State Schedule.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/schedule-states-girls-boys.pdf"
+                },
+                {
+                  "name": "Fall Girls Bay State Conference Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2022-2023/season=fall/girls-conference-psych-sheet.pdf"
+                },
+                {
+                  "name": "Winter Boys Bay State Conference Team Scores.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2022-2023/season=winter/boys-conference-team-scores.pdf"
+                },
+                {
+                  "name": "Winter Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Boys State Schedule.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/schedule-states-boys.pdf"
+                },
+                {
+                  "name": "Winter Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/format.pdf"
+                },
+                {
+                  "name": "Winter Girls & Boys Central West Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-boys-central-west-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Girls & Boys Sectionals Schedule (Draft).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/schedule-sectionals-girls-boys-draft.pdf"
+                },
+                {
+                  "name": "Winter Girls North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-north-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Girls South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-south-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Girls State Schedule.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/schedule-states-girls.pdf"
+                },
+                {
+                  "name": "Winter Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/logistics.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2023-2024",
+              "files": [
+                {
+                  "name": "Fall Format (Draft).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/format-draft.pdf"
+                },
+                {
+                  "name": "Fall Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/format.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Bay State Conference All-Stars.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2023-2024/season=fall/girls-boys-conference-all-stars.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Bay State Conference Heat Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2023-2024/season=fall/girls-boys-conference-heat-sheet.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Division 1 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-division-1-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Division 2 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-division-2-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-north-sectional-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys North Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-north-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Sectionals Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/logistics-sectionals-girls-boys.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Sectionals Schedule.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/schedule-sectionals-girls-boys.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys South Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-south-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys State Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/logistics-states-girls-boys.pdf"
+                },
+                {
+                  "name": "Winter Boys Central West Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-central-west-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Boys Central West Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-central-west-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "Winter Boys Division 1 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-division-1-state-program.pdf"
+                },
+                {
+                  "name": "Winter Boys Division 1 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-division-1-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "Winter Boys Division 2 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-division-2-state-program.pdf"
+                },
+                {
+                  "name": "Winter Boys Division 2 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-division-2-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "Winter Boys North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-north-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Boys North Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-north-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "Winter Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Boys South Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-south-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "Winter Girls & Boys Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/logistics-girls-boys.pdf"
+                },
+                {
+                  "name": "Winter Girls & Boys State Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/logistics-states-girls-boys.pdf"
+                },
+                {
+                  "name": "Winter Girls Central West Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-central-west-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Girls Central West Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-central-west-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "Winter Girls Division 1 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-division-1-state-program.pdf"
+                },
+                {
+                  "name": "Winter Girls Division 1 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-division-1-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "Winter Girls Division 2 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-division-2-state-program.pdf"
+                },
+                {
+                  "name": "Winter Girls Division 2 State Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-division-2-state-psych-sheet.pdf"
+                },
+                {
+                  "name": "Winter Girls North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-north-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Girls North Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-north-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "Winter Girls South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-south-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Girls South Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-south-sectional-psych-sheet.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2024-2025",
+              "files": [
+                {
+                  "name": "Fall Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/format.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Division 1 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-1-state-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Division 1 State Psych Sheet (By Event).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-1-state-psych-sheet-by-event.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Division 1 State Psych Sheet (By School).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-1-state-psych-sheet-by-school.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Division 2 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-2-state-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Division 2 State Psych Sheet (By Event).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-2-state-psych-sheet-by-event.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Division 2 State Psych Sheet (By School).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-division-2-state-psych-sheet-by-school.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-north-sectional-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys North Sectional Psych Sheet (By Event).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-north-sectional-psych-sheet-by-event.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys North Sectional Psych Sheet (By School).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-north-sectional-psych-sheet-by-school.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Sectionals Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/logistics-sectionals-girls-boys.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys South Sectional Psych Sheet (By Event).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-south-sectional-psych-sheet-by-event.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys South Sectional Psych Sheet (By School).pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-south-sectional-psych-sheet-by-school.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys State Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/logistics-states-girls-boys.pdf"
+                },
+                {
+                  "name": "Winter Boys North/South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/boys-north-south-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Boys State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/boys-state-program.pdf"
+                },
+                {
+                  "name": "Winter Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/format.pdf"
+                },
+                {
+                  "name": "Winter Girls & Boys Central West Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/girls-boys-central-west-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Girls North/South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/girls-north-south-sectional-program.pdf"
+                },
+                {
+                  "name": "Winter Girls State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/girls-state-program.pdf"
+                },
+                {
+                  "name": "Winter Qualifying Standards.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/qualifying-standards.pdf"
+                },
+                {
+                  "name": "Winter Sectionals Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/logistics-sectionals.pdf"
+                },
+                {
+                  "name": "Winter State Finals Logistics.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/logistics-state-finals.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2025-2026",
+              "files": [
+                {
+                  "name": "Fall Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/format.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Bay State Conference Diving Entries.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2025-2026/season=fall/girls-boys-conference-diving-entries.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Bay State Conference Heat Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2025-2026/season=fall/girls-boys-conference-heat-sheet.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Division 1 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-division-1-state-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys Division 2 State Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-division-2-state-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-north-sectional-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "Fall School Abbreviations.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/school-abbreviations.pdf"
+                },
+                {
+                  "name": "Fall Sectionals Qualifying Times.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/qualifying-times-sectionals.pdf"
+                },
+                {
+                  "name": "Fall State Qualifying Times.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/qualifying-times-states.pdf"
+                },
+                {
+                  "name": "Winter Boys Qualifying Times.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/qualifying-times-boys.pdf"
+                },
+                {
+                  "name": "Winter Format.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/format.pdf"
+                },
+                {
+                  "name": "Winter Girls Qualifying Times.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/qualifying-times-girls.pdf"
+                }
+              ]
+            },
             {
               "name": "2026-2027",
               "files": [
@@ -251,6 +1322,10 @@
                 {
                   "name": "2013-2014 Fall Girls & Boys Results.pdf",
                   "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2013-2014/season=fall/girls-boys-conference-results.pdf"
+                },
+                {
+                  "name": "2014-2015 Fall Girls & Boys Results.sd3",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2014-2015/season=fall/girls-boys-conference-results.sd3"
                 },
                 {
                   "name": "2015-2016 Fall Girls & Boys Results.pdf",
@@ -2158,6 +3233,10 @@
             {
               "name": "2014-2015",
               "files": [
+                {
+                  "name": "Fall Bay State Conference Girls & Boys Results.sd3",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2014-2015/season=fall/girls-boys-conference-results.sd3"
+                },
                 {
                   "name": "Fall Girls & Boys Division 1 State Results.txt",
                   "s3Path": "organization=miaa/sport=swimming-diving/year=2014-2015/season=fall/girls-boys-division-1-state-results.txt"

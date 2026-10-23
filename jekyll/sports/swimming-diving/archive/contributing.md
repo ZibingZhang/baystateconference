@@ -48,8 +48,10 @@ Years with nothing on file at all, sitting in the middle of otherwise-covered ra
 
 | Season      | Missing years                                                                        |
 | ----------- | ------------------------------------------------------------------------------------ |
-| Fall        | 2010-2011, 2011-2012, 2012-2013, 2014-2015                                           |
+| Fall        | 2010-2011, 2011-2012, 2012-2013, 2014-2015\*                                         |
 | Fall (Boys) | 2021-2022, 2022-2023                                                                 |
+
+\* 2014-2015 has a raw `.sd3` (Hy-Tek Meet Manager) results export on file, but no PDF — still counts as a gap until a human-readable version turns up.
 | Winter      | No results on file before 2016-2017; then 2019-2020, 2023-2024, 2024-2025, 2025-2026 |
 
 <script src="{{ '/assets/js/obfuscated-email.js' | relative_url }}" defer></script>
