@@ -22,6 +22,20 @@ $on-laptop:        800px !default;
 $on-medium:        $on-palm !default;
 $on-large:         $on-laptop !default;
 
+// Shared design tokens for the custom components in base.scss/layout.scss -
+// not part of the upstream minima theme, just names for magic numbers that
+// otherwise get repeated verbatim across several unrelated components.
+$radius-xs:       3px !default;
+$radius-sm:       4px !default;
+$radius-md:       5px !default;
+$radius-lg:       6px !default;
+$radius-pill:     999px !default;
+
+$panel-row-padding: $spacing-unit * 0.4 $spacing-unit * 0.5 !default;
+
+$shadow-dropdown: 0 4px 8px rgba(0, 0, 0, 0.08) !default;
+$shadow-popover:  0 4px 12px rgba(0, 0, 0, 0.15) !default;
+
 // Use media queries like this:
 // @include media-query($on-palm) {
 //   .wrapper {

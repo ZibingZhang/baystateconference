@@ -186,7 +186,7 @@ pre {
 div.highlight, figure.highlight {
   @extend %vertical-rhythm;
   border: 1px solid $border-color-01;
-  border-radius: 3px;
+  border-radius: $radius-xs;
   pre { margin: 0 }
   table, tbody, th, tr, td {
     border: 0;
@@ -204,7 +204,7 @@ figure.highlight {
 
 code.highlighter-rouge {
   border: 1px solid $border-color-01;
-  border-radius: 3px;
+  border-radius: $radius-xs;
   font-size: 14px;
   padding: 1px 5px;
 }

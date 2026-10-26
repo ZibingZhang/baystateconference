@@ -59,8 +59,8 @@
 .appearance-menu-list {
   background-color: $background-color;
   border: 1px solid $border-color-01;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  border-radius: $radius-md;
+  box-shadow: $shadow-dropdown;
   list-style: none;
   margin: 4px 0 0;
   min-width: 170px;
@@ -186,8 +186,8 @@
   .nav-subitems {
     background-color: $background-color;
     border: 1px solid $border-color-01;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    border-radius: $radius-md;
+    box-shadow: $shadow-dropdown;
     display: none;
     left: 0;
     list-style: none;
@@ -222,7 +222,7 @@
   @include media-query($on-medium) {
     background-color: $background-color;
     border: 1px solid $border-color-01;
-    border-radius: 5px;
+    border-radius: $radius-md;
     margin-top: $spacing-unit * 0.3;
     text-align: left;
     width: auto;
@@ -543,11 +543,53 @@
   align-items: center;
   background-color: $code-background-color;
   border: 1px solid $border-color-01;
-  border-radius: 6px;
+  border-radius: $radius-lg;
   color: inherit;
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+// A plain bordered, rounded container with a bottom margin - shared by the
+// three unrelated browser-ish panels below (.file-browser, .directory-browser,
+// .external-file-viewer) that otherwise repeat these same three properties
+// verbatim.
+%bordered-panel {
+  border: 1px solid $border-color-01;
+  border-radius: $radius-lg;
+  margin-bottom: $spacing-unit;
+}
+
+// The flex header row sitting atop a %bordered-panel (e.g.
+// .file-browser-search, .external-file-toolbar) - rounded on top only, since
+// it's flush against the panel's own border below it.
+%panel-toolbar {
+  align-items: center;
+  background-color: $code-background-color;
+  border-bottom: 1px solid $border-color-01;
+  border-radius: $radius-lg $radius-lg 0 0;
+  display: flex;
+  padding: $panel-row-padding;
+}
+
+// A borderless icon button used throughout the file/directory browsers
+// (toggles, nav arrows, copy buttons, ...) - just a clickable icon with a
+// dimmed default color that brightens on hover/focus. Callers add their own
+// `flex` and any extra hover/active states (e.g. `&.is-active`,
+// `&[aria-pressed="true"]`) on top.
+%icon-button {
+  align-items: center;
+  background: none;
+  border: none;
+  color: $brand-color-dimmed;
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+
+  &:hover,
+  &:focus-visible {
+    color: $text-color;
+  }
 }
 
 .school-grid {
@@ -583,7 +625,7 @@
   align-items: center;
   background-color: $code-background-color;
   border: 1px solid $border-color-01;
-  border-radius: 6px;
+  border-radius: $radius-lg;
   display: flex;
   flex-direction: column;
   margin: 0 auto $spacing-unit;
@@ -784,7 +826,7 @@
     &:hover::after,
     &:focus-visible::after {
       background-color: #1a1a1a;
-      border-radius: 4px;
+      border-radius: $radius-sm;
       bottom: 100%;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
       color: #ffffff;
@@ -868,7 +910,7 @@
 .schedule-filter-chip {
   background-color: $code-background-color;
   border: 1px solid $border-color-01;
-  border-radius: 999px;
+  border-radius: $radius-pill;
   color: $text-color;
   cursor: pointer;
   flex-shrink: 0; // keeps chips full-width instead of squishing when the row scrolls (see .schedule-filter)
@@ -1028,7 +1070,7 @@
 .countdown-item {
   background-color: $code-background-color;
   border: 1px solid $border-color-01;
-  border-radius: 6px;
+  border-radius: $radius-lg;
   flex: 0 1 200px;
   padding: $spacing-unit * 0.5;
   text-align: center;
@@ -1054,7 +1096,7 @@
   align-items: center;
   background-color: $code-background-color;
   border: 1px solid $border-color-01;
-  border-radius: 6px;
+  border-radius: $radius-lg;
   display: flex;
   gap: $spacing-unit * 0.5;
   margin-bottom: $spacing-unit;
@@ -1186,19 +1228,12 @@ article.post:has(table) {
 }
 
 .file-browser {
-  border: 1px solid $border-color-01;
-  border-radius: 6px;
-  margin-bottom: $spacing-unit;
+  @extend %bordered-panel;
 }
 
 .file-browser-search {
-  align-items: center;
-  background-color: $code-background-color;
-  border-bottom: 1px solid $border-color-01;
-  border-radius: 6px 6px 0 0;
-  display: flex;
+  @extend %panel-toolbar;
   gap: 10px;
-  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
   position: relative; // anchors .file-browser-shortcuts-popover
 
   .material-symbols-outlined {
@@ -1222,33 +1257,14 @@ article.post:has(table) {
 }
 
 .file-browser-sort-toggle {
-  align-items: center;
-  background: none;
-  border: none;
-  color: $brand-color-dimmed;
-  cursor: pointer;
-  display: flex;
+  @extend %icon-button;
   flex: 0 0 auto;
-  padding: 0;
-
-  &:hover,
-  &:focus-visible {
-    color: $text-color;
-  }
 }
 
 .file-browser-select-toggle {
-  align-items: center;
-  background: none;
-  border: none;
-  color: $brand-color-dimmed;
-  cursor: pointer;
-  display: flex;
+  @extend %icon-button;
   flex: 0 0 auto;
-  padding: 0;
 
-  &:hover,
-  &:focus-visible,
   &[aria-pressed="true"] {
     color: $text-color;
   }
@@ -1263,16 +1279,8 @@ article.post:has(table) {
 // whenever at least one tag is checked) so the filter is visible even with
 // the popover closed.
 .file-browser-tag-picker-toggle {
-  align-items: center;
-  background: none;
-  border: none;
-  color: $brand-color-dimmed;
-  cursor: pointer;
-  display: flex;
-  padding: 0;
+  @extend %icon-button;
 
-  &:hover,
-  &:focus-visible,
   &.is-active {
     color: $text-color;
   }
@@ -1283,19 +1291,8 @@ article.post:has(table) {
 }
 
 .file-browser-shortcuts-toggle {
-  align-items: center;
-  background: none;
-  border: none;
-  color: $brand-color-dimmed;
-  cursor: pointer;
-  display: flex;
+  @extend %icon-button;
   flex: 0 0 auto;
-  padding: 0;
-
-  &:hover,
-  &:focus-visible {
-    color: $text-color;
-  }
 
   // Keyboard shortcuts aren't actionable on touch devices, so the entry
   // point for them is hidden rather than shown with nothing to discover.
@@ -1307,8 +1304,8 @@ article.post:has(table) {
 .file-browser-shortcuts-popover {
   background-color: $background-color;
   border: 1px solid $border-color-01;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-popover;
   margin-top: 6px;
   padding: $spacing-unit * 0.5 $spacing-unit * 0.6;
   position: absolute;
@@ -1334,7 +1331,7 @@ article.post:has(table) {
   kbd {
     background-color: $code-background-color;
     border: 1px solid $border-color-01;
-    border-radius: 4px;
+    border-radius: $radius-sm;
     padding: 1px 6px;
     @include relative-font-size(0.8);
   }
@@ -1351,8 +1348,8 @@ article.post:has(table) {
 .file-browser-tag-picker-popover {
   background-color: $background-color;
   border: 1px solid $border-color-01;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-popover;
   margin-top: 6px;
   max-height: 320px;
   overflow-y: auto;
@@ -1372,7 +1369,7 @@ article.post:has(table) {
 
 .file-browser-tag-picker-item {
   align-items: center;
-  border-radius: 4px;
+  border-radius: $radius-sm;
   cursor: pointer;
   display: flex;
   gap: 8px;
@@ -1396,7 +1393,7 @@ article.post:has(table) {
   gap: 6px;
   list-style: none;
   margin: 0;
-  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+  padding: $panel-row-padding;
 
   &[hidden] {
     display: none;
@@ -1407,7 +1404,7 @@ article.post:has(table) {
   align-items: center;
   background-color: $code-background-color;
   border: 1px solid $border-color-01;
-  border-radius: 999px;
+  border-radius: $radius-pill;
   color: $text-color;
   display: flex;
   gap: 6px;
@@ -1436,7 +1433,7 @@ article.post:has(table) {
   border-bottom: 1px solid $border-color-01;
   display: flex;
   gap: 10px;
-  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+  padding: $panel-row-padding;
 
   &[hidden] {
     display: none;
@@ -1446,7 +1443,7 @@ article.post:has(table) {
 .file-browser-select-all {
   background: none;
   border: 1px solid $border-color-01;
-  border-radius: 4px;
+  border-radius: $radius-sm;
   color: $text-color;
   cursor: pointer;
   flex: 0 0 auto;
@@ -1474,7 +1471,7 @@ article.post:has(table) {
   align-items: center;
   background-color: $code-background-color;
   border: 1px solid $border-color-01;
-  border-radius: 4px;
+  border-radius: $radius-sm;
   color: $text-color;
   cursor: pointer;
   display: flex;
@@ -1501,15 +1498,12 @@ article.post:has(table) {
 }
 
 .file-browser-nav-btn {
-  align-items: center;
-  background: none;
-  border: none;
-  color: $brand-color-dimmed;
-  cursor: pointer;
-  display: flex;
+  @extend %icon-button;
   flex: 0 0 auto;
-  padding: 0;
 
+  // :not(:disabled) overrides %icon-button's plain hover rule - a disabled
+  // button can't receive :focus-visible, but it can still be :hover'd, and
+  // without this it would brighten on hover despite being unclickable.
   &:hover:not(:disabled),
   &:focus-visible:not(:disabled) {
     color: $text-color;
@@ -1580,7 +1574,7 @@ article.post:has(table) {
     flex: 1 1 auto;
     gap: 10px;
     min-width: 0;
-    padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+    padding: $panel-row-padding;
 
     &:hover {
       background-color: $code-background-color;
@@ -1609,7 +1603,7 @@ article.post:has(table) {
   cursor: pointer;
   display: flex;
   flex: 0 0 auto;
-  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+  padding: $panel-row-padding;
 
   &:hover,
   &:focus-visible {
@@ -1693,12 +1687,12 @@ article.post:has(table) {
 
 .file-browser-count {
   background-color: $background-color;
-  border-radius: 0 0 6px 6px;
+  border-radius: 0 0 $radius-lg $radius-lg;
   border-top: 1px solid $border-color-01;
   bottom: 0;
   color: $brand-color-dimmed;
   margin: 0;
-  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+  padding: $panel-row-padding;
   position: sticky;
   text-align: center;
   @include relative-font-size(0.85);
@@ -1721,20 +1715,13 @@ article.post:has(table) {
 }
 
 .external-file-viewer {
-  border: 1px solid $border-color-01;
-  border-radius: 6px;
-  margin-bottom: $spacing-unit;
+  @extend %bordered-panel;
 }
 
 .external-file-toolbar {
-  align-items: center;
-  background-color: $code-background-color;
-  border-bottom: 1px solid $border-color-01;
-  border-radius: 6px 6px 0 0;
-  display: flex;
+  @extend %panel-toolbar;
   gap: $spacing-unit * 0.5;
   justify-content: space-between;
-  padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
 }
 
 .external-file-name {
@@ -1752,16 +1739,8 @@ article.post:has(table) {
 }
 
 .external-file-copy-btn {
-  align-items: center;
-  background: none;
-  border: none;
-  color: $brand-color-dimmed;
-  cursor: pointer;
-  display: flex;
-  padding: 0;
+  @extend %icon-button;
 
-  &:hover,
-  &:focus-visible,
   &.is-copied {
     color: $text-color;
   }
@@ -1812,9 +1791,7 @@ article.post:has(table) {
 }
 
 .directory-browser {
-  border: 1px solid $border-color-01;
-  border-radius: 6px;
-  margin-bottom: $spacing-unit;
+  @extend %bordered-panel;
 }
 
 .directory-tree {
@@ -1847,7 +1824,7 @@ article.post:has(table) {
     flex: 1 1 auto;
     gap: 10px;
     min-width: 0;
-    padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+    padding: $panel-row-padding;
 
     &:hover {
       background-color: $code-background-color;
@@ -1872,7 +1849,7 @@ article.post:has(table) {
     display: flex;
     gap: 10px;
     list-style: none;
-    padding: $spacing-unit * 0.4 $spacing-unit * 0.5;
+    padding: $panel-row-padding;
 
     &::-webkit-details-marker {
       display: none;
@@ -1901,19 +1878,8 @@ article.post:has(table) {
 }
 
 .directory-expand-toggle {
-  align-items: center;
-  background: none;
-  border: none;
-  color: $brand-color-dimmed;
-  cursor: pointer;
-  display: flex;
+  @extend %icon-button;
   flex: 0 0 auto;
-  padding: 0;
-
-  &:hover,
-  &:focus-visible {
-    color: $text-color;
-  }
 }
 
 .directory-caret {
