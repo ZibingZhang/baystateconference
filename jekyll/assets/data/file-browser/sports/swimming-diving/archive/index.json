@@ -553,6 +553,10 @@
                 {
                   "name": "2025-2026 Fall Girls & Boys Bay State Conference Heat Sheet.pdf",
                   "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2025-2026/season=fall/girls-boys-conference-heat-sheet.pdf"
+                },
+                {
+                  "name": "2026-2027 Fall Girls & Boys Bay State Conference Heat Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2026-2027/season=fall/girls-boys-conference-heat-sheet.pdf"
                 }
               ]
             },
@@ -1116,6 +1120,10 @@
                   "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/format.pdf"
                 },
                 {
+                  "name": "Fall Girls & Boys Bay State Conference Heat Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2026-2027/season=fall/girls-boys-conference-heat-sheet.pdf"
+                },
+                {
                   "name": "Fall Qualifying Standards.pdf",
                   "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/qualifying-standards.pdf"
                 },
@@ -1394,6 +1402,10 @@
                 {
                   "name": "2025-2026 Fall Girls & Boys Results.pdf",
                   "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2025-2026/season=fall/girls-boys-conference-results.pdf"
+                },
+                {
+                  "name": "2026-2027 Fall Girls & Boys Results.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2026-2027/season=fall/girls-boys-conference-results.pdf"
                 }
               ]
             },
@@ -3978,6 +3990,15 @@
                 {
                   "name": "Winter Girls South Sectional Results.pdf",
                   "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/girls-south-sectional-results.pdf"
+                }
+              ]
+            },
+            {
+              "name": "2026-2027",
+              "files": [
+                {
+                  "name": "Fall Bay State Conference Girls & Boys Results.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2026-2027/season=fall/girls-boys-conference-results.pdf"
                 }
               ]
             }
