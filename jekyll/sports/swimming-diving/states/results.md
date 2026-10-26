@@ -5,7 +5,7 @@ permalink: /sports/swimming-diving/states/results/
 breadcrumb: Results
 internal_links:
   - title: Archive
-    url: /sports/swimming-diving/resources/archive/?path=meet-results/by-meet/states
+    url: /sports/swimming-diving/archive/?path=meet-results/by-meet/states
   - title: Rankings
     url: /sports/swimming-diving/states/rankings/
   - title: Records

@@ -5,7 +5,7 @@ permalink: /sports/swimming-diving/sectionals/results/
 breadcrumb: Results
 internal_links:
   - title: Archive
-    url: /sports/swimming-diving/resources/archive/?path=meet-results/by-meet/sectionals
+    url: /sports/swimming-diving/archive/?path=meet-results/by-meet/sectionals
   - title: Rankings
     url: /sports/swimming-diving/sectionals/rankings/
   - title: Records
