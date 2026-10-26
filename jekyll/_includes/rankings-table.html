@@ -23,5 +23,14 @@
     </tr>
     {%- endfor -%}
   </tbody>
+  {%- comment -%}
+    A <tfoot>, not another <tbody> row, so this doesn't shift tbody's
+    nth-child zebra striping. Forces this 3-column table to fill the full
+    width on mobile - see .table-stretch-cell in _base.scss for why a plain
+    Place/School/Score table needs this.
+  {%- endcomment -%}
+  <tfoot>
+    <tr aria-hidden="true"><td class="table-stretch-cell" colspan="3"></td></tr>
+  </tfoot>
 </table>
 {%- endif -%}

@@ -296,6 +296,16 @@ table {
     border: 1px solid $table-border-color;
   }
 
+  // Always collapsed, regardless of viewport: this cell exists purely to
+  // force the mobile anonymous-table width fix below (.table-stretch-cell),
+  // and must never take up visible space at any width.
+  .table-stretch-cell {
+    border: 0;
+    height: 0;
+    line-height: 0;
+    padding: 0;
+  }
+
   @include media-query($on-laptop) {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-overflow-scrolling: touch;
@@ -313,10 +323,24 @@ table {
     // - using a container query unit here since a percentage would resolve
     // against the same indeterminate anonymous box (see the `:has(table)`
     // rule on .post-content in _layout.scss for the container it measures
-    // against). Multi-column tables are unaffected: their cells always have
-    // sibling cells, so :only-child never matches, leaving wide tables (e.g.
-    // the qualifying-standards page) free to overflow and scroll as before.
+    // against). Multi-column tables are mostly unaffected in practice: their
+    // cells always have sibling cells, so :only-child never matches, and
+    // content across several columns is usually enough to fill the
+    // container on its own, leaving wide tables (e.g. the
+    // qualifying-standards page) free to overflow and scroll as before.
+    // But a narrow multi-column table (e.g. the Place/School/Score rankings
+    // table) can still shrink short of the full width - most visible on iOS
+    // Safari, which shrink-to-fits the anonymous box more aggressively than
+    // desktop browsers do for the same markup. .table-stretch-cell is the
+    // multi-column equivalent of the :only-child fix above: a hidden cell
+    // spanning every column (see rankings-table.html) whose min-width forces
+    // the anonymous table - and so the real columns it's spread across - to
+    // add up to the full container width.
     tr > :only-child {
+      min-width: 100cqw;
+    }
+
+    .table-stretch-cell {
       min-width: 100cqw;
     }
   }
