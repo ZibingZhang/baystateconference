@@ -733,6 +733,13 @@
     opacity: 0.5;
   }
 
+  // Base colors for the win/loss/tie cells below, so the no-contest cell's
+  // solid background can share the tie cell's gray instead of repeating it.
+  $dual-meet-win-color: rgb(34, 139, 34);
+  $dual-meet-loss-color: rgb(178, 34, 34);
+  $dual-meet-tie-color: rgb(128, 128, 128);
+  $dual-meet-result-opacity: 0.3;
+
   .dual-meet-matrix-win,
   .dual-meet-matrix-loss,
   .dual-meet-matrix-tie {
@@ -740,15 +747,34 @@
   }
 
   .dual-meet-matrix-win {
-    background-color: rgba(34, 139, 34, 0.3);
+    background-color: rgba($dual-meet-win-color, $dual-meet-result-opacity);
   }
 
   .dual-meet-matrix-loss {
-    background-color: rgba(178, 34, 34, 0.3);
+    background-color: rgba($dual-meet-loss-color, $dual-meet-result-opacity);
   }
 
   .dual-meet-matrix-tie {
-    background-color: rgba(128, 128, 128, 0.3);
+    background-color: rgba($dual-meet-tie-color, $dual-meet-result-opacity);
+  }
+
+  // Forfeit wins/losses keep the win/loss background from above and just
+  // add a hatch pattern on top, so they stay visually distinct from a
+  // regular W/L without needing their own color.
+  .dual-meet-matrix-forfeit {
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.15) 0,
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+  }
+
+  .dual-meet-matrix-no-contest {
+    background-color: $dual-meet-tie-color;
+    color: #ffffff;
+    font-weight: 600;
   }
 
   td[data-tooltip] {
