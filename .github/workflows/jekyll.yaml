@@ -46,7 +46,11 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
+    # Pinned rather than ubuntu-latest: that briefly resolved to ubuntu-26.04
+    # before ruby/setup-ruby recognized it as a GitHub-hosted image, which
+    # made it try to build Ruby from source instead of using the cached
+    # toolchain.
+    runs-on: ubuntu-24.04
     # For push/workflow_dispatch/schedule events there's no fetch conclusion
     # to check, so only the workflow_run event (triggered by Fetch Schedule
     # Data completing) needs gating - skip it if that fetch failed.
