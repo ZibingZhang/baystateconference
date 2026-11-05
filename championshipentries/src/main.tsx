@@ -11,6 +11,9 @@ import "./index.css";
 import theme from "./theme.ts";
 import PaletteContextProvider from "./theme/PaletteContext.tsx";
 import App from "./App.tsx";
+import loadCloudflareAnalytics from "./cloudflareAnalytics.ts";
+
+loadCloudflareAnalytics();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

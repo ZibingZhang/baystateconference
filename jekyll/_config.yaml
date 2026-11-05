@@ -26,6 +26,11 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://baystateconference.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  zibingzhang
 
+# Cloudflare Web Analytics beacon token.
+# Visit /analytics/skip/ on a device to exclude it from tracking (see
+# _includes/cloudflare-analytics.html), or /analytics/no-skip/ to re-include it.
+cloudflare_analytics_token: "21b1e5f9582d4343bc569b6d19a902bb"
+
 # Root URL of the S3/CloudFront bucket that hosts externally-linked documents
 # (e.g. meet result PDFs). File-browser s3Path paths, and any `path` passed
 # to _includes/link-list.html or /resources/external-file/, are resolved

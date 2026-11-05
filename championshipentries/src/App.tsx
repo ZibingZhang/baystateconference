@@ -143,9 +143,12 @@ function App() {
 
   const handleConfirmPrintPsychSheet = (hideEmptyEvents: boolean) => {
     if (!selectedMeet || !importedEvents) return;
-    const groups = buildPsychSheet(importedEvents, athletes, individualEntries, relayEntries).filter(
-      (g) => !hideEmptyEvents || g.entries.length > 0,
-    );
+    const groups = buildPsychSheet(
+      importedEvents,
+      athletes,
+      individualEntries,
+      relayEntries,
+    ).filter((g) => !hideEmptyEvents || g.entries.length > 0);
     printPsychSheet(selectedMeet.name, groups);
   };
 

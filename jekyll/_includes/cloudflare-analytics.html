@@ -1,0 +1,12 @@
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem("skip_analytics") === "true") return;
+    } catch {}
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    script.setAttribute("data-cf-beacon", '{"token": "{{ site.cloudflare_analytics_token }}"}');
+    document.head.appendChild(script);
+  })();
+</script>
