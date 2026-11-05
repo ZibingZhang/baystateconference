@@ -298,6 +298,14 @@
                 {
                   "name": "2024-2025 Fall Girls & Boys South Sectional Psych Sheet (By School).pdf",
                   "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-south-sectional-psych-sheet-by-school.pdf"
+                },
+                {
+                  "name": "2026-2027 Fall Girls & Boys North Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-north-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "2026-2027 Fall Girls & Boys South Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-south-sectional-psych-sheet.pdf"
                 }
               ]
             },
@@ -427,6 +435,14 @@
                 {
                   "name": "2025-2026 Fall Girls & Boys South Sectional Program.pdf",
                   "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "2026-2027 Fall Girls & Boys North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-north-sectional-program.pdf"
+                },
+                {
+                  "name": "2026-2027 Fall Girls & Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-south-sectional-program.pdf"
                 }
               ]
             },
@@ -473,6 +489,23 @@
                 {
                   "name": "2004-2005 Fall Girls South Sectional Entries by Team.pdf",
                   "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-entries-by-team.pdf"
+                }
+              ]
+            },
+            {
+              "name": "Entry Order",
+              "files": [
+                {
+                  "name": "2026-2027 Fall North Sectional Entry Order.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/north-sectional-entry-order.pdf"
+                },
+                {
+                  "name": "2026-2027 Fall South Sectional Entry Order.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/south-sectional-entry-order.pdf"
+                },
+                {
+                  "name": "2026-2027 Fall State Entry Order.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/state-entry-order.pdf"
                 }
               ]
             },
@@ -1124,8 +1157,36 @@
                   "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2026-2027/season=fall/girls-boys-conference-heat-sheet.pdf"
                 },
                 {
+                  "name": "Fall Girls & Boys North Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-north-sectional-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys North Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-north-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys South Sectional Program.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-south-sectional-program.pdf"
+                },
+                {
+                  "name": "Fall Girls & Boys South Sectional Psych Sheet.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-south-sectional-psych-sheet.pdf"
+                },
+                {
+                  "name": "Fall North Sectional Entry Order.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/north-sectional-entry-order.pdf"
+                },
+                {
                   "name": "Fall Qualifying Standards.pdf",
                   "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/qualifying-standards.pdf"
+                },
+                {
+                  "name": "Fall South Sectional Entry Order.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/south-sectional-entry-order.pdf"
+                },
+                {
+                  "name": "Fall State Entry Order.pdf",
+                  "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/state-entry-order.pdf"
                 },
                 {
                   "name": "Winter Format.pdf",
