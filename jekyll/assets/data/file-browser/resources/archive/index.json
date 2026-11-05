@@ -1,5 +1,14 @@
 {
   "files": [{
+    "name": "Sport Specific Archives",
+    "files": [
+      {
+        "name": "Swimming & Diving Archive",
+        "url": "/sports/swimming-diving/archive/"
+      }
+    ]
+  },
+  {
     "name": "EZStream",
     "files": [
       {
