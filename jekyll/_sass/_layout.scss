@@ -859,7 +859,19 @@
 
   table {
     margin-top: $spacing-unit * 0.5;
+
+    th, td {
+      white-space: nowrap;
+    }
   }
+}
+
+// Wraps the .dual-meet-results table (see dual-meet-results-group.html) so
+// it can scroll horizontally on narrow screens instead of wrapping cells
+// onto multiple lines - same tradeoff as .schedule-table-scroll.
+.dual-meet-results-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
 }
 
 // Wraps .schedule-table so it can scroll horizontally on narrow screens
