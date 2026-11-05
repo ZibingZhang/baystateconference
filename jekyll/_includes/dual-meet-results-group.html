@@ -61,14 +61,32 @@
           {%- assign match2 = meets | where: "Team 1", col_team | where: "Team 2", row_team -%}
           {%- assign match = match1 | concat: match2 | first -%}
 
-          {%- assign date_display = match["Date"] | date: "%b %-d, %Y" -%}
-          {%- if match["Date"] == nil or match["Date"] == "" -%}
-            {%- assign date_display = "date UNK" -%}
+          {%- assign date_known = false -%}
+          {%- if match["Date"] != nil and match["Date"] != "" -%}
+            {%- assign date_known = true -%}
+            {%- assign date_display = match["Date"] | date: "%b %-d, %Y" -%}
           {%- endif -%}
 
-          {%- assign location_display = match["Location"] -%}
-          {%- if location_display == nil or location_display == "" -%}
-            {%- assign location_display = "location UNK" -%}
+          {%- assign location_known = false -%}
+          {%- if match["Location"] != nil and match["Location"] != "" -%}
+            {%- assign location_known = true -%}
+            {%- assign location_display = match["Location"] -%}
+          {%- endif -%}
+
+          {%- assign meta = "" -%}
+          {%- if date_known -%}
+            {%- assign meta = date_display -%}
+          {%- endif -%}
+          {%- if location_known -%}
+            {%- if date_known -%}
+              {%- assign meta = meta | append: " @ " | append: location_display -%}
+            {%- else -%}
+              {%- assign meta = location_display -%}
+            {%- endif -%}
+          {%- endif -%}
+          {%- assign meta_suffix = "" -%}
+          {%- if meta != "" -%}
+            {%- assign meta_suffix = " · " | append: meta -%}
           {%- endif -%}
 
           {%- assign has_score = false -%}
@@ -92,7 +110,7 @@
             {%- endif -%}
             {%- assign row_score_num = row_score | plus: 0 -%}
             {%- assign col_score_num = col_score | plus: 0 -%}
-            {%- capture tooltip -%}{{ row_team }} {{ row_score }} – {{ col_team }} {{ col_score }} · {{ date_display }} @ {{ location_display }}{%- endcapture -%}
+            {%- capture tooltip -%}{{ row_team }} {{ row_score }} – {{ col_team }} {{ col_score }}{{ meta_suffix }}{%- endcapture -%}
             {%- if row_score_num > col_score_num -%}
             <td class="dual-meet-matrix-win" tabindex="0" data-tooltip="{{ tooltip | escape }}">{{ row_score }}–{{ col_score }}</td>
             {%- elsif row_score_num < col_score_num -%}
@@ -114,7 +132,7 @@
             {%- else -%}
               {%- assign row_result = team_1_result -%}
             {%- endif -%}
-            {%- capture tooltip -%}{{ row_team }} vs {{ col_team }} · {{ date_display }} @ {{ location_display }}{%- endcapture -%}
+            {%- capture tooltip -%}{{ row_team }} vs {{ col_team }}{{ meta_suffix }}{%- endcapture -%}
             {%- if row_result == "W" -%}
             <td class="dual-meet-matrix-win" tabindex="0" data-tooltip="{{ tooltip | escape }}">W</td>
             {%- elsif row_result == "L" -%}
@@ -129,7 +147,7 @@
             <td class="dual-meet-matrix-tie" tabindex="0" data-tooltip="{{ tooltip | escape }}">T</td>
             {%- endif -%}
           {%- else -%}
-            {%- capture tooltip -%}{{ row_team }} vs {{ col_team }} · {{ date_display }} @ {{ location_display }}{%- endcapture -%}
+            {%- capture tooltip -%}{{ row_team }} vs {{ col_team }}{{ meta_suffix }}{%- endcapture -%}
             <td class="dual-meet-matrix-tbd" tabindex="0" data-tooltip="{{ tooltip | escape }}"></td>
           {%- endif -%}
         {%- endif -%}
