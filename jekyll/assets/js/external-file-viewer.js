@@ -1,3 +1,10 @@
+function isIOS() {
+  return (
+    /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
+  );
+}
+
 function encodePathSegments(path) {
   return path
     .split("/")
@@ -61,6 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   openLink.href = src;
+
+  // iOS Safari's native PDF renderer only shows page 1 when a PDF is loaded
+  // inside an iframe (it treats it like a thumbnail) - a full-page
+  // navigation to the same URL renders every page correctly, so skip the
+  // iframe there and send the visitor straight to the file instead.
+  if (isIOS()) {
+    window.location.href = src;
+    return;
+  }
 
   // A cross-origin iframe's `load` event fires once the CDN responds at
   // all, success or not (e.g. a 403) - there's no way to inspect the
