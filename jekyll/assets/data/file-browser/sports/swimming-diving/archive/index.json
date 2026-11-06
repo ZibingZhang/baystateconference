@@ -8,6 +8,7 @@
           "files": [
             {
               "name": "Qualifying Standards",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2026-2027 Fall Qualifying Standards.pdf",
@@ -41,6 +42,7 @@
             },
             {
               "name": "Swimming & Diving Format",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2026-2027 Fall Format.pdf",
@@ -98,6 +100,7 @@
             },
             {
               "name": "Schedules",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2003-2004 Fall Girls State Schedule.html",
@@ -135,6 +138,7 @@
             },
             {
               "name": "Logistics",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2022-2023 Winter Logistics.pdf",
@@ -176,6 +180,7 @@
             },
             {
               "name": "Administrative",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2003-2004 Fall Girls State Administrative.pdf",
@@ -185,6 +190,7 @@
             },
             {
               "name": "Reference",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2025-2026 Fall School Abbreviations.pdf",
@@ -194,6 +200,7 @@
             },
             {
               "name": "Psych Sheets",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2003-2004 Fall Girls State Psych Sheet.pdf",
@@ -311,6 +318,7 @@
             },
             {
               "name": "Programs",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2022-2023 Fall Girls & Boys Division 1 State Program.pdf",
@@ -448,6 +456,7 @@
             },
             {
               "name": "Athletes",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2003-2004 Fall Girls State Athletes.pdf",
@@ -477,6 +486,7 @@
             },
             {
               "name": "Entries",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2003-2004 Fall Girls State Entries by Team.pdf",
@@ -494,6 +504,7 @@
             },
             {
               "name": "Entry Order",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2026-2027 Fall North Sectional Entry Order.pdf",
@@ -511,6 +522,7 @@
             },
             {
               "name": "List of Teams",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2003-2004 Fall Girls State List of Teams.pdf",
@@ -528,6 +540,7 @@
             },
             {
               "name": "All-Stars",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2013-2014 Winter Boys Bay State Conference All-Stars.pdf",
@@ -541,6 +554,7 @@
             },
             {
               "name": "Team Scores",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2014-2015 Fall Girls & Boys Bay State Conference Team Scores.html",
@@ -578,6 +592,7 @@
             },
             {
               "name": "Heat Sheets",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2023-2024 Fall Girls & Boys Bay State Conference Heat Sheet.pdf",
@@ -595,6 +610,7 @@
             },
             {
               "name": "Diving Entries",
+              "sort": "desc",
               "files": [
                 {
                   "name": "2025-2026 Fall Girls & Boys Bay State Conference Diving Entries.pdf",
@@ -606,6 +622,7 @@
         },
         {
           "name": "By School Year",
+          "sort": "desc",
           "files": [
             {
               "name": "2003-2004",
@@ -2586,6 +2603,7 @@
         },
         {
           "name": "By School Year",
+          "sort": "desc",
           "files": [
             {
               "name": "2000-2001",
