@@ -21,6 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
   const path = params.get("url");
   const name = params.get("name");
+  const from = params.get("from");
+  const fromName = params.get("fromName");
+
+  const backLink = document.querySelector(".external-file-back-link");
+  if (backLink && from) {
+    backLink.href = from;
+    backLink.querySelector(".external-file-back-label").textContent = fromName
+      ? `Back to ${fromName}`
+      : "Back";
+    backLink.hidden = false;
+  }
 
   const nameEl = viewer.querySelector(".external-file-name");
   const openLink = viewer.querySelector(".external-file-open-link");

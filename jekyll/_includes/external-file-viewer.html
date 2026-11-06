@@ -10,7 +10,17 @@
   iframe at all - browsers just show a blank frame or try to download it -
   so "Open in new tab" is always shown front and center rather than as a
   fallback the visitor has to go hunting for.
+
+  Callers that link here can also pass `from` (the referring page's URL) and
+  `fromName` (its title) so a "Back to X" link can be shown above the
+  viewer - the browser's own Back button only works when this page was
+  reached by a click in the same tab, whereas a bookmarked or shared link to
+  this page has no history to go back to.
 {%- endcomment -%}
+<a class="external-file-back-link" hidden>
+  <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+  <span class="external-file-back-label"></span>
+</a>
 <div class="external-file-viewer" data-s3-bucket-root="{{ site.s3_bucket_root }}">
   <div class="external-file-toolbar">
     <span class="external-file-name"></span>

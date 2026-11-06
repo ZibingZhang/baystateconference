@@ -1726,6 +1726,27 @@ article.post:has(table) {
   }
 }
 
+.external-file-back-link {
+  align-items: center;
+  color: $brand-color-dimmed;
+  display: flex;
+  gap: 4px;
+  margin-bottom: $spacing-unit * 0.5;
+  @include relative-font-size(0.9375);
+
+  &:hover {
+    color: $link-base-color;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+
+  .material-symbols-outlined {
+    @include relative-font-size(1.1);
+  }
+}
+
 .external-file-viewer {
   @extend %bordered-panel;
 }

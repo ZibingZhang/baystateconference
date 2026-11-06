@@ -425,6 +425,7 @@ function initFileBrowser(browser) {
   if (!src || !list) return;
 
   const pageUrl = browser.dataset.pageUrl || "/";
+  const pageTitle = browser.dataset.pageTitle || "";
   const baseurl = browser.dataset.baseurl || "";
   const s3BucketRoot = browser.dataset.s3BucketRoot || "";
   const externalFileUrl = browser.dataset.externalFileUrl || "";
@@ -657,6 +658,14 @@ function initFileBrowser(browser) {
         const viewerParams = new URLSearchParams();
         viewerParams.set("url", item.s3Path);
         viewerParams.set("name", item.name);
+        // pageHrefForPath (not window.location) because renderList runs before
+        // navigateTo's pushState updates the address bar - window.location
+        // would still reflect the folder being navigated away from.
+        viewerParams.set(
+          "from",
+          pageHrefForPath(currentPath, tagFilter.tags, input ? input.value.trim() : "", [...selectedTags])
+        );
+        viewerParams.set("fromName", pageTitle);
         a.href = `${externalFileUrl}?${viewerParams.toString()}`;
       } else if (item.externalUrl) {
         icon.textContent = "open_in_new";
