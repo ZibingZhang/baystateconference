@@ -13,7 +13,7 @@ See `README.md` for the canonical project description — this file is Claude-sp
 - `championshipentries/` — a React/Vite/MUI web app for coaches entering swim meet rosters and exporting them to Hytek EV3/HY3 formats.
   All state lives in `localStorage` (see `src/storage.ts`) — there is no backend.
   See the dedicated section below.
-- `resources/miaa/` — MIAA data consumed by `championshipentries` and/or `scripts/`: imported EV3 event files (`events/`) and `high-schools.csv`.
+- `resources/miaa/` — MIAA data consumed by `championshipentries` and/or `scripts/`: imported EV3 event files, one per meet, under `swimming-diving/<year>/<meet>/` and `high-schools.csv`.
 - `scripts/` — standalone Python utilities for MIAA data housekeeping (qualifying-standards sanity checks, rankings CSV sorting, score-column padding).
   Not wired into CI; run manually.
 - `docs/hytek/` — reference docs for the Hytek EV3/HY3 file formats (`ev3-spec.md`, `hy3-spec.md`) that `championshipentries` reads/writes.
