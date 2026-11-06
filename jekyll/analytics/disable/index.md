@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Analytics Disabled
-permalink: /analytics/skip/
+permalink: /analytics/disable/
 ---
 
 <script>
