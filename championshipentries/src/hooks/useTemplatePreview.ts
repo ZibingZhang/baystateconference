@@ -6,7 +6,6 @@ import {
   buildTemplateIndividualEntries,
   buildTemplateRelayEntries,
   fetchTemplateEvents,
-  templateFileName,
 } from "../domain/meetTemplates";
 import { newId } from "../utils/id";
 
@@ -92,7 +91,7 @@ export function useTemplatePreview(
         const meet: Meet = {
           id: newMeetId,
           name: meetName?.trim() || template.name,
-          importedEventsFileName: templateFileName(template.ev3Url),
+          importedEventsFileName: template.eventsFileName,
           importedEventsRaw: rawText,
           maxIndividualEventsPerAthlete: template.maxIndividualEventsPerAthlete,
           maxRelayEventsPerAthlete: template.maxRelayEventsPerAthlete,

@@ -8,7 +8,7 @@ import { useHistory } from "./hooks/useHistory";
 import type { Athlete, IndividualEntry, RelayEntry } from "./types";
 import { parseEv3, uniqueEventOptions } from "./domain/ev3";
 import { buildPsychSheet, printPsychSheet } from "./domain/psychSheet";
-import { MEET_TEMPLATES, templateFileName } from "./domain/meetTemplates";
+import { MEET_TEMPLATES } from "./domain/meetTemplates";
 import AppMenuBar from "./components/AppMenuBar";
 import MeetSidebar from "./components/MeetSidebar";
 import AddMeetDialog from "./components/AddMeetDialog";
@@ -252,7 +252,7 @@ function App() {
                   individualEventOptions={template.templateIndividualEventOptions}
                   relayEventOptions={template.templateRelayEventOptions}
                   importedEvents={templateData.events}
-                  eventsFileName={templateFileName(selectedTemplate.ev3Url)}
+                  eventsFileName={selectedTemplate.eventsFileName}
                   athleteEventLimits={selectedTemplate}
                   eventEntryLimits={selectedTemplate}
                 />

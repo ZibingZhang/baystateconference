@@ -12,7 +12,8 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     id: "template-2026-fall-bay-state-conference",
     name: "2026 Fall Bay State Conference",
     ev3Url:
-      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall-bay-state-conference/2026-fall-bay-state-conference.ev3",
+      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall-bay-state-conference/events.ev3",
+    eventsFileName: "2026-fall-bay-state-conference.ev3",
     genderFilter: "G",
     individualEntryStubsPerEvent: 4,
     relayEntryStubsPerEvent: 3,
@@ -24,7 +25,8 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     id: "template-2026-fall-north-sectional",
     name: "2026 Fall North Sectional Championships",
     ev3Url:
-      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall-north-sectional/2026-fall-north-sectional.ev3",
+      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall-north-sectional/events.ev3",
+    eventsFileName: "2026-fall-north-sectional.ev3",
     genderFilter: "G",
     individualEntryStubsPerEvent: 0,
     relayEntryStubsPerEvent: 1,
@@ -36,7 +38,8 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     id: "template-2026-fall-south-sectional",
     name: "2026 Fall South Sectional Championships",
     ev3Url:
-      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall-south-sectional/2026-fall-south-sectional.ev3",
+      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall-south-sectional/events.ev3",
+    eventsFileName: "2026-fall-south-sectional.ev3",
     genderFilter: "G",
     individualEntryStubsPerEvent: 0,
     relayEntryStubsPerEvent: 1,
@@ -48,7 +51,8 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     id: "template-2026-fall-state",
     name: "2026 Fall State Championships",
     ev3Url:
-      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall-state/2026-fall-state.ev3",
+      "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall-state/events.ev3",
+    eventsFileName: "2026-fall-state.ev3",
     genderFilter: "G",
     individualEntryStubsPerEvent: 0,
     relayEntryStubsPerEvent: 1,
@@ -73,10 +77,6 @@ export async function fetchTemplateEvents(ev3Url: string): Promise<TemplateEvent
   const rawText = await response.text();
   const { events } = parseEv3(rawText);
   return { events, rawText };
-}
-
-export function templateFileName(ev3Url: string): string {
-  return ev3Url.split("/").pop() ?? ev3Url;
 }
 
 export function buildTemplateIndividualEntries(

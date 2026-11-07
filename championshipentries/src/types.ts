@@ -43,6 +43,8 @@ export interface MeetTemplate extends AthleteEventLimits, EventEntryLimits {
   name: string;
   /** Raw GitHub URL of the EV3 events file this template loads events/entries from. */
   ev3Url: string;
+  /** Display-only filename shown to the user, independent of the actual file at ev3Url. */
+  eventsFileName: string;
   /** Only entries for this gender are generated when the template is viewed or copied into a meet. */
   genderFilter: Gender;
   /** Blank individual entries stubbed per individual event. Unrelated to EventEntryLimits — this is purely how many rows the template pre-fills. */
