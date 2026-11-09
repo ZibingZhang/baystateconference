@@ -1,0 +1,23 @@
+event_num,event_name,gender,heat,lane,place,points,first_name,last_name,year,school,seed_score,finals_score,disqualified,qualifier
+9,1 Meter Diving,F,1,3,1,20,Morgan,Trainor,28,FRAM,254.90,242.35,False,DI
+9,1 Meter Diving,F,1,6,2,17,Ellington,Yi,29,NEWT,206.00,198.80,False,DI
+9,1 Meter Diving,F,1,2,3,16,Cece,Harder,30,FRAM,197.40,192.50,False,DI
+9,1 Meter Diving,F,1,12,4,15,Natalie,Koprince,29,BROO,196.30,190.80,False,DI
+9,1 Meter Diving,F,1,20,5,14,Pamela,Gingery,28,BROO,193.05,188.55,False,DI
+9,1 Meter Diving,F,1,8,6,13,Alexis,Garbitt,27,FRAM,195.15,183.20,False,DI
+9,1 Meter Diving,F,1,14,7,12,Grace,Flanagan,28,NEED,181.95,171.10,False,SEC
+9,1 Meter Diving,F,1,5,8,11,Georgiana,Nobles,28,MILT,171.53,168.25,False,
+9,1 Meter Diving,F,1,7,9,9,Kathryn,Dubois,27,NATI,192.75,157.25,False,
+9,1 Meter Diving,F,1,13,10,7,Maria,Soares de Brito,27,BROO,162.23,152.70,False,
+9,1 Meter Diving,F,1,1,11,6,Sophia,Belenkiy,27,NEED,154.05,150.05,False,
+9,1 Meter Diving,F,1,16,12,5,Gryphon,Lundsten,28,NATI,158.25,147.20,False,
+9,1 Meter Diving,F,1,9,13,3.5,Kate,Rosenbaum,30,WELL,165.00,144.90,False,
+9,1 Meter Diving,F,1,15,13,3.5,Piper,Nielson,30,WELL,170.00,144.90,False,
+9,1 Meter Diving,F,1,19,15,2,Lia,Park,29,BROO,141.40,139.10,False,
+9,1 Meter Diving,F,1,17,16,1,Sevan,Mikaelian,28,FRAM,174.90,133.80,False,
+9,1 Meter Diving,F,1,4,17,0,Clara,Ripston,30,NATI,151.30,132.30,False,
+9,1 Meter Diving,F,1,11,18,0,Violet,Dohm,30,NATI,164.35,129.90,False,
+9,1 Meter Diving,F,1,18,19,0,Anya,Vasani,30,WALP,136.30,118.35,False,
+9,1 Meter Diving,F,1,10,20,0,Aida,Huffenus,29,NEED,136.58,111.55,False,
+10,1 Meter Diving,M,1,2,1,20,Ryan,Li,27,WALP,183.30,165.90,False,
+10,1 Meter Diving,M,1,1,2,17,Antonio,Campos,27,MILT,154.58,135.95,False,
