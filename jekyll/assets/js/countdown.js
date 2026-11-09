@@ -12,10 +12,23 @@ function formatRemaining(ms) {
   return `${hours}h ${minutes}m ${seconds}s`;
 }
 
+const ONE_DAY_MS = 86400000;
+
 function tickCountdowns() {
   document.querySelectorAll(".countdown-timer[data-target]").forEach((el) => {
     const target = new Date(el.getAttribute("data-target")).getTime();
-    el.textContent = formatRemaining(target - Date.now());
+    const ms = target - Date.now();
+
+    if (ms <= -ONE_DAY_MS) {
+      el.closest(".countdown-item")?.remove();
+      return;
+    }
+
+    el.textContent = formatRemaining(ms);
+  });
+
+  document.querySelectorAll(".countdown-banner").forEach((banner) => {
+    if (!banner.querySelector(".countdown-item")) banner.remove();
   });
 }
 
