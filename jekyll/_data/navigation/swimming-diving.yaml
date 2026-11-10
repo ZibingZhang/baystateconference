@@ -27,20 +27,6 @@
     - title: States
       url: /sports/swimming-diving/states/
 
-- title: Results
-  url: /sports/swimming-diving/results/
-  children:
-    - title: Dual Meets
-      url: /sports/swimming-diving/dual-meets/results/
-    - title: Bay State Conference
-      url: /sports/swimming-diving/bsc/
-    - title: Sectionals
-      url: /sports/swimming-diving/sectionals/results/
-    - title: States
-      url: /sports/swimming-diving/states/results/
-    - title: Records
-      url: /sports/swimming-diving/records/
-
 - title: Awards
   url: /sports/swimming-diving/awards/
   children:

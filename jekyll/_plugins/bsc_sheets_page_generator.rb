@@ -13,10 +13,15 @@
 # <year> and <season> each get their own thin generated page (build_year_page/
 # build_season_page) purely so page_tree_generator.rb's breadcrumbs have a
 # real page to read a label off of at every segment. Seasons are enumerated
-# from whatever data actually exists, not a hardcoded list.
+# from whatever data actually exists, not a hardcoded list. The season page
+# doubles as the meet hub: team scores (from team_scores.csv) plus the three
+# sheet links, Heat Sheet first since that's the one people want fastest.
 #
-# team_scores.csv lives alongside the result CSVs but isn't read here - no
-# sheet needs it yet.
+# Also generates /sports/swimming-diving/bsc/latest/, a permanent link that
+# always redirects to the most recent year/season with any data - same
+# redirect_to pattern as schedule_page_generator.rb's current-season page -
+# so the BSC hub page can offer a one-click path to the latest meet instead
+# of making every visitor drill through year -> season.
 
 module BscSheets
   class PageGenerator < Jekyll::Generator
@@ -58,13 +63,21 @@ module BscSheets
       ],
     }.freeze
 
+    # Heat Sheet first - that's the one people want fastest access to.
     SHEETS = [
-      { slug: "results", title: "Results" },
-      { slug: "psych-sheet", title: "Psych Sheet" },
       { slug: "heat-sheet", title: "Heat Sheet" },
+      { slug: "psych-sheet", title: "Psych Sheet" },
+      { slug: "results", title: "Results" },
     ].freeze
 
     SEX_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
+
+    SEASON_PAGE_CONTENT = <<~LIQUID
+      {% include rankings-table.html heading="Girls Team Scores" entries=page.girls_team_scores %}
+      {% include rankings-table.html heading="Boys Team Scores" entries=page.boys_team_scores %}
+      {% include link-list.html heading="Meet Documents" items=page.sheet_links open_in_new_tab=true %}
+      {% include link-list.html heading="Archive" items=page.archive_links %}
+    LIQUID
 
     def generate(site)
       individual = normalized_rows(site, :individual, "individual_results")
@@ -73,6 +86,8 @@ module BscSheets
 
       year_seasons = (individual + relay + diving).map { |r| [r["School Year"], r["Season"]] }.uniq
       years = year_seasons.map(&:first).uniq.sort.reverse
+
+      site.pages << build_latest_meet_redirect(site, years, year_seasons) if years.any?
 
       years.each do |year|
         seasons = year_seasons.select { |y, _| y == year }.map(&:last).sort_by { |s| SEASON_ORDER[s] || 99 }
@@ -113,6 +128,25 @@ module BscSheets
       rows
     end
 
+    def build_latest_meet_redirect(site, years, year_seasons)
+      latest_year = years.first
+      latest_season = year_seasons.select { |y, _| y == latest_year }
+                                   .map(&:last)
+                                   .max_by { |s| SEASON_ORDER[s] || 99 }
+
+      dir = "sports/swimming-diving/bsc"
+      page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "latest.html")
+      page.content = ""
+      page.data.merge!(
+        "layout" => "page",
+        "title" => "Latest Bay State Conference Meet",
+        "permalink" => "/#{dir}/latest/",
+        "redirect_to" => "/#{dir}/#{latest_year}/#{latest_season}/",
+        "exclude_from_directory" => true
+      )
+      page
+    end
+
     def build_year_page(site, year)
       dir = "sports/swimming-diving/bsc/#{year}"
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
@@ -128,15 +162,39 @@ module BscSheets
 
     def build_season_page(site, year, season)
       dir = "sports/swimming-diving/bsc/#{year}/#{season}"
+      team_scores = team_scores_for(site, year, season)
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
-      page.content = "{% include directory-listing.html %}"
+      page.content = SEASON_PAGE_CONTENT
       page.data.merge!(
         "layout" => "page",
         "title" => "#{SEASON_LABELS[season] || season} #{en_dash(year)} Bay State Conference Meet",
         "permalink" => "/#{dir}/",
-        "breadcrumb" => SEASON_LABELS[season] || season
+        "breadcrumb" => SEASON_LABELS[season] || season,
+        "girls_team_scores" => scores_for_gender(team_scores, "F"),
+        "boys_team_scores" => scores_for_gender(team_scores, "M"),
+        "sheet_links" => SHEETS.map { |sheet| { "title" => sheet[:title], "url" => "/#{dir}/#{sheet[:slug]}/" } },
+        "archive_links" => [
+          {
+            "title" => "Full Meet Archive",
+            "url" => "/sports/swimming-diving/archive/?path=meet-results/by-meet-and-year/bay-state-conference/#{year}-#{season}"
+          }
+        ]
       )
       page
+    end
+
+    def team_scores_for(site, year, season)
+      rows = []
+      (site.data.dig(*RAW_ROOT, year, season) || {}).each_value do |files|
+        rows.concat(files["team_scores"] || [])
+      end
+      rows
+    end
+
+    def scores_for_gender(team_scores, gender)
+      team_scores.select { |row| row["gender"] == gender }
+                 .sort_by { |row| row["rank"].to_i }
+                 .map { |row| { "Place" => row["rank"], "School" => row["school_name"], "Score" => row["score"] } }
     end
 
     def build_sheet_page(site, sheet, year, season, grouped)

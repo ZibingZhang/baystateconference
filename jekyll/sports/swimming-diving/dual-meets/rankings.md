@@ -4,4 +4,5 @@ title: Dual Meets Rankings
 permalink: /sports/swimming-diving/dual-meets/rankings/
 breadcrumb: Rankings
 under_construction: true
+exclude_from_directory: true
 ---

@@ -1,18 +1,18 @@
 # Generates one page per school year of dual meet results
-# (sports/swimming-diving/dual-meets/results/YYYY-YYYY/) straight from the
-# School Year column of dual-meet-results.csv, so adding a new season's rows
-# to the CSV is enough on its own - no matching page to remember. This
-# includes the current school year, alongside the hand-authored
-# dual-meets/results/ page (which shows just the current year's own
-# matrix/table inline, scoped to whichever School Year sorts last).
+# (sports/swimming-diving/dual-meets/YYYY-YYYY/) straight from the School
+# Year column of dual-meet-results.csv, so adding a new season's rows to the
+# CSV is enough on its own - no matching page to remember. This includes the
+# current school year, alongside the hand-authored dual-meets/ hub page
+# (which shows just the current year's own matrix/table inline, scoped to
+# whichever School Year sorts last).
 #
 # Each page's meets are split into one head-to-head matrix + results table
 # per Season/Sex combination that year (e.g. "Girls Fall"), since a school
 # year could in principle carry more than one season/sex of dual meets.
 #
-# The dual-meets/results/ page picks these generated pages up automatically
-# via directory-listing.html (see page_tree_generator.rb), newest-first
-# thanks to its `default_sort: desc` front matter - so a year appears in the
+# The dual-meets/ hub page picks these generated pages up automatically via
+# directory-listing.html (see page_tree_generator.rb), newest-first thanks
+# to its `default_sort: desc` front matter - so a year appears in the
 # directory the moment its first CSV row does, no matching listing entry to
 # remember.
 module DualMeetResults
@@ -20,7 +20,7 @@ module DualMeetResults
     safe true
 
     DATA_PATH = %w[swimming-diving dual-meet-results].freeze
-    DIR = "sports/swimming-diving/dual-meets/results".freeze
+    DIR = "sports/swimming-diving/dual-meets".freeze
 
     SEASON_ORDER = { "fall" => 0, "winter" => 1 }.freeze
     SEASON_LABELS = { "fall" => "Fall", "winter" => "Winter" }.freeze

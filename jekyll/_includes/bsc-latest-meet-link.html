@@ -1,0 +1,19 @@
+{%- comment -%}
+  A styled "Latest Meet" link, same pattern as current-season-link.html.
+  Points at /sports/swimming-diving/bsc/latest/, a permanent redirect (see
+  _plugins/bsc_sheets_page_generator.rb) to whichever year/season has the
+  most recent meet data - a one-click shortcut past the year -> season
+  drill-down for anyone who just wants the latest meet.
+
+  Usage: {% include bsc-latest-meet-link.html %}
+{%- endcomment -%}
+<div class="directory-browser link-list">
+  <ul class="directory-tree">
+    <li class="directory-file">
+      <a href="{{ '/sports/swimming-diving/bsc/latest/' | relative_url }}">
+        <span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>
+        <span>Latest Meet</span>
+      </a>
+    </li>
+  </ul>
+</div>

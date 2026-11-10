@@ -32,9 +32,16 @@
   page; `url_suffix="schedule/current-season/"` reuses that list to link
   each one's current-season schedule instead.
 
+  Pass `open_in_new_tab=true` to force every item open in a new tab even
+  though its url is internal - for a list of links that aren't really "more
+  site to browse" but a one-way trip away from this page (e.g. the BSC meet
+  sheets, which replace themselves with a client-compiled PDF with no way
+  back in-page - see bsc_sheets_page_generator.rb).
+
   Usage: {% include link-list.html items=page.links heading="Resources" %}
          {% include link-list.html items=page.links heading="Directory" searchable=true %}
          {% include link-list.html items=site.data.all_star_years heading="Directory" searchable=true default_sort="desc" %}
+         {% include link-list.html items=page.sheet_links heading="Sheets" open_in_new_tab=true %}
 {%- endcomment -%}
 {%- if include.items and include.items.size > 0 -%}
 {%- if include.heading -%}<h2>{{ include.heading }}</h2>{%- endif -%}
@@ -67,7 +74,7 @@
         {%- assign is_external = true -%}
       {%- endif -%}
       <li class="directory-file">
-        <a href="{% if item.path %}{{ '/resources/external-file/' | relative_url }}?url={{ item.path | url_encode }}&name={{ item.title | url_encode }}&from={{ page.url | url_encode }}&fromName={{ page.title | url_encode }}{% elsif is_external %}{{ item.url }}{{ include.url_suffix }}{% else %}{{ item.url | append: include.url_suffix | relative_url }}{% endif %}"{% if is_external %} target="_blank" rel="noopener"{% endif %}>
+        <a href="{% if item.path %}{{ '/resources/external-file/' | relative_url }}?url={{ item.path | url_encode }}&name={{ item.title | url_encode }}&from={{ page.url | url_encode }}&fromName={{ page.title | url_encode }}{% elsif is_external %}{{ item.url }}{{ include.url_suffix }}{% else %}{{ item.url | append: include.url_suffix | relative_url }}{% endif %}"{% if is_external or include.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>
           {%- if is_external -%}
           <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
           {%- else -%}
