@@ -1,8 +1,8 @@
 event_num,event_name,gender,heat,lane,place,points,team,relay,first_name_1,last_name_1,year_1,splits_1,first_name_2,last_name_2,year_2,splits_2,first_name_3,last_name_3,year_3,splits_3,first_name_4,last_name_4,year_4,splits_4,seed_time,finals_time,disqualified,exhibition,qualifier
 1,200 Yard Medley Relay,F,3,3,1,40,FRAM,A,Abby,Liu,31,29.81,Morgan,Trainor,28,33.44,Evie,Gao,28,26.68,Elliott,Moens,27,25.14,1:59.16,1:55.07,False,False,DI
 1,200 Yard Medley Relay,F,3,4,2,34,NEWT,A,Ava,Zheng,29,28.94,Yolanda,Yan,27,33.42,Kate,Tillberg,30,28.43,Meg,Urdaneta,27,25.06,1:58.50,1:55.85,False,False,DI
-1,200 Yard Medley Relay,F,3,6,3,31.0,BROO,A,Georgia,Krolnik,29,30.66,Elizabeth,Xuan,29,32.19,Olivia,Silva,28,27.07,Jing,Shi,27,26.38,1:59.16,1:56.30,False,False,DI
-1,200 Yard Medley Relay,F,3,2,3,31.0,WELL,A,Claire,Zhao,28,29.99,Tessa,Hoglund,30,31.99,Ariel,Wu,29,28.98,Emily,Qiu,30,25.34,2:00.53,1:56.30,False,False,DI
+1,200 Yard Medley Relay,F,3,6,3,31,BROO,A,Georgia,Krolnik,29,30.66,Elizabeth,Xuan,29,32.19,Olivia,Silva,28,27.07,Jing,Shi,27,26.38,1:59.16,1:56.30,False,False,DI
+1,200 Yard Medley Relay,F,3,2,3,31,WELL,A,Claire,Zhao,28,29.99,Tessa,Hoglund,30,31.99,Ariel,Wu,29,28.98,Emily,Qiu,30,25.34,2:00.53,1:56.30,False,False,DI
 1,200 Yard Medley Relay,F,3,5,5,28,NEED,A,Chloe,Afzali,28,29.82,Maya,Porter,29,33.17,Madeline,Vacanti,28,27.74,Phoebe,Seidel,30,28.09,1:58.92,1:58.82,False,False,DI
 1,200 Yard Medley Relay,F,3,1,6,26,MILT,A,Allison,Boynton,27,,Emily,Morrison,29,,Hannah,James,30,,Cecile,Letarte,28,,2:01.14,1:59.89,False,False,DI
 1,200 Yard Medley Relay,F,3,7,7,24,NATI,A,Christina,Daigle,28,31.23,Sayomia,Lee,30,36.16,Georgia,Crisafulli,29,27.43,Katie,Sandock,27,26.07,2:00.90,2:00.89,False,False,DI

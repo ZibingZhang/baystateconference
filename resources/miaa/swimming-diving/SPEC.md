@@ -2,6 +2,9 @@
 
 Schema for `individual_results.csv`, `relay_results.csv`, `diving_results.csv`, and `team_scores.csv`.
 
+Once extracted, file these four CSVs (plus the meet's `README.md`) under `jekyll/_data/swimming-diving/<governing-body>/raw/<school-year>/<season>/<meet>/` (e.g. `jekyll/_data/swimming-diving/bsc/raw/2026-2027/fall/bay-state-conference/`) rather than under `resources/miaa/`, so Jekyll's `_data` mechanism can read them directly.
+`events.ev3` for the same meet still belongs under `resources/miaa/swimming-diving/<school-year>/<season>/<meet>/` — it's a championshipentries-only template, not meet-result data.
+
 ## individual_results.csv
 
 One row per swimmer per individual (non-relay, non-diving) event.

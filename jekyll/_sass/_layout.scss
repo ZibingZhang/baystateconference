@@ -951,6 +951,19 @@
   text-align: center;
 }
 
+// _layouts/bsc-sheet.html - a thin shim that builds this year's sheet as a
+// PDF client-side (see assets/js/bsc-sheet-tex.js) and replaces itself with
+// it. This is only ever visible for the instant before that redirect
+// happens, or if the build fails.
+.bsc-sheet-redirect-message {
+  padding: $spacing-unit;
+  text-align: center;
+}
+
+.bsc-sheet-redirect-error a {
+  margin-left: 0.5em;
+}
+
 .school-logo-placeholder {
   background-color: $border-color-01;
   border-radius: 50%;
