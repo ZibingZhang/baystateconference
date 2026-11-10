@@ -14,7 +14,7 @@ See `README.md` for the canonical project description — this file is Claude-sp
   All state lives in `localStorage` (see `src/storage.ts`) — there is no backend.
   See the dedicated section below.
 - `resources/miaa/` — MIAA data consumed by `championshipentries` (fetched at runtime via `raw.githubusercontent.com`, never read from the local filesystem): imported EV3 event files, one per meet, under `swimming-diving/<school-year>/<season>/<meet>/` and `high-schools.csv`.
-  Raw per-meet result CSVs live separately, under `jekyll/_data/swimming-diving/<governing-body>/raw/<school-year>/<season>/<meet>/` — e.g. `bsc/raw/.../bay-state-conference/` — where Jekyll's `_data` mechanism loads them directly; `jekyll/_plugins/bsc_sheets_page_generator.rb` normalizes them in memory at site-generation time.
+  Raw per-meet result CSVs live separately, under `jekyll/_data/swimming-diving/<governing-body>/<school-year>/<season>/<meet>/` — e.g. `bsc/.../bay-state-conference/` — where Jekyll's `_data` mechanism loads them directly; `jekyll/_plugins/bsc_sheets_page_generator.rb` normalizes them in memory at site-generation time.
 - `scripts/` — standalone Python utilities for MIAA data housekeeping (qualifying-standards sanity checks, rankings CSV sorting, score-column padding).
   Not wired into CI; run manually.
 - `docs/hytek/` — reference docs for the Hytek EV3/HY3 file formats (`ev3-spec.md`, `hy3-spec.md`) that `championshipentries` reads/writes.

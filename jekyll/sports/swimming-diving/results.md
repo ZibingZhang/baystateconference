@@ -6,7 +6,7 @@ internal_links:
   - title: Dual Meets
     url: /sports/swimming-diving/dual-meets/results/
   - title: Bay State Conference Meet
-    url: /sports/swimming-diving/bsc/results/
+    url: /sports/swimming-diving/bsc/
   - title: Sectional Meets
     url: /sports/swimming-diving/sectionals/results/
   - title: State Meets

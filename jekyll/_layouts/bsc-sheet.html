@@ -1,0 +1,28 @@
+---
+---
+{%- comment -%}
+  Thin shim: hands page.events (from _plugins/bsc_sheets_page_generator.rb)
+  to assets/js/bsc-sheet-tex.js, which builds a PDF client-side and
+  replaces this page with it.
+{%- endcomment -%}
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+  {%- include head.html -%}
+
+  <body class="bsc-sheet-redirect">
+
+    <script type="application/json" id="bsc-sheet-data">{{ page.events | jsonify }}</script>
+
+    <main class="bsc-sheet-redirect-message">
+      <p>Fetching {{ page.title | escape }}&hellip;</p>
+      <p class="bsc-sheet-redirect-error" hidden>
+        Couldn't build the PDF - see the browser console for details.
+        <a href="{{ '/sports/swimming-diving/bsc/' | relative_url }}">Back to Bay State Conference</a>
+      </p>
+    </main>
+
+    <script src="{{ '/assets/js/bsc-sheet-tex.js' | relative_url }}" data-title="{{ page.title | escape }}" data-sheet-kind="{{ page.sheet_kind }}" defer></script>
+  </body>
+
+</html>
