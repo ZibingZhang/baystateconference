@@ -20,14 +20,21 @@ interface ExportReviewDialogProps {
 
 function ExportReviewDialog({ review, onClose, onConfirm }: ExportReviewDialogProps) {
   if (!review) return null;
-  const { overLimitEvents, duplicateIndividualEntries, duplicateRelayEntries, skippedEvents } =
-    review;
+  const {
+    overLimitEvents,
+    duplicateIndividualEntries,
+    duplicateRelayEntries,
+    skippedEvents,
+    missingSeedTimeEntries,
+  } = review;
   const totalSkipped = skippedEvents.reduce((sum, e) => sum + e.count, 0);
+  const totalMissingSeedTime = missingSeedTimeEntries.reduce((sum, e) => sum + e.count, 0);
   const hasIssues =
     overLimitEvents.length > 0 ||
     duplicateIndividualEntries.length > 0 ||
     duplicateRelayEntries.length > 0 ||
-    skippedEvents.length > 0;
+    skippedEvents.length > 0 ||
+    missingSeedTimeEntries.length > 0;
 
   return (
     <Dialog open={review !== null} onClose={onClose} fullWidth maxWidth="sm">
@@ -95,10 +102,26 @@ function ExportReviewDialog({ review, onClose, onConfirm }: ExportReviewDialogPr
               </List>
             </Alert>
           )}
+          {missingSeedTimeEntries.length > 0 && (
+            <Alert severity="warning">
+              <AlertTitle>Entries Missing a Seed Time ({totalMissingSeedTime})</AlertTitle>
+              <List dense disablePadding>
+                {missingSeedTimeEntries.map((missing, index) => (
+                  <ListItem key={index} disableGutters>
+                    <ListItemText
+                      primary={missing.event}
+                      secondary={`${missing.count} ${missing.count === 1 ? "entry" : "entries"} with no seed time (${missing.kind})`}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </Alert>
+          )}
           {hasIssues && (
             <Typography variant="body2" color="text.secondary">
-              You can export anyway — skipped entries won't be included in the HY3 file, and
-              duplicate or over-limit entries will still be exported as-is.
+              You can export anyway — skipped entries won't be included in the HY3 file, entries
+              missing a seed time will export as NT, and duplicate or over-limit entries will
+              still be exported as-is.
             </Typography>
           )}
         </Box>

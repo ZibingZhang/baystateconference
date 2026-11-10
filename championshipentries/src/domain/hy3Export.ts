@@ -289,11 +289,18 @@ export interface ExportReviewSkippedEvent {
   count: number;
 }
 
+export interface ExportReviewMissingSeedTime {
+  kind: "individual" | "relay";
+  event: string;
+  count: number;
+}
+
 export interface ExportReview {
   overLimitEvents: ExportReviewLimitIssue[];
   duplicateIndividualEntries: ExportReviewDuplicateIndividual[];
   duplicateRelayEntries: ExportReviewDuplicateRelay[];
   skippedEvents: ExportReviewSkippedEvent[];
+  missingSeedTimeEntries: ExportReviewMissingSeedTime[];
 }
 
 /**
@@ -397,7 +404,32 @@ export function buildExportReview(
   }
   const skippedEvents = [...skippedCountByKey.values()];
 
-  return { overLimitEvents, duplicateIndividualEntries, duplicateRelayEntries, skippedEvents };
+  const missingSeedTimeCountByKey = new Map<string, ExportReviewMissingSeedTime>();
+  const recordMissingSeedTime = (kind: "individual" | "relay", event: string) => {
+    const key = `${kind}|${event}`;
+    const existing = missingSeedTimeCountByKey.get(key);
+    if (existing) existing.count++;
+    else missingSeedTimeCountByKey.set(key, { kind, event, count: 1 });
+  };
+  for (const entry of individualEntries) {
+    if (!entry.seedTime && !individualEntrySkipReason(entry, athletes, ev3File)) {
+      recordMissingSeedTime("individual", eventName(entry.event));
+    }
+  }
+  for (const entry of relayEntries) {
+    if (!entry.seedTime && !relayEntrySkipReason(entry, athletes, ev3File)) {
+      recordMissingSeedTime("relay", eventName(entry.event));
+    }
+  }
+  const missingSeedTimeEntries = [...missingSeedTimeCountByKey.values()];
+
+  return {
+    overLimitEvents,
+    duplicateIndividualEntries,
+    duplicateRelayEntries,
+    skippedEvents,
+    missingSeedTimeEntries,
+  };
 }
 
 /** Trigger a browser download of the given HY3 file content. */

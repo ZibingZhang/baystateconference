@@ -17,9 +17,11 @@ export interface EventSummaryEntry {
   label: string;
   detail?: string;
   seedTime: string;
-  /** Reasons this entry is flagged — a duplicate entry and/or an athlete over one of the meet's per-athlete event-count limits. Distinct from EventSummaryGroup.overLimit, which is the per-event team cap. Empty when the entry is clean. */
+  /** Reasons this entry would be excluded from the export entirely (no athlete selected, or a relay with no leg/an unresolvable leg) — rendered as a red indicator. Empty when the entry will export. */
+  errors: string[];
+  /** Reasons this entry is flagged but will still export as-is — a duplicate entry, an athlete over one of the meet's per-athlete event-count limits, or a missing seed time. Distinct from EventSummaryGroup.overLimit, which is the per-event team cap. Rendered as a yellow indicator. Empty when the entry is clean. */
   warnings: string[];
-  /** Mirrors the export's skip logic (no athlete selected, or a relay with no leg/an unresolvable leg) — still listed here, but excluded from EventSummaryGroup.entryCount since it wouldn't appear in the exported file. */
+  /** Mirrors the export's skip logic — true exactly when `errors` is non-empty — and is excluded from EventSummaryGroup.entryCount since it wouldn't appear in the exported file. */
   skipped: boolean;
 }
 
@@ -80,8 +82,10 @@ export function buildEventSummary(
         .filter((e) => e.event === option.eventNumber)
         .map((e) => {
           const skipped = !e.athleteId || !athletes.some((a) => a.id === e.athleteId);
+          const errors: string[] = [];
+          if (skipped) errors.push("No athlete selected — this entry will be skipped on export.");
           const warnings: string[] = [];
-          if (skipped) warnings.push("No athlete selected — this entry will be skipped on export.");
+          if (!e.seedTime) warnings.push("No seed time entered.");
           if ((individualDupCounts.get(individualEntryKey(e) ?? "") ?? 0) > 1) {
             warnings.push("Duplicate entry");
           }
@@ -91,6 +95,7 @@ export function buildEventSummary(
             key: e.id,
             label: athleteNameById.get(e.athleteId) || "(no athlete)",
             seedTime: e.seedTime,
+            errors,
             warnings,
             skipped,
           };
@@ -135,17 +140,19 @@ export function buildEventSummary(
           const legCrossEventWarnings = relayAthleteIds
             .map((athleteId) => relayCrossEventDetail.get(`${e.id}|${athleteId}`))
             .filter((detail): detail is string => detail !== undefined);
-          const warnings: string[] = [];
+          const errors: string[] = [];
           if (skipped) {
-            warnings.push(
+            errors.push(
               relayAthleteIds.length === 0
                 ? "No athletes assigned to any leg — this entry will be skipped on export."
                 : "One or more legs reference a missing athlete — this entry will be skipped on export.",
             );
           }
+          const warnings: string[] = [];
           if ((relayDupCounts.get(relayEntryKey(e) ?? "") ?? 0) > 1) {
             warnings.push("Duplicate entry");
           }
+          if (!e.seedTime) warnings.push("No seed time entered.");
           warnings.push(
             ...legSelfDuplicateWarnings,
             ...legCrossEventWarnings,
@@ -156,6 +163,7 @@ export function buildEventSummary(
             label: `Relay ${e.relayLetter || "?"}`,
             detail: legNames.join(", "),
             seedTime: e.seedTime,
+            errors,
             warnings,
             skipped,
           };

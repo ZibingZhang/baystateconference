@@ -121,9 +121,14 @@ function EventSummaryTab({
                     {entry.detail ? ` — ${entry.detail}` : ""}
                     {entry.seedTime ? ` (${entry.seedTime})` : ""}
                   </Typography>
+                  {entry.errors.length > 0 && (
+                    <Tooltip title={warningTooltip(entry.errors)}>
+                      <WarningAmberIcon fontSize="small" sx={{ color: "error.main" }} />
+                    </Tooltip>
+                  )}
                   {entry.warnings.length > 0 && (
                     <Tooltip title={warningTooltip(entry.warnings)}>
-                      <WarningAmberIcon fontSize="small" sx={{ color: "error.main" }} />
+                      <WarningAmberIcon fontSize="small" sx={{ color: "warning.main" }} />
                     </Tooltip>
                   )}
                 </Box>
