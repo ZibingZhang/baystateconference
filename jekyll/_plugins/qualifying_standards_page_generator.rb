@@ -12,10 +12,10 @@
 # loop the generated per-year pages use, above its own directory listing of
 # every year.
 #
-# Each page has one table per Season/Sex pair (Fall Girls, Fall Boys, Winter
-# Girls, Winter Boys), headed "<Season> — <Sex>", each with one row per Event
+# Each page has one table per Season/Gender pair (Fall Girls, Fall Boys, Winter
+# Girls, Winter Boys), headed "<Season> — <Gender>", each with one row per Event
 # (in a fixed swim-meet running order) and one column per Division present
-# for that sex that season - in DIVISION_ORDER below - so a season can bring
+# for that gender that season - in DIVISION_ORDER below - so a season can bring
 # its own set of divisions (e.g. fall's North/South/State vs. winter's North
 # Sectional/South Sectional/Central-West Sectional/Division I State/Division
 # II State) without any plugin changes. Event and Division names are
@@ -33,8 +33,8 @@ module QualifyingStandards
     SEASON_YEAR_INDEX = { "fall" => 0, "winter" => 1 }.freeze
     SEASON_LABELS = { "fall" => "Fall", "winter" => "Winter" }.freeze
 
-    SEX_ORDER = { "F" => 0, "M" => 1 }.freeze
-    SEX_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
+    GENDER_ORDER = { "F" => 0, "M" => 1 }.freeze
+    GENDER_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
     DIVISION_ORDER = [
       "North Sectional",
       "Central/South Sectional",
@@ -116,26 +116,26 @@ module QualifyingStandards
         season_rows = rows.select { |entry| entry["Season"] == season }
         season_label = SEASON_LABELS[season] || season
 
-        sexes = season_rows.map { |entry| entry["Sex"] }.uniq
-        sexes.sort_by! { |sex| SEX_ORDER[sex] || 99 }
+        genders = season_rows.map { |entry| entry["Gender"] }.uniq
+        genders.sort_by! { |gender| GENDER_ORDER[gender] || 99 }
 
-        sexes.map do |sex|
-          sex_rows = season_rows.select { |entry| entry["Sex"] == sex }
+        genders.map do |gender|
+          gender_rows = season_rows.select { |entry| entry["Gender"] == gender }
 
-          divisions = sex_rows.map { |entry| entry["Division"] }.uniq
+          divisions = gender_rows.map { |entry| entry["Division"] }.uniq
           divisions.sort_by! { |division| [DIVISION_ORDER.index(division) || DIVISION_ORDER.size, division] }
 
-          events = sex_rows.map { |entry| entry["Event"] }.uniq
+          events = gender_rows.map { |entry| entry["Event"] }.uniq
           events.sort_by! { |event| [EVENT_ORDER.index(event) || EVENT_ORDER.size, event] }
 
           {
-            "heading" => "#{season_label} — #{SEX_LABELS[sex] || sex}",
+            "heading" => "#{season_label} — #{GENDER_LABELS[gender] || gender}",
             "columns" => divisions.map { |division| division_abbreviations[division] || division },
             "rows" => events.map do |event|
               {
                 "event" => event_abbreviations[event] || event,
                 "values" => divisions.map do |division|
-                  match = sex_rows.find { |entry| entry["Division"] == division && entry["Event"] == event }
+                  match = gender_rows.find { |entry| entry["Division"] == division && entry["Event"] == event }
                   match && match["Qualifying Standard"]
                 end,
               }

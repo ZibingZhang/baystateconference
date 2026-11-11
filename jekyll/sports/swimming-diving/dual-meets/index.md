@@ -13,23 +13,23 @@ internal_links:
 {%- assign current_school_year = school_years | last -%}
 {%- assign current_meets = all_meets | where: "School Year", current_school_year -%}
 
-{%- assign season_sex_keys = "" | split: "" -%}
+{%- assign season_gender_keys = "" | split: "" -%}
 {%- for meet in current_meets -%}
-  {%- assign key = meet["Season"] | append: "|" | append: meet["Sex"] -%}
-  {%- assign season_sex_keys = season_sex_keys | push: key -%}
+  {%- assign key = meet["Season"] | append: "|" | append: meet["Gender"] -%}
+  {%- assign season_gender_keys = season_gender_keys | push: key -%}
 {%- endfor -%}
-{%- assign season_sex_keys = season_sex_keys | uniq -%}
+{%- assign season_gender_keys = season_gender_keys | uniq -%}
 
-{%- for key in season_sex_keys -%}
+{%- for key in season_gender_keys -%}
   {%- assign parts = key | split: "|" -%}
   {%- assign season = parts[0] -%}
-  {%- assign sex = parts[1] -%}
-  {%- assign group_meets = current_meets | where: "Season", season | where: "Sex", sex -%}
-  {%- assign sex_label = "Girls" -%}
-  {%- if sex == "M" -%}
-    {%- assign sex_label = "Boys" -%}
+  {%- assign gender = parts[1] -%}
+  {%- assign group_meets = current_meets | where: "Season", season | where: "Gender", gender -%}
+  {%- assign gender_label = "Girls" -%}
+  {%- if gender == "M" -%}
+    {%- assign gender_label = "Boys" -%}
   {%- endif -%}
-  {%- capture heading -%}{{ sex_label }} {{ season | capitalize }}{%- endcapture -%}
+  {%- capture heading -%}{{ gender_label }} {{ season | capitalize }}{%- endcapture -%}
   {%- include dual-meet-results-group.html heading=heading entries=group_meets -%}
 {%- endfor -%}
 

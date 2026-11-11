@@ -22,13 +22,13 @@
   fall).
 {%- endcomment -%}
 {%- if include.section == "Girls" or include.section == "Boys" -%}
-{%- assign sex = "F" -%}
+{%- assign gender = "F" -%}
 {%- if include.section == "Boys" -%}
-{%- assign sex = "M" -%}
+{%- assign gender = "M" -%}
 {%- endif -%}
-{%- assign wins = include.school.swim_wins[sex] -%}
+{%- assign wins = include.school.swim_wins[gender] -%}
 
-{%- if sex == "F" -%}
+{%- if gender == "F" -%}
   {%- if wins.bsc.size > 0 -%}
 <tr>
   <th>BSC Wins</th>

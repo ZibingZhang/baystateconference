@@ -16,13 +16,4 @@ Every sport's `/sports/<sport>/schedule/` pages are generated from `_data/schedu
 That file isn't committed to the repo - in production it's fetched once a day by `.github/workflows/fetch-schedule.yaml` and cached for `.github/workflows/jekyll.yaml` to restore before building (see the comments in both files).
 If it's missing entirely (e.g. a fresh checkout), the schedule pages just don't get generated - nothing else breaks.
 
-To get the exact same data locally:
-
-```sh
-cd ../arbiterlive
-pip install -r requirements.txt
-./arbiter_schedule.py --out ../jekyll/_data/schedule/games.csv
-```
-
-Then `bundle exec jekyll build`/`serve` from here picks it up the same way CI does.
-Re-run the fetch whenever you want fresher schedules/results; the school year it fetches defaults to `arbiter_schedule.py`'s `DEFAULT_SCHOOL_YEAR` constant (update that each fall when a new season starts, or pass `--school-year "2027-2028"` explicitly).
+See [`arbiterlive/README.md`](../arbiterlive/README.md) for how to fetch the exact same data locally; `bundle exec jekyll build`/`serve` from here picks it up the same way CI does.

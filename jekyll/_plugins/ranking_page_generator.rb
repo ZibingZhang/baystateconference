@@ -6,10 +6,10 @@
 # to remember. A year with no rows simply has no page yet; add its first
 # entry and the page appears on the next build.
 #
-# Each page's rankings are split into one table per Season/Sex/Division
+# Each page's rankings are split into one table per Season/Gender/Division
 # combination that year (e.g. "Girls Fall - South"), sorted by Place, since
 # schools are only ranked against the rest of their own division. The BSC
-# meet has no Division column, so its pages get one table per Season/Sex
+# meet has no Division column, so its pages get one table per Season/Gender
 # instead (e.g. "Girls Fall").
 #
 # The rankings index pages pick these generated pages up automatically via
@@ -40,8 +40,8 @@ module Rankings
 
     SEASON_ORDER = { "fall" => 0, "winter" => 1 }.freeze
     SEASON_LABELS = { "fall" => "Fall", "winter" => "Winter" }.freeze
-    SEX_ORDER = { "F" => 0, "M" => 1 }.freeze
-    SEX_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
+    GENDER_ORDER = { "F" => 0, "M" => 1 }.freeze
+    GENDER_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
 
     def generate(site)
       SOURCES.each { |source| generate_source(site, source) }
@@ -81,16 +81,16 @@ module Rankings
     def groups_for(entries, year)
       year_entries = entries.select { |entry| entry["School Year"] == year }
 
-      keys = year_entries.map { |entry| [entry["Season"], entry["Sex"], entry["Division"]] }.uniq
-      keys.sort_by! { |season, sex, division| [SEASON_ORDER[season] || 99, SEX_ORDER[sex] || 99, division.to_s] }
+      keys = year_entries.map { |entry| [entry["Season"], entry["Gender"], entry["Division"]] }.uniq
+      keys.sort_by! { |season, gender, division| [SEASON_ORDER[season] || 99, GENDER_ORDER[gender] || 99, division.to_s] }
 
-      keys.map do |season, sex, division|
+      keys.map do |season, gender, division|
         rows = year_entries.select do |entry|
-          entry["Season"] == season && entry["Sex"] == sex && entry["Division"] == division
+          entry["Season"] == season && entry["Gender"] == gender && entry["Division"] == division
         end
         rows.sort_by! { |entry| entry["Place"].to_f }
 
-        heading = "#{SEX_LABELS[sex] || sex} #{SEASON_LABELS[season] || season}"
+        heading = "#{GENDER_LABELS[gender] || gender} #{SEASON_LABELS[season] || season}"
         heading += " — #{division}" unless division.to_s.empty?
 
         {

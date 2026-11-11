@@ -7,8 +7,8 @@
 # whichever School Year sorts last).
 #
 # Each page's meets are split into one head-to-head matrix + results table
-# per Season/Sex combination that year (e.g. "Girls Fall"), since a school
-# year could in principle carry more than one season/sex of dual meets.
+# per Season/Gender combination that year (e.g. "Girls Fall"), since a school
+# year could in principle carry more than one season/gender of dual meets.
 #
 # The dual-meets/ hub page picks these generated pages up automatically via
 # directory-listing.html (see page_tree_generator.rb), newest-first thanks
@@ -24,8 +24,8 @@ module DualMeetResults
 
     SEASON_ORDER = { "fall" => 0, "winter" => 1 }.freeze
     SEASON_LABELS = { "fall" => "Fall", "winter" => "Winter" }.freeze
-    SEX_ORDER = { "F" => 0, "M" => 1 }.freeze
-    SEX_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
+    GENDER_ORDER = { "F" => 0, "M" => 1 }.freeze
+    GENDER_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
 
     def generate(site)
       entries = site.data.dig(*DATA_PATH) || []
@@ -60,14 +60,14 @@ module DualMeetResults
     def groups_for(entries, year)
       year_entries = entries.select { |entry| entry["School Year"] == year }
 
-      keys = year_entries.map { |entry| [entry["Season"], entry["Sex"]] }.uniq
-      keys.sort_by! { |season, sex| [SEASON_ORDER[season] || 99, SEX_ORDER[sex] || 99] }
+      keys = year_entries.map { |entry| [entry["Season"], entry["Gender"]] }.uniq
+      keys.sort_by! { |season, gender| [SEASON_ORDER[season] || 99, GENDER_ORDER[gender] || 99] }
 
-      keys.map do |season, sex|
-        rows = year_entries.select { |entry| entry["Season"] == season && entry["Sex"] == sex }
+      keys.map do |season, gender|
+        rows = year_entries.select { |entry| entry["Season"] == season && entry["Gender"] == gender }
 
         {
-          "heading" => "#{SEX_LABELS[sex] || sex} #{SEASON_LABELS[season] || season}",
+          "heading" => "#{GENDER_LABELS[gender] || gender} #{SEASON_LABELS[season] || season}",
           "entries" => rows,
         }
       end

@@ -56,9 +56,9 @@ module SwimmingDivingSchoolWins
     # championships (Girls has only ever raced in the fall). `half` picks
     # which half of "School Year" (e.g. "2020-2021") to report: 0 (first
     # year) for fall, 1 (second year) for winter.
-    def bsc_years(rows, names, sex, season, half)
+    def bsc_years(rows, names, gender, season, half)
       years = rows.filter_map do |row|
-        next unless row["Sex"] == sex && row["Season"] == season &&
+        next unless row["Gender"] == gender && row["Season"] == season &&
                     row["Place"] == "1" && names.include?(row["School"])
 
         row["School Year"].split("-")[half]
@@ -69,9 +69,9 @@ module SwimmingDivingSchoolWins
     # Sectional/State wins aren't split by season the way BSC is - each
     # row's own Season still determines which half of "School Year" its win
     # year is (fall -> first year, winter/other -> second year).
-    def division_years(rows, names, sex)
+    def division_years(rows, names, gender)
       years = rows.filter_map do |row|
-        next unless row["Sex"] == sex && row["Place"] == "1" && names.include?(row["School"])
+        next unless row["Gender"] == gender && row["Place"] == "1" && names.include?(row["School"])
 
         half = row["Season"] == "fall" ? 0 : 1
         row["School Year"].split("-")[half]

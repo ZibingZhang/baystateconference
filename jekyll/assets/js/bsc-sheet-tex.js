@@ -234,7 +234,7 @@
   // does under "Event 23".
   function eventHeading(event) {
     return "{" + HEADER_FONT + "\\bfseries \\makebox[" + EVENT_NUM_W + "pt][l]{Event " + tex(event.event_num) + "}" +
-      tex(event.sex_label) + " " + tex(event.event_name) + "}\\par\\smallskip\n";
+      tex(event.gender_label) + " " + tex(event.event_name) + "}\\par\\smallskip\n";
   }
 
   // Highest lane number used anywhere in the meet's swimming heats (not

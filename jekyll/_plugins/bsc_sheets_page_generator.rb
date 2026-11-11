@@ -37,14 +37,14 @@ module BscSheets
 
     FIELD_MAPS = {
       individual: [
-        %w[event_num Event\ Num], %w[event_name Event\ Name], %w[gender Sex],
+        %w[event_num Event\ Num], %w[event_name Event\ Name], %w[gender Gender],
         %w[heat Heat], %w[lane Lane], %w[place Place], %w[points Points],
         %w[first_name First\ Name], %w[last_name Last\ Name], %w[year Year],
         %w[school School], %w[seed_time Seed\ Time], %w[finals_time Finals\ Time],
         %w[status Status], %w[exhibition Exhibition], %w[qualifier Qualifier],
       ],
       relay: [
-        %w[event_num Event\ Num], %w[event_name Event\ Name], %w[gender Sex],
+        %w[event_num Event\ Num], %w[event_name Event\ Name], %w[gender Gender],
         %w[heat Heat], %w[lane Lane], %w[place Place], %w[points Points],
         %w[team Team], %w[relay Relay],
         %w[first_name_1 First\ Name\ 1], %w[last_name_1 Last\ Name\ 1], %w[year_1 Year\ 1],
@@ -55,7 +55,7 @@ module BscSheets
         %w[status Status], %w[exhibition Exhibition], %w[qualifier Qualifier],
       ],
       diving: [
-        %w[event_num Event\ Num], %w[event_name Event\ Name], %w[gender Sex],
+        %w[event_num Event\ Num], %w[event_name Event\ Name], %w[gender Gender],
         %w[heat Heat], %w[lane Lane], %w[place Place], %w[points Points],
         %w[first_name First\ Name], %w[last_name Last\ Name], %w[year Year],
         %w[school School], %w[seed_score Seed\ Score], %w[finals_score Finals\ Score],
@@ -70,7 +70,7 @@ module BscSheets
       { slug: "results", title: "Results" },
     ].freeze
 
-    SEX_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
+    GENDER_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
 
     SEASON_PAGE_CONTENT = <<~LIQUID
       {% include rankings-table.html heading="Girls Team Scores" entries=page.girls_team_scores %}
@@ -223,7 +223,7 @@ module BscSheets
         by_event[key] ||= {
           "event_num" => key,
           "event_name" => row["Event Name"],
-          "sex_label" => SEX_LABELS[row["Sex"]] || row["Sex"],
+          "gender_label" => GENDER_LABELS[row["Gender"]] || row["Gender"],
           "kind" => kind,
           "rows" => [],
         }
@@ -236,7 +236,7 @@ module BscSheets
     def events_for(sheet_kind, grouped_events)
       grouped_events.map do |event|
         entries = sheet_kind == "heat-sheet" ? heats_for(event["rows"]) : sorted_rows(sheet_kind, event["kind"], event["rows"])
-        event.slice("event_num", "event_name", "sex_label", "kind").merge("entries" => entries)
+        event.slice("event_num", "event_name", "gender_label", "kind").merge("entries" => entries)
       end
     end
 

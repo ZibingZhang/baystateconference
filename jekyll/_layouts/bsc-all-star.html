@@ -23,9 +23,9 @@ layout: base
 
     {%- assign all_stars = site.data['swimming-diving']['bsc']['awards']['all-stars'] -%}
     {%- assign year_entries = all_stars | where: 'Year', page.year -%}
-    {%- assign girls_fall = year_entries | where: 'Season', 'Fall' | where: 'Sex', 'F' -%}
-    {%- assign boys_fall = year_entries | where: 'Season', 'Fall' | where: 'Sex', 'M' -%}
-    {%- assign boys_winter = year_entries | where: 'Season', 'Winter' | where: 'Sex', 'M' -%}
+    {%- assign girls_fall = year_entries | where: 'Season', 'Fall' | where: 'Gender', 'F' -%}
+    {%- assign boys_fall = year_entries | where: 'Season', 'Fall' | where: 'Gender', 'M' -%}
+    {%- assign boys_winter = year_entries | where: 'Season', 'Winter' | where: 'Gender', 'M' -%}
 
     {%- include all-stars-table.html heading="Girls Fall" entries=girls_fall -%}
     {%- include all-stars-table.html heading="Boys Fall" entries=boys_fall -%}
