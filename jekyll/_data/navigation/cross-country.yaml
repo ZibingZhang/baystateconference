@@ -5,6 +5,30 @@
 - title: Schedule
   url: /sports/cross-country/schedule/
 
+- title: Schools
+  url: /sports/cross-country/schools/
+  children:
+    - title: Braintree
+      url: /sports/cross-country/schools/braintree/
+    - title: Brookline
+      url: /sports/cross-country/schools/brookline/
+    - title: Framingham
+      url: /sports/cross-country/schools/framingham/
+    - title: Milton
+      url: /sports/cross-country/schools/milton/
+    - title: Natick
+      url: /sports/cross-country/schools/natick/
+    - title: Needham
+      url: /sports/cross-country/schools/needham/
+    - title: Newton North
+      url: /sports/cross-country/schools/newton-north/
+    - title: Walpole
+      url: /sports/cross-country/schools/walpole/
+    - title: Wellesley
+      url: /sports/cross-country/schools/wellesley/
+    - title: Weymouth
+      url: /sports/cross-country/schools/weymouth/
+
 - title: Organizations
   children:
     - title: MIAA

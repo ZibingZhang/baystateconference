@@ -4,3 +4,27 @@
 
 - title: Schedule
   url: /sports/squash/schedule/
+
+- title: Schools
+  url: /sports/squash/schools/
+  children:
+    - title: Braintree
+      url: /sports/squash/schools/braintree/
+    - title: Brookline
+      url: /sports/squash/schools/brookline/
+    - title: Framingham
+      url: /sports/squash/schools/framingham/
+    - title: Milton
+      url: /sports/squash/schools/milton/
+    - title: Natick
+      url: /sports/squash/schools/natick/
+    - title: Needham
+      url: /sports/squash/schools/needham/
+    - title: Newton North
+      url: /sports/squash/schools/newton-north/
+    - title: Walpole
+      url: /sports/squash/schools/walpole/
+    - title: Wellesley
+      url: /sports/squash/schools/wellesley/
+    - title: Weymouth
+      url: /sports/squash/schools/weymouth/

@@ -5,6 +5,30 @@
 - title: Schedule
   url: /sports/baseball/schedule/
 
+- title: Schools
+  url: /sports/baseball/schools/
+  children:
+    - title: Braintree
+      url: /sports/baseball/schools/braintree/
+    - title: Brookline
+      url: /sports/baseball/schools/brookline/
+    - title: Framingham
+      url: /sports/baseball/schools/framingham/
+    - title: Milton
+      url: /sports/baseball/schools/milton/
+    - title: Natick
+      url: /sports/baseball/schools/natick/
+    - title: Needham
+      url: /sports/baseball/schools/needham/
+    - title: Newton North
+      url: /sports/baseball/schools/newton-north/
+    - title: Walpole
+      url: /sports/baseball/schools/walpole/
+    - title: Wellesley
+      url: /sports/baseball/schools/wellesley/
+    - title: Weymouth
+      url: /sports/baseball/schools/weymouth/
+
 - title: Organizations
   children:
     - title: MIAA

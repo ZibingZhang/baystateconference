@@ -1,0 +1,15 @@
+{%- comment -%}
+  A styled "Schools" link with a school icon, styled like any other
+  single-item link-list (see current-season-link.html, which this mirrors).
+  Defaults to this page's own schools/ (e.g. a sport's /sports/football/
+  index page links to /sports/football/schools/) - pass `url` to override.
+
+  Usage: {% include schools-link.html %}
+         {% include schools-link.html url="/sports/swimming-diving/schools/" %}
+{%- endcomment -%}
+{%- if include.url -%}
+  {%- assign target = include.url -%}
+{%- else -%}
+  {%- assign target = page.url | append: "schools/" -%}
+{%- endif -%}
+{%- include icon-link.html icon="school" label="Schools" url=target -%}

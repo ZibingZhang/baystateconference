@@ -5,6 +5,30 @@
 - title: Schedule
   url: /sports/soccer/schedule/
 
+- title: Schools
+  url: /sports/soccer/schools/
+  children:
+    - title: Braintree
+      url: /sports/soccer/schools/braintree/
+    - title: Brookline
+      url: /sports/soccer/schools/brookline/
+    - title: Framingham
+      url: /sports/soccer/schools/framingham/
+    - title: Milton
+      url: /sports/soccer/schools/milton/
+    - title: Natick
+      url: /sports/soccer/schools/natick/
+    - title: Needham
+      url: /sports/soccer/schools/needham/
+    - title: Newton North
+      url: /sports/soccer/schools/newton-north/
+    - title: Walpole
+      url: /sports/soccer/schools/walpole/
+    - title: Wellesley
+      url: /sports/soccer/schools/wellesley/
+    - title: Weymouth
+      url: /sports/soccer/schools/weymouth/
+
 - title: Organizations
   children:
     - title: MIAA

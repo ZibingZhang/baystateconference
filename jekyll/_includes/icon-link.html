@@ -1,0 +1,18 @@
+{%- comment -%}
+  A single link styled as a bordered row with an icon - the shared markup
+  behind current-season-link.html and schools-link.html (each reused
+  across many pages), and used directly wherever a page just needs one
+  such link (e.g. a single "Meets" or "Archive" shortcut).
+
+  Usage: {% include icon-link.html icon="calendar_month" label="Current Season Schedule" url="/sports/football/schedule/current-season/" %}
+{%- endcomment -%}
+<div class="directory-browser link-list">
+  <ul class="directory-tree">
+    <li class="directory-file">
+      <a href="{{ include.url | relative_url }}">
+        <span class="material-symbols-outlined" aria-hidden="true">{{ include.icon }}</span>
+        <span>{{ include.label }}</span>
+      </a>
+    </li>
+  </ul>
+</div>

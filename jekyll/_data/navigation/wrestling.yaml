@@ -5,6 +5,30 @@
 - title: Schedule
   url: /sports/wrestling/schedule/
 
+- title: Schools
+  url: /sports/wrestling/schools/
+  children:
+    - title: Braintree
+      url: /sports/wrestling/schools/braintree/
+    - title: Brookline
+      url: /sports/wrestling/schools/brookline/
+    - title: Framingham
+      url: /sports/wrestling/schools/framingham/
+    - title: Milton
+      url: /sports/wrestling/schools/milton/
+    - title: Natick
+      url: /sports/wrestling/schools/natick/
+    - title: Needham
+      url: /sports/wrestling/schools/needham/
+    - title: Newton North
+      url: /sports/wrestling/schools/newton-north/
+    - title: Walpole
+      url: /sports/wrestling/schools/walpole/
+    - title: Wellesley
+      url: /sports/wrestling/schools/wellesley/
+    - title: Weymouth
+      url: /sports/wrestling/schools/weymouth/
+
 - title: Organizations
   children:
     - title: MIAA

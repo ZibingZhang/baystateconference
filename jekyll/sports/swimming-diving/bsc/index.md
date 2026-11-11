@@ -15,7 +15,7 @@ internal_links:
     url: /sports/swimming-diving/archive/?path=meet-results/by-meet-and-year/bay-state-conference
 ---
 
-{% include bsc-latest-meet-link.html %}
+{% include icon-link.html icon="calendar_month" label="Latest Meet" url="/sports/swimming-diving/bsc/latest/" %}
 
 {% include link-list.html heading="See Also" items=page.internal_links %}
 

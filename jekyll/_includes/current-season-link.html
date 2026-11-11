@@ -18,13 +18,4 @@
 {%- else -%}
   {%- assign target = page.url | append: "schedule/current-season/" -%}
 {%- endif -%}
-<div class="directory-browser link-list">
-  <ul class="directory-tree">
-    <li class="directory-file">
-      <a href="{{ target | relative_url }}">
-        <span class="material-symbols-outlined" aria-hidden="true">calendar_month</span>
-        <span>Current Season Schedule</span>
-      </a>
-    </li>
-  </ul>
-</div>
+{%- include icon-link.html icon="calendar_month" label="Current Season Schedule" url=target -%}

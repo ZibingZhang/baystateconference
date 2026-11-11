@@ -4,3 +4,27 @@
 
 - title: Schedule
   url: /sports/flag-football/schedule/
+
+- title: Schools
+  url: /sports/flag-football/schools/
+  children:
+    - title: Braintree
+      url: /sports/flag-football/schools/braintree/
+    - title: Brookline
+      url: /sports/flag-football/schools/brookline/
+    - title: Framingham
+      url: /sports/flag-football/schools/framingham/
+    - title: Milton
+      url: /sports/flag-football/schools/milton/
+    - title: Natick
+      url: /sports/flag-football/schools/natick/
+    - title: Needham
+      url: /sports/flag-football/schools/needham/
+    - title: Newton North
+      url: /sports/flag-football/schools/newton-north/
+    - title: Walpole
+      url: /sports/flag-football/schools/walpole/
+    - title: Wellesley
+      url: /sports/flag-football/schools/wellesley/
+    - title: Weymouth
+      url: /sports/flag-football/schools/weymouth/

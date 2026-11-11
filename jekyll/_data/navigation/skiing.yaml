@@ -4,3 +4,27 @@
 
 - title: Schedule
   url: /sports/skiing/schedule/
+
+- title: Schools
+  url: /sports/skiing/schools/
+  children:
+    - title: Braintree
+      url: /sports/skiing/schools/braintree/
+    - title: Brookline
+      url: /sports/skiing/schools/brookline/
+    - title: Framingham
+      url: /sports/skiing/schools/framingham/
+    - title: Milton
+      url: /sports/skiing/schools/milton/
+    - title: Natick
+      url: /sports/skiing/schools/natick/
+    - title: Needham
+      url: /sports/skiing/schools/needham/
+    - title: Newton North
+      url: /sports/skiing/schools/newton-north/
+    - title: Walpole
+      url: /sports/skiing/schools/walpole/
+    - title: Wellesley
+      url: /sports/skiing/schools/wellesley/
+    - title: Weymouth
+      url: /sports/skiing/schools/weymouth/
