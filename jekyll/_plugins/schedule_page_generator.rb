@@ -8,11 +8,11 @@
 # the fetch script yet), in which case no schedule pages get generated at all.
 #
 # Each page's games are every Bay State Conference matchup in that sport
-# that year, split into one table per Sex (e.g. "Boys") - not per school,
+# that year, split into one table per Gender (e.g. "Boys") - not per school,
 # since a game's two rows have already been resolved into one by
 # resolve_game_pairs() in arbiter_schedule.py. Level (Varsity/Sub-Varsity/...)
 # is a column within each table rather than its own grouping, since a single
-# sex often has just the two or three levels rendering that split
+# gender often has just the two or three levels rendering that split
 # unnecessary.
 #
 # A sport's hand-authored schedule/index.md picks these generated pages up
@@ -40,7 +40,7 @@ module Schedule
 
     DATA_PATH = %w[schedule games].freeze
 
-    SEX_ORDER = { "Girls" => 0, "Boys" => 1, "Coed" => 2 }.freeze
+    GENDER_ORDER = { "Girls" => 0, "Boys" => 1, "Coed" => 2 }.freeze
 
     def generate(site)
       games = site.data.dig(*DATA_PATH) || []
@@ -104,7 +104,7 @@ module Schedule
         "groups" => groups_for(sport_games, year),
         "schools" => schools_for(sport_games, year, bsc_school_names),
         "levels" => levels_for(sport_games, year),
-        "sexes" => sexes_for(sport_games, year),
+        "genders" => genders_for(sport_games, year),
         "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
         "previous_title" => previous_year && en_dash(previous_year),
         "next_url" => next_year && "/#{dir}/#{next_year}/",
@@ -119,16 +119,16 @@ module Schedule
     def groups_for(sport_games, year)
       year_games = sport_games.select { |g| g["school_year"] == year }
 
-      sexes = year_games.map { |g| g["sex"] }.uniq
-      sexes.sort_by! { |sex| SEX_ORDER[sex] || 99 }
+      genders = year_games.map { |g| g["gender"] }.uniq
+      genders.sort_by! { |gender| GENDER_ORDER[gender] || 99 }
 
-      sexes.map do |sex|
-        rows = year_games.select { |g| g["sex"] == sex }
+      genders.map do |gender|
+        rows = year_games.select { |g| g["gender"] == gender }
         rows = rows.map { |g| decorate(g) }
         rows.sort_by! { |g| g["sort_key"] }
 
         {
-          "heading" => sex,
+          "heading" => gender,
           "entries" => rows,
         }
       end
@@ -155,15 +155,15 @@ module Schedule
       year_games.map { |g| g["level"] }.uniq.sort_by { |level| [level == "Varsity" ? 0 : 1, level.to_s] }
     end
 
-    # Distinct sexes (Girls/Boys/Coed) played this sport/year, in
-    # SEX_ORDER - for the "filter by sex" control, only rendered at all
+    # Distinct genders (Girls/Boys/Coed) played this sport/year, in
+    # GENDER_ORDER - for the "filter by gender" control, only rendered at all
     # (see schedule-filter.html) when there's more than one - e.g. most
     # sports only ever have the one group this page already splits into,
     # making a redundant filter on top of that.
-    def sexes_for(sport_games, year)
+    def genders_for(sport_games, year)
       year_games = sport_games.select { |g| g["school_year"] == year }
-      sexes = year_games.map { |g| g["sex"] }.uniq
-      sexes.sort_by { |sex| SEX_ORDER[sex] || 99 }
+      genders = year_games.map { |g| g["gender"] }.uniq
+      genders.sort_by { |gender| GENDER_ORDER[gender] || 99 }
     end
 
     # arbiter_schedule.py already splits ArbiterLive's date_time into clean

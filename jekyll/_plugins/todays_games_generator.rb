@@ -1,7 +1,7 @@
 # Precomputes today's Varsity games for _includes/todays-games.html, since
 # Liquid alone can't do the custom multi-key sort the homepage list needs
 # (chronological, then Girls before Boys/Coed, then sport/team names
-# alphabetically) - mirrors schedule_page_generator.rb's SEX_ORDER/sort_key/
+# alphabetically) - mirrors schedule_page_generator.rb's GENDER_ORDER/sort_key/
 # school_filter conventions, just scoped to today's date and the Varsity
 # level instead of a whole sport/year. Also computes the distinct sport/
 # school lists todays-games.html's filter chips use (schedule-filter.html
@@ -19,7 +19,7 @@ module Schedule
 
     DATA_PATH = %w[schedule games].freeze
 
-    SEX_ORDER = { "Girls" => 0, "Boys" => 1, "Coed" => 2 }.freeze
+    GENDER_ORDER = { "Girls" => 0, "Boys" => 1, "Coed" => 2 }.freeze
 
     def generate(site)
       games = site.data.dig(*DATA_PATH) || []
@@ -47,7 +47,7 @@ module Schedule
         "school_filter" => [game["team_1"], game["team_2"]].compact.join("|"),
         "sort_key" => [
           time_key,
-          SEX_ORDER[game["sex"]] || 99,
+          GENDER_ORDER[game["gender"]] || 99,
           game["sport"].to_s.downcase,
           game["team_1"].to_s.downcase,
           game["team_2"].to_s.downcase

@@ -104,7 +104,7 @@ YOUTH_LEVEL_RE = re.compile(r"Middle School|\d+(st|nd|rd|th)\b")
 # ArbiterLive sport name -> canonical site sport title (jekyll/_data/sports.yaml
 # `title`). Several raw ArbiterLive sports collapse onto one site sport
 # (e.g. Lacrosse - Boys/Girls become "Lacrosse", distinguished instead by
-# `sex`). Indoor/Outdoor Track & Field are kept as separate site sports
+# `gender`). Indoor/Outdoor Track & Field are kept as separate site sports
 # rather than merged, since they're separate MIAA/BSC-recognized sports in
 # different seasons; "Track & Field - Adapted" is folded into "Outdoor
 # Track & Field" since MIAA runs Adapted Track & Field as a spring sport
@@ -146,7 +146,7 @@ SPORT_NORMALIZE = {
 }
 
 # "Boys Varsity" -> ("Boys", "Varsity"); "Coed Unified" -> ("Coed", "Unified").
-SEX_LEVEL_RE = re.compile(r"^(Boys|Girls|Coed)\s+(.*)$")
+GENDER_LEVEL_RE = re.compile(r"^(Boys|Girls|Coed)\s+(.*)$")
 
 # ArbiterLive's "Home or Away" column uses "vs" for home games and "@" for away.
 HOME_AWAY_MAP = {"vs": "Home", "@": "Away"}
@@ -183,7 +183,7 @@ class Game:
     team_id: str
     school: str
     sport: str
-    sex: Optional[str]
+    gender: Optional[str]
     level: str
     date_time: str
     home_away: Optional[str]
@@ -202,7 +202,7 @@ class ResolvedGame:
 
     school_year: str
     sport: str
-    sex: Optional[str]
+    gender: Optional[str]
     level: str
     date: Optional[str]        # ISO 8601, e.g. "2026-09-08"
     time: Optional[str]        # ISO 8601 24-hour "HH:MM", or "TBA"
@@ -219,8 +219,8 @@ def normalize_sport(sport: str) -> str:
     return SPORT_NORMALIZE.get(sport, sport)
 
 
-def split_sex_level(level: str) -> tuple[Optional[str], str]:
-    m = SEX_LEVEL_RE.match(level)
+def split_gender_level(level: str) -> tuple[Optional[str], str]:
+    m = GENDER_LEVEL_RE.match(level)
     if m:
         return m.group(1), m.group(2)
     return None, level
@@ -293,7 +293,7 @@ def resolve_game_pairs(games: list[Game]) -> list[ResolvedGame]:
     - e.g. a non-conference opponent) is kept as a single row instead of
     being dropped.
 
-    Rows are matched on the exact (raw, not sex/level-normalized) `level`
+    Rows are matched on the exact (raw, not gender/level-normalized) `level`
     string, since two schools sometimes spell the same sub-varsity tier
     differently (e.g. "Junior Varsity" vs "Junior Varsity - JV1") - matching
     loosely on the normalized Varsity/Sub-Varsity bucket instead risked
@@ -308,7 +308,7 @@ def resolve_game_pairs(games: list[Game]) -> list[ResolvedGame]:
     different times) as two separate merged games, since both schools'
     schedules agree on both times. Rows that don't find a mirror this way
     are retried in a second pass matching on date only (still scoped to the
-    same sport/school_year/sex/raw level/opponent pair, so this still can't
+    same sport/school_year/gender/raw level/opponent pair, so this still can't
     cross-pair two different concurrent games) - this catches the case
     where the two schools simply disagree on the exact start time for what
     is really the same game (e.g. one posts "7:00 PM", the other "7:30 PM").
@@ -325,7 +325,7 @@ def resolve_game_pairs(games: list[Game]) -> list[ResolvedGame]:
         groups: dict[tuple, list[Game]] = {}
         for g in games:
             date_key = (extract_date(g.date_time) or g.date_time) if date_only else g.date_time
-            key = (g.sport, g.school_year, g.sex, g.level, date_key, frozenset([g.school, g.opponent or ""]))
+            key = (g.sport, g.school_year, g.gender, g.level, date_key, frozenset([g.school, g.opponent or ""]))
             groups.setdefault(key, []).append(g)
         return groups
 
@@ -381,7 +381,7 @@ def merge_game(g: Game, mirror: Optional[Game]) -> ResolvedGame:
     return ResolvedGame(
         school_year=g.school_year,
         sport=g.sport,
-        sex=g.sex,
+        gender=g.gender,
         level=normalize_level(g.level),
         date=date,
         time=time_of_day,
@@ -637,7 +637,7 @@ def main() -> None:
                 print(f"  [{completed}/{len(all_teams)}] {team.school} {team.sport} {team.level}: {error}")
                 continue
 
-            sex, level = split_sex_level(team.level)
+            gender, level = split_gender_level(team.level)
             for g in games:
                 all_games.append(
                     Game(
@@ -645,7 +645,7 @@ def main() -> None:
                         team_id=team.team_id,
                         school=team.school,
                         sport=normalize_sport(team.sport),
-                        sex=sex,
+                        gender=gender,
                         level=level,
                         **g,
                     )
@@ -669,7 +669,7 @@ def write_resolved_csv(games: list[Game], out: str) -> list[ResolvedGame]:
     fieldnames = [
         "school_year",
         "sport",
-        "sex",
+        "gender",
         "level",
         "date",
         "time",

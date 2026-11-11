@@ -37,7 +37,7 @@
     {%- if todays_games and todays_games.size > 0 -%}
     {%- for game in todays_games -%}
     <tr data-sport="{{ game.sport }}" data-school="{{ game.school_filter }}">
-      <td>{{ game.sex }} {{ game.sport }}</td>
+      <td>{{ game.gender }} {{ game.sport }}</td>
       <td>{{ game.display_time }}</td>
       <td>{{ game.team_1 }}{% if game.home_team == game.team_1 %}&#8224;{% endif %}</td>
       <td>{{ game.team_2 }}{% if game.home_team == game.team_2 %}&#8224;{% endif %}</td>

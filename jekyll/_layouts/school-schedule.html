@@ -4,7 +4,7 @@ layout: base
 {%- comment -%}
   Renders one school's schedule for a single sport/school year (reached by
   drilling into a sport card on that year's schools/<school>/schedule/<year>/
-  page), split into one table per Sex (e.g. "Boys"). A page using this
+  page), split into one table per Gender (e.g. "Boys"). A page using this
   layout gets its `groups` data precomputed by
   _plugins/school_schedule_page_generator.rb.
 {%- endcomment -%}
@@ -21,7 +21,7 @@ layout: base
     {%- if page.groups.size > 0 -%}
     <p class="schedule-legend">&#8224; Home game</p>
     {%- include schedule-filter.html attr="level" values=page.levels label="Filter by level" -%}
-    {%- include schedule-filter.html attr="sex" values=page.sexes label="Filter by sex" -%}
+    {%- include schedule-filter.html attr="gender" values=page.genders label="Filter by gender" -%}
     <script src="{{ '/assets/js/schedule-filter.js' | relative_url }}" defer></script>
     {%- endif -%}
 

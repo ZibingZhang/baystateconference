@@ -3,7 +3,7 @@
 #     sport cards (mirrors sports/index.md's sport-grid.html), one per sport
 #     that school played that year
 #   schools/<school-slug>/schedule/<school-year>/<sport-slug>/ - that one
-#     sport's actual games that year, split into one table per Sex (e.g.
+#     sport's actual games that year, split into one table per Gender (e.g.
 #     "Boys") - same shape as the per-sport pages schedule_page_generator.rb
 #     builds, just for one school instead of every school in that sport
 #
@@ -25,7 +25,7 @@ module SchoolSchedule
 
     DATA_PATH = %w[schedule games].freeze
 
-    SEX_ORDER = { "Girls" => 0, "Boys" => 1, "Coed" => 2 }.freeze
+    GENDER_ORDER = { "Girls" => 0, "Boys" => 1, "Coed" => 2 }.freeze
 
     def generate(site)
       games = site.data.dig(*DATA_PATH) || []
@@ -132,7 +132,7 @@ module SchoolSchedule
         "breadcrumb" => sport_title,
         "groups" => groups_for(school_games, year, sport_title, name),
         "levels" => levels_for(school_games, year, sport_title),
-        "sexes" => sexes_for(school_games, year, sport_title),
+        "genders" => genders_for(school_games, year, sport_title),
         "previous_url" => previous_year && "/#{base_dir}/#{previous_year}/#{sport_slug}/",
         "previous_title" => previous_year && en_dash(previous_year),
         "next_url" => next_year && "/#{base_dir}/#{next_year}/#{sport_slug}/",
@@ -165,18 +165,18 @@ module SchoolSchedule
       rows.map { |g| g["level"] }.uniq.sort_by { |level| [level == "Varsity" ? 0 : 1, level.to_s] }
     end
 
-    # Distinct sexes (Girls/Boys/Coed) this school/sport/year has games at,
-    # in SEX_ORDER - for the "filter by sex" control, only rendered at all
+    # Distinct genders (Girls/Boys/Coed) this school/sport/year has games at,
+    # in GENDER_ORDER - for the "filter by gender" control, only rendered at all
     # (see schedule-filter.html) when there's more than one - e.g. most
     # sports only ever have the one group this page already splits into,
     # making a redundant filter on top of that.
-    def sexes_for(school_games, year, sport_title)
+    def genders_for(school_games, year, sport_title)
       rows = school_games.select { |g| g["school_year"] == year && g["sport"] == sport_title }
-      sexes = rows.map { |g| g["sex"] }.uniq
-      sexes.sort_by { |sex| SEX_ORDER[sex] || 99 }
+      genders = rows.map { |g| g["gender"] }.uniq
+      genders.sort_by { |gender| GENDER_ORDER[gender] || 99 }
     end
 
-    # One group per Sex (e.g. "Boys") within the one sport this page is
+    # One group per Gender (e.g. "Boys") within the one sport this page is
     # scoped to - the sport itself is implicit from the page/URL, so it's
     # not repeated in the heading the way the picker page's cards are.
     def groups_for(school_games, year, sport_title, name)
@@ -184,15 +184,15 @@ module SchoolSchedule
         g["school_year"] == year && g["sport"] == sport_title
       end
 
-      sexes = rows.map { |g| g["sex"] }.uniq
-      sexes.sort_by! { |sex| SEX_ORDER[sex] || 99 }
+      genders = rows.map { |g| g["gender"] }.uniq
+      genders.sort_by! { |gender| GENDER_ORDER[gender] || 99 }
 
-      sexes.map do |sex|
-        sex_rows = rows.select { |g| g["sex"] == sex }
-        sex_rows = sex_rows.map { |g| decorate(g, name) }
-        sex_rows.sort_by! { |g| g["sort_key"] }
+      genders.map do |gender|
+        gender_rows = rows.select { |g| g["gender"] == gender }
+        gender_rows = gender_rows.map { |g| decorate(g, name) }
+        gender_rows.sort_by! { |g| g["sort_key"] }
 
-        { "heading" => sex, "entries" => sex_rows }
+        { "heading" => gender, "entries" => gender_rows }
       end
     end
 
