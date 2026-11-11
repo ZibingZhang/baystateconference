@@ -17,11 +17,7 @@ layout: base
     recipients table, e.g.
     recipients_data: site.data.swimming-diving.emisca.awards.jack-mcdonald-memorial-award-recipients
   {%- endcomment -%}
-  {%- assign recipients = site.data -%}
-  {%- assign data_key_parts = page.recipients_data | remove_first: 'site.data.' | split: '.' -%}
-  {%- for part in data_key_parts -%}
-    {%- assign recipients = recipients[part] -%}
-  {%- endfor -%}
+  {%- assign recipients = page.recipients_data | lookup_site_data: site.data -%}
 
   {%- if recipients and recipients.size > 0 -%}
   <section class="award-recipients">

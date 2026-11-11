@@ -29,6 +29,8 @@
 {%- assign team_lengths = team_lengths | sort -%}
 {%- assign longest_team_chars = team_lengths | last -%}
 
+{%- assign pair_lookup = meets | dual_meet_pair_lookup -%}
+
 {%- if include.heading -%}
 <h2>{{ include.heading }}</h2>
 {%- endif -%}
@@ -57,9 +59,12 @@
         {%- if row_team == col_team -%}
         <td class="dual-meet-matrix-diagonal">—</td>
         {%- else -%}
-          {%- assign match1 = meets | where: "Team 1", row_team | where: "Team 2", col_team -%}
-          {%- assign match2 = meets | where: "Team 1", col_team | where: "Team 2", row_team -%}
-          {%- assign match = match1 | concat: match2 | first -%}
+          {%- assign lookup_key = row_team | append: "|" | append: col_team -%}
+          {%- assign match = pair_lookup[lookup_key] -%}
+          {%- if match == nil -%}
+            {%- assign lookup_key = col_team | append: "|" | append: row_team -%}
+            {%- assign match = pair_lookup[lookup_key] -%}
+          {%- endif -%}
 
           {%- assign date_known = false -%}
           {%- if match["Date"] != nil and match["Date"] != "" -%}
