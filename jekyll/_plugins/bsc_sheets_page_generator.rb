@@ -41,7 +41,7 @@ module BscSheets
         %w[heat Heat], %w[lane Lane], %w[place Place], %w[points Points],
         %w[first_name First\ Name], %w[last_name Last\ Name], %w[year Year],
         %w[school School], %w[seed_time Seed\ Time], %w[finals_time Finals\ Time],
-        %w[disqualified Disqualified], %w[exhibition Exhibition], %w[qualifier Qualifier],
+        %w[status Status], %w[exhibition Exhibition], %w[qualifier Qualifier],
       ],
       relay: [
         %w[event_num Event\ Num], %w[event_name Event\ Name], %w[gender Sex],
@@ -52,14 +52,14 @@ module BscSheets
         %w[first_name_3 First\ Name\ 3], %w[last_name_3 Last\ Name\ 3], %w[year_3 Year\ 3],
         %w[first_name_4 First\ Name\ 4], %w[last_name_4 Last\ Name\ 4], %w[year_4 Year\ 4],
         %w[seed_time Seed\ Time], %w[finals_time Finals\ Time],
-        %w[disqualified Disqualified], %w[exhibition Exhibition], %w[qualifier Qualifier],
+        %w[status Status], %w[exhibition Exhibition], %w[qualifier Qualifier],
       ],
       diving: [
         %w[event_num Event\ Num], %w[event_name Event\ Name], %w[gender Sex],
         %w[heat Heat], %w[lane Lane], %w[place Place], %w[points Points],
         %w[first_name First\ Name], %w[last_name Last\ Name], %w[year Year],
         %w[school School], %w[seed_score Seed\ Score], %w[finals_score Finals\ Score],
-        %w[disqualified Disqualified], %w[qualifier Qualifier],
+        %w[status Status], %w[qualifier Qualifier],
       ],
     }.freeze
 

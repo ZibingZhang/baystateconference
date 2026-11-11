@@ -43,7 +43,8 @@
   }
 
   function finalsCell(entry, scoreKey, qualifierInline, exhibitionAllowed) {
-    if (entry["Disqualified"] === "True") return "DQ";
+    var status = entry["Status"];
+    if (status === "DQ" || status === "SCR") return status;
     var text = tex(entry[scoreKey]);
     if (exhibitionAllowed !== false && entry["Exhibition"] === "True") text = "x" + text;
     if (qualifierInline && entry["Qualifier"]) text += " " + tex(entry["Qualifier"]);
