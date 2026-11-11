@@ -2,6 +2,7 @@
 layout: page
 title: Analytics Enabled
 permalink: /analytics/no-disable/
+exclude_from_directory: true
 ---
 
 <script>
