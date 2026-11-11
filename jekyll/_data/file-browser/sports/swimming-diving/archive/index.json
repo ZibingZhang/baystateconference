@@ -1,0 +1,12 @@
+{
+  "files": [
+    {
+      "name": "Other Sites",
+      "files": [
+        { "name": "MIAA EZStream", "externalUrl": "http://miaa.ezstream.com/" },
+        { "name": "MIAA Website", "externalUrl": "https://www.miaa.net/swimming-diving" },
+        { "name": "NFHS Website", "externalUrl": "https://www.nfhs.org/sports/swimming-diving" }
+      ]
+    }
+  ]
+}

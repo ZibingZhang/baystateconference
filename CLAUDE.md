@@ -8,6 +8,7 @@ See `README.md` for the canonical project description — this file is Claude-sp
 - `jekyll/` — the public website.
   Jekyll static site, deployed to GitHub Pages by `.github/workflows/jekyll.yaml`.
   Local dev: `cd jekyll && bundle exec jekyll serve`.
+  The swimming/diving archive's file-browser index (`assets/data/file-browser/sports/swimming-diving/archive/index.json`, fetched at runtime by `assets/js/file-browser.js`) is generated at build time by `jekyll/_plugins/swimming_archive_index_generator.rb` — not checked in itself — from the hand-tagged `jekyll/_data/file-browser/sports/swimming-diving/archive/files.json` (entries needing multi-view indexing) plus the hand-maintained base tree in `jekyll/_data/file-browser/sports/swimming-diving/archive/index.json` (currently just "Other Sites").
 - `arbiterlive/` — `arbiter_schedule.py` fetches each team's schedule from ArbiterLive into `jekyll/_data/schedule/games.csv`, which the Jekyll build consumes.
   Not committed; fetched daily in CI (`fetch-schedule.yaml`) and cached for the Jekyll build.
 - `championshipentries/` — a React/Vite/MUI web app for coaches entering swim meet rosters and exporting them to Hytek EV3/HY3 formats.
