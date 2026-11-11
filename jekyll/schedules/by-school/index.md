@@ -5,8 +5,6 @@ permalink: /schedules/by-school/
 breadcrumb: By School
 ---
 
-Every school's current-season schedule (every sport it fields, together).
-
 <div class="directory-browser link-list">
   <ul class="directory-tree">
     {%- for school in site.data.schools -%}

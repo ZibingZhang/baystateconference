@@ -104,6 +104,7 @@ module Schedule
         "groups" => groups_for(sport_games, year),
         "schools" => schools_for(sport_games, year, bsc_school_names),
         "levels" => levels_for(sport_games, year),
+        "sexes" => sexes_for(sport_games, year),
         "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
         "previous_title" => previous_year && en_dash(previous_year),
         "next_url" => next_year && "/#{dir}/#{next_year}/",
@@ -152,6 +153,17 @@ module Schedule
     def levels_for(sport_games, year)
       year_games = sport_games.select { |g| g["school_year"] == year }
       year_games.map { |g| g["level"] }.uniq.sort_by { |level| [level == "Varsity" ? 0 : 1, level.to_s] }
+    end
+
+    # Distinct sexes (Girls/Boys/Coed) played this sport/year, in
+    # SEX_ORDER - for the "filter by sex" control, only rendered at all
+    # (see schedule-filter.html) when there's more than one - e.g. most
+    # sports only ever have the one group this page already splits into,
+    # making a redundant filter on top of that.
+    def sexes_for(sport_games, year)
+      year_games = sport_games.select { |g| g["school_year"] == year }
+      sexes = year_games.map { |g| g["sex"] }.uniq
+      sexes.sort_by { |sex| SEX_ORDER[sex] || 99 }
     end
 
     # arbiter_schedule.py already splits ArbiterLive's date_time into clean

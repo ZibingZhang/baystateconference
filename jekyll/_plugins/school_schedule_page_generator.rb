@@ -132,6 +132,7 @@ module SchoolSchedule
         "breadcrumb" => sport_title,
         "groups" => groups_for(school_games, year, sport_title, name),
         "levels" => levels_for(school_games, year, sport_title),
+        "sexes" => sexes_for(school_games, year, sport_title),
         "previous_url" => previous_year && "/#{base_dir}/#{previous_year}/#{sport_slug}/",
         "previous_title" => previous_year && en_dash(previous_year),
         "next_url" => next_year && "/#{base_dir}/#{next_year}/#{sport_slug}/",
@@ -162,6 +163,17 @@ module SchoolSchedule
     def levels_for(school_games, year, sport_title)
       rows = school_games.select { |g| g["school_year"] == year && g["sport"] == sport_title }
       rows.map { |g| g["level"] }.uniq.sort_by { |level| [level == "Varsity" ? 0 : 1, level.to_s] }
+    end
+
+    # Distinct sexes (Girls/Boys/Coed) this school/sport/year has games at,
+    # in SEX_ORDER - for the "filter by sex" control, only rendered at all
+    # (see schedule-filter.html) when there's more than one - e.g. most
+    # sports only ever have the one group this page already splits into,
+    # making a redundant filter on top of that.
+    def sexes_for(school_games, year, sport_title)
+      rows = school_games.select { |g| g["school_year"] == year && g["sport"] == sport_title }
+      sexes = rows.map { |g| g["sex"] }.uniq
+      sexes.sort_by { |sex| SEX_ORDER[sex] || 99 }
     end
 
     # One group per Sex (e.g. "Boys") within the one sport this page is
