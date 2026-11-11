@@ -998,6 +998,7 @@
 // to .school-grid's logo-image cards, which share the same box/grid look
 // via the same placeholders but need their own markup (an actual <img>,
 // plus room for a sport-specific extra like swimming's pool location).
+//
 .cards {
   @extend %card-grid;
 }
@@ -1014,6 +1015,33 @@
   &:hover .card-name {
     text-decoration: underline;
   }
+
+  // On a phone-width screen, %card-box's stacked icon-above-label layout at
+  // full size runs each card to ~230px tall - with 25 sports on /sports/
+  // alone, that's a lot of scrolling for not much payoff over a compact row.
+  // Left as the stacked layout above $on-palm, where there's enough width
+  // for a row of cards to not feel cramped at this icon size anyway.
+  @include media-query($on-palm) {
+    align-items: center;
+    flex-direction: row;
+    padding: $spacing-unit * 0.5 $spacing-unit;
+    text-align: left;
+
+    .card-icon.material-symbols-outlined {
+      font-size: 36px;
+      margin-bottom: 0;
+      margin-right: $spacing-unit * 0.5;
+    }
+
+    // .card-name is a <p>, which picks up the base stylesheet's bottom
+    // margin on paragraphs (meant for spacing out stacked blocks of text).
+    // With nothing below it to space out, that margin just offsets the flex
+    // item's margin box downward, throwing off align-items: center's
+    // vertical centering against the icon next to it.
+    .card-name {
+      margin: 0;
+    }
+  }
 }
 
 // Doubled up as `&.material-symbols-outlined` for specificity: Google's
@@ -1023,6 +1051,7 @@
 // larger size below.
 .card-icon.material-symbols-outlined {
   color: $brand-color-dimmed;
+  flex-shrink: 0;
   font-size: 72px;
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
   margin-bottom: $spacing-unit * 0.3;
