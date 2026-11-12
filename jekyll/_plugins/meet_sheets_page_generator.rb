@@ -43,7 +43,7 @@
 #                        Documents > By Meet and School Year.
 #
 # Every page below a <year> is otherwise identical in shape and content
-# regardless of source: a hub page (team scores + Meet Documents + Archive
+# regardless of source: a hub page (team scores + Unofficial Meet Documents + Archive
 # link-list) and, below it, whichever of Heat Sheet/Psych Sheet/Results the
 # data actually supports (see meet_sheets_page_utils.rb's SHEET_DEFS). <year> (and,
 # for separate_meet_pages sources, <season>) get their own thin
@@ -99,7 +99,7 @@ module MeetSheets
       {% for group in page.team_score_groups %}
       {% include rankings-table.html heading=group.heading entries=group.entries %}
       {% endfor %}
-      {% include link-list.html heading="Meet Documents" items=page.sheet_links open_in_new_tab=true %}
+      {% include link-list.html heading="Unofficial Meet Documents" items=page.sheet_links open_in_new_tab=true %}
       {% include link-list.html heading="Archive" items=page.archive_links %}
     LIQUID
 

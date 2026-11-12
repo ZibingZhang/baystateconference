@@ -207,7 +207,14 @@
       // mode (with its own default [5pt] gap re-added after the override,
       // so row 0's spacing still matches every other row).
       var isFirst = idx === 0 && firstRowBrk != null;
-      var line = fieldLine(fields, mode === "results" ? "\\\\" : isFirst ? firstRowBrk : "\\\\");
+      // \\* (not \\), on the results sheet, so a column/page break can't
+      // land between a squad's place/time/points line and its names - \\*
+      // is \\ plus \nobreak, and unlike wrapping the pair in a minipage
+      // (which was tried and reverted - it broke the normal \baselineskip
+      // spacing between every squad in a way that needed its own fragile
+      // depth correction) a bare penalty doesn't touch spacing at all,
+      // it only forbids breaking at that one point.
+      var line = fieldLine(fields, mode === "results" ? "\\\\*" : isFirst ? firstRowBrk : "\\\\");
       if (mode === "results") line += relaySwimmersLine(entry, isFirst ? firstRowBrk + "\\vspace{5pt}" : "\\\\[5pt]");
       return line;
     });
@@ -285,12 +292,42 @@
     // Heading + table header + first row are wrapped in one minipage so a
     // column/page break can't strand the heading with none of its results.
     // Later rows are left out of the box, free to spill into the next
-    // column/page on their own.
+    // column/page on their own - a relay row's own place/time/points line
+    // can't be separated from its names-and-splits block either, but
+    // that's handled with a \nobreak penalty in relayTable (see \\* there)
+    // rather than another box: boxing every row was tried and reverted, it
+    // broke the normal \baselineskip spacing between every squad in a way
+    // that needed its own fragile depth correction, where a bare penalty
+    // doesn't touch spacing at all - it only forbids breaking at one point.
     var table = tableFor(event, event.entries, mode, "\\par");
     var firstRow = table.rows.length ? table.rows[0] : "";
     var laterRows = table.rows.slice(1).join("");
+    // A minipage box's reported depth doesn't match an ordinary text
+    // line's depth, so the automatic \baselineskip-based gap LaTeX computes
+    // for the line that follows the box (row 2) comes out visibly tighter
+    // than every other row-to-row gap (which has no box in the way).
+    //
+    // \dp\strutbox looks like the fix (it's "the depth a normal line would
+    // have"), but \strutbox only reflects that if something has called
+    // \strut to refresh it - this document never does, so it can hold a
+    // stale depth from a wholly different font/size and made the gap
+    // *worse* in testing. \settodepth instead re-typesets row 1's own
+    // content right there in the live font and measures its actual depth,
+    // then feeds that to \prevdepth, so row 2's \baselineskip calculation
+    // uses the same input every other row-to-row transition does -
+    // regardless of engine/font build and regardless of whether this
+    // particular row's content even has descenders.
+    //
+    // The content handed to \settodepth must have row 1's own trailing
+    // break token(s) stripped first: \par (or \par\vspace{5pt}, which a
+    // *relay* row on the results sheet adds after its swimmer-names block)
+    // is a vertical-mode command and can't appear inside the \hbox
+    // \settodepth builds to do the measuring.
+    var depthFix = firstRow
+      ? "\\settodepth{\\eventrowdepth}{" + firstRow.replace(/\\par(?:\\vspace\{5pt\})?\s*$/, "") + "}\\prevdepth=\\eventrowdepth\n"
+      : "";
     return "\\begin{minipage}{\\linewidth}\n" + eventHeading(event) + table.header + firstRow +
-      "\\end{minipage}\\par\n" + laterRows + "\\par\\bigskip\n";
+      "\\end{minipage}\\par\n" + depthFix + laterRows + "\\par\\bigskip\n";
   }
 
   // /Title expects PDFDocEncoding or UTF-16BE, not UTF-8 - raw UTF-8 here
@@ -317,6 +354,9 @@
       "\\usepackage{tgtermes}",
       "\\usepackage[margin=0.5in]{geometry}",
       "\\usepackage{multicol}",
+      // Scratch register eventBlock uses to measure a boxed event's first
+      // row so the gap to its second row can be corrected (see eventBlock).
+      "\\newdimen\\eventrowdepth",
       "\\setlength{\\parindent}{0pt}",
       "\\pagestyle{empty}",
       "\\pdfinfo{ /Title (" + pdfInfoEscape(title) + ") }",
