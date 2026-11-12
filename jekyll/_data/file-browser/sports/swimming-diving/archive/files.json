@@ -554,6 +554,13 @@
       "tags": ["bay-state-conference", "results"]
     },
     {
+      "name": "2026-2027 Fall Girls & Boys Bay State Conference Corrected Team Scores.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2026-2027/season=fall/girls-boys-conference-corrected-team-scores.pdf",
+      "year": "2026-2027",
+      "season": "fall",
+      "tags": ["bay-state-conference", "team-scores"]
+    },
+    {
       "name": "2000-2001 Fall Girls State Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2000-2001/season=fall/girls-state-results.txt",
       "year": "2000-2001",
