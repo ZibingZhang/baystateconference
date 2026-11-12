@@ -1,0 +1,196 @@
+gender,division,rank,school,score
+F,Division 2,1,Wayland High School,349
+F,Division 2,2,Weston High School,299
+F,Division 2,3,Marblehead High School,269
+F,Division 2,4,East Longmeadow High School,193
+F,Division 2,5,Holyoke Catholic High School,130.5
+F,Division 2,6,Duxbury High School,126
+F,Division 2,7,Nauset Regional High School,115
+F,Division 2,8,Belchertown High School,87
+F,Division 2,8,Northampton High School,87
+F,Division 2,10,Bedford High School,84
+F,Division 2,11,Longmeadow High School,81
+F,Division 2,12,Hopkinton High School,78
+F,Division 2,13,South Hadley High School,67
+F,Division 2,14,Dover-Sherborn High School,53
+F,Division 2,15,Austin Preparatory School,43
+F,Division 2,16,Foxborough High School,30
+F,Division 2,17,Norwell High School,26
+F,Division 2,18,Middleborough High School,24
+F,Division 2,19,Nantucket High School,23
+F,Division 2,20,Medfield High School,21
+F,Division 2,20,Mystic Valley Regional Charter School,21
+F,Division 2,22,Holliston High School,19
+F,Division 2,23,Cohasset High School,17
+F,Division 2,24,Lynnfield High School,15
+F,Division 2,25,North Reading High School,11
+F,Division 2,25,Pembroke High School,11
+F,Division 2,27,Scituate High School,9
+F,Division 2,28,Ludlow High School,7
+F,Division 2,28,Pope John Paul II High School,7
+F,Division 2,30,Ashland High School,6
+F,Division 2,30,Hanover High School,6
+F,Division 2,32,Canton High School,4
+F,Division 2,33,Norton High School,3
+F,Division 2,34,Arlington Catholic High School,2
+F,Division 2,35,Dighton-Rehoboth Regional High School,1.5
+F,Division 1,1,Westford Academy,305
+F,Division 1,2,Lincoln-Sudbury Regional High School,202
+F,Division 1,3,King Philip Regional High School,201
+F,Division 1,4,Minnechaug Regional High School,183.5
+F,Division 1,5,Concord-Carlisle Regional High School,152.5
+F,Division 1,6,Barnstable High School,135
+F,Division 1,7,The Bromfield School,126.5
+F,Division 1,8,North Attleborough High School,115
+F,Division 1,9,Westfield High School,89
+F,Division 1,10,Beverly High School,87
+F,Division 1,11,Easthampton High School,86
+F,Division 1,12,Wachusett Regional High School,58
+F,Division 1,13,Mansfield High School,55
+F,Division 1,14,Tyngsborough High School,50
+F,Division 1,15,Newton South High School,45
+F,Division 1,16,Westborough High School,43
+F,Division 1,17,Chicopee Comprehensive High School,36
+F,Division 1,17,Agawam High School,36
+F,Division 1,19,Tantasqua Regional High School,35
+F,Division 1,20,Chicopee High School,30
+F,Division 1,21,Cambridge Rindge and Latin School,29
+F,Division 1,22,Leominster High School,27
+F,Division 1,23,Franklin High School,26
+F,Division 1,24,Gardner High School,24
+F,Division 1,25,Algonquin Regional High School,22
+F,Division 1,26,Hoosac Valley Regional High School,20
+F,Division 1,26,Oliver Ames High School,20
+F,Division 1,28,North Quincy High School,19
+F,Division 1,29,Hingham High School,18
+F,Division 1,30,Arlington High School,17
+F,Division 1,31,Sharon High School,11.5
+F,Division 1,32,Amherst Regional High School,8
+F,Division 1,33,Peabody Veterans Memorial High School,3
+F,Division 1,33,Lynn English High School,3
+F,Division 1,35,North Andover High School,2
+F,Division 1,35,Shrewsbury High School,2
+F,Division 1,37,Monument Mountain Regional High School,1
+F,Division 1,37,Attleboro High School,1
+M,Division 2,1,Weston High School,235.5
+M,Division 2,2,Concord-Carlisle High School,222
+M,Division 2,3,King Philip Regional High School,210
+M,Division 2,4,Hopkinton High School,163
+M,Division 2,5,Mystic Valley Regional Charter School,144
+M,Division 2,6,Bishop Stang High School,115
+M,Division 2,7,Wayland High School,112
+M,Division 2,8,Sandwich High School,106
+M,Division 2,9,Bishop Feehan High School,95
+M,Division 2,10,Northampton High School,85
+M,Division 2,11,Duxbury High School,84
+M,Division 2,12,Marblehead High School,83
+M,Division 2,13,Medfield High School,65
+M,Division 2,14,Amherst Regional High School,63
+M,Division 2,15,Palmer High School,54
+M,Division 2,16,Longmeadow High School,45.5
+M,Division 2,17,Milford High School,44
+M,Division 2,18,Manchester-Essex Regional Junior-Senior High School,35
+M,Division 2,18,Sharon High School,35
+M,Division 2,18,Arlington Catholic High School,35
+M,Division 2,21,Seekonk High School,32
+M,Division 2,22,Westborough High School,30
+M,Division 2,23,Taconic High School,28
+M,Division 2,23,Norwell High School,28
+M,Division 2,25,Hamilton-Wenham Regional High School,19
+M,Division 2,26,Cohasset High School,17
+M,Division 2,26,Bishop Fenwick High School,17
+M,Division 2,28,The Bromfield School,16
+M,Division 2,29,Coyle and Cassidy High School,13
+M,Division 2,29,Ashland High School,13
+M,Division 2,29,Middleborough High School,13
+M,Division 2,32,Hingham High School,11.5
+M,Division 2,33,Monson High School,11
+M,Division 2,34,Chicopee High School,7
+M,Division 2,35,Belchertown High School,6
+M,Division 2,35,Dover-Sherborn High School,6
+M,Division 2,37,Holyoke Catholic High School,4.5
+M,Division 2,38,Boston Latin Academy,4
+M,Division 2,38,Arlington High School,4
+M,Division 2,40,Catholic Memorial High School,3
+M,Division 2,40,South Hadley High School,3
+M,Division 2,40,Wellesley High School,3
+M,Division 2,43,Beverly High School,2
+M,Division 2,43,Pittsfield High School,2
+M,Division 2,45,Nauset Regional High School,1
+M,Division 2,1,Weston High School,235.5
+M,Division 2,2,Concord-Carlisle High School,222
+M,Division 2,3,King Philip Regional High School,210
+M,Division 2,4,Hopkinton High School,163
+M,Division 2,5,Mystic Valley Regional Charter School,144
+M,Division 2,6,Bishop Stang High School,115
+M,Division 2,7,Wayland High School,112
+M,Division 2,8,Sandwich High School,106
+M,Division 2,9,Bishop Feehan High School,95
+M,Division 2,10,Northampton High School,85
+M,Division 2,11,Duxbury High School,84
+M,Division 2,12,Marblehead High School,83
+M,Division 2,13,Medfield High School,65
+M,Division 2,14,Amerhst-Pelham Reg High School,63
+M,Division 2,15,Palmer High School,54
+M,Division 2,16,Longmeadow High School,45.5
+M,Division 2,17,Milford High School,44
+M,Division 2,18,Manchester Essex High School,35
+M,Division 2,18,Sharon High School,35
+M,Division 2,18,Arlington Catholic High School,35
+M,Division 2,21,Seekonk High School,32
+M,Division 2,22,Westborough High School,30
+M,Division 2,23,Taconic High School,28
+M,Division 2,23,Norwell High School,28
+M,Division 2,25,Hamilton Wenham High School,19
+M,Division 2,26,Cohasset High School,17
+M,Division 2,26,Bishop Fenwick High School,17
+M,Division 2,28,The Bromfield School,16
+M,Division 2,29,Coyle and Cassidy High School,13
+M,Division 2,29,Ashland High School,13
+M,Division 2,29,Middleborough High School,13
+M,Division 2,32,Hingham High School,11.5
+M,Division 2,33,Monson High School,11
+M,Division 2,34,Chicopee High School,7
+M,Division 2,35,Belchertown High School,6
+M,Division 2,35,Dover-Sherborn High School,6
+M,Division 2,37,Holyoke Catholic High School,4.5
+M,Division 2,38,Boston Latin Academy,4
+M,Division 2,38,Arlington High School,4
+M,Division 2,40,Catholic Memorial High School,3
+M,Division 2,40,South Hadley High School,3
+M,Division 2,40,Wellesley High School,3
+M,Division 2,43,Beverly High School,2
+M,Division 2,43,Pittsfield High School,2
+M,Division 2,45,Nauset Regional High School,1
+M,Division 1,1,St. John's Preparatory School,388
+M,Division 1,2,Minnechaug Regional High School,185.5
+M,Division 1,3,Lowell High School,180
+M,Division 1,4,Lincoln-Sudbury Regional High School,178
+M,Division 1,5,Andover High School,167
+M,Division 1,6,Westford Academy,160
+M,Division 1,7,Reading Memorial High School,130
+M,Division 1,8,Acton-Boxborough Regional High School,97
+M,Division 1,9,Chelmsford High School,94
+M,Division 1,10,North Attleborough High School,81.5
+M,Division 1,11,Westfield High School,80
+M,Division 1,12,Boston College High School,78
+M,Division 1,13,St. John's High School,73
+M,Division 1,14,Central Catholic High School,71
+M,Division 1,15,Framingham High School,65
+M,Division 1,15,Needham High School,65
+M,Division 1,17,Brookline High School,56
+M,Division 1,18,Attleboro High School,32
+M,Division 1,19,Lexington High School,26
+M,Division 1,20,Franklin High School,17
+M,Division 1,20,Algonquin Regional High School,17
+M,Division 1,22,Newton South High School,16
+M,Division 1,23,Boston Latin School,14
+M,Division 1,24,Newton North High School,11
+M,Division 1,25,Haverhill High School,9
+M,Division 1,26,Apponequet Regional High School,8
+M,Division 1,27,Gardner High School,7
+M,Division 1,28,B.M.C. Durfee High School,6
+M,Division 1,28,Cambridge Rindge and Latin School,6
+M,Division 1,30,Brockton High School,3
+M,Division 1,31,Northbridge High School,2
+M,Division 1,31,Lynn English High School,2

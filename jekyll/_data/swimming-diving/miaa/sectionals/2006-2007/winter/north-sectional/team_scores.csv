@@ -1,0 +1,45 @@
+gender,rank,school,score
+F,1,Lincoln-Sudbury Regional High School,200
+F,2,Wayland High School,153
+F,3,North Andover High School,152
+F,4,Weston High School,151
+F,5,Marblehead High School,135
+F,6,Beverly High School,122
+F,7,Arlington Catholic High School,106
+F,8,Concord-Carlisle High School,86
+F,9,Westford Academy,69
+F,10,Hamilton Wenham High School,64
+F,11,Waltham High School,45
+F,11,Lynnfield High School,45
+F,13,Masconomet Regional High School,27
+F,14,Bedford High School,10
+F,15,Ipswich High School,9
+F,16,Tyngsborough High School,8
+F,17,North Reading High School,6
+F,18,Bishop Fenwick High School,2
+F,18,Newton South High School,2
+F,18,Lynn Classical High School,2
+F,21,Manchester-Essex Regional Junior-Senior High School,1
+M,1,St. John's Preparatory School,255.5
+M,2,Weston High School,251
+M,3,Acton-Boxborough Regional High School,158.5
+M,4,Andover High School,126
+M,5,Ipswich High School,111
+M,6,Lincoln-Sudbury Regional High School,72
+M,7,Lexington High School,63
+M,8,Chelmsford High School,57
+M,9,Wayland High School,49
+M,10,Hamilton-Wenham Regional High School,46.5
+M,11,Westford Academy,43
+M,12,Northeast Metro Tech,29
+M,13,Tyngsborough High School,22
+M,14,Marblehead High School,21
+M,15,Concord-Carlisle High School,20
+M,16,Austin Preparatory School,17
+M,17,Newton South High School,13
+M,18,Malden High School,12
+M,19,Haverhill High School,11
+M,20,Boston Latin School,8
+M,21,North Andover High School,4.5
+M,22,Beverly High School,3
+M,23,Belmont High School,2

@@ -1,0 +1,62 @@
+gender,rank,school,score
+F,1,Westford Academy,285
+F,2,Marblehead High School,239
+F,3,Weston High School,218
+F,4,Concord-Carlisle High School,213
+F,5,Lincoln-Sudbury Regional High School,195.5
+F,6,Newton South High School,182.5
+F,7,Wayland High School,178
+F,8,Manchester-Essex Regional Junior-Senior High School,84
+F,9,Bishop Fenwick High School,81
+F,10,Austin Preparatory School,72
+F,11,Mystic Valley Regional Charter School,62
+F,12,Matignon High School,59
+F,13,Beverly High School,54
+F,14,Gloucester High School,52
+F,15,Triton Regional High School,49
+F,16,Masconomet Regional High School,48
+F,17,Peabody Veterans Memorial High School,36
+F,18,Arlington Catholic High School,33
+F,19,Waltham High School,31
+F,20,Hamilton-Wenham Regional High School,27
+F,21,Ipswich High School,24
+F,22,Salem High School,19
+F,23,Bedford High School,15
+F,24,North Reading High School,13
+F,25,Lynnfield High School,10
+F,26,Cambridge Rindge and Latin School,8
+M,1,Weston High School,280
+M,2,St. John's Preparatory School,259
+M,3,Lincoln-Sudbury Regional High School,193.5
+M,4,Andover High School,158
+M,5,Newton South High School,157.5
+M,6,Westford Academy,154
+M,7,Concord-Carlisle High School,139
+M,8,Lexington High School,128
+M,9,Haverhill High School,114
+M,10,Acton-Boxborough Regional High School,97
+M,11,Belmont High School,90
+M,12,Chelmsford High School,89
+M,13,Wayland High School,85
+M,14,Mystic Valley Regional Charter School,75
+M,15,Watertown High School,37.5
+M,16,North Andover High School,29
+M,17,Marblehead High School,25
+M,18,Central Catholic High School,24
+M,19,Masconomet Regional High School,23
+M,20,Boston Latin School,22
+M,21,Concord-Carlisle High School,20
+M,22,Hamilton-Wenham Regional High School,19
+M,23,Beverly High School,15
+M,24,Lynnfield High School,13
+M,25,Waltham High School,12.5
+M,26,Bedford High School,12
+M,27,Melrose High School,10
+M,28,Malden Catholic High School,8
+M,29,Malden High School,7
+M,30,Reading Memorial High School,6
+M,31,Triton Regional High School,5
+M,31,Austin Preparatory School,5
+M,33,North Reading High School,3
+M,34,Weston High School,2
+M,35,Peabody Veterans Memorial High School,1

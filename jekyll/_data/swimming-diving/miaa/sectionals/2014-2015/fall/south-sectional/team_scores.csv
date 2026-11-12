@@ -1,0 +1,27 @@
+gender,rank,school,score
+F,1,Newton North High School,313
+F,2,Bishop Feehan High School,295
+F,3,Framingham High School,269
+F,4,Needham High School,209
+F,5,Natick High School,207
+F,6,Westwood High School,161
+F,7,Ursuline Academy,133
+F,8,Wellesley High School,131
+F,9,Bishop Stang High School,121
+F,10,Marshfield High School,81
+F,11,Walpole High School,77
+F,12,Brookline High School,71
+F,13,Brockton High School,51
+F,13,B.M.C. Durfee High School,51
+F,15,Notre Dame Academy - Hingham,48
+F,16,New Bedford High School,45
+F,17,Dedham High School,27
+F,18,Braintree High School,18
+F,19,Norwood High School,14
+F,20,Mount Alvernia High School,3
+M,1,Walpole High School,191
+M,2,Norwood High School,184
+M,3,Braintree High School,101
+M,4,Weymouth High School,65
+M,5,Dedham High School,34
+M,6,Marshfield High School,28
