@@ -111,6 +111,114 @@
     return text + (brk != null ? brk : "\\\\") + "\n";
   }
 
+  // Splits only ever appear on the results sheet, below the row(s) they
+  // belong to: "Splits <N>" (individual/diving) or "Splits 1".."Splits 4"
+  // (one per relay leg), each a ";"-joined list of lap times straight from
+  // extract_swim_meet.py's CSV output - empty when a meet's source PDF had
+  // no splits to begin with.
+  var SPLITS_PER_ROW = 4;
+
+  // More than a plain "\\" row-to-row break (which is just the font's
+  // normal \baselineskip, no extra) - used for every split-related line
+  // break (row-to-splits, splits-to-splits, splits-to-next-row) so the
+  // whole splits block reads as equidistant from the row above and the row
+  // below, with clearer separation than two ordinary rows get.
+  var SPLITS_GAP_PT = "3pt";
+  var SPLITS_GAP = "\\\\[" + SPLITS_GAP_PT + "]";
+  // Relay's own splits-related gap (names-to-splits, splits-to-next-squad) -
+  // kept separate from SPLITS_GAP_PT since relay's un-split rows already
+  // have their own [5pt] convention (relaySwimmersLine's default) that this
+  // doesn't touch.
+  var RELAY_SPLITS_GAP_PT = "3pt";
+
+  function splitItems(raw) {
+    if (!raw) return [];
+    return raw.split(";").map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+
+  function chunk(items, size) {
+    var out = [];
+    for (var i = 0; i < items.length; i += size) out.push(items.slice(i, i + size));
+    return out;
+  }
+
+  // A row of up to `columns` splits, each in an equal-width slot spanning
+  // whatever's left of \linewidth after `indentW` (lining the splits up
+  // under the Name/Team column, same as every other field aligns via
+  // fixedBox/flexBox) - unlike fieldLine, every box here is equal-width and
+  // that width is itself a \linewidth fraction, which fieldLine's
+  // single-flex-field model can't express. `columns` (default items.length)
+  // lets a short final row (e.g. the 500 free's trailing 2 splits after two
+  // full rows of 4) size its slots the same as the full rows above it,
+  // rather than stretching to fill the line and reading as misaligned.
+  function splitFieldLine(items, indentW, brk, columns) {
+    var reserved = indentW + FIELD_GAP;
+    var boxWidth = "\\dimexpr(\\linewidth-" + reserved + "pt)/" + (columns || items.length) + "\\relax";
+    var boxes = items.map(function (t) {
+      return "\\makebox[" + boxWidth + "][r]{" + tex(t) + "}";
+    }).join("");
+    return "\\hspace{" + reserved + "pt}" + boxes + (brk != null ? brk : "\\\\") + "\n";
+  }
+
+  // One or more splitFieldLine rows for a flat list of splits, capped at
+  // SPLITS_PER_ROW each - a relay's up to 8 flattened leg splits need this
+  // chunking exactly as much as an individual event's up to-10-lap 500 free
+  // does. `gapBrk` separates one chunk row from the next; `lastBrk` is the
+  // final chunk's own exit break (see individualOrDivingTable/relayTable's
+  // callers for what that carries).
+  function splitRowsBlock(items, indentW, gapBrk, lastBrk) {
+    var chunks = chunk(items, SPLITS_PER_ROW);
+    return chunks.map(function (splits, i) {
+      var isLast = i === chunks.length - 1;
+      return splitFieldLine(splits, indentW, isLast ? lastBrk : gapBrk, SPLITS_PER_ROW);
+    }).join("");
+  }
+
+  // \settodepth needs just the bare field-box content of a box's *last*
+  // physical line - not the whole (possibly multi-line) block - since \\
+  // doesn't actually break lines inside the \hbox \settodepth builds to do
+  // its measuring; every "\n"-separated line but the last would silently
+  // get smashed onto it instead, measuring a meaningless concatenation. See
+  // boxEntry/eventBlock's depthFix for why this measurement exists at all.
+  // Splits on real line breaks only - not relaySwimmersLine's "%\n" (which
+  // exists purely to swallow the newline between its two side-by-side
+  // minipages, not to start a new physical line).
+  function boxDepthFix(block) {
+    var lines = block.split(/(?<!%)\n/);
+    while (!lines[lines.length - 1]) lines.pop();
+    var lastLine = lines[lines.length - 1].replace(/(?:\\\\\*?(?:\[[^\]]*\])?|\\par)(?:\\vspace\{[^}]*\})?\s*$/, "");
+    return "\\settodepth{\\eventrowdepth}{" + lastLine + "}\\prevdepth=\\eventrowdepth\n";
+  }
+
+  // Wraps one entry's full content - its result line plus whatever splits
+  // (and, for a relay, swimmer-names) lines hang below it - in its own
+  // minipage, so a column/page break can't land between a row and its own
+  // splits the way it could if they were left as separate breakable lines
+  // (see fieldLine's comment on why every *other* row is deliberately left
+  // unboxed). `innerContent` must end in a bare "\par" (closing the
+  // minipage's internal paragraph) - not a "\\" - same requirement
+  // eventBlock's own firstRow box has.
+  //
+  // boxDepthFix re-typesets this box's own last line to measure its actual
+  // depth and feed it to \prevdepth, so the \baselineskip gap before
+  // whatever comes after this box - boxed or not - uses the same input every
+  // other row-to-row transition does, rather than whatever depth a minipage
+  // reports on its own (see eventBlock's depthFix for the fuller version of
+  // this same problem/fix, applied there to just the event's first row).
+  // No `trailingGap` beyond that corrected \baselineskip - a splits-bearing
+  // row must end up spaced exactly like every splitless row around it, not
+  // extra-padded just because it happens to be boxed.
+  // [t] (not the default, undocumented-looking center reference) pins the
+  // box's own \ht/\dp split to its first line's baseline, the same way an
+  // ordinary (unboxed) line's \ht/\dp works - without it, the gap *entering*
+  // this box comes out wrong by the same kind of mismatch boxDepthFix fixes
+  // on the way out, except there's no equivalent fix for the entering side
+  // short of this.
+  function boxEntry(innerContent, trailingGap) {
+    var gap = trailingGap ? "\\vspace{" + trailingGap + "}\n" : "";
+    return "\\begin{minipage}[t]{\\linewidth}\n" + innerContent + "\\end{minipage}\\par\n" + boxDepthFix(innerContent) + gap;
+  }
+
   // Seed/Finals time or diving score field - right-aligned (see fixedBox)
   // so times line up on the ones place.
   function timeField(text) {
@@ -149,10 +257,33 @@
       if (mode === "results") {
         fields.push(timeField(finalsCell(entry, finalsKey, false, exhibitionAllowed)), { w: QUAL_W, text: tex(entry["Qualifier"]) }, { w: POINTS_W, text: pointsCell(entry) });
       }
-      return fieldLine(fields, idx === 0 && firstRowBrk != null ? firstRowBrk : "\\\\");
+
+      var isFirst = idx === 0 && firstRowBrk != null;
+      var splits = mode === "results" ? splitItems(entry["Splits"]) : [];
+      if (!splits.length) return fieldLine(fields, isFirst ? firstRowBrk : "\\\\");
+
+      // Row 0 is handled by eventBlock's own outer minipage (header + this
+      // whole multi-line string get boxed together there), so its last line
+      // just carries firstRowBrk (plus the same SPLITS_GAP_PT every other
+      // row's exit gets, via boxEntry when idx > 0) - only idx > 0 needs its
+      // own box, since eventBlock leaves every row but the first free to
+      // flow (and break) on its own.
+      var lastBrk = isFirst ? firstRowBrk + "\\vspace{" + SPLITS_GAP_PT + "}" : "\\par";
+      var inner = fieldLine(fields, SPLITS_GAP) + splitRowsBlock(splits, PLACE_W, SPLITS_GAP, lastBrk);
+      return isFirst ? inner : boxEntry(inner, SPLITS_GAP_PT);
     });
 
     return { header: headerBlock, rows: rows };
+  }
+
+  // All 4 legs' splits flattened into one list, in leg order - unlike
+  // individual events, a relay leg only ever has 1-2 splits, so there's no
+  // need to chunk these across multiple rows the way individualOrDivingTable
+  // does.
+  function relaySplitItems(entry) {
+    var items = [];
+    for (var i = 1; i <= 4; i++) items = items.concat(splitItems(entry["Splits " + i]));
+    return items;
   }
 
   // Each squad's 4 swimmers below its row: "N) Last, First Age", 2 per
@@ -202,21 +333,37 @@
       }
       // Swimmer legs only print on the results sheet - heat/psych sheets
       // seed heats before the meet is swum, so a squad's 4 swimmers aren't
-      // settled yet. The firstRowBrk override is applied on whichever call
-      // produces row 0's actual last token: relaySwimmersLine in results
-      // mode (with its own default [5pt] gap re-added after the override,
-      // so row 0's spacing still matches every other row).
+      // settled yet. The firstRowBrk override is applied to whichever of
+      // relaySwimmersLine/splitFieldLine produces row 0's actual last token
+      // (with its own default [5pt] gap re-added after the override, so
+      // row 0's spacing still matches every other row).
       var isFirst = idx === 0 && firstRowBrk != null;
-      // \\* (not \\), on the results sheet, so a column/page break can't
-      // land between a squad's place/time/points line and its names - \\*
-      // is \\ plus \nobreak, and unlike wrapping the pair in a minipage
-      // (which was tried and reverted - it broke the normal \baselineskip
-      // spacing between every squad in a way that needed its own fragile
-      // depth correction) a bare penalty doesn't touch spacing at all,
-      // it only forbids breaking at that one point.
-      var line = fieldLine(fields, mode === "results" ? "\\\\*" : isFirst ? firstRowBrk : "\\\\");
-      if (mode === "results") line += relaySwimmersLine(entry, isFirst ? firstRowBrk + "\\vspace{5pt}" : "\\\\[5pt]");
-      return line;
+      var mainLine = fieldLine(fields, mode === "results" ? "\\\\*" : isFirst ? firstRowBrk : "\\\\");
+      if (mode !== "results") return mainLine;
+
+      var splits = relaySplitItems(entry);
+      // No splits: \\* (not \\), so a column/page break can't land between a
+      // squad's place/time/points line and its names - \\* is \\ plus
+      // \nobreak, and unlike wrapping the pair in a minipage (which was
+      // tried and reverted - it broke the normal \baselineskip spacing
+      // between every squad in a way that needed its own fragile depth
+      // correction) a bare penalty doesn't touch spacing at all, it only
+      // forbids breaking at that one point.
+      if (!splits.length) return mainLine + relaySwimmersLine(entry, isFirst ? firstRowBrk + "\\vspace{5pt}" : "\\\\[5pt]");
+
+      // With splits there's a second break point (names-to-splits) a bare
+      // penalty can't cover, so the whole group gets boxed instead (see
+      // boxEntry) - except row 0, which eventBlock already boxes together
+      // with the header, so it's left as plain breakable lines here. The
+      // names-to-splits gap matches the exit gap below, so the splits read
+      // as equidistant from the squad above and the squad below. Flattening
+      // all 4 legs can run past SPLITS_PER_ROW (e.g. two 2-split 100-yard
+      // legs plus two more), so this chunks across rows exactly like
+      // individualOrDivingTable's 500-free case does.
+      var relayGap = "\\\\[" + RELAY_SPLITS_GAP_PT + "]";
+      if (isFirst) return mainLine + relaySwimmersLine(entry, relayGap) + splitRowsBlock(splits, PLACE_W, relayGap, firstRowBrk + "\\vspace{" + RELAY_SPLITS_GAP_PT + "}");
+      var inner = mainLine + relaySwimmersLine(entry, relayGap) + splitRowsBlock(splits, PLACE_W, relayGap, "\\par");
+      return boxEntry(inner, RELAY_SPLITS_GAP_PT);
     });
 
     return { header: headerBlock, rows: rows };
@@ -311,22 +458,17 @@
     // have"), but \strutbox only reflects that if something has called
     // \strut to refresh it - this document never does, so it can hold a
     // stale depth from a wholly different font/size and made the gap
-    // *worse* in testing. \settodepth instead re-typesets row 1's own
-    // content right there in the live font and measures its actual depth,
-    // then feeds that to \prevdepth, so row 2's \baselineskip calculation
-    // uses the same input every other row-to-row transition does -
-    // regardless of engine/font build and regardless of whether this
-    // particular row's content even has descenders.
-    //
-    // The content handed to \settodepth must have row 1's own trailing
-    // break token(s) stripped first: \par (or \par\vspace{5pt}, which a
-    // *relay* row on the results sheet adds after its swimmer-names block)
-    // is a vertical-mode command and can't appear inside the \hbox
-    // \settodepth builds to do the measuring.
-    var depthFix = firstRow
-      ? "\\settodepth{\\eventrowdepth}{" + firstRow.replace(/\\par(?:\\vspace\{5pt\})?\s*$/, "") + "}\\prevdepth=\\eventrowdepth\n"
-      : "";
-    return "\\begin{minipage}{\\linewidth}\n" + eventHeading(event) + table.header + firstRow +
+    // *worse* in testing. boxDepthFix instead re-typesets row 1's own last
+    // physical line (it may be several lines now a split-bearing row 1 has
+    // its splits folded in here too) right there in the live font and
+    // measures its actual depth, then feeds that to \prevdepth, so row 2's
+    // \baselineskip calculation uses the same input every other row-to-row
+    // transition does - regardless of engine/font build and regardless of
+    // whether this particular row's content even has descenders.
+    var depthFix = firstRow ? boxDepthFix(firstRow) : "";
+    // [t] - see boxEntry's comment; same fix, needed here too now a
+    // split-bearing row 0 can make this box multi-line as well.
+    return "\\begin{minipage}[t]{\\linewidth}\n" + eventHeading(event) + table.header + firstRow +
       "\\end{minipage}\\par\n" + depthFix + laterRows + "\\par\\bigskip\n";
   }
 
