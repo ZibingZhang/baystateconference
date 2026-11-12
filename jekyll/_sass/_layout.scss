@@ -1251,6 +1251,10 @@ article.post:has(table) {
     @include relative-font-size(1.75);
     margin-bottom: $spacing-unit * 0.5;
   }
+
+  th {
+    white-space: nowrap;
+  }
 }
 
 @keyframes icon-spin {
