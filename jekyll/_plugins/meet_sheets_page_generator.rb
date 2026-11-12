@@ -205,7 +205,7 @@ module MeetSheets
       page.content = "{% include directory-listing.html %}"
       page.data.merge!(
         "layout" => "page",
-        "title" => "#{season_label(season)} #{MeetSheetsPageUtils.en_dash(year)} #{source[:season_title_suffix]}",
+        "title" => "#{MeetSheetsPageUtils.en_dash(year)} #{season_label(season)} #{source[:season_title_suffix]}",
         "permalink" => "/#{dir}/",
         "breadcrumb" => season_label(season)
       )
@@ -217,7 +217,7 @@ module MeetSheets
       page.content = HUB_CONTENT
       page.data.merge!(
         "layout" => "page",
-        "title" => "#{season_label(season)} #{MeetSheetsPageUtils.en_dash(year)} #{hub_label}",
+        "title" => "#{MeetSheetsPageUtils.en_dash(year)} #{season_label(season)} #{hub_label}",
         "permalink" => "/#{dir}/",
         "breadcrumb" => source[:separate_meet_pages] ? hub_label : season_label(season),
         "team_score_groups" => MeetSheetsPageUtils.team_score_groups(team_scores),
@@ -237,7 +237,7 @@ module MeetSheets
       page.content = ""
       page.data.merge!(
         "layout" => "bsc-sheet",
-        "title" => "#{season_label(season)} #{MeetSheetsPageUtils.en_dash(year)} #{hub_label} #{sheet[:title]}",
+        "title" => "#{MeetSheetsPageUtils.en_dash(year)} #{season_label(season)} #{hub_label} #{sheet[:title]}",
         "permalink" => "/#{dir}/#{sheet[:slug]}/",
         "breadcrumb" => sheet[:title],
         "sheet_kind" => sheet[:slug],
