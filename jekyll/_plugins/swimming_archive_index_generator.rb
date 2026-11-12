@@ -1,7 +1,7 @@
 # Builds the swimming/diving file-browser's index.json at every site build,
-# by generating the Documents/Meet Results branches from the flat,
-# explicitly-tagged entries in _data/file-browser/sports/swimming-diving/
-# archive/files.json and adding them onto the hand-maintained base tree in
+# by generating the Documents branch from the flat, explicitly-tagged
+# entries in _data/file-browser/sports/swimming-diving/archive/files.json
+# and adding them onto the hand-maintained base tree in
 # _data/file-browser/sports/swimming-diving/archive/index.json (currently
 # just "Other Sites" - a flat list of external links that only ever need to
 # appear once, so there's no tagging/multi-indexing for them to benefit
@@ -16,10 +16,19 @@
 # this metadata, so every fact the tree needs is duplicated onto the entry
 # as a tag/field instead of being parsed back out of it.
 #
-# A document only shows up under Meet Results > By Meet and Year when it
-# carries a meet tag (e.g. a Sectionals-specific Psych Sheet) - the same
-# single rule that places every "results"-tagged entry there too, so
-# season-wide documents (e.g. the Format PDFs) correctly stay out of it.
+# "Results" is a document type like any other, so every results entry shows
+# up under Documents > By Type > Results and Documents > By School Year
+# alongside the rest. Documents > By Meet and Documents > By Meet and School
+# Year are both meet-centric views spanning every document type: a document
+# shows up there whenever it carries a meet tag (e.g. a Sectionals-specific
+# Psych Sheet), not just results.
+#
+# The standalone, top-level Results folder is a separate, narrower view
+# scoped to "results"-tagged entries only (its By Meet and By School Year),
+# except for its own By Meet and School Year, which - like Documents' - is
+# every meet-tagged document, so season-wide documents (e.g. the Format
+# PDFs) correctly stay out of it while a Sectionals-specific Psych Sheet
+# still shows up alongside that meet's results.
 
 require "json"
 
@@ -48,14 +57,28 @@ module SwimmingArchiveIndex
       "team-scores" => "Team Scores",
       "heat-sheets" => "Heat Sheets",
       "diving-entries" => "Diving Entries",
+      "results" => "Results",
     }.freeze
 
-    VALID_TYPE_TAGS = (DOCUMENT_TYPE_DISPLAY_NAMES.keys + ["results"]).freeze
+    VALID_TYPE_TAGS = DOCUMENT_TYPE_DISPLAY_NAMES.keys.freeze
 
     MEET_DISPLAY_NAMES = {
       "bay-state-conference" => "Bay State Conference",
       "sectionals" => "Sectionals",
       "states" => "States",
+    }.freeze
+
+    # The substring actually worth stripping out of a file's own name when
+    # it's already sitting in that meet's folder - not always the same as
+    # the display name above, since names use inconsistent phrasing (e.g.
+    # singular "State"/"Sectional", not "States"/"Sectionals"). Naive and
+    # best-effort: if an entry's name doesn't happen to contain this exact
+    # text (e.g. a Bay State Conference entry just named after the host
+    # school, or a "Western Mass" sectional), it's left alone.
+    MEET_NAME_STRIP_TERMS = {
+      "bay-state-conference" => "Bay State Conference",
+      "sectionals" => "Sectional",
+      "states" => "State",
     }.freeze
 
     SEASON_LABELS = { "fall" => "Fall", "winter" => "Winter" }.freeze
@@ -69,7 +92,7 @@ module SwimmingArchiveIndex
       tree = {
         "files" => [
           documents_folder(entries),
-          meet_results_folder(entries),
+          results_folder(entries),
           *base_files,
         ],
       }
@@ -130,8 +153,12 @@ module SwimmingArchiveIndex
       ((entry["tags"] || []) & MEET_DISPLAY_NAMES.keys).first
     end
 
-    def leaf_for(entry)
-      { "name" => entry["name"], "s3Path" => entry["s3Path"] }
+    def leaf_for(entry, strip_year: false, strip_season: false, strip_meet: nil)
+      name = entry["name"]
+      name = name.sub(entry["year"], "") if strip_year
+      name = name.sub(SEASON_LABELS[entry["season"]], "") if strip_season && SEASON_LABELS[entry["season"]]
+      name = name.sub(MEET_NAME_STRIP_TERMS[strip_meet], "") if strip_meet && MEET_NAME_STRIP_TERMS[strip_meet]
+      { "name" => name.gsub(/\s+/, " ").strip, "s3Path" => entry["s3Path"] }
     end
 
     def sort_key(entry)
@@ -142,41 +169,62 @@ module SwimmingArchiveIndex
       by_year = entries.group_by { |e| e["year"] }
       years = by_year.keys.sort
       folder_children = years.map do |year|
-        { "name" => year, "files" => by_year[year].sort_by { |e| sort_key(e) }.map { |e| leaf_for(e) } }
+        { "name" => year, "files" => by_year[year].sort_by { |e| sort_key(e) }.map { |e| leaf_for(e, strip_year: true) } }
       end
       { "name" => "By School Year", "sort" => "desc", "files" => folder_children }
     end
 
     def documents_folder(entries)
-      documents = entries.select { |e| type_tag(e) != "results" }
-
       by_type = DOCUMENT_TYPE_DISPLAY_NAMES.filter_map do |slug, display_name|
-        matching = documents.select { |e| type_tag(e) == slug }
+        matching = entries.select { |e| type_tag(e) == slug }
         next if matching.empty?
 
-        { "name" => display_name, "sort" => "desc", "files" => matching.sort_by { |e| sort_key(e) }.map { |e| leaf_for(e) } }
+        flat_type_folder(display_name, matching)
       end
 
       {
         "name" => "Documents",
         "files" => [
           { "name" => "By Type", "files" => by_type },
-          year_folders_for(documents),
+          year_folders_for(entries),
+          by_meet_folder(entries),
+          by_meet_and_school_year_folder(entries),
         ],
       }
     end
 
-    def meet_results_folder(entries)
-      results = entries.select { |e| type_tag(e) == "results" }
+    def flat_type_folder(display_name, matching)
+      { "name" => display_name, "sort" => "desc", "files" => matching.sort_by { |e| sort_key(e) }.map { |e| leaf_for(e) } }
+    end
 
-      by_meet = MEET_DISPLAY_NAMES.filter_map do |slug, display_name|
-        matching = results.select { |e| meet_tag(e) == slug }
+    def flat_by_meet(entries)
+      MEET_DISPLAY_NAMES.filter_map do |slug, meet_name|
+        matching = entries.select { |e| meet_tag(e) == slug }
         next if matching.empty?
 
-        { "name" => display_name, "sort" => "desc", "files" => matching.sort_by { |e| sort_key(e) }.map { |e| leaf_for(e) } }
+        { "name" => meet_name, "sort" => "desc", "files" => matching.sort_by { |e| sort_key(e) }.map { |e| leaf_for(e, strip_meet: slug) } }
       end
+    end
 
-      by_meet_and_year = MEET_DISPLAY_NAMES.filter_map do |slug, display_name|
+    def by_meet_folder(entries)
+      { "name" => "By Meet", "files" => flat_by_meet(entries) }
+    end
+
+    def results_folder(entries)
+      results = entries.select { |e| type_tag(e) == "results" }
+
+      {
+        "name" => "Results",
+        "files" => [
+          { "name" => "By Meet", "files" => flat_by_meet(results) },
+          year_folders_for(results),
+          by_meet_and_school_year_folder(entries),
+        ],
+      }
+    end
+
+    def by_meet_and_school_year_folder(entries)
+      by_meet_and_school_year = MEET_DISPLAY_NAMES.filter_map do |slug, meet_name|
         matching = entries.select { |e| meet_tag(e) == slug }
         next if matching.empty?
 
@@ -184,21 +232,14 @@ module SwimmingArchiveIndex
         subfolders = by_year_season.keys.sort.map do |year, season|
           {
             "name" => "#{year} #{SEASON_LABELS[season]}",
-            "files" => by_year_season[[year, season]].sort_by { |e| sort_key(e) }.map { |e| leaf_for(e) },
+            "files" => by_year_season[[year, season]].sort_by { |e| sort_key(e) }.map { |e| leaf_for(e, strip_year: true, strip_season: true, strip_meet: slug) },
           }
         end
 
-        { "name" => display_name, "sort" => "desc", "files" => subfolders }
+        { "name" => meet_name, "sort" => "desc", "files" => subfolders }
       end
 
-      {
-        "name" => "Meet Results",
-        "files" => [
-          { "name" => "By Meet", "files" => by_meet },
-          year_folders_for(results),
-          { "name" => "By Meet and Year", "files" => by_meet_and_year },
-        ],
-      }
+      { "name" => "By Meet and School Year", "files" => by_meet_and_school_year }
     end
   end
 end
