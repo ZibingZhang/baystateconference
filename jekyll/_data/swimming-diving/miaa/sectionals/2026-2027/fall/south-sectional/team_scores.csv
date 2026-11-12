@@ -1,0 +1,15 @@
+gender,rank,school_abbreviation,school_name,score
+F,1,FRAM,Framingham High School,347.5
+F,2,WELL,Wellesley High School,297
+F,3,BROO,Brookline High School,272
+F,4,NATI,Natick High School,242
+F,5,NEWT,Newton North High School,203.5
+F,6,MILT,Milton High School,203
+F,7,NEED,Needham High School,196
+F,8,NOTE,Notre Dame Academy - Hingham,139
+F,9,BOSL,Boston Latin School,124
+F,10,URSU,Ursuline Academy,97
+F,11,WALP,Walpole High School,30
+M,1,MILT,Milton High School,311
+M,2,BRAI,Braintree High School,213
+M,3,WALP,Walpole High School,192

@@ -3,6 +3,7 @@ layout: page
 title: State Championship Meets
 permalink: /sports/swimming-diving/states/
 breadcrumb: States
+default_sort: desc
 countdowns:
   - label: "States"
     date: "2026-11-15T16:45"
@@ -14,20 +15,12 @@ resource_links:
     url: /sports/swimming-diving/resources/miaa-qualifying-standards/
 internal_links:
   - title: Archive
-    url: /sports/swimming-diving/archive/?path=meet-results/by-meet-and-year/states
+    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-school-year/states
   - title: Rankings
     url: /sports/swimming-diving/states/rankings/
   - title: Records
     url: /sports/swimming-diving/states/records/
 ---
-
-{%- comment -%}
-  Placeholder - there's no per-meet results CSV for States yet (unlike
-  BSC's jekyll/_data/swimming-diving/bsc/<year>/<season>/<meet>/*.csv). Once
-  that data pipeline exists, this is the seam: add a generator analogous to
-  bsc_sheets_page_generator.rb and replace the "Results will be posted..."
-  paragraph below with its output.
-{%- endcomment -%}
 
 The fall state championship meet will take place on November 15th at MIT.
 
@@ -37,9 +30,16 @@ Schedule:
 - 3:30 PM: doors open for spectators
 - 4:15 PM: meet starts
 
+{%- if page.latest_meet_url %}
+{% include icon-link.html icon="calendar_month" label="Latest Meet" url=page.latest_meet_url %}
+{%- else %}
+
 Results will be posted after each meet.
+{%- endif %}
 
 {% include link-list.html heading="See Also" items=page.internal_links %}
 
 {% assign resources = page.resource_links | concat: page.external_links %}
 {% include link-list.html heading="Resources" items=resources %}
+
+{% include directory-listing.html heading="Past Meets" searchable=true %}

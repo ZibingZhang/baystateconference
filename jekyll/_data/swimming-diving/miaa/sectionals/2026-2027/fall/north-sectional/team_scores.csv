@@ -1,0 +1,23 @@
+gender,rank,school_abbreviation,school_name,score
+F,1,BELM,Belmont High School,266
+F,2,ANDO,Andover High School,260
+F,3,ACTO,Acton-Boxborough Regional High School,253
+F,4,HAVE,Haverhill High School,234
+F,5,CHEL,Chelmsford High School,229
+F,6,READ,Reading Memorial High School,214
+F,7,LEXI,Lexington High School,159
+F,8,WAKE,Wakefield Memorial High School,149
+F,9,ARLI,Arlington High School,130
+F,10,WINC,Winchester High School,129
+F,11,NAND,North Andover High School,73
+F,12,BILL,Billerica Memorial High School,59
+F,13,CENT,Central Catholic High School,40
+F,14,MCAT,Malden Catholic High School,37
+F,15,MEST,Melrose High School / Stoneham High School,32
+F,16,LOWE,Lowell High School,29
+F,17,WOBU,Woburn Memorial High School / Burlington High School,24
+F,18,METE,Methuen High School,3
+M,1,METE,Methuen High School,243
+M,2,BILL,Billerica Memorial High School,213
+M,3,NAND,North Andover High School,188
+M,4,LOWE,Lowell High School,75
