@@ -489,9 +489,9 @@
         var depthFix = isLastHeat ? "" : boxDepthFix(lastRow);
         var trailingSkip = isLastHeat ? "\\bigskip" : "\\vspace{-7pt}";
         return "\\begin{minipage}[t]{\\linewidth}\n" +
-          (heatIdx === 0 ? eventHeading(event) : "") +
+          (heatIdx === 0 ? eventHeading(event) + table.header : "") +
           "{\\bfseries " + flightLabel + tex(group.heat) + " of " + totalHeats + "}\\par\\smallskip\n" +
-          (heatIdx === 0 ? table.header : "") + table.rows.join("") +
+          table.rows.join("") +
           "\\end{minipage}\\par\n" + depthFix + trailingSkip + "\n";
       }).join("");
     }
@@ -568,6 +568,7 @@
       // (e.g. header-to-\hrule gap) varies column to column. \raggedcolumns
       // leaves leftover height as blank space instead.
       "\\raggedcolumns",
+      "\\setlength{\\columnseprule}{0.4pt}",
       "\\begin{multicols}{2}",
       body,
       "\\end{multicols}",
