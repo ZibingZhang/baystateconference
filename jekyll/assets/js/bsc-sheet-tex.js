@@ -133,7 +133,58 @@
 
   function splitItems(raw) {
     if (!raw) return [];
-    return raw.split(";").map(function (s) { return s.trim(); }).filter(Boolean);
+    return raw.split(";").map(function (s) { return s.trim(); });
+  }
+
+  // CSV splits are stored as true per-50 deltas (that segment's own
+  // duration), consistent across every event kind - see
+  // resources/miaa/swimming-diving/SPEC.md. A multi-split relay leg (a
+  // 100-yard-leg relay's 50-then-100 pair) is the one place that's not how
+  // the printed results sheet actually shows it: HY-TEK prints each split
+  // after a leg's first as a running total *from that leg's own start*
+  // (e.g. "40.24  1:27.33" = 50-split, then that leg's own full 100 time) -
+  // this re-cumulates a leg's own deltas back into that display form.
+  // Mirrors join_subsplits in extract_results.py exactly, including its
+  // fallback: when a delta is itself unknown (blank), the next stored value
+  // can't be decomposed either, so extract_results.py leaves it as the
+  // leg's raw running total rather than discard it - passed through as-is
+  // here rather than (wrongly) added to an unknown running total.
+  function cumulateLeg(deltas) {
+    if (deltas.length < 2) return deltas;
+    var out = [deltas[0]];
+    var running = deltas[0] === "" ? null : timeToSecs(deltas[0]);
+    for (var i = 1; i < deltas.length; i++) {
+      var d = deltas[i];
+      if (d === "") { out.push(""); running = null; continue; }
+      var cur = timeToSecs(d);
+      if (running == null) {
+        out.push(d);
+      } else {
+        running = running + cur;
+        out.push(secsToTime(running));
+        continue;
+      }
+      running = cur;
+    }
+    return out;
+  }
+
+  function timeToSecs(s) {
+    var m = /^(?:(\d+):)?(\d+\.\d+)$/.exec(s);
+    if (!m) return null;
+    return (m[1] ? parseInt(m[1], 10) * 60 : 0) + parseFloat(m[2]);
+  }
+
+  function secsToTime(secs) {
+    secs = Math.round(secs * 100) / 100;
+    if (secs >= 60) {
+      var mins = Math.floor(secs / 60);
+      var rem = secs - mins * 60;
+      var rs = rem.toFixed(2);
+      if (rem < 10) rs = "0" + rs;
+      return mins + ":" + rs;
+    }
+    return secs.toFixed(2);
   }
 
   function chunk(items, size) {
@@ -282,7 +333,7 @@
   // does.
   function relaySplitItems(entry) {
     var items = [];
-    for (var i = 1; i <= 4; i++) items = items.concat(splitItems(entry["Splits " + i]));
+    for (var i = 1; i <= 4; i++) items = items.concat(cumulateLeg(splitItems(entry["Splits " + i])));
     return items;
   }
 
