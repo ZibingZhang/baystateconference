@@ -100,8 +100,12 @@ module MeetSheets
       {% include rankings-table.html heading=group.heading entries=group.entries %}
       {% endfor %}
       {% include link-list.html heading="Unofficial Meet Documents" items=page.sheet_links open_in_new_tab=true %}
-      {% include link-list.html heading="Archive" items=page.archive_links %}
+      {% include link-list.html heading="See Also" items=page.archive_links %}
     LIQUID
+
+    # link-list.html auto-detects "http"-prefixed urls as external (new tab,
+    # external-link icon) - no open_in_new_tab needed for this one.
+    GITHUB_REPO_TREE_URL = "https://github.com/ZibingZhang/baystateconference/tree/master".freeze
 
     def generate(site)
       SOURCES.each { |source| generate_source(site, source) }
@@ -152,7 +156,7 @@ module MeetSheets
             hub_dir = meet ? "#{source[:dir]}/#{year}/#{season}/#{meet}" : "#{source[:dir]}/#{year}/#{season}"
             hub_label = meet ? meet_label(source, meet) : source[:hub_label]
 
-            site.pages << build_hub_page(site, source, year, season, hub_dir, hub_label, team_scores, sheets)
+            site.pages << build_hub_page(site, source, year, season, meet, hub_dir, hub_label, team_scores, sheets)
 
             grouped = MeetSheetsPageUtils.group_by_event(
               individual.select { |r| r["School Year"] == year && r["Season"] == season && (!source[:separate_meet_pages] || r["Meet"] == meet) },
@@ -212,7 +216,7 @@ module MeetSheets
       page
     end
 
-    def build_hub_page(site, source, year, season, dir, hub_label, team_scores, sheets)
+    def build_hub_page(site, source, year, season, meet, dir, hub_label, team_scores, sheets)
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
       page.content = HUB_CONTENT
       page.data.merge!(
@@ -226,10 +230,28 @@ module MeetSheets
           {
             "title" => "Full Meet Archive",
             "url" => "/sports/swimming-diving/archive/?path=documents/by-meet-and-school-year/#{source[:archive_slug]}/#{year}-#{season}"
+          },
+          {
+            "title" => "Raw CSV Files",
+            "url" => raw_data_github_url(site, source, year, season, meet)
           }
         ]
       )
       page
+    end
+
+    # The official Results/Psych Sheet PDFs these CSVs were extracted from
+    # (see the file header) aren't the only source some meets draw from -
+    # e.g. the Bay State Conference meet also merges in a MeetMobile live
+    # capture - so this points at the actual _data CSVs themselves, already
+    # reconciled across every source, rather than at any one input PDF.
+    def raw_data_github_url(site, source, year, season, meet)
+      path = ["jekyll", "_data", *source[:raw_root], year, season]
+      if source[:nested_meet_data]
+        slug = meet || site.data.dig(*source[:raw_root], year, season)&.keys&.first
+        path << slug if slug
+      end
+      "#{GITHUB_REPO_TREE_URL}/#{path.join('/')}"
     end
 
     def build_sheet_page(site, source, year, season, dir, hub_label, sheet, grouped)
