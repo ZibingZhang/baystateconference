@@ -37,7 +37,7 @@
 #                        directory page's <title>, e.g. "Sectional Meets".
 #   latest_title       - the /latest/ redirect page's <title>.
 #   archive_slug       - this source's folder name under the archive's
-#                        Documents > By Meet and School Year.
+#                        Documents > By Meet and Season.
 #
 # Every page below a <year> is otherwise identical in shape and content
 # regardless of source: a hub page (team scores + Unofficial Meet Documents + Archive
@@ -237,7 +237,7 @@ module MeetSheets
         "archive_links" => [
           {
             "title" => "Full Meet Archive",
-            "url" => "/sports/swimming-diving/archive/?path=documents/by-meet-and-school-year/#{source[:archive_slug]}/#{year}-#{season}"
+            "url" => "/sports/swimming-diving/archive/?path=documents/by-meet-and-season/#{source[:archive_slug]}/#{year}-#{season}"
           },
           {
             "title" => "Raw CSV Files",

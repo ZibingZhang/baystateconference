@@ -12,7 +12,7 @@ internal_links:
   - title: Records
     url: /sports/swimming-diving/bsc/records/
   - title: Archive
-    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-school-year/bay-state-conference
+    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/bay-state-conference
 ---
 
 {% include icon-link.html icon="calendar_month" label="Latest Meet" url="/sports/swimming-diving/bsc/latest/" %}

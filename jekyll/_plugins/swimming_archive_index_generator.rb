@@ -18,17 +18,17 @@
 #
 # "Results" is a document type like any other, so every results entry shows
 # up under Documents > By Type > Results and Documents > By School Year
-# alongside the rest. Documents > By Meet and Documents > By Meet and School
-# Year are both meet-centric views spanning every document type: a document
-# shows up there whenever it carries a meet tag (e.g. a Sectionals-specific
-# Psych Sheet), not just results.
+# alongside the rest. Documents > By Meet and Documents > By Meet and Season
+# are both meet-centric views spanning every document type: a document shows
+# up there whenever it carries a meet tag (e.g. a Sectionals-specific Psych
+# Sheet), not just results.
 #
 # The standalone, top-level Results folder is a separate, narrower view
 # scoped to "results"-tagged entries only (its By Meet and By School Year),
-# except for its own By Meet and School Year, which - like Documents' - is
-# every meet-tagged document, so season-wide documents (e.g. the Format
-# PDFs) correctly stay out of it while a Sectionals-specific Psych Sheet
-# still shows up alongside that meet's results.
+# except for its own By Meet and Season, which - like Documents' - is every
+# meet-tagged document, so season-wide documents (e.g. the Format PDFs)
+# correctly stay out of it while a Sectionals-specific Psych Sheet still
+# shows up alongside that meet's results.
 
 require "json"
 
@@ -188,7 +188,7 @@ module SwimmingArchiveIndex
           { "name" => "By Type", "files" => by_type },
           year_folders_for(entries),
           by_meet_folder(entries),
-          by_meet_and_school_year_folder(entries),
+          by_meet_and_season_folder(entries),
         ],
       }
     end
@@ -218,13 +218,13 @@ module SwimmingArchiveIndex
         "files" => [
           { "name" => "By Meet", "files" => flat_by_meet(results) },
           year_folders_for(results),
-          by_meet_and_school_year_folder(entries),
+          by_meet_and_season_folder(entries),
         ],
       }
     end
 
-    def by_meet_and_school_year_folder(entries)
-      by_meet_and_school_year = MEET_DISPLAY_NAMES.filter_map do |slug, meet_name|
+    def by_meet_and_season_folder(entries)
+      by_meet_and_season = MEET_DISPLAY_NAMES.filter_map do |slug, meet_name|
         matching = entries.select { |e| meet_tag(e) == slug }
         next if matching.empty?
 
@@ -239,7 +239,7 @@ module SwimmingArchiveIndex
         { "name" => meet_name, "sort" => "desc", "files" => subfolders }
       end
 
-      { "name" => "By Meet and School Year", "files" => by_meet_and_school_year }
+      { "name" => "By Meet and Season", "files" => by_meet_and_season }
     end
   end
 end

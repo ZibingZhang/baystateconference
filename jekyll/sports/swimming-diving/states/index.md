@@ -15,7 +15,7 @@ resource_links:
     url: /sports/swimming-diving/resources/miaa-qualifying-standards/
 internal_links:
   - title: Archive
-    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-school-year/states
+    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/states
   - title: Rankings
     url: /sports/swimming-diving/states/rankings/
   - title: Records
