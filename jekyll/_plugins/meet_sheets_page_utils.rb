@@ -54,12 +54,10 @@ module MeetSheetsPageUtils
     ],
   }.freeze
 
-  # Heat Sheet first - that's the one people want fastest access to (matches
-  # bsc_sheets_page_generator.rb's SHEETS ordering).
   SHEET_DEFS = [
-    { slug: "heat-sheet", title: "Heat Sheet", available: ->(rows) { rows.any? { |r| !r["Heat"].to_s.strip.empty? } } },
     { slug: "psych-sheet", title: "Psych Sheet",
       available: ->(rows) { rows.any? { |r| !r["Seed Time"].to_s.strip.empty? || !r["Seed Score"].to_s.strip.empty? } } },
+    { slug: "heat-sheet", title: "Heat Sheet", available: ->(rows) { rows.any? { |r| !r["Heat"].to_s.strip.empty? } } },
     { slug: "results", title: "Results", available: ->(_rows) { true } },
   ].freeze
 

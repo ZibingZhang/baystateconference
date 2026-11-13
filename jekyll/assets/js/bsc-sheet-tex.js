@@ -426,13 +426,6 @@
     return individualOrDivingTable(entries, mode, "Seed Time", "Finals Time", true, firstRowBrk);
   }
 
-  // Concatenates a { header, rows } table back into one flat string, for
-  // callers (just the heat-sheet path below) that don't need to split off
-  // the first row from the rest.
-  function renderTable(table) {
-    return table.header + table.rows.join("");
-  }
-
   // "Event N" sits in a fixed-width box (same tab-stop idiom as every
   // table row's own fields) rather than before a literal "---" separator,
   // so the event name starts at the same x position under "Event 1" as it
@@ -480,11 +473,15 @@
       // so a column/page break can't strand it apart from heat 1.
       return event.entries.map(function (group, heatIdx) {
         var entries = event.kind === "diving" ? group.entries : padLanes(group.entries, maxLanes);
+        var table = tableFor(event, entries, "heat");
+        // Heats within the same event sit closer together than the
+        // \bigskip gap used between events - \medskip is ~half as tall.
+        var trailingSkip = heatIdx === totalHeats - 1 ? "\\bigskip" : "\\medskip";
         return "\\begin{minipage}{\\linewidth}\n" +
           (heatIdx === 0 ? eventHeading(event) : "") +
           "{\\bfseries " + flightLabel + tex(group.heat) + " of " + totalHeats + "}\\par\\smallskip\n" +
-          renderTable(tableFor(event, entries, "heat")) +
-          "\\end{minipage}\\par\\bigskip\n";
+          (heatIdx === 0 ? table.header : "") + table.rows.join("") +
+          "\\end{minipage}\\par" + trailingSkip + "\n";
       }).join("");
     }
     // Heading + table header + first row are wrapped in one minipage so a
