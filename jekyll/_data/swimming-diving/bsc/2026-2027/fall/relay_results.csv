@@ -22,6 +22,7 @@ event_num,event_name,gender,heat,lane,place,points,team,relay,first_name_1,last_
 1,200 Yard Medley Relay,F,1,2,21,0,NEED,C,Aarna,Bhatt,29,,Audrey,O'Brien,29,,Sabine,Richmond,29,36.21,Madeline,Weirup,27,33.41,2:28.76,2:22.87,,True,
 1,200 Yard Medley Relay,F,1,8,22,0,BRAI,A,Lakshmi,Satish,SR,38.35,Talia,Liu,JR,40.91,Evelyn,Kidd,FR,1:15.13,Patty,Foley,FR,,NT,2:34.39,,False,
 1,200 Yard Medley Relay,F,1,7,23,0,NATI,C,Cece,Messer,30,,Meaghan,Maguire,30,,Adelaide,Osborne,30,38.00,Josie,Happel,27,34.91,2:33.80,2:34.80,,True,
+1,200 Yard Medley Relay,F,1,1,,0,FRAM,C,,,,,,,,,,,,,,,,,2:35.40,,SCR,False,
 2,200 Yard Medley Relay,M,1,5,1,40,BRAI,A,Brendon,Truong,SO,28.69,Wenhao,Shi,JR,35.46,Lucas,Lee,SR,26.81,Levison,Yang,SR,25.18,1:58.20,1:56.14,,False,DI
 2,200 Yard Medley Relay,M,1,4,2,34,WALP,A,Rhys,Tommy,30,32.13,Ameya,Kulkarni,27,32.22,Owen,Moyes,30,25.29,Nikita,Malyshev,28,26.52,1:56.80,1:56.16,,False,DI
 2,200 Yard Medley Relay,M,1,3,3,32,MILT,A,Henry,Hasha,30,35.33,Matt,Twitchell,29,33.20,Xavier,Brown,28,28.34,John,Griffin,27,26.44,2:06.95,2:03.31,,False,DI
@@ -52,6 +53,7 @@ event_num,event_name,gender,heat,lane,place,points,team,relay,first_name_1,last_
 17,200 Yard Freestyle Relay,F,1,4,23,0,WEYM,B,Jett,Wallenstein,30,35.54,Maddie,Dodds,29,38.79,Ella,McDevitt,28,1:22.77,Rayne,Mayle,27,,2:34.01,2:37.10,,False,
 17,200 Yard Freestyle Relay,F,1,5,24,0,NATI,C,Smrithi,Srivas,28,48.82,Zoe,Mutyabule,28,1:19.88,Sejal,Shirole,27,37.13,Gabby,Rubenstein,28,,2:46.09,2:45.83,,True,
 17,200 Yard Freestyle Relay,F,3,2,,0,BROO,B,Olivia,Polyak,28,30.34,Leah,Hepner,29,29.87,Maria,Soares de Brito,27,28.23,Georgia,Krolnik,29,27.02,1:59.16,,DQ,False,
+17,200 Yard Freestyle Relay,F,2,7,,0,FRAM,C,,,,,,,,,,,,,,,,,2:19.00,,SCR,False,
 18,200 Yard Freestyle Relay,M,1,3,1,40,MILT,A,John,Griffin,27,27.71,Xavier,Brown,28,26.11,Ayden,Hoang,29,25.20,Deacon,O'Riordan,29,23.74,1:53.94,1:42.76,,False,SEC
 18,200 Yard Freestyle Relay,M,1,4,2,34,BRAI,A,Brendon,Truong,SO,24.42,Wenhao,Shi,JR,27.02,Levison,Yang,SR,27.70,Lucas,Lee,SR,25.16,1:43.50,1:44.30,,False,SEC
 18,200 Yard Freestyle Relay,M,1,5,3,32,WALP,A,Nikita,Malyshev,28,29.13,Ameya,Kulkarni,27,27.72,Rhys,Tommy,30,28.36,Owen,Moyes,30,23.99,1:47.88,1:49.20,,False,SEC

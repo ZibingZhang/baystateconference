@@ -121,6 +121,10 @@ module MeetSheetsPageUtils
   end
 
   def sorted_rows(sheet_slug, kind, rows)
+    # A scratch (Status "SCR") never swam, so it has nothing to show on the
+    # Results sheet - but it was still seeded, so it stays on the Psych
+    # Sheet/Heat Sheet (via heats_for, which doesn't filter at all).
+    rows = rows.reject { |row| row["Status"] == "SCR" } if sheet_slug == "results"
     if sheet_slug == "psych-sheet"
       rows.sort_by { |row| seed_sort_key(kind, row) }
     else

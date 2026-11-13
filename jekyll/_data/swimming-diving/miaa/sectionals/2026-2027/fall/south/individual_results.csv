@@ -102,6 +102,7 @@ event_num,event_name,gender,heat,lane,place,points,first_name,last_name,year,sch
 11,100 Yard Butterfly,F,,,16,1,Maria,Soares de Brito,27,BROO,1:09.44,1:06.71,31.04;35.67,,False,
 11,100 Yard Butterfly,F,,,17,0,Audrey,Rigaud,28,NOTE,1:09.88,1:09.73,32.00;37.73,,False,
 11,100 Yard Butterfly,F,,,18,0,Mikaela,Harrison,31,FRAM,1:08.01,1:10.92,32.02;38.90,,False,
+11,100 Yard Butterfly,F,,,,0,Grace,Goranson,27,URSU,1:07.06,,,SCR,False,
 12,100 Yard Butterfly,M,,,1,20,Owen,Griffin,29,MILT,,1:04.10,30.16;33.94,,False,
 12,100 Yard Butterfly,M,,,2,17,Levinson,Yang,27,BRAI,,1:09.60,29.86;39.74,,False,
 13,100 Yard Freestyle,F,,,1,20,Victoria,Sigmundstad Callahan,28,NEWT,55.81,53.38,25.75;27.63,,False,

@@ -55,3 +55,4 @@ event_num,event_name,gender,heat,lane,place,points,team,relay,first_name_1,last_
 24,400 Yard Freestyle Relay,M,,,1,40,BILL,A,Peter,Hong,27,24.13;26.01,Ishaan,Dadhirao,27,26.71;31.01,Simeon,Ashminov,30,27.12;30.50,Arvin,Khemraj,30,26.33;28.79,3:45.83,3:40.60,,False,
 24,400 Yard Freestyle Relay,M,,,2,34,METE,A,Oliver,Cabral,31,29.55;33.26,Dylan,Dang,29,;1:06.24,Gabe,Pinheiro,29,30.37;35.49,Weston,Sawicki,31,27.06;29.83,4:00.19,4:11.80,,False,
 24,400 Yard Freestyle Relay,M,,,3,32,NAND,A,Nathaniel,Whitney,27,30.53;32.41,Dawson,Rupp,30,31.88;35.74,Ethan,Yazell,30,30.67;,Peter,Sullivan,27,,4:10.60,4:19.39,,False,
+24,400 Yard Freestyle Relay,M,,,,0,WINC,A,,,,,,,,,,,,,,,,,NT,,SCR,False,
