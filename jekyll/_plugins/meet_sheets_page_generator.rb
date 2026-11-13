@@ -14,24 +14,21 @@
 #   raw_root           - _data path, e.g. %w[swimming-diving bsc]
 #   dir                - site path, e.g. "sports/swimming-diving/bsc"
 #   nested_meet_data   - does the raw _data nest one more level, keyed by a
-#                        meet slug, before the CSV filenames? True for BSC
-#                        (always exactly one key, "bay-state-conference") and
+#                        meet slug, before the CSV filenames? True for
 #                        Sectionals (one key per concurrent meet - North/
 #                        South in Fall, +Central/West in Winter); false for
-#                        States (CSVs sit directly under <year>/<season>/).
+#                        BSC and States (CSVs sit directly under
+#                        <year>/<season>/ - BSC only ever has the one meet,
+#                        so there's no meet slug to key by).
 #   separate_meet_pages - does each meet get its own hub page one level below
 #                        the season page (true - only Sectionals, since North
 #                        and South each need their own team scores + sheet
 #                        links), or does the season page simply *become* the
 #                        (sole) meet's hub page (false - BSC and States)?
-#                        Requires nested_meet_data, but isn't implied by it:
-#                        BSC has nested_meet_data with a single, unvarying
-#                        key, so there's nothing to split across separate
-#                        pages the way Sectionals' varying North/South/
-#                        Central-West keys need.
+#                        Requires nested_meet_data.
 #   meet_labels/meet_order - (separate_meet_pages sources only) meet slug ->
 #                        display label/sort position, e.g.
-#                        "north-sectional" => "North Sectional".
+#                        "north" => "North Sectional".
 #   hub_label          - (!separate_meet_pages sources only) the one meet's
 #                        constant display label, e.g. "Bay State Conference
 #                        Meet"/"State Meet", standing in for meet_labels.
@@ -60,7 +57,7 @@ module MeetSheets
       {
         raw_root: %w[swimming-diving bsc],
         dir: "sports/swimming-diving/bsc",
-        nested_meet_data: true,
+        nested_meet_data: false,
         separate_meet_pages: false,
         hub_label: "Bay State Conference Meet",
         year_title_suffix: "Bay State Conference Meet",
@@ -72,12 +69,23 @@ module MeetSheets
         dir: "sports/swimming-diving/sectionals",
         nested_meet_data: true,
         separate_meet_pages: true,
+        # Every meet slug this source's data has ever used (back to 1972) -
+        # Eastern Mass split into North/South in 1978; Winter sectionals
+        # added a 3rd/4th concurrent meet in different years under
+        # different names before settling on Central/West.
         meet_labels: {
-          "north-sectional" => "North Sectional",
-          "south-sectional" => "South Sectional",
-          "central-west-sectional" => "Central/West Sectional",
+          "eastern-mass" => "Eastern Mass Sectional",
+          "north" => "North Sectional",
+          "south" => "South Sectional",
+          "central-south" => "Central-South Sectional",
+          "west" => "West Sectional",
+          "western-mass" => "Western Mass Sectional",
+          "central-west" => "Central/West Sectional",
         },
-        meet_order: { "north-sectional" => 0, "south-sectional" => 1, "central-west-sectional" => 2 },
+        meet_order: {
+          "eastern-mass" => 0, "north" => 0, "south" => 1,
+          "central-south" => 2, "central-west" => 2, "west" => 3, "western-mass" => 3,
+        },
         year_title_suffix: "Sectional Meets",
         season_title_suffix: "Sectional Meets",
         latest_title: "Latest Sectional Meet",
