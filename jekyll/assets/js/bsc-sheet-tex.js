@@ -474,14 +474,25 @@
       return event.entries.map(function (group, heatIdx) {
         var entries = event.kind === "diving" ? group.entries : padLanes(group.entries, maxLanes);
         var table = tableFor(event, entries, "heat");
-        // Heats within the same event sit closer together than the
-        // \bigskip gap used between events - \medskip is ~half as tall.
-        var trailingSkip = heatIdx === totalHeats - 1 ? "\\bigskip" : "\\medskip";
-        return "\\begin{minipage}{\\linewidth}\n" +
+        var isLastHeat = heatIdx === totalHeats - 1;
+        // A minipage's reported depth doesn't match an ordinary text line's
+        // depth (see tableFor's other caller below for the fuller version
+        // of this), which inflates the automatic \baselineskip-based gap
+        // LaTeX computes before the next heat's heading well beyond a
+        // normal row-to-row gap - so an explicit \medskip on top of that
+        // still only trims a few points off a much bigger, uncorrected
+        // total. boxDepthFix removes the inflation first; the negative
+        // \vspace on top of that is what actually halves the measured
+        // heat-to-heat gap (vs. the \bigskip gap between events, left
+        // alone here since that one wasn't the complaint).
+        var lastRow = table.rows.length ? table.rows[table.rows.length - 1] : table.header;
+        var depthFix = isLastHeat ? "" : boxDepthFix(lastRow);
+        var trailingSkip = isLastHeat ? "\\bigskip" : "\\vspace{-7pt}";
+        return "\\begin{minipage}[t]{\\linewidth}\n" +
           (heatIdx === 0 ? eventHeading(event) : "") +
           "{\\bfseries " + flightLabel + tex(group.heat) + " of " + totalHeats + "}\\par\\smallskip\n" +
           (heatIdx === 0 ? table.header : "") + table.rows.join("") +
-          "\\end{minipage}\\par" + trailingSkip + "\n";
+          "\\end{minipage}\\par\n" + depthFix + trailingSkip + "\n";
       }).join("");
     }
     // Heading + table header + first row are wrapped in one minipage so a
