@@ -44,8 +44,56 @@
 - title: Sports
   url: /sports/
   children:
+    - title: Baseball
+      url: /sports/baseball/
+    - title: Basketball
+      url: /sports/basketball/
+    - title: Competitive Cheerleading
+      url: /sports/competitive-cheerleading/
+    - title: Cross Country
+      url: /sports/cross-country/
+    - title: Dance
+      url: /sports/dance/
+    - title: Field Hockey
+      url: /sports/field-hockey/
+    - title: Flag Football
+      url: /sports/flag-football/
+    - title: Football
+      url: /sports/football/
+    - title: Golf
+      url: /sports/golf/
+    - title: Gymnastics
+      url: /sports/gymnastics/
+    - title: Ice Hockey
+      url: /sports/ice-hockey/
+    - title: Indoor Track & Field
+      url: /sports/indoor-track-and-field/
+    - title: Lacrosse
+      url: /sports/lacrosse/
+    - title: Outdoor Track & Field
+      url: /sports/outdoor-track-and-field/
+    - title: Rugby
+      url: /sports/rugby/
+    - title: Sailing
+      url: /sports/sailing/
+    - title: Skiing
+      url: /sports/skiing/
+    - title: Soccer
+      url: /sports/soccer/
+    - title: Softball
+      url: /sports/softball/
+    - title: Squash
+      url: /sports/squash/
     - title: Swimming & Diving
       url: /sports/swimming-diving/
+    - title: Tennis
+      url: /sports/tennis/
+    - title: Ultimate Frisbee
+      url: /sports/ultimate-frisbee/
+    - title: Volleyball
+      url: /sports/volleyball/
+    - title: Wrestling
+      url: /sports/wrestling/
 
 - title: Schedules
   url: /schedules/
