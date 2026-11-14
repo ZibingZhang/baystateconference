@@ -1,7 +1,7 @@
 ---
 layout: page
-title: State Meet Records
-permalink: /sports/swimming-diving/states/records/
+title: Bay State Conference Meet Records
+permalink: /sports/swimming-diving/meets/bsc/records/
 breadcrumb: Records
 under_construction: true
 exclude_from_directory: true

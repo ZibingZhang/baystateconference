@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Dual Meets
-permalink: /sports/swimming-diving/dual-meets/
+permalink: /sports/swimming-diving/meets/dual-meets/
 default_sort: desc
 internal_links:
   - title: Rankings
-    url: /sports/swimming-diving/dual-meets/rankings/
+    url: /sports/swimming-diving/meets/dual-meets/rankings/
 ---
 
 {%- assign all_meets = site.data.swimming-diving["dual-meet-results"] -%}

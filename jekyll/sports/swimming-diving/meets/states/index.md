@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Sectional Championship Meets
-permalink: /sports/swimming-diving/sectionals/
-breadcrumb: Sectionals
+title: State Championship Meets
+permalink: /sports/swimming-diving/meets/states/
+breadcrumb: States
 default_sort: desc
 countdowns:
-  - label: "Sectionals"
-    date: "2026-11-08"
+  - label: "States"
+    date: "2026-11-15T16:45"
 external_links:
   - title: MIAA Website
     url: https://www.miaa.net/swimming-diving
@@ -15,14 +15,20 @@ resource_links:
     url: /sports/swimming-diving/resources/miaa-qualifying-standards/
 internal_links:
   - title: Archive
-    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/sectionals
+    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/states
   - title: Rankings
-    url: /sports/swimming-diving/sectionals/rankings/
+    url: /sports/swimming-diving/meets/states/rankings/
   - title: Records
-    url: /sports/swimming-diving/sectionals/records/
+    url: /sports/swimming-diving/meets/states/records/
 ---
 
-The north and south fall sectional championship meets will take place on November 8th.
+The fall state championship meet will take place on November 15th at MIT.
+
+Schedule:
+
+- 3:00 PM: doors open for teams
+- 3:30 PM: doors open for spectators
+- 4:15 PM: meet starts
 
 {%- if page.latest_meet_url %}
 {% include icon-link.html icon="calendar_month" label="Latest Meet" url=page.latest_meet_url %}

@@ -4,7 +4,7 @@
 # straight to its meet hub page (see meet_sheets_page_generator.rb). Reads
 # the same per-year team_scores.csv data that generator's BSC hub pages do.
 #
-# Stashed onto the hand-authored jekyll/sports/swimming-diving/bsc/
+# Stashed onto the hand-authored jekyll/sports/swimming-diving/meets/bsc/
 # rankings.md page (found by URL) rather than a page of its own - mirrors
 # meet_sheets_page_utils.rb#inject_latest_meet_url's site.pages.find-and-
 # merge pattern.
@@ -15,7 +15,7 @@ module BscRankingsSummary
     safe true
 
     RAW_ROOT = %w[swimming-diving bsc].freeze
-    PAGE_URL = "/sports/swimming-diving/bsc/rankings/".freeze
+    PAGE_URL = "/sports/swimming-diving/meets/bsc/rankings/".freeze
 
     CATEGORIES = [
       { heading: "Girls Fall", gender: "F", season: "fall" },
@@ -46,7 +46,7 @@ module BscRankingsSummary
               .map do |school_year, year_rows|
         {
           "year" => MeetSheetsPageUtils.en_dash(school_year),
-          "url" => "/sports/swimming-diving/bsc/#{school_year}/#{category[:season]}/",
+          "url" => "/sports/swimming-diving/meets/bsc/#{school_year}/#{category[:season]}/",
           "entries" => MeetSheetsPageUtils.score_rows(year_rows, high_schools).first(3),
         }
       end

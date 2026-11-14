@@ -8,7 +8,7 @@
 # reads team_scores.csv directly instead of one of these rollup rankings
 # CSVs; both render through the same rankings-summary-table.html include.
 #
-# Stashed onto each hand-authored jekyll/sports/swimming-diving/<source>/
+# Stashed onto each hand-authored jekyll/sports/swimming-diving/meets/<source>/
 # rankings.md page (found by URL), same as that generator - so adding a new
 # season's rows to a CSV is enough on its own to update the page, no
 # matching page to remember.
@@ -39,18 +39,18 @@ module Rankings
     SOURCES = [
       {
         data_path: %w[swimming-diving miaa rankings sectionals],
-        page_url: "/sports/swimming-diving/sectionals/rankings/",
-        hub_url: ->(year, season, division) { "/sports/swimming-diving/sectionals/#{year}/#{season}/#{SECTIONAL_MEET_SLUGS[division]}/" },
+        page_url: "/sports/swimming-diving/meets/sectionals/rankings/",
+        hub_url: ->(year, season, division) { "/sports/swimming-diving/meets/sectionals/#{year}/#{season}/#{SECTIONAL_MEET_SLUGS[division]}/" },
       },
       {
         data_path: %w[swimming-diving miaa rankings states],
-        page_url: "/sports/swimming-diving/states/rankings/",
+        page_url: "/sports/swimming-diving/meets/states/rankings/",
         # States never splits a season across separate meet pages the way
         # Sectionals does - a year with two divisions still has just the
         # one hub page, with both divisions' tables on it (see
         # meet_sheets_page_utils.rb#team_score_groups) - so every row for a
         # given year/season links to the same URL regardless of division.
-        hub_url: ->(year, season, _division) { "/sports/swimming-diving/states/#{year}/#{season}/" },
+        hub_url: ->(year, season, _division) { "/sports/swimming-diving/meets/states/#{year}/#{season}/" },
       },
     ].freeze
 

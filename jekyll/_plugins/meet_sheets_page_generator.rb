@@ -12,7 +12,7 @@
 # handful of ways:
 #
 #   raw_root           - _data path, e.g. %w[swimming-diving bsc]
-#   dir                - site path, e.g. "sports/swimming-diving/bsc"
+#   dir                - site path, e.g. "sports/swimming-diving/meets/bsc"
 #   nested_meet_data   - does the raw _data nest one more level, keyed by a
 #                        meet slug, before the CSV filenames? True for
 #                        Sectionals (one key per concurrent meet - North/
@@ -56,7 +56,7 @@ module MeetSheets
     SOURCES = [
       {
         raw_root: %w[swimming-diving bsc],
-        dir: "sports/swimming-diving/bsc",
+        dir: "sports/swimming-diving/meets/bsc",
         nested_meet_data: false,
         separate_meet_pages: false,
         hub_label: "Bay State Conference Meet",
@@ -66,7 +66,7 @@ module MeetSheets
       },
       {
         raw_root: %w[swimming-diving miaa sectionals],
-        dir: "sports/swimming-diving/sectionals",
+        dir: "sports/swimming-diving/meets/sectionals",
         nested_meet_data: true,
         separate_meet_pages: true,
         # Every meet slug this source's data has ever used (back to 1972) -
@@ -93,7 +93,7 @@ module MeetSheets
       },
       {
         raw_root: %w[swimming-diving miaa states],
-        dir: "sports/swimming-diving/states",
+        dir: "sports/swimming-diving/meets/states",
         nested_meet_data: false,
         separate_meet_pages: false,
         hub_label: "State Meet",

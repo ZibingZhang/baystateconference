@@ -259,10 +259,11 @@ module MeetSheetsPageUtils
   end
 
   # Sets "latest_meet_url" on the hand-authored hub page at /<dir>/ (e.g.
-  # sports/swimming-diving/sectionals/index.md) to the /<dir>/latest/
+  # sports/swimming-diving/meets/sectionals/index.md) to the /<dir>/latest/
   # redirect's URL once any per-swimmer data exists, so that page can show a
-  # "Latest Meet" link (mirroring bsc_sheets_page_generator.rb's /bsc/latest/
-  # icon-link) instead of its placeholder text before any data exists -
+  # "Latest Meet" link (mirroring bsc_sheets_page_generator.rb's
+  # /meets/bsc/latest/ icon-link) instead of its placeholder text before any
+  # data exists -
   # see qualifying_standards_page_generator.rb for the same
   # site.pages.find-and-merge pattern into a static page.
   def inject_latest_meet_url(site, dir, available)

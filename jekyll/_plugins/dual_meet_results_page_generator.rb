@@ -1,5 +1,5 @@
 # Generates one page per school year of dual meet results
-# (sports/swimming-diving/dual-meets/YYYY-YYYY/) straight from the School
+# (sports/swimming-diving/meets/dual-meets/YYYY-YYYY/) straight from the School
 # Year column of dual-meet-results.csv, so adding a new season's rows to the
 # CSV is enough on its own - no matching page to remember. This includes the
 # current school year, alongside the hand-authored dual-meets/ hub page
@@ -20,7 +20,7 @@ module DualMeetResults
     safe true
 
     DATA_PATH = %w[swimming-diving dual-meet-results].freeze
-    DIR = "sports/swimming-diving/dual-meets".freeze
+    DIR = "sports/swimming-diving/meets/dual-meets".freeze
 
     SEASON_ORDER = { "fall" => 0, "winter" => 1 }.freeze
     SEASON_LABELS = { "fall" => "Fall", "winter" => "Winter" }.freeze

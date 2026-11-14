@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Sectional Meet Records
-permalink: /sports/swimming-diving/sectionals/records/
+title: State Meet Records
+permalink: /sports/swimming-diving/meets/states/records/
 breadcrumb: Records
 under_construction: true
 exclude_from_directory: true
