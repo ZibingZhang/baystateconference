@@ -6,10 +6,11 @@ breadcrumb: MIAA Qualifying Standards
 default_sort: desc
 ---
 
-## {{ page.current_school_year }}
+{%- if page.current_school_year_url %}
+{% include icon-link.html icon="checklist" label="Current Season Qualifying Standards" url=page.current_school_year_url %}
+{%- else %}
 
-{% for group in page.groups %}
-{%- include qualifying-standards-table.html heading=group.heading columns=group.columns rows=group.rows -%}
-{% endfor %}
+No qualifying standards have been added yet.
+{%- endif %}
 
 {% include directory-listing.html heading="All Seasons" searchable=true %}

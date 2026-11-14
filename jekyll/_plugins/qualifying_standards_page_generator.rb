@@ -5,12 +5,12 @@
 # matching page to remember. A School Year with no rows simply has no page
 # yet; add its first entry and the page appears on the next build.
 #
-# Also injects the latest School Year's own `groups` (see below) into the
-# hand-authored index page at sports/swimming-diving/resources/
-# miaa-qualifying-standards/index.md, so that page can render the current
-# season's tables inline via the same {% include qualifying-standards-table.html %}
-# loop the generated per-year pages use, above its own directory listing of
-# every year.
+# Also injects the latest School Year's own URL, as `current_school_year_url`,
+# into the hand-authored index pages at sports/swimming-diving/index.md and
+# sports/swimming-diving/resources/miaa-qualifying-standards/index.md, so
+# each can link straight to the current season's standards (see
+# meet_sheets_page_utils.rb's `latest_meet_url` sibling pattern) rather than
+# only through a directory listing of every year.
 #
 # Each page has one table per Season/Gender pair (Fall Girls, Fall Boys, Winter
 # Girls, Winter Boys), headed "<Season> — <Gender>", each with one row per Event
@@ -80,11 +80,12 @@ module QualifyingStandards
       end
 
       current_year = school_years.first
-      index_page = site.pages.find { |page| page.url == "/#{DIR}/" }
-      return unless index_page && current_year
+      current_school_year_url = current_year && "/#{DIR}/#{current_year}/"
 
-      index_page.data["current_school_year"] = current_year
-      index_page.data["groups"] = groups_for(entries, event_abbreviations, division_abbreviations, current_year)
+      ["/#{DIR}/", "/sports/swimming-diving/"].each do |url|
+        page = site.pages.find { |p| p.url == url }
+        page.data["current_school_year_url"] = current_school_year_url if page
+      end
     end
 
     private

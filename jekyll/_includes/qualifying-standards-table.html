@@ -2,28 +2,49 @@
   Renders one MIAA qualifying standards table (Event rows x Division
   columns) under a heading, or nothing at all if there are no columns.
 
+  The heading has its own eye-icon button (wired by
+  assets/js/qualifying-standards-filter.js) that hides/shows the table
+  below it - lets a page with several groups (Fall Girls, Fall Boys,
+  Winter Girls, Winter Boys) collapse down to just its headings, same
+  idea as rankings-summary-table.html's visibility toggle.
+
+  Include assets/js/qualifying-standards-filter.js once yourself wherever
+  you call this (not from in here) - same reasoning as
+  rankings-summary-table.html gives for rankings-filter.js: several
+  identical deferred `<script src>` tags (one per group on a page) are
+  unreliable.
+
   Usage: {% include qualifying-standards-table.html heading="Fall — Girls" columns=columns rows=rows %}
 {%- endcomment -%}
 {%- if include.columns and include.columns.size > 0 -%}
-<h2>{{ include.heading }}</h2>
-<table class="nowrap-td">
-  <thead>
-    <tr>
-      <th>Event</th>
-      {%- for column in include.columns -%}
-      <th>{{ column }}</th>
-      {%- endfor -%}
-    </tr>
-  </thead>
-  <tbody>
-    {%- for row in include.rows -%}
-    <tr>
-      <td>{{ row.event }}</td>
-      {%- for value in row.values -%}
-      <td>{{ value }}</td>
-      {%- endfor -%}
-    </tr>
-    {%- endfor -%}
-  </tbody>
-</table>
+<div class="qualifying-standards-group">
+  <div class="qualifying-standards-group-header">
+    <h2>{{ include.heading }}</h2>
+    <button type="button" class="qualifying-standards-visibility-toggle" aria-pressed="false" aria-label="Hide section" title="Hide section">
+      <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
+    </button>
+  </div>
+  <div class="qualifying-standards-group-body">
+    <table class="nowrap-td">
+      <thead>
+        <tr>
+          <th>Event</th>
+          {%- for column in include.columns -%}
+          <th>{{ column }}</th>
+          {%- endfor -%}
+        </tr>
+      </thead>
+      <tbody>
+        {%- for row in include.rows -%}
+        <tr>
+          <td>{{ row.event }}</td>
+          {%- for value in row.values -%}
+          <td>{{ value }}</td>
+          {%- endfor -%}
+        </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+</div>
 {%- endif -%}
