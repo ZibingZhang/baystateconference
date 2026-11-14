@@ -20,7 +20,7 @@ One row per swimmer per individual (non-relay, non-diving) event.
 | points | number | Points earned under 16-place scoring, doubled for relays, split across ties; 0 if unplaced or excluded |
 | first_name, last_name | string | |
 | year | string | 2-digit expected graduation year, or `FR`/`SO`/`JR`/`SR` |
-| school | string | MIAA school abbreviation (see `resources/miaa/high-schools.csv`) |
+| school | string | MIAA school abbreviation (see `jekyll/_data/high-schools.csv`) |
 | seed_time | string, blank if no heat-sheet match | Seed time from the heat sheet (`m:ss.hh` or `ss.hh`); `NT` = no previous time |
 | finals_time | string, blank if DQ/SCR | Finals time |
 | splits | string | Semicolon-separated per-50-yard lap splits (e.g. `28.97;32.03`); blank for 50-yard races, which have none |

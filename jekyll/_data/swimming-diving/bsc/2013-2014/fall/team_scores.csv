@@ -1,17 +1,17 @@
-gender,rank,school_abbreviation,school_name,score
-F,1,FRAM,Framingham High School,571
-F,2,NEED,Needham High School,473
-F,3,NEWT,Newton North High School,446.5
-F,4,NATI,Natick High School,255
-F,5,WELL,Wellesley High School,213
-F,6,WALP,Walpole High School,157
-F,7,BROO,Brookline High School,97
-F,8,DEDH,Dedham High School,68.5
-F,9,NORW,Norwood High School,29
-F,10,BRAI,Braintree High School,13
-F,11,WEYM,Weymouth High School,2
-M,1,NORW,Norwood High School,355
-M,2,BRAI,Braintree High School,272
-M,3,WALP,Walpole High School,219
-M,4,DEDH,Dedham High School,51
-M,5,WEYM,Weymouth High School,27
+gender,rank,school_abbreviation,score
+F,1,FRAM,571
+F,2,NEED,473
+F,3,NEWT,446.5
+F,4,NATI,255
+F,5,WELL,213
+F,6,WALP,157
+F,7,BROO,97
+F,8,DEDH,68.5
+F,9,NORW,29
+F,10,BRAI,13
+F,11,WEYM,2
+M,1,NORW,355
+M,2,BRAI,272
+M,3,WALP,219
+M,4,DEDH,51
+M,5,WEYM,27

@@ -1,3 +1,3 @@
-gender,rank,school_abbreviation,school_name,score
-M,1,NEWT,Newton North High School,306
-M,2,NEED,Needham High School,293.5
+gender,rank,school_abbreviation,score
+M,1,NEWT,306
+M,2,NEED,293.5

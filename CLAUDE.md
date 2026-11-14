@@ -9,12 +9,13 @@ See `README.md` for the canonical project description — this file is Claude-sp
   Jekyll static site, deployed to GitHub Pages by `.github/workflows/jekyll.yaml`.
   Local dev: `cd jekyll && bundle exec jekyll serve`.
   The swimming/diving archive's file-browser index (`assets/data/file-browser/sports/swimming-diving/archive/index.json`, fetched at runtime by `assets/js/file-browser.js`) is generated at build time by `jekyll/_plugins/swimming_archive_index_generator.rb` — not checked in itself — from the hand-tagged `jekyll/_data/file-browser/sports/swimming-diving/archive/files.json` (entries needing multi-view indexing) plus the hand-maintained base tree in `jekyll/_data/file-browser/sports/swimming-diving/archive/index.json` (currently just "Other Sites").
+  `jekyll/_data/high-schools.csv` is the canonical MIAA member-school list (code/name/town/county) — the source of truth for school-abbreviation lookups, read directly by the Jekyll build (e.g. `meet_sheets_page_utils.rb`'s team-scores rendering) and fetched at runtime via `raw.githubusercontent.com` by `championshipentries`.
 - `arbiterlive/` — `arbiter_schedule.py` fetches each team's schedule from ArbiterLive into `jekyll/_data/schedule/games.csv`, which the Jekyll build consumes.
   Not committed; fetched daily in CI (`fetch-schedule.yaml`) and cached for the Jekyll build.
 - `championshipentries/` — a React/Vite/MUI web app for coaches entering swim meet rosters and exporting them to Hytek EV3/HY3 formats.
   All state lives in `localStorage` (see `src/storage.ts`) — there is no backend.
   See the dedicated section below.
-- `resources/miaa/` — MIAA data consumed by `championshipentries` (fetched at runtime via `raw.githubusercontent.com`, never read from the local filesystem): imported EV3 event files, one per meet, under `swimming-diving/<school-year>/<season>/<meet>/` and `high-schools.csv`.
+- `resources/miaa/` — MIAA data consumed by `championshipentries` (fetched at runtime via `raw.githubusercontent.com`, never read from the local filesystem): imported EV3 event files, one per meet, under `swimming-diving/<school-year>/<season>/<meet>/`.
   Raw per-meet result CSVs live separately, under `jekyll/_data/swimming-diving/<governing-body>/<school-year>/<season>/` for a governing body with only one meet per season (e.g. `bsc/2026-2027/fall/`) or `.../<season>/<meet>/` when there's more than one concurrent meet (e.g. `miaa/sectionals/2026-2027/fall/north/`) — where Jekyll's `_data` mechanism loads them directly; `jekyll/_plugins/meet_sheets_page_generator.rb` normalizes them in memory at site-generation time.
 - `scripts/` — standalone Python utilities for MIAA data housekeeping (qualifying-standards sanity checks, rankings CSV sorting, score-column padding).
   Not wired into CI; run manually.

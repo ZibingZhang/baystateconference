@@ -1,15 +1,15 @@
-gender,rank,school_abbreviation,school_name,score
-F,1,NEWT,Newton North High School,504.5
-F,2,BROO,Brookline High School,387
-F,3,WELL,Wellesley High School,342
-F,4,FRAM,Framingham High School,266
-F,5,NEED,Needham High School,264.5
-F,6,NATI,Natick High School,207
-F,7,MILT,Milton High School,167
-F,8,WEYM,Weymouth High School,105
-F,9,WALP,Walpole High School,50
-F,10,BRAI,Braintree High School,0
-M,1,MILT,Milton High School,492
-M,2,WALP,Walpole High School,315
-M,3,BRAI,Braintree High School,309
-M,4,WEYM,Weymouth High School,223
+gender,rank,school_abbreviation,score
+F,1,NEWT,504.5
+F,2,BROO,387
+F,3,WELL,342
+F,4,FRAM,266
+F,5,NEED,264.5
+F,6,NATI,207
+F,7,MILT,167
+F,8,WEYM,105
+F,9,WALP,50
+F,10,BRAI,0
+M,1,MILT,492
+M,2,WALP,315
+M,3,BRAI,309
+M,4,WEYM,223

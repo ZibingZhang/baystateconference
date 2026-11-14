@@ -157,11 +157,14 @@ module MeetSheetsPageUtils
   # "division" column is present - MIAA States team_scores.csv has one for
   # some years (two divisions scored separately within the same meet) and not
   # others (combined scoring), so this branches on whether any row actually
-  # has one rather than assuming either shape. "school_name"/"school" covers
-  # both the current schema (scripts/extract_swim_meet.py's output) and the
-  # older schema some historical States team_scores.csv files predate it use.
-  def team_score_groups(team_scores)
+  # has one rather than assuming either shape. "school_abbreviation"/"school"
+  # covers both the current schema (scripts/extract_swim_meet.py's output,
+  # resolved to a full name via high_school_names below) and the older schema
+  # some historical States/Sectionals team_scores.csv files predate it use
+  # (full name already written directly into "school").
+  def team_score_groups(team_scores, site)
     has_division = team_scores.any? { |row| !row["division"].to_s.strip.empty? }
+    high_schools = high_school_names(site)
 
     GENDER_LABELS.filter_map do |code, gender_label|
       gender_rows = team_scores.select { |row| row["gender"] == code }
@@ -171,17 +174,27 @@ module MeetSheetsPageUtils
         divisions = gender_rows.map { |row| row["division"] }.uniq.sort
         divisions.map do |division|
           rows = gender_rows.select { |row| row["division"] == division }
-          { "heading" => "#{gender_label} #{division} Team Scores", "entries" => score_rows(rows) }
+          { "heading" => "#{gender_label} #{division} Team Scores", "entries" => score_rows(rows, high_schools) }
         end
       else
-        { "heading" => "#{gender_label} Team Scores", "entries" => score_rows(gender_rows) }
+        { "heading" => "#{gender_label} Team Scores", "entries" => score_rows(gender_rows, high_schools) }
       end
     end.flatten
   end
 
-  def score_rows(rows)
+  # code (e.g. "FRAM") -> full name (e.g. "Framingham High School"), from the
+  # canonical jekyll/_data/high-schools.csv - blank-code rows (schools with no
+  # MIAA abbreviation) are dropped since they can never be a lookup key.
+  def high_school_names(site)
+    (site.data["high-schools"] || []).each_with_object({}) do |row, map|
+      code = row["CODE"].to_s.strip
+      map[code] = row["School"] unless code.empty?
+    end
+  end
+
+  def score_rows(rows, high_schools)
     rows.sort_by { |row| row["rank"].to_i }
-        .map { |row| { "Place" => row["rank"], "School" => row["school_name"] || row["school"], "Score" => row["score"] } }
+        .map { |row| { "Place" => row["rank"], "School" => row["school"] || high_schools[row["school_abbreviation"]] || row["school_abbreviation"], "Score" => row["score"] } }
   end
 
   # Only the sheets whose required column(s) actually have data in this

@@ -1,7 +1,7 @@
 import type { HighSchool } from "../types";
 
 const HIGH_SCHOOLS_CSV_URL =
-  "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/high-schools.csv";
+  "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/jekyll/_data/high-schools.csv";
 
 export function parseHighSchoolsCsv(text: string): HighSchool[] {
   const lines = text.split("\n").filter((line) => line.trim().length > 0);

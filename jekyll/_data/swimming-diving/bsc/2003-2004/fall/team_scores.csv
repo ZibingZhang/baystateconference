@@ -1,4 +1,4 @@
-gender,rank,school_abbreviation,school_name,score
-F,1,NEED,Needham High School,
-F,2,FRAM,Framingham High School,
-F,3,WELL,Wellesley High School,
+gender,rank,school_abbreviation,score
+F,1,NEED,
+F,2,FRAM,
+F,3,WELL,

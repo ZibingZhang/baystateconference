@@ -1,4 +1,4 @@
-gender,rank,school_abbreviation,school_name,score
-F,1,WELL,Wellesley High School,
-F,2,NEED,Needham High School,
-F,3,BROO,Brookline High School,
+gender,rank,school_abbreviation,score
+F,1,WELL,
+F,2,NEED,
+F,3,BROO,

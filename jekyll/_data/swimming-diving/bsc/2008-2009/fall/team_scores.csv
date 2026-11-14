@@ -1,6 +1,6 @@
-gender,rank,school_abbreviation,school_name,score
-F,1,FRAM,Framingham High School,353
-F,2,WALP,Walpole High School,196
-F,3,BROO,Brookline High School,187
-F,4?,NEED,Needham High School,
-F,4?,WELL,Wellesley High School,
+gender,rank,school_abbreviation,score
+F,1,FRAM,353
+F,2,WALP,196
+F,3,BROO,187
+F,4?,NEED,
+F,4?,WELL,

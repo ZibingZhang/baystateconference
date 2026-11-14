@@ -1,4 +1,4 @@
-gender,rank,school_abbreviation,school_name,score
-F,1,FRAM,Framingham High School,
-F,2,NEED,Needham High School,
-F,3,NATI,Natick High School,
+gender,rank,school_abbreviation,score
+F,1,FRAM,
+F,2,NEED,
+F,3,NATI,

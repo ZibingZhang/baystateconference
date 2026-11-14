@@ -1,7 +1,7 @@
-gender,rank,school_abbreviation,school_name,score
-M,1,NATI,Natick High School,337
-M,2,NEED,Needham High School,301
-M,3,FRAM,Framingham High School,233
-M,4,WELL,Wellesley High School,212
-M,5,BROO,Brookline High School,210
-M,6,NEWT,Newton North High School,102
+gender,rank,school_abbreviation,score
+M,1,NATI,337
+M,2,NEED,301
+M,3,FRAM,233
+M,4,WELL,212
+M,5,BROO,210
+M,6,NEWT,102

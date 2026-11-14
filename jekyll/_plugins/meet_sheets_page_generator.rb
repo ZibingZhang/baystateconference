@@ -232,7 +232,7 @@ module MeetSheets
         "title" => "#{MeetSheetsPageUtils.en_dash(year)} #{season_label(season)} #{hub_label}",
         "permalink" => "/#{dir}/",
         "breadcrumb" => source[:separate_meet_pages] ? hub_label : season_label(season),
-        "team_score_groups" => MeetSheetsPageUtils.team_score_groups(team_scores),
+        "team_score_groups" => MeetSheetsPageUtils.team_score_groups(team_scores, site),
         "sheet_links" => sheets.map { |sheet| { "title" => sheet[:title], "url" => "/#{dir}/#{sheet[:slug]}/" } },
         "archive_links" => [
           {
