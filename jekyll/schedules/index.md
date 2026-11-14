@@ -12,3 +12,5 @@ home_cards:
 ---
 
 {% include cards.html items=page.home_cards %}
+
+{% include todays-games.html all_levels=true %}

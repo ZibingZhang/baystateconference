@@ -1,24 +1,48 @@
 {%- comment -%}
-  Lists every Varsity-level Bay State Conference game scheduled for today,
-  across every sport, sorted by time, then Girls before Boys/Coed, then sport
-  alphabetically, then Team 1/Team 2. "Today" means the day this site was
-  built (site.time), not the visitor's local day, since this is a static site
-  - see .github/workflows/jekyll.yaml's daily scheduled build (timed after
+  Lists Bay State Conference games scheduled for today, across every sport,
+  sorted by time, then Girls before Boys/Coed, then sport alphabetically,
+  then Team 1/Team 2. "Today" means the day this site was built (site.time),
+  not the visitor's local day, since this is a static site - see
+  .github/workflows/jekyll.yaml's daily scheduled build (timed after
   arbiterlive's daily fetch) for how this stays fresh.
 
-  site.data.schedule.todays_games (already filtered/sorted/decorated) and the
-  todays_sports/todays_schools filter-chip value lists come from
-  _plugins/todays_games_generator.rb, since Liquid alone can't do the
-  multi-key custom-order sort this list needs.
+  By default only Varsity games are listed (the homepage's "Today's Varsity
+  Games"); pass include.all_levels=true to list every level instead (used by
+  /schedules/), which also adds a Level column and a "Filter by level" chip
+  row.
+
+  site.data.schedule.todays_games(_all) (already filtered/sorted/decorated)
+  and the todays_sports(_all)/todays_schools(_all)/todays_levels_all
+  filter-chip value lists come from _plugins/todays_games_generator.rb, since
+  Liquid alone can't do the multi-key custom-order sort this list needs.
 
   Usage: {% include todays-games.html %}
+         {% include todays-games.html all_levels=true %}
 {%- endcomment -%}
+{%- if include.all_levels -%}
+{%- assign todays_games = site.data.schedule.todays_games_all -%}
+{%- assign todays_sports = site.data.schedule.todays_sports_all -%}
+{%- assign todays_schools = site.data.schedule.todays_schools_all -%}
+{%- assign todays_levels = site.data.schedule.todays_levels_all -%}
+{%- assign heading = "Today's Games" -%}
+{%- assign empty_message = "No games scheduled today." -%}
+{%- assign colspan = "6" -%}
+{%- else -%}
 {%- assign todays_games = site.data.schedule.todays_games -%}
-<h2>Today's Varsity Games</h2>
+{%- assign todays_sports = site.data.schedule.todays_sports -%}
+{%- assign todays_schools = site.data.schedule.todays_schools -%}
+{%- assign heading = "Today's Varsity Games" -%}
+{%- assign empty_message = "No varsity games scheduled today." -%}
+{%- assign colspan = "5" -%}
+{%- endif -%}
+<h2>{{ heading }}</h2>
 <p class="schedule-legend">&#8224; Home team</p>
 {%- if todays_games.size > 0 -%}
-{%- include schedule-filter.html attr="sport" values=site.data.schedule.todays_sports label="Filter by sport" -%}
-{%- include schedule-filter.html attr="school" values=site.data.schedule.todays_schools label="Filter by school" -%}
+{%- include schedule-filter.html attr="sport" values=todays_sports label="Filter by sport" -%}
+{%- include schedule-filter.html attr="school" values=todays_schools label="Filter by school" -%}
+{%- if include.all_levels -%}
+{%- include schedule-filter.html attr="level" values=todays_levels label="Filter by level" -%}
+{%- endif -%}
 <script src="{{ '/assets/js/schedule-filter.js' | relative_url }}" defer></script>
 {%- endif -%}
 <div class="schedule-group">
@@ -27,6 +51,9 @@
   <thead>
     <tr>
       <th>Sport</th>
+      {%- if include.all_levels -%}
+      <th>Level</th>
+      {%- endif -%}
       <th>Time</th>
       <th>Team 1</th>
       <th>Team 2</th>
@@ -36,8 +63,11 @@
   <tbody>
     {%- if todays_games and todays_games.size > 0 -%}
     {%- for game in todays_games -%}
-    <tr data-sport="{{ game.sport }}" data-school="{{ game.school_filter }}">
+    <tr data-sport="{{ game.sport }}" data-school="{{ game.school_filter }}" data-level="{{ game.level }}">
       <td>{{ game.gender }} {{ game.sport }}</td>
+      {%- if include.all_levels -%}
+      <td>{{ game.level }}</td>
+      {%- endif -%}
       <td>{{ game.display_time }}</td>
       <td>{{ game.team_1 }}{% if game.home_team == game.team_1 %}&#8224;{% endif %}</td>
       <td>{{ game.team_2 }}{% if game.home_team == game.team_2 %}&#8224;{% endif %}</td>
@@ -45,11 +75,11 @@
     </tr>
     {%- endfor -%}
     <tr class="schedule-empty-row" hidden>
-      <td colspan="5">No games match the selected filters.</td>
+      <td colspan="{{ colspan }}">No games match the selected filters.</td>
     </tr>
     {%- else -%}
     <tr>
-      <td colspan="5">No varsity games scheduled today.</td>
+      <td colspan="{{ colspan }}">{{ empty_message }}</td>
     </tr>
     {%- endif -%}
   </tbody>
