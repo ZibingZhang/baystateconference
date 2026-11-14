@@ -29,14 +29,13 @@
 # notes there's no current-season schedule for that sport rather than
 # claiming the school doesn't play it.
 require "date"
+require_relative "schedule_page_utils"
 
 module SchoolSchedule
   class PageGenerator < Jekyll::Generator
     safe true
 
     DATA_PATH = %w[schedule games].freeze
-
-    GENDER_ORDER = { "Girls" => 0, "Boys" => 1, "Coed" => 2 }.freeze
 
     def generate(site)
       games = site.data.dig(*DATA_PATH) || []
@@ -112,14 +111,14 @@ module SchoolSchedule
       page.content = ""
       page.data.merge!(
         "layout" => "school-schedule-year",
-        "title" => "#{en_dash(year)} Schedule",
+        "title" => "#{SchedulePageUtils.en_dash(year)} Schedule",
         "permalink" => "/#{dir}/#{year}/",
-        "breadcrumb" => en_dash(year),
+        "breadcrumb" => SchedulePageUtils.en_dash(year),
         "sport_cards" => sport_cards_for(sports, school_games, year, dir),
         "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
-        "previous_title" => previous_year && en_dash(previous_year),
+        "previous_title" => previous_year && SchedulePageUtils.en_dash(previous_year),
         "next_url" => next_year && "/#{dir}/#{next_year}/",
-        "next_title" => next_year && en_dash(next_year)
+        "next_title" => next_year && SchedulePageUtils.en_dash(next_year)
       )
       page
     end
@@ -147,16 +146,16 @@ module SchoolSchedule
       page.content = ""
       page.data.merge!(
         "layout" => "school-schedule",
-        "title" => "#{en_dash(year)} #{sport_title} Schedule",
+        "title" => "#{SchedulePageUtils.en_dash(year)} #{sport_title} Schedule",
         "permalink" => "/#{dir}/",
         "breadcrumb" => sport_title,
         "groups" => groups_for(school_games, year, sport_title, name),
         "levels" => levels_for(school_games, year, sport_title),
         "genders" => genders_for(school_games, year, sport_title),
         "previous_url" => previous_year && "/#{base_dir}/#{previous_year}/#{sport_slug}/",
-        "previous_title" => previous_year && en_dash(previous_year),
+        "previous_title" => previous_year && SchedulePageUtils.en_dash(previous_year),
         "next_url" => next_year && "/#{base_dir}/#{next_year}/#{sport_slug}/",
-        "next_title" => next_year && en_dash(next_year)
+        "next_title" => next_year && SchedulePageUtils.en_dash(next_year)
       )
       page
     end
@@ -196,7 +195,7 @@ module SchoolSchedule
     # pointless.
     def levels_for(school_games, year, sport_title)
       rows = school_games.select { |g| g["school_year"] == year && g["sport"] == sport_title }
-      rows.map { |g| g["level"] }.uniq.sort_by { |level| [level == "Varsity" ? 0 : 1, level.to_s] }
+      SchedulePageUtils.levels_for(rows)
     end
 
     # Distinct genders (Girls/Boys/Coed) this school/sport/year has games at,
@@ -207,7 +206,7 @@ module SchoolSchedule
     def genders_for(school_games, year, sport_title)
       rows = school_games.select { |g| g["school_year"] == year && g["sport"] == sport_title }
       genders = rows.map { |g| g["gender"] }.uniq
-      genders.sort_by { |gender| GENDER_ORDER[gender] || 99 }
+      genders.sort_by { |gender| SchedulePageUtils::GENDER_ORDER[gender] || 99 }
     end
 
     # One group per Gender (e.g. "Boys") within the one sport this page is
@@ -219,7 +218,7 @@ module SchoolSchedule
       end
 
       genders = rows.map { |g| g["gender"] }.uniq
-      genders.sort_by! { |gender| GENDER_ORDER[gender] || 99 }
+      genders.sort_by! { |gender| SchedulePageUtils::GENDER_ORDER[gender] || 99 }
 
       genders.map do |gender|
         gender_rows = rows.select { |g| g["gender"] == gender }
@@ -256,31 +255,10 @@ module SchoolSchedule
         "home" => game["home_team"] == name,
         "result" => result,
         "score" => score,
-        "date" => format_date(game["date"]),
-        "time" => format_time(game["time"]),
-        "sort_key" => [game["date"] || "9999-99-99", game["time"] == "TBA" ? "99:99" : (game["time"] || "99:99")]
+        "date" => SchedulePageUtils.format_date(game["date"]),
+        "time" => SchedulePageUtils.format_time(game["time"]),
+        "sort_key" => [game["date"] || "9999-99-99", SchedulePageUtils.time_sort_key(game["time"])]
       )
-    end
-
-    def format_date(date)
-      return nil if date.nil? || date.empty?
-
-      Date.strptime(date, "%Y-%m-%d").strftime("%b %-d, %Y")
-    rescue ArgumentError
-      date
-    end
-
-    def format_time(time_of_day)
-      return nil if time_of_day.nil? || time_of_day.empty?
-      return time_of_day if time_of_day == "TBA"
-
-      DateTime.strptime(time_of_day, "%H:%M").strftime("%-I:%M %p")
-    rescue ArgumentError
-      time_of_day
-    end
-
-    def en_dash(year)
-      year.sub("-", "–")
     end
   end
 end

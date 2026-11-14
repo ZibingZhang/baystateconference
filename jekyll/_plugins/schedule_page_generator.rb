@@ -33,14 +33,13 @@
 # listing/sitemap (see page_tree_generator.rb) since it's meant to be
 # reached only by direct link, not browsed to.
 require "date"
+require_relative "schedule_page_utils"
 
 module Schedule
   class PageGenerator < Jekyll::Generator
     safe true
 
     DATA_PATH = %w[schedule games].freeze
-
-    GENDER_ORDER = { "Girls" => 0, "Boys" => 1, "Coed" => 2 }.freeze
 
     def generate(site)
       games = site.data.dig(*DATA_PATH) || []
@@ -98,17 +97,17 @@ module Schedule
       page.content = ""
       page.data.merge!(
         "layout" => "schedule",
-        "title" => "#{en_dash(year)} #{sport['title']} Schedule",
+        "title" => "#{SchedulePageUtils.en_dash(year)} #{sport['title']} Schedule",
         "permalink" => "/#{dir}/#{year}/",
-        "breadcrumb" => en_dash(year),
+        "breadcrumb" => SchedulePageUtils.en_dash(year),
         "groups" => groups_for(sport_games, year),
         "schools" => schools_for(sport_games, year, bsc_school_names),
         "levels" => levels_for(sport_games, year),
         "genders" => genders_for(sport_games, year),
         "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
-        "previous_title" => previous_year && en_dash(previous_year),
+        "previous_title" => previous_year && SchedulePageUtils.en_dash(previous_year),
         "next_url" => next_year && "/#{dir}/#{next_year}/",
-        "next_title" => next_year && en_dash(next_year)
+        "next_title" => next_year && SchedulePageUtils.en_dash(next_year)
       )
 
       page.data["nav"] = slug if site.data.dig("navigation", slug)
@@ -120,7 +119,7 @@ module Schedule
       year_games = sport_games.select { |g| g["school_year"] == year }
 
       genders = year_games.map { |g| g["gender"] }.uniq
-      genders.sort_by! { |gender| GENDER_ORDER[gender] || 99 }
+      genders.sort_by! { |gender| SchedulePageUtils::GENDER_ORDER[gender] || 99 }
 
       genders.map do |gender|
         rows = year_games.select { |g| g["gender"] == gender }
@@ -142,8 +141,7 @@ module Schedule
     # single school's own games down to itself is pointless.
     def schools_for(sport_games, year, bsc_school_names)
       year_games = sport_games.select { |g| g["school_year"] == year }
-      teams = (year_games.map { |g| g["team_1"] } + year_games.map { |g| g["team_2"] }).uniq
-      (teams & bsc_school_names).sort
+      SchedulePageUtils.schools_for(year_games, bsc_school_names)
     end
 
     # Distinct levels (Varsity/Sub-Varsity/...) played this sport/year,
@@ -152,7 +150,7 @@ module Schedule
     # than one.
     def levels_for(sport_games, year)
       year_games = sport_games.select { |g| g["school_year"] == year }
-      year_games.map { |g| g["level"] }.uniq.sort_by { |level| [level == "Varsity" ? 0 : 1, level.to_s] }
+      SchedulePageUtils.levels_for(year_games)
     end
 
     # Distinct genders (Girls/Boys/Coed) played this sport/year, in
@@ -163,7 +161,7 @@ module Schedule
     def genders_for(sport_games, year)
       year_games = sport_games.select { |g| g["school_year"] == year }
       genders = year_games.map { |g| g["gender"] }.uniq
-      genders.sort_by { |gender| GENDER_ORDER[gender] || 99 }
+      genders.sort_by { |gender| SchedulePageUtils::GENDER_ORDER[gender] || 99 }
     end
 
     # arbiter_schedule.py already splits ArbiterLive's date_time into clean
@@ -176,32 +174,11 @@ module Schedule
     # rows - both team names, since either could be the one a visitor picks.
     def decorate(game)
       game.merge(
-        "date" => format_date(game["date"]),
-        "time" => format_time(game["time"]),
-        "school_filter" => [game["team_1"], game["team_2"]].compact.join("|"),
-        "sort_key" => [game["date"] || "9999-99-99", game["time"] == "TBA" ? "99:99" : (game["time"] || "99:99")]
+        "date" => SchedulePageUtils.format_date(game["date"]),
+        "time" => SchedulePageUtils.format_time(game["time"]),
+        "school_filter" => SchedulePageUtils.school_filter_for(game),
+        "sort_key" => [game["date"] || "9999-99-99", SchedulePageUtils.time_sort_key(game["time"])]
       )
-    end
-
-    def format_date(date)
-      return nil if date.nil? || date.empty?
-
-      Date.strptime(date, "%Y-%m-%d").strftime("%b %-d, %Y")
-    rescue ArgumentError
-      date
-    end
-
-    def format_time(time_of_day)
-      return nil if time_of_day.nil? || time_of_day.empty?
-      return time_of_day if time_of_day == "TBA"
-
-      DateTime.strptime(time_of_day, "%H:%M").strftime("%-I:%M %p")
-    rescue ArgumentError
-      time_of_day
-    end
-
-    def en_dash(year)
-      year.sub("-", "–")
     end
   end
 end
