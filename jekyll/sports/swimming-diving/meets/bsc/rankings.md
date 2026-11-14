@@ -9,3 +9,5 @@ exclude_from_directory: true
 {%- for group in page.groups -%}
 {%- include rankings-summary-table.html heading=group.heading years=group.years -%}
 {%- endfor -%}
+
+<script src="{{ '/assets/js/collapsible-group.js' | relative_url }}" defer></script>

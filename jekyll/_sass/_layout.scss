@@ -892,7 +892,9 @@
   overflow-x: auto;
 }
 
-.rankings-group-header {
+// Heading + eye-icon toggle for collapsible-group.html, shared by
+// rankings-summary-table.html and qualifying-standards-table.html.
+.collapsible-group-header {
   align-items: center;
   display: flex;
   gap: $spacing-unit * 0.5;
@@ -903,25 +905,7 @@
   }
 }
 
-.rankings-visibility-toggle {
-  @extend %icon-button;
-  flex: 0 0 auto;
-}
-
-// Same layout as .rankings-group-header above, for
-// qualifying-standards-table.html's own per-group eye-icon toggle.
-.qualifying-standards-group-header {
-  align-items: center;
-  display: flex;
-  gap: $spacing-unit * 0.5;
-  justify-content: space-between;
-
-  h2 {
-    margin-bottom: 0;
-  }
-}
-
-.qualifying-standards-visibility-toggle {
+.collapsible-group-toggle {
   @extend %icon-button;
   flex: 0 0 auto;
 }

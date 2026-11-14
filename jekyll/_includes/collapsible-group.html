@@ -1,0 +1,32 @@
+{%- comment -%}
+  A heading with its own eye-icon button that hides/shows an arbitrary
+  content block below it - the shared shell behind rankings-summary-table.html
+  (heading + optional division filter chips + table) and
+  qualifying-standards-table.html (heading + table only). Lets a page with
+  several of these (e.g. Sectionals' rankings page, one table per
+  division/year, or a qualifying-standards page, one table per
+  Season/Gender pair) collapse down to just its headings.
+
+  Wired by assets/js/collapsible-group.js - include that script once
+  yourself wherever you call this (not from in here): several identical
+  deferred `<script src>` tags on one page are unreliable (observed: the
+  browser only fires one of them, sometimes none), so share a single tag
+  across every group's include call instead of emitting one per call.
+
+  Usage:
+    {%- capture body -%}
+      <table>...</table>
+    {%- endcapture -%}
+    {%- include collapsible-group.html heading="Fall — Girls" body=body -%}
+{%- endcomment -%}
+<div class="collapsible-group">
+  <div class="collapsible-group-header">
+    <h2>{{ include.heading }}</h2>
+    <button type="button" class="collapsible-group-toggle" aria-pressed="false" aria-label="Hide section" title="Hide section">
+      <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
+    </button>
+  </div>
+  <div class="collapsible-group-body">
+    {{ include.body }}
+  </div>
+</div>

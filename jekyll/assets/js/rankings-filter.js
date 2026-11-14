@@ -1,8 +1,9 @@
-// Wires up each .rankings-group (see _includes/rankings-summary-table.html):
-// its heading's eye-icon button hides/shows the .rankings-group-body below
-// it, and - within whichever groups have one - its .schedule-filter chip
-// row shows only that group's table rows whose data-division exactly
-// matches the chip's value.
+// Wires up each .collapsible-group that has its own .schedule-filter (see
+// _includes/rankings-summary-table.html): shows only that group's table
+// rows whose data-division exactly matches the active chip's value. The
+// group's heading/eye-icon visibility toggle is generic and lives in
+// assets/js/collapsible-group.js instead - include that alongside this
+// script wherever rankings-summary-table.html is used.
 //
 // The filter chips reuse .schedule-filter/.schedule-filter-chip's pill
 // markup and CSS (same look as assets/js/schedule-filter.js's chips), but
@@ -11,7 +12,7 @@
 // is right for a single schedule filtered by several orthogonal attributes
 // (school AND level) but wrong here, where each rankings table is its own
 // independent list with its own one-off set of division values. This
-// instead scopes each filter strictly to its own nearest .rankings-group,
+// instead scopes each filter strictly to its own nearest .collapsible-group,
 // so a chip clicked under one heading (e.g. "Girls Fall") never touches
 // another heading's table (e.g. "Boys Fall").
 //
@@ -19,34 +20,10 @@
 // "All" always resets it, and clicking the already-active chip again
 // re-selects "All" too.
 (function () {
-  var groups = Array.prototype.slice.call(document.querySelectorAll(".rankings-group"));
+  var groups = Array.prototype.slice.call(document.querySelectorAll(".collapsible-group"));
   if (groups.length === 0) return;
 
-  groups.forEach(function (group) {
-    initVisibilityToggle(group);
-    initDivisionFilter(group);
-  });
-
-  // The eye icon always starts as "visibility" (section shown) since
-  // rankings-summary-table.html never pre-hides a group server-side - so
-  // this only ever needs to move it into the hidden state, never restore it
-  // from one.
-  function initVisibilityToggle(group) {
-    var button = group.querySelector(".rankings-visibility-toggle");
-    var body = group.querySelector(".rankings-group-body");
-    if (!button || !body) return;
-
-    button.addEventListener("click", function () {
-      var hidden = body.hidden = !body.hidden;
-      var icon = button.querySelector(".material-symbols-outlined");
-      var label = hidden ? "Show section" : "Hide section";
-
-      icon.textContent = hidden ? "visibility_off" : "visibility";
-      button.setAttribute("aria-label", label);
-      button.title = label;
-      button.setAttribute("aria-pressed", String(hidden));
-    });
-  }
+  groups.forEach(initDivisionFilter);
 
   function initDivisionFilter(group) {
     var filterEl = group.querySelector(".schedule-filter");

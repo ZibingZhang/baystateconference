@@ -14,6 +14,11 @@
   cells - the missing ones just render empty - so every row in the table
   stays the same width.
 
+  The heading/eye-toggle/hide-body shell is collapsible-group.html - this
+  include only supplies its body: the optional division filter chips and
+  the table itself. See that file for why the single <script src> for its
+  toggle must be included by the caller, not here.
+
   When a group has more than one division (Sectionals' North/South/etc.,
   States' Division 1/Division 2/State), a row of filter chips - reusing
   schedule-filter.html/-chip's pill markup and CSS for a plain look-alike,
@@ -33,55 +38,41 @@
   them, sometimes none), so emit it exactly once per page instead of
   relying on duplicates being harmless.
 
-  The heading has its own eye-icon button (also wired by rankings-filter.js)
-  that hides/shows everything below it - the filter chips and table live in
-  a .rankings-group-body wrapper so that single element, not each piece
-  separately, is what the button toggles. Lets a long multi-group page
-  (e.g. Sectionals' every division/year) collapse down to just its
-  headings.
-
   Usage: {% include rankings-summary-table.html heading=group.heading years=group.years divisions=group.divisions %}
 {%- endcomment -%}
 {%- if include.years and include.years.size > 0 -%}
-<div class="rankings-group">
-  <div class="rankings-group-header">
-    <h2>{{ include.heading }}</h2>
-    <button type="button" class="rankings-visibility-toggle" aria-pressed="false" aria-label="Hide section" title="Hide section">
-      <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
-    </button>
-  </div>
-  <div class="rankings-group-body">
-    {%- if include.divisions and include.divisions.size > 1 -%}
-    <div class="schedule-filter" data-filter-attr="division" role="group" aria-label="Filter by division">
-      <button type="button" class="schedule-filter-chip is-active" data-filter-value="" aria-pressed="true">All</button>
-      {%- for division in include.divisions -%}
-      <button type="button" class="schedule-filter-chip" data-filter-value="{{ division }}" aria-pressed="false">{{ division }}</button>
-      {%- endfor -%}
-    </div>
-    {%- endif -%}
-    <div class="rankings-summary-table-scroll">
-    <table class="nowrap-td">
-      <thead>
-        <tr>
-          <th>School Year</th>
-          <th>1st</th>
-          <th>2nd</th>
-          <th>3rd</th>
-        </tr>
-      </thead>
-      <tbody>
-        {%- for year in include.years -%}
-        <tr data-division="{{ year.division }}">
-          <td><a href="{{ year.url | relative_url }}">{{ year.year }}</a></td>
-          {%- for i in (0..2) -%}
-            {%- assign entry = year.entries[i] -%}
-            <td>{% if entry %}{{ entry.School }}{% endif %}</td>
-          {%- endfor -%}
-        </tr>
-        {%- endfor -%}
-      </tbody>
-    </table>
-    </div>
-  </div>
+{%- capture body -%}
+{%- if include.divisions and include.divisions.size > 1 -%}
+<div class="schedule-filter" data-filter-attr="division" role="group" aria-label="Filter by division">
+  <button type="button" class="schedule-filter-chip is-active" data-filter-value="" aria-pressed="true">All</button>
+  {%- for division in include.divisions -%}
+  <button type="button" class="schedule-filter-chip" data-filter-value="{{ division }}" aria-pressed="false">{{ division }}</button>
+  {%- endfor -%}
 </div>
+{%- endif -%}
+<div class="rankings-summary-table-scroll">
+<table class="nowrap-td">
+  <thead>
+    <tr>
+      <th>School Year</th>
+      <th>1st</th>
+      <th>2nd</th>
+      <th>3rd</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for year in include.years -%}
+    <tr data-division="{{ year.division }}">
+      <td><a href="{{ year.url | relative_url }}">{{ year.year }}</a></td>
+      {%- for i in (0..2) -%}
+        {%- assign entry = year.entries[i] -%}
+        <td>{% if entry %}{{ entry.School }}{% endif %}</td>
+      {%- endfor -%}
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+</div>
+{%- endcapture -%}
+{%- include collapsible-group.html heading=include.heading body=body -%}
 {%- endif -%}
