@@ -17,6 +17,17 @@
 # schedule only when that page actually exists - not every school
 # necessarily has one (e.g. its ArbiterLive fetch failed, or it fields no
 # teams at all yet).
+#
+# Similarly sets site.data["schools_with_current_season_sport_schedule"]
+# (an array of "<school-slug>:<sport-slug>" strings) so a sport's own school
+# page (sports/<sport>/schools/<school>/, built by sport_school_page_generator.rb)
+# can link straight to that sport's current-season schedule instead of the
+# school's general one - again, only when that sport/school/year actually
+# has games. There's no participation flag anywhere (schools.yaml's
+# `sport.<slug>` map is just hand-authored extras) to say whether a school
+# fields a given sport at all, so when this is absent, school.html just
+# notes there's no current-season schedule for that sport rather than
+# claiming the school doesn't play it.
 require "date"
 
 module SchoolSchedule
@@ -33,6 +44,7 @@ module SchoolSchedule
       sports = site.data["sports"] || []
       current_year = current_school_year
       current_slugs = []
+      current_sport_slugs = []
 
       schools.each do |school|
         name = school["school-name"]
@@ -57,10 +69,18 @@ module SchoolSchedule
         if years.include?(current_year)
           site.pages << build_current_season_redirect(site, slug, current_year)
           current_slugs << slug
+
+          sport_titles_for(school_games, current_year).each do |sport_title|
+            sport_slug = sport_data(sports, sport_title)&.fetch("url", nil)&.delete_prefix("/sports/")&.delete_suffix("/") ||
+              Jekyll::Utils.slugify(sport_title)
+            site.pages << build_sport_current_season_redirect(site, slug, sport_slug, current_year)
+            current_sport_slugs << "#{slug}:#{sport_slug}"
+          end
         end
       end
 
       site.data["schools_with_current_season_schedule"] = current_slugs
+      site.data["schools_with_current_season_sport_schedule"] = current_sport_slugs
     end
 
     private
@@ -150,6 +170,20 @@ module SchoolSchedule
         "title" => "Current Season",
         "permalink" => "/#{dir}/current-season/",
         "redirect_to" => "/#{dir}/#{current_year}/",
+        "exclude_from_directory" => true
+      )
+      page
+    end
+
+    def build_sport_current_season_redirect(site, slug, sport_slug, current_year)
+      dir = "schools/#{slug}/schedule/current-season"
+      page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "#{sport_slug}.html")
+      page.content = ""
+      page.data.merge!(
+        "layout" => "page",
+        "title" => "Current Season",
+        "permalink" => "/#{dir}/#{sport_slug}/",
+        "redirect_to" => "/schools/#{slug}/schedule/#{current_year}/#{sport_slug}/",
         "exclude_from_directory" => true
       )
       page

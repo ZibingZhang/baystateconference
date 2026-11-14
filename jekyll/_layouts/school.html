@@ -22,6 +22,17 @@ layout: base
   to match against the `town` field in schools.yaml, and may optionally set
   `sport_slug: "baseball"`, `section_extra: "some-partial.html"`, and/or
   `info_extra: "some-partial.html"`.
+
+  When `sport_slug` is set, the schedule link/notice below is scoped to that
+  one sport rather than the school's schedule overall: a current-season
+  schedule for it (school_schedule_page_generator.rb's
+  schools_with_current_season_sport_schedule) links straight there,
+  otherwise a plain notice says there's no current-season schedule for it.
+  That's deliberately as far as this goes - there's no participation flag
+  anywhere (schools.yaml's `sport.<slug>` map is just hand-authored extras)
+  to say whether the school fields the sport at all, so the notice doesn't
+  claim one way or the other, just that this season's schedule isn't here.
+  Without `sport_slug`, it's the simpler school-wide check this always had.
 {%- endcomment -%}
 <article class="post">
 
@@ -33,7 +44,17 @@ layout: base
     {{ content }}
 
     {%- assign school-slug = page.school | slugify -%}
-    {%- if site.data.schools_with_current_season_schedule contains school-slug -%}
+    {%- if page.sport_slug -%}
+      {%- assign school-sport-key = school-slug | append: ":" | append: page.sport_slug -%}
+      {%- if site.data.schools_with_current_season_sport_schedule contains school-sport-key -%}
+      {%- assign schedule-url = "/schools/" | append: school-slug | append: "/schedule/current-season/" | append: page.sport_slug | append: "/" -%}
+      {%- include current-season-link.html url=schedule-url -%}
+      {%- else -%}
+        {%- assign sport-url = "/sports/" | append: page.sport_slug | append: "/" -%}
+        {%- assign sport-title = site.data.sports | where: "url", sport-url | map: "title" | first -%}
+    <p>No current-season {{ sport-title | downcase }} schedule for {{ page.title | escape }}.</p>
+      {%- endif -%}
+    {%- elsif site.data.schools_with_current_season_schedule contains school-slug -%}
     {%- assign schedule-url = "/schools/" | append: school-slug | append: "/schedule/current-season/" -%}
     {%- include current-season-link.html url=schedule-url -%}
     {%- endif -%}
