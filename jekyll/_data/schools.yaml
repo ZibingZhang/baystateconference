@@ -9,6 +9,7 @@
   team-name: "Wamps"
   logo: "https://assets.scorebooklive.com/uploads/production/school/17614/image/Braintree__MA__Wamps_Logo.png"
   ad_website: "https://www.braintreeschools.org/athletics"
+  arbiter: "https://www.arbiterlive.com/Teams?entityId=2333"
   wikipedia: "https://en.wikipedia.org/wiki/Braintree_High_School"
   sport:
     swimming-diving:
@@ -25,6 +26,7 @@
   team-name: "Warriors"
   logo: "https://resources.finalsite.net/images/f_auto,q_auto/v1742892411/brooklinek12maus/uubrkwndyjdbsqqjcwfx/BrooklineHighSchoolPrimaryLogoImage.png"
   ad_website: "https://bhs.psbma.org/athletics"
+  arbiter: "https://www.arbiterlive.com/Teams?entityId=2546"
   wikipedia: "https://en.wikipedia.org/wiki/Brookline_High_School"
   instagram:
     athletic-dept: "https://www.instagram.com/brooklineathletics/"
@@ -46,6 +48,7 @@
   team-name: "Flyers"
   logo: "https://assets.scorebooklive.com/uploads/production/school/18397/image/Framingham__MA__Flyers_"
   ad_website: "https://fhs.framingham.k12.ma.us/82682_2"
+  arbiter: "https://www.arbiterlive.com/Teams?entityId=7859"
   wikipedia: "https://en.wikipedia.org/wiki/Framingham_High_School"
   instagram:
     athletic-dept: "https://www.instagram.com/framinghamflyerathletics/"
@@ -61,6 +64,7 @@
   team-name: "Wildcats"
   logo: "https://assets.scorebooklive.com/uploads/production/school/19503/image/Milton__MA__Wildcats_Logo.png"
   ad_website: "https://www.miltonps.org/page/athletics-gs"
+  arbiter: "https://www.arbiterlive.com/Teams?entityId=14798"
   wikipedia: "https://en.wikipedia.org/wiki/Milton_High_School_(Massachusetts)"
   sport:
     swimming-diving:
@@ -77,6 +81,7 @@
   team-name: "Redhawks"
   logo: "https://on3static.com/uploads/assets/182/694/694182.png"
   ad_website: "https://www.natickps.org/page/athletics"
+  arbiter: "https://www.arbiterlive.com/Teams?entityId=15622"
   wikipedia: "https://en.wikipedia.org/wiki/Natick_High_School"
   instagram:
     athletic-dept: "https://www.instagram.com/natick_athletics/"
@@ -92,6 +97,7 @@
   team-name: "Rockets"
   logo: "https://cdnsm5-ss13.sharpschool.com/UserFiles/Servers/Server_78554/Image/School-Logo/needham%20rocket.png"
   ad_website: "https://sites.google.com/needham.k12.ma.us/rockets/home"
+  arbiter: "https://www.arbiterlive.com/Teams?entityId=15671"
   wikipedia: "https://en.wikipedia.org/wiki/Needham_High_School"
   instagram:
     athletic-dept: "https://www.instagram.com/needhamrockets/"
@@ -110,6 +116,7 @@
   team-name: "Tigers"
   logo: "https://assets.scorebooklive.com/uploads/production/school/19749/image/Newton_North__MA__Tigers_"
   ad_website: "https://nnhs.newton.k12.ma.us/athletics"
+  arbiter: "https://www.arbiterlive.com/Teams?entityId=26531"
   wikipedia: "https://en.wikipedia.org/wiki/Newton_North_High_School"
   instagram:
     athletic-dept: "https://www.instagram.com/newton_north_tigers/"
@@ -128,6 +135,7 @@
   team-name: "Timberwolves"
   logo: "https://therunhouse.com/cdn/shop/collections/WALPOLE_TW_HAT_LOGO.png?v=1669821516"
   ad_website: "https://sites.google.com/a/walpole.k12.ma.us/athletics/"
+  arbiter: "https://www.arbiterlive.com/Teams?entityId=24665"
   wikipedia: "https://en.wikipedia.org/wiki/Walpole_High_School"
   instagram:
     athletic-dept: "https://www.instagram.com/walpolehighadsm/"
@@ -146,6 +154,7 @@
   team-name: "Raiders"
   logo: "https://resources.finalsite.net/images/f_auto,q_auto/v1781700887/wellesleypsorg4/ojrt7jmamisna0yrjsks/wps-raiders-favicon.png"
   ad_website: "https://wellesleyps.org/athletics/"
+  arbiter: "https://www.arbiterlive.com/Teams?entityId=25087"
   wikipedia: "https://en.wikipedia.org/wiki/Wellesley_High_School"
   sport:
     swimming-diving:
@@ -162,6 +171,7 @@
   team-name: "Wildcats"
   logo: "https://www.weymouthfootball.com/_next/image?url=%2Fimages%2Flogo%2Fwildcats-logo-primary.png&w=3840&q=75"
   ad_website: "https://whs.weymouthschools.org/activities/athletics"
+  arbiter: "https://www.arbiterlive.com/Teams?entityId=25620"
   wikipedia: "https://en.wikipedia.org/wiki/Weymouth_High_School"
   instagram:
     athletic-dept: "https://www.instagram.com/whs__athletics/"

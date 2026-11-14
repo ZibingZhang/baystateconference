@@ -69,6 +69,13 @@ layout: base
           </tr>
           {%- endif -%}
 
+          {%- if school.arbiter -%}
+          <tr>
+            <th>ArbiterLive</th>
+            <td><a href="{{ school.arbiter }}" target="_blank" rel="noopener">Schedule</a></td>
+          </tr>
+          {%- endif -%}
+
           {%- if school.wikipedia -%}
           {%- assign wiki_title = school.wikipedia | split: '/' | last | replace: '_', ' ' -%}
           <tr>
