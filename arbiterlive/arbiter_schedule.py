@@ -153,11 +153,23 @@ HOME_AWAY_MAP = {"vs": "Home", "@": "Away"}
 
 # Collapses the many raw level spellings (a school's own naming for its
 # sub-varsity squads varies a lot: "Junior Varsity", "Junior Varsity - JV1",
-# "JV2", "Freshman", "Froshmore", ...) down to "Varsity" vs "Sub-Varsity" for
-# display. Anything that doesn't look like either (e.g. "Unified",
+# "JV2", "Freshman", "Froshmore", "7th/8th", ...) down to a small set of
+# canonical level names for display, while still keeping those tiers
+# distinct from each other (JV vs Freshman vs Middle School, etc.) rather
+# than lumping them all into one "Sub-Varsity" bucket. Order matters: the
+# first matching pattern wins, and "Froshmore" (a combined Freshman/Sophomore
+# squad) is checked before the plain "Freshman" pattern so it isn't
+# swallowed by it. Anything that doesn't match any pattern (e.g. "Unified",
 # "Division I") passes through unchanged rather than being forced into one
-# of the two buckets.
-SUB_VARSITY_RE = re.compile(r"Junior Varsity|Freshman|Froshmore|Sophomore|\bJV\s*\d*\b", re.IGNORECASE)
+# of these buckets.
+LEVEL_NORMALIZE_PATTERNS = [
+    (re.compile(r"^Varsity", re.IGNORECASE), "Varsity"),
+    (re.compile(r"Junior Varsity|\bJV\s*\d*\b", re.IGNORECASE), "JV"),
+    (re.compile(r"Froshmore", re.IGNORECASE), "Froshmore"),
+    (re.compile(r"Freshman", re.IGNORECASE), "Freshman"),
+    (re.compile(r"Sophomore", re.IGNORECASE), "Sophomore"),
+    (re.compile(r"Middle School|\d+(st|nd|rd|th)\b", re.IGNORECASE), "Middle School"),
+]
 
 # ArbiterLive's date_time column has no year of its own (e.g. "Sat Jan 2
 # 1:30 PM") and occasionally no real time either ("TBA", a bare date with
@@ -227,10 +239,9 @@ def split_gender_level(level: str) -> tuple[Optional[str], str]:
 
 
 def normalize_level(level: str) -> str:
-    if level == "Varsity" or level.startswith("Varsity"):
-        return "Varsity"
-    if SUB_VARSITY_RE.search(level):
-        return "Sub-Varsity"
+    for pattern, canonical in LEVEL_NORMALIZE_PATTERNS:
+        if pattern.search(level):
+            return canonical
     return level
 
 
@@ -296,11 +307,11 @@ def resolve_game_pairs(games: list[Game]) -> list[ResolvedGame]:
     Rows are matched on the exact (raw, not gender/level-normalized) `level`
     string, since two schools sometimes spell the same sub-varsity tier
     differently (e.g. "Junior Varsity" vs "Junior Varsity - JV1") - matching
-    loosely on the normalized Varsity/Sub-Varsity bucket instead risked
-    cross-pairing two different concurrent games (e.g. a JV and a Freshman
-    game at the same time) that happen to collapse into the same bucket.
-    The tradeoff: a few genuine pairs stay unmerged (shown as two rows)
-    rather than ever risk merging the wrong two games together.
+    loosely on the normalized level bucket instead risked cross-pairing two
+    different concurrent games (e.g. two different JV1/JV2 games at the same
+    time) that happen to collapse into the same bucket. The tradeoff: a few
+    genuine pairs stay unmerged (shown as two rows) rather than ever risk
+    merging the wrong two games together.
 
     Matching is tried in two passes. The first requires an exact match on
     the raw scraped `date_time` string, which also correctly keeps a
