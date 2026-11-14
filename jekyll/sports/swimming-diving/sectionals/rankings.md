@@ -3,8 +3,11 @@ layout: page
 title: Sectionals Rankings
 permalink: /sports/swimming-diving/sectionals/rankings/
 breadcrumb: Rankings
-default_sort: desc
 exclude_from_directory: true
 ---
 
-{% include directory-listing.html searchable=true %}
+{%- for group in page.groups -%}
+{%- include rankings-summary-table.html heading=group.heading years=group.years divisions=group.divisions -%}
+{%- endfor -%}
+
+<script src="{{ '/assets/js/rankings-filter.js' | relative_url }}" defer></script>

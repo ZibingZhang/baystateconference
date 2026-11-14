@@ -58,7 +58,11 @@ module MeetSheetsPageUtils
     { slug: "psych-sheet", title: "Psych Sheet",
       available: ->(rows) { rows.any? { |r| !r["Seed Time"].to_s.strip.empty? || !r["Seed Score"].to_s.strip.empty? } } },
     { slug: "heat-sheet", title: "Heat Sheet", available: ->(rows) { rows.any? { |r| !r["Heat"].to_s.strip.empty? } } },
-    { slug: "results", title: "Results", available: ->(_rows) { true } },
+    # Unlike Psych/Heat Sheet, a meet with any per-swimmer rows at all always
+    # has finishers worth a Results page - but a meet whose history survives
+    # only as a team_scores.csv (see all_triples) has none, and must not get
+    # one.
+    { slug: "results", title: "Results", available: ->(rows) { rows.any? } },
   ].freeze
 
   module_function
@@ -90,6 +94,52 @@ module MeetSheetsPageUtils
     (raw_rows || []).each do |raw_row|
       rows << field_map.each_with_object(tags.dup) { |(src, dst), row| row[dst] = raw_row[src] }
     end
+  end
+
+  # Every team_scores.csv row across every year/season under a flat (non-
+  # nested_meet_data) raw_root, tagged with "School Year"/"Season" the same
+  # way normalized_rows tags individual/relay/diving rows. BSC is the only
+  # source that needs this outside meet_sheets_page_generator.rb itself
+  # (which reads team_scores per triple via its own team_scores_for) -
+  # swimming_diving_school_wins_generator.rb's win years and
+  # bsc_rankings_summary_generator.rb's rankings-page summary both need
+  # every year's team_scores at once rather than one triple at a time.
+  def team_scores_rows(site, raw_root)
+    rows = []
+    (site.data.dig(*raw_root) || {}).each do |school_year, seasons|
+      next unless school_year.match?(SCHOOL_YEAR_PATTERN)
+
+      seasons.each do |season, files|
+        (files["team_scores"] || []).each do |row|
+          rows << row.merge("School Year" => school_year, "Season" => season)
+        end
+      end
+    end
+    rows
+  end
+
+  # Every (School Year, Season, Meet) triple that has a directory under
+  # raw_root at all, regardless of whether per-swimmer results exist yet -
+  # most of BSC/Sectionals/States history only ever got a team_scores.csv
+  # (no official Results/Psych/Heat Sheet PDF survives to extract
+  # individual/relay/diving rows from), and those years still deserve a hub
+  # page with team scores even though normalized_rows finds nothing for
+  # them. Meet is nil for sources without nested_meet_data (multi_meet
+  # false).
+  def all_triples(site, raw_root, multi_meet)
+    triples = []
+    (site.data.dig(*raw_root) || {}).each do |school_year, seasons|
+      next unless school_year.match?(SCHOOL_YEAR_PATTERN)
+
+      seasons.each do |season, meets_or_files|
+        if multi_meet
+          meets_or_files.each_key { |meet| triples << [school_year, season, meet] }
+        else
+          triples << [school_year, season, nil]
+        end
+      end
+    end
+    triples
   end
 
   def group_by_event(individual, relay, diving)
@@ -171,9 +221,9 @@ module MeetSheetsPageUtils
       next if gender_rows.empty?
 
       if has_division
-        divisions = gender_rows.map { |row| row["division"] }.uniq.sort
+        divisions = gender_rows.map { |row| row["division"].to_s }.uniq.sort
         divisions.map do |division|
-          rows = gender_rows.select { |row| row["division"] == division }
+          rows = gender_rows.select { |row| row["division"].to_s == division }
           { "heading" => "#{gender_label} #{division} Team Scores", "entries" => score_rows(rows, high_schools) }
         end
       else

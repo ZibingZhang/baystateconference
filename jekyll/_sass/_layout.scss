@@ -881,6 +881,33 @@
   overflow-x: auto;
 }
 
+// Wraps the rankings-summary-table.html table so it can scroll
+// horizontally instead of overflowing the page - its .nowrap-td cells (full
+// school names across 3 columns) can be wider than .post-content at any
+// viewport, not just the narrow ones the plain `table` rule above
+// blockifies at, so this can't wait for that media query the way
+// qualifying-standards-table.html's narrower nowrap-td table can.
+.rankings-summary-table-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+}
+
+.rankings-group-header {
+  align-items: center;
+  display: flex;
+  gap: $spacing-unit * 0.5;
+  justify-content: space-between;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.rankings-visibility-toggle {
+  @extend %icon-button;
+  flex: 0 0 auto;
+}
+
 .schedule-table {
   @include relative-font-size(0.875);
 

@@ -1,47 +1,58 @@
-# Generates one page per school year for MIAA Sectional/State meet and Bay
-# State Conference meet rankings
-# (sports/swimming-diving/<sectionals|states|bsc>/rankings/YYYY-YYYY/)
-# straight from the School Year column of each source's rankings CSV, so
-# adding a new season's rows to a CSV is enough on its own - no matching page
-# to remember. A year with no rows simply has no page yet; add its first
-# entry and the page appears on the next build.
+# Precomputes the MIAA Sectional/State rankings pages' "groups" data: one
+# table per Gender/Season combination (e.g. "Girls Fall"), one row per
+# school year - or, for Sectionals, one row per school year/division, since
+# each division there is its own physical meet with its own hub page (see
+# meet_sheets_page_generator.rb's meet_labels) - showing that row's top 3
+# finishers, with the row linking straight to the corresponding meet hub
+# page. Mirrors bsc_rankings_summary_generator.rb's approach for BSC, which
+# reads team_scores.csv directly instead of one of these rollup rankings
+# CSVs; both render through the same rankings-summary-table.html include.
 #
-# Each page's rankings are split into one table per Season/Gender/Division
-# combination that year (e.g. "Girls Fall - South"), sorted by Place, since
-# schools are only ranked against the rest of their own division. The BSC
-# meet has no Division column, so its pages get one table per Season/Gender
-# instead (e.g. "Girls Fall").
-#
-# The rankings index pages pick these generated pages up automatically via
-# directory-listing.html (see page_tree_generator.rb), newest-first thanks to
-# their `default_sort: desc` front matter - so a year appears in the index
-# the moment its first CSV row does, no matching listing entry to remember.
+# Stashed onto each hand-authored jekyll/sports/swimming-diving/<source>/
+# rankings.md page (found by URL), same as that generator - so adding a new
+# season's rows to a CSV is enough on its own to update the page, no
+# matching page to remember.
 module Rankings
   class PageGenerator < Jekyll::Generator
     safe true
-
-    SOURCES = [
-      {
-        data_path: %w[swimming-diving miaa rankings sectionals],
-        dir: "sports/swimming-diving/sectionals/rankings",
-        title_suffix: "Sectional Rankings",
-      },
-      {
-        data_path: %w[swimming-diving miaa rankings states],
-        dir: "sports/swimming-diving/states/rankings",
-        title_suffix: "State Rankings",
-      },
-      {
-        data_path: %w[swimming-diving bsc rankings],
-        dir: "sports/swimming-diving/bsc/rankings",
-        title_suffix: "Bay State Conference Rankings",
-      },
-    ].freeze
 
     SEASON_ORDER = { "fall" => 0, "winter" => 1 }.freeze
     SEASON_LABELS = { "fall" => "Fall", "winter" => "Winter" }.freeze
     GENDER_ORDER = { "F" => 0, "M" => 1 }.freeze
     GENDER_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
+
+    # MIAA Sectionals' Division column is really that meet's own slug (see
+    # meet_sheets_page_generator.rb's meet_labels), just written out in
+    # Title Case with "/" instead of "-" - e.g. "Central/West" instead of
+    # "central-west" - so each row can link straight to that specific
+    # meet's own hub page rather than the season directory above it.
+    SECTIONAL_MEET_SLUGS = {
+      "Eastern Mass" => "eastern-mass",
+      "North" => "north",
+      "South" => "south",
+      "Central/South" => "central-south",
+      "West" => "west",
+      "Western Mass" => "western-mass",
+      "Central/West" => "central-west",
+    }.freeze
+
+    SOURCES = [
+      {
+        data_path: %w[swimming-diving miaa rankings sectionals],
+        page_url: "/sports/swimming-diving/sectionals/rankings/",
+        hub_url: ->(year, season, division) { "/sports/swimming-diving/sectionals/#{year}/#{season}/#{SECTIONAL_MEET_SLUGS[division]}/" },
+      },
+      {
+        data_path: %w[swimming-diving miaa rankings states],
+        page_url: "/sports/swimming-diving/states/rankings/",
+        # States never splits a season across separate meet pages the way
+        # Sectionals does - a year with two divisions still has just the
+        # one hub page, with both divisions' tables on it (see
+        # meet_sheets_page_utils.rb#team_score_groups) - so every row for a
+        # given year/season links to the same URL regardless of division.
+        hub_url: ->(year, season, _division) { "/sports/swimming-diving/states/#{year}/#{season}/" },
+      },
+    ].freeze
 
     def generate(site)
       SOURCES.each { |source| generate_source(site, source) }
@@ -50,53 +61,43 @@ module Rankings
     private
 
     def generate_source(site, source)
-      entries = site.data.dig(*source[:data_path]) || []
-      years = entries.map { |entry| entry["School Year"] }.compact.uniq.sort.reverse
+      page = site.pages.find { |p| p.url == source[:page_url] }
+      return unless page
 
-      years.each_with_index do |year, index|
-        previous_year = years[index + 1]
-        next_year = index.zero? ? nil : years[index - 1]
-        site.pages << build_page(site, source, year, entries, previous_year, next_year)
+      entries = site.data.dig(*source[:data_path]) || []
+      page.data["groups"] = groups_for(entries, source)
+    end
+
+    def groups_for(entries, source)
+      keys = entries.map { |entry| [entry["Season"], entry["Gender"]] }.uniq
+      keys.sort_by! { |season, gender| [SEASON_ORDER[season] || 99, GENDER_ORDER[gender] || 99] }
+
+      keys.map do |season, gender|
+        rows = entries.select { |entry| entry["Season"] == season && entry["Gender"] == gender }
+        heading = "#{GENDER_LABELS[gender] || gender} #{SEASON_LABELS[season] || season}"
+        divisions = rows.map { |row| row["Division"].to_s }.reject(&:empty?).uniq.sort
+        { "heading" => heading, "years" => years_for(rows, season, source), "divisions" => divisions }
       end
     end
 
-    def build_page(site, source, year, entries, previous_year, next_year)
-      dir = source[:dir]
-      page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "#{year}.html")
-      page.content = ""
-      page.data.merge!(
-        "layout" => "ranking",
-        "title" => "#{en_dash(year)} #{source[:title_suffix]}",
-        "permalink" => "/#{dir}/#{year}/",
-        "breadcrumb" => en_dash(year),
-        "groups" => groups_for(entries, year),
-        "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
-        "previous_title" => previous_year && en_dash(previous_year),
-        "next_url" => next_year && "/#{dir}/#{next_year}/",
-        "next_title" => next_year && en_dash(next_year)
-      )
-      page
-    end
+    def years_for(rows, season, source)
+      by_year = rows.group_by { |row| row["School Year"] }
 
-    def groups_for(entries, year)
-      year_entries = entries.select { |entry| entry["School Year"] == year }
+      by_year.keys.sort.reverse.flat_map do |school_year|
+        year_rows = by_year[school_year]
+        divisions = year_rows.map { |row| row["Division"].to_s }.uniq.sort
 
-      keys = year_entries.map { |entry| [entry["Season"], entry["Gender"], entry["Division"]] }.uniq
-      keys.sort_by! { |season, gender, division| [SEASON_ORDER[season] || 99, GENDER_ORDER[gender] || 99, division.to_s] }
+        divisions.map do |division|
+          division_rows = year_rows.select { |row| row["Division"].to_s == division }
+          division_rows = division_rows.sort_by { |row| row["Place"].to_f }
 
-      keys.map do |season, gender, division|
-        rows = year_entries.select do |entry|
-          entry["Season"] == season && entry["Gender"] == gender && entry["Division"] == division
+          {
+            "year" => division.empty? ? en_dash(school_year) : "#{en_dash(school_year)} — #{division}",
+            "division" => division,
+            "url" => source[:hub_url].call(school_year, season, division),
+            "entries" => division_rows.first(3).map { |row| { "School" => row["School"] } },
+          }
         end
-        rows.sort_by! { |entry| entry["Place"].to_f }
-
-        heading = "#{GENDER_LABELS[gender] || gender} #{SEASON_LABELS[season] || season}"
-        heading += " — #{division}" unless division.to_s.empty?
-
-        {
-          "heading" => heading,
-          "entries" => rows,
-        }
       end
     end
 

@@ -1,0 +1,87 @@
+{%- comment -%}
+  Renders one rankings summary table for a Gender/Season combination (e.g.
+  "Girls Fall"): one row per school year (or, for a source whose division
+  gets its own meet page - MIAA Sectionals - one row per school
+  year/division) showing that row's top 3 team finishers, the row's own
+  label linking to the corresponding meet hub page. Shared by BSC
+  (_plugins/bsc_rankings_summary_generator.rb, reading team_scores.csv
+  directly) and MIAA Sectionals/States (_plugins/ranking_page_generator.rb,
+  reading their rollup rankings CSVs) - both precompute the same
+  {heading, years: [{year, division, url, entries}], divisions} shape onto
+  page.groups.
+
+  A row with fewer than 3 finishers (a thin early season) still gets 3
+  cells - the missing ones just render empty - so every row in the table
+  stays the same width.
+
+  When a group has more than one division (Sectionals' North/South/etc.,
+  States' Division 1/Division 2/State), a row of filter chips - reusing
+  schedule-filter.html/-chip's pill markup and CSS for a plain look-alike,
+  but wired by rankings-filter.js instead of schedule-filter.js since each
+  table here needs its own independent filter rather than one filter
+  applied to every table on the page - lets you narrow the table down to
+  one division. A row with no division (BSC, or a States year that wasn't
+  split) never matches a division filter and stays hidden once one's
+  active, same as schedule-filter.js's exact-match semantics.
+
+  Pairs with assets/js/rankings-filter.js - include that once yourself
+  wherever you call this (not from in here), same as schedule-filter.html
+  does for schedule-filter.js. This gets called once per Gender/Season
+  group, so a page with several groups would otherwise emit the same
+  `<script src>` tag several times - several identical deferred `<script
+  src>` tags are unreliable (observed: the browser only fires one of
+  them, sometimes none), so emit it exactly once per page instead of
+  relying on duplicates being harmless.
+
+  The heading has its own eye-icon button (also wired by rankings-filter.js)
+  that hides/shows everything below it - the filter chips and table live in
+  a .rankings-group-body wrapper so that single element, not each piece
+  separately, is what the button toggles. Lets a long multi-group page
+  (e.g. Sectionals' every division/year) collapse down to just its
+  headings.
+
+  Usage: {% include rankings-summary-table.html heading=group.heading years=group.years divisions=group.divisions %}
+{%- endcomment -%}
+{%- if include.years and include.years.size > 0 -%}
+<div class="rankings-group">
+  <div class="rankings-group-header">
+    <h2>{{ include.heading }}</h2>
+    <button type="button" class="rankings-visibility-toggle" aria-pressed="false" aria-label="Hide section" title="Hide section">
+      <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
+    </button>
+  </div>
+  <div class="rankings-group-body">
+    {%- if include.divisions and include.divisions.size > 1 -%}
+    <div class="schedule-filter" data-filter-attr="division" role="group" aria-label="Filter by division">
+      <button type="button" class="schedule-filter-chip is-active" data-filter-value="" aria-pressed="true">All</button>
+      {%- for division in include.divisions -%}
+      <button type="button" class="schedule-filter-chip" data-filter-value="{{ division }}" aria-pressed="false">{{ division }}</button>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+    <div class="rankings-summary-table-scroll">
+    <table class="nowrap-td">
+      <thead>
+        <tr>
+          <th>School Year</th>
+          <th>1st</th>
+          <th>2nd</th>
+          <th>3rd</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for year in include.years -%}
+        <tr data-division="{{ year.division }}">
+          <td><a href="{{ year.url | relative_url }}">{{ year.year }}</a></td>
+          {%- for i in (0..2) -%}
+            {%- assign entry = year.entries[i] -%}
+            <td>{% if entry %}{{ entry.School }}{% endif %}</td>
+          {%- endfor -%}
+        </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+{%- endif -%}

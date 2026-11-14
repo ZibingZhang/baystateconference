@@ -104,11 +104,18 @@ module MeetSheets
     ].freeze
 
     HUB_CONTENT = <<~LIQUID
+      {% include year-pager.html previous_url=page.previous_url previous_title=page.previous_title next_url=page.next_url next_title=page.next_title %}
       {% for group in page.team_score_groups %}
       {% include rankings-table.html heading=group.heading entries=group.entries %}
       {% endfor %}
+      {% include link-list.html heading="Other Seasons" items=page.season_links %}
       {% include link-list.html heading="Unofficial Meet Documents" items=page.sheet_links open_in_new_tab=true %}
       {% include link-list.html heading="See Also" items=page.archive_links %}
+    LIQUID
+
+    YEAR_CONTENT = <<~LIQUID
+      {% include year-pager.html previous_url=page.previous_url previous_title=page.previous_title next_url=page.next_url next_title=page.next_title %}
+      {% include directory-listing.html %}
     LIQUID
 
     # link-list.html auto-detects "http"-prefixed urls as external (new tab,
@@ -127,24 +134,26 @@ module MeetSheets
       diving = MeetSheetsPageUtils.normalized_rows(site, source[:raw_root], :diving, "diving_results", multi_meet: source[:nested_meet_data])
       all_rows = individual + relay + diving
 
-      # A source without separate_meet_pages has at most one meet per season
-      # regardless of how many (identically-ignored) keys nested_meet_data
-      # found - ["Meet"] is simply dropped from every grouping key below, so
-      # BSC's always-"bay-state-conference" key never needs special-casing.
-      triples = if source[:separate_meet_pages]
-                  all_rows.map { |r| [r["School Year"], r["Season"], r["Meet"]] }.uniq
-                else
-                  all_rows.map { |r| [r["School Year"], r["Season"], nil] }.uniq
-                end
+      # Built from the raw data tree directly (every year/season/meet that
+      # has a team_scores.csv), not from all_rows - most years only ever got
+      # a team_scores.csv, with no individual/relay/diving_results.csv to
+      # derive a triple from. See MeetSheetsPageUtils.all_triples.
+      triples = MeetSheetsPageUtils.all_triples(site, source[:raw_root], source[:nested_meet_data])
       years = triples.map(&:first).uniq.sort.reverse
 
-      years.each do |year|
-        site.pages << build_year_page(site, source, year)
+      years.each_with_index do |year, index|
+        previous_year = years[index + 1]
+        next_year = index.zero? ? nil : years[index - 1]
+        site.pages << build_year_page(site, source, year, previous_year, next_year)
 
         seasons = triples.select { |y, _, _| y == year }.map { |_, s, _| s }.uniq
         seasons.sort_by! { |s| MeetSheetsPageUtils::SEASON_ORDER[s] || 99 }
 
         seasons.each do |season|
+          season_links = (seasons - [season]).map do |other_season|
+            { "title" => season_label(other_season), "url" => "/#{source[:dir]}/#{year}/#{other_season}/" }
+          end
+
           meets = if source[:separate_meet_pages]
                     m = triples.select { |y, s, _| y == year && s == season }.map { |_, _, meet| meet }.uniq
                     m.sort_by! { |meet| source[:meet_order][meet] || 99 }
@@ -161,10 +170,20 @@ module MeetSheets
             end
             sheets = MeetSheetsPageUtils.available_sheets(rows)
             team_scores = team_scores_for(site, source, year, season, meet)
-            hub_dir = meet ? "#{source[:dir]}/#{year}/#{season}/#{meet}" : "#{source[:dir]}/#{year}/#{season}"
+            hub_dir = hub_dir_for(source, year, season, meet)
             hub_label = meet ? meet_label(source, meet) : source[:hub_label]
 
-            site.pages << build_hub_page(site, source, year, season, meet, hub_dir, hub_label, team_scores, sheets)
+            # Previous/next year for *this same* season (and, for
+            # separate_meet_pages sources, this same meet) rather than the
+            # school year overall - a Fall hub pages to the previous Fall,
+            # not to whatever season happened to precede it.
+            hub_years = triples.select { |_, s, m| s == season && m == meet }.map(&:first).uniq.sort.reverse
+            hub_index = hub_years.index(year)
+            previous_hub_year = hub_years[hub_index + 1]
+            next_hub_year = hub_index.zero? ? nil : hub_years[hub_index - 1]
+
+            site.pages << build_hub_page(site, source, year, season, meet, hub_dir, hub_label, team_scores, sheets,
+                                          season_links, previous_hub_year, next_hub_year)
 
             grouped = MeetSheetsPageUtils.group_by_event(
               individual.select { |r| r["School Year"] == year && r["Season"] == season && (!source[:separate_meet_pages] || r["Meet"] == meet) },
@@ -198,15 +217,19 @@ module MeetSheets
       page
     end
 
-    def build_year_page(site, source, year)
+    def build_year_page(site, source, year, previous_year, next_year)
       dir = "#{source[:dir]}/#{year}"
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
-      page.content = "{% include directory-listing.html %}"
+      page.content = YEAR_CONTENT
       page.data.merge!(
         "layout" => "page",
         "title" => "#{MeetSheetsPageUtils.en_dash(year)} #{source[:year_title_suffix]}",
         "permalink" => "/#{dir}/",
-        "breadcrumb" => MeetSheetsPageUtils.en_dash(year)
+        "breadcrumb" => MeetSheetsPageUtils.en_dash(year),
+        "previous_url" => previous_year && "/#{source[:dir]}/#{previous_year}/",
+        "previous_title" => previous_year && MeetSheetsPageUtils.en_dash(previous_year),
+        "next_url" => next_year && "/#{source[:dir]}/#{next_year}/",
+        "next_title" => next_year && MeetSheetsPageUtils.en_dash(next_year)
       )
       page
     end
@@ -224,7 +247,8 @@ module MeetSheets
       page
     end
 
-    def build_hub_page(site, source, year, season, meet, dir, hub_label, team_scores, sheets)
+    def build_hub_page(site, source, year, season, meet, dir, hub_label, team_scores, sheets,
+                        season_links, previous_year, next_year)
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
       page.content = HUB_CONTENT
       page.data.merge!(
@@ -233,6 +257,7 @@ module MeetSheets
         "permalink" => "/#{dir}/",
         "breadcrumb" => source[:separate_meet_pages] ? hub_label : season_label(season),
         "team_score_groups" => MeetSheetsPageUtils.team_score_groups(team_scores, site),
+        "season_links" => season_links,
         "sheet_links" => sheets.map { |sheet| { "title" => sheet[:title], "url" => "/#{dir}/#{sheet[:slug]}/" } },
         "archive_links" => [
           {
@@ -243,9 +268,17 @@ module MeetSheets
             "title" => "Raw CSV Files",
             "url" => raw_data_github_url(site, source, year, season, meet)
           }
-        ]
+        ],
+        "previous_url" => previous_year && "/#{hub_dir_for(source, previous_year, season, meet)}/",
+        "previous_title" => previous_year && MeetSheetsPageUtils.en_dash(previous_year),
+        "next_url" => next_year && "/#{hub_dir_for(source, next_year, season, meet)}/",
+        "next_title" => next_year && MeetSheetsPageUtils.en_dash(next_year)
       )
       page
+    end
+
+    def hub_dir_for(source, year, season, meet)
+      meet ? "#{source[:dir]}/#{year}/#{season}/#{meet}" : "#{source[:dir]}/#{year}/#{season}"
     end
 
     # The official Results/Psych Sheet PDFs these CSVs were extracted from
