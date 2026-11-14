@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Sectionals Records
+title: Sectional Meet Records
 permalink: /sports/swimming-diving/sectionals/records/
 breadcrumb: Records
 under_construction: true

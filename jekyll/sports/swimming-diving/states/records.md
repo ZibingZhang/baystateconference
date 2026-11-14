@@ -1,6 +1,6 @@
 ---
 layout: page
-title: States Records
+title: State Meet Records
 permalink: /sports/swimming-diving/states/records/
 breadcrumb: Records
 under_construction: true

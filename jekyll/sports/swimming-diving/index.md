@@ -9,4 +9,6 @@ title: Swimming & Diving
 
 {% include icon-link.html icon="emoji_events" label="Meets" url="/sports/swimming-diving/meets/" %}
 
+{% include icon-link.html icon="military_tech" label="Records" url="/sports/swimming-diving/records/" %}
+
 {% include icon-link.html icon="archive" label="Archive" url="/sports/swimming-diving/archive/" %}
