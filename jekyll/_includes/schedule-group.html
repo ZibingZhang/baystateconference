@@ -16,14 +16,17 @@
   level, and/or gender (ANDed together), showing the trailing
   .schedule-empty-row in place of the real rows if none of them match.
 
+  The heading/eye-toggle/hide-body shell is collapsible-group.html - this
+  include only supplies its body: the table itself. See that file for why
+  the single <script src> for its toggle must be included by the caller
+  (schedule.html), not here.
+
   Usage: {% include schedule-group.html heading="Girls" entries=entries %}
 {%- endcomment -%}
 {%- assign games = include.entries -%}
 {%- if games and games.size > 0 -%}
 <div class="schedule-group">
-{%- if include.heading -%}
-<h2>{{ include.heading }}</h2>
-{%- endif -%}
+{%- capture body -%}
 <div class="schedule-table-scroll">
 <table class="schedule-table">
   <thead>
@@ -63,5 +66,11 @@
   </tbody>
 </table>
 </div>
+{%- endcapture -%}
+{%- if include.heading -%}
+{%- include collapsible-group.html heading=include.heading body=body -%}
+{%- else -%}
+{{ body }}
+{%- endif -%}
 </div>
 {%- endif -%}
