@@ -1,0 +1,78 @@
+gender,rank,school,score
+F,1,Concord-Carlisle High School,283
+F,2,Amherst Regional High School,244
+F,3,Marblehead High School,176
+F,4,Longmeadow High School,153
+F,5,Sharon High School,123
+F,6,Minnechaug Regional High School,113.5
+F,7,Westford Academy,106
+F,8,Algonquin Regional High School,97
+F,9,New Bedford High School,96
+F,10,Westfield High School,91.5
+F,11,Lincoln-Sudbury Regional High School,70
+F,12,Newton South High School,69
+F,13,Franklin High School,64.5
+F,14,Cambridge Rindge and Latin School,63
+F,15,Bishop Feehan High School,61
+F,16,Hingham High School & Cohasset High School,51
+F,17,Masconomet Regional High School,50
+F,18,Marshfield High School & Hanover High School,47
+F,18,Agawam High School,47
+F,20,Grafton High School,44
+F,21,Bishop Fenwick High School,40
+F,22,Attleboro High School,38
+F,23,Bedford High School,37
+F,24,Quincy High School + North Quincy High School,29
+F,25,East Longmeadow High School,23
+F,26,Gardner High School,20
+F,27,Bishop Stang High School,18
+F,28,West Springfield High School,12
+F,28,Malden High School,12
+F,30,Hopkinton High School,11
+F,31,Springfield Central High School,10
+F,32,Cardinal Spellman High School,6
+F,33,Plymouth North High School & Plymouth South High School,5
+F,33,Silver Lake Regional High School & Whitman-Hanson Regional High School,5
+F,33,Northampton High School,5
+F,36,Chicopee Comprehensive High School,2.5
+F,37,Brockton High School,1
+F,37,Milford High School,1
+M,1,St. John's Preparatory School,193
+M,2,Westford Academy,183
+M,3,Minnechaug Regional High School,181
+M,4,Xaverian Brothers High School,151
+M,5,Concord-Carlisle High School,146
+M,6,Catholic Memorial High School,133
+M,7,Haverhill High School,121
+M,8,Acton-Boxborough Regional High School,119.5
+M,9,Lincoln-Sudbury Regional High School,119
+M,10,Natick High School,109.5
+M,11,Lexington High School,94
+M,12,Chelmsford High School,93
+M,13,Newton North High School,67
+M,14,Quincy High School + North Quincy High School,59
+M,14,Brookline High School,59
+M,16,Hingham High School & Cohasset High School,50
+M,17,Algonquin Regional High School,49
+M,18,Sharon High School,41
+M,19,Newton South High School,40
+M,20,Belmont High School,36
+M,20,Franklin High School,36
+M,22,Chicopee Comprehensive High School,32
+M,23,Framingham High School,29
+M,24,West Springfield High School,27
+M,25,Barnstable High School,26
+M,26,Bishop Feehan High School,22
+M,27,Springfield Central High School,21
+M,28,Grafton High School,17
+M,28,Andover High School,17
+M,30,St. John's High School,15
+M,31,Mansfield High School,10
+M,31,Milford High School,10
+M,33,Needham High School,5
+M,34,Shawsheen Valley Technical High School,4
+M,34,Hopkinton High School,4
+M,36,Cambridge Rindge and Latin School,2
+M,36,Malden Catholic High School,2
+M,38,Malden High School,1
+M,38,Arlington High School,1

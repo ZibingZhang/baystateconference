@@ -118,9 +118,23 @@ module MeetSheetsPageUtils
               rows << row.merge("School Year" => school_year, "Season" => season, "Meet" => meet)
             end
           end
-        else
+        elsif meets_or_files.key?("team_scores")
           (meets_or_files["team_scores"] || []).each do |row|
             rows << row.merge("School Year" => school_year, "Season" => season)
+          end
+        else
+          # States-only: a season split into divisions nests one level into
+          # division-1/division-2 team_scores.csv instead of multi_meet's
+          # meet-keyed subdirectories (see team_scores_for's comment in
+          # meet_sheets_page_generator.rb) - synthesize the same "division"
+          # tag team_score_groups below reads off a row's "division" column
+          # in a non-split season, so callers (e.g. ranking_page_generator.
+          # rb's division_of) don't need to care which case produced it.
+          meets_or_files.each do |slug, files|
+            label = slug.split("-").map(&:capitalize).join(" ")
+            (files["team_scores"] || []).each do |row|
+              rows << row.merge("School Year" => school_year, "Season" => season, "division" => label)
+            end
           end
         end
       end
@@ -214,10 +228,12 @@ module MeetSheetsPageUtils
   end
 
   # One {heading, entries} group per Gender, or per Gender/Division when a
-  # "division" column is present - MIAA States team_scores.csv has one for
-  # some years (two divisions scored separately within the same meet) and not
-  # others (combined scoring), so this branches on whether any row actually
-  # has one rather than assuming either shape. "school_abbreviation"/"school"
+  # "division" row tag is present - MIAA States has one for years split into
+  # division-1/division-2 team_scores.csv (synthesized from that directory
+  # split by team_scores_for in meet_sheets_page_generator.rb/team_scores_
+  # rows above, rather than a literal CSV column) and not others (combined
+  # scoring, one flat team_scores.csv), so this branches on whether any row
+  # actually has one rather than assuming either shape. "school_abbreviation"/"school"
   # covers both the current schema (scripts/extract_swim_meet.py's output,
   # resolved to a full name via high_school_names below) and the older schema
   # some historical States/Sectionals team_scores.csv files predate it use

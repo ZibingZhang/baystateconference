@@ -14,12 +14,19 @@
 #   raw_root           - _data path, e.g. %w[swimming-diving bsc]
 #   dir                - site path, e.g. "sports/swimming-diving/meets/bsc"
 #   nested_meet_data   - does the raw _data nest one more level, keyed by a
-#                        meet slug, before the CSV filenames? True for
+#                        meet slug, before the CSV filenames, with each such
+#                        meet always getting its own hub page? True for
 #                        Sectionals (one key per concurrent meet - North/
 #                        South in Fall, +Central/West in Winter); false for
-#                        BSC and States (CSVs sit directly under
-#                        <year>/<season>/ - BSC only ever has the one meet,
-#                        so there's no meet slug to key by).
+#                        BSC and States (BSC's CSVs always sit directly under
+#                        <year>/<season>/, since it only ever has the one
+#                        meet; States' usually do too, except a year split
+#                        into two divisions, which nests one level into
+#                        division-1/division-2 team_scores.csv - still false
+#                        here since, unlike Sectionals, both divisions share
+#                        the season's one hub page rather than getting their
+#                        own - see team_scores_for's nested_meet_data-false-
+#                        but-still-nested branch).
 #   separate_meet_pages - does each meet get its own hub page one level below
 #                        the season page (true - only Sectionals, since North
 #                        and South each need their own team scores + sheet
@@ -313,12 +320,24 @@ module MeetSheets
       base = site.data.dig(*source[:raw_root], year, season)
       return [] unless base
 
-      files = if source[:nested_meet_data]
-                meet ? base[meet] : base.values.first
-              else
-                base
-              end
-      (files || {})["team_scores"] || []
+      if source[:nested_meet_data]
+        files = meet ? base[meet] : base.values.first
+        (files || {})["team_scores"] || []
+      elsif base.key?("team_scores")
+        base["team_scores"] || []
+      else
+        # States-only: a season with no single team_scores.csv instead has
+        # one meet-slug-keyed subdirectory per division (see
+        # jekyll/_data/swimming-diving/miaa/states's README note) - unlike
+        # Sectionals' nested_meet_data, every division still renders on the
+        # one shared hub page, so their rows get merged here with a
+        # synthesized "division" tag (meet_sheets_page_utils.rb#team_score_
+        # groups groups by it) rather than each getting its own hub page.
+        base.flat_map do |slug, meet_files|
+          label = slug.split("-").map(&:capitalize).join(" ")
+          (meet_files["team_scores"] || []).map { |row| row.merge("division" => label) }
+        end
+      end
     end
 
     def season_label(season)

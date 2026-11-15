@@ -1,0 +1,75 @@
+gender,rank,school,score
+F,1,Weston High School,300
+F,2,Wayland High School,242.5
+F,3,Marblehead High School,211
+F,4,Longmeadow High School,174
+F,5,Northampton High School,173
+F,6,Duxbury High School,162
+F,7,Nantucket High School,109
+F,8,Saint Joseph Central,105
+F,9,Amherst Regional High School,98
+F,10,Norwell High School,87
+F,11,Ashland High School,78
+F,12,Belchertown High School,61.5
+F,13,Dover-Sherborn Regional High School,55
+F,14,Nauset Regional High School,49
+F,15,East Longmeadow High School,44
+F,16,Holyoke Catholic High School,39
+F,17,Norton High School,38
+F,18,Apponequet Regional High School,37
+F,19,Seekonk High School,31
+F,20,Medfield High School,30
+F,21,Austin Preparatory School,28
+F,22,Sandwich High School,27
+F,23,Danvers High School,26
+F,23,The Bromfield School,26
+F,25,Bedford High School,17
+F,25,Lynnfield High School,17
+F,27,Easthampton High School,16
+F,28,Gardner High School,15
+F,29,Foxboro High School,9
+F,30,Archbishop Williams High School,5
+F,31,Scituate High School,4
+F,32,Dighton-Rehoboth Regional High School,3
+F,33,Mystic Valley Charter,2
+F,33,Canton High School,2
+F,33,Ipswich High School,2
+F,33,Shawsheen Valley Technical High School,2
+M,1,Weston High School, 245
+M,2,Wayland High School,  181
+M,3,Mystic Valley Regional Charter School, 156
+M,4,Belchertown High School,  155
+M,5,Concord-Carlisle High School, 131
+M,6,Duxbury High School,  120
+M,7,Apponequet Regional High School, 117
+M,8,Bishop Feehan High School,  106
+M,9,Longmeadow High School, 102
+M,10,Northampton High School,  101
+M,11,Amherst Regional High School,  90
+M,12,East Longmeadow High School, 60.5
+M,13,Westborough High School,  56
+M,14,Milford High School,   55
+M,14,The Bromfield School,  55
+M,16,Winchester High School,   52
+M,17,Bedford High School,  50
+M,18,Marblehead High School,   48
+M,19,South Hadley High School,  43
+M,20,Ashland High School,   37
+M,20,Canton High School,  37
+M,20,Gardner High School,   37
+M,23,Hanover High School,  29
+M,23,Bishop Fenwick High School,   29
+M,25,Monson High School,  26
+M,26,Hopkinton High School,   25
+M,26,Sandwich High School,  25
+M,28,Melrose High School,   22
+M,29,Manchester-Essex Regional Junior-Senior High School,  21
+M,30,Scituate High School, 18.5
+M,31,Dover-Sherborn High School,  17
+M,32,Sharon High School,   15
+M,33,The Springfield Renaissance School,  13
+M,34,Catholic Memorial High School,   12
+M,34,Norton High School,  12
+M,36,Nauset Regional High School,   11
+M,37,Medfield High School,   9
+M,38,Shawsheen Valley Technical High School,    3

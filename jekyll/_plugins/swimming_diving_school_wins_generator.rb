@@ -77,11 +77,11 @@ module SwimmingDivingSchoolWins
     # Sectional/State wins aren't split by season the way BSC is - each
     # row's own Season still determines which half of "School Year" its win
     # year is (fall -> first year, winter -> second year). Each row's rank
-    # is already scoped to its own division - a separate team_scores.csv
-    # per Sectional division/meet, a "division" column per State division
-    # (see meet_sheets_page_utils.rb#team_score_groups) - so rank == "1"
-    # alone identifies that division's champion, with no grouping needed
-    # here.
+    # is already scoped to its own division - a separate team_scores.csv per
+    # Sectional division/meet, likewise for a State year split into
+    # division-1/division-2 (see meet_sheets_page_utils.rb#team_scores_rows)
+    # - so rank == "1" alone identifies that division's champion, with no
+    # grouping needed here.
     def division_years(rows, names, gender, high_schools)
       years = rows.filter_map do |row|
         next unless row["gender"] == gender && row["rank"] == "1"

@@ -1,0 +1,64 @@
+gender,rank,school,score
+F,1,Marblehead High School,229
+F,2,Wayland High School,223.5
+F,3,Duxbury High School,128
+F,4,East Longmeadow High School,124
+F,5,Weston High School,122
+F,6,Holyoke Catholic High School,92
+F,7,Northampton High School,55
+F,8,Bedford High School,54
+F,9,Nauset Regional High School,49
+F,10,Belchertown High School,42
+F,11,Arlington Catholic High School,38.5
+F,12,Longmeadow High School,26
+F,13,Austin Preparatory School,24
+F,13,Hanover High School,24
+F,15,Middleborough High School,23
+F,15,Ludlow High School,23
+F,15,Norwell High School,23
+F,18,Holliston High School,21
+F,19,Cohasset High School,20
+F,20,Medfield High School,17
+F,21,South Hadley High School,12
+F,22,Dover-Sherborn High School,9
+F,23,Mystic Valley Regional Charter School,6
+F,24,Foxborough High School,4
+F,25,Pembroke High School,3
+F,26,Norton High School,2
+M,1,King Philip Regional High School,178
+M,2,Weston High School,172
+M,3,Concord-Carlisle High School,111
+M,4,Wayland High School,94
+M,5,Amherst Regional High School,81
+M,6,Mystic Valley Regional Charter School,68
+M,7,Bishop Feehan High School,63
+M,8,Northampton High School,56
+M,9,Monson High School,51
+M,10,Hopkinton High School,45
+M,11,Milford High School,42
+M,12,Norwell High School,39
+M,13,Arlington Catholic High School,33
+M,14,Coyle and Cassidy High School,30
+M,15,Bishop Stang High School,27
+M,16,East Longmeadow High School,26
+M,17,Medfield High School,24
+M,18,Belmont High School,23
+M,19,Lynnfield High School,22
+M,19,Danvers High School,22
+M,21,Westborough High School,21
+M,21,Seekonk High School,21
+M,23,Longmeadow High School,20
+M,24,Hamilton-Wenham Regional High School,18
+M,25,Sharon High School,17
+M,26,Holyoke Catholic High School,14
+M,27,Wellesley High School,12
+M,28,Palmer High School,11
+M,28,Duxbury High School,11
+M,30,Manchester-Essex Regional Junior-Senior High School,9
+M,31,Catholic Memorial High School,8
+M,32,Sandwich High School,7
+M,33,Taconic High School,6
+M,34,Marblehead High School,5
+M,35,Hingham High School,4
+M,36,Cohasset High School,3
+M,37,Belchertown High School,1

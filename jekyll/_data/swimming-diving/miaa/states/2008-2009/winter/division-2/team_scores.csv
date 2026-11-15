@@ -1,0 +1,62 @@
+gender,rank,school,score
+F,1,Wayland High School,308
+F,2,Weston High School,194
+F,3,Marblehead High School,108
+F,4,Longmeadow High School,98
+F,5,East Longmeadow High School,85
+F,6,Duxbury High School,79.5
+F,7,Holyoke Catholic High School,78
+F,8,Easthampton High School,68
+F,9,Northampton High School,62.5
+F,10,Austin Preparatory School,51
+F,11,Arlington Catholic High School,50
+F,12,Hamilton-Wenham Regional High School,47
+F,13,Monson High School,32
+F,14,Bedford High School,30
+F,15,South Hadley High School,17
+F,16,Masconomet Regional High School,13
+F,16,Wahconah Regional High School,13
+F,18,Norwell High School,12
+F,19,"Oliver Ames, North Easton High School",11
+F,20,"Sacred Heart, Kingston High School",8
+F,20,Hingham High School,8
+F,22,Middleborough High School,6
+F,23,Manchester-Essex Regional High School,4
+F,24,Ludlow High School,3
+F,25,Coyle and Cassidy High School,2
+F,26,Belchertown High School,1
+M,1,Wayland High School,156
+M,2,Bishop Feehan High School,147
+M,3,Weston High School,138
+M,4,Bishop Stang High School,90
+M,5,Longmeadow High School,86
+M,6,Austin Preparatory School,74
+M,7,Concord-Carlisle High School,69
+M,8,Duxbury High School,67
+M,9,Wellesley High School,61
+M,10,Sandwich High School,45
+M,11,Norwell High School,43
+M,12,King Philip Regional High School,41
+M,13,South Hadley High School,40
+M,13,Nantucket High School,40
+M,15,Monson High School,32
+M,16,Northampton High School,30
+M,17,Marblehead High School,28
+M,18,Oliver Ames High School,24
+M,19,Holyoke Catholic High School,20
+M,20,Nauset Regional High School,17
+M,21,East Longmeadow High School,16
+M,21,Masconomet Regional High School,16
+M,23,Seekonk High School,15
+M,24,Wahconah Regional High School,14
+M,25,Holliston High School,12
+M,25,Ipswich High School,12
+M,27,Catholic Memorial High School,10
+M,27,Hamilton-Wenham Regional High School,10
+M,29,Belmont High School,9
+M,29,Natick High School,9
+M,29,Arlington Catholic High School,9
+M,29,Bedford High School,9
+M,33,Mystic Valley Regional Charter School,3
+M,34,Lynn Vocational and Technical Institute,2
+M,35,Apponequet Regional High School,1
