@@ -4,14 +4,16 @@
 # each division there is its own physical meet with its own hub page (see
 # meet_sheets_page_generator.rb's meet_labels) - showing that row's top 3
 # finishers, with the row linking straight to the corresponding meet hub
-# page. Mirrors bsc_rankings_summary_generator.rb's approach for BSC, which
-# reads team_scores.csv directly instead of one of these rollup rankings
-# CSVs; both render through the same rankings-summary-table.html include.
+# page. Mirrors bsc_rankings_summary_generator.rb's approach for BSC: reads
+# each year's team_scores.csv directly via MeetSheetsPageUtils.team_scores_
+# rows (the same raw per-meet data the hub pages render) rather than a
+# hand-maintained rollup rankings CSV - see that method's comment for why
+# one isn't needed any more.
 #
 # Stashed onto each hand-authored jekyll/sports/swimming-diving/meets/<source>/
-# rankings.md page (found by URL), same as that generator - so adding a new
-# season's rows to a CSV is enough on its own to update the page, no
-# matching page to remember.
+# rankings.md page (found by URL), same as that generator.
+require_relative "meet_sheets_page_utils"
+
 module Rankings
   class PageGenerator < Jekyll::Generator
     safe true
@@ -21,30 +23,34 @@ module Rankings
     GENDER_ORDER = { "F" => 0, "M" => 1 }.freeze
     GENDER_LABELS = { "F" => "Girls", "M" => "Boys" }.freeze
 
-    # MIAA Sectionals' Division column is really that meet's own slug (see
-    # meet_sheets_page_generator.rb's meet_labels), just written out in
-    # Title Case with "/" instead of "-" - e.g. "Central/West" instead of
-    # "central-west" - so each row can link straight to that specific
-    # meet's own hub page rather than the season directory above it.
-    SECTIONAL_MEET_SLUGS = {
-      "Eastern Mass" => "eastern-mass",
-      "North" => "north",
-      "South" => "south",
-      "Central/South" => "central-south",
-      "West" => "west",
-      "Western Mass" => "western-mass",
-      "Central/West" => "central-west",
+    # Meet slug -> display label - same slugs as meet_sheets_page_generator.
+    # rb's meet_labels, but without its " Sectional" suffix, since this
+    # page's own heading already says "<year> Fall"/"<year> Winter".
+    SECTIONAL_DIVISION_LABELS = {
+      "eastern-mass" => "Eastern Mass",
+      "north" => "North",
+      "south" => "South",
+      "central-south" => "Central/South",
+      "west" => "West",
+      "western-mass" => "Western Mass",
+      "central-west" => "Central/West",
     }.freeze
 
     SOURCES = [
       {
-        data_path: %w[swimming-diving miaa rankings sectionals],
         page_url: "/sports/swimming-diving/meets/sectionals/rankings/",
-        hub_url: ->(year, season, division) { "/sports/swimming-diving/meets/sectionals/#{year}/#{season}/#{SECTIONAL_MEET_SLUGS[division]}/" },
+        raw_root: %w[swimming-diving miaa sectionals],
+        multi_meet: true,
+        division_of: ->(row) { row["Meet"] },
+        division_label: ->(division) { SECTIONAL_DIVISION_LABELS[division] || division },
+        hub_url: ->(year, season, division) { "/sports/swimming-diving/meets/sectionals/#{year}/#{season}/#{division}/" },
       },
       {
-        data_path: %w[swimming-diving miaa rankings states],
         page_url: "/sports/swimming-diving/meets/states/rankings/",
+        raw_root: %w[swimming-diving miaa states],
+        multi_meet: false,
+        division_of: ->(row) { row["division"].to_s },
+        division_label: ->(division) { division },
         # States never splits a season across separate meet pages the way
         # Sectionals does - a year with two divisions still has just the
         # one hub page, with both divisions' tables on it (see
@@ -55,54 +61,51 @@ module Rankings
     ].freeze
 
     def generate(site)
-      SOURCES.each { |source| generate_source(site, source) }
+      high_schools = MeetSheetsPageUtils.high_school_names(site)
+      SOURCES.each { |source| generate_source(site, source, high_schools) }
     end
 
     private
 
-    def generate_source(site, source)
+    def generate_source(site, source, high_schools)
       page = site.pages.find { |p| p.url == source[:page_url] }
       return unless page
 
-      entries = site.data.dig(*source[:data_path]) || []
-      page.data["groups"] = groups_for(entries, source)
+      rows = MeetSheetsPageUtils.team_scores_rows(site, source[:raw_root], multi_meet: source[:multi_meet])
+      page.data["groups"] = groups_for(rows, source, high_schools)
     end
 
-    def groups_for(entries, source)
-      keys = entries.map { |entry| [entry["Season"], entry["Gender"]] }.uniq
+    def groups_for(rows, source, high_schools)
+      keys = rows.map { |row| [row["Season"], row["gender"]] }.uniq
       keys.sort_by! { |season, gender| [SEASON_ORDER[season] || 99, GENDER_ORDER[gender] || 99] }
 
       keys.map do |season, gender|
-        rows = entries.select { |entry| entry["Season"] == season && entry["Gender"] == gender }
+        matching = rows.select { |row| row["Season"] == season && row["gender"] == gender }
         heading = "#{GENDER_LABELS[gender] || gender} #{SEASON_LABELS[season] || season}"
-        divisions = rows.map { |row| row["Division"].to_s }.reject(&:empty?).uniq.sort
-        { "heading" => heading, "years" => years_for(rows, season, source), "divisions" => divisions }
+        { "heading" => heading, "years" => years_for(matching, source, high_schools) }
       end
     end
 
-    def years_for(rows, season, source)
+    def years_for(rows, source, high_schools)
       by_year = rows.group_by { |row| row["School Year"] }
 
       by_year.keys.sort.reverse.flat_map do |school_year|
         year_rows = by_year[school_year]
-        divisions = year_rows.map { |row| row["Division"].to_s }.uniq.sort
+        divisions = year_rows.map { |row| source[:division_of].call(row) }.uniq.sort
 
         divisions.map do |division|
-          division_rows = year_rows.select { |row| row["Division"].to_s == division }
-          division_rows = division_rows.sort_by { |row| row["Place"].to_f }
+          division_rows = year_rows.select { |row| source[:division_of].call(row) == division }
+                                    .sort_by { |row| row["rank"].to_f }
+          season = division_rows.first["Season"]
+          label = source[:division_label].call(division)
 
           {
-            "year" => division.empty? ? en_dash(school_year) : "#{en_dash(school_year)} — #{division}",
-            "division" => division,
+            "year" => division.empty? ? MeetSheetsPageUtils.en_dash(school_year) : "#{MeetSheetsPageUtils.en_dash(school_year)} — #{label}",
             "url" => source[:hub_url].call(school_year, season, division),
-            "entries" => division_rows.first(3).map { |row| { "School" => row["School"] } },
+            "entries" => division_rows.first(3).map { |row| { "School" => MeetSheetsPageUtils.resolve_school_name(row, high_schools) } },
           }
         end
       end
-    end
-
-    def en_dash(year)
-      year.sub("-", "–")
     end
   end
 end

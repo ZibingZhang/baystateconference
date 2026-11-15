@@ -96,22 +96,32 @@ module MeetSheetsPageUtils
     end
   end
 
-  # Every team_scores.csv row across every year/season under a flat (non-
-  # nested_meet_data) raw_root, tagged with "School Year"/"Season" the same
-  # way normalized_rows tags individual/relay/diving rows. BSC is the only
-  # source that needs this outside meet_sheets_page_generator.rb itself
-  # (which reads team_scores per triple via its own team_scores_for) -
-  # swimming_diving_school_wins_generator.rb's win years and
-  # bsc_rankings_summary_generator.rb's rankings-page summary both need
-  # every year's team_scores at once rather than one triple at a time.
-  def team_scores_rows(site, raw_root)
+  # Every team_scores.csv row across every year/season (and, when multi_meet,
+  # every meet) under raw_root, tagged with "School Year"/"Season" (and
+  # "Meet") the same way normalized_rows tags individual/relay/diving rows.
+  # swimming_diving_school_wins_generator.rb's win years and the rankings-page
+  # summary generators (bsc_rankings_summary_generator.rb,
+  # ranking_page_generator.rb) all need every year's team_scores at once
+  # rather than one triple at a time - and all read straight from here rather
+  # than a hand-maintained rollup rankings CSV, now that the raw per-meet data
+  # itself goes back far enough (1972 for BSC/Sectionals, 1973 for States) to
+  # make such a rollup redundant.
+  def team_scores_rows(site, raw_root, multi_meet: false)
     rows = []
     (site.data.dig(*raw_root) || {}).each do |school_year, seasons|
       next unless school_year.match?(SCHOOL_YEAR_PATTERN)
 
-      seasons.each do |season, files|
-        (files["team_scores"] || []).each do |row|
-          rows << row.merge("School Year" => school_year, "Season" => season)
+      seasons.each do |season, meets_or_files|
+        if multi_meet
+          meets_or_files.each do |meet, files|
+            (files["team_scores"] || []).each do |row|
+              rows << row.merge("School Year" => school_year, "Season" => season, "Meet" => meet)
+            end
+          end
+        else
+          (meets_or_files["team_scores"] || []).each do |row|
+            rows << row.merge("School Year" => school_year, "Season" => season)
+          end
         end
       end
     end
@@ -244,7 +254,15 @@ module MeetSheetsPageUtils
 
   def score_rows(rows, high_schools)
     rows.sort_by { |row| row["rank"].to_i }
-        .map { |row| { "Place" => row["rank"], "School" => row["school"] || high_schools[row["school_abbreviation"]] || row["school_abbreviation"], "Score" => row["score"] } }
+        .map { |row| { "Place" => row["rank"], "School" => resolve_school_name(row, high_schools), "Score" => row["score"] } }
+  end
+
+  # code (e.g. "FRAM") -> full name, or the full name already written
+  # directly into "school" for the older schema some historical
+  # States/Sectionals team_scores.csv files predate "school_abbreviation"
+  # with (see team_score_groups above for why both schemas exist).
+  def resolve_school_name(row, high_schools)
+    row["school"] || high_schools[row["school_abbreviation"]] || row["school_abbreviation"]
   end
 
   # Only the sheets whose required column(s) actually have data in this
