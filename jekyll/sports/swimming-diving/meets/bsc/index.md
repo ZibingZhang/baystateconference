@@ -6,6 +6,9 @@ countdowns:
   - label: "Bay State Conference Meet"
     date: "2026-11-01"
 default_sort: desc
+resource_links:
+  - title: MIAA School Abbreviations
+    url: /sports/swimming-diving/resources/school-codes/
 internal_links:
   - title: Rankings
     url: /sports/swimming-diving/meets/bsc/rankings/
@@ -18,5 +21,7 @@ internal_links:
 {% include icon-link.html icon="calendar_month" label="Latest Meet" url="/sports/swimming-diving/meets/bsc/latest/" %}
 
 {% include link-list.html heading="See Also" items=page.internal_links %}
+
+{% include link-list.html heading="Resources" items=page.resource_links %}
 
 {% include directory-listing.html heading="Past Meets" searchable=true %}

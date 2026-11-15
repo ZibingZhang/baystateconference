@@ -13,6 +13,8 @@ external_links:
 resource_links:
   - title: Qualifying Standards
     url: /sports/swimming-diving/resources/miaa-qualifying-standards/
+  - title: MIAA School Abbreviations
+    url: /sports/swimming-diving/resources/school-codes/
 internal_links:
   - title: Archive
     url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/sectionals
