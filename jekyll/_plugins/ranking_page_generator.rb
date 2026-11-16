@@ -1,6 +1,6 @@
 # Precomputes the MIAA Sectional/State rankings pages' "groups" data: one
 # table per Gender/Season combination (e.g. "Girls Fall"), one row per
-# school year - or, for Sectionals, one row per school year/division, since
+# school year - or, for Sectional, one row per school year/division, since
 # each division there is its own physical meet with its own hub page (see
 # meet_sheets_page_generator.rb's meet_labels) - showing that row's top 3
 # finishers, with the row linking straight to the corresponding meet hub
@@ -38,12 +38,12 @@ module Rankings
 
     SOURCES = [
       {
-        page_url: "/sports/swimming-diving/meets/sectionals/rankings/",
-        raw_root: %w[swimming-diving miaa sectionals],
+        page_url: "/sports/swimming-diving/meets/sectional/rankings/",
+        raw_root: %w[swimming-diving miaa sectional],
         multi_meet: true,
         division_of: ->(row) { row["Meet"] },
         division_label: ->(division) { SECTIONAL_DIVISION_LABELS[division] || division },
-        hub_url: ->(year, season, division) { "/sports/swimming-diving/meets/sectionals/#{year}/#{season}/#{division}/" },
+        hub_url: ->(year, season, division) { "/sports/swimming-diving/meets/sectional/#{year}/#{season}/#{division}/" },
       },
       {
         page_url: "/sports/swimming-diving/meets/state/rankings/",

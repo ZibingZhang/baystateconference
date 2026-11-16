@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Sectionals Rankings
-permalink: /sports/swimming-diving/meets/sectionals/rankings/
+title: Sectional Rankings
+permalink: /sports/swimming-diving/meets/sectional/rankings/
 breadcrumb: Rankings
 exclude_from_directory: true
 ---

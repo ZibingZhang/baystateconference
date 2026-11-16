@@ -70,20 +70,21 @@ module SwimmingArchiveIndex
 
     MEET_DISPLAY_NAMES = {
       "bay-state-conference" => "Bay State Conference",
-      "sectionals" => "Sectionals",
+      "sectional" => "Sectional",
       "state" => "State",
     }.freeze
 
     # The substring actually worth stripping out of a file's own name when
-    # it's already sitting in that meet's folder - not always the same as
-    # the display name above, since names use inconsistent phrasing (e.g.
-    # singular "Sectional", not "Sectionals"). Naive and best-effort: if an
-    # entry's name doesn't happen to contain this exact text (e.g. a Bay
-    # State Conference entry just named after the host school, or a
-    # "Western Mass" sectional), it's left alone.
+    # it's already sitting in that meet's folder - happens to match the
+    # display name above for all three meets today, but kept as its own
+    # constant since that's not guaranteed (a file's name could use
+    # different phrasing from its folder's display name). Naive and
+    # best-effort: if an entry's name doesn't happen to contain this exact
+    # text (e.g. a Bay State Conference entry just named after the host
+    # school, or a "Western Mass" sectional), it's left alone.
     MEET_NAME_STRIP_TERMS = {
       "bay-state-conference" => "Bay State Conference",
-      "sectionals" => "Sectional",
+      "sectional" => "Sectional",
       "state" => "State",
     }.freeze
 

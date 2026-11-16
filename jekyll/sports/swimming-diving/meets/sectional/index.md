@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Sectional Championship Meets
-permalink: /sports/swimming-diving/meets/sectionals/
-breadcrumb: Sectionals
+permalink: /sports/swimming-diving/meets/sectional/
+breadcrumb: Sectional
 default_sort: desc
 countdowns:
-  - label: "Sectionals"
+  - label: "Sectional"
     date: "2026-11-08"
 external_links:
   - title: MIAA Website
@@ -17,11 +17,11 @@ resource_links:
     url: /sports/swimming-diving/resources/miaa-school-abbreviations/
 internal_links:
   - title: Archive
-    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/sectionals
+    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/sectional
   - title: Rankings
-    url: /sports/swimming-diving/meets/sectionals/rankings/
+    url: /sports/swimming-diving/meets/sectional/rankings/
   - title: Records
-    url: /sports/swimming-diving/meets/sectionals/records/
+    url: /sports/swimming-diving/meets/sectional/records/
 ---
 
 The north and south fall sectional championship meets will take place on November 8th.

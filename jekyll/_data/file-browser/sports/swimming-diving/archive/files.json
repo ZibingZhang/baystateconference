@@ -677,133 +677,133 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-athletes-by-team.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["athletes", "sectionals"]
+      "tags": ["athletes", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls North Sectional Athletes.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-athletes.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["athletes", "sectionals"]
+      "tags": ["athletes", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls North Sectional Entries by Team.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-entries-by-team.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["entries", "sectionals"]
+      "tags": ["entries", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls North Sectional List of Teams.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-list-of-teams.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["list-of-teams", "sectionals"]
+      "tags": ["list-of-teams", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls North Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-psych-sheet.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls North Sectional Rankings.html",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-rankings.html",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls North Sectional Rankings.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-rankings.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls North Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-results.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls North Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-north-sectional-results.txt",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls South Sectional Athletes by Team.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-athletes-by-team.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["athletes", "sectionals"]
+      "tags": ["athletes", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls South Sectional Athletes.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-athletes.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["athletes", "sectionals"]
+      "tags": ["athletes", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls South Sectional Entries by Team.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-entries-by-team.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["entries", "sectionals"]
+      "tags": ["entries", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls South Sectional List of Teams.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-list-of-teams.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["list-of-teams", "sectionals"]
+      "tags": ["list-of-teams", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls South Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-psych-sheet.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls South Sectional Rankings.html",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-rankings.html",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls South Sectional Rankings.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-rankings.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls South Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-results.pdf",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/girls-south-sectional-results.txt",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2004-2005 Fall Girls Sectionals Schedule.html",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2004-2005/season=fall/schedule-sectionals-girls.html",
       "year": "2004-2005",
       "season": "fall",
-      "tags": ["schedules", "sectionals"]
+      "tags": ["schedules", "sectional"]
     },
     {
       "name": "2006-2007 Fall Girls Division 1 State Results.txt",
@@ -824,21 +824,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2006-2007/season=fall/girls-north-sectional-results.txt",
       "year": "2006-2007",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2006-2007 Fall Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2006-2007/season=fall/girls-south-sectional-results.txt",
       "year": "2006-2007",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2006-2007 Winter Boys Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2006-2007/season=winter/boys-central-south-sectional-results.txt",
       "year": "2006-2007",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2006-2007 Winter Boys Division 1 State Results.txt",
@@ -859,28 +859,28 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2006-2007/season=winter/boys-north-sectional-results.txt",
       "year": "2006-2007",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2006-2007 Winter Boys West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2006-2007/season=winter/boys-west-sectional-results.txt",
       "year": "2006-2007",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2006-2007 Winter Girls & Boys Western Mass Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2006-2007/season=winter/girls-boys-western-mass-sectional-results.txt",
       "year": "2006-2007",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2006-2007 Winter Girls Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2006-2007/season=winter/girls-central-south-sectional-results.txt",
       "year": "2006-2007",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2006-2007 Winter Girls Division 1 State Results.txt",
@@ -901,14 +901,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2006-2007/season=winter/girls-north-sectional-results.txt",
       "year": "2006-2007",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2006-2007 Winter Girls West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2006-2007/season=winter/girls-west-sectional-results.txt",
       "year": "2006-2007",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2007-2008 Fall Girls Division 1 State Results.txt",
@@ -929,21 +929,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2007-2008/season=fall/girls-north-sectional-results.txt",
       "year": "2007-2008",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2007-2008 Fall Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2007-2008/season=fall/girls-south-sectional-results.txt",
       "year": "2007-2008",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2007-2008 Winter Boys Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2007-2008/season=winter/boys-central-south-sectional-results.txt",
       "year": "2007-2008",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2007-2008 Winter Boys Division 1 State Results.txt",
@@ -964,21 +964,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2007-2008/season=winter/boys-north-sectional-results.txt",
       "year": "2007-2008",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2007-2008 Winter Girls & Boys Western Mass Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2007-2008/season=winter/girls-boys-western-mass-sectional-results.txt",
       "year": "2007-2008",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2007-2008 Winter Girls Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2007-2008/season=winter/girls-central-south-sectional-results.txt",
       "year": "2007-2008",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2007-2008 Winter Girls Division 1 State Results.txt",
@@ -999,7 +999,7 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2007-2008/season=winter/girls-north-sectional-results.txt",
       "year": "2007-2008",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2008-2009 Fall Girls Division 1 & 2 State Results.txt",
@@ -1013,21 +1013,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2008-2009/season=fall/girls-north-sectional-results.txt",
       "year": "2008-2009",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2008-2009 Fall Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2008-2009/season=fall/girls-south-sectional-results.txt",
       "year": "2008-2009",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2008-2009 Winter Boys Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2008-2009/season=winter/boys-central-south-sectional-results.txt",
       "year": "2008-2009",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2008-2009 Winter Boys Division 1 State Results.txt",
@@ -1048,21 +1048,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2008-2009/season=winter/boys-north-sectional-results.txt",
       "year": "2008-2009",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2008-2009 Winter Boys West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2008-2009/season=winter/boys-west-sectional-results.txt",
       "year": "2008-2009",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2008-2009 Winter Girls Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2008-2009/season=winter/girls-central-south-sectional-results.txt",
       "year": "2008-2009",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2008-2009 Winter Girls Division 1 State Results.txt",
@@ -1083,14 +1083,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2008-2009/season=winter/girls-north-sectional-results.txt",
       "year": "2008-2009",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2008-2009 Winter Girls West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2008-2009/season=winter/girls-west-sectional-results.txt",
       "year": "2008-2009",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2009-2010 Fall Girls Division 1 State Results.txt",
@@ -1111,21 +1111,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2009-2010/season=fall/girls-north-sectional-results.txt",
       "year": "2009-2010",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2009-2010 Fall Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2009-2010/season=fall/girls-south-sectional-results.txt",
       "year": "2009-2010",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2009-2010 Winter Boys Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2009-2010/season=winter/boys-central-south-sectional-results.txt",
       "year": "2009-2010",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2009-2010 Winter Boys Division 1 State Results.txt",
@@ -1146,21 +1146,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2009-2010/season=winter/boys-north-sectional-results.txt",
       "year": "2009-2010",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2009-2010 Winter Boys West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2009-2010/season=winter/boys-west-sectional-results.txt",
       "year": "2009-2010",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2009-2010 Winter Girls Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2009-2010/season=winter/girls-central-south-sectional-results.txt",
       "year": "2009-2010",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2009-2010 Winter Girls Division 1 State Results.txt",
@@ -1181,14 +1181,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2009-2010/season=winter/girls-north-sectional-results.txt",
       "year": "2009-2010",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2009-2010 Winter Girls West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2009-2010/season=winter/girls-west-sectional-results.txt",
       "year": "2009-2010",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2010-2011 Fall Girls Division 1 State Results.txt",
@@ -1209,21 +1209,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2010-2011/season=fall/girls-north-sectional-results.txt",
       "year": "2010-2011",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2010-2011 Fall Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2010-2011/season=fall/girls-south-sectional-results.txt",
       "year": "2010-2011",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2010-2011 Winter Boys Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2010-2011/season=winter/boys-central-south-sectional-results.txt",
       "year": "2010-2011",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2010-2011 Winter Boys Division 1 State Results.txt",
@@ -1244,21 +1244,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2010-2011/season=winter/boys-north-sectional-results.txt",
       "year": "2010-2011",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2010-2011 Winter Boys Western Mass Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2010-2011/season=winter/boys-western-mass-sectional-results.txt",
       "year": "2010-2011",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2010-2011 Winter Girls Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2010-2011/season=winter/girls-central-south-sectional-results.txt",
       "year": "2010-2011",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2010-2011 Winter Girls Division 1 State Results.txt",
@@ -1279,14 +1279,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2010-2011/season=winter/girls-north-sectional-results.txt",
       "year": "2010-2011",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2010-2011 Winter Girls Western Mass Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2010-2011/season=winter/girls-western-mass-sectional-results.txt",
       "year": "2010-2011",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2011-2012 Fall Girls Division 1 State Results.txt",
@@ -1307,21 +1307,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2011-2012/season=fall/girls-north-sectional-results.txt",
       "year": "2011-2012",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2011-2012 Fall Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2011-2012/season=fall/girls-south-sectional-results.txt",
       "year": "2011-2012",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2011-2012 Winter Boys Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2011-2012/season=winter/boys-central-south-sectional-results.txt",
       "year": "2011-2012",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2011-2012 Winter Boys Division 1 State Results.txt",
@@ -1342,21 +1342,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2011-2012/season=winter/boys-north-sectional-results.txt",
       "year": "2011-2012",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2011-2012 Winter Boys West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2011-2012/season=winter/boys-west-sectional-results.txt",
       "year": "2011-2012",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2011-2012 Winter Girls Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2011-2012/season=winter/girls-central-south-sectional-results.txt",
       "year": "2011-2012",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2011-2012 Winter Girls Division 1 State Results.txt",
@@ -1377,14 +1377,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2011-2012/season=winter/girls-north-sectional-results.txt",
       "year": "2011-2012",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2011-2012 Winter Girls West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2011-2012/season=winter/girls-west-sectional-results.txt",
       "year": "2011-2012",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2012-2013 Fall Girls & Boys Division 1 & 2 State Results.txt",
@@ -1398,14 +1398,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2012-2013/season=fall/girls-boys-north-sectional-results.txt",
       "year": "2012-2013",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2012-2013 Fall Girls & Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2012-2013/season=fall/girls-boys-south-sectional-results.txt",
       "year": "2012-2013",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2012-2013 Winter Boys Division 1 State Results.txt",
@@ -1454,21 +1454,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2013-2014/season=fall/girls-boys-north-sectional-results.txt",
       "year": "2013-2014",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2013-2014 Fall Girls & Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2013-2014/season=fall/girls-boys-south-sectional-results.txt",
       "year": "2013-2014",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2013-2014 Winter Boys Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2013-2014/season=winter/boys-central-south-sectional-results.txt",
       "year": "2013-2014",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2013-2014 Winter Boys Division 1 State Results.txt",
@@ -1489,21 +1489,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2013-2014/season=winter/boys-north-sectional-results.txt",
       "year": "2013-2014",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2013-2014 Winter Boys West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2013-2014/season=winter/boys-west-sectional-results.txt",
       "year": "2013-2014",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2013-2014 Winter Girls Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2013-2014/season=winter/girls-central-south-sectional-results.txt",
       "year": "2013-2014",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2013-2014 Winter Girls Division 1 State Results.txt",
@@ -1524,14 +1524,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2013-2014/season=winter/girls-north-sectional-results.txt",
       "year": "2013-2014",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2013-2014 Winter Girls West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2013-2014/season=winter/girls-west-sectional-results.txt",
       "year": "2013-2014",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2014-2015 Fall Girls & Boys Division 1 State Results.txt",
@@ -1552,21 +1552,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2014-2015/season=fall/girls-boys-north-sectional-results.txt",
       "year": "2014-2015",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2014-2015 Fall Girls & Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2014-2015/season=fall/girls-boys-south-sectional-results.txt",
       "year": "2014-2015",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2014-2015 Winter Boys Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2014-2015/season=winter/boys-central-south-sectional-results.txt",
       "year": "2014-2015",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2014-2015 Winter Boys Division 1 State Results.txt",
@@ -1587,21 +1587,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2014-2015/season=winter/boys-north-sectional-results.txt",
       "year": "2014-2015",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2014-2015 Winter Boys West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2014-2015/season=winter/boys-west-sectional-results.txt",
       "year": "2014-2015",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2014-2015 Winter Girls Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2014-2015/season=winter/girls-central-south-sectional-results.txt",
       "year": "2014-2015",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2014-2015 Winter Girls Division 1 State Results.txt",
@@ -1622,14 +1622,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2014-2015/season=winter/girls-north-sectional-results.txt",
       "year": "2014-2015",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2014-2015 Winter Girls West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2014-2015/season=winter/girls-west-sectional-results.txt",
       "year": "2014-2015",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2015-2016 Fall Girls & Boys Division 1 State Results.txt",
@@ -1650,21 +1650,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2015-2016/season=fall/girls-boys-north-sectional-results.txt",
       "year": "2015-2016",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2015-2016 Fall Girls & Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2015-2016/season=fall/girls-boys-south-sectional-results.txt",
       "year": "2015-2016",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2015-2016 Winter Boys Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2015-2016/season=winter/boys-central-south-sectional-results.txt",
       "year": "2015-2016",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2015-2016 Winter Boys Division 1 State Results.txt",
@@ -1685,21 +1685,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2015-2016/season=winter/boys-north-sectional-results.txt",
       "year": "2015-2016",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2015-2016 Winter Boys West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2015-2016/season=winter/boys-west-sectional-results.txt",
       "year": "2015-2016",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2015-2016 Winter Girls Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2015-2016/season=winter/girls-central-south-sectional-results.txt",
       "year": "2015-2016",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2015-2016 Winter Girls Division 1 State Results.txt",
@@ -1720,14 +1720,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2015-2016/season=winter/girls-north-sectional-results.txt",
       "year": "2015-2016",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2015-2016 Winter Girls West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2015-2016/season=winter/girls-west-sectional-results.txt",
       "year": "2015-2016",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2016-2017 Fall Girls & Boys Division 1 State Results.txt",
@@ -1748,14 +1748,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2016-2017/season=fall/girls-boys-north-sectional-results.txt",
       "year": "2016-2017",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2016-2017 Fall Girls & Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2016-2017/season=fall/girls-boys-south-sectional-results.txt",
       "year": "2016-2017",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2016-2017 Winter Boys Division 1 State Results.txt",
@@ -1776,14 +1776,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2016-2017/season=winter/boys-west-sectional-results.txt",
       "year": "2016-2017",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2016-2017 Winter Girls Central/South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2016-2017/season=winter/girls-central-south-sectional-results.txt",
       "year": "2016-2017",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2016-2017 Winter Girls Division 1 State Results.txt",
@@ -1804,14 +1804,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2016-2017/season=winter/girls-north-sectional-results.txt",
       "year": "2016-2017",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2016-2017 Winter Girls West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2016-2017/season=winter/girls-west-sectional-results.txt",
       "year": "2016-2017",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2017-2018 Fall Girls & Boys Division 1 State Results.txt",
@@ -1832,21 +1832,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2017-2018/season=fall/girls-boys-north-sectional-results.txt",
       "year": "2017-2018",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2017-2018 Fall Girls & Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2017-2018/season=fall/girls-boys-south-sectional-results.txt",
       "year": "2017-2018",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2017-2018 Winter Boys Central/West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2017-2018/season=winter/boys-central-west-sectional-results.txt",
       "year": "2017-2018",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2017-2018 Winter Boys Division 1 State Results.txt",
@@ -1867,21 +1867,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2017-2018/season=winter/boys-north-sectional-results.txt",
       "year": "2017-2018",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2017-2018 Winter Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2017-2018/season=winter/boys-south-sectional-results.txt",
       "year": "2017-2018",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2017-2018 Winter Girls Central/West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2017-2018/season=winter/girls-central-west-sectional-results.txt",
       "year": "2017-2018",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2017-2018 Winter Girls Division 1 State Results.txt",
@@ -1902,14 +1902,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2017-2018/season=winter/girls-north-sectional-results.txt",
       "year": "2017-2018",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2017-2018 Winter Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2017-2018/season=winter/girls-south-sectional-results.txt",
       "year": "2017-2018",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2018-2019 Fall Girls & Boys Division 1 State Results.txt",
@@ -1930,21 +1930,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2018-2019/season=fall/girls-boys-north-sectional-results.txt",
       "year": "2018-2019",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2018-2019 Fall Girls & Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2018-2019/season=fall/girls-boys-south-sectional-results.txt",
       "year": "2018-2019",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2018-2019 Winter Boys Central/West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2018-2019/season=winter/boys-central-west-sectional-results.txt",
       "year": "2018-2019",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2018-2019 Winter Boys Division 1 State Results.txt",
@@ -1965,21 +1965,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2018-2019/season=winter/boys-north-sectional-results.txt",
       "year": "2018-2019",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2018-2019 Winter Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2018-2019/season=winter/boys-south-sectional-results.txt",
       "year": "2018-2019",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2018-2019 Winter Girls Central/West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2018-2019/season=winter/girls-central-west-sectional-results.txt",
       "year": "2018-2019",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2018-2019 Winter Girls Division 1 State Results.txt",
@@ -2000,42 +2000,42 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2018-2019/season=winter/girls-north-sectional-results.txt",
       "year": "2018-2019",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2018-2019 Winter Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2018-2019/season=winter/girls-south-sectional-results.txt",
       "year": "2018-2019",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Fall Girls & Boys Central/South Sectional Rankings.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=fall/girls-boys-central-south-sectional-rankings.txt",
       "year": "2019-2020",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Fall Girls & Boys Central/South Sectional Results (Events 1-11).txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=fall/girls-boys-central-south-sectional-results-events-1-11.txt",
       "year": "2019-2020",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Fall Girls & Boys Central/South Sectional Results (Events 12-21).txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=fall/girls-boys-central-south-sectional-results-events-12-21.txt",
       "year": "2019-2020",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Fall Girls & Boys Central/South Sectional Results (Events 22-24).txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=fall/girls-boys-central-south-sectional-results-events-22-24.txt",
       "year": "2019-2020",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Fall Girls & Boys Division 1 State Rankings.txt",
@@ -2084,56 +2084,56 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=fall/girls-boys-north-sectional-rankings.txt",
       "year": "2019-2020",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Fall Girls & Boys North Sectional Results (Events 1-11).txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=fall/girls-boys-north-sectional-results-events-1-11.txt",
       "year": "2019-2020",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Fall Girls & Boys North Sectional Results (Events 12-21).txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=fall/girls-boys-north-sectional-results-events-12-21.txt",
       "year": "2019-2020",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Fall Girls & Boys North Sectional Results (Events 22-24).txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=fall/girls-boys-north-sectional-results-events-22-24.txt",
       "year": "2019-2020",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Winter Boys North Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=winter/boys-north-sectional-results.txt",
       "year": "2019-2020",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Winter Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=winter/boys-south-sectional-results.txt",
       "year": "2019-2020",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Winter Girls North Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=winter/girls-north-sectional-results.txt",
       "year": "2019-2020",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2019-2020 Winter Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2019-2020/season=winter/girls-south-sectional-results.txt",
       "year": "2019-2020",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2021-2022 Fall Girls & Boys Division 1 State Results.txt",
@@ -2154,14 +2154,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2021-2022/season=fall/girls-boys-north-sectional-results.txt",
       "year": "2021-2022",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2021-2022 Fall Girls & Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2021-2022/season=fall/girls-boys-south-sectional-results.txt",
       "year": "2021-2022",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2021-2022 Winter Boys Division 1 State Results.txt",
@@ -2182,14 +2182,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2021-2022/season=winter/boys-north-sectional-results.txt",
       "year": "2021-2022",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2021-2022 Winter Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2021-2022/season=winter/boys-south-sectional-results.txt",
       "year": "2021-2022",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2021-2022 Winter Format.pdf",
@@ -2217,14 +2217,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2021-2022/season=winter/girls-north-sectional-results.txt",
       "year": "2021-2022",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2021-2022 Winter Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2021-2022/season=winter/girls-south-sectional-results.txt",
       "year": "2021-2022",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2022-2023 Fall Format (Draft).pdf",
@@ -2259,28 +2259,28 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/girls-boys-north-sectional-results.txt",
       "year": "2022-2023",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2022-2023 Fall Girls & Boys South Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/girls-boys-south-sectional-program.pdf",
       "year": "2022-2023",
       "season": "fall",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2022-2023 Fall Girls & Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/girls-boys-south-sectional-results.txt",
       "year": "2022-2023",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2022-2023 Fall Girls & Boys Sectionals Schedule.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=fall/schedule-sectionals-girls-boys.pdf",
       "year": "2022-2023",
       "season": "fall",
-      "tags": ["schedules", "sectionals"]
+      "tags": ["schedules", "sectional"]
     },
     {
       "name": "2022-2023 Fall Girls & Boys States Schedule.pdf",
@@ -2294,7 +2294,7 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/boys-central-west-sectional-results.txt",
       "year": "2022-2023",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2022-2023 Winter Boys Division 1 State Results.txt",
@@ -2315,21 +2315,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/boys-north-sectional-results.txt",
       "year": "2022-2023",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2022-2023 Winter Boys South Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/boys-south-sectional-program.pdf",
       "year": "2022-2023",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2022-2023 Winter Boys South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/boys-south-sectional-results.txt",
       "year": "2022-2023",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2022-2023 Winter Format.pdf",
@@ -2343,14 +2343,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-boys-central-west-sectional-program.pdf",
       "year": "2022-2023",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2022-2023 Winter Girls Central/West Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-central-west-sectional-results.txt",
       "year": "2022-2023",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2022-2023 Winter Girls Division 1 State Results.txt",
@@ -2371,28 +2371,28 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-north-sectional-program.pdf",
       "year": "2022-2023",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2022-2023 Winter Girls North Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-north-sectional-results.txt",
       "year": "2022-2023",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2022-2023 Winter Girls South Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-south-sectional-program.pdf",
       "year": "2022-2023",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2022-2023 Winter Girls South Sectional Results.txt",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/girls-south-sectional-results.txt",
       "year": "2022-2023",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2022-2023 Winter Logistics.pdf",
@@ -2406,7 +2406,7 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2022-2023/season=winter/schedule-sectionals-girls-boys-draft.pdf",
       "year": "2022-2023",
       "season": "winter",
-      "tags": ["schedules", "sectionals"]
+      "tags": ["schedules", "sectional"]
     },
     {
       "name": "2022-2023 Winter Boys States Schedule.pdf",
@@ -2469,49 +2469,49 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-north-sectional-program.pdf",
       "year": "2023-2024",
       "season": "fall",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2023-2024 Fall Girls & Boys North Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-north-sectional-psych-sheet.pdf",
       "year": "2023-2024",
       "season": "fall",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2023-2024 Fall Girls & Boys North Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-north-sectional-results.pdf",
       "year": "2023-2024",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2023-2024 Fall Girls & Boys South Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-south-sectional-program.pdf",
       "year": "2023-2024",
       "season": "fall",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2023-2024 Fall Girls & Boys South Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-south-sectional-psych-sheet.pdf",
       "year": "2023-2024",
       "season": "fall",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2023-2024 Fall Girls & Boys South Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/girls-boys-south-sectional-results.pdf",
       "year": "2023-2024",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2023-2024 Fall Girls & Boys Sectionals Logistics.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/logistics-sectionals-girls-boys.pdf",
       "year": "2023-2024",
       "season": "fall",
-      "tags": ["logistics", "sectionals"]
+      "tags": ["logistics", "sectional"]
     },
     {
       "name": "2023-2024 Fall Girls & Boys States Logistics.pdf",
@@ -2525,28 +2525,28 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=fall/schedule-sectionals-girls-boys.pdf",
       "year": "2023-2024",
       "season": "fall",
-      "tags": ["schedules", "sectionals"]
+      "tags": ["schedules", "sectional"]
     },
     {
       "name": "2023-2024 Winter Boys Central/West Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-central-west-sectional-program.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2023-2024 Winter Boys Central/West Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-central-west-sectional-psych-sheet.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2023-2024 Winter Boys Central/West Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-central-west-sectional-results.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2023-2024 Winter Boys Division 1 State Program.pdf",
@@ -2595,63 +2595,63 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-north-sectional-program.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2023-2024 Winter Boys North Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-north-sectional-psych-sheet.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2023-2024 Winter Boys North Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-north-sectional-results.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2023-2024 Winter Boys South Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-south-sectional-program.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2023-2024 Winter Boys South Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-south-sectional-psych-sheet.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2023-2024 Winter Boys South Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/boys-south-sectional-results.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2023-2024 Winter Girls Central/West Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-central-west-sectional-program.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2023-2024 Winter Girls Central/West Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-central-west-sectional-psych-sheet.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2023-2024 Winter Girls Central/West Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-central-west-sectional-results.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2023-2024 Winter Girls Division 1 State Program.pdf",
@@ -2700,42 +2700,42 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-north-sectional-program.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2023-2024 Winter Girls North Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-north-sectional-psych-sheet.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2023-2024 Winter Girls North Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-north-sectional-results.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2023-2024 Winter Girls South Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-south-sectional-program.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2023-2024 Winter Girls South Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-south-sectional-psych-sheet.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2023-2024 Winter Girls South Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2023-2024/season=winter/girls-south-sectional-results.pdf",
       "year": "2023-2024",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2023-2024 Winter Girls & Boys Logistics.pdf",
@@ -2819,56 +2819,56 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-north-sectional-program.pdf",
       "year": "2024-2025",
       "season": "fall",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2024-2025 Fall Girls & Boys North Sectional Psych Sheet (By Event).pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-north-sectional-psych-sheet-by-event.pdf",
       "year": "2024-2025",
       "season": "fall",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2024-2025 Fall Girls & Boys North Sectional Psych Sheet (By School).pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-north-sectional-psych-sheet-by-school.pdf",
       "year": "2024-2025",
       "season": "fall",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2024-2025 Fall Girls & Boys North Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-north-sectional-results.pdf",
       "year": "2024-2025",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2024-2025 Fall Girls & Boys South Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-south-sectional-program.pdf",
       "year": "2024-2025",
       "season": "fall",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2024-2025 Fall Girls & Boys South Sectional Psych Sheet (By Event).pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-south-sectional-psych-sheet-by-event.pdf",
       "year": "2024-2025",
       "season": "fall",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2024-2025 Fall Girls & Boys South Sectional Psych Sheet (By School).pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-south-sectional-psych-sheet-by-school.pdf",
       "year": "2024-2025",
       "season": "fall",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2024-2025 Fall Girls & Boys South Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/girls-boys-south-sectional-results.pdf",
       "year": "2024-2025",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2024-2025 Fall Girls Division 1 State Rankings.pdf",
@@ -2889,7 +2889,7 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=fall/logistics-sectionals-girls-boys.pdf",
       "year": "2024-2025",
       "season": "fall",
-      "tags": ["logistics", "sectionals"]
+      "tags": ["logistics", "sectional"]
     },
     {
       "name": "2024-2025 Fall Girls & Boys States Logistics.pdf",
@@ -2903,7 +2903,7 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/boys-central-west-sectional-results.pdf",
       "year": "2024-2025",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2024-2025 Winter Boys Division 1 State Results.pdf",
@@ -2924,21 +2924,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/boys-north-sectional-results.pdf",
       "year": "2024-2025",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2024-2025 Winter Boys North/South Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/boys-north-south-sectional-program.pdf",
       "year": "2024-2025",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2024-2025 Winter Boys South Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/boys-south-sectional-results.pdf",
       "year": "2024-2025",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2024-2025 Winter Boys States Program.pdf",
@@ -2959,14 +2959,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/girls-boys-central-west-sectional-program.pdf",
       "year": "2024-2025",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2024-2025 Winter Girls Central/West Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/girls-central-west-sectional-results.pdf",
       "year": "2024-2025",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2024-2025 Winter Girls Division 1 State Results.pdf",
@@ -2987,21 +2987,21 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/girls-north-sectional-results.pdf",
       "year": "2024-2025",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2024-2025 Winter Girls North/South Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/girls-north-south-sectional-program.pdf",
       "year": "2024-2025",
       "season": "winter",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2024-2025 Winter Girls South Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/girls-south-sectional-results.pdf",
       "year": "2024-2025",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2024-2025 Winter Girls States Program.pdf",
@@ -3015,7 +3015,7 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2024-2025/season=winter/logistics-sectionals.pdf",
       "year": "2024-2025",
       "season": "winter",
-      "tags": ["logistics", "sectionals"]
+      "tags": ["logistics", "sectional"]
     },
     {
       "name": "2024-2025 Winter States Logistics.pdf",
@@ -3071,35 +3071,35 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-north-sectional-program.pdf",
       "year": "2025-2026",
       "season": "fall",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2025-2026 Fall Girls & Boys North Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-north-sectional-results.pdf",
       "year": "2025-2026",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2025-2026 Fall Girls & Boys South Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-south-sectional-program.pdf",
       "year": "2025-2026",
       "season": "fall",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2025-2026 Fall Girls & Boys South Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/girls-boys-south-sectional-results.pdf",
       "year": "2025-2026",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2025-2026 Fall Sectionals Qualifying Times.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=fall/qualifying-times-sectionals.pdf",
       "year": "2025-2026",
       "season": "fall",
-      "tags": ["qualifying-standards", "sectionals"]
+      "tags": ["qualifying-standards", "sectional"]
     },
     {
       "name": "2025-2026 Fall States Qualifying Times.pdf",
@@ -3120,7 +3120,7 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/boys-central-west-sectional-results.pdf",
       "year": "2025-2026",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2025-2026 Winter Boys Division 1 State Results.pdf",
@@ -3141,14 +3141,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/boys-north-sectional-results.pdf",
       "year": "2025-2026",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2025-2026 Winter Boys South Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/boys-south-sectional-results.pdf",
       "year": "2025-2026",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2025-2026 Winter Format.pdf",
@@ -3162,7 +3162,7 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/girls-central-west-sectional-results.pdf",
       "year": "2025-2026",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2025-2026 Winter Girls Division 1 State Results.pdf",
@@ -3183,14 +3183,14 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/girls-north-sectional-results.pdf",
       "year": "2025-2026",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2025-2026 Winter Girls South Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2025-2026/season=winter/girls-south-sectional-results.pdf",
       "year": "2025-2026",
       "season": "winter",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2025-2026 Winter Boys Qualifying Times.pdf",
@@ -3218,42 +3218,42 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-north-sectional-program.pdf",
       "year": "2026-2027",
       "season": "fall",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2026-2027 Fall Girls & Boys North Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-north-sectional-psych-sheet.pdf",
       "year": "2026-2027",
       "season": "fall",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2026-2027 Fall Girls & Boys North Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-north-sectional-results.pdf",
       "year": "2026-2027",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2026-2027 Fall Girls & Boys South Sectional Program.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-south-sectional-program.pdf",
       "year": "2026-2027",
       "season": "fall",
-      "tags": ["programs", "sectionals"]
+      "tags": ["programs", "sectional"]
     },
     {
       "name": "2026-2027 Fall Girls & Boys South Sectional Psych Sheet.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-south-sectional-psych-sheet.pdf",
       "year": "2026-2027",
       "season": "fall",
-      "tags": ["psych-sheets", "sectionals"]
+      "tags": ["psych-sheets", "sectional"]
     },
     {
       "name": "2026-2027 Fall Girls & Boys South Sectional Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-south-sectional-results.pdf",
       "year": "2026-2027",
       "season": "fall",
-      "tags": ["results", "sectionals"]
+      "tags": ["results", "sectional"]
     },
     {
       "name": "2026-2027 Fall Girls & Boys State Heat Sheet.pdf",
@@ -3274,7 +3274,7 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/north-sectional-entry-order.pdf",
       "year": "2026-2027",
       "season": "fall",
-      "tags": ["entry-order", "sectionals"]
+      "tags": ["entry-order", "sectional"]
     },
     {
       "name": "2026-2027 Fall Qualifying Standards.pdf",
@@ -3288,7 +3288,7 @@
       "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/south-sectional-entry-order.pdf",
       "year": "2026-2027",
       "season": "fall",
-      "tags": ["entry-order", "sectionals"]
+      "tags": ["entry-order", "sectional"]
     },
     {
       "name": "2026-2027 Fall State Entry Order.pdf",

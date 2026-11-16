@@ -5,7 +5,7 @@
 # built from a meet's official Results/Psych Sheet PDFs).
 #
 # Used by meet_sheets_page_generator.rb for all three sources it drives (Bay
-# State Conference, MIAA Sectionals, MIAA States). Kept as a plain module (not
+# State Conference, MIAA Sectional, MIAA State). Kept as a plain module (not
 # a Jekyll::Generator itself) specifically so it isn't picked up and auto-run
 # by Jekyll's generator discovery - only that one Generator class calls into
 # it.
@@ -104,7 +104,7 @@ module MeetSheetsPageUtils
   # ranking_page_generator.rb) all need every year's team_scores at once
   # rather than one triple at a time - and all read straight from here rather
   # than a hand-maintained rollup rankings CSV, now that the raw per-meet data
-  # itself goes back far enough (1972 for BSC/Sectionals, 1973 for States) to
+  # itself goes back far enough (1972 for BSC/Sectional, 1973 for State) to
   # make such a rollup redundant.
   def team_scores_rows(site, raw_root, multi_meet: false)
     rows = []
@@ -123,7 +123,7 @@ module MeetSheetsPageUtils
             rows << row.merge("School Year" => school_year, "Season" => season)
           end
         else
-          # States-only: a season split into divisions nests one level into
+          # State-only: a season split into divisions nests one level into
           # division-1/division-2 team_scores.csv instead of multi_meet's
           # meet-keyed subdirectories (see team_scores_for's comment in
           # meet_sheets_page_generator.rb) - synthesize the same "division"
@@ -144,7 +144,7 @@ module MeetSheetsPageUtils
 
   # Every (School Year, Season, Meet) triple that has a directory under
   # raw_root at all, regardless of whether per-swimmer results exist yet -
-  # most of BSC/Sectionals/States history only ever got a team_scores.csv
+  # most of BSC/Sectional/State history only ever got a team_scores.csv
   # (no official Results/Psych/Heat Sheet PDF survives to extract
   # individual/relay/diving rows from), and those years still deserve a hub
   # page with team scores even though normalized_rows finds nothing for
@@ -228,7 +228,7 @@ module MeetSheetsPageUtils
   end
 
   # One {heading, entries} group per Gender, or per Gender/Division when a
-  # "division" row tag is present - MIAA States has one for years split into
+  # "division" row tag is present - MIAA State has one for years split into
   # division-1/division-2 team_scores.csv (synthesized from that directory
   # split by team_scores_for in meet_sheets_page_generator.rb/team_scores_
   # rows above, rather than a literal CSV column) and not others (combined
@@ -236,7 +236,7 @@ module MeetSheetsPageUtils
   # actually has one rather than assuming either shape. "school_abbreviation"/"school"
   # covers both the current schema (scripts/extract_swim_meet.py's output,
   # resolved to a full name via high_school_names below) and the older schema
-  # some historical States/Sectionals team_scores.csv files predate it use
+  # some historical State/Sectional team_scores.csv files predate it use
   # (full name already written directly into "school").
   def team_score_groups(team_scores, site)
     has_division = team_scores.any? { |row| !row["division"].to_s.strip.empty? }
@@ -275,7 +275,7 @@ module MeetSheetsPageUtils
 
   # code (e.g. "FRAM") -> full name, or the full name already written
   # directly into "school" for the older schema some historical
-  # States/Sectionals team_scores.csv files predate "school_abbreviation"
+  # State/Sectional team_scores.csv files predate "school_abbreviation"
   # with (see team_score_groups above for why both schemas exist).
   def resolve_school_name(row, high_schools)
     row["school"] || high_schools[row["school_abbreviation"]] || row["school_abbreviation"]
@@ -293,7 +293,7 @@ module MeetSheetsPageUtils
   end
 
   # Sets "latest_meet_url" on the hand-authored hub page at /<dir>/ (e.g.
-  # sports/swimming-diving/meets/sectionals/index.md) to the /<dir>/latest/
+  # sports/swimming-diving/meets/sectional/index.md) to the /<dir>/latest/
   # redirect's URL once any per-swimmer data exists, so that page can show a
   # "Latest Meet" link (mirroring bsc_sheets_page_generator.rb's
   # /meets/conference/latest/ icon-link) instead of its placeholder text before any

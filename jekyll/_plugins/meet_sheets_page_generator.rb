@@ -1,5 +1,5 @@
 # Generates the Results/Psych Sheet/Heat Sheet pages for all three swimming
-# & diving meet sources - Bay State Conference, MIAA Sectionals, MIAA State -
+# & diving meet sources - Bay State Conference, MIAA Sectional, MIAA State -
 # from the raw per-meet CSVs under jekyll/_data/swimming-diving/<raw_root>/
 # <year>/<season>/[<meet>/]{individual,relay,diving}_results.csv +
 # team_scores.csv (see scripts/extract_swim_meet.py for how those CSVs get
@@ -16,19 +16,19 @@
 #   nested_meet_data   - does the raw _data nest one more level, keyed by a
 #                        meet slug, before the CSV filenames, with each such
 #                        meet always getting its own hub page? True for
-#                        Sectionals (one key per concurrent meet - North/
+#                        Sectional (one key per concurrent meet - North/
 #                        South in Fall, +Central/West in Winter); false for
 #                        BSC and State (BSC's CSVs always sit directly under
 #                        <year>/<season>/, since it only ever has the one
 #                        meet; State's usually do too, except a year split
 #                        into two divisions, which nests one level into
 #                        division-1/division-2 team_scores.csv - still false
-#                        here since, unlike Sectionals, both divisions share
+#                        here since, unlike Sectional, both divisions share
 #                        the season's one hub page rather than getting their
 #                        own - see team_scores_for's nested_meet_data-false-
 #                        but-still-nested branch).
 #   separate_meet_pages - does each meet get its own hub page one level below
-#                        the season page (true - only Sectionals, since North
+#                        the season page (true - only Sectional, since North
 #                        and South each need their own team scores + sheet
 #                        links), or does the season page simply *become* the
 #                        (sole) meet's hub page (false - BSC and State)?
@@ -72,8 +72,8 @@ module MeetSheets
         archive_slug: "bay-state-conference",
       },
       {
-        raw_root: %w[swimming-diving miaa sectionals],
-        dir: "sports/swimming-diving/meets/sectionals",
+        raw_root: %w[swimming-diving miaa sectional],
+        dir: "sports/swimming-diving/meets/sectional",
         nested_meet_data: true,
         separate_meet_pages: true,
         # Every meet slug this source's data has ever used (back to 1972) -
@@ -96,7 +96,7 @@ module MeetSheets
         year_title_suffix: "Sectional Meets",
         season_title_suffix: "Sectional Meets",
         latest_title: "Latest Sectional Meet",
-        archive_slug: "sectionals",
+        archive_slug: "sectional",
       },
       {
         raw_root: %w[swimming-diving miaa state],

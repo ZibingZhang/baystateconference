@@ -8,7 +8,7 @@ internal_links:
   - title: Conference Records
     url: /sports/swimming-diving/records/conference/
   - title: Sectional Meet Records
-    url: /sports/swimming-diving/meets/sectionals/records/
+    url: /sports/swimming-diving/meets/sectional/records/
   - title: State Meet Records
     url: /sports/swimming-diving/meets/state/records/
   - title: State Records
