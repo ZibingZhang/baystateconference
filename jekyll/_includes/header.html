@@ -89,7 +89,7 @@
           </span>
         </label>
 
-        {% include nav-items.html nav=nav %}
+        {{ site.data.rendered_nav[nav_name] }}
       </nav>
     {%- endunless %}
   </div>
