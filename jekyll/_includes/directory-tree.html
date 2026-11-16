@@ -4,11 +4,14 @@
   summary links to its page when it has one (e.g. "EMISCA" is both a page
   and a folder containing "Awards"). Usage:
     {% include directory-tree.html nodes=site.data.page_tree %}
+
+  A folder's label uses node.acronym_label - precomputed by
+  page_tree_generator.rb from the same segment/acronyms.yaml logic
+  url-label.html applies - instead of re-running that include per node (most
+  of which, being leaves, never even used the result).
 {%- endcomment -%}
 <ul class="directory-tree">
   {%- for node in include.nodes -%}
-    {%- capture node_label %}{% include url-label.html segment=node.segment %}{% endcapture -%}
-    {%- assign node_label = node_label | strip -%}
     {%- if node.children.size > 0 -%}
   <li class="directory-folder">
     <details>
@@ -16,9 +19,9 @@
         <span class="directory-caret" aria-hidden="true"></span>
         <span class="material-symbols-outlined" aria-hidden="true">tab</span>
         {%- if node.url -%}
-        <a href="{{ node.url | relative_url }}">{{ node_label }}</a>
+        <a href="{{ node.url | relative_url }}">{{ node.acronym_label }}</a>
         {%- else -%}
-        <span>{{ node_label }}</span>
+        <span>{{ node.acronym_label }}</span>
         {%- endif -%}
       </summary>
       {%- include directory-tree.html nodes=node.children -%}
