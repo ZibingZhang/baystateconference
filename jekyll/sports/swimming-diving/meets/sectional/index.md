@@ -5,8 +5,10 @@ permalink: /sports/swimming-diving/meets/sectional/
 breadcrumb: Sectional
 default_sort: desc
 countdowns:
-  - label: "Sectional"
-    date: "2026-11-08"
+  - label: "Girls Sectionals"
+    date: "2027-02-06T07:00"
+  - label: "Boys Sectionals"
+    date: "2027-02-07T07:00"
 external_links:
   - title: MIAA Website
     url: https://www.miaa.net/swimming-diving
@@ -24,14 +26,34 @@ internal_links:
     url: /sports/swimming-diving/meets/sectional/records/
 ---
 
-The north and south fall sectional championship meets will take place on November 8th.
-
 {%- if page.latest_meet_url %}
 {% include icon-link.html icon="calendar_month" label="Latest Meet" url=page.latest_meet_url %}
 {%- else %}
 
 Results will be posted after each meet.
 {%- endif %}
+
+## Meet Schedule
+
+### Girls Sectionals — 2/6/27 at MIT
+
+| | South | North |
+| --- | --- | --- |
+| Team doors open | 7:00 AM | 2:30 PM |
+| Warm-up begins | 7:15 AM | 2:45 PM |
+| Spectator doors open | 7:30 AM | 3:00 PM |
+| Meet begins | 8:15 AM | 3:45 PM |
+| Meet ends (approx.) | 11:15 AM | 6:45 PM |
+
+### Boys Sectionals — 2/7/27 at MIT
+
+| | South | North |
+| --- | --- | --- |
+| Team doors open | 7:00 AM | 2:30 PM |
+| Warm-up begins | 7:15 AM | 2:45 PM |
+| Spectator doors open | 7:30 AM | 3:00 PM |
+| Meet begins | 8:15 AM | 3:45 PM |
+| Meet ends (approx.) | 11:15 AM | 6:45 PM |
 
 {% include link-list.html heading="See Also" items=page.internal_links %}
 

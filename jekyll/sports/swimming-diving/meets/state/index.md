@@ -5,8 +5,10 @@ permalink: /sports/swimming-diving/meets/state/
 breadcrumb: State
 default_sort: desc
 countdowns:
-  - label: "State"
-    date: "2026-11-15T16:45"
+  - label: "Girls States"
+    date: "2027-02-13T12:00"
+  - label: "Boys States"
+    date: "2027-02-14T12:00"
 external_links:
   - title: MIAA Website
     url: https://www.miaa.net/swimming-diving
@@ -24,20 +26,34 @@ internal_links:
     url: /sports/swimming-diving/meets/state/records/
 ---
 
-The fall state championship meet will take place on November 15th at MIT.
-
-Schedule:
-
-- 3:00 PM: doors open for teams
-- 3:30 PM: doors open for spectators
-- 4:15 PM: meet starts
-
 {%- if page.latest_meet_url %}
 {% include icon-link.html icon="calendar_month" label="Latest Meet" url=page.latest_meet_url %}
 {%- else %}
 
 Results will be posted after each meet.
 {%- endif %}
+
+## Meet Schedule
+
+### Girls States — 2/13/27 at BU
+
+| | D2 | D1 |
+| --- | --- | --- |
+| Team doors open | 12:00 PM | 5:00 PM |
+| Warm-up begins | 12:15 PM | 5:15 PM |
+| Spectator doors open | 12:30 PM | 5:30 PM |
+| Meet begins | 1:15 PM | 6:15 PM |
+| Meet ends (approx.) | 4:15 PM | 9:15 PM |
+
+### Boys States — 2/14/27 at BU
+
+| | D2 | D1 |
+| --- | --- | --- |
+| Team doors open | 12:00 PM | 5:00 PM |
+| Warm-up begins | 12:15 PM | 5:15 PM |
+| Spectator doors open | 12:30 PM | 5:30 PM |
+| Meet begins | 1:15 PM | 6:15 PM |
+| Meet ends (approx.) | 4:15 PM | 9:15 PM |
 
 {% include link-list.html heading="See Also" items=page.internal_links %}
 
