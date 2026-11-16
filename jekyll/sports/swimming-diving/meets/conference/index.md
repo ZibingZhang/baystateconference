@@ -8,7 +8,7 @@ countdowns:
 default_sort: desc
 resource_links:
   - title: MIAA School Abbreviations
-    url: /sports/swimming-diving/resources/school-codes/
+    url: /sports/swimming-diving/resources/miaa-school-abbreviations/
 internal_links:
   - title: Rankings
     url: /sports/swimming-diving/meets/conference/rankings/
