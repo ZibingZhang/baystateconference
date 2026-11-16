@@ -4,4 +4,4 @@ title: Meets
 permalink: /sports/swimming-diving/meets/
 ---
 
-{% include directory-listing.html %}
+{% include directory-listing.html full_titles=true %}
