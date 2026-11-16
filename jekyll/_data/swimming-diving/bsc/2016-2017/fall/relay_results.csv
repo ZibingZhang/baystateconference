@@ -1,0 +1,7 @@
+event_num,event_name,gender,heat,lane,place,points,team,relay,first_name_1,last_name_1,year_1,splits_1,first_name_2,last_name_2,year_2,splits_2,first_name_3,last_name_3,year_3,splits_3,first_name_4,last_name_4,year_4,splits_4,seed_time,finals_time,status,exhibition,qualifier
+1,200 Yard Medley Relay,F,,,1,,NEWT,A,L,Gallagher,,,S,Ly,,,C,McCormack,,,C,Campbell,,,,1:53.25,,False,
+2,200 Yard Medley Relay,M,,,1,,DEDH,A,J,Moran,,,J,Duncan,,,P,Tocci,,,N,Wilcox,,,,1:58.60,,False,
+17,200 Yard Freestyle Relay,F,,,1,,NEWT,A,K,Luce,,,J,Wang,,,C,Campbell,,,E,Claflin,,,,1:43.56,,False,
+18,200 Yard Freestyle Relay,M,,,1,,BRAI,A,A,Doherty,,,T,Connolly,,,S,McGurn,,,J,Harrington,,,,1:39.46,,False,
+23,400 Yard Freestyle Relay,F,,,1,,NEWT,A,C,McCormack,,,L,Flipova,,,L,Gallagher,,,E,Claflin,,,,3:45.93,,False,
+24,400 Yard Freestyle Relay,M,,,1,,BRAI,A,J,Harrington,,,A,Keung,,,S,McGurn,,,T,Connolly,,,,3:41.40,,False,

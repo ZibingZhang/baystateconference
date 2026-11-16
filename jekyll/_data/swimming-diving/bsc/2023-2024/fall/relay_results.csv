@@ -1,0 +1,7 @@
+event_num,event_name,gender,heat,lane,place,points,team,relay,first_name_1,last_name_1,year_1,splits_1,first_name_2,last_name_2,year_2,splits_2,first_name_3,last_name_3,year_3,splits_3,first_name_4,last_name_4,year_4,splits_4,seed_time,finals_time,status,exhibition,qualifier
+1,200 Yard Medley Relay,F,,,1,,WELL,A,Tracey,Peng,,,Alexandra,Loo,,,Elena,Dudkina,,,Elaine,Cheng,,,,1:52.62,,False,
+2,200 Yard Medley Relay,M,,,1,,MILT,A,Ryan,Kelly,,,Aidan,Crummey,,,Colby,Moskos,,,Tucker,Korman,,,,1:56.27,,False,
+17,200 Yard Freestyle Relay,F,,,1,,WELL,A,Audrey,Sau,,,Alexandra,Loo,,,Elaine,Cheng,,,Anna,McGrew,,,,1:41.96,,False,
+18,200 Yard Freestyle Relay,M,,,1,,MILT,A,Malachi,Buchanan,,,Ryan,Kelly,,,Colby,Moskos,,,Jackson,Wagner,,,,1:38.87,,False,
+23,400 Yard Freestyle Relay,F,,,1,,WELL,A,Elena,Dudkina,,,Sonja,Tellander,,,Tracey,Peng,,,Anna,McGrew,,,,3:41.90,,False,
+24,400 Yard Freestyle Relay,M,,,1,,MILT,A,Malachi,Buchanan,,,Aidan,Crummey,,,Tucker,Korman,,,Jackson,Wagner,,,,4:03.07,,False,

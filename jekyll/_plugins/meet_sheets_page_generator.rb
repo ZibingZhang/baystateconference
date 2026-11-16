@@ -333,7 +333,16 @@ module MeetSheets
         # one shared hub page, so their rows get merged here with a
         # synthesized "division" tag (meet_sheets_page_utils.rb#team_score_
         # groups groups by it) rather than each getting its own hub page.
+        #
+        # A BSC season with no team_scores.csv at all - just individual/
+        # relay/diving_results.csv (e.g. one recovered only from
+        # event-champions history - see event_champions_page_generator.rb)
+        # - lands here too, since it also fails the "team_scores" key check
+        # above; its values are plain CSV row arrays rather than division
+        # subdirectory Hashes, so skip anything that isn't actually a Hash.
         base.flat_map do |slug, meet_files|
+          next [] unless meet_files.is_a?(Hash)
+
           label = slug.split("-").map(&:capitalize).join(" ")
           (meet_files["team_scores"] || []).map { |row| row.merge("division" => label) }
         end

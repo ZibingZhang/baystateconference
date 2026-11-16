@@ -1,0 +1,9 @@
+event_num,event_name,gender,heat,lane,place,points,first_name,last_name,year,school,seed_time,finals_time,splits,status,exhibition,qualifier
+2,200 Yard Freestyle,M,,,1,,Cole,Conway,,NEED,,1:51.83,,,False,
+3,200 Yard IM,M,,,1,,Johann,Zhang,,NEED,,2:02.56,,,False,
+4,50 Yard Freestyle,M,,,1,,Jason,Chiappinelli,,NEED,,22.29,,,False,
+6,100 Yard Butterfly,M,,,1,,Aaron,Fowler,,BROO,,51.60,,,False,
+7,100 Yard Freestyle,M,,,1,,Jason,Chiappinelli,,NEED,,49.00,,,False,
+8,500 Yard Freestyle,M,,,1,,Liam,Jordan,,WELL,,5:05.19,,,False,
+10,100 Yard Backstroke,M,,,1,,Jonathan,Dupak,,FRAM,,55.85,,,False,
+11,100 Yard Breaststroke,M,,,1,,Edward,Gao,,FRAM,,1:02.57,,,False,

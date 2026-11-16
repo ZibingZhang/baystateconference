@@ -1,0 +1,36 @@
+---
+layout: base
+---
+{%- comment -%}
+  Renders one event's Bay State Conference champions, year by year, split
+  into Fall Girls / Fall Boys / Winter Boys tables (mirrors bsc-all-star.
+  html's season/gender split - there's no Girls Winter table since girls
+  swimming is always a fall sport in this conference). Sourced from
+  site.data.event_champions, built by event_champions_page_generator.rb
+  from every year's individual/relay/diving_results.csv under
+  _data/swimming-diving/bsc, so a newly added season's results.csv
+  automatically gets its champion picked up here - no page to edit. A page
+  using this layout just needs `event_name: "..."` in its front matter to
+  match against the Event Name column.
+{%- endcomment -%}
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+
+    {%- assign champions = site.data.event_champions | where: 'Event Name', page.event_name -%}
+    {%- assign girls_fall = champions | where: 'Season', 'fall' | where: 'Gender', 'F' | sort: 'School Year' -%}
+    {%- assign boys_fall = champions | where: 'Season', 'fall' | where: 'Gender', 'M' | sort: 'School Year' -%}
+    {%- assign boys_winter = champions | where: 'Season', 'winter' | where: 'Gender', 'M' | sort: 'School Year' -%}
+
+    {%- include event-champions-table.html heading="Fall — Girls" entries=girls_fall -%}
+    {%- include event-champions-table.html heading="Fall — Boys" entries=boys_fall -%}
+    {%- include event-champions-table.html heading="Winter — Boys" entries=boys_winter -%}
+    <script src="{{ '/assets/js/collapsible-group.js' | relative_url }}" defer></script>
+  </div>
+
+</article>

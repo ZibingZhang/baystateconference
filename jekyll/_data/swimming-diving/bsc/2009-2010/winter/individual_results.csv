@@ -1,0 +1,9 @@
+event_num,event_name,gender,heat,lane,place,points,first_name,last_name,year,school,seed_time,finals_time,splits,status,exhibition,qualifier
+2,200 Yard Freestyle,M,,,1,,Sam,Rolfe,,NEWT,,1:54.23,,,False,
+3,200 Yard IM,M,,,1,,Tim,Gladyshev,,BROO,,2:07.37,,,False,
+4,50 Yard Freestyle,M,,,1,,Mike,Ricci,,NEED,,23.18,,,False,
+6,100 Yard Butterfly,M,,,1,,Sam,Rolfe,,NEWT,,55.93,,,False,
+7,100 Yard Freestyle,M,,,1,,Mike,Ricci,,NEED,,51.86,,,False,
+8,500 Yard Freestyle,M,,,1,,Alex,Treil,,NEED,,5:08.46,,,False,
+10,100 Yard Backstroke,M,,,1,,Aiden,Breen,,NEWT,,1:00.44,,,False,
+11,100 Yard Breaststroke,M,,,1,,Keith,Savran,,FRAM,,1:01.63,,,False,

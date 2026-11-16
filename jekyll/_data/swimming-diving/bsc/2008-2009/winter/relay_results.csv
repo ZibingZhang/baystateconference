@@ -1,0 +1,4 @@
+event_num,event_name,gender,heat,lane,place,points,team,relay,first_name_1,last_name_1,year_1,splits_1,first_name_2,last_name_2,year_2,splits_2,first_name_3,last_name_3,year_3,splits_3,first_name_4,last_name_4,year_4,splits_4,seed_time,finals_time,status,exhibition,qualifier
+1,200 Yard Medley Relay,M,,,1,,FRAM,A,B,Lehnert,,,K,Savran,,,C,Shippee,,,S,Savran,,,,1:44.15,,False,
+9,200 Yard Freestyle Relay,M,,,1,,NEED,A,A,Treil,,,S,Keeler,,,B,Keeler,,,M,Ricci,,,,1:36.20,,False,
+12,400 Yard Freestyle Relay,M,,,1,,FRAM,A,S,Savran,,,C,Shippee,,,K,Savran,,,B,Lehnert,,,,3:29.85,,False,

@@ -1,0 +1,4 @@
+event_num,event_name,gender,heat,lane,place,points,team,relay,first_name_1,last_name_1,year_1,splits_1,first_name_2,last_name_2,year_2,splits_2,first_name_3,last_name_3,year_3,splits_3,first_name_4,last_name_4,year_4,splits_4,seed_time,finals_time,status,exhibition,qualifier
+1,200 Yard Medley Relay,F,,,1,,NATI,A,J,Dunnigan,,,K,Fleming,,,E,Rooney,,,J,Darlington,,,,2:01.28,,False,
+9,200 Yard Freestyle Relay,F,,,1,,NATI,A,K,Ching,,,L,Lyons,,,L,Allard,,,A,Robichuad,,,,1:46.28,,False,
+12,400 Yard Freestyle Relay,F,,,1,,NATI,A,A,Robichuad,,,M,McNamara,,,L,Allard,,,K,Ching,,,,3:52.10,,False,

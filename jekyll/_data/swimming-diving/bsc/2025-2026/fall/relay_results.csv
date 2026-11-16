@@ -1,0 +1,7 @@
+event_num,event_name,gender,heat,lane,place,points,team,relay,first_name_1,last_name_1,year_1,splits_1,first_name_2,last_name_2,year_2,splits_2,first_name_3,last_name_3,year_3,splits_3,first_name_4,last_name_4,year_4,splits_4,seed_time,finals_time,status,exhibition,qualifier
+1,200 Yard Medley Relay,F,,,1,,NEWT,A,Ava,Zheng,,,Barbara,Liao,,,Chloe,Wang,,,Meg,Urdaneta,,,,1:54.20,,False,
+2,200 Yard Medley Relay,M,,,1,,MILT,A,Kyle,Phan,,,Matt,Twitchell,,,Deacon,O'Riordan,,,Ryan,Kelly,,,,1:54.57,,False,
+17,200 Yard Freestyle Relay,F,,,1,,NEWT,A,Barbara,Liao,,,Meg,Urdaneta,,,Jillian,Schneider,,,Victoria,Sigmundstad-Callahan,,,,1:43.33,,False,
+18,200 Yard Freestyle Relay,M,,,1,,MILT,A,Kyle,Phan,,,Ayden,Hoang,,,Xavier,Brown,,,Owen,Tran,,,,1:47.35,,False,
+23,400 Yard Freestyle Relay,F,,,1,,WELL,A,Elaine,Cheng,,,Maggie,Li,,,Kathryn,Bonnette,,,Sonja,Tellander,,,,3:49.17,,False,
+24,400 Yard Freestyle Relay,M,,,1,,MILT,A,Matt,Twitchell,,,Owen,Tran,,,Deacon,O'Riordan,,,Ryan,Kelly,,,,3:55.56,,False,

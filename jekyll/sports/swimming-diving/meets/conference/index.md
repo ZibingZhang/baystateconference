@@ -15,6 +15,8 @@ internal_links:
     url: /sports/swimming-diving/meets/conference/rankings/
   - title: Records
     url: /sports/swimming-diving/meets/conference/records/
+  - title: Champions
+    url: /sports/swimming-diving/meets/conference/champions/
   - title: Archive
     url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/bay-state-conference
 ---

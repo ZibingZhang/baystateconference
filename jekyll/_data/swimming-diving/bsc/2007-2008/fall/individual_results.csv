@@ -1,0 +1,9 @@
+event_num,event_name,gender,heat,lane,place,points,first_name,last_name,year,school,seed_time,finals_time,splits,status,exhibition,qualifier
+2,200 Yard Freestyle,F,,,1,,Samantha,Neuman,,BROO,,1:59.77,,,False,
+3,200 Yard IM,F,,,1,,Emily,Metta,,NORW,,2:18.47,,,False,
+4,50 Yard Freestyle,F,,,1,,Julie,Moran,,FRAM,,25.10,,,False,
+6,100 Yard Butterfly,F,,,1,,Amanda,Miles,,FRAM,,1:00.70,,,False,
+7,100 Yard Freestyle,F,,,1,,Julie,Moran,,FRAM,,56.40,,,False,
+8,500 Yard Freestyle,F,,,1,,Sam,Neumann,,BROO,,5:22.65,,,False,
+10,100 Yard Backstroke,F,,,1,,Tiffany,Chu,,NATI,,1:04.79,,,False,
+11,100 Yard Breaststroke,F,,,1,,Nicole,Stracqualrusi,,DEDH,,1:11.18,,,False,

@@ -1,0 +1,36 @@
+{%- comment -%}
+  Renders one Bay State Conference Event Champions table (Year/Name/School/
+  Time columns) under a collapsible heading, or nothing at all if there are
+  no entries - a season/gender with no champion yet for this event (e.g. no
+  Winter Boys champion recorded before the division existed) simply omits
+  that table, same as records-table.html.
+
+  Usage: {% include event-champions-table.html heading="Fall — Girls" entries=girls_fall %}
+{%- endcomment -%}
+{%- if include.entries and include.entries.size > 0 -%}
+{%- capture body -%}
+<div class="records-table-scroll">
+<table class="nowrap-td">
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Name</th>
+      <th>School</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for entry in include.entries -%}
+    <tr>
+      <td>{{ entry['School Year'] | replace: '-', '–' }}</td>
+      <td>{{ entry.Name }}</td>
+      <td>{{ entry.School }}</td>
+      <td>{{ entry.Time }}</td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+</div>
+{%- endcapture -%}
+{%- include collapsible-group.html heading=include.heading body=body -%}
+{%- endif -%}

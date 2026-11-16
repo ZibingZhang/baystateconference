@@ -1,0 +1,4 @@
+event_num,event_name,gender,heat,lane,place,points,team,relay,first_name_1,last_name_1,year_1,splits_1,first_name_2,last_name_2,year_2,splits_2,first_name_3,last_name_3,year_3,splits_3,first_name_4,last_name_4,year_4,splits_4,seed_time,finals_time,status,exhibition,qualifier
+1,200 Yard Medley Relay,M,,,1,,NEED,A,Z,Zibing,,,J,Higgins,,,N,Lombardo,,,C,Allen,,,,1:41.41,,False,
+9,200 Yard Freestyle Relay,M,,,1,,WELL,A,A,Scherrer,,,H,Gribbel,,,G,Harris,,,M,Scherrer,,,,1:32.55,,False,
+12,400 Yard Freestyle Relay,M,,,1,,WELL,A,G,Harris,,,R,Thompson,,,A,Scherrer,,,M,Scherrer,,,,3:25.81,,False,

@@ -1,0 +1,9 @@
+event_num,event_name,gender,heat,lane,place,points,first_name,last_name,year,school,seed_time,finals_time,splits,status,exhibition,qualifier
+2,200 Yard Freestyle,F,,,1,,Jayne,Healey,,NEED,,2:00.89,,,False,
+3,200 Yard IM,F,,,1,,Meaghan,Bailey,,WALP,,2:14.74,,,False,
+4,50 Yard Freestyle,F,,,1,,Annie,Dosineau,,NEED,,25.95,,,False,
+6,100 Yard Butterfly,F,,,1,,Angela,Reuter,,FRAM,,1:02.80,,,False,
+7,100 Yard Freestyle,F,,,1,,Kathleen,Black,,DEDH,,56.28,,,False,
+8,500 Yard Freestyle,F,,,1,,Jayne,Healey,,NEED,,5:22.46,,,False,
+10,100 Yard Backstroke,F,,,1,,Meaghan,Bailey,,WALP,,1:02.97,,,False,
+11,100 Yard Breaststroke,F,,,1,,Megan,McLean,,WALP,,1:12.07,,,False,
