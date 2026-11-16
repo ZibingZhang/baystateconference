@@ -12,7 +12,7 @@
 # handful of ways:
 #
 #   raw_root           - _data path, e.g. %w[swimming-diving bsc]
-#   dir                - site path, e.g. "sports/swimming-diving/meets/bsc"
+#   dir                - site path, e.g. "sports/swimming-diving/meets/conference"
 #   nested_meet_data   - does the raw _data nest one more level, keyed by a
 #                        meet slug, before the CSV filenames, with each such
 #                        meet always getting its own hub page? True for
@@ -63,7 +63,7 @@ module MeetSheets
     SOURCES = [
       {
         raw_root: %w[swimming-diving bsc],
-        dir: "sports/swimming-diving/meets/bsc",
+        dir: "sports/swimming-diving/meets/conference",
         nested_meet_data: false,
         separate_meet_pages: false,
         hub_label: "Bay State Conference Meet",

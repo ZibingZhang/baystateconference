@@ -4,7 +4,7 @@ title: Records
 permalink: /sports/swimming-diving/records/
 internal_links:
   - title: Conference Meet Records
-    url: /sports/swimming-diving/meets/bsc/records/
+    url: /sports/swimming-diving/meets/conference/records/
   - title: Conference Records
     url: /sports/swimming-diving/records/conference/
   - title: Sectional Meet Records

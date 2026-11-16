@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Bay State Conference Rankings
-permalink: /sports/swimming-diving/meets/bsc/rankings/
+permalink: /sports/swimming-diving/meets/conference/rankings/
 breadcrumb: Rankings
 exclude_from_directory: true
 ---
