@@ -24,11 +24,12 @@
 # Sheet), not just results.
 #
 # The standalone, top-level Results folder is a separate, narrower view
-# scoped to "results"-tagged entries only (its By Meet and By School Year),
-# except for its own By Meet and Season, which - like Documents' - is every
-# meet-tagged document, so season-wide documents (e.g. the Format PDFs)
-# correctly stay out of it while a Sectionals-specific Psych Sheet still
-# shows up alongside that meet's results.
+# scoped to RESULT_TYPE_TAGS entries only - not just "results", since things
+# like Team Scores are results too, just filed under their own document
+# type. Unlike Documents > By Meet and Season, its own By Meet and Season
+# stays scoped to those same result-like types rather than every
+# meet-tagged document, so a meet's Psych Sheet or Heat Sheet (pre-meet, not
+# a result) doesn't show up next to that meet's actual results.
 
 require "json"
 
@@ -61,6 +62,11 @@ module SwimmingArchiveIndex
     }.freeze
 
     VALID_TYPE_TAGS = DOCUMENT_TYPE_DISPLAY_NAMES.keys.freeze
+
+    # The subset of VALID_TYPE_TAGS that actually report what happened at a
+    # meet (as opposed to preparing for one, or administering the
+    # conference) - what belongs under the standalone Results folder.
+    RESULT_TYPE_TAGS = %w[results team-scores].freeze
 
     MEET_DISPLAY_NAMES = {
       "bay-state-conference" => "Bay State Conference",
@@ -211,14 +217,14 @@ module SwimmingArchiveIndex
     end
 
     def results_folder(entries)
-      results = entries.select { |e| type_tag(e) == "results" }
+      results = entries.select { |e| RESULT_TYPE_TAGS.include?(type_tag(e)) }
 
       {
         "name" => "Results",
         "files" => [
           { "name" => "By Meet", "files" => flat_by_meet(results) },
           year_folders_for(results),
-          by_meet_and_season_folder(entries),
+          by_meet_and_season_folder(results),
         ],
       }
     end
