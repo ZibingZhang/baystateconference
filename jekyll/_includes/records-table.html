@@ -1,0 +1,53 @@
+{%- comment -%}
+  Renders one Bay State Conference records table (Event/Name/Date/School/Time
+  columns) under a collapsible heading, or nothing at all if there are no
+  entries.
+
+  Name/Date/School cells may contain a literal "<br>" where an event's
+  record is shared by more than one swimmer/date/school at the same Time
+  (a tie).
+
+  The heading/eye-toggle/hide-body shell is collapsible-group.html - this
+  include only supplies its body: the table itself. See that file for why
+  the single <script src> for its toggle must be included by the caller,
+  not here.
+
+  .records-table-scroll + nowrap-td keeps every row on one line (full event
+  names and full school names are too wide to wrap nicely) and lets it
+  scroll horizontally instead - same tradeoff as
+  rankings-summary-table.html's .rankings-summary-table-scroll, and for the
+  same reason: these rows can be wider than .post-content at any viewport,
+  not just the narrow ones the plain `table` mobile rule in _base.scss
+  blockifies at.
+
+  Usage: {% include records-table.html heading="Girls" entries=girls %}
+{%- endcomment -%}
+{%- if include.entries and include.entries.size > 0 -%}
+{%- capture body -%}
+<div class="records-table-scroll">
+<table class="nowrap-td">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Name</th>
+      <th>Date</th>
+      <th>School</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for entry in include.entries -%}
+    <tr>
+      <td>{{ entry.Event }}</td>
+      <td>{{ entry.Name }}</td>
+      <td>{{ entry.Date }}</td>
+      <td>{{ entry.School }}</td>
+      <td>{{ entry.Time }}</td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+</div>
+{%- endcapture -%}
+{%- include collapsible-group.html heading=include.heading body=body -%}
+{%- endif -%}

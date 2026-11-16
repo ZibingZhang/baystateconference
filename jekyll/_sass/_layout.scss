@@ -892,6 +892,16 @@
   overflow-x: auto;
 }
 
+// Wraps the records-table.html table so it can scroll horizontally instead
+// of overflowing the page - its .nowrap-td cells (full event and school
+// names) can be wider than .post-content at any viewport, not just the
+// narrow ones the plain `table` rule above blockifies at, same as
+// .rankings-summary-table-scroll.
+.records-table-scroll {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+}
+
 // Heading + eye-icon toggle for collapsible-group.html, shared by
 // rankings-summary-table.html and qualifying-standards-table.html.
 .collapsible-group-header {
