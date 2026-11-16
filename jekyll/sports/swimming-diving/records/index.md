@@ -10,7 +10,7 @@ internal_links:
   - title: Sectional Meet Records
     url: /sports/swimming-diving/meets/sectionals/records/
   - title: State Meet Records
-    url: /sports/swimming-diving/meets/states/records/
+    url: /sports/swimming-diving/meets/state/records/
   - title: State Records
     url: /sports/swimming-diving/records/state/
 ---

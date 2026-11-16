@@ -1,5 +1,5 @@
 # `school-name` is the school's actual name as it appears in the MIAA
-# sectionals/states results data (_data/swimming-diving/miaa/rankings) — in
+# sectionals/state results data (_data/swimming-diving/miaa/rankings) — in
 # most cases that's just "<town> High School". `aliases` is only needed when
 # a school's results have appeared under more than one name over the years
 # (e.g. a defunct name like "Framingham North" from before a merger) — most

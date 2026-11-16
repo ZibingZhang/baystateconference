@@ -1,5 +1,5 @@
 # Generates the Results/Psych Sheet/Heat Sheet pages for all three swimming
-# & diving meet sources - Bay State Conference, MIAA Sectionals, MIAA States -
+# & diving meet sources - Bay State Conference, MIAA Sectionals, MIAA State -
 # from the raw per-meet CSVs under jekyll/_data/swimming-diving/<raw_root>/
 # <year>/<season>/[<meet>/]{individual,relay,diving}_results.csv +
 # team_scores.csv (see scripts/extract_swim_meet.py for how those CSVs get
@@ -18,9 +18,9 @@
 #                        meet always getting its own hub page? True for
 #                        Sectionals (one key per concurrent meet - North/
 #                        South in Fall, +Central/West in Winter); false for
-#                        BSC and States (BSC's CSVs always sit directly under
+#                        BSC and State (BSC's CSVs always sit directly under
 #                        <year>/<season>/, since it only ever has the one
-#                        meet; States' usually do too, except a year split
+#                        meet; State's usually do too, except a year split
 #                        into two divisions, which nests one level into
 #                        division-1/division-2 team_scores.csv - still false
 #                        here since, unlike Sectionals, both divisions share
@@ -31,7 +31,7 @@
 #                        the season page (true - only Sectionals, since North
 #                        and South each need their own team scores + sheet
 #                        links), or does the season page simply *become* the
-#                        (sole) meet's hub page (false - BSC and States)?
+#                        (sole) meet's hub page (false - BSC and State)?
 #                        Requires nested_meet_data.
 #   meet_labels/meet_order - (separate_meet_pages sources only) meet slug ->
 #                        display label/sort position, e.g.
@@ -99,14 +99,14 @@ module MeetSheets
         archive_slug: "sectionals",
       },
       {
-        raw_root: %w[swimming-diving miaa states],
-        dir: "sports/swimming-diving/meets/states",
+        raw_root: %w[swimming-diving miaa state],
+        dir: "sports/swimming-diving/meets/state",
         nested_meet_data: false,
         separate_meet_pages: false,
         hub_label: "State Meet",
         year_title_suffix: "State Meets",
         latest_title: "Latest State Meet",
-        archive_slug: "states",
+        archive_slug: "state",
       },
     ].freeze
 
@@ -326,9 +326,9 @@ module MeetSheets
       elsif base.key?("team_scores")
         base["team_scores"] || []
       else
-        # States-only: a season with no single team_scores.csv instead has
+        # State-only: a season with no single team_scores.csv instead has
         # one meet-slug-keyed subdirectory per division (see
-        # jekyll/_data/swimming-diving/miaa/states's README note) - unlike
+        # jekyll/_data/swimming-diving/miaa/state's README note) - unlike
         # Sectionals' nested_meet_data, every division still renders on the
         # one shared hub page, so their rows get merged here with a
         # synthesized "division" tag (meet_sheets_page_utils.rb#team_score_

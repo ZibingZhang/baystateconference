@@ -1,11 +1,11 @@
 ---
 layout: page
 title: State Championship Meets
-permalink: /sports/swimming-diving/meets/states/
-breadcrumb: States
+permalink: /sports/swimming-diving/meets/state/
+breadcrumb: State
 default_sort: desc
 countdowns:
-  - label: "States"
+  - label: "State"
     date: "2026-11-15T16:45"
 external_links:
   - title: MIAA Website
@@ -17,11 +17,11 @@ resource_links:
     url: /sports/swimming-diving/resources/miaa-school-abbreviations/
 internal_links:
   - title: Archive
-    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/states
+    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/state
   - title: Rankings
-    url: /sports/swimming-diving/meets/states/rankings/
+    url: /sports/swimming-diving/meets/state/rankings/
   - title: Records
-    url: /sports/swimming-diving/meets/states/records/
+    url: /sports/swimming-diving/meets/state/records/
 ---
 
 The fall state championship meet will take place on November 15th at MIT.

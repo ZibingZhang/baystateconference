@@ -46,17 +46,17 @@ module Rankings
         hub_url: ->(year, season, division) { "/sports/swimming-diving/meets/sectionals/#{year}/#{season}/#{division}/" },
       },
       {
-        page_url: "/sports/swimming-diving/meets/states/rankings/",
-        raw_root: %w[swimming-diving miaa states],
+        page_url: "/sports/swimming-diving/meets/state/rankings/",
+        raw_root: %w[swimming-diving miaa state],
         multi_meet: false,
         division_of: ->(row) { row["division"].to_s },
         division_label: ->(division) { division },
-        # States never splits a season across separate meet pages the way
+        # State never splits a season across separate meet pages the way
         # Sectionals does - a year with two divisions still has just the
         # one hub page, with both divisions' tables on it (see
         # meet_sheets_page_utils.rb#team_score_groups) - so every row for a
         # given year/season links to the same URL regardless of division.
-        hub_url: ->(year, season, _division) { "/sports/swimming-diving/meets/states/#{year}/#{season}/" },
+        hub_url: ->(year, season, _division) { "/sports/swimming-diving/meets/state/#{year}/#{season}/" },
       },
     ].freeze
 

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: States Rankings
-permalink: /sports/swimming-diving/meets/states/rankings/
+title: State Rankings
+permalink: /sports/swimming-diving/meets/state/rankings/
 breadcrumb: Rankings
 exclude_from_directory: true
 ---

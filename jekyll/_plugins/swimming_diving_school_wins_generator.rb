@@ -21,12 +21,12 @@ module SwimmingDivingSchoolWins
 
     BSC_RAW_ROOT = %w[swimming-diving bsc].freeze
     SECTIONALS_RAW_ROOT = %w[swimming-diving miaa sectionals].freeze
-    STATES_RAW_ROOT = %w[swimming-diving miaa states].freeze
+    STATE_RAW_ROOT = %w[swimming-diving miaa state].freeze
 
     def generate(site)
       bsc = MeetSheetsPageUtils.team_scores_rows(site, BSC_RAW_ROOT)
       sectionals = MeetSheetsPageUtils.team_scores_rows(site, SECTIONALS_RAW_ROOT, multi_meet: true)
-      states = MeetSheetsPageUtils.team_scores_rows(site, STATES_RAW_ROOT)
+      states = MeetSheetsPageUtils.team_scores_rows(site, STATE_RAW_ROOT)
       high_schools = MeetSheetsPageUtils.high_school_names(site)
 
       (site.data["schools"] || []).each do |school|
