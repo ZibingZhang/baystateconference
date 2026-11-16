@@ -37,23 +37,23 @@ Results will be posted after each meet.
 
 ### Girls Sectionals — 2/6/27 at MIT
 
-| | South | North |
-| --- | --- | --- |
-| Team doors open | 7:00 AM | 2:30 PM |
-| Warm-up begins | 7:15 AM | 2:45 PM |
-| Spectator doors open | 7:30 AM | 3:00 PM |
-| Meet begins | 8:15 AM | 3:45 PM |
-| Meet ends (approx.) | 11:15 AM | 6:45 PM |
+|                      | South    | North   |
+|----------------------|----------|---------|
+| Team doors open      | 7:00 AM  | 2:30 PM |
+| Warm-up begins       | 7:15 AM  | 2:45 PM |
+| Spectator doors open | 7:30 AM  | 3:00 PM |
+| Meet begins          | 8:15 AM  | 3:45 PM |
+| Meet ends (approx.)  | 11:15 AM | 6:45 PM |
 
 ### Boys Sectionals — 2/7/27 at MIT
 
-| | South | North |
-| --- | --- | --- |
-| Team doors open | 7:00 AM | 2:30 PM |
-| Warm-up begins | 7:15 AM | 2:45 PM |
-| Spectator doors open | 7:30 AM | 3:00 PM |
-| Meet begins | 8:15 AM | 3:45 PM |
-| Meet ends (approx.) | 11:15 AM | 6:45 PM |
+|                      | South    | North   |
+|----------------------|----------|---------|
+| Team doors open      | 7:00 AM  | 2:30 PM |
+| Warm-up begins       | 7:15 AM  | 2:45 PM |
+| Spectator doors open | 7:30 AM  | 3:00 PM |
+| Meet begins          | 8:15 AM  | 3:45 PM |
+| Meet ends (approx.)  | 11:15 AM | 6:45 PM |
 
 {% include link-list.html heading="See Also" items=page.internal_links %}
 

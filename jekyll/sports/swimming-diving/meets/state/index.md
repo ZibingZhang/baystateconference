@@ -37,23 +37,23 @@ Results will be posted after each meet.
 
 ### Girls States — 2/13/27 at BU
 
-| | D2 | D1 |
-| --- | --- | --- |
-| Team doors open | 12:00 PM | 5:00 PM |
-| Warm-up begins | 12:15 PM | 5:15 PM |
+|                      | D2       | D1      |
+|----------------------|----------|---------|
+| Team doors open      | 12:00 PM | 5:00 PM |
+| Warm-up begins       | 12:15 PM | 5:15 PM |
 | Spectator doors open | 12:30 PM | 5:30 PM |
-| Meet begins | 1:15 PM | 6:15 PM |
-| Meet ends (approx.) | 4:15 PM | 9:15 PM |
+| Meet begins          | 1:15 PM  | 6:15 PM |
+| Meet ends (approx.)  | 4:15 PM  | 9:15 PM |
 
 ### Boys States — 2/14/27 at BU
 
-| | D2 | D1 |
-| --- | --- | --- |
-| Team doors open | 12:00 PM | 5:00 PM |
-| Warm-up begins | 12:15 PM | 5:15 PM |
+|                      | D2       | D1      |
+|----------------------|----------|---------|
+| Team doors open      | 12:00 PM | 5:00 PM |
+| Warm-up begins       | 12:15 PM | 5:15 PM |
 | Spectator doors open | 12:30 PM | 5:30 PM |
-| Meet begins | 1:15 PM | 6:15 PM |
-| Meet ends (approx.) | 4:15 PM | 9:15 PM |
+| Meet begins          | 1:15 PM  | 6:15 PM |
+| Meet ends (approx.)  | 4:15 PM  | 9:15 PM |
 
 {% include link-list.html heading="See Also" items=page.internal_links %}
 
