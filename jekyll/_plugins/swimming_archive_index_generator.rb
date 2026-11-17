@@ -69,21 +69,25 @@ module SwimmingArchiveIndex
     RESULT_TYPE_TAGS = %w[results team-scores].freeze
 
     MEET_DISPLAY_NAMES = {
-      "bay-state-conference" => "Bay State Conference",
+      "conference" => "Conference",
       "sectional" => "Sectional",
       "state" => "State",
     }.freeze
 
+    # Document types that, despite often carrying a meet tag for
+    # provenance, aren't about any single meet occurrence (All-Stars is a
+    # once-per-season honor, not tied to a particular meet date/venue) - so
+    # they're left out of the meet-centric By Meet / By Meet and Season
+    # views even when they carry a meet tag.
+    NON_MEET_TYPE_TAGS = %w[all-stars].freeze
+
     # The substring actually worth stripping out of a file's own name when
-    # it's already sitting in that meet's folder - happens to match the
-    # display name above for all three meets today, but kept as its own
-    # constant since that's not guaranteed (a file's name could use
-    # different phrasing from its folder's display name). Naive and
-    # best-effort: if an entry's name doesn't happen to contain this exact
-    # text (e.g. a Bay State Conference entry just named after the host
-    # school, or a "Western Mass" sectional), it's left alone.
+    # it's already sitting in that meet's folder - best-effort: if an
+    # entry's name doesn't happen to contain this exact text (e.g. a
+    # Conference entry just named after the host school, or a "Western
+    # Mass" sectional), it's left alone.
     MEET_NAME_STRIP_TERMS = {
-      "bay-state-conference" => "Bay State Conference",
+      "conference" => "Conference Meet",
       "sectional" => "Sectional",
       "state" => "State",
     }.freeze
@@ -189,13 +193,15 @@ module SwimmingArchiveIndex
         flat_type_folder(display_name, matching)
       end
 
+      meet_eligible = entries.reject { |e| NON_MEET_TYPE_TAGS.include?(type_tag(e)) }
+
       {
         "name" => "Documents",
         "files" => [
           { "name" => "By Type", "files" => by_type },
           year_folders_for(entries),
-          by_meet_folder(entries),
-          by_meet_and_season_folder(entries),
+          by_meet_folder(meet_eligible),
+          by_meet_and_season_folder(meet_eligible),
         ],
       }
     end
