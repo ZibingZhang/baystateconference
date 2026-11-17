@@ -211,6 +211,7 @@ function App() {
           onAddMeet={() => setAddMeetOpen(true)}
           onDeleteMeet={meetActions.deleteMeet}
           onRenameMeet={meetActions.renameMeet}
+          onReorderMeets={meetActions.reorderMeets}
           templates={MEET_TEMPLATES}
           selectedTemplateId={selectedTemplateId}
           onSelectTemplate={template.selectTemplate}

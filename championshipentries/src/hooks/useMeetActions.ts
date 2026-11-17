@@ -99,6 +99,15 @@ export function useMeetActions(
     callbacks.setSelectedMeetId(copiedMeetId);
   };
 
+  /** Reorders the sidebar's meet list to match `orderedIds` (drag-and-drop; templates aren't reorderable). */
+  const reorderMeets = (orderedIds: string[]) => {
+    history.update((prev) => {
+      const meetById = new Map(prev.meets.map((m) => [m.id, m]));
+      const reordered = orderedIds.map((id) => meetById.get(id)).filter((m): m is Meet => !!m);
+      return { ...prev, meets: reordered };
+    });
+  };
+
   const renameMeet = (id: string, name: string) => {
     const trimmed = name.trim();
     if (!trimmed) return;
@@ -136,6 +145,7 @@ export function useMeetActions(
     addMeet,
     deleteMeet,
     copyMeet,
+    reorderMeets,
     renameMeet,
     updateTeamCode,
     updateEventLimits,

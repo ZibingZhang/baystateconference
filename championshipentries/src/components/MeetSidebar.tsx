@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { KeyboardEvent } from "react";
+import type { KeyboardEvent, PointerEvent as ReactPointerEvent } from "react";
 import Box from "@mui/material/Box";
 import Collapse from "@mui/material/Collapse";
 import List from "@mui/material/List";
@@ -14,6 +14,7 @@ import Tooltip from "@mui/material/Tooltip";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import type { Meet, MeetTemplate } from "../types";
@@ -33,6 +34,7 @@ interface MeetSidebarProps {
   onAddMeet: () => void;
   onDeleteMeet: (id: string) => void;
   onRenameMeet: (id: string, name: string) => void;
+  onReorderMeets: (orderedIds: string[]) => void;
   templates: MeetTemplate[];
   selectedTemplateId: string | null;
   onSelectTemplate: (id: string) => void;
@@ -47,6 +49,7 @@ function MeetSidebar({
   onAddMeet,
   onDeleteMeet,
   onRenameMeet,
+  onReorderMeets,
   templates,
   selectedTemplateId,
   onSelectTemplate,
@@ -54,6 +57,8 @@ function MeetSidebar({
 }: MeetSidebarProps) {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editValue, setEditValue] = useState("");
+  const [draggingMeetId, setDraggingMeetId] = useState<string | null>(null);
+  const [dragOverMeetId, setDragOverMeetId] = useState<string | null>(null);
   const [width, setWidth] = useState(() => {
     const saved = Number(localStorage.getItem(SIDEBAR_WIDTH_STORAGE_KEY));
     return saved >= MIN_SIDEBAR_WIDTH && saved <= MAX_SIDEBAR_WIDTH ? saved : DEFAULT_SIDEBAR_WIDTH;
@@ -97,6 +102,41 @@ function MeetSidebar({
   const startResizing = () => {
     setIsResizing(true);
   };
+
+  const meetIdAtPoint = (x: number, y: number): string | null =>
+    (document.elementFromPoint(x, y) as HTMLElement | null)?.closest<HTMLElement>(
+      "[data-meet-id]",
+    )?.dataset.meetId ?? null;
+
+  const handleMeetDragHandlePointerDown =
+    (sourceId: string) => (event: ReactPointerEvent<HTMLDivElement>) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setDraggingMeetId(sourceId);
+
+      const onMove = (moveEvent: PointerEvent) => {
+        const targetId = meetIdAtPoint(moveEvent.clientX, moveEvent.clientY);
+        setDragOverMeetId(targetId && targetId !== sourceId ? targetId : null);
+      };
+      const onUp = (upEvent: PointerEvent) => {
+        window.removeEventListener("pointermove", onMove);
+        window.removeEventListener("pointerup", onUp);
+        setDraggingMeetId(null);
+        setDragOverMeetId(null);
+        const targetId = meetIdAtPoint(upEvent.clientX, upEvent.clientY);
+        if (!targetId || targetId === sourceId) return;
+        const ids = meets.map((m) => m.id);
+        const from = ids.indexOf(sourceId);
+        const to = ids.indexOf(targetId);
+        if (from === -1 || to === -1) return;
+        const next = ids.slice();
+        next.splice(from, 1);
+        next.splice(to, 0, sourceId);
+        onReorderMeets(next);
+      };
+      window.addEventListener("pointermove", onMove);
+      window.addEventListener("pointerup", onUp);
+    };
 
   const startEditing = (meet: Meet) => {
     setEditingId(meet.id);
@@ -267,6 +307,7 @@ function MeetSidebar({
             {meets.map((meet) => (
               <ListItem
                 key={meet.id}
+                data-meet-id={meet.id}
                 disablePadding
                 secondaryAction={
                   editingId === meet.id ? null : (
@@ -282,6 +323,10 @@ function MeetSidebar({
                     </Tooltip>
                   )
                 }
+                sx={{
+                  opacity: draggingMeetId === meet.id ? 0.5 : 1,
+                  bgcolor: dragOverMeetId === meet.id ? "action.hover" : undefined,
+                }}
               >
                 {editingId === meet.id ? (
                   <Box sx={{ flex: 1, px: 2, py: 0.5 }}>
@@ -296,29 +341,46 @@ function MeetSidebar({
                     />
                   </Box>
                 ) : (
-                  <ListItemButton
-                    selected={meet.id === selectedMeetId}
-                    onClick={() => onSelectMeet(meet.id)}
-                    onDoubleClick={() => startEditing(meet)}
-                    // style (not sx) to out-specificity MUI's own secondaryAction padding-right rule
-                    style={{ paddingRight: 40 }}
-                  >
-                    <ListItemText
-                      primary={meet.name}
-                      slotProps={{
-                        primary: {
-                          title: meet.name,
-                          sx: {
-                            display: "-webkit-box",
-                            WebkitLineClamp: 2,
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
-                          },
-                        },
+                  <>
+                    <Box
+                      onPointerDown={handleMeetDragHandlePointerDown(meet.id)}
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: 24,
+                        flexShrink: 0,
+                        cursor: "grab",
+                        color: "action.active",
+                        touchAction: "none",
                       }}
-                      sx={{ minWidth: 0 }}
-                    />
-                  </ListItemButton>
+                    >
+                      <DragIndicatorIcon fontSize="small" />
+                    </Box>
+                    <ListItemButton
+                      selected={meet.id === selectedMeetId}
+                      onClick={() => onSelectMeet(meet.id)}
+                      onDoubleClick={() => startEditing(meet)}
+                      // style (not sx) to out-specificity MUI's own secondaryAction padding-right rule
+                      style={{ paddingLeft: 4, paddingRight: 40 }}
+                    >
+                      <ListItemText
+                        primary={meet.name}
+                        slotProps={{
+                          primary: {
+                            title: meet.name,
+                            sx: {
+                              display: "-webkit-box",
+                              WebkitLineClamp: 2,
+                              WebkitBoxOrient: "vertical",
+                              overflow: "hidden",
+                            },
+                          },
+                        }}
+                        sx={{ minWidth: 0 }}
+                      />
+                    </ListItemButton>
+                  </>
                 )}
               </ListItem>
             ))}
