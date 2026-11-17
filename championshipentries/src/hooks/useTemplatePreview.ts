@@ -2,12 +2,12 @@ import { useEffect, useMemo, useState } from "react";
 import type { AppData, ImportedEvent, IndividualEntry, Meet, RelayEntry } from "../types";
 import { uniqueEventOptions } from "../domain/ev3";
 import {
-  MEET_TEMPLATES,
   buildTemplateIndividualEntries,
   buildTemplateRelayEntries,
   fetchTemplateEvents,
+  findMeetTemplate,
 } from "../domain/meetTemplates";
-import { newId } from "../utils/id";
+import { newId, newMeetId } from "../utils/id";
 
 export const TEMPLATE_READ_ONLY_MESSAGE =
   "This is a template and cannot be edited. Make a copy of it into a new meet first.";
@@ -28,16 +28,17 @@ type TemplateFetchState =
  */
 export function useTemplatePreview(
   history: History,
+  selectedTemplateId: string | null,
   callbacks: {
+    setSelectedTemplateId: (id: string | null) => void;
     setSelectedMeetId: (id: string | null) => void;
     setView: (view: "howto" | "about" | null) => void;
     showInfo: (dialog: { title: string; message: string }) => void;
   },
 ) {
-  const [selectedTemplateId, setSelectedTemplateId] = useState<string | null>(null);
   const [templateFetchState, setTemplateFetchState] = useState<TemplateFetchState>(null);
 
-  const selectedTemplate = MEET_TEMPLATES.find((t) => t.id === selectedTemplateId) ?? null;
+  const selectedTemplate = findMeetTemplate(selectedTemplateId ?? undefined);
   const templateData: { status: "loading" } | TemplateFetchState = !selectedTemplate
     ? null
     : templateFetchState?.templateId === selectedTemplate.id
@@ -75,22 +76,23 @@ export function useTemplatePreview(
     callbacks.showInfo({ title: "Template", message: TEMPLATE_READ_ONLY_MESSAGE });
 
   const selectTemplate = (id: string) => {
-    setSelectedTemplateId(id);
+    callbacks.setSelectedTemplateId(id);
     callbacks.setSelectedMeetId(null);
     callbacks.setView(null);
   };
 
-  const clearTemplate = () => setSelectedTemplateId(null);
+  const clearTemplate = () => callbacks.setSelectedTemplateId(null);
 
   const copyTemplateToMeet = (templateId: string, meetName?: string) => {
-    const template = MEET_TEMPLATES.find((t) => t.id === templateId);
+    const template = findMeetTemplate(templateId);
     if (!template) return;
     fetchTemplateEvents(template.ev3Url)
       .then(({ events, rawText }) => {
-        const newMeetId = newId();
+        const createdMeetId = newMeetId();
         const meet: Meet = {
-          id: newMeetId,
+          id: createdMeetId,
           name: meetName?.trim() || template.name,
+          sourceTemplateId: template.id,
           importedEventsFileName: template.eventsFileName,
           importedEventsRaw: rawText,
           maxIndividualEventsPerAthlete: template.maxIndividualEventsPerAthlete,
@@ -100,14 +102,14 @@ export function useTemplatePreview(
           relayEventEntryLimit: template.relayEventEntryLimit,
         };
         const newIndividualEntries = buildTemplateIndividualEntries(
-          newMeetId,
+          createdMeetId,
           events,
           template.genderFilter,
           newId,
           template.individualEntryStubsPerEvent,
         );
         const newRelayEntries = buildTemplateRelayEntries(
-          newMeetId,
+          createdMeetId,
           events,
           template.genderFilter,
           newId,
@@ -119,8 +121,8 @@ export function useTemplatePreview(
           individualEntries: [...prev.individualEntries, ...newIndividualEntries],
           relayEntries: [...prev.relayEntries, ...newRelayEntries],
         }));
-        setSelectedTemplateId(null);
-        callbacks.setSelectedMeetId(newMeetId);
+        callbacks.setSelectedTemplateId(null);
+        callbacks.setSelectedMeetId(createdMeetId);
       })
       .catch((err: unknown) => {
         callbacks.showInfo({
@@ -159,7 +161,6 @@ export function useTemplatePreview(
     : undefined;
 
   return {
-    selectedTemplateId,
     selectedTemplate,
     templateData,
     templateIndividualEntries,

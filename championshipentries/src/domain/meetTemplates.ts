@@ -1,4 +1,5 @@
 import type { Gender, ImportedEvent, IndividualEntry, MeetTemplate, RelayEntry } from "../types";
+import { hashId } from "../utils/id";
 import { parseEv3, uniqueEventOptions } from "./ev3";
 
 const HIGH_SCHOOL_EVENT_LIMITS = {
@@ -7,13 +8,17 @@ const HIGH_SCHOOL_EVENT_LIMITS = {
   maxTotalEventsPerAthlete: 4,
 };
 
-export const MEET_TEMPLATES: MeetTemplate[] = [
+/** Template fields minus `id`, which is derived below from `ev3Url` rather than hand-picked, so it can't drift from the template it names. */
+type MeetTemplateDefinition = Omit<MeetTemplate, "id">;
+
+const MEET_TEMPLATE_DEFINITIONS: MeetTemplateDefinition[] = [
   {
-    id: "template-2026-fall-bay-state-conference",
     name: "2026 Fall Bay State Conference",
     ev3Url:
       "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall/bay-state-conference/events.ev3",
     eventsFileName: "2026-fall-bay-state-conference.ev3",
+    meetType: "conference",
+    season: "fall",
     genderFilter: "G",
     individualEntryStubsPerEvent: 4,
     relayEntryStubsPerEvent: 3,
@@ -22,11 +27,12 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     ...HIGH_SCHOOL_EVENT_LIMITS,
   },
   {
-    id: "template-2026-fall-north-sectional",
     name: "2026 Fall North Sectional Championships",
     ev3Url:
       "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall/north-sectional/events.ev3",
     eventsFileName: "2026-fall-north-sectional.ev3",
+    meetType: "sectional",
+    season: "fall",
     genderFilter: "G",
     individualEntryStubsPerEvent: 0,
     relayEntryStubsPerEvent: 1,
@@ -35,11 +41,12 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     ...HIGH_SCHOOL_EVENT_LIMITS,
   },
   {
-    id: "template-2026-fall-south-sectional",
     name: "2026 Fall South Sectional Championships",
     ev3Url:
       "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall/south-sectional/events.ev3",
     eventsFileName: "2026-fall-south-sectional.ev3",
+    meetType: "sectional",
+    season: "fall",
     genderFilter: "G",
     individualEntryStubsPerEvent: 0,
     relayEntryStubsPerEvent: 1,
@@ -48,11 +55,12 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     ...HIGH_SCHOOL_EVENT_LIMITS,
   },
   {
-    id: "template-2026-fall-state",
     name: "2026 Fall State Championships",
     ev3Url:
       "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/resources/miaa/swimming-diving/2026-2027/fall/state/events.ev3",
     eventsFileName: "2026-fall-state.ev3",
+    meetType: "state",
+    season: "fall",
     genderFilter: "G",
     individualEntryStubsPerEvent: 0,
     relayEntryStubsPerEvent: 1,
@@ -61,6 +69,16 @@ export const MEET_TEMPLATES: MeetTemplate[] = [
     ...HIGH_SCHOOL_EVENT_LIMITS,
   },
 ];
+
+export const MEET_TEMPLATES: MeetTemplate[] = MEET_TEMPLATE_DEFINITIONS.map((definition) => ({
+  ...definition,
+  id: hashId(definition.ev3Url),
+}));
+
+/** Looks up the template a meet was copied from (see `Meet.sourceTemplateId`), if any. */
+export function findMeetTemplate(id: string | undefined): MeetTemplate | null {
+  return (id ? MEET_TEMPLATES.find((t) => t.id === id) : undefined) ?? null;
+}
 
 const RELAY_LETTERS = ["A", "B", "C", "D"];
 

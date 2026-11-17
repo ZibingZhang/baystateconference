@@ -1,5 +1,5 @@
 import type { AppData, Athlete, IndividualEntry, Meet, RelayEntry } from "../types";
-import { newId } from "../utils/id";
+import { newId, newMeetId } from "../utils/id";
 import { downloadTextFile } from "../utils/csv";
 import { buildMeetBackup, meetBackupFileName, parseMeetBackup } from "../domain/meetBackup";
 
@@ -40,30 +40,30 @@ export function useMeetBackup(
           return;
         }
 
-        const newMeetId = newId();
+        const importedMeetId = newMeetId();
         const athleteIdMap = new Map<string, string>();
         const newAthletes: Athlete[] = result.athletes.map((a) => {
           const newAthleteId = newId();
           athleteIdMap.set(a.id, newAthleteId);
-          return { ...a, id: newAthleteId, meetId: newMeetId };
+          return { ...a, id: newAthleteId, meetId: importedMeetId };
         });
         const remapAthleteId = (athleteId: string) => athleteIdMap.get(athleteId) ?? athleteId;
         const newIndividualEntries: IndividualEntry[] = result.individualEntries.map((e) => ({
           ...e,
           id: newId(),
-          meetId: newMeetId,
+          meetId: importedMeetId,
           athleteId: remapAthleteId(e.athleteId),
         }));
         const newRelayEntries: RelayEntry[] = result.relayEntries.map((e) => ({
           ...e,
           id: newId(),
-          meetId: newMeetId,
+          meetId: importedMeetId,
           leg1AthleteId: remapAthleteId(e.leg1AthleteId),
           leg2AthleteId: remapAthleteId(e.leg2AthleteId),
           leg3AthleteId: remapAthleteId(e.leg3AthleteId),
           leg4AthleteId: remapAthleteId(e.leg4AthleteId),
         }));
-        const newMeet: Meet = { ...result.meet, id: newMeetId };
+        const newMeet: Meet = { ...result.meet, id: importedMeetId };
 
         history.update((prev) => ({
           meets: [...prev.meets, newMeet],
@@ -71,7 +71,7 @@ export function useMeetBackup(
           individualEntries: [...prev.individualEntries, ...newIndividualEntries],
           relayEntries: [...prev.relayEntries, ...newRelayEntries],
         }));
-        callbacks.setSelectedMeetId(newMeetId);
+        callbacks.setSelectedMeetId(importedMeetId);
       })
       .catch((err: unknown) => {
         const message = err instanceof Error ? err.message : "Could not read this file.";

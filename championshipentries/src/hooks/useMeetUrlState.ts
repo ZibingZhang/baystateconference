@@ -11,14 +11,18 @@ export interface Page {
 }
 
 /**
- * Keeps the selected meet, active tab, and How To/About pages in sync with
- * the `meet`/`tab`/`view` URL query params, so a link/refresh lands back on
- * the same place. `view=howto` or `view=about` marks a full-page view; `tab`
- * is dropped from the URL while one is open since it doesn't apply.
+ * Keeps the selected meet, selected template preview, active tab, and How
+ * To/About pages in sync with the `meet`/`template`/`tab`/`view` URL query
+ * params, so a link/refresh lands back on the same place. `view=howto` or
+ * `view=about` marks a full-page view; `tab` is dropped from the URL while
+ * one is open since it doesn't apply.
  */
 export function useMeetUrlState() {
   const [selectedMeetId, setSelectedMeetId] = useState<string | null>(() =>
     new URLSearchParams(window.location.search).get("meet"),
+  );
+  const [selectedTemplateId, setSelectedTemplateId] = useState<string | null>(() =>
+    new URLSearchParams(window.location.search).get("template"),
   );
   const [activeTab, setActiveTabState] = useState<MeetTab>(() => {
     const tab = new URLSearchParams(window.location.search).get("tab");
@@ -43,6 +47,11 @@ export function useMeetUrlState() {
     } else {
       params.delete("meet");
     }
+    if (selectedTemplateId) {
+      params.set("template", selectedTemplateId);
+    } else {
+      params.delete("template");
+    }
     if (view) {
       params.set("view", view);
     } else {
@@ -59,11 +68,13 @@ export function useMeetUrlState() {
       "",
       `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`,
     );
-  }, [selectedMeetId, activeTab, view, tabParamCleared]);
+  }, [selectedMeetId, selectedTemplateId, activeTab, view, tabParamCleared]);
 
   return {
     selectedMeetId,
     setSelectedMeetId,
+    selectedTemplateId,
+    setSelectedTemplateId,
     activeTab,
     setActiveTab,
     clearTab,

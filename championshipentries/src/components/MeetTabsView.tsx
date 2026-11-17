@@ -36,6 +36,7 @@ interface MeetTabsViewProps {
   meetName: string;
   teamCode: string | undefined;
   onUpdateTeamCode?: (teamCode: string) => void;
+  sourceTemplateId: string | undefined;
   importedEventsRaw: string | undefined;
 
   athletes: Athlete[];
@@ -109,6 +110,7 @@ function MeetTabsView({
   meetName,
   teamCode,
   onUpdateTeamCode,
+  sourceTemplateId,
   importedEventsRaw,
   athletes,
   allAthletes,
@@ -277,7 +279,7 @@ function MeetTabsView({
           <AdvancedTab
             subTab={activeTab}
             onSubTabChange={onTabChange}
-            meet={{ id: meetId, name: meetName, teamCode, importedEventsRaw }}
+            meet={{ id: meetId, name: meetName, teamCode, sourceTemplateId, importedEventsRaw }}
             athletes={athletes}
             individualEntries={individualEntries}
             relayEntries={relayEntries}

@@ -12,6 +12,7 @@ import type {
 import type { AdvancedSubTab } from "../constants/meetTabs";
 import Ev3Tab from "./Ev3Tab";
 import Hy3Tab from "./Hy3Tab";
+import ArchiveTab from "./ArchiveTab";
 import SettingsTab from "./SettingsTab";
 
 interface AdvancedTabProps {
@@ -55,6 +56,7 @@ function AdvancedTab({
       >
         <Tab label="EV3 File" value="ev3" sx={{ minHeight: 36 }} />
         <Tab label="HY3 Preview" value="hy3" sx={{ minHeight: 36 }} />
+        <Tab label="Archive" value="archive" sx={{ minHeight: 36 }} />
         <Tab label="Settings" value="settings" sx={{ minHeight: 36 }} />
       </Tabs>
       <Box sx={{ flex: 1, minHeight: 0, display: "flex" }}>
@@ -71,6 +73,7 @@ function AdvancedTab({
             relayEntries={relayEntries}
           />
         </Box>
+        {subTab === "archive" && <ArchiveTab sourceTemplateId={meet.sourceTemplateId} />}
         {subTab === "settings" && (
           <Box sx={{ p: 1 }}>
             <SettingsTab

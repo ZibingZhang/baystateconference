@@ -1,4 +1,4 @@
-export type AdvancedSubTab = "ev3" | "hy3" | "settings";
+export type AdvancedSubTab = "ev3" | "hy3" | "archive" | "settings";
 
 export type MeetTab =
   | "team"
@@ -18,6 +18,7 @@ export const MEET_TABS: MeetTab[] = [
   "summary",
   "ev3",
   "hy3",
+  "archive",
   "settings",
 ];
 
@@ -25,7 +26,7 @@ export const MEET_TABS: MeetTab[] = [
 export type TopLevelMeetTab = Exclude<MeetTab, AdvancedSubTab> | "advanced";
 
 export function isAdvancedSubTab(tab: MeetTab): tab is AdvancedSubTab {
-  return tab === "ev3" || tab === "hy3" || tab === "settings";
+  return tab === "ev3" || tab === "hy3" || tab === "archive" || tab === "settings";
 }
 
 export function topLevelTabFor(tab: MeetTab): TopLevelMeetTab {

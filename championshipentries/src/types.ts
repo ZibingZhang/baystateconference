@@ -38,6 +38,12 @@ export interface EventEntryLimits {
   relayEventEntryLimit: number;
 }
 
+/** Which level of competition a template is for — matches the tags used in the swimming/diving results archive. */
+export type MeetType = "conference" | "sectional" | "state";
+
+/** Which half of the swimming/diving school year a template is for — matches the "season" field used in the results archive. */
+export type Season = "fall" | "winter";
+
 export interface MeetTemplate extends AthleteEventLimits, EventEntryLimits {
   id: string;
   name: string;
@@ -45,6 +51,10 @@ export interface MeetTemplate extends AthleteEventLimits, EventEntryLimits {
   ev3Url: string;
   /** Display-only filename shown to the user, independent of the actual file at ev3Url. */
   eventsFileName: string;
+  /** Used to match this template's meets against the archive's per-file tags (see `domain/archive.ts`). */
+  meetType: MeetType;
+  /** Used to match this template's meets against the archive's per-file "season" field (see `domain/archive.ts`). */
+  season: Season;
   /** Only entries for this gender are generated when the template is viewed or copied into a meet. */
   genderFilter: Gender;
   /** Blank individual entries stubbed per individual event. Unrelated to EventEntryLimits — this is purely how many rows the template pre-fills. */
@@ -57,6 +67,8 @@ export interface Meet extends Partial<AthleteEventLimits>, Partial<EventEntryLim
   id: string;
   name: string;
   teamCode?: string;
+  /** Id of the `MeetTemplate` this meet was created from, if any — used to look up its results archive (see `domain/meetTemplates.ts`'s `findMeetTemplate` and `domain/archive.ts`). */
+  sourceTemplateId?: string;
   importedEventsFileName?: string;
   /**
    * Raw text of the imported EV3 file. This is the sole source of truth for

@@ -43,8 +43,17 @@ function App() {
 
   const { confirmDialog, showConfirm, closeConfirm, infoDialog, showInfo, closeInfo } =
     useDialogState();
-  const { selectedMeetId, setSelectedMeetId, activeTab, setActiveTab, clearTab, view, setView } =
-    useMeetUrlState();
+  const {
+    selectedMeetId,
+    setSelectedMeetId,
+    selectedTemplateId,
+    setSelectedTemplateId,
+    activeTab,
+    setActiveTab,
+    clearTab,
+    view,
+    setView,
+  } = useMeetUrlState();
 
   // `setPage` needs `template.clearTemplate` (so undo/redo navigating onto a
   // real meet page also drops an open template preview), but `template` is
@@ -69,7 +78,12 @@ function App() {
     set: (prev, items) => ({ ...prev, relayEntries: items }),
   });
 
-  const template = useTemplatePreview(history, { setSelectedMeetId, setView, showInfo });
+  const template = useTemplatePreview(history, selectedTemplateId, {
+    setSelectedTemplateId,
+    setSelectedMeetId,
+    setView,
+    showInfo,
+  });
   const meetActions = useMeetActions(data, history, selectedMeetId, {
     setSelectedMeetId,
     setView,
@@ -92,7 +106,7 @@ function App() {
   const hy3Export = useHy3Export(data, history, selectedMeetId, { showInfo, showConfirm });
   const meetBackup = useMeetBackup(data, history, { setSelectedMeetId, showInfo });
   const appDataBackup = useAppDataBackup(data, history, { showInfo });
-  const { selectedTemplateId, selectedTemplate, templateData } = template;
+  const { selectedTemplate, templateData } = template;
 
   useEffect(() => {
     setPageRef.current = (page) => {
@@ -241,6 +255,7 @@ function App() {
                   meetId={selectedTemplate.id}
                   meetName={selectedTemplate.name}
                   teamCode={undefined}
+                  sourceTemplateId={selectedTemplate.id}
                   importedEventsRaw={templateData.rawText}
                   athletes={[]}
                   allAthletes={[]}
@@ -266,6 +281,7 @@ function App() {
               meetName={selectedMeet.name}
               teamCode={selectedMeet.teamCode}
               onUpdateTeamCode={meetActions.updateTeamCode}
+              sourceTemplateId={selectedMeet.sourceTemplateId}
               importedEventsRaw={selectedMeet.importedEventsRaw}
               athletes={athletes}
               allAthletes={data.athletes}

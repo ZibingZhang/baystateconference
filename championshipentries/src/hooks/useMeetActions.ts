@@ -7,7 +7,7 @@ import type {
   Meet,
   RelayEntry,
 } from "../types";
-import { newId } from "../utils/id";
+import { newId, newMeetId } from "../utils/id";
 
 interface History {
   update: (updater: (prev: AppData) => AppData) => void;
@@ -32,7 +32,7 @@ export function useMeetActions(
   },
 ) {
   const addMeet = (name: string) => {
-    const meet = { id: newId(), name };
+    const meet = { id: newMeetId(), name };
     history.update((prev) => ({ ...prev, meets: [...prev.meets, meet] }));
     callbacks.setSelectedMeetId(meet.id);
     callbacks.setView(null);
@@ -59,14 +59,14 @@ export function useMeetActions(
     const meet = data.meets.find((m) => m.id === id);
     if (!meet) return;
 
-    const newMeetId = newId();
+    const copiedMeetId = newMeetId();
     const athleteIdMap = new Map<string, string>();
     const newAthletes: Athlete[] = data.athletes
       .filter((a) => a.meetId === id)
       .map((a) => {
         const newAthleteId = newId();
         athleteIdMap.set(a.id, newAthleteId);
-        return { ...a, id: newAthleteId, meetId: newMeetId };
+        return { ...a, id: newAthleteId, meetId: copiedMeetId };
       });
     const remapAthleteId = (athleteId: string) => athleteIdMap.get(athleteId) ?? athleteId;
     const newIndividualEntries: IndividualEntry[] = data.individualEntries
@@ -74,7 +74,7 @@ export function useMeetActions(
       .map((e) => ({
         ...e,
         id: newId(),
-        meetId: newMeetId,
+        meetId: copiedMeetId,
         athleteId: remapAthleteId(e.athleteId),
       }));
     const newRelayEntries: RelayEntry[] = data.relayEntries
@@ -82,13 +82,13 @@ export function useMeetActions(
       .map((e) => ({
         ...e,
         id: newId(),
-        meetId: newMeetId,
+        meetId: copiedMeetId,
         leg1AthleteId: remapAthleteId(e.leg1AthleteId),
         leg2AthleteId: remapAthleteId(e.leg2AthleteId),
         leg3AthleteId: remapAthleteId(e.leg3AthleteId),
         leg4AthleteId: remapAthleteId(e.leg4AthleteId),
       }));
-    const newMeet: Meet = { ...meet, id: newMeetId, name: `${meet.name} (copy)` };
+    const newMeet: Meet = { ...meet, id: copiedMeetId, name: `${meet.name} (copy)` };
 
     history.update((prev) => ({
       meets: [...prev.meets, newMeet],
@@ -96,7 +96,7 @@ export function useMeetActions(
       individualEntries: [...prev.individualEntries, ...newIndividualEntries],
       relayEntries: [...prev.relayEntries, ...newRelayEntries],
     }));
-    callbacks.setSelectedMeetId(newMeetId);
+    callbacks.setSelectedMeetId(copiedMeetId);
   };
 
   const renameMeet = (id: string, name: string) => {
