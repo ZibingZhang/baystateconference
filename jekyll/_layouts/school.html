@@ -18,6 +18,20 @@ layout: base
   fallback for anything ungrouped and not expressible via schools.yaml
   either, rendered as further extra <tr> rows after everything else.
 
+  Instagram accounts are handled separately from the rest of
+  `sport.<sport_slug>`: they live in a flat, tagged `instagram` list at the
+  top of the school's schools.yaml entry (see that file's comment), and get
+  filtered into department/sport/section rows by instagram_rows_filter.rb -
+  see its comment and instagram-rows.html for why that's Ruby rather than
+  more nested Liquid. A sport whose only sectioned content is Instagram
+  doesn't need its own `sport.<slug>.sections` stub in schools.yaml at all -
+  instagram_section_names derives the Girls/Boys split straight from
+  whichever genders show up in that sport's Instagram entries. Declare
+  `sections` explicitly (as swim does) only when a section needs something
+  beyond Instagram - e.g. swim's win-count section_extra, which can apply to
+  a gender with no Instagram account - since that always wins over the
+  derived fallback.
+
   A page using this layout needs `school: "Braintree"` in its front matter
   to match against the `town` field in schools.yaml, and may optionally set
   `sport_slug: "baseball"`, `section_extra: "some-partial.html"`, and/or
@@ -82,13 +96,8 @@ layout: base
           </tr>
           {%- endif -%}
 
-          {%- if school.instagram.athletic-dept -%}
-          {%- assign athletic_dept_username = school.instagram.athletic-dept | split: '/' | slice: 3 | first -%}
-          <tr>
-            <th>A.D. Instagram</th>
-            <td><a href="{{ school.instagram.athletic-dept }}" target="_blank" rel="noopener me">@{{ athletic_dept_username }}</a></td>
-          </tr>
-          {%- endif -%}
+          {%- assign department_instagram_rows = school.instagram | instagram_department_rows -%}
+          {%- include instagram-rows.html rows=department_instagram_rows -%}
 
           {%- if school.arbiter -%}
           <tr>
@@ -109,9 +118,15 @@ layout: base
           {%- assign sport_data = school.sport[page.sport_slug] -%}
           {%- if sport_data -%}
           {%- include sport-info-rows.html data=sport_data -%}
-          {%- if sport_data.sections -%}
-          {%- include sport-info-sections.html sections=sport_data.sections school=school section_extra=page.section_extra -%}
           {%- endif -%}
+          {%- assign sport_instagram_rows = school.instagram | instagram_sport_rows: page.sport_slug -%}
+          {%- include instagram-rows.html rows=sport_instagram_rows -%}
+          {%- assign section_names = sport_data.sections -%}
+          {%- unless section_names -%}
+          {%- assign section_names = school.instagram | instagram_section_names: page.sport_slug -%}
+          {%- endunless -%}
+          {%- if section_names.size > 0 -%}
+          {%- include sport-info-sections.html sections=section_names school=school section_extra=page.section_extra instagram=school.instagram sport_slug=page.sport_slug -%}
           {%- endif -%}
           {%- endif -%}
 

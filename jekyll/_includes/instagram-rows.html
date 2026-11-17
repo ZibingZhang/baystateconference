@@ -1,0 +1,15 @@
+{%- comment -%}
+  Renders one <tr> per row from instagram_department_rows/instagram_sport_rows
+  (see _plugins/instagram_rows_filter.rb for how `include.rows` gets built).
+  Deliberately a flat, non-recursive loop - no local assigns here that a
+  future nested include could clobber (see that plugin's comment for why
+  that's a real risk in this codebase, not just caution).
+
+  include.rows  array of {label, url, username} hashes
+{%- endcomment -%}
+{%- for row in include.rows -%}
+<tr>
+  <th>{{ row.label }}</th>
+  <td><a href="{{ row.url }}" target="_blank" rel="noopener me">@{{ row.username }}</a></td>
+</tr>
+{%- endfor -%}

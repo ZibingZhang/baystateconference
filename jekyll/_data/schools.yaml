@@ -4,6 +4,22 @@
 # a school's results have appeared under more than one name over the years
 # (e.g. a defunct name like "Framingham North" from before a merger) — most
 # schools don't need it at all.
+#
+# `instagram` is a flat list of that school's Instagram accounts, each
+# tagged with whatever metadata determines where it shows up on the site -
+# see _plugins/instagram_rows_filter.rb and _includes/instagram-rows.html.
+# An entry needs only `url`; everything else is optional:
+#   sport    a sport slug, or a list of slugs for one account shared across
+#            several sports (e.g. track's distance/sprints groups) - absent
+#            for the athletic department's own account(s), see `tags` below
+#   gender   "girls" or "boys", when the sport splits by gender - absent
+#            means the account covers the whole team for that sport (shown
+#            once, above any gender-specific rows, not duplicated into both)
+#   level    a team level, e.g. "Varsity"/"JV", when that distinction matters
+#   tags     a free-form list for anything else worth labeling, e.g.
+#            [distance]/[sprint] or [current]/[former] for a handle that
+#            changed; [athletic-department] marks the department's own
+#            account(s), shown on every page regardless of sport
 - town: "Braintree"
   school-name: "Braintree High School"
   team-name: "Wamps"
@@ -11,13 +27,14 @@
   ad_website: "https://www.braintreeschools.org/athletics"
   arbiter: "https://www.arbiterlive.com/Teams?entityId=2333"
   wikipedia: "https://en.wikipedia.org/wiki/Braintree_High_School"
+  instagram:
+    - url: "https://www.instagram.com/braintreeswim.dive/"
+      sport: swimming-diving
   sport:
     swimming-diving:
       pool:
         name: "Blue Hills Regional Technical School"
         google-maps: "https://maps.app.goo.gl/Mw2f2v3KDZrFxWjL6"
-      instagram:
-        team: "https://www.instagram.com/braintreeswim.dive/"
       sections:
         Girls: {}
         Boys: {}
@@ -29,17 +46,22 @@
   arbiter: "https://www.arbiterlive.com/Teams?entityId=2546"
   wikipedia: "https://en.wikipedia.org/wiki/Brookline_High_School"
   instagram:
-    athletic-dept: "https://www.instagram.com/brooklineathletics/"
+    - url: "https://www.instagram.com/brooklineathletics/"
+      tags: [athletic-department]
+    - url: "https://www.instagram.com/brooklineswimanddive/"
+      sport: swimming-diving
+      gender: girls
+    - url: "https://www.instagram.com/brookline_swim.dive/"
+      sport: swimming-diving
+      gender: boys
   sport:
     swimming-diving:
       pool:
         name: "Evelyn Kirrane Aquatics Center"
         google-maps: "https://maps.app.goo.gl/pCPv2QDVBMyvoAq28"
       sections:
-        Girls:
-          instagram: "https://www.instagram.com/brooklineswimanddive/"
-        Boys:
-          instagram: "https://www.instagram.com/brookline_swim.dive/"
+        Girls: {}
+        Boys: {}
 - town: "Framingham"
   school-name: "Framingham High School"
   aliases:
@@ -51,14 +73,19 @@
   arbiter: "https://www.arbiterlive.com/Teams?entityId=7859"
   wikipedia: "https://en.wikipedia.org/wiki/Framingham_High_School"
   instagram:
-    athletic-dept: "https://www.instagram.com/framinghamflyerathletics/"
+    - url: "https://www.instagram.com/framinghamflyerathletics/"
+      tags: [athletic-department]
+    - url: "https://www.instagram.com/fhsgirlsswimanddive/"
+      sport: swimming-diving
+      gender: girls
+    - url: "https://www.instagram.com/fhs_boys.swim.and.dive/"
+      sport: swimming-diving
+      gender: boys
   sport:
     swimming-diving:
       sections:
-        Girls:
-          instagram: "https://www.instagram.com/fhsgirlsswimanddive/"
-        Boys:
-          instagram: "https://www.instagram.com/fhs_boys.swim.and.dive/"
+        Girls: {}
+        Boys: {}
 - town: "Milton"
   school-name: "Milton High School"
   team-name: "Wildcats"
@@ -66,13 +93,14 @@
   ad_website: "https://www.miltonps.org/page/athletics-gs"
   arbiter: "https://www.arbiterlive.com/Teams?entityId=14798"
   wikipedia: "https://en.wikipedia.org/wiki/Milton_High_School_(Massachusetts)"
+  instagram:
+    - url: "https://www.instagram.com/miltonhighswim/"
+      sport: swimming-diving
   sport:
     swimming-diving:
       pool:
         name: "Blue Hills Regional Technical School"
         google-maps: "https://maps.app.goo.gl/Mw2f2v3KDZrFxWjL6"
-      instagram:
-        team: "https://www.instagram.com/miltonhighswim/"
       sections:
         Girls: {}
         Boys: {}
@@ -84,14 +112,19 @@
   arbiter: "https://www.arbiterlive.com/Teams?entityId=15622"
   wikipedia: "https://en.wikipedia.org/wiki/Natick_High_School"
   instagram:
-    athletic-dept: "https://www.instagram.com/natick_athletics/"
+    - url: "https://www.instagram.com/natick_athletics/"
+      tags: [athletic-department]
+    - url: "https://www.instagram.com/redhawksswimdive/"
+      sport: swimming-diving
+      gender: girls
+    - url: "https://www.instagram.com/naticksnd/"
+      sport: swimming-diving
+      gender: boys
   sport:
     swimming-diving:
       sections:
-        Girls:
-          instagram: "https://www.instagram.com/redhawksswimdive/"
-        Boys:
-          instagram: "https://www.instagram.com/naticksnd/"
+        Girls: {}
+        Boys: {}
 - town: "Needham"
   school-name: "Needham High School"
   team-name: "Rockets"
@@ -100,17 +133,105 @@
   arbiter: "https://www.arbiterlive.com/Teams?entityId=15671"
   wikipedia: "https://en.wikipedia.org/wiki/Needham_High_School"
   instagram:
-    athletic-dept: "https://www.instagram.com/needhamrockets/"
+    - url: "https://www.instagram.com/needhamrockets/"
+      tags: [athletic-department]
+    - url: "https://www.instagram.com/needhamvarsitybaseball/"
+      sport: baseball
+    - url: "https://www.instagram.com/ladyrocketsbball/"
+      sport: basketball
+      gender: girls
+    - url: "https://www.instagram.com/needhamboysbasketball/"
+      sport: basketball
+      gender: boys
+    - url: "https://www.instagram.com/needhamdistance/"
+      sport: [cross-country, indoor-track-and-field, outdoor-track-and-field]
+      tags: [distance]
+    - url: "https://www.instagram.com/needhamsprints/"
+      sport: [cross-country, indoor-track-and-field, outdoor-track-and-field]
+      tags: [sprint]
+    - url: "https://www.instagram.com/needhamvarsitydanceteam/"
+      sport: dance
+    - url: "https://www.instagram.com/needhamgvfh/"
+      sport: field-hockey
+    - url: "https://www.instagram.com/nhs_flagfball/"
+      sport: flag-football
+    - url: "https://www.instagram.com/nhsgymnastics/"
+      sport: gymnastics
+    - url: "https://www.instagram.com/needhamsailing/"
+      sport: sailing
+    - url: "https://www.instagram.com/nhs_ski/"
+      sport: skiing
+    - url: "https://www.instagram.com/needhamhighsoccer/"
+      sport: soccer
+    - url: "https://www.instagram.com/needhamhighschoolsoccer/"
+      sport: soccer
+      gender: boys
+    - url: "https://www.instagram.com/needham_girlssoccer/"
+      sport: soccer
+      gender: girls
+      tags: [current]
+    - url: "https://www.instagram.com/needhamgirlshighschoolsoccer/"
+      sport: soccer
+      gender: girls
+      tags: [former]
+    - url: "https://www.instagram.com/needhamboystennis/"
+      sport: tennis
+      gender: boys
+    - url: "https://www.instagram.com/needhamgirlstennis/"
+      sport: tennis
+      gender: girls
+      tags: [former]
+    - url: "https://www.instagram.com/needham_ultimate_frisbee/"
+      sport: ultimate-frisbee
+      tags: [former]
+    - url: "https://www.instagram.com/needhamgirlsvb/"
+      sport: volleyball
+      gender: girls
+    - url: "https://www.instagram.com/rocketsvolleyball/"
+      sport: volleyball
+      gender: boys
+    - url: "https://www.instagram.com/nhs_rockets_wrestling/"
+      sport: wrestling
+    - url: "https://www.instagram.com/rocketsgpuck/"
+      sport: ice-hockey
+      gender: girls
+    - url: "https://www.instagram.com/needham_boys_hockey/"
+      sport: ice-hockey
+      gender: boys
+      tags: [current]
+    - url: "https://www.instagram.com/needhammenshockey/"
+      sport: ice-hockey
+      gender: boys
+      tags: [former]
+    - url: "https://www.instagram.com/needhamglax/"
+      sport: lacrosse
+      gender: girls
+    - url: "https://www.instagram.com/needhamlax/"
+      sport: lacrosse
+      gender: boys
+    - url: "https://www.instagram.com/needhamgirlsrugby/"
+      sport: rugby
+    - url: "https://www.instagram.com/needham_hs_softball/"
+      sport: softball
+    - url: "https://www.instagram.com/needhamgirlsswive/"
+      sport: swimming-diving
+      gender: girls
+      tags: [current]
+    - url: "https://www.instagram.com/needhamswive/"
+      sport: swimming-diving
+      gender: girls
+      tags: [former]
+    - url: "https://www.instagram.com/nhsboysswive/"
+      sport: swimming-diving
+      gender: boys
   sport:
     swimming-diving:
       pool:
         name: "Babson University"
         google-maps: "https://maps.app.goo.gl/dAnkX6coezFPeA7C9"
       sections:
-        Girls:
-          instagram: "https://www.instagram.com/needhamgirlsswive/"
-        Boys:
-          instagram: "https://www.instagram.com/nhsboysswive/"
+        Girls: {}
+        Boys: {}
 - town: "Newton North"
   school-name: "Newton North High School"
   team-name: "Tigers"
@@ -119,17 +240,22 @@
   arbiter: "https://www.arbiterlive.com/Teams?entityId=26531"
   wikipedia: "https://en.wikipedia.org/wiki/Newton_North_High_School"
   instagram:
-    athletic-dept: "https://www.instagram.com/newton_north_tigers/"
+    - url: "https://www.instagram.com/newton_north_tigers/"
+      tags: [athletic-department]
+    - url: "https://www.instagram.com/nnhsswimanddive/"
+      sport: swimming-diving
+      gender: girls
+    - url: "https://www.instagram.com/nnhsboysswimanddive/"
+      sport: swimming-diving
+      gender: boys
   sport:
     swimming-diving:
       pool:
         name: "Newton North High School"
         google-maps: "https://maps.app.goo.gl/kXVhiLcxruDabcEv7"
       sections:
-        Girls:
-          instagram: "https://www.instagram.com/nnhsswimanddive/"
-        Boys:
-          instagram: "https://www.instagram.com/nnhsboysswimanddive/"
+        Girls: {}
+        Boys: {}
 - town: "Walpole"
   school-name: "Walpole High School"
   team-name: "Timberwolves"
@@ -138,14 +264,15 @@
   arbiter: "https://www.arbiterlive.com/Teams?entityId=24665"
   wikipedia: "https://en.wikipedia.org/wiki/Walpole_High_School"
   instagram:
-    athletic-dept: "https://www.instagram.com/walpolehighadsm/"
+    - url: "https://www.instagram.com/walpolehighadsm/"
+      tags: [athletic-department]
+    - url: "https://www.instagram.com/whs.swive/"
+      sport: swimming-diving
   sport:
     swimming-diving:
       pool:
         name: "Westwood High School"
         google-maps: "https://maps.app.goo.gl/K9pZb3uG86tMhgEg7"
-      instagram:
-        team: "https://www.instagram.com/whs.swive/"
       sections:
         Girls: {}
         Boys: {}
@@ -156,16 +283,21 @@
   ad_website: "https://wellesleyps.org/athletics/"
   arbiter: "https://www.arbiterlive.com/Teams?entityId=25087"
   wikipedia: "https://en.wikipedia.org/wiki/Wellesley_High_School"
+  instagram:
+    - url: "https://www.instagram.com/raidersgswimanddive/"
+      sport: swimming-diving
+      gender: girls
+    - url: "https://www.instagram.com/whsboysswimanddive/"
+      sport: swimming-diving
+      gender: boys
   sport:
     swimming-diving:
       pool:
         name: "Boston Sports Institute"
         google-maps: "https://maps.app.goo.gl/K9pZb3uG86tMhgEg7"
       sections:
-        Girls:
-          instagram: "https://www.instagram.com/raidersgswimanddive/"
-        Boys:
-          instagram: "https://www.instagram.com/whsboysswimanddive/"
+        Girls: {}
+        Boys: {}
 - town: "Weymouth"
   school-name: "Weymouth High School"
   team-name: "Wildcats"
@@ -174,7 +306,8 @@
   arbiter: "https://www.arbiterlive.com/Teams?entityId=25620"
   wikipedia: "https://en.wikipedia.org/wiki/Weymouth_High_School"
   instagram:
-    athletic-dept: "https://www.instagram.com/whs__athletics/"
+    - url: "https://www.instagram.com/whs__athletics/"
+      tags: [athletic-department]
   sport:
     swimming-diving:
       pool:

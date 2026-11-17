@@ -17,22 +17,30 @@
   include.school         passed through to section_extra
   include.section_extra  optional - path to a partial given `school` and
                           `section` (the current section name)
+  include.instagram      optional - the school's flat instagram list (see
+                          schools.yaml's comment), filtered to this section's
+                          gender via instagram_rows_filter.rb
+  include.sport_slug     required if `include.instagram` is set
 {%- endcomment -%}
 {%- for entry in include.sections -%}
   {%- assign section_name = entry[0] -%}
   {%- assign section_data = entry[1] -%}
   {%- capture section_rows %}{% include sport-info-rows.html data=section_data %}{% endcapture -%}
   {%- assign section_rows = section_rows | strip -%}
+  {%- assign section_instagram_rows = include.instagram | instagram_sport_rows: include.sport_slug, section_name -%}
+  {%- capture instagram_rows %}{% include instagram-rows.html rows=section_instagram_rows %}{% endcapture -%}
+  {%- assign instagram_rows = instagram_rows | strip -%}
   {%- assign extra_rows = "" -%}
   {%- if include.section_extra -%}
     {%- capture extra_rows %}{% include {{ include.section_extra }} school=include.school section=section_name %}{% endcapture -%}
     {%- assign extra_rows = extra_rows | strip -%}
   {%- endif -%}
-  {%- if section_rows != "" or extra_rows != "" -%}
+  {%- if section_rows != "" or instagram_rows != "" or extra_rows != "" -%}
 <tr class="school-info-section">
   <th colspan="2">{{ section_name }}</th>
 </tr>
 {{ section_rows }}
+{{ instagram_rows }}
 {{ extra_rows }}
   {%- endif -%}
 {%- endfor -%}
