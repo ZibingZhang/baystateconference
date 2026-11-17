@@ -316,6 +316,13 @@
       "tags": ["bay-state-conference", "results"]
     },
     {
+      "name": "2013-2014 Fall Girls & Boys Conference Meet Results.htm",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2013-2014/season=fall/girls-boys-conference-meet-results.htm",
+      "year": "2013-2014",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
       "name": "2013-2014 Winter Boys All-Stars.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2013-2014/season=winter/boys-all-stars.pdf",
       "year": "2013-2014",
@@ -330,11 +337,25 @@
       "tags": ["bay-state-conference", "results"]
     },
     {
-      "name": "2014-2015 Fall Girls & Boys Conference Meet Team Scores.html",
-      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2014-2015/season=fall/girls-boys-conference-meet-team-scores.html",
+      "name": "2014-2015 Fall Girls Conference Meet Team Scores.html",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2014-2015/season=fall/girls-conference-meet-team-scores.html",
       "year": "2014-2015",
       "season": "fall",
       "tags": ["bay-state-conference", "team-scores"]
+    },
+    {
+      "name": "2014-2015 Fall Boys Conference Meet Team Scores.html",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2014-2015/season=fall/boys-conference-meet-team-scores.html",
+      "year": "2014-2015",
+      "season": "fall",
+      "tags": ["bay-state-conference", "team-scores"]
+    },
+    {
+      "name": "2014-2015 Fall Girls & Boys Conference Meet Program.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2014-2015/season=fall/girls-boys-conference-meet-program.pdf",
+      "year": "2014-2015",
+      "season": "fall",
+      "tags": ["bay-state-conference", "programs"]
     },
     {
       "name": "2015-2016 Fall Girls & Boys Conference Meet Results.pdf",
@@ -351,6 +372,90 @@
       "tags": ["bay-state-conference", "team-scores"]
     },
     {
+      "name": "2015-2016 Fall Boys Conference Meet Team Scores.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/boys-conference-meet-team-scores.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "team-scores"]
+    },
+    {
+      "name": "2015-2016 Fall Girls & Boys Conference Meet Braintree Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-meet-braintree-results.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
+      "name": "2015-2016 Fall Girls & Boys Conference Meet Brookline Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-meet-brookline-results.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
+      "name": "2015-2016 Fall Girls & Boys Conference Meet Dedham Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-meet-dedham-results.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
+      "name": "2015-2016 Fall Girls & Boys Conference Meet Framingham Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-meet-framingham-results.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
+      "name": "2015-2016 Fall Girls & Boys Conference Meet Natick Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-meet-natick-results.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
+      "name": "2015-2016 Fall Girls & Boys Conference Meet Needham Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-meet-needham-results.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
+      "name": "2015-2016 Fall Girls & Boys Conference Meet Newton North Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-meet-newton-north-results.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
+      "name": "2015-2016 Fall Girls & Boys Conference Meet Norwood Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-meet-norwood-results.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
+      "name": "2015-2016 Fall Girls & Boys Conference Meet Walpole Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-meet-walpole-results.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
+      "name": "2015-2016 Fall Girls & Boys Conference Meet Wellesley Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-meet-wellesley-results.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
+      "name": "2015-2016 Fall Girls & Boys Conference Meet Weymouth Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2015-2016/season=fall/girls-boys-conference-meet-weymouth-results.pdf",
+      "year": "2015-2016",
+      "season": "fall",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
       "name": "2016-2017 Fall Girls & Boys Conference Meet Results.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2016-2017/season=fall/girls-boys-conference-meet-results.pdf",
       "year": "2016-2017",
@@ -360,6 +465,13 @@
     {
       "name": "2016-2017 Fall Girls & Boys Conference Meet Team Scores.pdf",
       "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2016-2017/season=fall/girls-boys-conference-meet-team-scores.pdf",
+      "year": "2016-2017",
+      "season": "fall",
+      "tags": ["bay-state-conference", "team-scores"]
+    },
+    {
+      "name": "2016-2017 Fall Boys Conference Meet Team Scores.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2016-2017/season=fall/boys-conference-meet-team-scores.pdf",
       "year": "2016-2017",
       "season": "fall",
       "tags": ["bay-state-conference", "team-scores"]
@@ -446,6 +558,20 @@
       "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2021-2022/season=winter/boys-conference-meet-results.pdf",
       "year": "2021-2022",
       "season": "winter",
+      "tags": ["bay-state-conference", "results"]
+    },
+    {
+      "name": "2021-2022 Fall Boys Conference Meet Team Scores.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2021-2022/season=fall/boys-conference-meet-team-scores.pdf",
+      "year": "2021-2022",
+      "season": "fall",
+      "tags": ["bay-state-conference", "team-scores"]
+    },
+    {
+      "name": "2021-2022 Fall Boys Conference Meet Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/league=bay-state-conference/year=2021-2022/season=fall/boys-conference-meet-results.pdf",
+      "year": "2021-2022",
+      "season": "fall",
       "tags": ["bay-state-conference", "results"]
     },
     {
@@ -3310,6 +3436,13 @@
       "year": "2026-2027",
       "season": "winter",
       "tags": ["qualifying-standards"]
+    },
+    {
+      "name": "2026-2027 Fall Girls & Boys State Results.pdf",
+      "s3Path": "organization=miaa/sport=swimming-diving/year=2026-2027/season=fall/girls-boys-state-results.pdf",
+      "year": "2026-2027",
+      "season": "fall",
+      "tags": ["results", "state"]
     }
   ]
 }
