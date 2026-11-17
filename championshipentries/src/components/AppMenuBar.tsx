@@ -33,8 +33,8 @@ const THEME_MODES: { value: ThemeMode; label: string; icon: typeof LightModeIcon
 ];
 
 const BASE_URL = "https://baystateconference.com/sports/swimming-diving/";
-const SECTIONALS_RESULTS_URL = `${BASE_URL}archive/?path=meet-results/by-meet/sectionals`;
-const STATES_RESULTS_URL = `${BASE_URL}archive/?path=meet-results/by-meet/states`;
+const SECTIONALS_RESULTS_URL = `${BASE_URL}archive/?path=results/by-meet/sectional`;
+const STATES_RESULTS_URL = `${BASE_URL}archive/?path=results/by-meet/state`;
 const SWIMMING_DIVING_HUB_URL = BASE_URL;
 
 interface AppMenuBarProps {
