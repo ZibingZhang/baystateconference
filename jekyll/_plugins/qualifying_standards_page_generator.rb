@@ -70,12 +70,15 @@ module QualifyingStandards
       school_years = entries.map { |entry| entry["School Year"] }.uniq
       school_years.sort!
       school_years.reverse!
+      oldest_year = school_years.last
+      latest_year = school_years.first
 
       school_years.each_with_index do |school_year, index|
         previous_year = school_years[index + 1]
         next_year = index.zero? ? nil : school_years[index - 1]
         site.pages << build_page(
-          site, entries, event_abbreviations, division_abbreviations, school_year, previous_year, next_year
+          site, entries, event_abbreviations, division_abbreviations, school_year, previous_year, next_year,
+          oldest_year, latest_year
         )
       end
 
@@ -90,7 +93,8 @@ module QualifyingStandards
 
     private
 
-    def build_page(site, entries, event_abbreviations, division_abbreviations, school_year, previous_year, next_year)
+    def build_page(site, entries, event_abbreviations, division_abbreviations, school_year, previous_year, next_year,
+                   oldest_year, latest_year)
       page = Jekyll::PageWithoutAFile.new(site, site.source, DIR, "#{school_year}.html")
       page.content = ""
       page.data.merge!(
@@ -102,7 +106,11 @@ module QualifyingStandards
         "previous_url" => previous_year && "/#{DIR}/#{previous_year}/",
         "previous_title" => previous_year,
         "next_url" => next_year && "/#{DIR}/#{next_year}/",
-        "next_title" => next_year
+        "next_title" => next_year,
+        "oldest_url" => (school_year != oldest_year) && "/#{DIR}/#{oldest_year}/",
+        "oldest_title" => (school_year != oldest_year) && oldest_year,
+        "latest_url" => (school_year != latest_year) && "/#{DIR}/#{latest_year}/",
+        "latest_title" => (school_year != latest_year) && latest_year
       )
       page
     end

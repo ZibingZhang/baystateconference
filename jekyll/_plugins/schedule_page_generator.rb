@@ -54,11 +54,14 @@ module Schedule
         years = sport_games.map { |g| g["school_year"] }.compact.uniq
         years << current_year unless years.include?(current_year)
         years.sort!.reverse!
+        oldest_year = years.last
+        latest_year = years.first
 
         years.each_with_index do |year, index|
           previous_year = years[index + 1]
           next_year = index.zero? ? nil : years[index - 1]
-          site.pages << build_page(site, sport, slug, year, sport_games, bsc_school_names, previous_year, next_year)
+          site.pages << build_page(site, sport, slug, year, sport_games, bsc_school_names, previous_year, next_year,
+                                    oldest_year, latest_year)
         end
 
         site.pages << build_current_season_redirect(site, slug, current_year)
@@ -91,7 +94,8 @@ module Schedule
       page
     end
 
-    def build_page(site, sport, slug, year, sport_games, bsc_school_names, previous_year, next_year)
+    def build_page(site, sport, slug, year, sport_games, bsc_school_names, previous_year, next_year,
+                   oldest_year, latest_year)
       dir = "sports/#{slug}/schedule"
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "#{year}.html")
       page.content = ""
@@ -108,7 +112,11 @@ module Schedule
         "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
         "previous_title" => previous_year && SchedulePageUtils.en_dash(previous_year),
         "next_url" => next_year && "/#{dir}/#{next_year}/",
-        "next_title" => next_year && SchedulePageUtils.en_dash(next_year)
+        "next_title" => next_year && SchedulePageUtils.en_dash(next_year),
+        "oldest_url" => (year != oldest_year) && "/#{dir}/#{oldest_year}/",
+        "oldest_title" => (year != oldest_year) && SchedulePageUtils.en_dash(oldest_year),
+        "latest_url" => (year != latest_year) && "/#{dir}/#{latest_year}/",
+        "latest_title" => (year != latest_year) && SchedulePageUtils.en_dash(latest_year)
       )
 
       page.data["nav"] = slug if site.data.dig("navigation", slug)

@@ -30,17 +30,19 @@ module DualMeetResults
     def generate(site)
       entries = site.data.dig(*DATA_PATH) || []
       years = entries.map { |entry| entry["School Year"] }.compact.uniq.sort.reverse
+      oldest_year = years.last
+      latest_year = years.first
 
       years.each_with_index do |year, index|
         previous_year = years[index + 1]
         next_year = index.zero? ? nil : years[index - 1]
-        site.pages << build_page(site, year, entries, previous_year, next_year)
+        site.pages << build_page(site, year, entries, previous_year, next_year, oldest_year, latest_year)
       end
     end
 
     private
 
-    def build_page(site, year, entries, previous_year, next_year)
+    def build_page(site, year, entries, previous_year, next_year, oldest_year, latest_year)
       page = Jekyll::PageWithoutAFile.new(site, site.source, DIR, "#{year}.html")
       page.content = ""
       page.data.merge!(
@@ -52,7 +54,11 @@ module DualMeetResults
         "previous_url" => previous_year && "/#{DIR}/#{previous_year}/",
         "previous_title" => previous_year && en_dash(previous_year),
         "next_url" => next_year && "/#{DIR}/#{next_year}/",
-        "next_title" => next_year && en_dash(next_year)
+        "next_title" => next_year && en_dash(next_year),
+        "oldest_url" => (year != oldest_year) && "/#{DIR}/#{oldest_year}/",
+        "oldest_title" => (year != oldest_year) && en_dash(oldest_year),
+        "latest_url" => (year != latest_year) && "/#{DIR}/#{latest_year}/",
+        "latest_title" => (year != latest_year) && en_dash(latest_year)
       )
       page
     end

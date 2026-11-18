@@ -111,7 +111,7 @@ module MeetSheets
     ].freeze
 
     HUB_CONTENT = <<~LIQUID
-      {% include year-pager.html previous_url=page.previous_url previous_title=page.previous_title next_url=page.next_url next_title=page.next_title %}
+      {% include year-pager.html previous_url=page.previous_url previous_title=page.previous_title next_url=page.next_url next_title=page.next_title oldest_url=page.oldest_url oldest_title=page.oldest_title latest_url=page.latest_url latest_title=page.latest_title %}
       {% for group in page.team_score_groups %}
       {% include rankings-table.html heading=group.heading entries=group.entries %}
       {% endfor %}
@@ -121,7 +121,7 @@ module MeetSheets
     LIQUID
 
     YEAR_CONTENT = <<~LIQUID
-      {% include year-pager.html previous_url=page.previous_url previous_title=page.previous_title next_url=page.next_url next_title=page.next_title %}
+      {% include year-pager.html previous_url=page.previous_url previous_title=page.previous_title next_url=page.next_url next_title=page.next_title oldest_url=page.oldest_url oldest_title=page.oldest_title latest_url=page.latest_url latest_title=page.latest_title %}
       {% include directory-listing.html %}
     LIQUID
 
@@ -147,11 +147,13 @@ module MeetSheets
       # derive a triple from. See MeetSheetsPageUtils.all_triples.
       triples = MeetSheetsPageUtils.all_triples(site, source[:raw_root], source[:nested_meet_data])
       years = triples.map(&:first).uniq.sort.reverse
+      oldest_year = years.last
+      latest_year = years.first
 
       years.each_with_index do |year, index|
         previous_year = years[index + 1]
         next_year = index.zero? ? nil : years[index - 1]
-        site.pages << build_year_page(site, source, year, previous_year, next_year)
+        site.pages << build_year_page(site, source, year, previous_year, next_year, oldest_year, latest_year)
 
         seasons = triples.select { |y, _, _| y == year }.map { |_, s, _| s }.uniq
         seasons.sort_by! { |s| MeetSheetsPageUtils::SEASON_ORDER[s] || 99 }
@@ -188,9 +190,11 @@ module MeetSheets
             hub_index = hub_years.index(year)
             previous_hub_year = hub_years[hub_index + 1]
             next_hub_year = hub_index.zero? ? nil : hub_years[hub_index - 1]
+            oldest_hub_year = hub_years.last
+            latest_hub_year = hub_years.first
 
             site.pages << build_hub_page(site, source, year, season, meet, hub_dir, hub_label, team_scores, sheets,
-                                          season_links, previous_hub_year, next_hub_year)
+                                          season_links, previous_hub_year, next_hub_year, oldest_hub_year, latest_hub_year)
 
             grouped = MeetSheetsPageUtils.group_by_event(
               individual.select { |r| r["School Year"] == year && r["Season"] == season && (!source[:separate_meet_pages] || r["Meet"] == meet) },
@@ -224,7 +228,7 @@ module MeetSheets
       page
     end
 
-    def build_year_page(site, source, year, previous_year, next_year)
+    def build_year_page(site, source, year, previous_year, next_year, oldest_year, latest_year)
       dir = "#{source[:dir]}/#{year}"
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
       page.content = YEAR_CONTENT
@@ -236,7 +240,11 @@ module MeetSheets
         "previous_url" => previous_year && "/#{source[:dir]}/#{previous_year}/",
         "previous_title" => previous_year && MeetSheetsPageUtils.en_dash(previous_year),
         "next_url" => next_year && "/#{source[:dir]}/#{next_year}/",
-        "next_title" => next_year && MeetSheetsPageUtils.en_dash(next_year)
+        "next_title" => next_year && MeetSheetsPageUtils.en_dash(next_year),
+        "oldest_url" => (year != oldest_year) && "/#{source[:dir]}/#{oldest_year}/",
+        "oldest_title" => (year != oldest_year) && MeetSheetsPageUtils.en_dash(oldest_year),
+        "latest_url" => (year != latest_year) && "/#{source[:dir]}/#{latest_year}/",
+        "latest_title" => (year != latest_year) && MeetSheetsPageUtils.en_dash(latest_year)
       )
       page
     end
@@ -255,7 +263,7 @@ module MeetSheets
     end
 
     def build_hub_page(site, source, year, season, meet, dir, hub_label, team_scores, sheets,
-                        season_links, previous_year, next_year)
+                        season_links, previous_year, next_year, oldest_year, latest_year)
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
       page.content = HUB_CONTENT
       page.data.merge!(
@@ -279,7 +287,11 @@ module MeetSheets
         "previous_url" => previous_year && "/#{hub_dir_for(source, previous_year, season, meet)}/",
         "previous_title" => previous_year && MeetSheetsPageUtils.en_dash(previous_year),
         "next_url" => next_year && "/#{hub_dir_for(source, next_year, season, meet)}/",
-        "next_title" => next_year && MeetSheetsPageUtils.en_dash(next_year)
+        "next_title" => next_year && MeetSheetsPageUtils.en_dash(next_year),
+        "oldest_url" => (year != oldest_year) && "/#{hub_dir_for(source, oldest_year, season, meet)}/",
+        "oldest_title" => (year != oldest_year) && MeetSheetsPageUtils.en_dash(oldest_year),
+        "latest_url" => (year != latest_year) && "/#{hub_dir_for(source, latest_year, season, meet)}/",
+        "latest_title" => (year != latest_year) && MeetSheetsPageUtils.en_dash(latest_year)
       )
       page
     end

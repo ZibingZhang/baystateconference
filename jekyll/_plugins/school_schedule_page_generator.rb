@@ -52,15 +52,30 @@ module SchoolSchedule
         next if school_games.empty?
 
         years = school_games.map { |g| g["school_year"] }.compact.uniq.sort.reverse
+        oldest_year = years.last
+        latest_year = years.first
+
+        # Precomputed once per school rather than re-deriving per (year,
+        # sport) page below - each sport's own previous/next/oldest/latest
+        # years are a subset of `years` (a sport need not have games every
+        # year), but scanning school_games again for every page would make
+        # this O(years^2) instead of O(years). Built by iterating `years`
+        # (already newest-first) in order, so every value lands sorted the
+        # same way for free.
+        sport_years_by_title = Hash.new { |hash, title| hash[title] = [] }
+        years.each do |year|
+          sport_titles_for(school_games, year).each { |title| sport_years_by_title[title] << year }
+        end
 
         years.each_with_index do |year, index|
           previous_year = years[index + 1]
           next_year = index.zero? ? nil : years[index - 1]
-          site.pages << build_year_page(site, sports, slug, year, school_games, previous_year, next_year)
+          site.pages << build_year_page(site, sports, slug, year, school_games, previous_year, next_year,
+                                         oldest_year, latest_year)
 
           sport_titles_for(school_games, year).each do |sport_title|
             site.pages << build_sport_page(
-              site, name, sports, slug, sport_title, year, school_games, years, index
+              site, name, sports, slug, sport_title, year, school_games, sport_years_by_title[sport_title]
             )
           end
         end
@@ -105,7 +120,7 @@ module SchoolSchedule
       sports.find { |s| s["title"] == title }
     end
 
-    def build_year_page(site, sports, slug, year, school_games, previous_year, next_year)
+    def build_year_page(site, sports, slug, year, school_games, previous_year, next_year, oldest_year, latest_year)
       dir = "schools/#{slug}/schedule"
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "#{year}.html")
       page.content = ""
@@ -118,7 +133,11 @@ module SchoolSchedule
         "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
         "previous_title" => previous_year && SchedulePageUtils.en_dash(previous_year),
         "next_url" => next_year && "/#{dir}/#{next_year}/",
-        "next_title" => next_year && SchedulePageUtils.en_dash(next_year)
+        "next_title" => next_year && SchedulePageUtils.en_dash(next_year),
+        "oldest_url" => (year != oldest_year) && "/#{dir}/#{oldest_year}/",
+        "oldest_title" => (year != oldest_year) && SchedulePageUtils.en_dash(oldest_year),
+        "latest_url" => (year != latest_year) && "/#{dir}/#{latest_year}/",
+        "latest_title" => (year != latest_year) && SchedulePageUtils.en_dash(latest_year)
       )
       page
     end
@@ -132,14 +151,20 @@ module SchoolSchedule
       end
     end
 
-    def build_sport_page(site, name, sports, school_slug, sport_title, year, school_games, years, index)
+    def build_sport_page(site, name, sports, school_slug, sport_title, year, school_games, sport_years)
       sport_slug = sport_data(sports, sport_title)&.fetch("url", nil)&.delete_prefix("/sports/")&.delete_suffix("/") ||
         Jekyll::Utils.slugify(sport_title)
 
       dir = "schools/#{school_slug}/schedule/#{year}/#{sport_slug}"
 
-      previous_year = years[index + 1..].find { |y| sport_titles_for(school_games, y).include?(sport_title) }
-      next_year = years[0...index].reverse.find { |y| sport_titles_for(school_games, y).include?(sport_title) }
+      # sport_years (newest-first) is precomputed once per school by the
+      # caller - re-deriving it here per page would mean re-scanning
+      # school_games for every year again.
+      sport_index = sport_years.index(year)
+      previous_year = sport_years[sport_index + 1]
+      next_year = sport_index.zero? ? nil : sport_years[sport_index - 1]
+      oldest_year = sport_years.last
+      latest_year = sport_years.first
       base_dir = "schools/#{school_slug}/schedule"
 
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
@@ -157,7 +182,11 @@ module SchoolSchedule
         "previous_url" => previous_year && "/#{base_dir}/#{previous_year}/#{sport_slug}/",
         "previous_title" => previous_year && SchedulePageUtils.en_dash(previous_year),
         "next_url" => next_year && "/#{base_dir}/#{next_year}/#{sport_slug}/",
-        "next_title" => next_year && SchedulePageUtils.en_dash(next_year)
+        "next_title" => next_year && SchedulePageUtils.en_dash(next_year),
+        "oldest_url" => (year != oldest_year) && "/#{base_dir}/#{oldest_year}/#{sport_slug}/",
+        "oldest_title" => (year != oldest_year) && SchedulePageUtils.en_dash(oldest_year),
+        "latest_url" => (year != latest_year) && "/#{base_dir}/#{latest_year}/#{sport_slug}/",
+        "latest_title" => (year != latest_year) && SchedulePageUtils.en_dash(latest_year)
       )
       page
     end

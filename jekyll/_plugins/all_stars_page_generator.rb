@@ -23,6 +23,9 @@ module Awards
         { "title" => en_dash(year), "url" => "/#{DIR}/#{year}/" }
       end
 
+      oldest_year = years.last
+      latest_year = years.first
+
       years.each_with_index do |year, index|
         previous_year = years[index + 1]
         next_year = index.zero? ? nil : years[index - 1]
@@ -38,7 +41,11 @@ module Awards
           "previous_url" => previous_year && "/#{DIR}/#{previous_year}/",
           "previous_title" => previous_year && en_dash(previous_year),
           "next_url" => next_year && "/#{DIR}/#{next_year}/",
-          "next_title" => next_year && en_dash(next_year)
+          "next_title" => next_year && en_dash(next_year),
+          "oldest_url" => (year != oldest_year) && "/#{DIR}/#{oldest_year}/",
+          "oldest_title" => (year != oldest_year) && en_dash(oldest_year),
+          "latest_url" => (year != latest_year) && "/#{DIR}/#{latest_year}/",
+          "latest_title" => (year != latest_year) && en_dash(latest_year)
         )
         site.pages << page
       end
