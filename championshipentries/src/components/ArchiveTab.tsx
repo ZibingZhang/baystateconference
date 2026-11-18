@@ -13,7 +13,7 @@ import TableCell from "@mui/material/TableCell";
 import {
   fetchArchiveResults,
   externalFileViewerUrl,
-  archiveYearUrl,
+  meetHubUrl,
   type ArchiveFile,
 } from "../domain/archive";
 import { findMeetTemplate } from "../domain/meetTemplates";
@@ -116,7 +116,7 @@ function ArchiveTab({ sourceTemplateId }: ArchiveTabProps) {
               >
                 <TableCell sx={{ whiteSpace: "nowrap", verticalAlign: "top", fontWeight: "medium" }}>
                   <Link
-                    href={archiveYearUrl(meetType, season, year)}
+                    href={meetHubUrl(meetType, season, year)}
                     target="_blank"
                     rel="noopener"
                     underline="hover"

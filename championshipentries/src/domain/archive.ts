@@ -3,8 +3,8 @@ import type { MeetType, Season } from "../types";
 const ARCHIVE_FILES_URL =
   "https://raw.githubusercontent.com/ZibingZhang/baystateconference/master/jekyll/_data/file-browser/sports/swimming-diving/archive/files.json";
 
-/** Page that can browse the full archive, deep-linkable via its `path` query param (see `jekyll/assets/js/file-browser.js`). */
-const ARCHIVE_PAGE_PATH = "/sports/swimming-diving/archive/";
+/** Root of the hub pages generated per meet type/year/season (see `jekyll/_plugins/meet_sheets_page_generator.rb`). */
+const MEETS_PAGE_PATH = "/sports/swimming-diving/meets";
 
 /** Page that previews a single archived file without leaving the site (see `jekyll/_includes/external-file-viewer.html`). */
 const EXTERNAL_FILE_VIEWER_PATH = "/resources/external-file/";
@@ -19,19 +19,6 @@ const BACK_LINK_FROM_NAME = "Championship Entries";
  */
 const RESULT_TYPE_TAGS = ["results", "team-scores"];
 
-/** Mirrors `MEET_DISPLAY_NAMES` in `swimming_archive_index_generator.rb`. */
-const MEET_TYPE_FOLDER_NAMES: Record<MeetType, string> = {
-  conference: "Conference",
-  sectional: "Sectional",
-  state: "State",
-};
-
-/** Mirrors `SEASON_LABELS` in `swimming_archive_index_generator.rb`. */
-const SEASON_LABELS: Record<Season, string> = {
-  fall: "Fall",
-  winter: "Winter",
-};
-
 export interface ArchiveFile {
   name: string;
   s3Path: string;
@@ -40,21 +27,9 @@ export interface ArchiveFile {
   tags: string[];
 }
 
-/** Matches `slugify` in `jekyll/assets/js/file-browser.js`, which the archive page's `path` param is built from. */
-function slugify(name: string): string {
-  return name.trim().toLowerCase().replace(/\s+/g, "-");
-}
-
-/** Deep links into the archive's Results > By Meet and Season > <meet type> > <year> <season> folder. */
-export function archiveYearUrl(meetType: MeetType, season: Season, year: string): string {
-  const segments = [
-    "Results",
-    "By Meet and Season",
-    MEET_TYPE_FOLDER_NAMES[meetType],
-    `${year} ${SEASON_LABELS[season]}`,
-  ];
-  const path = segments.map((segment) => encodeURIComponent(slugify(segment))).join("/");
-  return `${ARCHIVE_PAGE_PATH}?path=${path}`;
+/** Links to that meet type/year/season's hub page (or, for Sectional, the season's directory page listing its meets). */
+export function meetHubUrl(meetType: MeetType, season: Season, year: string): string {
+  return `${MEETS_PAGE_PATH}/${meetType}/${year}/${season}/`;
 }
 
 /** Links to the external file viewer for this archived file, with a "Back to Championship Entries" link to the given page. */
