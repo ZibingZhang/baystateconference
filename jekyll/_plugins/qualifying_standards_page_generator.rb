@@ -21,6 +21,8 @@
 # II State) without any plugin changes. Event and Division names are
 # shortened for display via _data/swimming-diving/event-abbreviations.yaml
 # and _data/swimming-diving/division-abbreviations.yaml.
+require_relative "year_pager_utils"
+
 module QualifyingStandards
   class PageGenerator < Jekyll::Generator
     safe true
@@ -70,15 +72,10 @@ module QualifyingStandards
       school_years = entries.map { |entry| entry["School Year"] }.uniq
       school_years.sort!
       school_years.reverse!
-      oldest_year = school_years.last
-      latest_year = school_years.first
 
       school_years.each_with_index do |school_year, index|
-        previous_year = school_years[index + 1]
-        next_year = index.zero? ? nil : school_years[index - 1]
         site.pages << build_page(
-          site, entries, event_abbreviations, division_abbreviations, school_year, previous_year, next_year,
-          oldest_year, latest_year
+          site, entries, event_abbreviations, division_abbreviations, school_year, school_years, index
         )
       end
 
@@ -93,8 +90,7 @@ module QualifyingStandards
 
     private
 
-    def build_page(site, entries, event_abbreviations, division_abbreviations, school_year, previous_year, next_year,
-                   oldest_year, latest_year)
+    def build_page(site, entries, event_abbreviations, division_abbreviations, school_year, school_years, index)
       page = Jekyll::PageWithoutAFile.new(site, site.source, DIR, "#{school_year}.html")
       page.content = ""
       page.data.merge!(
@@ -102,15 +98,10 @@ module QualifyingStandards
         "title" => "#{school_year} Qualifying Standards",
         "permalink" => "/#{DIR}/#{school_year}/",
         "breadcrumb" => school_year,
-        "groups" => groups_for(entries, event_abbreviations, division_abbreviations, school_year),
-        "previous_url" => previous_year && "/#{DIR}/#{previous_year}/",
-        "previous_title" => previous_year,
-        "next_url" => next_year && "/#{DIR}/#{next_year}/",
-        "next_title" => next_year,
-        "oldest_url" => (school_year != oldest_year) && "/#{DIR}/#{oldest_year}/",
-        "oldest_title" => (school_year != oldest_year) && oldest_year,
-        "latest_url" => (school_year != latest_year) && "/#{DIR}/#{latest_year}/",
-        "latest_title" => (school_year != latest_year) && latest_year
+        "groups" => groups_for(entries, event_abbreviations, division_abbreviations, school_year)
+      )
+      page.data.merge!(
+        YearPagerUtils.links(school_years, index, title_for: ->(y) { y }, url_for: ->(y) { "/#{DIR}/#{y}/" })
       )
       page
     end

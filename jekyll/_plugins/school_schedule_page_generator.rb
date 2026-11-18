@@ -30,6 +30,7 @@
 # claiming the school doesn't play it.
 require "date"
 require_relative "schedule_page_utils"
+require_relative "year_pager_utils"
 
 module SchoolSchedule
   class PageGenerator < Jekyll::Generator
@@ -52,8 +53,6 @@ module SchoolSchedule
         next if school_games.empty?
 
         years = school_games.map { |g| g["school_year"] }.compact.uniq.sort.reverse
-        oldest_year = years.last
-        latest_year = years.first
 
         # Precomputed once per school rather than re-deriving per (year,
         # sport) page below - each sport's own previous/next/oldest/latest
@@ -68,10 +67,7 @@ module SchoolSchedule
         end
 
         years.each_with_index do |year, index|
-          previous_year = years[index + 1]
-          next_year = index.zero? ? nil : years[index - 1]
-          site.pages << build_year_page(site, sports, slug, year, school_games, previous_year, next_year,
-                                         oldest_year, latest_year)
+          site.pages << build_year_page(site, sports, slug, year, school_games, years, index)
 
           sport_titles_for(school_games, year).each do |sport_title|
             site.pages << build_sport_page(
@@ -120,7 +116,7 @@ module SchoolSchedule
       sports.find { |s| s["title"] == title }
     end
 
-    def build_year_page(site, sports, slug, year, school_games, previous_year, next_year, oldest_year, latest_year)
+    def build_year_page(site, sports, slug, year, school_games, years, index)
       dir = "schools/#{slug}/schedule"
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "#{year}.html")
       page.content = ""
@@ -129,15 +125,12 @@ module SchoolSchedule
         "title" => "#{SchedulePageUtils.en_dash(year)} Schedule",
         "permalink" => "/#{dir}/#{year}/",
         "breadcrumb" => SchedulePageUtils.en_dash(year),
-        "sport_cards" => sport_cards_for(sports, school_games, year, dir),
-        "previous_url" => previous_year && "/#{dir}/#{previous_year}/",
-        "previous_title" => previous_year && SchedulePageUtils.en_dash(previous_year),
-        "next_url" => next_year && "/#{dir}/#{next_year}/",
-        "next_title" => next_year && SchedulePageUtils.en_dash(next_year),
-        "oldest_url" => (year != oldest_year) && "/#{dir}/#{oldest_year}/",
-        "oldest_title" => (year != oldest_year) && SchedulePageUtils.en_dash(oldest_year),
-        "latest_url" => (year != latest_year) && "/#{dir}/#{latest_year}/",
-        "latest_title" => (year != latest_year) && SchedulePageUtils.en_dash(latest_year)
+        "sport_cards" => sport_cards_for(sports, school_games, year, dir)
+      )
+      page.data.merge!(
+        YearPagerUtils.links(
+          years, index, title_for: SchedulePageUtils.method(:en_dash), url_for: ->(y) { "/#{dir}/#{y}/" }
+        )
       )
       page
     end
@@ -156,16 +149,12 @@ module SchoolSchedule
         Jekyll::Utils.slugify(sport_title)
 
       dir = "schools/#{school_slug}/schedule/#{year}/#{sport_slug}"
+      base_dir = "schools/#{school_slug}/schedule"
 
       # sport_years (newest-first) is precomputed once per school by the
       # caller - re-deriving it here per page would mean re-scanning
       # school_games for every year again.
       sport_index = sport_years.index(year)
-      previous_year = sport_years[sport_index + 1]
-      next_year = sport_index.zero? ? nil : sport_years[sport_index - 1]
-      oldest_year = sport_years.last
-      latest_year = sport_years.first
-      base_dir = "schools/#{school_slug}/schedule"
 
       page = Jekyll::PageWithoutAFile.new(site, site.source, dir, "index.html")
       page.content = ""
@@ -178,15 +167,13 @@ module SchoolSchedule
         "sport_slug" => sport_slug,
         "groups" => groups_for(school_games, year, sport_title, name),
         "levels" => levels_for(school_games, year, sport_title),
-        "genders" => genders_for(school_games, year, sport_title),
-        "previous_url" => previous_year && "/#{base_dir}/#{previous_year}/#{sport_slug}/",
-        "previous_title" => previous_year && SchedulePageUtils.en_dash(previous_year),
-        "next_url" => next_year && "/#{base_dir}/#{next_year}/#{sport_slug}/",
-        "next_title" => next_year && SchedulePageUtils.en_dash(next_year),
-        "oldest_url" => (year != oldest_year) && "/#{base_dir}/#{oldest_year}/#{sport_slug}/",
-        "oldest_title" => (year != oldest_year) && SchedulePageUtils.en_dash(oldest_year),
-        "latest_url" => (year != latest_year) && "/#{base_dir}/#{latest_year}/#{sport_slug}/",
-        "latest_title" => (year != latest_year) && SchedulePageUtils.en_dash(latest_year)
+        "genders" => genders_for(school_games, year, sport_title)
+      )
+      page.data.merge!(
+        YearPagerUtils.links(
+          sport_years, sport_index,
+          title_for: SchedulePageUtils.method(:en_dash), url_for: ->(y) { "/#{base_dir}/#{y}/#{sport_slug}/" }
+        )
       )
       page
     end
