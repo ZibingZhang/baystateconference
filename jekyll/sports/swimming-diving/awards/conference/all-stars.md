@@ -1,7 +1,7 @@
 ---
 layout: page
 title: BSC All-Stars
-permalink: /sports/swimming-diving/awards/bsc/all-stars/
+permalink: /sports/swimming-diving/awards/conference/all-stars/
 breadcrumb: All-Stars
 ---
 
