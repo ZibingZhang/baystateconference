@@ -190,21 +190,16 @@ module SchoolSchedule
       page
     end
 
-    # Distinct levels (Varsity/Sub-Varsity/...) this school/sport/year has
-    # games at, Varsity first then alphabetical - for the "filter by level"
-    # control (see schedule-filter.html) - only rendered at all when there's
-    # more than one, since filtering a single-level list down to itself is
-    # pointless.
+    # Scoped to this school/sport/year; see SchedulePageUtils.levels_for for
+    # the filter-option rule itself.
     def levels_for(school_games, year, sport_title)
       rows = school_games.select { |g| g["school_year"] == year && g["sport"] == sport_title }
       SchedulePageUtils.levels_for(rows)
     end
 
     # Distinct genders (Girls/Boys/Coed) this school/sport/year has games at,
-    # in GENDER_ORDER - for the "filter by gender" control, only rendered at all
-    # (see schedule-filter.html) when there's more than one - e.g. most
-    # sports only ever have the one group this page already splits into,
-    # making a redundant filter on top of that.
+    # in GENDER_ORDER, for the "filter by gender" control (see
+    # schedule-filter.html).
     def genders_for(school_games, year, sport_title)
       rows = school_games.select { |g| g["school_year"] == year && g["sport"] == sport_title }
       genders = rows.map { |g| g["gender"] }.uniq

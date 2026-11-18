@@ -16,11 +16,9 @@ export interface ImportedEvent {
 
 /** Per-athlete entry-count limits for a meet, enforced only as a warning (see `domain/eventSummary.ts`) rather than a hard block. */
 export interface AthleteEventLimits {
-  /** Max number of individual events a single athlete may be entered in at this meet. */
   maxIndividualEventsPerAthlete: number;
-  /** Max number of relay events a single athlete may be entered in at this meet. */
   maxRelayEventsPerAthlete: number;
-  /** Max number of events (individual + relay combined) a single athlete may be entered in at this meet. */
+  /** Individual + relay combined. */
   maxTotalEventsPerAthlete: number;
 }
 
@@ -32,9 +30,7 @@ export interface AthleteEventLimits {
  * no field for it (see docs/hytek/ev3-spec.md).
  */
 export interface EventEntryLimits {
-  /** Max number of entries a team may make in a single individual event. */
   individualEventEntryLimit: number;
-  /** Max number of entries a team may make in a single relay event. */
   relayEventEntryLimit: number;
 }
 

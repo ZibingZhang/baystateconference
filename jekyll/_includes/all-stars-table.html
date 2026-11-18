@@ -1,20 +1,16 @@
 {%- comment -%}
   Renders one Bay State Conference All-Stars table (School/Name columns), or
-  nothing at all if there are no entries — a school year with no winter boys
-  program, for instance, has no "Boys Winter" table.
-  An optional honorable_mentions list renders as a second, identically
-  shaped table beneath it, filtered by the same town chips.
+  nothing if there are no entries — a school year with no winter boys
+  program, for instance, has no "Boys Winter" table. An optional
+  honorable_mentions list renders as a second, identically shaped table
+  beneath it, filtered by the same town chips.
 
-  Wrapped in collapsible-group.html for its own eye-icon show/hide, with a
-  row of town filter chips above the table(s) when there's more than one
-  town to filter by (reusing schedule-filter.html's chip markup/CSS for a
-  plain look-alike — see rankings-summary-table.html for the same trick —
-  but wired by assets/js/collapsible-group-filter.js instead, since each
-  table here needs its own independent filter scoped to its own
-  collapsible-group rather than one filter applied to every table on the
-  page). Include collapsible-group.js and collapsible-group-filter.js once
-  yourself wherever you call this, same reasoning as collapsible-group.html's
-  own comment.
+  Wrapped in collapsible-group.html for eye-icon show/hide, with town filter
+  chips above the table(s) when there's more than one town (reusing
+  schedule-filter.html's chip markup, wired by its own
+  assets/js/collapsible-group-filter.js since each table needs an
+  independent filter). Include collapsible-group.js and
+  collapsible-group-filter.js yourself wherever you call this.
 
   Usage: {% include all-stars-table.html heading="Girls Fall" scope="all-star:swimming-diving" entries=girls_fall honorable_mentions=girls_fall_hm %}
 {%- endcomment -%}

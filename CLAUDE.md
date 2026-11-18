@@ -47,3 +47,5 @@ Architecture notes:
 - When writing or editing Markdown files, put each sentence of prose on its own line (semantic linefeeds) instead of wrapping paragraphs to a fixed width.
   This keeps diffs localized to the sentence that actually changed, rather than reflowing an entire paragraph.
   Applies to prose paragraphs and list-item text; table cells and code blocks are exempt, since splitting those would break their syntax.
+- Code comments (including Liquid `{%- comment -%}` doc blocks on `_includes`/`_layouts`) should explain the non-obvious *why* — hidden constraints, invariants, cross-file wiring, rejected alternatives — not restate what the code already says.
+  Keep them tight: say a thing once, don't cross-reference another file's comment that says the same thing, and don't pad an explanation with redundant examples once the point is made.

@@ -12,9 +12,7 @@
 
   Each child's label follows the same precedence as breadcrumbs.html: the
   child's own `breadcrumb` front matter, then an acronym match on its URL
-  segment (see _data/acronyms.yaml), then its `title`. `page.directory_nodes`
-  is precomputed by _plugins/page_tree_generator.rb (one Ruby pass per
-  build) instead of walking site.data.page_tree in Liquid on every render.
+  segment (see _data/acronyms.yaml), then its `title`.
   Pass `full_titles=true` to always use `title` instead - for a listing
   whose children have a short `breadcrumb` set for their own breadcrumb
   trail (see meets/index.md) but should still show their full name here.

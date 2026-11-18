@@ -124,21 +124,13 @@ module MeetSheetsPageUtils
           end
         else
           # State-only: a season split into divisions nests one level into
-          # division-1/division-2 team_scores.csv instead of multi_meet's
-          # meet-keyed subdirectories (see team_scores_for's comment in
-          # meet_sheets_page_generator.rb) - synthesize the same "division"
-          # tag team_score_groups below reads off a row's "division" column
-          # in a non-split season, so callers (e.g. ranking_page_generator.
-          # rb's division_of) don't need to care which case produced it.
-          #
-          # A BSC/Sectional season with no team_scores.csv at all - just
-          # individual/relay/diving_results.csv (e.g. a season recovered only
-          # from event-champions history, with no team-score data to go with
-          # it - see event_champions_page_generator.rb) - lands here too,
-          # since it also fails the "team_scores" key check above; its
-          # values are plain CSV row arrays rather than division subdirectory
-          # Hashes, so skip anything that isn't actually a Hash instead of
-          # misreading it as a division.
+          # division-1/division-2 team_scores.csv; synthesize the same
+          # "division" tag here (see team_scores_for's fuller comment in
+          # meet_sheets_page_generator.rb). A BSC/Sectional season with no
+          # team_scores.csv at all also fails the "team_scores" key check
+          # above and lands here, with plain CSV row arrays instead of
+          # division Hashes - skip anything that isn't actually a Hash
+          # instead of misreading it as a division.
           meets_or_files.each do |slug, files|
             next unless files.is_a?(Hash)
 

@@ -299,34 +299,24 @@ def resolve_game_pairs(games: list[Game]) -> list[ResolvedGame]:
     `games` - once from each school's own ArbiterLive schedule, as mirror
     images of each other (school/opponent swapped, home_away/result/score
     flipped). This finds those mirrored pairs and merges each into one row.
+    A game against an untracked opponent (no mirror to find) is kept as a
+    single row instead of being dropped.
 
-    A game against a school we don't track (so there's no mirror row to find
-    - e.g. a non-conference opponent) is kept as a single row instead of
-    being dropped.
+    Rows are matched on the exact (not normalized) `level` string, since two
+    schools sometimes spell the same sub-varsity tier differently (e.g.
+    "Junior Varsity" vs "Junior Varsity - JV1") - matching on the normalized
+    bucket instead risked cross-pairing two different concurrent games (e.g.
+    two JV1/JV2 games at the same time) that collapse into the same bucket.
+    A few genuine pairs may stay unmerged as a result, which is the safer
+    failure mode.
 
-    Rows are matched on the exact (raw, not gender/level-normalized) `level`
-    string, since two schools sometimes spell the same sub-varsity tier
-    differently (e.g. "Junior Varsity" vs "Junior Varsity - JV1") - matching
-    loosely on the normalized level bucket instead risked cross-pairing two
-    different concurrent games (e.g. two different JV1/JV2 games at the same
-    time) that happen to collapse into the same bucket. The tradeoff: a few
-    genuine pairs stay unmerged (shown as two rows) rather than ever risk
-    merging the wrong two games together.
-
-    Matching is tried in two passes. The first requires an exact match on
-    the raw scraped `date_time` string, which also correctly keeps a
-    genuine doubleheader (same two teams, same level, same day, two
-    different times) as two separate merged games, since both schools'
-    schedules agree on both times. Rows that don't find a mirror this way
-    are retried in a second pass matching on date only (still scoped to the
-    same sport/school_year/gender/raw level/opponent pair, so this still can't
-    cross-pair two different concurrent games) - this catches the case
-    where the two schools simply disagree on the exact start time for what
-    is really the same game (e.g. one posts "7:00 PM", the other "7:30 PM").
-    When a pair is found this way, the merged row's time comes from the
-    home team's listing, since the host's own posting is the most
-    authoritative source for their venue's actual start time (falling back
-    to the away team's time if the home side's is "TBA").
+    Matching tries two passes: first an exact match on the raw `date_time`
+    string (which also keeps a genuine doubleheader as two separate merged
+    games), then - for rows that don't find a mirror that way - a looser
+    pass matching on date only, for when the two schools' postings simply
+    disagree on the exact start time. The merged time then comes from the
+    home team's listing (the more authoritative source for their own
+    venue), falling back to the away team's if the home side's is "TBA".
     """
 
     def is_mirror(a: Game, b: Game) -> bool:

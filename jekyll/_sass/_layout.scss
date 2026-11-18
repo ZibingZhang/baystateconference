@@ -1031,13 +1031,8 @@
   visibility: hidden;
 }
 
-// Icon-card variant of %card-grid/%card-box (see cards.html) - used for
-// every "grid of {icon, title, link}" card list on the site (the home page,
-// /sports/, /schedules/, a school's schedule-year sport picker), as opposed
-// to .school-grid's logo-image cards, which share the same box/grid look
-// via the same placeholders but need their own markup (an actual <img>,
-// plus room for a sport-specific extra like swimming's pool location).
-//
+// Icon-card variant of %card-grid/%card-box - see the comment on %card-grid
+// above for where these grids appear and why they share the placeholders.
 .cards {
   @extend %card-grid;
 }

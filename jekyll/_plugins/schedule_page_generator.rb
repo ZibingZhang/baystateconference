@@ -134,31 +134,23 @@ module Schedule
       end
     end
 
-    # Distinct Bay State Conference schools (not every opponent - a school
-    # not in _data/schools.yaml, e.g. a non-conference or tournament
-    # "opponent", never becomes a filter option) playing this sport that
-    # year, for the "filter by school" control - only rendered at all (see
-    # schedule-filter.html) when there's more than one, since filtering a
-    # single school's own games down to itself is pointless.
+    # Scoped to this sport/year; see SchedulePageUtils.schools_for for the
+    # filter-option rule itself.
     def schools_for(sport_games, year, bsc_school_names)
       year_games = sport_games.select { |g| g["school_year"] == year }
       SchedulePageUtils.schools_for(year_games, bsc_school_names)
     end
 
-    # Distinct levels (Varsity/Sub-Varsity/...) played this sport/year,
-    # Varsity first then alphabetical - for the "filter by level" control,
-    # only rendered at all (see schedule-filter.html) when there's more
-    # than one.
+    # Scoped to this sport/year; see SchedulePageUtils.levels_for for the
+    # filter-option rule itself.
     def levels_for(sport_games, year)
       year_games = sport_games.select { |g| g["school_year"] == year }
       SchedulePageUtils.levels_for(year_games)
     end
 
     # Distinct genders (Girls/Boys/Coed) played this sport/year, in
-    # GENDER_ORDER - for the "filter by gender" control, only rendered at all
-    # (see schedule-filter.html) when there's more than one - e.g. most
-    # sports only ever have the one group this page already splits into,
-    # making a redundant filter on top of that.
+    # GENDER_ORDER, for the "filter by gender" control (see
+    # schedule-filter.html).
     def genders_for(sport_games, year)
       year_games = sport_games.select { |g| g["school_year"] == year }
       genders = year_games.map { |g| g["gender"] }.uniq
