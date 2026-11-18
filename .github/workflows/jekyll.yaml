@@ -80,9 +80,8 @@ jobs:
       - name: Build championship entries
         working-directory: championshipentries
         run: npm run build
-      # Pulls in the CSV published by fetch-schedule.yaml's orphan
-      # `schedule-data` branch (a single commit, force-pushed fresh each
-      # run - see that workflow). continue-on-error covers the case where
+      # Pulls in the CSV published by fetch-schedule.yaml's `schedule-data`
+      # branch (see that workflow). continue-on-error covers the case where
       # no fetch has ever succeeded yet and the branch doesn't exist, in
       # which case the copy step below is skipped and the build just has no
       # schedule data (schedule_page_generator.rb handles that - see its

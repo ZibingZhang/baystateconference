@@ -1,7 +1,7 @@
 # Fetches every Bay State Conference team's schedule from ArbiterLive once a
-# day and publishes the resulting CSV as the sole commit on an orphan
-# `schedule-data` branch (history-free - each run force-pushes a fresh
-# single commit replacing the last) for the Jekyll build workflow to check
+# day and publishes the resulting CSV as a new commit on a `schedule-data`
+# branch (containing only that one file, but accumulating history run over
+# run rather than being force-pushed) for the Jekyll build workflow to check
 # out (see .github/workflows/jekyll.yaml, which runs whenever this workflow
 # completes successfully) - no scraping happens as part of every site
 # build, just once daily here. To replicate locally: run
@@ -43,21 +43,32 @@ jobs:
         working-directory: arbiterlive
         run: ./arbiter_schedule.py
 
-      # Publishes games.csv as the only file in the only commit on
-      # `schedule-data`, force-pushed fresh each run so the branch never
-      # accumulates history. Stash the fetched file outside the repo first
-      # since `git checkout --orphan` + `git rm -rf .` clears the working
-      # tree of everything from master.
+      # Publishes games.csv as a new commit on `schedule-data` (the only
+      # file ever on that branch), on top of whatever's already there, so
+      # the branch builds up a day-by-day history of what changed instead
+      # of being force-pushed fresh each run. Stash the fetched file outside
+      # the repo first since checking out `schedule-data` (or, on the very
+      # first run, orphaning a new branch) clears the working tree of
+      # everything from master.
       - name: Publish schedule data to schedule-data branch
         run: |
           set -e
           cp jekyll/_data/schedule/games.csv "$RUNNER_TEMP/games.csv"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout --orphan schedule-data
-          git rm -rf . --quiet
+          if git ls-remote --exit-code --heads origin schedule-data > /dev/null; then
+            git fetch origin schedule-data:schedule-data
+            git checkout schedule-data
+          else
+            git checkout --orphan schedule-data
+            git rm -rf . --quiet
+          fi
           mkdir -p jekyll/_data/schedule
           cp "$RUNNER_TEMP/games.csv" jekyll/_data/schedule/games.csv
           git add -f jekyll/_data/schedule/games.csv
-          git commit -m "Update schedule data"
-          git push origin schedule-data --force
+          if git diff --cached --quiet; then
+            echo "No schedule changes; skipping commit."
+          else
+            git commit -m "Update schedule data"
+            git push origin schedule-data
+          fi
