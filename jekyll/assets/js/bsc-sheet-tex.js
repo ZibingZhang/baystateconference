@@ -595,7 +595,12 @@
       });
     })
     .then(function (result) {
-      if (!result.success) {
+      // Siglum has been observed to resolve with success: true but a
+      // zero-byte `pdf` - redirecting to that blob gives the browser's PDF
+      // viewer an empty file, which it reports as "Failed to load PDF
+      // document" with no indication anything went wrong on this end. Treat
+      // that the same as an explicit compile failure.
+      if (!result.success || !result.pdf || !result.pdf.length) {
         console.error("LaTeX compile failed", result.log);
         throw new Error("LaTeX compile failed");
       }
