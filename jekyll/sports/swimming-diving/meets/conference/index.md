@@ -18,7 +18,7 @@ internal_links:
   - title: Champions
     url: /sports/swimming-diving/meets/conference/champions/
   - title: Archive
-    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/bay-state-conference
+    url: /sports/swimming-diving/archive/?path=documents/by-meet-and-season/conference
 ---
 
 {% include icon-link.html icon="calendar_month" label="Latest Meet" url="/sports/swimming-diving/meets/conference/latest/" %}

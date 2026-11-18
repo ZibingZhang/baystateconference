@@ -69,7 +69,7 @@ module MeetSheets
         hub_label: "Bay State Conference Meet",
         year_title_suffix: "Bay State Conference Meet",
         latest_title: "Latest Bay State Conference Meet",
-        archive_slug: "bay-state-conference",
+        archive_slug: "conference",
       },
       {
         raw_root: %w[swimming-diving miaa sectional],
