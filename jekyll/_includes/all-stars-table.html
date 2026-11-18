@@ -2,11 +2,38 @@
   Renders one Bay State Conference All-Stars table (School/Name columns), or
   nothing at all if there are no entries — a school year with no winter boys
   program, for instance, has no "Boys Winter" table.
+  An optional honorable_mentions list renders as a second, identically
+  shaped table beneath it, filtered by the same town chips.
 
-  Usage: {% include all-stars-table.html heading="Girls Fall" entries=girls_fall %}
+  Wrapped in collapsible-group.html for its own eye-icon show/hide, with a
+  row of town filter chips above the table(s) when there's more than one
+  town to filter by (reusing schedule-filter.html's chip markup/CSS for a
+  plain look-alike — see rankings-summary-table.html for the same trick —
+  but wired by assets/js/collapsible-group-filter.js instead, since each
+  table here needs its own independent filter scoped to its own
+  collapsible-group rather than one filter applied to every table on the
+  page). Include collapsible-group.js and collapsible-group-filter.js once
+  yourself wherever you call this, same reasoning as collapsible-group.html's
+  own comment.
+
+  Usage: {% include all-stars-table.html heading="Girls Fall" scope="all-star:swimming-diving" entries=girls_fall honorable_mentions=girls_fall_hm %}
 {%- endcomment -%}
 {%- if include.entries and include.entries.size > 0 -%}
-<h2>{{ include.heading }}</h2>
+{%- assign towns = include.entries | map: 'School' -%}
+{%- if include.honorable_mentions -%}
+{%- assign hm_towns = include.honorable_mentions | map: 'School' -%}
+{%- assign towns = towns | concat: hm_towns -%}
+{%- endif -%}
+{%- assign towns = towns | uniq | sort -%}
+{%- capture body -%}
+{%- if towns.size > 1 -%}
+<div class="schedule-filter" data-filter-attr="town" role="group" aria-label="Filter by town">
+  <button type="button" class="schedule-filter-chip is-active" data-filter-value="" aria-pressed="true">All</button>
+  {%- for town in towns -%}
+  <button type="button" class="schedule-filter-chip" data-filter-value="{{ town }}" aria-pressed="false">{{ town }}</button>
+  {%- endfor -%}
+</div>
+{%- endif -%}
 <table>
   <thead>
     <tr>
@@ -16,11 +43,32 @@
   </thead>
   <tbody>
     {%- for entry in include.entries -%}
-    <tr>
+    <tr data-town="{{ entry.School }}">
       <td>{{ entry.School }}</td>
       <td>{{ entry.Name }}</td>
     </tr>
     {%- endfor -%}
   </tbody>
 </table>
+{%- if include.honorable_mentions and include.honorable_mentions.size > 0 -%}
+<h3>Honorable Mention</h3>
+<table>
+  <thead>
+    <tr>
+      <th>School</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for entry in include.honorable_mentions -%}
+    <tr data-town="{{ entry.School }}">
+      <td>{{ entry.School }}</td>
+      <td>{{ entry.Name }}</td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>
+{%- endif -%}
+{%- endcapture -%}
+{%- include collapsible-group.html heading=include.heading scope=include.scope body=body -%}
 {%- endif -%}

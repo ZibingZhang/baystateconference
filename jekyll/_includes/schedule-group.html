@@ -21,7 +21,7 @@
   the single <script src> for its toggle must be included by the caller
   (schedule.html), not here.
 
-  Usage: {% include schedule-group.html heading="Girls" entries=entries %}
+  Usage: {% include schedule-group.html heading="Girls" scope="schedule:swimming-diving" entries=entries %}
 {%- endcomment -%}
 {%- assign games = include.entries -%}
 {%- if games and games.size > 0 -%}
@@ -68,7 +68,7 @@
 </div>
 {%- endcapture -%}
 {%- if include.heading -%}
-{%- include collapsible-group.html heading=include.heading body=body -%}
+{%- include collapsible-group.html heading=include.heading scope=include.scope body=body -%}
 {%- else -%}
 {{ body }}
 {%- endif -%}

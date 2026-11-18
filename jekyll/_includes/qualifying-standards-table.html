@@ -7,7 +7,7 @@
   the single <script src> for its toggle must be included by the caller,
   not here.
 
-  Usage: {% include qualifying-standards-table.html heading="Fall — Girls" columns=columns rows=rows %}
+  Usage: {% include qualifying-standards-table.html heading="Fall — Girls" scope="qualifying-standards:swimming-diving" columns=columns rows=rows %}
 {%- endcomment -%}
 {%- if include.columns and include.columns.size > 0 -%}
 {%- capture body -%}
@@ -32,5 +32,5 @@
   </tbody>
 </table>
 {%- endcapture -%}
-{%- include collapsible-group.html heading=include.heading body=body -%}
+{%- include collapsible-group.html heading=include.heading scope=include.scope body=body -%}
 {%- endif -%}

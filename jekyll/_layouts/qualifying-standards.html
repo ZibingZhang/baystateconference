@@ -18,7 +18,7 @@ layout: base
     {{ content }}
 
     {%- for group in page.groups -%}
-      {%- include qualifying-standards-table.html heading=group.heading columns=group.columns rows=group.rows -%}
+      {%- include qualifying-standards-table.html heading=group.heading scope="qualifying-standards:swimming-diving" columns=group.columns rows=group.rows -%}
     {%- endfor -%}
   </div>
 

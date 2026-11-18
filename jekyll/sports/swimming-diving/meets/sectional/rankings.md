@@ -11,4 +11,4 @@ exclude_from_directory: true
 {%- endfor -%}
 
 <script src="{{ '/assets/js/collapsible-group.js' | relative_url }}" defer></script>
-<script src="{{ '/assets/js/rankings-filter.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/collapsible-group-filter.js' | relative_url }}" defer></script>

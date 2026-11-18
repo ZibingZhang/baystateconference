@@ -9,7 +9,9 @@ layout: base
   since girls swimming is always a fall sport in this conference). A page
   using this layout just needs `year: "2011-2012"` in its front matter to
   match against the Year column in the all-stars data; tables for seasons
-  with no entries that year are simply omitted.
+  with no entries that year are simply omitted. Each season's table (see
+  all-stars-table.html) gets its own eye-icon show/hide and town filter
+  chips.
 {%- endcomment -%}
 <article class="post">
 
@@ -27,9 +29,17 @@ layout: base
     {%- assign boys_fall = year_entries | where: 'Season', 'Fall' | where: 'Gender', 'M' -%}
     {%- assign boys_winter = year_entries | where: 'Season', 'Winter' | where: 'Gender', 'M' -%}
 
-    {%- include all-stars-table.html heading="Girls Fall" entries=girls_fall -%}
-    {%- include all-stars-table.html heading="Boys Fall" entries=boys_fall -%}
-    {%- include all-stars-table.html heading="Boys Winter" entries=boys_winter -%}
+    {%- assign honorable_mentions = site.data['swimming-diving']['bsc']['awards']['all-star-honorable-mentions'] -%}
+    {%- assign hm_year_entries = honorable_mentions | where: 'Year', page.year -%}
+    {%- assign girls_fall_hm = hm_year_entries | where: 'Season', 'Fall' | where: 'Gender', 'F' -%}
+    {%- assign boys_fall_hm = hm_year_entries | where: 'Season', 'Fall' | where: 'Gender', 'M' -%}
+    {%- assign boys_winter_hm = hm_year_entries | where: 'Season', 'Winter' | where: 'Gender', 'M' -%}
+
+    {%- include all-stars-table.html heading="Girls Fall" scope="all-star:swimming-diving" entries=girls_fall honorable_mentions=girls_fall_hm -%}
+    {%- include all-stars-table.html heading="Boys Fall" scope="all-star:swimming-diving" entries=boys_fall honorable_mentions=boys_fall_hm -%}
+    {%- include all-stars-table.html heading="Boys Winter" scope="all-star:swimming-diving" entries=boys_winter honorable_mentions=boys_winter_hm -%}
+    <script src="{{ '/assets/js/collapsible-group.js' | relative_url }}" defer></script>
+    <script src="{{ '/assets/js/collapsible-group-filter.js' | relative_url }}" defer></script>
   </div>
 
 </article>

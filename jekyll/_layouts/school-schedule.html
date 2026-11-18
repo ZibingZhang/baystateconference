@@ -26,8 +26,9 @@ layout: base
     <script src="{{ '/assets/js/collapsible-group.js' | relative_url }}" defer></script>
     {%- endif -%}
 
+    {%- assign school_schedule_scope = "school-schedule:" | append: page.school_slug | append: ":" | append: page.sport_slug -%}
     {%- for group in page.groups -%}
-      {%- include school-schedule-group.html heading=group.heading entries=group.entries -%}
+      {%- include school-schedule-group.html heading=group.heading scope=school_schedule_scope entries=group.entries -%}
     {%- endfor -%}
   </div>
 

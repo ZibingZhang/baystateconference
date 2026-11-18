@@ -100,6 +100,7 @@ module Schedule
         "title" => "#{SchedulePageUtils.en_dash(year)} #{sport['title']} Schedule",
         "permalink" => "/#{dir}/#{year}/",
         "breadcrumb" => SchedulePageUtils.en_dash(year),
+        "sport_slug" => slug,
         "groups" => groups_for(sport_games, year),
         "schools" => schools_for(sport_games, year, bsc_school_names),
         "levels" => levels_for(sport_games, year),

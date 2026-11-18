@@ -22,14 +22,14 @@
   When a group has more than one division (Sectionals' North/South/etc.,
   States' Division 1/Division 2/State), a row of filter chips - reusing
   schedule-filter.html/-chip's pill markup and CSS for a plain look-alike,
-  but wired by rankings-filter.js instead of schedule-filter.js since each
+  but wired by collapsible-group-filter.js instead of schedule-filter.js since each
   table here needs its own independent filter rather than one filter
   applied to every table on the page - lets you narrow the table down to
   one division. A row with no division (BSC, or a States year that wasn't
   split) never matches a division filter and stays hidden once one's
   active, same as schedule-filter.js's exact-match semantics.
 
-  Pairs with assets/js/rankings-filter.js - include that once yourself
+  Pairs with assets/js/collapsible-group-filter.js - include that once yourself
   wherever you call this (not from in here), same as schedule-filter.html
   does for schedule-filter.js. This gets called once per Gender/Season
   group, so a page with several groups would otherwise emit the same

@@ -149,6 +149,8 @@ module SchoolSchedule
         "title" => "#{SchedulePageUtils.en_dash(year)} #{sport_title} Schedule",
         "permalink" => "/#{dir}/",
         "breadcrumb" => sport_title,
+        "school_slug" => school_slug,
+        "sport_slug" => sport_slug,
         "groups" => groups_for(school_games, year, sport_title, name),
         "levels" => levels_for(school_games, year, sport_title),
         "genders" => genders_for(school_games, year, sport_title),

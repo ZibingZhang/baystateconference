@@ -27,8 +27,9 @@ layout: base
     <p>No games found on ArbiterLive yet for this sport/season.</p>
     {%- endif -%}
 
+    {%- assign schedule_scope = "schedule:" | append: page.sport_slug -%}
     {%- for group in page.groups -%}
-      {%- include schedule-group.html heading=group.heading entries=group.entries -%}
+      {%- include schedule-group.html heading=group.heading scope=schedule_scope entries=group.entries -%}
     {%- endfor -%}
   </div>
 

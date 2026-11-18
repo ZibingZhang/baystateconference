@@ -13,13 +13,29 @@
   browser only fires one of them, sometimes none), so share a single tag
   across every group's include call instead of emitting one per call.
 
+  An optional `scope` names the family of pages this group's hidden/shown
+  state should be remembered across in localStorage (keyed by scope +
+  heading text), restored client-side on load - collapsible-group.html
+  itself still never pre-hides a group server-side. Pass one when the
+  same heading recurs across a year-pager's pages and you want hiding it
+  once to stick (e.g. bsc-all-star.html passes scope="all-star:swimming-diving"
+  so hiding "Boys Fall" on one year's page keeps it hidden when paging to
+  the next - the trailing sport slug is there so a future all-star page for
+  a different sport gets its own independent scope; schedule.html passes a
+  per-sport scope the same way, so hiding "Boys" on one sport's schedule
+  doesn't also hide "Boys" on a different sport's). Omit it for a group
+  that only ever appears once per page load (e.g.
+  rankings-summary-table.html, records-table.html) - heading text alone
+  would be ambiguous across unrelated pages, so no scope means no
+  persistence at all.
+
   Usage:
     {%- capture body -%}
       <table>...</table>
     {%- endcapture -%}
-    {%- include collapsible-group.html heading="Fall — Girls" body=body -%}
+    {%- include collapsible-group.html heading="Fall — Girls" scope="qualifying-standards:swimming-diving" body=body -%}
 {%- endcomment -%}
-<div class="collapsible-group">
+<div class="collapsible-group"{% if include.scope %} data-storage-scope="{{ include.scope }}"{% endif %}>
   <div class="collapsible-group-header">
     <h2>{{ include.heading }}</h2>
     <button type="button" class="collapsible-group-toggle" aria-pressed="false" aria-label="Hide section" title="Hide section">
