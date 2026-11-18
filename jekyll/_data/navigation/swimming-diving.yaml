@@ -59,6 +59,8 @@
       url: /sports/swimming-diving/awards/conference/all-stars/
     - title: EMISCA Awards
       url: /sports/swimming-diving/awards/emisca/
+    - title: Records
+      url: /sports/swimming-diving/records/
 
 - title: Resources
   url: /sports/swimming-diving/resources/
@@ -71,8 +73,6 @@
       url: /sports/swimming-diving/resources/miaa-school-abbreviations/
     - title: NFHS Rule Changes
       url: /sports/swimming-diving/resources/nfhs-rule-changes/
-    - title: Records
-      url: /sports/swimming-diving/records/
 
 - title: Archive
   url: /sports/swimming-diving/archive
