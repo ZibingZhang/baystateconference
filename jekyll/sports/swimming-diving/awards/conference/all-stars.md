@@ -1,6 +1,6 @@
 ---
 layout: page
-title: BSC All-Stars
+title: Bay State Conference All-Stars
 permalink: /sports/swimming-diving/awards/conference/all-stars/
 breadcrumb: All-Stars
 ---

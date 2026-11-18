@@ -1,8 +1,8 @@
 ---
 layout: page
-title: BSC Awards
+title: Bay State Conference Awards
 permalink: /sports/swimming-diving/awards/conference/
-breadcrumb: Bay State Conference
+breadcrumb: Conference
 ---
 
 {% include directory-listing.html %}
